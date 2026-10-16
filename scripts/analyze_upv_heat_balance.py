@@ -97,14 +97,12 @@ def environment_loss(scene, temperatures, observed):
     """Lateral gas/room losses with the scene's own contact areas."""
     ports = {p['id']: p for p in scene['ports']}
     loss = np.zeros_like(observed['ambient'])
-    h = scene['metadata']['parameters']['environment_h']
     for contact in scene['gas_network']['thermal_contacts']:
         port = ports[contact['port_id']]
         ident = port['cell_id'].split(':')[0]
         if ident not in temperatures:
             continue
         loss = loss + contact['h_w_per_m2_k']*port['area_m2']*(temperatures[ident] - observed['ambient'])
-    assert h > 0
     return loss
 
 
@@ -146,6 +144,10 @@ def main():
     cli.add_argument('--energy-j', type=float, help='Override the fixed R2 reservoir of the heat stage')
     cli.add_argument('--gas-fraction', type=float, help='Override the fuel share locked into gas')
     cli.add_argument('--plot', type=Path)
+    # The warmup chain is precursor-limited, so every kb >> ka reproduces the
+    # same heat. Capping kb selects the numerically cheapest member of that
+    # family instead of an arbitrarily stiff one.
+    cli.add_argument('--max-r2-rate', type=float)
     args = cli.parse_args()
 
     data, _record = dataio.load('no-cooling')
@@ -156,6 +158,7 @@ def main():
     observed = {c: np.mean([data['T'+i+'_k'] for i in ids], axis=0)[:len(time)]
                 for c, ids in dataio.CHANNELS.items()}
     observed['ambient'] = data['T109_k'][:len(time)]
+    observed['pressure_bar'] = 2.5*data['U114_v'][:len(time)]
 
     electrical, electrical_meta = dataio.electrical_record()
     offset = electrical_meta_offset = mark['time_s'] - electrical[-1, 0]
@@ -212,8 +215,12 @@ def main():
         joule = p['resistance_ohm']*current**2
         return (smooth(chemical, window) + joule - power)/10.
 
-    lo = [math.log(model.BOUNDS[k][0]) if k != 'r2_activation' else model.BOUNDS[k][0] for k in names]
-    hi = [math.log(model.BOUNDS[k][1]) if k != 'r2_activation' else model.BOUNDS[k][1] for k in names]
+    bounds = dict(model.BOUNDS)
+    if args.max_r2_rate:
+        bounds['r2_rate'] = (bounds['r2_rate'][0], args.max_r2_rate)
+        fixed['r2_rate'] = min(fixed['r2_rate'], args.max_r2_rate)
+    lo = [math.log(bounds[k][0]) if k != 'r2_activation' else bounds[k][0] for k in names]
+    hi = [math.log(bounds[k][1]) if k != 'r2_activation' else bounds[k][1] for k in names]
     start = [math.log(fixed[k]) if k != 'r2_activation' else fixed[k] for k in names]
     solution = least_squares(residual, start, bounds=(lo, hi), x_scale='jac', diff_step=.05)
     fitted = dict(chain, **{k: float(np.exp(v)) if k != 'r2_activation' else float(v)
@@ -231,6 +238,36 @@ def main():
         thermal_budget_j=float(net_heat_thermal*.2),
         initial_ir_v=float(3.65 + electrical[0, 2]*fitted['resistance_ohm']),
         measured_initial_voltage_v=float(electrical[0, 1]))
+    # Feasibility of the chemical part against the sealed pouch. R2 heat and R2
+    # gas are the same event in this model, so the required heat implies a
+    # minimum gas mass and a minimum internal pressure before any venting.
+    inside = sum(n['volume_m3'] for n in scene['gas_network']['compartments'] if n['id'].startswith('inside-C2'))
+    gas_model = scene['gas_network']
+    chemical_required = required[-1] - squared[-1]*r_max
+    best_budget = model.BOUNDS['energy_j'][1]*(1 - model.BOUNDS['gas_fraction'][0])/.2
+    cases = {'heat-stage defaults': (net_heat_thermal, fixed['gas_yield']),
+             'most favourable bounds': (best_budget, model.BOUNDS['gas_yield'][0])}
+    feasibility = {}
+    for label, (heat_per_kg, yield_) in cases.items():
+        converted = chemical_required/heat_per_kg
+        gas = yield_*converted
+        temperature = float(observed['C2_TIM'][-1])
+        feasibility[label] = dict(
+            thermal_j_per_kg=heat_per_kg, gas_yield=yield_,
+            converted_kg=converted, converted_fraction=converted/.2, gas_kg=gas,
+            internal_pressure_pa=gas*gas_model['specific_r_j_per_kg_k']*temperature/inside,
+            max_shell_strength_pa=model.BOUNDS['shell_strength_pa'][1])
+    chamber = next(n for n in gas_model['compartments'] if n['id'] == 'chamber')
+    observed_rise_pa = float((np.nanmax(observed['pressure_bar']) - observed['pressure_bar'][0])*1e5)
+    # Part of the measured chamber rise is simply the warmed chamber gas.
+    thermal_share = float(observed['pressure_bar'][0]*1e5 *
+        (observed['ambient'][-1] - observed['ambient'][0])/observed['ambient'][0])
+    report['gas_feasibility'] = dict(
+        chemical_required_j=float(chemical_required), inside_c2_volume_m3=inside,
+        cases=feasibility, chamber_volume_m3=chamber['volume_m3'],
+        observed_chamber_rise_pa=observed_rise_pa, thermal_expansion_share_pa=thermal_share,
+        vented_mass_upper_bound_kg=float(max(0., observed_rise_pa - thermal_share)*chamber['volume_m3'] /
+                                        (gas_model['specific_r_j_per_kg_k']*float(observed['ambient'][-1]))))
     report['series'] = dict(
         time_s=time.tolist(), required_j=required.tolist(), required_power_w=power.tolist(),
         fitted_power_w=(chemical + joule).tolist(), joule_power_w=joule.tolist())
