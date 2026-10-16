@@ -1,0 +1,106 @@
+{
+  "scenario": "narada-52-multiscale",
+  "date": "2026-10-12",
+  "precision": "FP64",
+  "rendering_included": false,
+  "cpu_baseline": null,
+  "benchmarks": [
+    {
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "field_every": 0,
+      "links": 116860,
+      "median_step_ms": 0.266195476,
+      "median_steps_per_s": 3756.6378475943748,
+      "median_volume_updates_per_s": 130851209.50740726,
+      "samples": [
+        {
+          "realtime_factor": 302.6353311127869,
+          "relative_energy_residual": 1.1892272875859187e-14,
+          "simulated_s": 83.34989056849462,
+          "steps_per_s": 3630.902560862868,
+          "volume_updates_per_s": 126471597.99997541,
+          "wall_s": 0.275413615
+        },
+        {
+          "realtime_factor": 313.1153535024563,
+          "relative_energy_residual": 1.1892272875859187e-14,
+          "simulated_s": 83.34989056849462,
+          "steps_per_s": 3756.6378475943748,
+          "volume_updates_per_s": 130851209.50740726,
+          "wall_s": 0.266195476
+        },
+        {
+          "realtime_factor": 313.5044978682686,
+          "relative_energy_residual": 1.1892272875859187e-14,
+          "simulated_s": 83.34989056849462,
+          "steps_per_s": 3761.3066523541424,
+          "volume_updates_per_s": 131013833.31479949,
+          "wall_s": 0.265865055
+        }
+      ],
+      "scale": 1,
+      "scenario": "narada-52-multiscale",
+      "setup_s": 0.350501569,
+      "steps": 1000,
+      "volumes": 34832,
+      "warmup_steps": 50,
+      "workload": "synthetic-hot-field"
+    },
+    {
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "field_every": 0,
+      "links": 861652,
+      "median_step_ms": 1.653070124,
+      "median_steps_per_s": 604.9350148439316,
+      "median_volume_updates_per_s": 166807200.7331251,
+      "samples": [
+        {
+          "realtime_factor": 7.342751456115876,
+          "relative_energy_residual": 1.8862336143095e-15,
+          "simulated_s": 12.196078431372516,
+          "steps_per_s": 602.0583991349047,
+          "volume_updates_per_s": 166013991.21105516,
+          "wall_s": 1.66096844
+        },
+        {
+          "realtime_factor": 7.377834886920088,
+          "relative_energy_residual": 1.8862336143095e-15,
+          "simulated_s": 12.196078431372516,
+          "steps_per_s": 604.9350148439316,
+          "volume_updates_per_s": 166807200.7331251,
+          "wall_s": 1.653070124
+        },
+        {
+          "realtime_factor": 7.395373902826247,
+          "relative_energy_residual": 1.8862336143095e-15,
+          "simulated_s": 12.196078431372516,
+          "steps_per_s": 606.3731013571377,
+          "volume_updates_per_s": 167203744.46062255,
+          "wall_s": 1.64914967
+        }
+      ],
+      "scale": 2,
+      "scenario": "narada-52-multiscale",
+      "setup_s": 0.929451206,
+      "steps": 1000,
+      "volumes": 275744,
+      "warmup_steps": 50,
+      "workload": "synthetic-hot-field"
+    }
+  ],
+  "full_run": {
+    "physical_duration_s": 6000,
+    "outer_intervals": 6000,
+    "substeps": 72000,
+    "battery_count": 52,
+    "passive_count": 87,
+    "reached_batteries": 1,
+    "destroyed_batteries": 1,
+    "active_batteries_at_end": 0,
+    "tmax_at_end_k": 424.738,
+    "wall_s": 17.8574,
+    "energy_balance_residual_j": 1.32667e-06,
+    "termination": "time_limit",
+    "calibration_status": "uncalibrated"
+  }
+}

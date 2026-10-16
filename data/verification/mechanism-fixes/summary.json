@@ -1,0 +1,24 @@
+{
+  "scope": "Two audit defects and staged CUDA orchestration; not physical validation of every mechanism",
+  "before": {
+    "executable_sha256": "c7272a103a849b210c2bd54311b3985d523608e7e09bb495cd6d518b203dd1b2",
+    "exit_code": 1,
+    "output": ["Gas transfer depends on rejected preliminary dt", "Rupture left stale temperature after changing D"]
+  },
+  "after": {
+    "executable_sha256": "6b8980452cdaf586a3ce6a9254cd0afd8c504c653e89e4a2acdd9d7979e59576",
+    "exit_code": 0,
+    "output": "Gas accepted-step independence and rupture constitutive consistency pass",
+    "randomized_budget_cases": 2000
+  },
+  "native_suite": {"passed": 19, "failed": 0},
+  "python_suite": {
+    "run": 91, "skipped": 20, "failed": 0,
+    "note": "Run with CUDA access. A sandbox-only rerun failed three GPU checks because no CUDA-capable device was visible; the authorized GPU rerun passed."
+  },
+  "sanitizers": {
+    "memcheck": {"target": "battery_sim_mechanism_test", "errors": 0},
+    "racecheck": {"target": "battery_sim_transaction_test", "errors": 0, "warnings": 0}
+  },
+  "calibration_probe_sha256": "1d3ef6a5f24fb665939fe51698dae52cdac14f422576405eff610e6ebf6bba34"
+}

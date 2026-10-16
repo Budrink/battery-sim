@@ -1,0 +1,19 @@
+{
+  "status": "incomplete_diagnostic",
+  "calibration_accepted": false,
+  "parameters_refitted": false,
+  "requested_observation_duration_s": 3.0,
+  "full_replay_completed": false,
+  "refinement_completed": false,
+  "note": "The 30 s and 3 s dense replays were stopped because of run time. A separate bounded 30000-step progress diagnostic used the same scenario and native core, without dense observation-time caps. The state below is not a full transient, a measured pressure peak, or a calibrated result.",
+  "progress_diagnostic": {
+    "source": "/tmp/battery-rupture-progress.cpp",
+    "steps": 30000,
+    "time_s": 0.415826762188,
+    "last_dt_s": 0.00000303969748405,
+    "total_open_area_mm2": 95.4554055358,
+    "internal_pressure_bar": 11.5709521249,
+    "chamber_pressure_bar": 2.56233611486,
+    "thermal_residual_j": 0.00000000285217538476
+  }
+}

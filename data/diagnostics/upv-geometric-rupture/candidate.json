@@ -1,0 +1,5384 @@
+{
+  "name": "UPV no-cooling: exploratory post-event CUDA source",
+  "source": "https://zenodo.org/records/22273467",
+  "metadata": {
+    "dataset_id": "upv-sssb-v1",
+    "experiment_id": "no-cooling",
+    "split": "calibration",
+    "calibration_status": "UNFITTED geometry-only pressure-feedback diagnostic; v10 coefficients are obsolete priors",
+    "validation_scope": "Conditional post-event solid response to prescribed primary failure and measured environment",
+    "geometry_status": "layer thickness/order incl. outer ISS4 from Fig.2/Table3; full-face areas and fixture extent assumed",
+    "topology": "swapped-witnesses",
+    "topology_status": "UNCONFIRMED acquisition-numbering hypothesis: C3 left, C1 right; contradicts Fig.2 witness labels; Table5 material sides retained",
+    "raw_archive_sha256": "74b773c1fc9934b8be2d11a8bf99e7c40ab4707b62bcaa9d54414525adcaed82",
+    "canonical_sha256": "f78d3fd97faa34601b4a603c0a8017f3146d1edd64e9451169b7d8f9eae66e60",
+    "drivers": [
+      "Measured primary event time",
+      "Measured environment and cooling contact"
+    ],
+    "target_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2-ISS",
+      "C2-TIM"
+    ],
+    "source_cell_not_solved": false,
+    "window_rule": "Fixed 300 seconds after last pre-event sample",
+    "assumptions": [
+      "surface thermocouples compared to reconstructed face means; exact coordinates unavailable",
+      "C2 upper/lower measurements averaged on each face",
+      "ISS, TIM, aluminium and steel modeled with full cell face area",
+      "pressure plates assumed same face dimensions as cell; resin holders omitted",
+      "baseline h=100 W/m2/K; calibration may distinguish material-pair contacts; environmental h is effective",
+      "cooled case: ch110 imposed on all three spreader tips; spatial uniformity unverified",
+      "l0=1e-4 m is an order-parameter convention, NOT identified by this fit",
+      "Fixed working cp: ISS 770, TIM 1175, Al 900, steel 500 J/kg/K; pad composition-specific cp unverified",
+      "Directed log connectivity: sender polynomial plus signed temperature/damage contrasts; no endpoint averaging",
+      "Contact h bounded 1..10000 W/m2/K; these are engineering bounds, not material measurements",
+      "Destruction branch and damage kinetics are NOT identifiable from pre-event data"
+    ],
+    "connectivity_model": "directed_geometry",
+    "fixed_pad_cp": true,
+    "pad_specific_heat_j_kg_k": {
+      "ISS": 770.0,
+      "TIM": 1175.0
+    },
+    "applied_parameters": {
+      "battery_iss_scale": 16.579324447098013,
+      "battery_tim_scale": 98.99970233676761,
+      "iss_aluminium_scale": 7.444653020343951,
+      "iss_steel_scale": 98.99999998836118,
+      "tim_aluminium_scale": 98.99996228105654,
+      "ambient_scale": 5.999999999999996,
+      "surface_linear": 3.05291277532628,
+      "surface_quadratic": 11.994228016362324,
+      "battery_temperature_contrast": 11.999317482819652,
+      "iss_temperature_contrast": -11.999999024190481,
+      "tim_temperature_contrast": -11.999999595886017,
+      "aluminium_temperature_contrast": 11.999534775455428,
+      "steel_temperature_contrast": -11.645764858405554
+    },
+    "execution": "Native viewer/headless directly. Do not reapply calibration probe scales to this exported scene.",
+    "core_shell_grid": {
+      "divisions": [
+        3,
+        3,
+        3
+      ],
+      "core_volumes": 1,
+      "shell_volumes": 26,
+      "definition": "One numerical layer on ALL six exterior faces; not a measured casing thickness",
+      "parameters_refitted": false
+    },
+    "battery_grid": [
+      3,
+      3,
+      3
+    ],
+    "source_profile_model_sha256": "51d26b433af5bc3b2ca1384672871c270575b938e6b29c3f2448b66264b42c81",
+    "transport_parameters": {
+      "internal_log_35": -1.871608166604854,
+      "internal_log_50": -0.8387955323369326,
+      "internal_log_70": -3.909141719986974,
+      "battery_iss_scale": 8.289662223549588,
+      "battery_tim_scale": 99.98999999952785
+    },
+    "links_protocol": {
+      "revision": "links-only-contrast-v1",
+      "grid": [
+        3,
+        3,
+        3
+      ],
+      "calibration": "no-cooling",
+      "validation": "active-cooling",
+      "fit_start_s": 60.0,
+      "fixed": "ALL capacities (battery C=412.87 J/K), reference k tensors, external temperature/contrast response, geometry, cooling/ambient boundaries, source forcing, sensors, defects",
+      "fitted": [
+        "internal_log_35",
+        "internal_log_50",
+        "internal_log_70",
+        "battery_iss_scale",
+        "iss_aluminium_scale",
+        "internal_temperature_contrast"
+      ],
+      "internal_knots_k": [
+        298.15,
+        308.15,
+        323.15,
+        343.15
+      ],
+      "internal_log_bounds": [
+        -6.0,
+        6.0
+      ],
+      "internal_factor_bounds": [
+        0.2,
+        3.0
+      ],
+      "contact_h_bounds_w_m2_k": [
+        2.0,
+        9999.0
+      ],
+      "selection": "No-cooling finite perturbations: battery/ISS and ISS/aluminium sensitive; saturated TIM contacts weakly observable. No validation-guided selection.",
+      "bounds_note": "Remove prior factor-two trust box for battery/ISS; keep the existing physical-model h ceiling. Exploratory bounds, not measured material intervals.",
+      "regularization": "0.03 K RMS per internal log-response slope difference, unchanged from previous transport fit",
+      "caveat": "Pre-event conditional graph fit, not runaway/defect calibration or measured bulk k(T). Numbering unconfirmed; validation previously inspected. Mesh remains 3^3.",
+      "internal_contrast_bounds": [
+        -12.0,
+        12.0
+      ],
+      "internal_response": "tabulated(T_donor) + beta*(T_donor-T_receiver)/100 K; never average directions",
+      "development_note": "Additional constitutive trial after inspecting reference-contact trial validation; not blind model selection"
+    },
+    "links_parameters": {
+      "internal_log_35": -2.9179688282466913,
+      "internal_log_50": -0.023411134229017173,
+      "internal_log_70": -5.999999025887892,
+      "battery_iss_scale": 1.8785636976054962,
+      "iss_aluminium_scale": 3.693440967239087,
+      "internal_temperature_contrast": -11.999999996925958
+    },
+    "failure_calibration": true,
+    "failure_protocol": {
+      "revision": "physical-casing-conditional-v5",
+      "fit": "no-cooling",
+      "validation": "active-cooling",
+      "casing": {
+        "material_id": "unidentified-pouch-laminate-PROXY",
+        "thickness_m": 0.00015,
+        "density_kg_m3": 1600.0,
+        "specific_heat_j_kg_k": 1250.0,
+        "conductivity_w_per_m_k": [
+          0.3,
+          50.0,
+          50.0
+        ],
+        "conductivity_frame": "normal_tangential",
+        "seam_contact_h": 500.0,
+        "damage_onset_k": 425.0,
+        "damage_rate_per_s": 0.0,
+        "damage_scale_k": 25.0,
+        "destroyed_conductance_factor": 0.02
+      },
+      "casing_status": "Engineering proxy, NOT the identified UPV pouch formulation or thickness",
+      "fixed": "Whole battery C=412.87 J/K; reference k; all passive materials; exterior dimensions and layer positions; sensor material-side binding; measured forcing",
+      "capacity_partition": "Ccontents = Cmeasured - rho_case*cp_case*(Vouter-Vinner); no capacity optimization",
+      "conductivity_note": "Reported whole-cell k is retained as the contents reference prior; this partition is not separately measured",
+      "numbering": "Retained historical unconfirmed swapped-witnesses hypothesis; no topology/sensor fitting",
+      "heat_score": "Previous four-witness objective at 2-second times, t>=60 s, same forcing-defined pre-event end",
+      "failure_score": "Same four-witness 300..1800 s late objective as v4; source/early transients diagnostic only",
+      "gas_scope": "Source gas generated and transported into the actual 120 L chamber volume. Single effective ideal gas; no flame chemistry. Measured ch109 remains conditional solid ambient forcing; modeled chamber is NOT fed back as a second ambient heat source.",
+      "pressure_scope": "Ch114 is chamber pressure, NOT cell pressure. Pressure is diagnostic, not fitted; internal volume, gas constants/yield, opening area/strength are unmeasured priors.",
+      "validation_note": "Held out from this optimization, previously inspected during development; not blind validation"
+    },
+    "time_origin_s": 886.168000032194,
+    "primary_event": {
+      "index": 1885,
+      "last_pre_event_s": 886.168000032194,
+      "first_event_s": 886.6389999166131,
+      "bracket_width_s": 0.4709998844191432,
+      "pressure_before_bar": 1.0657677749999999,
+      "pressure_first_bar": 2.236499575,
+      "source_pre_event_c": {
+        "103": 117.48599999999999,
+        "104": 112.70799999999997,
+        "105": 109.39499999999998,
+        "106": 125.90999999999997
+      }
+    },
+    "casing_protocol": {
+      "revision": "physical-casing-conditional-v5",
+      "fit": "no-cooling",
+      "validation": "active-cooling",
+      "casing": {
+        "material_id": "unidentified-pouch-laminate-PROXY",
+        "thickness_m": 0.00015,
+        "density_kg_m3": 1600.0,
+        "specific_heat_j_kg_k": 1250.0,
+        "conductivity_w_per_m_k": [
+          0.3,
+          50.0,
+          50.0
+        ],
+        "conductivity_frame": "normal_tangential",
+        "seam_contact_h": 500.0,
+        "damage_onset_k": 425.0,
+        "damage_rate_per_s": 0.0,
+        "damage_scale_k": 25.0,
+        "destroyed_conductance_factor": 0.02
+      },
+      "casing_status": "Engineering proxy, NOT the identified UPV pouch formulation or thickness",
+      "fixed": "Whole battery C=412.87 J/K; reference k; all passive materials; exterior dimensions and layer positions; sensor material-side binding; measured forcing",
+      "capacity_partition": "Ccontents = Cmeasured - rho_case*cp_case*(Vouter-Vinner); no capacity optimization",
+      "conductivity_note": "Reported whole-cell k is retained as the contents reference prior; this partition is not separately measured",
+      "numbering": "Retained historical unconfirmed swapped-witnesses hypothesis; no topology/sensor fitting",
+      "heat_score": "Previous four-witness objective at 2-second times, t>=60 s, same forcing-defined pre-event end",
+      "failure_score": "Same four-witness 300..1800 s late objective as v4; source/early transients diagnostic only",
+      "gas_scope": "Source gas generated and transported into the actual 120 L chamber volume. Single effective ideal gas; no flame chemistry. Measured ch109 remains conditional solid ambient forcing; modeled chamber is NOT fed back as a second ambient heat source.",
+      "pressure_scope": "Ch114 is chamber pressure, NOT cell pressure. Pressure is diagnostic, not fitted; internal volume, gas constants/yield, opening area/strength are unmeasured priors.",
+      "validation_note": "Held out from this optimization, previously inspected during development; not blind validation"
+    },
+    "casing_inventory": {
+      "C3": {
+        "total_capacity_j_k": 412.86999999999995,
+        "case_capacity_j_k": 11.518553999999975,
+        "case_mass_kg": 0.00921484319999998,
+        "outer_dimensions_m": [
+          0.011,
+          0.087,
+          0.187
+        ]
+      },
+      "C1": {
+        "total_capacity_j_k": 412.86999999999995,
+        "case_capacity_j_k": 11.518553999999975,
+        "case_mass_kg": 0.00921484319999998,
+        "outer_dimensions_m": [
+          0.011,
+          0.087,
+          0.187
+        ]
+      },
+      "C2": {
+        "total_capacity_j_k": 412.86999999999995,
+        "case_capacity_j_k": 11.518553999999975,
+        "case_mass_kg": 0.00921484319999998,
+        "outer_dimensions_m": [
+          0.011,
+          0.087,
+          0.187
+        ]
+      }
+    },
+    "gas_energy_protocol": {
+      "revision": "finite-oxygen-closed-gas-v7-step-consistent",
+      "calibration": "no-cooling",
+      "validation": "active-cooling",
+      "gas": "Common effective ideal-gas R=287 and cv=1000 before/after reaction; no species/mole-count, CFD, radiation or acoustic wave solver",
+      "reaction": "Gas assumed ignited when fuel arrives; rate 20/s fixed. Oxygen heat 13.1 MJ/kg is a conventional-fuel proxy, NOT a battery-gas measurement",
+      "oxidizer": "Initially .232 mass fraction in chamber; absent from initial cell gas and generated gas; finite inventory advected and consumed, total gas mass unchanged",
+      "source": "Frozen event-conditioned initial fields; tied solid reaction rates fitted; finite net heat split into solid and gas chemical potential, no extra energy source",
+      "wall": "Lumped stainless-wall proxy, volume/area of equivalent 120 L cube, 2 mm steel, rho=8000, cp=500, outer h=5 W/m2K to initial chamber T; geometry/thickness NOT measured",
+      "thermal": "All ambient-* boundaries REPLACED by conservative chamber-to-surface contacts. Measured hot ch109 is diagnostic only, not an energy input. Cooling sink ch110 retained",
+      "contacts": "Frozen intact material/capacity laws and residue factors; one common exposure multiplier, no per-sensor offsets",
+      "objective": "Equal-size-normalized blocks: p(0..30s)/0.25bar, p(30..1800s)/0.05bar; four late witness residuals/5K each. Original scans; no onset-time fit",
+      "status": "Exploratory joint fit, not validated ignition/combustion physics; held-out experiment was inspected in earlier development"
+    },
+    "progressive_shell_protocol": {
+      "revision": "progressive-shell-v9-terminal-closure",
+      "calibration": "no-cooling",
+      "validation": "active-cooling",
+      "frozen": "All v7 solid/gas energy, gas yield, chemistry, free volume, wall/exposure, thermal properties, sensors and initial fields",
+      "fitted": [
+        "strength_pa",
+        "damage_rate_per_s",
+        "total_area_m2"
+      ],
+      "seam_width_m": 0.0005,
+      "seam_strength_factor": 0.3,
+      "damage_onset": 0.05,
+      "exponent": 2.0,
+      "area": "Total effective area distributed by panel face area over six C2 panels; not recovered fracture geometry",
+      "routing": "Single chamber receiving compartment is an effective peripheral escape path, including discharge from covered faces; no resolved interfacial gas gap or jet. Thermal solid contacts are retained, not bypassed.",
+      "scope": "Conditional primary C2 event only, not prediction of ignition or cascade; C1/C3 remain the previous thermal witnesses",
+      "identifiability": "Only chamber pressure observed; seam geometry/ratio fixed priors, not measured or identified weld data",
+      "objective": "Equal-size-normalized blocks: p(0..30s)/0.25bar, p(30..1800s)/0.05bar; four late witness residuals/5K each. Original scans; no onset-time fit",
+      "validation_note": "Previously inspected experiment, excluded from all parameter selection; not blind validation"
+    },
+    "aperture_calibration_protocol": {
+      "revision": "aperture-directed-energy-paid-v10",
+      "calibration": "no-cooling",
+      "validation": "active-cooling",
+      "objective": "Equal-size-normalized blocks: p(0..30s)/0.25bar, p(30..1800s)/0.05bar; four late witness residuals/5K each. Original scans; no onset-time fit",
+      "frozen": "All solid geometry, capacity, reference conductivity, intact/residue connections, sensor bindings, initial fields, chamber volume and gas species constants",
+      "geometry": "First visible solid along each outward panel normal; partial occlusion; six openings share the previous strength/rate/area profile",
+      "energy": "Surface heat debited from arriving gas enthalpy; opening work debited from internal gas and stored in its own ledger",
+      "aperture_priors": "h=1e4 W/m2/K, work=1e3 J/m2 are exploratory priors; search bounds are NOT independently established material-property intervals",
+      "identifiability": "Sensitivity on training record before selection; flat coefficients are frozen and explicitly marked unidentifiable",
+      "validation_note": "Previously inspected experiment, excluded from parameter selection; not blind or independent-laboratory validation",
+      "measurement_note": "Same historical unconfirmed witness numbering; burst thermocouples diagnostic only, no channel offsets or fitted time shifts"
+    },
+    "removed_aperture_ceilings_m2": {
+      "C2-progressive--x": 1.8871890088355053e-06,
+      "C2-progressive-+x": 1.8871890088355053e-06,
+      "C2-progressive--y": 2.3210255625907943e-07,
+      "C2-progressive-+y": 2.3210255625907943e-07,
+      "C2-progressive--z": 1.0761118517466408e-07,
+      "C2-progressive-+z": 1.0761118517466408e-07
+    }
+  },
+  "simulation": {
+    "duration_s": 30.0,
+    "max_dt_s": 0.2,
+    "output_interval_s": 1.0,
+    "stability_factor": 0.4
+  },
+  "cells": [
+    {
+      "id": "steel-L",
+      "role": "passive",
+      "material_id": "steel",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.01,
+          0.087,
+          0.187
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.005,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 638.55825,
+        "initial_temperature_k": 303.26353195686715,
+        "divisions": [
+          1,
+          2,
+          4
+        ],
+        "conductivity_w_per_m_k": [
+          45,
+          45,
+          45
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            -11.645764858405554,
+            -11.645764858405554,
+            -11.645764858405554
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "initial_temperature_field_k": [
+          303.284921116177,
+          303.284921116177,
+          303.2421427975574,
+          303.2421427975574,
+          303.2421427975574,
+          303.2421427975574,
+          303.284921116177,
+          303.284921116177
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      }
+    },
+    {
+      "id": "ISS1",
+      "role": "passive",
+      "material_id": "ISS",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.002,
+          0.087,
+          0.187
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.011,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 5.010852,
+        "initial_temperature_k": 307.05882611762956,
+        "divisions": [
+          1,
+          2,
+          4
+        ],
+        "conductivity_w_per_m_k": [
+          0.145,
+          0.145,
+          0.145
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            -11.999999024190481,
+            -11.999999024190481,
+            -11.999999024190481
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "initial_temperature_field_k": [
+          307.1412896775264,
+          307.1412896775264,
+          306.9763625577328,
+          306.9763625577328,
+          306.9763625577328,
+          306.9763625577328,
+          307.1412896775264,
+          307.1412896775264
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      }
+    },
+    {
+      "id": "C3",
+      "role": "battery",
+      "material_id": "battery",
+      "geometry": {
+        "kind": "pouch",
+        "dimensions_m": [
+          0.0107,
+          0.0867,
+          0.1867
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.0175,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 401.35144599999995,
+        "initial_temperature_k": 321.5671198712218,
+        "divisions": [
+          3,
+          3,
+          3
+        ],
+        "conductivity_w_per_m_k": [
+          0.9,
+          28.3,
+          28.3
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            11.999317482819652,
+            11.999317482819652,
+            11.999317482819652
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "internal_heat_transfer": "finite_volume",
+        "bulk_connectivity": {
+          "kind": "directed_geometry",
+          "l0_m": 0.0001,
+          "activation_width_m": 1e-05,
+          "geometry_reference_logit": -0.916290731874155,
+          "background_factor": 0.2,
+          "active_factor": 2.8,
+          "destroyed_l0_m": 0.0002,
+          "destroyed_l_m": 0.0002,
+          "destroyed_background_factor": 1.0,
+          "destroyed_active_factor": 0.0
+        },
+        "bulk_response": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quadratic": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            -11.999999996925958,
+            -11.999999996925958,
+            -11.999999996925958
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              308.15,
+              -2.9179688282466913
+            ],
+            [
+              323.15,
+              -0.023411134229017173
+            ],
+            [
+              343.15,
+              -5.999999025887892
+            ]
+          ]
+        },
+        "initial_temperature_field_k": [
+          313.782520786782,
+          319.0437832383793,
+          331.9321292539652,
+          312.9330019561482,
+          318.7456486276324,
+          333.0358021224396,
+          313.782520786782,
+          319.0437832383793,
+          331.9321292539652,
+          313.2678551260725,
+          318.87101693262315,
+          332.5131772087173,
+          312.28410469063203,
+          318.5378770172851,
+          333.72351775130045,
+          313.2678551260725,
+          318.87101693262315,
+          332.5131772087173,
+          313.782520786782,
+          319.0437832383793,
+          331.9321292539652,
+          312.9330019561482,
+          318.7456486276324,
+          333.0358021224396,
+          313.782520786782,
+          319.0437832383793,
+          331.9321292539652
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      }
+    },
+    {
+      "id": "TIM1",
+      "role": "passive",
+      "material_id": "TIM",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.002,
+          0.087,
+          0.187
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.024,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 126.166095,
+        "initial_temperature_k": 339.82966138863844,
+        "divisions": [
+          1,
+          2,
+          4
+        ],
+        "conductivity_w_per_m_k": [
+          2,
+          2,
+          2
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            -11.999999595886017,
+            -11.999999595886017,
+            -11.999999595886017
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "initial_temperature_field_k": [
+          339.741356053507,
+          339.741356053507,
+          339.91796672376984,
+          339.91796672376984,
+          339.91796672376984,
+          339.91796672376984,
+          339.741356053507,
+          339.741356053507
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      }
+    },
+    {
+      "id": "Al1",
+      "role": "passive",
+      "material_id": "aluminium",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.001,
+          0.087,
+          0.187
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.025500000000000002,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 39.53367,
+        "initial_temperature_k": 341.6757470012279,
+        "divisions": [
+          1,
+          2,
+          4
+        ],
+        "conductivity_w_per_m_k": [
+          235,
+          235,
+          235
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            11.999534775455428,
+            11.999534775455428,
+            11.999534775455428
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "initial_temperature_field_k": [
+          341.59290002674135,
+          341.59290002674135,
+          341.7585939757144,
+          341.7585939757144,
+          341.7585939757144,
+          341.7585939757144,
+          341.59290002674135,
+          341.59290002674135
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      }
+    },
+    {
+      "id": "ISS2",
+      "role": "passive",
+      "material_id": "ISS",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.002,
+          0.087,
+          0.187
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.027000000000000003,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 5.010852,
+        "initial_temperature_k": 365.76641742054164,
+        "divisions": [
+          1,
+          2,
+          4
+        ],
+        "conductivity_w_per_m_k": [
+          0.145,
+          0.145,
+          0.145
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            -11.999999024190481,
+            -11.999999024190481,
+            -11.999999024190481
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "initial_temperature_field_k": [
+          365.70248969824775,
+          365.70248969824775,
+          365.83034514283554,
+          365.83034514283554,
+          365.83034514283554,
+          365.83034514283554,
+          365.70248969824775,
+          365.70248969824775
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      }
+    },
+    {
+      "id": "TIM2",
+      "role": "passive",
+      "material_id": "TIM",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.002,
+          0.087,
+          0.187
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.04,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 126.166095,
+        "initial_temperature_k": 383.62773107070075,
+        "divisions": [
+          1,
+          2,
+          4
+        ],
+        "conductivity_w_per_m_k": [
+          2,
+          2,
+          2
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            -11.999999595886017,
+            -11.999999595886017,
+            -11.999999595886017
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "initial_temperature_field_k": [
+          383.5849023593041,
+          383.5849023593041,
+          383.6705597820973,
+          383.6705597820973,
+          383.6705597820973,
+          383.6705597820973,
+          383.5849023593041,
+          383.5849023593041
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      }
+    },
+    {
+      "id": "Al2",
+      "role": "passive",
+      "material_id": "aluminium",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.001,
+          0.087,
+          0.187
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.0415,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 39.53367,
+        "initial_temperature_k": 381.3375336151358,
+        "divisions": [
+          1,
+          2,
+          4
+        ],
+        "conductivity_w_per_m_k": [
+          235,
+          235,
+          235
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            11.999534775455428,
+            11.999534775455428,
+            11.999534775455428
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "initial_temperature_field_k": [
+          381.2734193036897,
+          381.2734193036897,
+          381.40164792658186,
+          381.40164792658186,
+          381.40164792658186,
+          381.40164792658186,
+          381.2734193036897,
+          381.2734193036897
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      }
+    },
+    {
+      "id": "ISS3",
+      "role": "passive",
+      "material_id": "ISS",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.002,
+          0.087,
+          0.187
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.043000000000000003,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 5.010852,
+        "initial_temperature_k": 362.2757827613448,
+        "divisions": [
+          1,
+          2,
+          4
+        ],
+        "conductivity_w_per_m_k": [
+          0.145,
+          0.145,
+          0.145
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            -11.999999024190481,
+            -11.999999024190481,
+            -11.999999024190481
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "initial_temperature_field_k": [
+          362.0351026118048,
+          362.0351026118048,
+          362.51646291088474,
+          362.51646291088474,
+          362.51646291088474,
+          362.51646291088474,
+          362.0351026118048,
+          362.0351026118048
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      }
+    },
+    {
+      "id": "C1",
+      "role": "battery",
+      "material_id": "battery",
+      "geometry": {
+        "kind": "pouch",
+        "dimensions_m": [
+          0.0107,
+          0.0867,
+          0.1867
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.0495,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 401.35144599999995,
+        "initial_temperature_k": 322.0277401584272,
+        "divisions": [
+          3,
+          3,
+          3
+        ],
+        "conductivity_w_per_m_k": [
+          0.9,
+          28.3,
+          28.3
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            11.999317482819652,
+            11.999317482819652,
+            11.999317482819652
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "internal_heat_transfer": "finite_volume",
+        "bulk_connectivity": {
+          "kind": "directed_geometry",
+          "l0_m": 0.0001,
+          "activation_width_m": 1e-05,
+          "geometry_reference_logit": -0.916290731874155,
+          "background_factor": 0.2,
+          "active_factor": 2.8,
+          "destroyed_l0_m": 0.0002,
+          "destroyed_l_m": 0.0002,
+          "destroyed_background_factor": 1.0,
+          "destroyed_active_factor": 0.0
+        },
+        "bulk_response": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quadratic": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            -11.999999996925958,
+            -11.999999996925958,
+            -11.999999996925958
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              308.15,
+              -2.9179688282466913
+            ],
+            [
+              323.15,
+              -0.023411134229017173
+            ],
+            [
+              343.15,
+              -5.999999025887892
+            ]
+          ]
+        },
+        "initial_temperature_field_k": [
+          334.94657443385626,
+          318.6910555506904,
+          311.6193922722688,
+          337.17785479086257,
+          318.50619478613766,
+          310.8911860272442,
+          334.94657443385626,
+          318.6910555506904,
+          311.6193922722688,
+          336.3103382199239,
+          318.73891639602937,
+          311.3144135380882,
+          338.8347666316688,
+          318.51679115076536,
+          310.4915299512663,
+          336.3103382199239,
+          318.73891639602937,
+          311.3144135380882,
+          334.94657443385626,
+          318.6910555506904,
+          311.6193922722688,
+          337.17785479086257,
+          318.50619478613766,
+          310.8911860272442,
+          334.94657443385626,
+          318.6910555506904,
+          311.6193922722688
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      }
+    },
+    {
+      "id": "TIM3",
+      "role": "passive",
+      "material_id": "TIM",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.002,
+          0.087,
+          0.187
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.056,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 126.166095,
+        "initial_temperature_k": 308.7287886921721,
+        "divisions": [
+          1,
+          2,
+          4
+        ],
+        "conductivity_w_per_m_k": [
+          2,
+          2,
+          2
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            -11.999999595886017,
+            -11.999999595886017,
+            -11.999999595886017
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "initial_temperature_field_k": [
+          308.7589129507348,
+          308.7589129507348,
+          308.6986644336094,
+          308.6986644336094,
+          308.6986644336094,
+          308.6986644336094,
+          308.7589129507348,
+          308.7589129507348
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      }
+    },
+    {
+      "id": "Al3",
+      "role": "passive",
+      "material_id": "aluminium",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.001,
+          0.087,
+          0.187
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.0575,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 39.53367,
+        "initial_temperature_k": 308.44600347691386,
+        "divisions": [
+          1,
+          2,
+          4
+        ],
+        "conductivity_w_per_m_k": [
+          235,
+          235,
+          235
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            11.999534775455428,
+            11.999534775455428,
+            11.999534775455428
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "initial_temperature_field_k": [
+          308.4713861396211,
+          308.4713861396211,
+          308.42062081420664,
+          308.42062081420664,
+          308.42062081420664,
+          308.42062081420664,
+          308.4713861396211,
+          308.4713861396211
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      }
+    },
+    {
+      "id": "ISS4",
+      "role": "passive",
+      "material_id": "ISS",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.002,
+          0.087,
+          0.187
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.059000000000000004,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 5.010852,
+        "initial_temperature_k": 305.235351256041,
+        "divisions": [
+          1,
+          2,
+          4
+        ],
+        "conductivity_w_per_m_k": [
+          0.145,
+          0.145,
+          0.145
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            -11.999999024190481,
+            -11.999999024190481,
+            -11.999999024190481
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "initial_temperature_field_k": [
+          305.2532116011361,
+          305.2532116011361,
+          305.2174909109458,
+          305.2174909109458,
+          305.2174909109458,
+          305.2174909109458,
+          305.2532116011361,
+          305.2532116011361
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      }
+    },
+    {
+      "id": "steel-R",
+      "role": "passive",
+      "material_id": "steel",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.01,
+          0.087,
+          0.187
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.065,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 638.55825,
+        "initial_temperature_k": 302.47847887056673,
+        "divisions": [
+          1,
+          2,
+          4
+        ],
+        "conductivity_w_per_m_k": [
+          45,
+          45,
+          45
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            -11.645764858405554,
+            -11.645764858405554,
+            -11.645764858405554
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "initial_temperature_field_k": [
+          302.4896216746903,
+          302.4896216746903,
+          302.46733606644324,
+          302.46733606644324,
+          302.46733606644324,
+          302.46733606644324,
+          302.4896216746903,
+          302.4896216746903
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      }
+    },
+    {
+      "id": "C2",
+      "role": "battery",
+      "material_id": "battery",
+      "geometry": {
+        "kind": "pouch",
+        "dimensions_m": [
+          0.0107,
+          0.0867,
+          0.1867
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.0335,
+          0,
+          0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 401.35144599999995,
+        "initial_temperature_k": 389.52475000000004,
+        "divisions": [
+          3,
+          3,
+          3
+        ],
+        "conductivity_w_per_m_k": [
+          0.9,
+          28.3,
+          28.3
+        ],
+        "surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            3.05291277532628,
+            3.05291277532628,
+            3.05291277532628
+          ],
+          "quadratic": [
+            11.994228016362324,
+            11.994228016362324,
+            11.994228016362324
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            11.999317482819652,
+            11.999317482819652,
+            11.999317482819652
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "internal_heat_transfer": "finite_volume",
+        "bulk_connectivity": {
+          "kind": "directed_geometry",
+          "l0_m": 0.0001,
+          "activation_width_m": 1e-05,
+          "geometry_reference_logit": -0.916290731874155,
+          "background_factor": 0.2,
+          "active_factor": 2.8,
+          "destroyed_l0_m": 0.0002,
+          "destroyed_l_m": 0.0002,
+          "destroyed_background_factor": 1.0,
+          "destroyed_active_factor": 0.0,
+          "endpoint_damage_weight": 0.0
+        },
+        "bulk_response": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "linear": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quadratic": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "damage": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_contrast": [
+            -11.999999996925958,
+            -11.999999996925958,
+            -11.999999996925958
+          ],
+          "damage_contrast": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              308.15,
+              -2.9179688282466913
+            ],
+            [
+              323.15,
+              -0.023411134229017173
+            ],
+            [
+              343.15,
+              -5.999999025887892
+            ]
+          ]
+        },
+        "initial_temperature_field_k": [
+          386.0545277777777,
+          387.5685833333333,
+          389.0826388888888,
+          386.0545277777777,
+          387.5685833333333,
+          389.0826388888888,
+          386.0545277777777,
+          387.5685833333333,
+          389.0826388888888,
+          390.3765833333333,
+          389.5247499999999,
+          388.6729166666666,
+          390.3765833333333,
+          389.5247499999999,
+          388.6729166666666,
+          390.3765833333333,
+          389.5247499999999,
+          388.6729166666666,
+          394.6986388888888,
+          391.48091666666664,
+          388.2631944444444,
+          394.6986388888888,
+          391.48091666666664,
+          388.2631944444444,
+          394.6986388888888,
+          391.48091666666664,
+          388.2631944444444
+        ]
+      },
+      "runaway": {
+        "energy_j": 0,
+        "duration_s": 1
+      },
+      "degradation": {
+        "initial_damage": 0,
+        "rate_at_onset_per_s": 0
+      },
+      "conversion": {
+        "mass_kg": 0.2,
+        "reactant_cp": 1007.0,
+        "activated_cp": 1007.0,
+        "residue_cp": 800.0,
+        "absorption_j_per_kg": 30000.0,
+        "net_heat_j_per_kg": 2750216.748759175,
+        "l0_m": 1e-06,
+        "lcrit_m": 1.2e-06,
+        "energy_scale_j_per_kg": 100000.0,
+        "activation_rate_per_s": 2.8965846715607713,
+        "reaction_rate_per_s": 2.8965846715607713,
+        "reaction_reference_k": 400.0,
+        "reaction_activation_j_per_mol": 60000.0,
+        "gas_yield": 0.38683646019393697,
+        "gas_chemical_fraction": 0.36387914138828714,
+        "gas_compartment": "inside-C2",
+        "residue_conductivity": [
+          0.005000600378694414,
+          0.005001742343627711,
+          0.005001742343627711
+        ],
+        "max_fraction_per_step": 0.01,
+        "max_temperature_step_k": 0.5
+      }
+    },
+    {
+      "id": "chamber-wall",
+      "role": "passive",
+      "material_id": "unmeasured-stainless-wall-proxy",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.002,
+          1.2081922359201023,
+          1.2081922359201023
+        ]
+      },
+      "pose": {
+        "position_m": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 11677.827831500928,
+        "initial_temperature_k": 304.46,
+        "divisions": [
+          1,
+          1,
+          1
+        ],
+        "conductivity_w_per_m_k": [
+          15.0,
+          15.0,
+          15.0
+        ]
+      },
+      "runaway": {
+        "energy_j": 0.0,
+        "duration_s": 1.0
+      }
+    }
+  ],
+  "ports": [
+    {
+      "id": "steel-L:+x",
+      "cell_id": "steel-L",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.01,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "ISS1:-x",
+      "cell_id": "ISS1",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.009999999999999998,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "ISS1:+x",
+      "cell_id": "ISS1",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.012,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "C3:-x",
+      "cell_id": "C3:case:-x",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.012000000000000002,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "rectangle_m": [
+        0.087,
+        0.187
+      ]
+    },
+    {
+      "id": "C3:+x",
+      "cell_id": "C3:case:+x",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.023,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "rectangle_m": [
+        0.087,
+        0.187
+      ]
+    },
+    {
+      "id": "TIM1:-x",
+      "cell_id": "TIM1",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.023,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "TIM1:+x",
+      "cell_id": "TIM1",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.025,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "Al1:-x",
+      "cell_id": "Al1",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.025,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "Al1:+x",
+      "cell_id": "Al1",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.026000000000000002,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "ISS2:-x",
+      "cell_id": "ISS2",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.026000000000000002,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "TIM2:+x",
+      "cell_id": "TIM2",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.041,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "Al2:-x",
+      "cell_id": "Al2",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.041,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "Al2:+x",
+      "cell_id": "Al2",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.042,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "ISS3:-x",
+      "cell_id": "ISS3",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.042,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "ISS3:+x",
+      "cell_id": "ISS3",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.044000000000000004,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "C1:-x",
+      "cell_id": "C1:case:-x",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.044000000000000004,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "rectangle_m": [
+        0.087,
+        0.187
+      ]
+    },
+    {
+      "id": "C1:+x",
+      "cell_id": "C1:case:+x",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.055,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "rectangle_m": [
+        0.087,
+        0.187
+      ]
+    },
+    {
+      "id": "TIM3:-x",
+      "cell_id": "TIM3",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.055,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "TIM3:+x",
+      "cell_id": "TIM3",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.057,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "Al3:-x",
+      "cell_id": "Al3",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.057,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "Al3:+x",
+      "cell_id": "Al3",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.058,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "ISS4:-x",
+      "cell_id": "ISS4",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.058,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "ISS4:+x",
+      "cell_id": "ISS4",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.060000000000000005,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "steel-R:-x",
+      "cell_id": "steel-R",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.060000000000000005,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "ISS2:+x",
+      "cell_id": "ISS2",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.028000000000000004,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "TIM2:-x",
+      "cell_id": "TIM2",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.039,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "steel-L:-y",
+      "cell_id": "steel-L",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.0018700000000000001,
+      "centroid_m": [
+        0.005,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "steel-L:+y",
+      "cell_id": "steel-L",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.0018700000000000001,
+      "centroid_m": [
+        0.005,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "steel-L:-z",
+      "cell_id": "steel-L",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 0.00087,
+      "centroid_m": [
+        0.005,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "steel-L:+z",
+      "cell_id": "steel-L",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 0.00087,
+      "centroid_m": [
+        0.005,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "ISS1:-y",
+      "cell_id": "ISS1",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.000374,
+      "centroid_m": [
+        0.011,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "ISS1:+y",
+      "cell_id": "ISS1",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.000374,
+      "centroid_m": [
+        0.011,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "ISS1:-z",
+      "cell_id": "ISS1",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 0.000174,
+      "centroid_m": [
+        0.011,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "ISS1:+z",
+      "cell_id": "ISS1",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 0.000174,
+      "centroid_m": [
+        0.011,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "C3:-y",
+      "cell_id": "C3:case:-y",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.0020009,
+      "centroid_m": [
+        0.0175,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "rectangle_m": [
+        0.187,
+        0.0107
+      ]
+    },
+    {
+      "id": "C3:+y",
+      "cell_id": "C3:case:+y",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.0020009,
+      "centroid_m": [
+        0.0175,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "rectangle_m": [
+        0.187,
+        0.0107
+      ]
+    },
+    {
+      "id": "C3:-z",
+      "cell_id": "C3:case:-z",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 0.0009276899999999999,
+      "centroid_m": [
+        0.0175,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "rectangle_m": [
+        0.0107,
+        0.0867
+      ]
+    },
+    {
+      "id": "C3:+z",
+      "cell_id": "C3:case:+z",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 0.0009276899999999999,
+      "centroid_m": [
+        0.0175,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "rectangle_m": [
+        0.0107,
+        0.0867
+      ]
+    },
+    {
+      "id": "TIM1:-y",
+      "cell_id": "TIM1",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.000374,
+      "centroid_m": [
+        0.024,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "TIM1:+y",
+      "cell_id": "TIM1",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.000374,
+      "centroid_m": [
+        0.024,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "TIM1:-z",
+      "cell_id": "TIM1",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 0.000174,
+      "centroid_m": [
+        0.024,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "TIM1:+z",
+      "cell_id": "TIM1",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 0.000174,
+      "centroid_m": [
+        0.024,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "Al1:-y",
+      "cell_id": "Al1",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.000187,
+      "centroid_m": [
+        0.025500000000000002,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "Al1:+y",
+      "cell_id": "Al1",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.000187,
+      "centroid_m": [
+        0.025500000000000002,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "Al1:-z",
+      "cell_id": "Al1",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 8.7e-05,
+      "centroid_m": [
+        0.025500000000000002,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "Al1:+z",
+      "cell_id": "Al1",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 8.7e-05,
+      "centroid_m": [
+        0.025500000000000002,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "ISS2:-y",
+      "cell_id": "ISS2",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.000374,
+      "centroid_m": [
+        0.027000000000000003,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "ISS2:+y",
+      "cell_id": "ISS2",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.000374,
+      "centroid_m": [
+        0.027000000000000003,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "ISS2:-z",
+      "cell_id": "ISS2",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 0.000174,
+      "centroid_m": [
+        0.027000000000000003,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "ISS2:+z",
+      "cell_id": "ISS2",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 0.000174,
+      "centroid_m": [
+        0.027000000000000003,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "TIM2:-y",
+      "cell_id": "TIM2",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.000374,
+      "centroid_m": [
+        0.04,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "TIM2:+y",
+      "cell_id": "TIM2",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.000374,
+      "centroid_m": [
+        0.04,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "TIM2:-z",
+      "cell_id": "TIM2",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 0.000174,
+      "centroid_m": [
+        0.04,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "TIM2:+z",
+      "cell_id": "TIM2",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 0.000174,
+      "centroid_m": [
+        0.04,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "Al2:-y",
+      "cell_id": "Al2",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.000187,
+      "centroid_m": [
+        0.0415,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "Al2:+y",
+      "cell_id": "Al2",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.000187,
+      "centroid_m": [
+        0.0415,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "Al2:-z",
+      "cell_id": "Al2",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 8.7e-05,
+      "centroid_m": [
+        0.0415,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "Al2:+z",
+      "cell_id": "Al2",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 8.7e-05,
+      "centroid_m": [
+        0.0415,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "ISS3:-y",
+      "cell_id": "ISS3",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.000374,
+      "centroid_m": [
+        0.043000000000000003,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "ISS3:+y",
+      "cell_id": "ISS3",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.000374,
+      "centroid_m": [
+        0.043000000000000003,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "ISS3:-z",
+      "cell_id": "ISS3",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 0.000174,
+      "centroid_m": [
+        0.043000000000000003,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "ISS3:+z",
+      "cell_id": "ISS3",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 0.000174,
+      "centroid_m": [
+        0.043000000000000003,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "C1:-y",
+      "cell_id": "C1:case:-y",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.0020009,
+      "centroid_m": [
+        0.0495,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "rectangle_m": [
+        0.187,
+        0.0107
+      ]
+    },
+    {
+      "id": "C1:+y",
+      "cell_id": "C1:case:+y",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.0020009,
+      "centroid_m": [
+        0.0495,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "rectangle_m": [
+        0.187,
+        0.0107
+      ]
+    },
+    {
+      "id": "C1:-z",
+      "cell_id": "C1:case:-z",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 0.0009276899999999999,
+      "centroid_m": [
+        0.0495,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "rectangle_m": [
+        0.0107,
+        0.0867
+      ]
+    },
+    {
+      "id": "C1:+z",
+      "cell_id": "C1:case:+z",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 0.0009276899999999999,
+      "centroid_m": [
+        0.0495,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "rectangle_m": [
+        0.0107,
+        0.0867
+      ]
+    },
+    {
+      "id": "TIM3:-y",
+      "cell_id": "TIM3",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.000374,
+      "centroid_m": [
+        0.056,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "TIM3:+y",
+      "cell_id": "TIM3",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.000374,
+      "centroid_m": [
+        0.056,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "TIM3:-z",
+      "cell_id": "TIM3",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 0.000174,
+      "centroid_m": [
+        0.056,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "TIM3:+z",
+      "cell_id": "TIM3",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 0.000174,
+      "centroid_m": [
+        0.056,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "Al3:-y",
+      "cell_id": "Al3",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.000187,
+      "centroid_m": [
+        0.0575,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "Al3:+y",
+      "cell_id": "Al3",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.000187,
+      "centroid_m": [
+        0.0575,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "Al3:-z",
+      "cell_id": "Al3",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 8.7e-05,
+      "centroid_m": [
+        0.0575,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "Al3:+z",
+      "cell_id": "Al3",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 8.7e-05,
+      "centroid_m": [
+        0.0575,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "ISS4:-y",
+      "cell_id": "ISS4",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.000374,
+      "centroid_m": [
+        0.059000000000000004,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "ISS4:+y",
+      "cell_id": "ISS4",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.000374,
+      "centroid_m": [
+        0.059000000000000004,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "ISS4:-z",
+      "cell_id": "ISS4",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 0.000174,
+      "centroid_m": [
+        0.059000000000000004,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "ISS4:+z",
+      "cell_id": "ISS4",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 0.000174,
+      "centroid_m": [
+        0.059000000000000004,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "steel-R:-y",
+      "cell_id": "steel-R",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.0018700000000000001,
+      "centroid_m": [
+        0.065,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "steel-R:+y",
+      "cell_id": "steel-R",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.0018700000000000001,
+      "centroid_m": [
+        0.065,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "steel-R:-z",
+      "cell_id": "steel-R",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 0.00087,
+      "centroid_m": [
+        0.065,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "steel-R:+z",
+      "cell_id": "steel-R",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 0.00087,
+      "centroid_m": [
+        0.065,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "steel-L:-x",
+      "cell_id": "steel-L",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.0,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "steel-R:+x",
+      "cell_id": "steel-R",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.07,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "C2:-x",
+      "cell_id": "C2:case:-x",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.028000000000000004,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "rectangle_m": [
+        0.087,
+        0.187
+      ]
+    },
+    {
+      "id": "C2:+x",
+      "cell_id": "C2:case:+x",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.016269,
+      "centroid_m": [
+        0.039,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "rectangle_m": [
+        0.087,
+        0.187
+      ]
+    },
+    {
+      "id": "C2:-y",
+      "cell_id": "C2:case:-y",
+      "kind": "contact",
+      "surface": "-y",
+      "area_m2": 0.0020009,
+      "centroid_m": [
+        0.0335,
+        -0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "rectangle_m": [
+        0.187,
+        0.0107
+      ]
+    },
+    {
+      "id": "C2:+y",
+      "cell_id": "C2:case:+y",
+      "kind": "contact",
+      "surface": "+y",
+      "area_m2": 0.0020009,
+      "centroid_m": [
+        0.0335,
+        0.0435,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "rectangle_m": [
+        0.187,
+        0.0107
+      ]
+    },
+    {
+      "id": "C2:-z",
+      "cell_id": "C2:case:-z",
+      "kind": "contact",
+      "surface": "-z",
+      "area_m2": 0.0009276899999999999,
+      "centroid_m": [
+        0.0335,
+        0,
+        -0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "rectangle_m": [
+        0.0107,
+        0.0867
+      ]
+    },
+    {
+      "id": "C2:+z",
+      "cell_id": "C2:case:+z",
+      "kind": "contact",
+      "surface": "+z",
+      "area_m2": 0.0009276899999999999,
+      "centroid_m": [
+        0.0335,
+        0,
+        0.0935
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "rectangle_m": [
+        0.0107,
+        0.0867
+      ]
+    },
+    {
+      "id": "wall:inner",
+      "cell_id": "chamber-wall",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 1.4597284789376161,
+      "centroid_m": [
+        0.999,
+        0.0,
+        0.0
+      ],
+      "normal": [
+        -1,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "wall:outer",
+      "cell_id": "chamber-wall",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 1.4597284789376161,
+      "centroid_m": [
+        1.001,
+        0.0,
+        0.0
+      ],
+      "normal": [
+        1,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "interfaces": [
+    {
+      "id": "steel-L--ISS1",
+      "port_a": "steel-L:+x",
+      "port_b": "ISS1:-x",
+      "law": {
+        "kind": "directed_geometry",
+        "l0_m": 0.0001,
+        "activation_width_m": 1e-05,
+        "geometry_reference_logit": 4.595018823175319,
+        "background_conductance_w_per_k": 0.016269,
+        "active_conductance_w_per_k": 162.67373099999998,
+        "endpoint_damage_weight": 1.0,
+        "destruction_damage": 1.0,
+        "destroyed_l0_m": 0.0002,
+        "destroyed_l_m": 0.0002,
+        "destroyed_background_conductance_w_per_k": 0.016269,
+        "destroyed_active_conductance_w_per_k": 0.0
+      }
+    },
+    {
+      "id": "ISS1--C3",
+      "port_a": "ISS1:+x",
+      "port_b": "C3:-x",
+      "law": {
+        "kind": "directed_geometry",
+        "l0_m": 0.0001,
+        "activation_width_m": 1e-05,
+        "geometry_reference_logit": -3.9610357979075883,
+        "background_conductance_w_per_k": 0.016269,
+        "active_conductance_w_per_k": 162.67373099999998,
+        "endpoint_damage_weight": 1.0,
+        "destruction_damage": 1.0,
+        "destroyed_l0_m": 0.0002,
+        "destroyed_l_m": 0.0002,
+        "destroyed_background_conductance_w_per_k": 0.016269,
+        "destroyed_active_conductance_w_per_k": 0.0
+      }
+    },
+    {
+      "id": "C3--TIM1",
+      "port_a": "C3:+x",
+      "port_b": "TIM1:-x",
+      "law": {
+        "kind": "directed_geometry",
+        "l0_m": 0.0001,
+        "activation_width_m": 1e-05,
+        "geometry_reference_logit": 9.210140304753287,
+        "background_conductance_w_per_k": 0.016269,
+        "active_conductance_w_per_k": 162.67373099999998,
+        "endpoint_damage_weight": 1.0,
+        "destruction_damage": 1.0,
+        "destroyed_l0_m": 0.0002,
+        "destroyed_l_m": 0.0002,
+        "destroyed_background_conductance_w_per_k": 0.016269,
+        "destroyed_active_conductance_w_per_k": 0.0
+      }
+    },
+    {
+      "id": "TIM1--Al1",
+      "port_a": "TIM1:+x",
+      "port_b": "Al1:-x",
+      "law": {
+        "kind": "directed_geometry",
+        "l0_m": 0.0001,
+        "activation_width_m": 1e-05,
+        "geometry_reference_logit": 4.594980735661609,
+        "background_conductance_w_per_k": 0.016269,
+        "active_conductance_w_per_k": 162.67373099999998,
+        "endpoint_damage_weight": 1.0,
+        "destruction_damage": 1.0,
+        "destroyed_l0_m": 0.0002,
+        "destroyed_l_m": 0.0002,
+        "destroyed_background_conductance_w_per_k": 0.016269,
+        "destroyed_active_conductance_w_per_k": 0.0
+      }
+    },
+    {
+      "id": "Al1--ISS2",
+      "port_a": "Al1:+x",
+      "port_b": "ISS2:-x",
+      "law": {
+        "kind": "directed_geometry",
+        "l0_m": 0.0001,
+        "activation_width_m": 1e-05,
+        "geometry_reference_logit": -3.26368906615399,
+        "background_conductance_w_per_k": 0.016269,
+        "active_conductance_w_per_k": 162.67373099999998,
+        "endpoint_damage_weight": 1.0,
+        "destruction_damage": 1.0,
+        "destroyed_l0_m": 0.0002,
+        "destroyed_l_m": 0.0002,
+        "destroyed_background_conductance_w_per_k": 0.016269,
+        "destroyed_active_conductance_w_per_k": 0.0
+      }
+    },
+    {
+      "id": "TIM2--Al2",
+      "port_a": "TIM2:+x",
+      "port_b": "Al2:-x",
+      "law": {
+        "kind": "directed_geometry",
+        "l0_m": 0.0001,
+        "activation_width_m": 1e-05,
+        "geometry_reference_logit": 4.594980735661609,
+        "background_conductance_w_per_k": 0.016269,
+        "active_conductance_w_per_k": 162.67373099999998,
+        "endpoint_damage_weight": 1.0,
+        "destruction_damage": 1.0,
+        "destroyed_l0_m": 0.0002,
+        "destroyed_l_m": 0.0002,
+        "destroyed_background_conductance_w_per_k": 0.016269,
+        "destroyed_active_conductance_w_per_k": 0.0
+      }
+    },
+    {
+      "id": "Al2--ISS3",
+      "port_a": "Al2:+x",
+      "port_b": "ISS3:-x",
+      "law": {
+        "kind": "directed_geometry",
+        "l0_m": 0.0001,
+        "activation_width_m": 1e-05,
+        "geometry_reference_logit": -3.26368906615399,
+        "background_conductance_w_per_k": 0.016269,
+        "active_conductance_w_per_k": 162.67373099999998,
+        "endpoint_damage_weight": 1.0,
+        "destruction_damage": 1.0,
+        "destroyed_l0_m": 0.0002,
+        "destroyed_l_m": 0.0002,
+        "destroyed_background_conductance_w_per_k": 0.016269,
+        "destroyed_active_conductance_w_per_k": 0.0
+      }
+    },
+    {
+      "id": "ISS3--C1",
+      "port_a": "ISS3:+x",
+      "port_b": "C1:-x",
+      "law": {
+        "kind": "directed_geometry",
+        "l0_m": 0.0001,
+        "activation_width_m": 1e-05,
+        "geometry_reference_logit": -3.9610357979075883,
+        "background_conductance_w_per_k": 0.016269,
+        "active_conductance_w_per_k": 162.67373099999998,
+        "endpoint_damage_weight": 1.0,
+        "destruction_damage": 1.0,
+        "destroyed_l0_m": 0.0002,
+        "destroyed_l_m": 0.0002,
+        "destroyed_background_conductance_w_per_k": 0.016269,
+        "destroyed_active_conductance_w_per_k": 0.0
+      }
+    },
+    {
+      "id": "C1--TIM3",
+      "port_a": "C1:+x",
+      "port_b": "TIM3:-x",
+      "law": {
+        "kind": "directed_geometry",
+        "l0_m": 0.0001,
+        "activation_width_m": 1e-05,
+        "geometry_reference_logit": 9.210140304753287,
+        "background_conductance_w_per_k": 0.016269,
+        "active_conductance_w_per_k": 162.67373099999998,
+        "endpoint_damage_weight": 1.0,
+        "destruction_damage": 1.0,
+        "destroyed_l0_m": 0.0002,
+        "destroyed_l_m": 0.0002,
+        "destroyed_background_conductance_w_per_k": 0.016269,
+        "destroyed_active_conductance_w_per_k": 0.0
+      }
+    },
+    {
+      "id": "TIM3--Al3",
+      "port_a": "TIM3:+x",
+      "port_b": "Al3:-x",
+      "law": {
+        "kind": "directed_geometry",
+        "l0_m": 0.0001,
+        "activation_width_m": 1e-05,
+        "geometry_reference_logit": 4.594980735661609,
+        "background_conductance_w_per_k": 0.016269,
+        "active_conductance_w_per_k": 162.67373099999998,
+        "endpoint_damage_weight": 1.0,
+        "destruction_damage": 1.0,
+        "destroyed_l0_m": 0.0002,
+        "destroyed_l_m": 0.0002,
+        "destroyed_background_conductance_w_per_k": 0.016269,
+        "destroyed_active_conductance_w_per_k": 0.0
+      }
+    },
+    {
+      "id": "Al3--ISS4",
+      "port_a": "Al3:+x",
+      "port_b": "ISS4:-x",
+      "law": {
+        "kind": "directed_geometry",
+        "l0_m": 0.0001,
+        "activation_width_m": 1e-05,
+        "geometry_reference_logit": -3.26368906615399,
+        "background_conductance_w_per_k": 0.016269,
+        "active_conductance_w_per_k": 162.67373099999998,
+        "endpoint_damage_weight": 1.0,
+        "destruction_damage": 1.0,
+        "destroyed_l0_m": 0.0002,
+        "destroyed_l_m": 0.0002,
+        "destroyed_background_conductance_w_per_k": 0.016269,
+        "destroyed_active_conductance_w_per_k": 0.0
+      }
+    },
+    {
+      "id": "ISS4--steel-R",
+      "port_a": "ISS4:+x",
+      "port_b": "steel-R:-x",
+      "law": {
+        "kind": "directed_geometry",
+        "l0_m": 0.0001,
+        "activation_width_m": 1e-05,
+        "geometry_reference_logit": 4.595018823175319,
+        "background_conductance_w_per_k": 0.016269,
+        "active_conductance_w_per_k": 162.67373099999998,
+        "endpoint_damage_weight": 1.0,
+        "destruction_damage": 1.0,
+        "destroyed_l0_m": 0.0002,
+        "destroyed_l_m": 0.0002,
+        "destroyed_background_conductance_w_per_k": 0.016269,
+        "destroyed_active_conductance_w_per_k": 0.0
+      }
+    },
+    {
+      "id": "failure-C2-ISS",
+      "port_a": "ISS2:+x",
+      "port_b": "C2:-x",
+      "law": {
+        "kind": "directed_geometry",
+        "l0_m": 0.0001,
+        "activation_width_m": 1e-05,
+        "geometry_reference_logit": -3.9610357979075883,
+        "background_conductance_w_per_k": 0.016269,
+        "active_conductance_w_per_k": 162.67373099999998,
+        "endpoint_damage_weight": 1.0,
+        "destruction_damage": 1.0,
+        "destroyed_l0_m": 0.0002,
+        "destroyed_l_m": 0.0002,
+        "destroyed_background_conductance_w_per_k": 0.006765641292654968,
+        "destroyed_active_conductance_w_per_k": 0.0
+      }
+    },
+    {
+      "id": "failure-C2-TIM",
+      "port_a": "C2:+x",
+      "port_b": "TIM2:-x",
+      "law": {
+        "kind": "directed_geometry",
+        "l0_m": 0.0001,
+        "activation_width_m": 1e-05,
+        "geometry_reference_logit": 9.210140304753287,
+        "background_conductance_w_per_k": 0.016269,
+        "active_conductance_w_per_k": 162.67373099999998,
+        "endpoint_damage_weight": 1.0,
+        "destruction_damage": 1.0,
+        "destroyed_l0_m": 0.0002,
+        "destroyed_l_m": 0.0002,
+        "destroyed_background_conductance_w_per_k": 0.009106881514523338,
+        "destroyed_active_conductance_w_per_k": 0.0
+      }
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "wall-room",
+      "port_id": "wall:outer",
+      "temperature_k": 304.46,
+      "conductance_w_per_k": 7.2986423946880805
+    }
+  ],
+  "primary_failures": [],
+  "measurement_probes": [
+    {
+      "id": "101",
+      "cell_id": "C1:case:-x",
+      "interface_id": "ISS3--C1",
+      "port_id": "C1:-x",
+      "neighbor_port_id": "ISS3:+x",
+      "neighbor_material": "ISS"
+    },
+    {
+      "id": "102",
+      "cell_id": "C1:case:+x",
+      "interface_id": "C1--TIM3",
+      "port_id": "C1:+x",
+      "neighbor_port_id": "TIM3:-x",
+      "neighbor_material": "TIM"
+    },
+    {
+      "id": "107",
+      "cell_id": "C3:case:+x",
+      "interface_id": "C3--TIM1",
+      "port_id": "C3:+x",
+      "neighbor_port_id": "TIM1:-x",
+      "neighbor_material": "TIM"
+    },
+    {
+      "id": "108",
+      "cell_id": "C3:case:-x",
+      "interface_id": "ISS1--C3",
+      "port_id": "C3:-x",
+      "neighbor_port_id": "ISS1:+x",
+      "neighbor_material": "ISS"
+    },
+    {
+      "id": "C2-ISS",
+      "cell_id": "C2:case:-x",
+      "interface_id": "failure-C2-ISS",
+      "port_id": "C2:-x"
+    },
+    {
+      "id": "C2-TIM",
+      "cell_id": "C2:case:+x",
+      "interface_id": "failure-C2-TIM",
+      "port_id": "C2:+x"
+    }
+  ],
+  "failure_sample_times_s": [
+    0.0,
+    0.01,
+    0.02,
+    0.03,
+    0.04,
+    0.05,
+    0.06,
+    0.07,
+    0.08,
+    0.09,
+    0.1,
+    0.11,
+    0.12,
+    0.13,
+    0.14,
+    0.15,
+    0.16,
+    0.17,
+    0.18,
+    0.19,
+    0.2,
+    0.21,
+    0.22,
+    0.23,
+    0.24,
+    0.25,
+    0.26,
+    0.27,
+    0.28,
+    0.29,
+    0.3,
+    0.31,
+    0.32,
+    0.33,
+    0.34,
+    0.35000000000000003,
+    0.36,
+    0.37,
+    0.38,
+    0.39,
+    0.4,
+    0.41000000000000003,
+    0.42,
+    0.43,
+    0.44,
+    0.45,
+    0.46,
+    0.47000000000000003,
+    0.4709998844191432,
+    0.48,
+    0.49,
+    0.5,
+    0.51,
+    0.52,
+    0.53,
+    0.54,
+    0.55,
+    0.56,
+    0.5700000000000001,
+    0.58,
+    0.59,
+    0.6,
+    0.61,
+    0.62,
+    0.63,
+    0.64,
+    0.65,
+    0.66,
+    0.67,
+    0.68,
+    0.6900000000000001,
+    0.7000000000000001,
+    0.71,
+    0.72,
+    0.73,
+    0.74,
+    0.75,
+    0.76,
+    0.77,
+    0.78,
+    0.79,
+    0.8,
+    0.81,
+    0.8200000000000001,
+    0.8300000000000001,
+    0.84,
+    0.85,
+    0.86,
+    0.87,
+    0.88,
+    0.89,
+    0.9,
+    0.91,
+    0.92,
+    0.93,
+    0.9400000000000001,
+    0.9419997688382864,
+    0.9500000000000001,
+    0.96,
+    0.97,
+    0.98,
+    0.99,
+    1.0,
+    1.01,
+    1.02,
+    1.03,
+    1.04,
+    1.05,
+    1.06,
+    1.07,
+    1.08,
+    1.09,
+    1.1,
+    1.11,
+    1.12,
+    1.1300000000000001,
+    1.1400000000000001,
+    1.1500000000000001,
+    1.16,
+    1.17,
+    1.18,
+    1.19,
+    1.2,
+    1.21,
+    1.22,
+    1.23,
+    1.24,
+    1.25,
+    1.26,
+    1.27,
+    1.28,
+    1.29,
+    1.3,
+    1.31,
+    1.32,
+    1.33,
+    1.34,
+    1.35,
+    1.36,
+    1.37,
+    1.3800000000000001,
+    1.3900000000000001,
+    1.4000000000000001,
+    1.41,
+    1.42,
+    1.43,
+    1.44,
+    1.45,
+    1.46,
+    1.47,
+    1.48,
+    1.49,
+    1.5,
+    1.5000000363215804,
+    1.51,
+    1.52,
+    1.53,
+    1.54,
+    1.55,
+    1.56,
+    1.57,
+    1.58,
+    1.59,
+    1.6,
+    1.61,
+    1.62,
+    1.6300000000000001,
+    1.6400000000000001,
+    1.6500000000000001,
+    1.6600000000000001,
+    1.67,
+    1.68,
+    1.69,
+    1.7,
+    1.71,
+    1.72,
+    1.73,
+    1.74,
+    1.75,
+    1.76,
+    1.77,
+    1.78,
+    1.79,
+    1.8,
+    1.81,
+    1.82,
+    1.83,
+    1.84,
+    1.85,
+    1.86,
+    1.87,
+    1.8800000000000001,
+    1.8900000000000001,
+    1.9000000000000001,
+    1.9100000000000001,
+    1.92,
+    1.93,
+    1.94,
+    1.95,
+    1.96,
+    1.9699997501447797,
+    1.97,
+    1.98,
+    1.99,
+    2.0,
+    2.0100000000000002,
+    2.02,
+    2.0300000000000002,
+    2.04,
+    2.05,
+    2.06,
+    2.07,
+    2.08,
+    2.09,
+    2.1,
+    2.11,
+    2.12,
+    2.13,
+    2.14,
+    2.15,
+    2.16,
+    2.17,
+    2.18,
+    2.19,
+    2.2,
+    2.21,
+    2.22,
+    2.23,
+    2.24,
+    2.25,
+    2.2600000000000002,
+    2.27,
+    2.2800000000000002,
+    2.29,
+    2.3000000000000003,
+    2.31,
+    2.32,
+    2.33,
+    2.34,
+    2.35,
+    2.36,
+    2.37,
+    2.38,
+    2.39,
+    2.4,
+    2.41,
+    2.42,
+    2.43,
+    2.44,
+    2.440000092610717,
+    2.45,
+    2.46,
+    2.47,
+    2.48,
+    2.49,
+    2.5,
+    2.5100000000000002,
+    2.52,
+    2.5300000000000002,
+    2.54,
+    2.5500000000000003,
+    2.56,
+    2.57,
+    2.58,
+    2.59,
+    2.6,
+    2.61,
+    2.62,
+    2.63,
+    2.64,
+    2.65,
+    2.66,
+    2.67,
+    2.68,
+    2.69,
+    2.7,
+    2.71,
+    2.72,
+    2.73,
+    2.74,
+    2.75,
+    2.7600000000000002,
+    2.77,
+    2.7800000000000002,
+    2.79,
+    2.8000000000000003,
+    2.81,
+    2.82,
+    2.83,
+    2.84,
+    2.85,
+    2.86,
+    2.87,
+    2.88,
+    2.89,
+    2.9,
+    2.909999806433916,
+    2.91,
+    2.92,
+    2.93,
+    2.94,
+    2.95,
+    2.96,
+    2.97,
+    2.98,
+    2.99,
+    3.0,
+    3.0100000000000002,
+    3.02,
+    3.0300000000000002,
+    3.04,
+    3.0500000000000003,
+    3.06,
+    3.0700000000000003,
+    3.08,
+    3.09,
+    3.1,
+    3.11,
+    3.12,
+    3.13,
+    3.14,
+    3.15,
+    3.16,
+    3.17,
+    3.18,
+    3.19,
+    3.2,
+    3.21,
+    3.22,
+    3.23,
+    3.24,
+    3.25,
+    3.2600000000000002,
+    3.27,
+    3.2800000000000002,
+    3.29,
+    3.3000000000000003,
+    3.31,
+    3.3200000000000003,
+    3.33,
+    3.34,
+    3.35,
+    3.36,
+    3.37,
+    3.3789999783039093,
+    3.38,
+    3.39,
+    3.4,
+    3.41,
+    3.42,
+    3.43,
+    3.44,
+    3.45,
+    3.46,
+    3.47,
+    3.48,
+    3.49,
+    3.5,
+    3.5100000000000002,
+    3.52,
+    3.5300000000000002,
+    3.54,
+    3.5500000000000003,
+    3.56,
+    3.5700000000000003,
+    3.58,
+    3.59,
+    3.6,
+    3.61,
+    3.62,
+    3.63,
+    3.64,
+    3.65,
+    3.66,
+    3.67,
+    3.68,
+    3.69,
+    3.7,
+    3.71,
+    3.72,
+    3.73,
+    3.74,
+    3.75,
+    3.7600000000000002,
+    3.77,
+    3.7800000000000002,
+    3.79,
+    3.8000000000000003,
+    3.81,
+    3.8200000000000003,
+    3.83,
+    3.84,
+    3.8480001501739025,
+    3.85,
+    3.86,
+    3.87,
+    3.88,
+    3.89,
+    3.9,
+    3.91,
+    3.92,
+    3.93,
+    3.94,
+    3.95,
+    3.96,
+    3.97,
+    3.98,
+    3.99,
+    4.0,
+    4.01,
+    4.0200000000000005,
+    4.03,
+    4.04,
+    4.05,
+    4.0600000000000005,
+    4.07,
+    4.08,
+    4.09,
+    4.1,
+    4.11,
+    4.12,
+    4.13,
+    4.14,
+    4.15,
+    4.16,
+    4.17,
+    4.18,
+    4.19,
+    4.2,
+    4.21,
+    4.22,
+    4.23,
+    4.24,
+    4.25,
+    4.26,
+    4.2700000000000005,
+    4.28,
+    4.29,
+    4.3,
+    4.3100000000000005,
+    4.317999863997102,
+    4.32,
+    4.33,
+    4.34,
+    4.3500000000000005,
+    4.36,
+    4.37,
+    4.38,
+    4.39,
+    4.4,
+    4.41,
+    4.42,
+    4.43,
+    4.44,
+    4.45,
+    4.46,
+    4.47,
+    4.48,
+    4.49,
+    4.5,
+    4.51,
+    4.5200000000000005,
+    4.53,
+    4.54,
+    4.55,
+    4.5600000000000005,
+    4.57,
+    4.58,
+    4.59,
+    4.6000000000000005,
+    4.61,
+    4.62,
+    4.63,
+    4.64,
+    4.65,
+    4.66,
+    4.67,
+    4.68,
+    4.69,
+    4.7,
+    4.71,
+    4.72,
+    4.73,
+    4.74,
+    4.75,
+    4.76,
+    4.7700000000000005,
+    4.78,
+    4.788000206463039,
+    4.79,
+    4.8,
+    4.8100000000000005,
+    4.82,
+    4.83,
+    4.84,
+    4.8500000000000005,
+    4.86,
+    4.87,
+    4.88,
+    4.89,
+    4.9,
+    4.91,
+    4.92,
+    4.93,
+    4.94,
+    4.95,
+    4.96,
+    4.97,
+    4.98,
+    4.99,
+    5.0,
+    5.1,
+    5.199999999999999,
+    5.257999920286238,
+    5.299999999999999,
+    5.399999999999999,
+    5.499999999999998,
+    5.599999999999998,
+    5.6999999999999975,
+    5.728999804705381,
+    5.799999999999997,
+    5.899999999999997,
+    5.9999999999999964,
+    6.099999999999996,
+    6.1990001471713185,
+    6.199999999999996,
+    6.299999999999995,
+    6.399999999999995,
+    6.499999999999995,
+    6.599999999999994,
+    6.670000031590462,
+    6.699999999999994,
+    6.799999999999994,
+    6.899999999999993,
+    6.999999999999993,
+    7.0999999999999925,
+    7.139999745413661,
+    7.199999999999992,
+    7.299999999999992,
+    7.3999999999999915,
+    7.499999999999991,
+    7.599999999999991,
+    7.611000258475542,
+    7.69999999999999,
+    7.79999999999999,
+    7.89999999999999,
+    7.999999999999989,
+    8.082000142894685,
+    8.099999999999989,
+    8.199999999999989,
+    8.299999999999988,
+    8.399999999999988,
+    8.499999999999988,
+    8.553000027313828,
+    8.599999999999987,
+    8.699999999999987,
+    8.799999999999986,
+    8.899999999999986,
+    8.999999999999986,
+    9.022000199183822,
+    9.099999999999985,
+    9.199999999999985,
+    9.299999999999985,
+    9.399999999999984,
+    9.491999913007021,
+    9.499999999999984,
+    9.599999999999984,
+    9.699999999999983,
+    9.799999999999983,
+    9.899999999999983,
+    9.961000084877014,
+    9.999999999999982,
+    10.099999999999982,
+    10.199999999999982,
+    10.299999999999981,
+    10.39999999999998,
+    10.431999969296157,
+    10.49999999999998,
+    10.59999999999998,
+    10.69999999999998,
+    10.79999999999998,
+    10.899999999999979,
+    10.90100014116615,
+    10.999999999999979,
+    11.099999999999978,
+    11.199999999999978,
+    11.299999999999978,
+    11.370000313036144,
+    11.399999999999977,
+    11.499999999999977,
+    11.599999999999977,
+    11.699999999999976,
+    11.799999999999976,
+    11.840000026859343,
+    11.899999999999975,
+    11.999999999999975,
+    12.099999999999975,
+    12.199999999999974,
+    12.299999999999974,
+    12.309999740682542,
+    12.399999999999974,
+    12.499999999999973,
+    12.599999999999973,
+    12.699999999999973,
+    12.78000008314848,
+    12.799999999999972,
+    12.899999999999972,
+    12.999999999999972,
+    13.099999999999971,
+    13.19999999999997,
+    13.252000138163567,
+    13.29999999999997,
+    13.39999999999997,
+    13.49999999999997,
+    13.59999999999997,
+    13.699999999999969,
+    13.799999999999969,
+    13.81200011819601,
+    13.899999999999968,
+    13.999999999999968,
+    14.099999999999968,
+    14.199999999999967,
+    14.28199983201921,
+    14.299999999999967,
+    14.399999999999967,
+    14.499999999999966,
+    14.599999999999966,
+    14.699999999999966,
+    14.753999887034297,
+    14.799999999999965,
+    14.899999999999965,
+    14.999999999999964,
+    15.099999999999964,
+    15.199999999999964,
+    15.22499977145344,
+    15.299999999999963,
+    15.399999999999963,
+    15.499999999999963,
+    15.599999999999962,
+    15.696000284515321,
+    15.699999999999962,
+    15.799999999999962,
+    15.899999999999961,
+    15.999999999999961,
+    16.09999999999996,
+    16.164999827742577,
+    16.19999999999996,
+    16.29999999999996,
+    16.39999999999996,
+    16.499999999999957,
+    16.59999999999996,
+    16.63599971216172,
+    16.69999999999996,
+    16.799999999999958,
+    16.899999999999956,
+    16.999999999999957,
+    17.09999999999996,
+    17.104999884031713,
+    17.199999999999957,
+    17.299999999999955,
+    17.399999999999956,
+    17.499999999999957,
+    17.57500022649765,
+    17.599999999999955,
+    17.699999999999953,
+    17.799999999999955,
+    17.899999999999956,
+    17.999999999999954,
+    18.04499994032085,
+    18.09999999999995,
+    18.199999999999953,
+    18.299999999999955,
+    18.399999999999952,
+    18.49999999999995,
+    18.515000282786787,
+    18.59999999999995,
+    18.699999999999953,
+    18.79999999999995,
+    18.89999999999995,
+    18.984999996609986,
+    18.99999999999995,
+    19.09999999999995,
+    19.19999999999995,
+    19.299999999999947,
+    19.39999999999995,
+    19.45400016847998,
+    19.49999999999995,
+    19.599999999999948,
+    19.699999999999946,
+    19.799999999999947,
+    19.89999999999995,
+    19.926000223495066,
+    19.999999999999947,
+    20.099999999999945,
+    20.199999999999946,
+    20.299999999999947,
+    20.39700010791421,
+    20.399999999999945,
+    20.499999999999943,
+    20.599999999999945,
+    20.699999999999946,
+    20.799999999999944,
+    20.867999992333353,
+    20.89999999999994,
+    20.999999999999943,
+    21.099999999999945,
+    21.199999999999942,
+    21.29999999999994,
+    21.337999706156552,
+    21.39999999999994,
+    21.499999999999943,
+    21.59999999999994,
+    21.69999999999994,
+    21.79999999999994,
+    21.80800004862249,
+    21.89999999999994,
+    21.99999999999994,
+    22.099999999999937,
+    22.19999999999994,
+    22.278999933041632,
+    22.29999999999994,
+    22.399999999999938,
+    22.499999999999936,
+    22.599999999999937,
+    22.69999999999994,
+    22.748000104911625,
+    22.799999999999937,
+    22.899999999999935,
+    22.999999999999936,
+    23.099999999999937,
+    23.199999999999935,
+    23.217999818734825,
+    23.299999999999933,
+    23.399999999999935,
+    23.499999999999936,
+    23.599999999999934,
+    23.688000161200762,
+    23.699999999999932,
+    23.799999999999933,
+    23.899999999999935,
+    23.999999999999932,
+    24.09999999999993,
+    24.159000045619905,
+    24.199999999999932,
+    24.299999999999933,
+    24.39999999999993,
+    24.49999999999993,
+    24.59999999999993,
+    24.628000217489898,
+    24.699999999999932,
+    24.79999999999993,
+    24.899999999999928,
+    24.99999999999993,
+    25.09900010190904,
+    25.09999999999993,
+    25.19999999999993,
+    25.299999999999926,
+    25.399999999999928,
+    25.49999999999993,
+    25.57100015692413,
+    25.599999999999927,
+    25.699999999999925,
+    25.799999999999926,
+    25.899999999999928,
+    25.999999999999925,
+    26.043000211939216,
+    26.099999999999923,
+    26.199999999999925,
+    26.299999999999926,
+    26.399999999999924,
+    26.499999999999922,
+    26.51400009635836,
+    26.599999999999923,
+    26.699999999999925,
+    26.799999999999923,
+    26.89999999999992,
+    26.983999810181558,
+    26.999999999999922,
+    27.099999999999923,
+    27.19999999999992,
+    27.29999999999992,
+    27.39999999999992,
+    27.454000152647495,
+    27.499999999999922,
+    27.59999999999992,
+    27.699999999999918,
+    27.79999999999992,
+    27.89999999999992,
+    27.923999866470695,
+    27.99999999999992,
+    28.099999999999916,
+    28.199999999999918,
+    28.29999999999992,
+    28.39400020893663,
+    28.399999999999917,
+    28.499999999999915,
+    28.599999999999916,
+    28.699999999999918,
+    28.799999999999915,
+    28.86399992275983,
+    28.899999999999913,
+    28.999999999999915,
+    29.099999999999916,
+    29.199999999999914,
+    29.299999999999912,
+    29.334000265225768,
+    29.399999999999913,
+    29.499999999999915,
+    29.599999999999913,
+    29.69999999999991,
+    29.799999999999912,
+    29.802999808453023,
+    29.899999999999913,
+    30.0
+  ],
+  "shells": [
+    {
+      "material_id": "unidentified-pouch-laminate-PROXY",
+      "thickness_m": 0.00015,
+      "density_kg_m3": 1600.0,
+      "specific_heat_j_kg_k": 1250.0,
+      "conductivity_w_per_m_k": [
+        0.3,
+        50.0,
+        50.0
+      ],
+      "conductivity_frame": "normal_tangential",
+      "seam_contact_h": 500.0,
+      "damage_onset_k": 425.0,
+      "damage_rate_per_s": 0.0,
+      "damage_scale_k": 25.0,
+      "destroyed_conductance_factor": 0.02,
+      "contents_id": "C3",
+      "contents_contact_h": 1999.999986663825,
+      "surface_connectivity": {
+        "reference_temperature_k": 298.15,
+        "temperature_scale_k": 100.0,
+        "linear": [
+          3.05291277532628,
+          3.05291277532628,
+          3.05291277532628
+        ],
+        "quadratic": [
+          11.994228016362324,
+          11.994228016362324,
+          11.994228016362324
+        ],
+        "damage": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "temperature_contrast": [
+          11.999317482819652,
+          11.999317482819652,
+          11.999317482819652
+        ],
+        "damage_contrast": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "initial_temperature_fields_k": {
+        "-x": [
+          312.17520403893934,
+          311.5726578903245,
+          312.17520403893934,
+          311.76388663216795,
+          311.064907650347,
+          311.76388663216795,
+          312.17520403893934,
+          311.5726578903245,
+          312.17520403893934
+        ],
+        "+x": [
+          337.887054898708,
+          338.15217219468457,
+          337.887054898708,
+          338.12961818452794,
+          338.42008099828564,
+          338.12961818452794,
+          337.887054898708,
+          338.15217219468457,
+          337.887054898708
+        ],
+        "-y": [
+          316.2101391307928,
+          320.2072340569632,
+          326.58388421164483,
+          315.8865111403315,
+          320.1310740430031,
+          326.8837404710332,
+          316.2101391307928,
+          320.2072340569632,
+          326.58388421164483
+        ],
+        "+y": [
+          316.2101391307928,
+          320.2072340569632,
+          326.58388421164483,
+          315.8865111403315,
+          320.1310740430031,
+          326.8837404710332,
+          316.2101391307928,
+          320.2072340569632,
+          326.58388421164483
+        ],
+        "-z": [
+          316.6906369114524,
+          320.14382764349205,
+          325.42156359074363,
+          316.2610951893589,
+          320.06185307427194,
+          325.87794868086354,
+          316.6906369114524,
+          320.14382764349205,
+          325.42156359074363
+        ],
+        "+z": [
+          316.6906369114524,
+          320.14382764349205,
+          325.42156359074363,
+          316.2610951893589,
+          320.06185307427194,
+          325.87794868086354,
+          316.6906369114524,
+          320.14382764349205,
+          325.42156359074363
+        ]
+      }
+    },
+    {
+      "material_id": "unidentified-pouch-laminate-PROXY",
+      "thickness_m": 0.00015,
+      "density_kg_m3": 1600.0,
+      "specific_heat_j_kg_k": 1250.0,
+      "conductivity_w_per_m_k": [
+        0.3,
+        50.0,
+        50.0
+      ],
+      "conductivity_frame": "normal_tangential",
+      "seam_contact_h": 500.0,
+      "damage_onset_k": 425.0,
+      "damage_rate_per_s": 0.0,
+      "damage_scale_k": 25.0,
+      "destroyed_conductance_factor": 0.02,
+      "contents_id": "C1",
+      "contents_contact_h": 1999.999986663825,
+      "surface_connectivity": {
+        "reference_temperature_k": 298.15,
+        "temperature_scale_k": 100.0,
+        "linear": [
+          3.05291277532628,
+          3.05291277532628,
+          3.05291277532628
+        ],
+        "quadratic": [
+          11.994228016362324,
+          11.994228016362324,
+          11.994228016362324
+        ],
+        "damage": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "temperature_contrast": [
+          11.999317482819652,
+          11.999317482819652,
+          11.999317482819652
+        ],
+        "damage_contrast": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "initial_temperature_fields_k": {
+        "-x": [
+          342.2334238475268,
+          343.8047532074963,
+          342.2334238475268,
+          343.33538794504915,
+          345.10856401616115,
+          343.33538794504915,
+          342.2334238475268,
+          343.8047532074963,
+          342.2334238475268
+        ],
+        "+x": [
+          309.427444585037,
+          309.2531205653367,
+          309.427444585037,
+          309.3183187992157,
+          309.12151991001247,
+          309.3183187992157,
+          309.427444585037,
+          309.2531205653367,
+          309.427444585037
+        ],
+        "-y": [
+          328.3070847402124,
+          320.2107960486659,
+          314.9774788619118,
+          329.18685803119416,
+          320.46591568213057,
+          314.9076882662123,
+          328.3070847402124,
+          320.2107960486659,
+          314.9774788619118
+        ],
+        "+y": [
+          328.3070847402124,
+          320.2107960486659,
+          314.9774788619118,
+          329.18685803119416,
+          320.46591568213057,
+          314.9076882662123,
+          328.3070847402124,
+          320.2107960486659,
+          314.9774788619118
+        ],
+        "-z": [
+          326.896839563348,
+          320.1903286108149,
+          315.6779732096933,
+          328.0432403541649,
+          320.44688220554053,
+          315.4752327900409,
+          326.896839563348,
+          320.1903286108149,
+          315.6779732096933
+        ],
+        "+z": [
+          326.896839563348,
+          320.1903286108149,
+          315.6779732096933,
+          328.0432403541649,
+          320.44688220554053,
+          315.4752327900409,
+          326.896839563348,
+          320.1903286108149,
+          315.6779732096933
+        ]
+      }
+    },
+    {
+      "material_id": "unidentified-pouch-laminate-PROXY",
+      "thickness_m": 0.00015,
+      "density_kg_m3": 1600.0,
+      "specific_heat_j_kg_k": 1250.0,
+      "conductivity_w_per_m_k": [
+        0.3,
+        50.0,
+        50.0
+      ],
+      "conductivity_frame": "normal_tangential",
+      "seam_contact_h": 500.0,
+      "damage_onset_k": 425.0,
+      "damage_rate_per_s": 0.1,
+      "damage_scale_k": 25.0,
+      "destroyed_conductance_factor": 0.02,
+      "contents_id": "C2",
+      "contents_contact_h": 1999.999986663825,
+      "surface_connectivity": {
+        "reference_temperature_k": 298.15,
+        "temperature_scale_k": 100.0,
+        "linear": [
+          3.05291277532628,
+          3.05291277532628,
+          3.05291277532628
+        ],
+        "quadratic": [
+          11.994228016362324,
+          11.994228016362324,
+          11.994228016362324
+        ],
+        "damage": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "temperature_contrast": [
+          11.999317482819652,
+          11.999317482819652,
+          11.999317482819652
+        ],
+        "damage_contrast": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "initial_temperature_fields_k": {
+        "-x": [
+          385.29749999999996,
+          385.29749999999996,
+          385.29749999999996,
+          390.80249999999995,
+          390.80249999999995,
+          390.80249999999995,
+          396.30749999999995,
+          396.30749999999995,
+          396.30749999999995
+        ],
+        "+x": [
+          389.83966666666663,
+          389.83966666666663,
+          389.83966666666663,
+          388.24699999999996,
+          388.24699999999996,
+          388.24699999999996,
+          386.6543333333333,
+          386.6543333333333,
+          386.6543333333333
+        ],
+        "-y": [
+          386.0545277777777,
+          387.5685833333333,
+          389.0826388888888,
+          390.3765833333333,
+          389.5247499999999,
+          388.6729166666666,
+          394.6986388888888,
+          391.48091666666664,
+          388.2631944444444
+        ],
+        "+y": [
+          386.0545277777777,
+          387.5685833333333,
+          389.0826388888888,
+          390.3765833333333,
+          389.5247499999999,
+          388.6729166666666,
+          394.6986388888888,
+          391.48091666666664,
+          388.2631944444444
+        ],
+        "-z": [
+          383.89349999999996,
+          386.59049999999996,
+          389.28749999999997,
+          383.89349999999996,
+          386.59049999999996,
+          389.28749999999997,
+          383.89349999999996,
+          386.59049999999996,
+          389.28749999999997
+        ],
+        "+z": [
+          396.8596666666666,
+          392.45899999999995,
+          388.0583333333333,
+          396.8596666666666,
+          392.45899999999995,
+          388.0583333333333,
+          396.8596666666666,
+          392.45899999999995,
+          388.0583333333333
+        ]
+      }
+    }
+  ],
+  "gas_network": {
+    "reference_temperature_k": 298.15,
+    "cv_j_per_kg_k": 1000.0,
+    "specific_r_j_per_kg_k": 287.0,
+    "max_fraction_per_step": 0.1,
+    "max_temperature_step_k": 5.0,
+    "compartments": [
+      {
+        "id": "inside-C2",
+        "contents_id": "C2",
+        "volume_m3": 5e-06,
+        "initial_mass_kg": 4.766676017306025e-06,
+        "initial_temperature_k": 389.52475000000004
+      },
+      {
+        "id": "chamber",
+        "volume_m3": 0.12,
+        "initial_mass_kg": 0.14636313083929253,
+        "initial_temperature_k": 304.46,
+        "initial_oxidizer_mass_fraction": 0.232,
+        "reaction_rate_per_s": 20.0,
+        "oxidizer_heat_j_per_kg": 13100000.0
+      }
+    ],
+    "channels": [
+      {
+        "id": "C2-progressive--x",
+        "kind": "rupture",
+        "port_id": "C2:case:-x:outer",
+        "from": "inside-C2",
+        "to": "chamber",
+        "opening_pressure_pa": 1014303.1945332563,
+        "strength_reference_k": 400.0,
+        "strength_temperature_scale_k": 100.0,
+        "damage_opening": {
+          "damage_onset": 0.05,
+          "exponent": 2.0,
+          "pressure_damage_rate_per_s": 0.176066487512872,
+          "max_damage_step": 0.02,
+          "seam_width_m": 0.0005,
+          "seam_strength_factor": 0.3,
+          "fracture_energy_j_per_m2": 1000.0
+        },
+        "surface_link": {
+          "h_w_per_m2_k": 6523469.678925685
+        }
+      },
+      {
+        "id": "C2-progressive-+x",
+        "kind": "rupture",
+        "port_id": "C2:case:+x:outer",
+        "from": "inside-C2",
+        "to": "chamber",
+        "opening_pressure_pa": 1014303.1945332563,
+        "strength_reference_k": 400.0,
+        "strength_temperature_scale_k": 100.0,
+        "damage_opening": {
+          "damage_onset": 0.05,
+          "exponent": 2.0,
+          "pressure_damage_rate_per_s": 0.176066487512872,
+          "max_damage_step": 0.02,
+          "seam_width_m": 0.0005,
+          "seam_strength_factor": 0.3,
+          "fracture_energy_j_per_m2": 1000.0
+        },
+        "surface_link": {
+          "h_w_per_m2_k": 6523469.678925685
+        }
+      },
+      {
+        "id": "C2-progressive--y",
+        "kind": "rupture",
+        "port_id": "C2:case:-y:outer",
+        "from": "inside-C2",
+        "to": "chamber",
+        "opening_pressure_pa": 1014303.1945332563,
+        "strength_reference_k": 400.0,
+        "strength_temperature_scale_k": 100.0,
+        "damage_opening": {
+          "damage_onset": 0.05,
+          "exponent": 2.0,
+          "pressure_damage_rate_per_s": 0.176066487512872,
+          "max_damage_step": 0.02,
+          "seam_width_m": 0.0005,
+          "seam_strength_factor": 0.3,
+          "fracture_energy_j_per_m2": 1000.0
+        },
+        "surface_link": {
+          "h_w_per_m2_k": 6523469.678925685
+        }
+      },
+      {
+        "id": "C2-progressive-+y",
+        "kind": "rupture",
+        "port_id": "C2:case:+y:outer",
+        "from": "inside-C2",
+        "to": "chamber",
+        "opening_pressure_pa": 1014303.1945332563,
+        "strength_reference_k": 400.0,
+        "strength_temperature_scale_k": 100.0,
+        "damage_opening": {
+          "damage_onset": 0.05,
+          "exponent": 2.0,
+          "pressure_damage_rate_per_s": 0.176066487512872,
+          "max_damage_step": 0.02,
+          "seam_width_m": 0.0005,
+          "seam_strength_factor": 0.3,
+          "fracture_energy_j_per_m2": 1000.0
+        },
+        "surface_link": {
+          "h_w_per_m2_k": 6523469.678925685
+        }
+      },
+      {
+        "id": "C2-progressive--z",
+        "kind": "rupture",
+        "port_id": "C2:case:-z:outer",
+        "from": "inside-C2",
+        "to": "chamber",
+        "opening_pressure_pa": 1014303.1945332563,
+        "strength_reference_k": 400.0,
+        "strength_temperature_scale_k": 100.0,
+        "damage_opening": {
+          "damage_onset": 0.05,
+          "exponent": 2.0,
+          "pressure_damage_rate_per_s": 0.176066487512872,
+          "max_damage_step": 0.02,
+          "seam_width_m": 0.0005,
+          "seam_strength_factor": 0.3,
+          "fracture_energy_j_per_m2": 1000.0
+        },
+        "surface_link": {
+          "h_w_per_m2_k": 6523469.678925685
+        }
+      },
+      {
+        "id": "C2-progressive-+z",
+        "kind": "rupture",
+        "port_id": "C2:case:+z:outer",
+        "from": "inside-C2",
+        "to": "chamber",
+        "opening_pressure_pa": 1014303.1945332563,
+        "strength_reference_k": 400.0,
+        "strength_temperature_scale_k": 100.0,
+        "damage_opening": {
+          "damage_onset": 0.05,
+          "exponent": 2.0,
+          "pressure_damage_rate_per_s": 0.176066487512872,
+          "max_damage_step": 0.02,
+          "seam_width_m": 0.0005,
+          "seam_strength_factor": 0.3,
+          "fracture_energy_j_per_m2": 1000.0
+        },
+        "surface_link": {
+          "h_w_per_m2_k": 6523469.678925685
+        }
+      }
+    ],
+    "thermal_contacts": [
+      {
+        "compartment": "chamber",
+        "port_id": "steel-L:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "steel-L:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "steel-L:-z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "steel-L:+z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS1:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS1:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS1:-z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS1:+z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "C3:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "C3:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "C3:-z",
+        "h_w_per_m2_k": 57.15017943936765
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "C3:+z",
+        "h_w_per_m2_k": 57.15017943936765
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "TIM1:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "TIM1:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "TIM1:-z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "TIM1:+z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "Al1:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "Al1:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "Al1:-z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "Al1:+z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS2:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS2:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS2:-z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS2:+z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "TIM2:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "TIM2:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "TIM2:-z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "TIM2:+z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "Al2:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "Al2:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "Al2:-z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "Al2:+z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS3:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS3:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS3:-z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS3:+z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "C1:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "C1:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "C1:-z",
+        "h_w_per_m2_k": 57.15017943936765
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "C1:+z",
+        "h_w_per_m2_k": 57.15017943936765
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "TIM3:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "TIM3:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "TIM3:-z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "TIM3:+z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "Al3:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "Al3:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "Al3:-z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "Al3:+z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS4:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS4:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS4:-z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "ISS4:+z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "steel-R:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "steel-R:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "steel-R:-z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "steel-R:+z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "steel-L:-x",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "steel-R:+x",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "C2:-y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "C2:+y",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "C2:-z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "C2:+z",
+        "h_w_per_m2_k": 57.15017943936764
+      },
+      {
+        "compartment": "chamber",
+        "port_id": "wall:inner",
+        "h_w_per_m2_k": 26.373932319369633
+      }
+    ]
+  }
+}

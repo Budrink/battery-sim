@@ -1,0 +1,66 @@
+{
+  "before_sha256": "f15587fd1ada0f201ebfb616c4596c97883454d7fc65ca7f958d150ce4e48006",
+  "after_sha256": "2fee026e88732bbc0574f26e720d242c1a93d1c83f2973026760f1169a75b101",
+  "cases": {
+    "heat-no-cooling": {
+      "scenario_sha256": "3b05dcea8b265ad5592156210b4fd80e99c6d6d977c686e89d74fa270936d802",
+      "steps_before": 15028,
+      "steps_after": 15028,
+      "wall_s_before": 1.223675761,
+      "wall_s_after": 1.657668546,
+      "max_temperature_delta_k": 0.0,
+      "max_pressure_delta_pa": 0,
+      "worst_normalized_difference": [
+        "/applied_objects/0/capacity_j_k",
+        0.0,
+        0.0
+      ],
+      "passed": true
+    },
+    "heat-active-cooling": {
+      "scenario_sha256": "656d9e6baa152c205c0650d1fcece7465b0fa2d52406d097de530cbfb15a5d6b",
+      "steps_before": 24004,
+      "steps_after": 24004,
+      "wall_s_before": 1.883106531,
+      "wall_s_after": 2.558998873,
+      "max_temperature_delta_k": 0.0,
+      "max_pressure_delta_pa": 0,
+      "worst_normalized_difference": [
+        "/applied_objects/0/capacity_j_k",
+        0.0,
+        0.0
+      ],
+      "passed": true
+    },
+    "failure-no-cooling": {
+      "scenario_sha256": "43b89c7aab8aeec43d766c4734079021186c4c190d3fc77b4d792f00b237e712",
+      "steps_before": 77207,
+      "steps_after": 77207,
+      "wall_s_before": 30.921716037,
+      "wall_s_after": 29.740914503,
+      "max_temperature_delta_k": 5.229594535194337e-12,
+      "max_pressure_delta_pa": 2.4097971618175507e-08,
+      "worst_normalized_difference": [
+        "/energy_residual_j",
+        2.5902409106492996e-09,
+        0.25902409089727163
+      ],
+      "passed": true
+    },
+    "failure-active-cooling": {
+      "scenario_sha256": "8ff7be738455fbf0931a38dc833041f86e05b8718acabcab5a719f52fb422b08",
+      "steps_before": 76396,
+      "steps_after": 76396,
+      "wall_s_before": 21.509884027,
+      "wall_s_after": 18.640744091,
+      "max_temperature_delta_k": 2.8421709430404007e-12,
+      "max_pressure_delta_pa": 1.6880221664905548e-08,
+      "worst_normalized_difference": [
+        "/energy_residual_j",
+        1.8335413187742233e-09,
+        0.18335413178809254
+      ],
+      "passed": true
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "dataset_id": "intertek/230400637SHA-002/public-summary",
+  "experiment_id": "narada-166.4nesp280l-unit-test-2023",
+  "retrieved_at": "2026-10-12",
+  "extraction_method": "Manual transcription of numeric facts from public PDF text via web reader; not a raw timeseries import.",
+  "split": "development",
+  "calibration_status": "uncalibrated",
+  "sources": [
+    {
+      "id": "intertek-summary",
+      "source_url": "https://www.province-sud.nc/logicweb/logic/document/Ressource/8a8186bb8edd2156018ede8632000057",
+      "title": "Intertek report 230400637SHA-002",
+      "issue_date": "2023-07-22",
+      "available_pdf_pages": 2,
+      "report_declared_pages": 67,
+      "local_path": null,
+      "sha256": null,
+      "access_note": "Readable via web reader; direct PDF download returned HTTP 403. No raw bytes archived.",
+      "license": "Copyrighted test report; public access does not grant redistribution permission."
+    },
+    {
+      "id": "narada-specification",
+      "source_url": "https://www.province-sud.nc/logicweb/logic/document/Ressource/8a8186bb8edd2156018ede8709ac0181",
+      "title": "Narada Boulouparis technical proposal V4",
+      "revision_date": "2023-10-24",
+      "source_sections": [
+        "5.1 / Table 5-1",
+        "5.2 / Table 5-2"
+      ],
+      "local_path": null,
+      "sha256": null,
+      "access_note": "Public planning attachment, marked Confidential by author. Read via web reader; direct download returned HTTP 403.",
+      "license": "No open license identified; numeric specifications transcribed, document not redistributed."
+    }
+  ],
+  "published": {
+    "report": {
+      "primary_runaway_cells": 1,
+      "secondary_runaway_cells": 51,
+      "propagation_to_other_modules": false,
+      "propagation_to_other_units": false,
+      "trigger_method": "external heating",
+      "tested_module_model": "166.4NESP280L",
+      "modules_per_tested_unit": 8
+    },
+    "specification": {
+      "module_model": "166.4NESP280",
+      "chemistry": "LFP",
+      "series_cells": 52,
+      "parallel_cells": 1,
+      "cell_capacity_ah": 280,
+      "cell_voltage_v": 3.2,
+      "cell_energy_wh": 896,
+      "cell_mass_kg": 5.5,
+      "cell_dimensions_mm": [
+        174,
+        72,
+        207
+      ],
+      "module_dimensions_mm": [
+        760,
+        1150,
+        237
+      ]
+    }
+  },
+  "applicability_note": "Specification model lacks the tested model's L suffix. Treat family dimensions as a provisional proxy, not proof of exact sample identity.",
+  "unavailable": [
+    "internal cell arrangement",
+    "initiating cell position",
+    "cell temperature histories",
+    "runaway timing/order",
+    "SOC and SOH of tested sample",
+    "interlayer geometry/materials",
+    "cooling state and boundary conditions",
+    "cell heat release and heat capacity"
+  ],
+  "adapter": "generate_narada_52/v1",
+  "model_scope": "Single 52-cell initiating module, assumed 4 x 13 thermal lattice. Other modules, enclosure, coolant, gas and electrical feedback are not modeled."
+}

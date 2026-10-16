@@ -1,0 +1,58 @@
+{
+  "name": "R1 aging, oxygen-independent R2, external R3",
+  "metadata": {
+    "calibration_status": "SYNTHETIC DEMO, NOT CALIBRATED: accelerated aging and pre-aged hot battery",
+    "assumptions": ["No independent material l or lcrit", "Zero initial oxygen inside; oxygen available in the outer cavity", "One effective gas includes evaporation products"]
+  },
+  "simulation": {"duration_s": 2, "max_dt_s": 0.01, "output_interval_s": 0.1, "stability_factor": 0.4},
+  "cells": [{
+    "id": "B", "role": "battery", "material_id": "synthetic-contents",
+    "geometry": {"kind": "prismatic", "dimensions_m": [0.02, 0.02, 0.02]},
+    "thermal": {
+      "heat_capacity_j_per_k": 10, "initial_temperature_k": 500,
+      "divisions": [3, 3, 3], "conductivity_w_per_m_k": [1, 2, 2],
+      "bulk_connectivity": {"kind": "directed_geometry",
+        "background_factor": 1, "active_factor": 0,
+        "destroyed_background_factor": 1, "destroyed_active_factor": 0}
+    },
+    "runaway": {"energy_j": 0, "duration_s": 1},
+    "conversion": {
+      "chemistry": "r1-r2-r3", "mass_kg": 0.004,
+      "reactant_cp": 1000, "activated_cp": 1000, "residue_cp": 1000,
+      "degradation_rate_per_s": 0.02, "degradation_reference_k": 300,
+      "degradation_activation_j_per_mol": 20000, "initial_precursor_fraction": 0.4,
+      "reaction_rate_per_s": 3, "reaction_reference_k": 500,
+      "reaction_activation_j_per_mol": 120000, "net_heat_j_per_kg": 200000,
+      "gas_yield": 0.2, "gas_yield_max": 0.6, "gas_yield_reference_k": 500,
+      "gas_yield_temperature_per_k": 0.001, "gas_yield_density_exponent": 0.3,
+      "gas_chemical_fraction": 0.25, "gas_compartment": "inside-B",
+      "residue_conductivity": [0.2, 0.3, 0.4]
+    }
+  }],
+  "shells": [{
+    "contents_id": "B", "material_id": "synthetic-case", "thickness_m": 0.001,
+    "density_kg_m3": 1200, "specific_heat_j_kg_k": 1000, "initial_temperature_k": 300,
+    "conductivity_w_per_m_k": [0.2, 0.2, 0.2], "contents_contact_h": 2, "seam_contact_h": 5,
+    "damage_onset_k": 650, "damage_rate_per_s": 0, "damage_scale_k": 25,
+    "destroyed_conductance_factor": 0.02
+  }],
+  "ports": [], "interfaces": [], "boundaries": [], "primary_failures": [],
+  "gas_network": {
+    "transport": "split_local_equilibrium", "mass_backend": "cuda_network",
+    "reference_temperature_k": 300, "cv_j_per_kg_k": 1000, "specific_r_j_per_kg_k": 287,
+    "compartments": [
+      {"id": "inside-B", "contents_id": "B", "volume_m3": 0.000001,
+        "initial_mass_kg": 0.0000007060975609756098, "initial_temperature_k": 500,
+        "initial_oxidizer_mass_fraction": 0},
+      {"id": "cavity", "volume_m3": 0.001,
+        "initial_mass_kg": 0.001176829268292683, "initial_temperature_k": 300,
+        "initial_oxidizer_mass_fraction": 0.232, "reaction_rate_per_s": 5}
+    ],
+    "channels": [{
+      "id": "case-rupture", "from": "inside-B", "to": "cavity", "port_id": "B:case:+z:outer",
+      "kind": "rupture", "area_m2": 0.0000001, "opening_pressure_pa": 10000,
+      "strength_reference_k": 300, "strength_temperature_scale_k": 300, "discharge_coefficient": 0.7
+    }],
+    "thermal_contacts": []
+  }
+}

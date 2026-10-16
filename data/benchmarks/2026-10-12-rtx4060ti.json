@@ -1,0 +1,440 @@
+{
+  "date": "2026-10-12",
+  "gpu": "NVIDIA GeForce RTX 4060 Ti 8GB",
+  "cpu": "AMD Ryzen 5 2600 Six-Core Processor",
+  "driver": "595.99.02",
+  "cuda": "13.2.51",
+  "precision": "FP64 physics; FP32 visualization",
+  "build": "Release; CUDA architecture 89; GCC 11.4",
+  "notes": [
+    "No fixed GPU clocks; desktop running; local measurements, not guaranteed rates.",
+    "Compute: 50 warmup steps, median of 3 measured runs, synthetic hot field, no full-field readback.",
+    "Render: original demo, 1280x720 hidden hardware OpenGL window, 10 warmup + 60 measured frames, 16 solver steps/frame, glFinish, no ImGui or VSync.",
+    "Mesh construction and CUDA initialization excluded from throughput; setup_s is recorded separately.",
+    "Stress scale 5 uses 300 measured steps; others 500."
+  ],
+  "binary_sha256": {
+    "baseline_benchmark": "fba78784f5ea4030d2f2461ad2b19dc2d9f285738bca9151f9cd2d1b1a13b005",
+    "optimized_benchmark": "9f83759a6a702527a89e56a8a968014b052c5f78af8eb8f4bea5027bb2be9f34",
+    "baseline_render": "e43ec811d2d545f62f90c41c993a2426d9c2c631af1ba528b648d3765699b458",
+    "optimized_render": "d440bffcaa0b9552dcc679f3561fc98b460633592bfd044c8fd5497c755d8bdb"
+  },
+  "records": {
+    "baseline-1": {
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "field_every": 0,
+      "links": 39252,
+      "median_step_ms": 0.15332471,
+      "median_steps_per_s": 6522.105928000777,
+      "median_volume_updates_per_s": 86822274.11354634,
+      "samples": [
+        {
+          "realtime_factor": 1304.4211856001555,
+          "relative_energy_residual": 3.5304866696514096e-15,
+          "simulated_s": 100,
+          "steps_per_s": 6522.105928000777,
+          "volume_updates_per_s": 86822274.11354634,
+          "wall_s": 0.076662355
+        },
+        {
+          "realtime_factor": 1300.976013020584,
+          "relative_energy_residual": 3.5304866696514096e-15,
+          "simulated_s": 100,
+          "steps_per_s": 6504.8800651029205,
+          "volume_updates_per_s": 86592963.42665008,
+          "wall_s": 0.076865368
+        },
+        {
+          "realtime_factor": 1360.2760674837853,
+          "relative_energy_residual": 3.5304866696514096e-15,
+          "simulated_s": 100,
+          "steps_per_s": 6801.3803374189265,
+          "volume_updates_per_s": 90539975.05172075,
+          "wall_s": 0.073514489
+        }
+      ],
+      "scale": 1,
+      "scenario": "narada-52-schematic",
+      "setup_s": 0.268430092,
+      "steps": 500,
+      "volumes": 13312,
+      "warmup_steps": 50,
+      "workload": "synthetic-hot-field"
+    },
+    "baseline-2": {
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "field_every": 0,
+      "links": 322512,
+      "median_step_ms": 1.147586668,
+      "median_steps_per_s": 871.3938806406559,
+      "median_volume_updates_per_s": 92799962.7127073,
+      "samples": [
+        {
+          "realtime_factor": 174.27877612813117,
+          "relative_energy_residual": 3.2088346488764827e-15,
+          "simulated_s": 100,
+          "steps_per_s": 871.3938806406559,
+          "volume_updates_per_s": 92799962.7127073,
+          "wall_s": 0.573793334
+        },
+        {
+          "realtime_factor": 174.1939814108579,
+          "relative_energy_residual": 3.2088346488764827e-15,
+          "simulated_s": 100,
+          "steps_per_s": 870.9699070542895,
+          "volume_updates_per_s": 92754811.22165361,
+          "wall_s": 0.574072647
+        },
+        {
+          "realtime_factor": 174.46312571363597,
+          "relative_energy_residual": 3.2088346488764827e-15,
+          "simulated_s": 100,
+          "steps_per_s": 872.3156285681799,
+          "volume_updates_per_s": 92898125.17999688,
+          "wall_s": 0.573187025
+        }
+      ],
+      "scale": 2,
+      "scenario": "narada-52-schematic",
+      "setup_s": 0.425237961,
+      "steps": 500,
+      "volumes": 106496,
+      "warmup_steps": 50,
+      "workload": "synthetic-hot-field"
+    },
+    "baseline-4": {
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "field_every": 0,
+      "links": 2546016,
+      "median_step_ms": 7.60245683,
+      "median_steps_per_s": 131.53642596876145,
+      "median_volume_updates_per_s": 112064825.75975376,
+      "samples": [
+        {
+          "realtime_factor": 26.222643504140976,
+          "relative_energy_residual": 5.804865343904305e-15,
+          "simulated_s": 100,
+          "steps_per_s": 131.1132175207049,
+          "volume_updates_per_s": 111704265.70467989,
+          "wall_s": 3.813498055
+        },
+        {
+          "realtime_factor": 26.31864819139884,
+          "relative_energy_residual": 5.804865343904305e-15,
+          "simulated_s": 100,
+          "steps_per_s": 131.5932409569942,
+          "volume_updates_per_s": 112113230.31164843,
+          "wall_s": 3.799587246
+        },
+        {
+          "realtime_factor": 26.307285193752293,
+          "relative_energy_residual": 5.804865343904305e-15,
+          "simulated_s": 100,
+          "steps_per_s": 131.53642596876145,
+          "volume_updates_per_s": 112064825.75975376,
+          "wall_s": 3.801228415
+        }
+      ],
+      "scale": 4,
+      "scenario": "narada-52-schematic",
+      "setup_s": 2.400540364,
+      "steps": 500,
+      "volumes": 851968,
+      "warmup_steps": 50,
+      "workload": "synthetic-hot-field"
+    },
+    "optimized-b-1": {
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "field_every": 0,
+      "links": 39252,
+      "median_step_ms": 0.074256818,
+      "median_steps_per_s": 13466.776882359813,
+      "median_volume_updates_per_s": 179269733.8579738,
+      "samples": [
+        {
+          "realtime_factor": 2693.3553764719622,
+          "relative_energy_residual": 3.5304866696514096e-15,
+          "simulated_s": 100,
+          "steps_per_s": 13466.776882359813,
+          "volume_updates_per_s": 179269733.8579738,
+          "wall_s": 0.037128409
+        },
+        {
+          "realtime_factor": 2654.2200027752524,
+          "relative_energy_residual": 3.5304866696514096e-15,
+          "simulated_s": 100,
+          "steps_per_s": 13271.100013876261,
+          "volume_updates_per_s": 176664883.3847208,
+          "wall_s": 0.037675852
+        },
+        {
+          "realtime_factor": 2700.9100284195156,
+          "relative_energy_residual": 3.5304866696514096e-15,
+          "simulated_s": 100,
+          "steps_per_s": 13504.550142097578,
+          "volume_updates_per_s": 179772571.49160296,
+          "wall_s": 0.037024558
+        }
+      ],
+      "scale": 1,
+      "scenario": "narada-52-schematic",
+      "setup_s": 0.229415631,
+      "steps": 500,
+      "volumes": 13312,
+      "warmup_steps": 50,
+      "workload": "synthetic-hot-field"
+    },
+    "optimized-b-2": {
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "field_every": 0,
+      "links": 322512,
+      "median_step_ms": 0.401040202,
+      "median_steps_per_s": 2493.515600214065,
+      "median_volume_updates_per_s": 265549437.3603971,
+      "samples": [
+        {
+          "realtime_factor": 492.3649654124444,
+          "relative_energy_residual": 3.2088346488764827e-15,
+          "simulated_s": 100,
+          "steps_per_s": 2461.824827062222,
+          "volume_updates_per_s": 262174496.78281838,
+          "wall_s": 0.203101372
+        },
+        {
+          "realtime_factor": 498.70312004281305,
+          "relative_energy_residual": 3.2088346488764827e-15,
+          "simulated_s": 100,
+          "steps_per_s": 2493.515600214065,
+          "volume_updates_per_s": 265549437.3603971,
+          "wall_s": 0.200520101
+        },
+        {
+          "realtime_factor": 501.16620122108645,
+          "relative_energy_residual": 3.2088346488764827e-15,
+          "simulated_s": 100,
+          "steps_per_s": 2505.831006105432,
+          "volume_updates_per_s": 266860978.8262041,
+          "wall_s": 0.199534605
+        }
+      ],
+      "scale": 2,
+      "scenario": "narada-52-schematic",
+      "setup_s": 0.449747322,
+      "steps": 500,
+      "volumes": 106496,
+      "warmup_steps": 50,
+      "workload": "synthetic-hot-field"
+    },
+    "optimized-b-4": {
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "field_every": 0,
+      "links": 2546016,
+      "median_step_ms": 2.979445008,
+      "median_steps_per_s": 335.6329777240178,
+      "median_volume_updates_per_s": 285948556.765576,
+      "samples": [
+        {
+          "realtime_factor": 64.3545992787022,
+          "relative_energy_residual": 5.804865343904305e-15,
+          "simulated_s": 100,
+          "steps_per_s": 321.772996393511,
+          "volume_updates_per_s": 274140296.19138676,
+          "wall_s": 1.553890493
+        },
+        {
+          "realtime_factor": 67.12659554480356,
+          "relative_energy_residual": 5.804865343904305e-15,
+          "simulated_s": 100,
+          "steps_per_s": 335.6329777240178,
+          "volume_updates_per_s": 285948556.765576,
+          "wall_s": 1.489722504
+        },
+        {
+          "realtime_factor": 67.75324473964672,
+          "relative_energy_residual": 5.804865343904305e-15,
+          "simulated_s": 100,
+          "steps_per_s": 338.7662236982336,
+          "volume_updates_per_s": 288617982.0717367,
+          "wall_s": 1.475944073
+        }
+      ],
+      "scale": 4,
+      "scenario": "narada-52-schematic",
+      "setup_s": 2.617887598,
+      "steps": 500,
+      "volumes": 851968,
+      "warmup_steps": 50,
+      "workload": "synthetic-hot-field"
+    },
+    "baseline-render-1": {
+      "combined_fps_no_ui_no_vsync": 231.04303186865494,
+      "compute_ms_per_frame": 2.482890766666666,
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "frames": 60,
+      "gl_renderer": "NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2",
+      "height": 720,
+      "relative_energy_residual": 5.297134763307379e-16,
+      "scale": 1,
+      "scene_ms_per_frame": 1.845307283333333,
+      "steps_per_frame": 16,
+      "volumes": 13312,
+      "width": 1280
+    },
+    "baseline-render-2": {
+      "combined_fps_no_ui_no_vsync": 32.986384538268666,
+      "compute_ms_per_frame": 18.151890899999998,
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "frames": 60,
+      "gl_renderer": "NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2",
+      "height": 720,
+      "relative_energy_residual": 4.368770938810209e-16,
+      "scale": 2,
+      "scene_ms_per_frame": 12.163647283333335,
+      "steps_per_frame": 16,
+      "volumes": 106496,
+      "width": 1280
+    },
+    "baseline-render-4": {
+      "combined_fps_no_ui_no_vsync": 3.707775375260043,
+      "compute_ms_per_frame": 120.78204215000002,
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "frames": 60,
+      "gl_renderer": "NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2",
+      "height": 720,
+      "relative_energy_residual": 1.856727648994339e-16,
+      "scale": 4,
+      "scene_ms_per_frame": 148.92145895000002,
+      "steps_per_frame": 16,
+      "volumes": 851968,
+      "width": 1280
+    },
+    "optimized-render-1": {
+      "combined_fps_no_ui_no_vsync": 483.43206211193154,
+      "compute_ms_per_frame": 1.1280837666666665,
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "frames": 60,
+      "gl_renderer": "NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2",
+      "height": 720,
+      "relative_energy_residual": 5.297134763307379e-16,
+      "scale": 1,
+      "scene_ms_per_frame": 0.9404592166666667,
+      "steps_per_frame": 16,
+      "volumes": 13312,
+      "width": 1280
+    },
+    "optimized-render-2": {
+      "combined_fps_no_ui_no_vsync": 130.66888130674965,
+      "compute_ms_per_frame": 6.10350088333333,
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "frames": 60,
+      "gl_renderer": "NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2",
+      "height": 720,
+      "relative_energy_residual": 4.368770938810209e-16,
+      "scale": 2,
+      "scene_ms_per_frame": 1.5494306333333336,
+      "steps_per_frame": 16,
+      "volumes": 106496,
+      "width": 1280
+    },
+    "optimized-render-4": {
+      "combined_fps_no_ui_no_vsync": 19.610876414315978,
+      "compute_ms_per_frame": 45.10064123333334,
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "frames": 60,
+      "gl_renderer": "NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2",
+      "height": 720,
+      "relative_energy_residual": 1.856727648994339e-16,
+      "scale": 4,
+      "scene_ms_per_frame": 5.891470433333334,
+      "steps_per_frame": 16,
+      "volumes": 851968,
+      "width": 1280
+    },
+    "stress-5": {
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "field_every": 0,
+      "links": 4967784,
+      "median_step_ms": 6.0599356533333335,
+      "median_steps_per_s": 165.01825385719056,
+      "median_volume_updates_per_s": 274590374.4183651,
+      "samples": [
+        {
+          "realtime_factor": 33.00365077143812,
+          "relative_energy_residual": 2.4731132884129817e-15,
+          "simulated_s": 60.00000000000001,
+          "steps_per_s": 165.01825385719056,
+          "volume_updates_per_s": 274590374.4183651,
+          "wall_s": 1.817980696
+        },
+        {
+          "realtime_factor": 33.77736243331471,
+          "relative_energy_residual": 2.4731132884129817e-15,
+          "simulated_s": 60.00000000000001,
+          "steps_per_s": 168.88681216657352,
+          "volume_updates_per_s": 281027655.44517833,
+          "wall_s": 1.776337632
+        },
+        {
+          "realtime_factor": 32.820303452784216,
+          "relative_energy_residual": 2.4731132884129817e-15,
+          "simulated_s": 60.00000000000001,
+          "steps_per_s": 164.10151726392107,
+          "volume_updates_per_s": 273064924.7271646,
+          "wall_s": 1.828136662
+        }
+      ],
+      "scale": 5,
+      "scenario": "narada-52-schematic",
+      "setup_s": 5.191880534,
+      "steps": 300,
+      "volumes": 1664000,
+      "warmup_steps": 50,
+      "workload": "synthetic-hot-field"
+    }
+  },
+  "verification_after_rebuild": {
+    "benchmark_sha256": "c1854474ca7618954bb55d8d0837aeb85153c3afef86eb12715ec4b77256dd23",
+    "render_sha256": "52da6a5bdd9a161600e666f6b22aea7beabfaf5295e6d7cdfef2da2ae1161a0c",
+    "record": {
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "field_every": 0,
+      "links": 2546016,
+      "median_step_ms": 3.092831292,
+      "median_steps_per_s": 323.3283375613234,
+      "median_volume_updates_per_s": 275465397.0954456,
+      "samples": [
+        {
+          "realtime_factor": 63.690231137383485,
+          "relative_energy_residual": 5.804865343904305e-15,
+          "simulated_s": 100,
+          "steps_per_s": 318.4511556869174,
+          "volume_updates_per_s": 271310194.2082717,
+          "wall_s": 1.570099499
+        },
+        {
+          "realtime_factor": 64.66566751226468,
+          "relative_energy_residual": 5.804865343904305e-15,
+          "simulated_s": 100,
+          "steps_per_s": 323.3283375613234,
+          "volume_updates_per_s": 275465397.0954456,
+          "wall_s": 1.546415646
+        },
+        {
+          "realtime_factor": 65.09019329381674,
+          "relative_energy_residual": 5.804865343904305e-15,
+          "simulated_s": 100,
+          "steps_per_s": 325.4509664690837,
+          "volume_updates_per_s": 277273809.0007323,
+          "wall_s": 1.536329744
+        }
+      ],
+      "scale": 4,
+      "scenario": "narada-52-schematic",
+      "setup_s": 2.689125764,
+      "steps": 500,
+      "volumes": 851968,
+      "warmup_steps": 50,
+      "workload": "synthetic-hot-field"
+    }
+  }
+}

@@ -1,0 +1,354 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://battery-sim.local/schemas/scenario-v0.schema.json",
+  "title": "battery-sim canonical scenario v0",
+  "type": "object",
+  "required": ["name", "simulation", "cells", "ports"],
+  "properties": {
+    "name": {"type": "string", "minLength": 1},
+    "source": {"type": "string"},
+    "metadata": {"type": "object"},
+    "simulation": {
+      "type": "object",
+      "required": ["duration_s", "max_dt_s", "output_interval_s"],
+      "properties": {
+        "duration_s": {"type": "number", "exclusiveMinimum": 0},
+        "max_dt_s": {"type": "number", "exclusiveMinimum": 0},
+        "step_interval_s": {"type": "number", "exclusiveMinimum": 0},
+        "output_interval_s": {"type": "number", "exclusiveMinimum": 0},
+        "stability_factor": {"type": "number", "exclusiveMinimum": 0, "maximum": 0.5}
+      }
+    },
+    "cells": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "geometry", "thermal", "runaway"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "role": {"enum": ["battery", "passive"], "default": "battery"},
+          "material_id": {"type": "string"},
+          "conversion": {"$ref": "#/$defs/conversion"},
+          "electrical": {"$ref": "#/$defs/electrical"},
+          "geometry": {
+            "type": "object",
+            "required": ["kind", "dimensions_m"],
+            "properties": {
+              "kind": {"enum": ["cylinder", "prismatic", "pouch"]},
+              "dimensions_m": {"type": "array", "minItems": 2, "maxItems": 3, "items": {"type": "number", "exclusiveMinimum": 0}}
+            }
+          },
+          "pose": {"type": "object"},
+          "thermal": {
+            "type": "object",
+            "required": ["heat_capacity_j_per_k"],
+            "properties": {
+              "heat_capacity_j_per_k": {"type": "number", "exclusiveMinimum": 0},
+              "initial_temperature_k": {"type": "number", "exclusiveMinimum": 0},
+              "internal_heat_transfer": {"enum": ["finite_volume", "isothermal"], "default": "finite_volume"},
+              "bulk_destruction_on_boundary": {"type": "boolean", "default": false},
+              "reaction_structure": {"$ref": "#/$defs/reaction_structure"},
+              "bulk_failure_transient": {"type": "object", "required": ["peak_factor", "relaxation_time_s"], "additionalProperties": false, "properties": {
+                "peak_factor": {"type": "number", "exclusiveMinimum": 0},
+                "relaxation_time_s": {"type": "number", "exclusiveMinimum": 0}
+              }},
+              "divisions": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "integer", "minimum": 1, "maximum": 256}},
+              "conductivity_w_per_m_k": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number", "exclusiveMinimum": 0}},
+              "surface_connectivity": {"$ref": "#/$defs/surface_connectivity"},
+              "bulk_response": {"$ref": "#/$defs/surface_connectivity"},
+              "heat_capacity_law": {"type": "object", "required": ["factor"], "properties": {
+                "reference_temperature_k": {"type": "number", "exclusiveMinimum": 0},
+                "damage_factor_at_one": {"type": "number", "exclusiveMinimum": 0},
+                "factor": {"$ref": "#/$defs/positive_table"}
+              }},
+              "initial_temperature_field_k": {"type": "array", "items": {"type": "number", "exclusiveMinimum": 0}}
+            }
+          },
+          "degradation": {"type": "object"},
+          "runaway": {
+            "type": "object",
+            "required": ["energy_j"],
+            "allOf": [{"if": {"required": ["profile"], "properties": {"profile": {"const": "kinetic"}}},
+              "then": {"required": ["kinetics"], "properties": {"energy_j": {"exclusiveMinimum": 0}},
+                "not": {"anyOf": [{"required": ["duration_s"]}, {"required": ["fast_fraction"]}, {"required": ["tail_time_s"]}]}},
+              "else": {"required": ["duration_s"], "not": {"anyOf": [{"required": ["kinetics"]}, {"required": ["energy_outlet"]}]}}}],
+            "properties": {
+              "energy_j": {"type": "number", "minimum": 0},
+              "duration_s": {"type": "number", "exclusiveMinimum": 0},
+              "profile": {"enum": ["constant_power", "burst_tail", "kinetic"], "default": "constant_power"},
+              "kinetics": {"$ref": "#/$defs/reaction_kinetics"},
+              "energy_outlet": {"$ref": "#/$defs/energy_outlet"},
+              "fast_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+              "tail_time_s": {"type": "number", "exclusiveMinimum": 0}
+            }
+          }
+        }
+      }
+    },
+    "ports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "cell_id", "area_m2", "centroid_m", "normal"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "cell_id": {"type": "string", "minLength": 1},
+          "kind": {"enum": ["contact", "cooling", "radiation", "vent", "gas"]},
+          "rectangle_m": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/positive"}},
+          "area_m2": {"type": "number", "exclusiveMinimum": 0},
+          "centroid_m": {"$ref": "#/$defs/vector3"},
+          "normal": {"$ref": "#/$defs/vector3"}
+        }
+      }
+    },
+    "shells": {"type": "array", "items": {"$ref": "#/$defs/physical_shell"}},
+    "gas_network": {"$ref": "#/$defs/gas_network"},
+    "interfaces": {"type": "array", "items": {"$ref": "#/$defs/interface"}},
+    "boundaries": {"type": "array", "items": {"type": "object", "properties": {
+      "connectivity": {"$ref": "#/$defs/interface/properties/law"},
+      "remote_surface_connectivity": {"$ref": "#/$defs/surface_connectivity"},
+      "temperature_profile": {"type": "array", "minItems": 2, "items": {
+        "type": "array", "minItems": 2, "maxItems": 2,
+        "prefixItems": [{"type": "number", "minimum": 0}, {"type": "number", "exclusiveMinimum": 0}]
+      }}
+    }}},
+    "primary_failures": {"type": "array"},
+    "observations": {"type": "object"}
+  },
+  "$defs": {
+    "positive": {"type": "number", "exclusiveMinimum": 0},
+    "nonnegative": {"type": "number", "minimum": 0},
+    "fraction": {"type": "number", "minimum": 0, "maximum": 1},
+    "step_fraction": {"type": "number", "exclusiveMinimum": 0, "maximum": 0.1},
+    "identifier": {"type": "string", "minLength": 1},
+    "physical_shell": {"type": "object", "additionalProperties": false,
+      "required": ["contents_id", "material_id", "thickness_m", "density_kg_m3", "specific_heat_j_kg_k", "conductivity_w_per_m_k", "contents_contact_h", "seam_contact_h"],
+      "properties": {
+        "contents_id": {"$ref": "#/$defs/identifier"}, "material_id": {"$ref": "#/$defs/identifier"},
+        "conductivity_frame": {"enum": ["global", "normal_tangential"]},
+        "surface_divisions": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "integer", "minimum": 1}},
+        "surface_connectivity": {"$ref": "#/$defs/surface_connectivity"},
+        "initial_temperature_fields_k": {"type": "object", "propertyNames": {"enum": ["-x", "+x", "-y", "+y", "-z", "+z"]}, "additionalProperties": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/positive"}}},
+        "thickness_m": {"$ref": "#/$defs/positive"}, "density_kg_m3": {"$ref": "#/$defs/positive"},
+        "specific_heat_j_kg_k": {"$ref": "#/$defs/positive"}, "initial_temperature_k": {"$ref": "#/$defs/positive"},
+        "conductivity_w_per_m_k": {"$ref": "#/$defs/positive_vector3"},
+        "contents_contact_h": {"$ref": "#/$defs/positive"}, "seam_contact_h": {"$ref": "#/$defs/positive"},
+        "damage_onset_k": {"$ref": "#/$defs/positive"}, "damage_rate_per_s": {"$ref": "#/$defs/nonnegative"},
+        "damage_scale_k": {"$ref": "#/$defs/positive"}, "destroyed_conductance_factor": {"$ref": "#/$defs/positive"}
+      }
+    },
+    "electrical": {"type": "object", "additionalProperties": false,
+      "required": ["resistance_ohm"],
+      "oneOf": [{"required": ["current_a"]}, {"required": ["current_profile_a"]}],
+      "properties": {
+        "resistance_ohm": {"$ref": "#/$defs/positive"},
+        "current_a": {"type": "number"},
+        "reference_temperature_k": {"$ref": "#/$defs/positive"},
+        "temperature_log_slope_per_k": {"type": "number"},
+        "damage_log_slope": {"type": "number"},
+        "min_resistance_ohm": {"$ref": "#/$defs/positive"},
+        "max_resistance_ohm": {"$ref": "#/$defs/positive"},
+        "max_temperature_step_k": {"$ref": "#/$defs/positive"},
+        "overcharge_fraction": {"$ref": "#/$defs/fraction"},
+        "nominal_capacity_coulomb": {"$ref": "#/$defs/positive"},
+        "current_profile_a": {"type": "array", "minItems": 1,
+          "items": {"type": "array", "prefixItems": [{"$ref": "#/$defs/nonnegative"}, {"type": "number"}], "minItems": 2, "maxItems": 2}}
+      }
+    },
+    "conversion": {"type": "object", "additionalProperties": false,
+      "required": ["chemistry", "degradation_rate_per_s", "degradation_reference_k", "degradation_activation_j_per_mol", "mass_kg", "reactant_cp", "activated_cp", "residue_cp", "net_heat_j_per_kg", "reaction_rate_per_s", "reaction_reference_k", "reaction_activation_j_per_mol", "gas_yield", "gas_chemical_fraction", "gas_compartment", "residue_conductivity"],
+      "properties": {
+        "chemistry": {"const": "r1-r2-r3"},
+        "degradation_rate_per_s": {"$ref": "#/$defs/positive"},
+        "degradation_reference_k": {"$ref": "#/$defs/positive"},
+        "degradation_activation_j_per_mol": {"$ref": "#/$defs/nonnegative"},
+        "initial_precursor_fraction": {"$ref": "#/$defs/fraction"},
+        "overcharge_conversion_per_charge": {"$ref": "#/$defs/nonnegative"},
+        "runaway_reporting_rate_per_s": {"$ref": "#/$defs/positive"},
+        "gas_yield_reference_k": {"$ref": "#/$defs/positive"},
+        "gas_yield_temperature_per_k": {"type": "number"},
+        "gas_yield_density_exponent": {"type": "number"},
+        "gas_yield_max": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "mass_kg": {"$ref": "#/$defs/positive"},
+        "reactant_cp": {"$ref": "#/$defs/positive"}, "activated_cp": {"$ref": "#/$defs/positive"}, "residue_cp": {"$ref": "#/$defs/positive"},
+        "net_heat_j_per_kg": {"$ref": "#/$defs/nonnegative"},
+        "reaction_rate_per_s": {"$ref": "#/$defs/positive"},
+        "reaction_reference_k": {"$ref": "#/$defs/positive"}, "reaction_activation_j_per_mol": {"$ref": "#/$defs/nonnegative"},
+        "gas_yield": {"$ref": "#/$defs/fraction"}, "gas_chemical_fraction": {"$ref": "#/$defs/fraction"},
+        "gas_compartment": {"$ref": "#/$defs/identifier"}, "residue_conductivity": {"$ref": "#/$defs/positive_vector3"},
+        "max_fraction_per_step": {"$ref": "#/$defs/step_fraction"}, "max_temperature_step_k": {"$ref": "#/$defs/positive"}
+      }
+    },
+    "gas_network": {"type": "object", "additionalProperties": false,
+      "required": ["reference_temperature_k", "cv_j_per_kg_k", "specific_r_j_per_kg_k", "compartments"],
+      "properties": {
+        "transport": {"enum": ["legacy_coupled", "split_local_equilibrium"]},
+        "mass_backend": {"enum": ["cuda_global", "cpu_local", "cuda_kawasaki", "cuda_batched", "cuda_deterministic", "cuda_network"]},
+        "network_pressure_fraction": {"type":"number","exclusiveMinimum":0,"maximum":1},
+        "batch_pressure_fraction": {"type":"number","exclusiveMinimum":0,"maximum":0.25},
+        "batch_mean_threshold": {"type":"number","minimum":0,"maximum":32},
+        "deterministic_sweeps_per_step": {"type":"integer","minimum":1,"maximum":4},
+        "deterministic_pressure_fraction": {"type":"number","exclusiveMinimum":0,"maximum":1},
+        "kawasaki_packet_fraction": {"type":"number","exclusiveMinimum":0,"maximum":1},
+        "kawasaki_tail_atol_pa": {"$ref":"#/$defs/nonnegative"},
+        "kawasaki_tail_rtol": {"type":"number","exclusiveMinimum":0,"maximum":0.01},
+        "kawasaki_seed": {"type":"integer","minimum":0},
+        "local_integrator": {
+          "enum": ["explicit", "implicit"],
+          "description": "CPU local integration; explicit by default. Implicit is experimental: local error control does not bound intergroup mass/enthalpy splitting error."
+        },
+        "implicit_temperature_tolerance_k": {"$ref": "#/$defs/positive"},
+        "implicit_tracer_relative_tolerance": {"$ref": "#/$defs/positive"},
+        "local_exchange_interval_s": {"$ref": "#/$defs/positive"},
+        "pressure_relaxation_fraction": {"type": "number", "exclusiveMinimum": 0, "maximum": 0.5},
+        "pressure_absolute_tolerance_pa": {"$ref": "#/$defs/positive"},
+        "pressure_relative_tolerance": {"type": "number", "minimum": 0, "maximum": 1},
+        "reference_temperature_k": {"$ref": "#/$defs/positive"}, "cv_j_per_kg_k": {"$ref": "#/$defs/positive"}, "specific_r_j_per_kg_k": {"$ref": "#/$defs/positive"},
+        "max_fraction_per_step": {"$ref": "#/$defs/step_fraction"}, "max_temperature_step_k": {"$ref": "#/$defs/positive"},
+        "compartments": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false,
+          "required": ["id", "volume_m3", "initial_mass_kg", "initial_temperature_k"], "properties": {
+            "id": {"$ref": "#/$defs/identifier"}, "contents_id": {"$ref": "#/$defs/identifier"},
+            "volume_m3": {"$ref": "#/$defs/positive"}, "initial_mass_kg": {"$ref": "#/$defs/positive"}, "initial_temperature_k": {"$ref": "#/$defs/positive"},
+            "initial_chemical_j": {"$ref": "#/$defs/nonnegative"}, "initial_oxidizer_mass_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+            "reaction_rate_per_s": {"$ref": "#/$defs/nonnegative"}, "oxidizer_heat_j_per_kg": {"$ref": "#/$defs/positive"},
+            "ignition_temperature_k": {"$ref": "#/$defs/nonnegative"},
+            "local_equilibrium": {"type": "object", "additionalProperties": false,
+              "required": ["cell_id", "thermal_volume"], "properties": {
+                "cell_id": {"$ref": "#/$defs/identifier"},
+                "thermal_volume": {"type": "integer", "minimum": 0},
+                "reactant_density_kg_m3": {"$ref": "#/$defs/positive"},
+                "residue_density_kg_m3": {"$ref": "#/$defs/positive"}
+              }, "dependentRequired": {
+                "reactant_density_kg_m3": ["residue_density_kg_m3"],
+                "residue_density_kg_m3": ["reactant_density_kg_m3"]
+              }
+            }
+          }
+        }},
+        "channels": {"type": "array", "items": {"type": "object", "additionalProperties": false,
+          "required": ["id", "from", "to", "kind", "opening_pressure_pa"],
+          "allOf": [{"if": {"required": ["damage_opening"]},
+                     "then": {"properties": {"kind": {"const": "rupture"}}},
+                     "else": {"required": ["area_m2"]}},
+                    {"if": {"properties": {"kind": {"enum": ["internal", "passage"]}}},
+                     "then": {"not": {"required": ["port_id"]}}, "else": {"required": ["port_id"]}}], "properties": {
+            "id": {"$ref": "#/$defs/identifier"}, "from": {"$ref": "#/$defs/identifier"}, "to": {"$ref": "#/$defs/identifier"}, "port_id": {"$ref": "#/$defs/identifier"},
+            "kind": {"enum": ["vent", "rupture", "internal", "passage"]}, "area_m2": {"$ref": "#/$defs/positive"},
+            "shell_thermal_volume": {"type": "integer", "minimum": 0},
+            "opening_pressure_pa": {"$ref": "#/$defs/nonnegative"}, "outside_pressure_pa": {"$ref": "#/$defs/nonnegative"},
+            "discharge_coefficient": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+            "strength_reference_k": {"$ref": "#/$defs/positive"}, "strength_temperature_scale_k": {"$ref": "#/$defs/positive"},
+            "surface_link": {"type": "object", "additionalProperties": false,
+              "required": ["h_w_per_m2_k"], "properties": {"h_w_per_m2_k": {"$ref": "#/$defs/positive"}}},
+            "damage_opening": {"type": "object", "additionalProperties": false, "properties": {
+              "mode": {"enum": ["progressive", "binary_pixels", "stochastic_pixels", "stochastic_area", "stochastic_fraction", "deterministic_aperture"]},
+              "area_rate_per_s": {"type": "number", "minimum": 0},
+              "pressure_exponent": {"type": "number", "minimum": 1},
+              "valve": {"type": "object", "additionalProperties": false, "required": ["radius_m", "center_m", "pressure_factor"], "properties": {
+                "radius_m": {"type": "number", "exclusiveMinimum": 0},
+                "center_m": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+                "pressure_factor": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}
+              }},
+              "fixed_area_fraction": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+              "fragment_mean_area_m2": {"$ref": "#/$defs/positive"},
+              "pixel_rate_per_s": {"$ref": "#/$defs/nonnegative"},
+              "pixel_pressure_exponent": {"type": "number", "minimum": 1},
+              "seed": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+              "initial_mechanical_damage": {"type": "number", "minimum": 0, "maximum": 1},
+              "damage_onset": {"type": "number", "minimum": 0, "exclusiveMaximum": 1},
+              "exponent": {"type": "number", "minimum": 1},
+              "pressure_damage_rate_per_s": {"$ref": "#/$defs/nonnegative"},
+              "max_damage_step": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1},
+              "seam_width_m": {"$ref": "#/$defs/nonnegative"},
+              "fracture_energy_j_per_m2": {"$ref": "#/$defs/nonnegative"},
+              "seam_strength_factor": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}
+            }}
+          }
+        }},
+        "thermal_contacts": {"type": "array", "items": {"type": "object", "additionalProperties": false,
+          "required": ["compartment", "port_id", "h_w_per_m2_k"], "properties": {
+            "compartment": {"$ref": "#/$defs/identifier"}, "port_id": {"$ref": "#/$defs/identifier"}, "h_w_per_m2_k": {"$ref": "#/$defs/positive"},
+            "thermal_volume": {"type": "integer", "minimum": 0}
+          }
+        }}
+      }
+    },
+    "positive_vector3": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number", "exclusiveMinimum": 0}},
+    "reaction_structure": {"type": "object", "additionalProperties": false,
+      "required": ["active_factor", "residue_factor", "activity_rate_per_s"], "properties": {
+        "active_factor": {"$ref": "#/$defs/positive_vector3"},
+        "residue_factor": {"$ref": "#/$defs/positive_vector3"},
+        "activity_rate_per_s": {"type": "number", "exclusiveMinimum": 0}
+    }},
+    "reaction_kinetics": {"type": "object", "additionalProperties": false,
+      "required": ["reference_temperature_k", "rate_at_reference_per_s", "activation_energy_j_per_mol", "activation_damage"], "properties": {
+        "reference_temperature_k": {"type": "number", "exclusiveMinimum": 0},
+        "rate_at_reference_per_s": {"type": "number", "exclusiveMinimum": 0},
+        "activation_energy_j_per_mol": {"type": "number", "minimum": 0},
+        "activation_damage": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "damage_sensitivity": {"type": "number", "minimum": 0},
+        "damage_per_conversion": {"type": "number", "minimum": 0},
+        "quench_rate_per_s": {"type": "number", "exclusiveMinimum": 0},
+        "max_fraction_per_step": {"type": "number", "exclusiveMinimum": 0, "maximum": 0.1},
+        "max_temperature_rise_per_step_k": {"type": "number", "exclusiveMinimum": 0}
+    }},
+    "energy_outlet": {"type": "object", "additionalProperties": false,
+      "required": ["port_id", "sink", "opening_start_conversion", "opening_end_conversion", "heat_fraction"], "properties": {
+        "port_id": {"type": "string", "minLength": 1},
+        "sink": {"const": "outside_domain"},
+        "opening_start_conversion": {"type": "number", "minimum": 0, "exclusiveMaximum": 1},
+        "opening_end_conversion": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "closure_start_conversion": {"type": "number", "minimum": 0, "maximum": 1},
+        "closure_end_conversion": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "heat_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "ejected_energy_per_released_energy": {"type": "number", "minimum": 0}
+    }},
+    "scalar_table": {"type": "array", "minItems": 2, "maxItems": 8, "items": {
+      "type": "array", "minItems": 2, "maxItems": 2, "prefixItems": [
+        {"type": "number", "exclusiveMinimum": 0}, {"type": "number"}
+      ]
+    }},
+    "positive_table": {"type": "array", "minItems": 2, "maxItems": 8, "items": {
+      "type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number", "exclusiveMinimum": 0}
+    }},
+    "surface_connectivity": {"type": "object", "properties": {
+      "reference_temperature_k": {"type": "number", "exclusiveMinimum": 0},
+      "temperature_scale_k": {"type": "number", "exclusiveMinimum": 0},
+      "linear": {"$ref": "#/$defs/vector3"},
+      "quadratic": {"$ref": "#/$defs/vector3"},
+      "temperature_log_response": {"$ref": "#/$defs/scalar_table"},
+      "damage": {"$ref": "#/$defs/vector3"},
+      "temperature_contrast": {"$ref": "#/$defs/vector3"},
+      "damage_contrast": {"$ref": "#/$defs/vector3"}
+    }},
+    "vector3": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number"}},
+    "interface": {
+      "type": "object",
+      "required": ["id", "port_a", "port_b", "law"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "port_a": {"type": "string"},
+        "port_b": {"type": "string"},
+        "initial_l_m": {"type": "number", "minimum": 0},
+        "initial_damage": {"type": "number", "minimum": 0, "maximum": 1},
+        "initial_phase": {"enum": ["low", "high", "destroyed"]},
+        "law": {
+          "type": "object",
+          "anyOf": [{"required": ["l0_m"]}, {"required": ["kind"], "properties": {"kind": {"const": "directed_geometry"}}}],
+          "properties": {
+            "destroyed_geometry_reference_logit": {"type": "number"},
+            "kind": {"enum": ["constant", "smooth", "first_order", "second_order", "state_geometry", "directed_geometry"]},
+            "l0_m": {"type": "number", "minimum": 0},
+            "geometry_reference_logit": {"type": "number"},
+            "l_low_m": {"type": "number", "minimum": 0},
+            "l_high_m": {"type": "number", "minimum": 0},
+            "endpoint_damage_weight": {"type": "number", "minimum": 0, "maximum": 1},
+            "destruction_damage": {"type": "number", "minimum": 0, "maximum": 1},
+            "destroyed_l0_m": {"type": "number", "minimum": 0}
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+[
+  {
+    "label": "baseline-heat",
+    "parameters": {
+      "resistance_ohm": 0.008,
+      "resistance_temperature": -0.001,
+      "resistance_damage": 1.0,
+      "r1_rate": 1e-06,
+      "r1_activation": 40000.0,
+      "overcharge_gain": 2.0,
+      "r2_rate": 300.0,
+      "r2_activation": 120000.0,
+      "energy_j": 300000.0,
+      "gas_fraction": 0.7,
+      "gas_yield": 0.4,
+      "gas_rate": 20.0,
+      "iss_h": 500.0,
+      "tim_h": 2000.0,
+      "case_h": 500.0,
+      "environment_h": 8.0,
+      "surface_iss": 0.0,
+      "surface_tim": 0.0,
+      "bulk_slope": 0.0,
+      "shell_strength_pa": 1000000.0,
+      "opening_rate": 0.2,
+      "sink_g": 10.0
+    },
+    "status": "complete",
+    "objective": 804.9672323866334,
+    "metrics": {
+      "warmup": {
+        "101": {
+          "rmse_k": 12.39884776185156,
+          "bias_k": -8.687636861842
+        },
+        "102": {
+          "rmse_k": 0.30151036791803104,
+          "bias_k": 0.23663901272886895
+        },
+        "107": {
+          "rmse_k": 11.306191752338902,
+          "bias_k": -7.790476670797023
+        },
+        "108": {
+          "rmse_k": 2.4036722774702493,
+          "bias_k": -1.5742179548934812
+        },
+        "C2_TIM": {
+          "rmse_k": 28.55698983446672,
+          "bias_k": -20.837303614372136
+        },
+        "C2_ISS": {
+          "rmse_k": 31.767756559289445,
+          "bias_k": -23.96037463992325
+        }
+      },
+      "pressure": {
+        "peak_bar": 1.1147369163139558,
+        "observed_peak_bar": 1.0622290969156691,
+        "peak_time_s": 866.168000032194,
+        "rmse_bar": 0.008808359048609986
+      },
+      "joule_j": {
+        "C1": 0.0,
+        "C2": 10778.004840545616,
+        "C3": 0.0
+      },
+      "wall_s": 414.532607938,
+      "steps": 430626,
+      "balance": {
+        "max_thermal_residual_j": 1.5295245248125866e-07,
+        "max_chemical_residual_j": 8.265487849712372e-09,
+        "max_mass_residual_kg": 1.765254609153999e-14
+      }
+    }
+  }
+]
