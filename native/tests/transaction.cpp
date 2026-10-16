@@ -19,7 +19,7 @@ std::vector<double> snapshot(CudaSolver& solver) {
         s.boundary_energy_out_j,s.runaway_started_s,s.reaction_progress_s,s.chemical_energy_remaining_j,
         s.ejected_chemical_energy_j,s.vent_heat_out_j,s.chemical_power_w,s.conductivity_factor[0],
         s.conductivity_factor[1],s.conductivity_factor[2],double(s.mode),s.reactant_kg,s.activated_kg,s.residue_kg,
-        s.gross_reaction_energy_j,s.generated_gas_kg,s.generated_gas_energy_j,s.generated_gas_chemical_j,s.mobile_capacity_j_per_k});
+        s.gross_reaction_energy_j,s.sterilized_chemical_j,s.generated_gas_kg,s.generated_gas_energy_j,s.generated_gas_chemical_j,s.mobile_capacity_j_per_k});
     std::vector<InterfaceState> links,macro_links;solver.download_link_states(links);
     std::vector<CellState> cells;solver.download_macros(cells,macro_links);
     links.insert(links.end(),macro_links.begin(),macro_links.end());

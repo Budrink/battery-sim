@@ -61,6 +61,7 @@ struct Material {
     GasModel gas_model;
     ElectricalLaw electrical;
     CurrentView current;
+    CurrentView voltage;
 };
 __device__ double maximum_structure(const Material& m,int axis) {
     if(m.conversion.enabled)return fmax(1.,m.conversion.residue_conductivity[axis]);
@@ -230,12 +231,14 @@ __global__ void stability_kernel(int count,const ThermalState* state,const Devic
         if(m.conversion.enabled) {
             const auto& c=m.conversion;const auto& s=state[i];const auto& g=m.gas_model;
             const double current=m.electrical.enabled?maximum_charging_current(m.electrical,m.current,time,time+runtime.max_dt_s):0.;
+            const double voltage=m.voltage.count?sample_drive(m.voltage,time):c.precursor_voltage_ref_v;
             const double ka=(degradation_rate(c,s.temperature_k)+overcharge_r1_rate(c,m.electrical,s.temperature_k,current))*runtime.runaway_power_scale;
             const double kb=completion_rate(c,s.temperature_k)*runtime.runaway_power_scale;
+            const double phi=precursor_branch(c,s.temperature_k,voltage);
             if(s.reactant_kg>c.mass_kg*1e-15 && ka>0)limit=fmin(limit,-log1p(-c.max_fraction_per_step)/ka);
             const double fraction=volume[i].capacity_j_per_k/m.capacity;
             const double capmin=conversion_min_capacity(c,volume[i].capacity_j_per_k,fraction);
-            const double ra=ka*s.reactant_kg,rb=kb*s.activated_kg+ra;
+            const double ra=phi*ka*s.reactant_kg,rb=kb*s.activated_kg+ra;
             const double yield=maximum_gas_yield(c);
             const double capacity_change=fmax(std::abs(c.residue_cp-c.activated_cp),std::abs((1-yield)*c.residue_cp-c.activated_cp));
             // Bound total transformed mass, not the fractional turnover of an
@@ -393,8 +396,9 @@ __global__ void source_kernel(int count,const int* ids,const DeviceVolume* volum
     double q;
     if constexpr(Conversion) {
         const double charging=m.electrical.enabled?positive_current_integral(m.electrical,m.current,time,*step)/(*step):0.;
+        const double voltage=m.voltage.count?drive_integral(m.voltage,time,*step)/(*step):m.conversion.precursor_voltage_ref_v;
         const double acceleration=overcharge_r1_rate(m.conversion,m.electrical,s.temperature_k,charging);
-        q=advance_conversion(m.conversion,m.gas_model,s,v.capacity_j_per_k/m.capacity,*step,runtime.runaway_power_scale,time,acceleration);
+        q=advance_conversion(m.conversion,m.gas_model,s,v.capacity_j_per_k/m.capacity,*step,runtime.runaway_power_scale,time,acceleration,voltage);
         gas[i]={s.generated_gas_kg,s.generated_gas_energy_j,s.generated_gas_chemical_j,0.};
     } else {
         q=release_source(m,s,m.energy*v.capacity_j_per_k/m.capacity,*step,runtime.runaway_power_scale);
@@ -617,7 +621,7 @@ struct CudaSolver::Impl {
     Buffer<DeviceVolume> volumes;Buffer<DeviceLink> links;
     std::unique_ptr<Buffer<ConnectivityLaw>> laws;
     Buffer<Material> materials;
-    std::unique_ptr<Buffer<CurrentPoint>> current_points;
+    std::unique_ptr<Buffer<CurrentPoint>> current_points,voltage_points;
     Buffer<ThermalState> state_a,state_b,local_state;
     Buffer<InterfaceState> edge_state,edge_next,macro_edges;
     std::unique_ptr<Buffer<int>> conversion_ids,legacy_ids;
@@ -677,16 +681,19 @@ struct CudaSolver::Impl {
         volumes.upload(device_volumes);offsets.upload(m.adjacency_offsets);adjacency.upload(m.adjacency_links);
         object_offsets.upload(m.object_offsets);interface_offsets.upload(m.interface_offsets);interface_ids.upload(m.interface_links);
         std::vector<Material> host;
-        std::vector<CurrentPoint> drive;
+        std::vector<CurrentPoint> drive,volts;
         for(const auto& c:s.cells)for(const auto& q:c.current_profile_a)drive.push_back({q[0],q[1]});
+        for(const auto& c:s.cells)for(const auto& q:c.voltage_profile_v)volts.push_back({q[0],q[1]});
         current_points=std::make_unique<Buffer<CurrentPoint>>(drive.size());current_points->upload(drive);
-        int current_offset=0;
+        voltage_points=std::make_unique<Buffer<CurrentPoint>>(volts.size());voltage_points->upload(volts);
+        int current_offset=0,voltage_offset=0;
         for(const auto& c:s.cells) {
             host.push_back({c.heat_capacity_j_per_k,c.runaway_energy_j,c.runaway_duration_s,c.damage_onset_k,
                 c.damage_rate_at_onset_per_s,c.damage_temperature_scale_k,1+c.aging_damage_multiplier*c.aging_fraction,c.isothermal,c.is_battery,c.heat_capacity_law,c.runaway_pulse,boundary_phase(c),
                 c.reaction_kinetics,c.reaction_structure,c.energy_outlet,c.conversion,s.gas_model,c.electrical,
-                {current_points->p?current_points->p+current_offset:nullptr,static_cast<int>(c.current_profile_a.size())}});
-            current_offset+=c.current_profile_a.size();
+                {current_points->p?current_points->p+current_offset:nullptr,static_cast<int>(c.current_profile_a.size())},
+                {voltage_points->p?voltage_points->p+voltage_offset:nullptr,static_cast<int>(c.voltage_profile_v.size())}});
+            current_offset+=c.current_profile_a.size();voltage_offset+=c.voltage_profile_v.size();
             if(c.isothermal && c.heat_capacity_law.factor.count)throw std::runtime_error("Variable capacity requires finite_volume transfer");
             has_isothermal|=c.isothermal;has_spatial|=!c.isothermal;
         }
@@ -963,7 +970,7 @@ ProcessDiagnostics CudaSolver::process_diagnostics() const {
         initial_thermal+=initial_node_energy;
         current_thermal+=st.stored_energy_j;released+=st.released_energy_j;boundary+=st.boundary_energy_out_j;vent+=st.vent_heat_out_j;
         out.joule_energy_j+=st.joule_energy_j;
-        chemical+=st.chemical_energy_remaining_j;legacy_ejected+=st.ejected_chemical_energy_j;
+        chemical+=st.chemical_energy_remaining_j+st.sterilized_chemical_j;legacy_ejected+=st.ejected_chemical_energy_j;
         initial_chemical+=fraction*(c.conversion.enabled?c.conversion.mass_kg*c.conversion.net_heat_j_per_kg:c.runaway_energy_j);
         if(c.conversion.enabled) {
             initial_mass+=c.conversion.mass_kg*fraction;current_mass+=st.reactant_kg+st.activated_kg+st.residue_kg;

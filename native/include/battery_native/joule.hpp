@@ -70,6 +70,28 @@ JOULE_HD inline double maximum_charging_current(const ElectricalLaw& p,CurrentVi
 // Same Arrhenius as ordinary R1, with an accumulated-charge-driven prefactor.
 // Overcharge is explicitly supplied by the experiment/SOC controller; normal
 // charging and discharging never silently become abuse.
+JOULE_HD inline double sample_drive(CurrentView v,double time) {
+    if(!v.count)return 0.;
+    if(time<=v.points[0].time_s)return v.points[0].current_a;
+    if(time>=v.points[v.count-1].time_s)return v.points[v.count-1].current_a;
+    const int i=current_segment(v,time);const auto a=v.points[i],b=v.points[i+1];
+    return a.current_a+(b.current_a-a.current_a)*(time-a.time_s)/(b.time_s-a.time_s);
+}
+JOULE_HD inline double drive_integral(CurrentView v,double time,double duration) {
+    if(!v.count || duration<=0.)return 0.;
+    const double end=time+duration;double total=0.;
+    while(time<end) {
+        double next=end;
+        if(time<v.points[0].time_s)next=fmin(end,v.points[0].time_s);
+        else {
+            const int i=current_segment(v,time);
+            if(i+1<v.count && v.points[i+1].time_s>time)next=fmin(end,v.points[i+1].time_s);
+        }
+        const double a=sample_drive(v,time),b=sample_drive(v,next);
+        total+=.5*(a+b)*(next-time);time=next;
+    }
+    return total;
+}
 JOULE_HD inline double overcharge_r1_rate(const ConversionLaw& c,const ElectricalLaw& e,double temperature,double charging_current) {
     if(!e.enabled || e.overcharge_fraction<=0. || c.overcharge_conversion_per_charge<=0.)return 0.;
     const double exponent=c.degradation_activation_j_per_mol/8.31446261815324*

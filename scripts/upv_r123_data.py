@@ -67,14 +67,22 @@ def current_drive(name, data, marker):
         offset = marker['time_s']-values[-1, 0]
         profile = [[0., 0.], [max(0., offset-1e-3), 0.]]
         profile += [[float(t+offset), float(i)] for t, _, i, _ in values]
-        return profile, dict(**meta, alignment='last zero-current reading aligned to first pressure step',
+        volts = [[0., float(values[0, 1])], [max(0., offset-1e-3), float(values[0, 1])]]
+        volts += [[float(t+offset), float(u)] for t, u, _, _ in values]
+        return profile, volts, dict(**meta, alignment='last zero-current reading aligned to first pressure step',
                              offset_s=offset, synchronization_measured=False,
                              electrical_power_not_used_as_heat=True)
     # Test 3 has voltage, not a power-source current log. 35 A comes from the
     # published abuse protocol. Voltage compliance detects supply shutdown only.
     cut = np.flatnonzero(data['U115_v'] > 60.)
     stop = float(data['time_s'][cut[0]]) if len(cut) else marker['time_s']
-    return [[0., 35.], [stop, 35.], [stop+1e-3, 0.]], dict(
+    times = data['time_s']; voltage = data['U115_v']
+    hold = times <= stop
+    volts = [[float(t), float(u)] for t, u in zip(times[hold], voltage[hold])]
+    if not volts or volts[-1][0] < stop:
+        volts.append([stop, float(np.interp(stop, times, voltage))])
+    volts.append([stop+1e-3, float(volts[-1][1])])
+    return [[0., 35.], [stop, 35.], [stop+1e-3, 0.]], volts, dict(
         current_a=35., source='Published 1C overcharge protocol; current trace unavailable',
         cutoff_s=stop, cutoff='First terminal voltage above 60 V: loss of continuity/compliance, not cell heat')
 

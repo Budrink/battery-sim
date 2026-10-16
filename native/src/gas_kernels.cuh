@@ -137,9 +137,11 @@ __global__ void gas_limit_kernel(int count,const GasState* gas,DeviceRows channe
         if(!mass_stage)for(int k=source_rows.offsets[i];k<source_rows.offsets[i+1];++k) {const int j=source_rows.ids[k];
             const auto& m=materials[volumes[j].object];const auto& c=m.conversion;
             const double current=m.electrical.enabled?maximum_charging_current(m.electrical,m.current,time,time+horizon):0.;
+            const double voltage=m.voltage.count?sample_drive(m.voltage,time):c.precursor_voltage_ref_v;
             const double ka=degradation_rate(c,solid[j].temperature_k)+overcharge_r1_rate(c,m.electrical,solid[j].temperature_k,current);
+            const double phi=precursor_branch(c,solid[j].temperature_k,voltage);
             power+=(completion_rate(c,solid[j].temperature_k)*solid[j].activated_kg+
-                ka*solid[j].reactant_kg)*speed*maximum_gas_yield(c)*
+                phi*ka*solid[j].reactant_kg)*speed*maximum_gas_yield(c)*
                 model.cv_j_per_kg_k*fabs(solid[j].temperature_k-s.temperature_k);
         }
         // CPU groups resolve pressure/mass stiffness internally. Keep the

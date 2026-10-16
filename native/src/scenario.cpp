@@ -318,6 +318,7 @@ Scenario load_scenario(const std::string& path) {
             p.overcharge_fraction=e.value("overcharge_fraction",0.);
             p.nominal_capacity_coulomb=e.value("nominal_capacity_coulomb",0.);
             cell.current_profile_a=e.value("current_profile_a",std::vector<std::array<double,2>>{});
+            cell.voltage_profile_v=e.value("voltage_profile_v",std::vector<std::array<double,2>>{});
             if(!e.contains("current_a") && cell.current_profile_a.empty())throw std::runtime_error("Electrical heating requires a current drive");
             if(e.contains("current_a") && !cell.current_profile_a.empty())throw std::runtime_error("Specify constant current OR its profile, not both");
         }
@@ -568,6 +569,11 @@ Scenario load_scenario(const std::string& path) {
             p.degradation_activation_j_per_mol=x.at("degradation_activation_j_per_mol");
             p.initial_precursor_fraction=x.value("initial_precursor_fraction",0.);
             p.overcharge_conversion_per_charge=x.value("overcharge_conversion_per_charge",0.);
+            p.precursor_yield=x.value("precursor_yield",1.);
+            p.precursor_yield_temperature_per_k=x.value("precursor_yield_temperature_per_k",0.);
+            p.precursor_yield_voltage_per_v=x.value("precursor_yield_voltage_per_v",0.);
+            p.precursor_temperature_ref_k=x.value("precursor_temperature_ref_k",298.15);
+            p.precursor_voltage_ref_v=x.value("precursor_voltage_ref_v",3.65);
             p.runaway_reporting_rate_per_s=x.value("runaway_reporting_rate_per_s",1e-5);
             p.gas_yield_reference_k=x.value("gas_yield_reference_k",p.reaction_reference_k);
             p.gas_yield_temperature_per_k=x.value("gas_yield_temperature_per_k",0.);

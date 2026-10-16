@@ -118,6 +118,7 @@ def chain_power(time, temperature, current, p, net_heat_thermal):
     """Exact two-stage chain at frozen T per step, as in conversion.hpp."""
     reactant, activated = p['mass_kg'], 0.
     power = np.zeros_like(time)
+    completed = np.zeros_like(time)
     for i in range(len(time)-1):
         dt = time[i+1] - time[i]
         t = temperature[i]
@@ -133,8 +134,9 @@ def chain_power(time, temperature, current, p, net_heat_thermal):
         reactant -= da
         activated += da - db
         power[i] = net_heat_thermal*db/dt
+        completed[i] = db
     power[-1] = power[-2] if len(power) > 1 else 0.
-    return power, 1 - reactant/p['mass_kg']
+    return power, 1 - reactant/p['mass_kg'], completed
 
 
 def main():
@@ -211,7 +213,7 @@ def main():
     def residual(x):
         p = dict(chain, **{k: float(np.exp(v)) if k != 'r2_activation' else float(v)
                            for k, v in zip(names, x)})
-        chemical, _converted = chain_power(time, observed['C2_TIM'], current, p, net_heat_thermal)
+        chemical, _converted, _db = chain_power(time, observed['C2_TIM'], current, p, net_heat_thermal)
         joule = p['resistance_ohm']*current**2
         return (smooth(chemical, window) + joule - power)/10.
 
@@ -225,7 +227,7 @@ def main():
     solution = least_squares(residual, start, bounds=(lo, hi), x_scale='jac', diff_step=.05)
     fitted = dict(chain, **{k: float(np.exp(v)) if k != 'r2_activation' else float(v)
                             for k, v in zip(names, solution.x)})
-    chemical, converted = chain_power(time, observed['C2_TIM'], current, fitted, net_heat_thermal)
+    chemical, converted, completed = chain_power(time, observed['C2_TIM'], current, fitted, net_heat_thermal)
     joule = fitted['resistance_ohm']*current**2
     cumulative = np.r_[0., np.cumsum(.5*((chemical+joule)[:-1] + (chemical+joule)[1:])*np.diff(time))]
     report['fit'] = dict(
@@ -284,6 +286,31 @@ def main():
         vented_mass_upper_bound_kg=float(max(0., observed_rise_pa - thermal_share)*chamber['volume_m3'] /
                                         (gas_model['specific_r_j_per_kg_k']*float(observed['ambient'][-1]))))
     vented = report['gas_feasibility']['vented_mass_upper_bound_kg']
+    # The model already suppresses the yield below the reaction reference with
+    # gas_yield_temperature_per_k, but upv_r123_model fixes it at 5e-4/K and the
+    # stages never fit it. Solve for the slope that keeps the pre-vent gas under
+    # the measured ceiling, weighting each gram by when it is actually produced.
+    weights = completed/completed.sum()
+    driver = np.asarray(observed['C2_TIM']) - 450.
+    for label, case in feasibility.items():
+        def produced(slope):
+            yield_ = np.minimum(.8, case['gas_yield']*np.exp(slope*driver))
+            return case['converted_kg']*float(np.sum(weights*yield_))
+        lo_slope, hi_slope = 0., .2
+        for _ in range(64):
+            mid = .5*(lo_slope + hi_slope)
+            if produced(mid) > vented:
+                lo_slope = mid
+            else:
+                hi_slope = mid
+        case['required_gas_yield_slope_per_k'] = .5*(lo_slope + hi_slope)
+        case['equivalent_activation_j_per_mol'] = float(case['required_gas_yield_slope_per_k']*RGAS*450.**2)
+        case['runaway_yield_at_600k'] = float(min(.8, case['gas_yield']*math.exp(case['required_gas_yield_slope_per_k']*150.)))
+        case['pre_vent_yield'] = float(np.sum(weights*np.minimum(.8, case['gas_yield'] *
+            np.exp(case['required_gas_yield_slope_per_k']*driver))))
+    # Seed the heat search with the slope that closes the chamber-gas ceiling
+    # at the heat-stage defaults. energy_j / gas_yield themselves stay fixed.
+    report['fit']['parameters']['gas_yield_temperature'] = feasibility['heat-stage defaults']['required_gas_yield_slope_per_k']
     report['gas_feasibility'].update(
         required_heat_per_gas_j_per_kg=float(chemical_required/vented),
         available_heat_per_gas_j_per_kg=float(best_budget/model.BOUNDS['gas_yield'][0]),

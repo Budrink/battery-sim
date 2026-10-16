@@ -107,6 +107,25 @@ void initial_capacity_and_tiles() {
             state[j].activated_kg==reference[j].activated_kg && state[j].reactant_kg==reference[j].reactant_kg,"R123 depends on CUDA tile");
     }
 }
+void r1_byproduct_branch() {
+    ConversionLaw p=fixture().cells[0].conversion;GasModel g;g.reference_temperature_k=300.;
+    p.reaction_rate_per_s=0.;p.precursor_yield=.25;p.precursor_yield_temperature_per_k=0.;p.precursor_yield_voltage_per_v=0.;
+    ThermalState s;s.temperature_k=300.;s.reactant_kg=p.mass_kg;
+    const double q0=conversion_chemical(p,s);
+    const double heat=advance_conversion(p,g,s,1.,10.,1.,0.);
+    const double da=p.mass_kg-s.reactant_kg;
+    require(heat==0 && s.generated_gas_kg==0 && s.released_energy_j==0,"Branched R1 creates heat or gas");
+    require(std::abs(s.activated_kg-.25*da)<1e-16,"R1 byproduct is not the precursor fraction");
+    require(std::abs(s.residue_kg-.75*da)<1e-16,"Complement of R1 is not inert residue");
+    require(std::abs(s.sterilized_chemical_j-p.net_heat_j_per_kg*.75*da)<1e-12,"Inert path is not a chemical sink");
+    require(std::abs(conversion_chemical(p,s)+s.sterilized_chemical_j-q0)<1e-12,"Branching leaks chemical reserve");
+    require(std::abs(precursor_branch(p,300.,3.65)-.25)<1e-15,"Reference branch");
+    p.precursor_yield_temperature_per_k=.02;
+    require(std::abs(precursor_branch(p,p.precursor_temperature_ref_k+std::log(2.)/.02,p.precursor_voltage_ref_v)-.5)<1e-12,"Heat does not raise R1→B yield");
+    p.precursor_yield_temperature_per_k=0.;p.precursor_yield_voltage_per_v=1.;
+    require(std::abs(precursor_branch(p,300.,3.65+1.)-.25*std::exp(1.))<1e-12,"Voltage does not raise R1→B yield");
+    p.precursor_yield=2.;require(precursor_branch(p,300.,3.65)==1.,"Branch exceeds 1");
+}
 void tensor_without_length() {
     ConnectivityLaw law;law.kind=TransitionKind::DirectedGeometry;
     law.background_conductance_w_per_k=1.;law.active_conductance_w_per_k=9.;
@@ -120,6 +139,6 @@ void tensor_without_length() {
     require(a.conductance_w_per_k==unchanged.conductance_w_per_k && unchanged.l_m==0.,"Tensor contact uses an independent length");
 }
 int main(){try {
-    exact_neutral_r1();gas_yield_and_mesh();rupture_and_oxygen();initial_capacity_and_tiles();tensor_without_length();
+    exact_neutral_r1();gas_yield_and_mesh();rupture_and_oxygen();initial_capacity_and_tiles();r1_byproduct_branch();tensor_without_length();
     std::cout<<"R1/R2/R3: analytic chain, balances, oxygen/casing, density, refinement and CUDA tiles pass\n";
 }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

@@ -83,7 +83,8 @@
       "resistance_ohm": 0.016970491816536905,
       "overcharge_gain": 0.8177506882549067,
       "r2_rate": 299.9999999905491,
-      "r2_activation": 82502.44826857552
+      "r2_activation": 82502.44826857552,
+      "gas_yield_temperature": 0.032578292455613514
     },
     "energy_j": 300000.0,
     "gas_fraction": 0.7,
@@ -115,7 +116,11 @@
         "converted_fraction": 0.6572223629875249,
         "gas_kg": 0.052577789039002,
         "internal_pressure_pa": 1148884986.7106626,
-        "max_shell_strength_pa": 10000000.0
+        "max_shell_strength_pa": 10000000.0,
+        "required_gas_yield_slope_per_k": 0.032578292455613514,
+        "equivalent_activation_j_per_mol": 54851.37644405611,
+        "runaway_yield_at_600k": 0.8,
+        "pre_vent_yield": 0.016430950213493813
       },
       "most favourable bounds": {
         "thermal_j_per_kg": 2400000.0,
@@ -124,7 +129,11 @@
         "converted_fraction": 0.12322919306016096,
         "gas_kg": 0.002464583861203219,
         "internal_pressure_pa": 53853983.75206233,
-        "max_shell_strength_pa": 10000000.0
+        "max_shell_strength_pa": 10000000.0,
+        "required_gas_yield_slope_per_k": 0.0012655134842331005,
+        "equivalent_activation_j_per_mol": 2130.718072878557,
+        "runaway_yield_at_600k": 0.12090404429382168,
+        "pre_vent_yield": 0.08763173447196694
       }
     },
     "chamber_volume_m3": 0.1191804772,

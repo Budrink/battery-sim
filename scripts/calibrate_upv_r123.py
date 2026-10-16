@@ -21,10 +21,12 @@ import upv_r123_data as dataio
 
 OUT=dataio.ROOT/'data/calibration/upv-r123-overcharge-v2'
 PROBE=Path('/tmp/battery-sim-cuda-v1/battery_sim_casing_probe')
-HEAT=('resistance_ohm','resistance_temperature','overcharge_gain','r2_rate','r2_activation','iss_h','tim_h','case_h',
-      'environment_h','surface_iss','surface_tim','bulk_slope')
+HEAT=('resistance_ohm','resistance_temperature','overcharge_gain','r2_rate','r2_activation','gas_yield_temperature',
+      'precursor_yield','precursor_temperature','precursor_voltage',
+      'iss_h','tim_h','case_h','environment_h','surface_iss','surface_tim','bulk_slope')
 FAILURE=('energy_j','gas_fraction','gas_yield','gas_rate','shell_strength_pa','opening_rate')
-LINEAR={'resistance_temperature','resistance_damage','r2_activation','surface_iss','surface_tim','bulk_slope','gas_fraction','gas_yield'}
+LINEAR={'resistance_temperature','resistance_damage','r2_activation','gas_yield_temperature','precursor_yield',
+        'precursor_temperature','precursor_voltage','surface_iss','surface_tim','bulk_slope','gas_fraction','gas_yield'}
 
 
 def save(path,value):
@@ -193,7 +195,9 @@ def fit(args):
     regimes=[('resistance-rising',dict(resistance_ohm=.015,resistance_temperature=.01)),
              ('resistance-low',dict(resistance_ohm=.003)),
              ('chemistry-early',dict(overcharge_gain=6.,r2_rate=1000.)),
-             ('chemistry-late',dict(overcharge_gain=.5,r2_rate=30.))] if stage=='heat' else [
+             ('chemistry-late',dict(overcharge_gain=.5,r2_rate=30.)),
+             ('suppressed-warmup-gas',dict(gas_yield_temperature=.03)),
+             ('branched-r1',dict(precursor_yield=.05,precursor_temperature=.03,precursor_voltage=.8))] if stage=='heat' else [
              ('energy-high',dict(energy_j=500000.)),('gas-fast',dict(gas_rate=100.)),
              ('strong-shell',dict(shell_strength_pa=1e7)),('gas-rich',dict(gas_fraction=.85))]
     if not args.no_regimes:

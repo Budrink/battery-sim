@@ -69,6 +69,10 @@ struct ConversionLaw {
     double degradation_reference_k = 298.15, degradation_activation_j_per_mol = 40000.;
     double initial_precursor_fraction = 0.;
     double overcharge_conversion_per_charge = 0.; // fraction transformed per nominal charge, at electrical T_ref
+    // R1 byproduct split: φ of consumed A becomes B, 1-φ is inert residue.
+    // φ=1 recovers A→B. Heating and overvoltage raise φ, so R2 feeds its own fuel.
+    double precursor_yield = 1., precursor_yield_temperature_per_k = 0., precursor_yield_voltage_per_v = 0.;
+    double precursor_temperature_ref_k = 298.15, precursor_voltage_ref_v = 3.65;
     // Reporting only; never a cutoff in the R2 kinetic law (fraction of m0/s).
     double runaway_reporting_rate_per_s = 1e-5;
     double gas_yield = 0., gas_chemical_fraction = 0.;
@@ -302,6 +306,7 @@ struct CellConfig {
     ConversionLaw conversion;
     ElectricalLaw electrical;
     std::vector<std::array<double,2>> current_profile_a; // [physical seconds, amperes]
+    std::vector<std::array<double,2>> voltage_profile_v; // [physical seconds, terminal volts]
     std::string shell_contents_id; // physical casing panel, NOT a numerical region
 };
 

@@ -39,6 +39,14 @@ BN_HD inline double completion_rate(const ConversionLaw& p,double t) {
 BN_HD inline double conversion_chemical(const ConversionLaw& p,const ThermalState& s) {
     return p.net_heat_j_per_kg*(s.reactant_kg+s.activated_kg);
 }
+// Frozen-on-substep R1 byproduct fraction. Voltage omitted (U=U_ref) leaves only T.
+BN_HD inline double precursor_branch(const ConversionLaw& p,double temperature,double voltage) {
+    if(p.precursor_yield>=1. && p.precursor_yield_temperature_per_k==0. && p.precursor_yield_voltage_per_v==0.)
+        return 1.;
+    const double exponent=p.precursor_yield_temperature_per_k*(temperature-p.precursor_temperature_ref_k)+
+        p.precursor_yield_voltage_per_v*(voltage-p.precursor_voltage_ref_v);
+    return fmin(1.,fmax(0.,p.precursor_yield*exp(fmin(80.,fmax(-80.,exponent)))));
+}
 BN_HD inline void refresh_conversion(const ConversionLaw& p,ThermalState& s,double fraction,double speed) {
     const double m0=p.mass_kg*fraction;
     s.damage=fmin(1.,fmax(0.,1-s.reactant_kg/m0));
@@ -59,19 +67,22 @@ BN_HD inline void refresh_conversion(const ConversionLaw& p,ThermalState& s,doub
 // Exact coupled two-stage chain at frozen T. Stable also for kb >> ka: the
 // short-lived intermediate need not impose its lifetime on the transport step.
 BN_HD inline double advance_conversion(const ConversionLaw& p,const GasModel& g,ThermalState& s,
-    double fraction,double dt,double speed,double time,double additional_r1_rate=0.) {
+    double fraction,double dt,double speed,double time,double additional_r1_rate=0.,double voltage_v=-1.) {
     s.generated_gas_kg=s.generated_gas_energy_j=s.generated_gas_chemical_j=0.;
     const double ka=(degradation_rate(p,s.temperature_k)+additional_r1_rate)*speed;
     const double kb=completion_rate(p,s.temperature_k)*speed;
+    const double phi=precursor_branch(p,s.temperature_k,voltage_v<0.?p.precursor_voltage_ref_v:voltage_v);
     const double da=s.reactant_kg*(-expm1(-ka*dt));
     const double difference=fabs(kb-ka);
     const double feed=s.reactant_kg*ka*exp(-fmin(ka,kb)*dt)*
         (difference>0?-expm1(-difference*dt)/difference:dt);
-    const double db=s.activated_kg*(-expm1(-kb*dt))+fmax(0.,da-fmin(da,feed));
+    const double to_precursor=phi*da,to_inert=da-to_precursor;
+    const double db=s.activated_kg*(-expm1(-kb*dt))+phi*fmax(0.,da-fmin(da,feed));
     const double yield=effective_gas_yield(p,s,fraction);
     const bool reporting_onset=kb*s.activated_kg>p.mass_kg*fraction*p.runaway_reporting_rate_per_s;
     if(reporting_onset && s.runaway_started_s<0)s.runaway_started_s=time;
-    s.reactant_kg-=da;s.activated_kg+=da-db;s.residue_kg+=(1-yield)*db;
+    s.reactant_kg-=da;s.activated_kg+=to_precursor-db;s.residue_kg+=to_inert+(1-yield)*db;
+    s.sterilized_chemical_j+=p.net_heat_j_per_kg*to_inert;
     const double fuel=p.net_heat_j_per_kg*p.gas_chemical_fraction*db;
     const double generated=p.net_heat_j_per_kg*db-fuel;
     s.gross_reaction_energy_j+=generated;s.released_energy_j+=generated;

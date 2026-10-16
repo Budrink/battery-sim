@@ -153,7 +153,9 @@
         "overcharge_fraction": {"$ref": "#/$defs/fraction"},
         "nominal_capacity_coulomb": {"$ref": "#/$defs/positive"},
         "current_profile_a": {"type": "array", "minItems": 1,
-          "items": {"type": "array", "prefixItems": [{"$ref": "#/$defs/nonnegative"}, {"type": "number"}], "minItems": 2, "maxItems": 2}}
+          "items": {"type": "array", "prefixItems": [{"$ref": "#/$defs/nonnegative"}, {"type": "number"}], "minItems": 2, "maxItems": 2}},
+        "voltage_profile_v": {"type": "array", "minItems": 1,
+          "items": {"type": "array", "prefixItems": [{"$ref": "#/$defs/nonnegative"}, {"$ref": "#/$defs/nonnegative"}], "minItems": 2, "maxItems": 2}}
       }
     },
     "conversion": {"type": "object", "additionalProperties": false,
@@ -165,6 +167,11 @@
         "degradation_activation_j_per_mol": {"$ref": "#/$defs/nonnegative"},
         "initial_precursor_fraction": {"$ref": "#/$defs/fraction"},
         "overcharge_conversion_per_charge": {"$ref": "#/$defs/nonnegative"},
+        "precursor_yield": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "precursor_yield_temperature_per_k": {"type": "number"},
+        "precursor_yield_voltage_per_v": {"type": "number"},
+        "precursor_temperature_ref_k": {"$ref": "#/$defs/positive"},
+        "precursor_voltage_ref_v": {"type": "number"},
         "runaway_reporting_rate_per_s": {"$ref": "#/$defs/positive"},
         "gas_yield_reference_k": {"$ref": "#/$defs/positive"},
         "gas_yield_temperature_per_k": {"type": "number"},

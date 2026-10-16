@@ -24,6 +24,7 @@ struct ThermalState {
     CellMode mode = CellMode::Healthy;
     double reactant_kg = 0., activated_kg = 0., residue_kg = 0.;
     double gross_reaction_energy_j = 0.;
+    double sterilized_chemical_j = 0.; // (1-φ) q da: R1 inert path, not heat
     // Per-substep source to the owner's gas compartment.
     double generated_gas_kg = 0., generated_gas_energy_j = 0., generated_gas_chemical_j = 0.;
     double mobile_capacity_j_per_k = 0.; // derived LTE cache; gas inventory owns its energy

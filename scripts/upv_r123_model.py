@@ -7,16 +7,22 @@ import upv_r123_data as dataio
 REFERENCE = 298.15
 DEFAULT = dict(resistance_ohm=.008, resistance_temperature=-.001, resistance_damage=1.,
                r1_rate=1e-6, r1_activation=40000., overcharge_gain=2., r2_rate=300., r2_activation=120000.,
-               energy_j=300000., gas_fraction=.7, gas_yield=.4, gas_rate=20.,
+               energy_j=300000., gas_fraction=.7, gas_yield=.4, gas_yield_temperature=.0005, gas_rate=20.,
+               precursor_yield=1., precursor_temperature=0., precursor_voltage=0.,
                iss_h=500., tim_h=2000., case_h=500., environment_h=8.,
                surface_iss=0., surface_tim=0., bulk_slope=0.,
                shell_strength_pa=1e6, opening_rate=.2, sink_g=10.)
 # Bounds are declared before inspecting held-out observations. They are
 # engineering search ranges, not measured properties or uncertainty intervals.
+# gas_yield_temperature is linear in T around the R2 reference 450 K; at that
+# T, bT=0.08 /K is E_eff = bT R T^2 = 135 kJ/mol. Negative slopes (more gas
+# while cold than in runaway) are excluded; 0 is a temperature-independent yield.
 BOUNDS = dict(resistance_ohm=(.001,.0245), resistance_temperature=(-.02,.02), resistance_damage=(0.,4.),
               r1_rate=(1e-8,1e-4), r1_activation=(20000.,60000.), overcharge_gain=(.05,20.),
               r2_rate=(.1,1e5), r2_activation=(80000.,180000.),
-              energy_j=(150000.,600000.), gas_fraction=(.2,.9), gas_yield=(.1,.7), gas_rate=(1.,200.),
+              energy_j=(150000.,600000.), gas_fraction=(.2,.9), gas_yield=(.1,.7),
+              gas_yield_temperature=(0.,.08), gas_rate=(1.,200.),
+              precursor_yield=(.01,1.), precursor_temperature=(0.,.08), precursor_voltage=(0.,2.),
               iss_h=(10.,10000.), tim_h=(10.,10000.), case_h=(20.,2000.), environment_h=(1.,30.),
               surface_iss=(-6.,6.), surface_tim=(-6.,6.), bulk_slope=(-6.,6.),
               shell_strength_pa=(1e5,1e7), opening_rate=(.01,5.), sink_g=(2.,50.))
@@ -42,7 +48,7 @@ def build(name, parameters=None, *, warmup=False, duration=None):
     duration=duration or (mark['previous_s']-20. if warmup else mark['time_s']+1800.)
     times=dataio.observation_times(d,mark,duration,warmup)
     ambient=float(d['T109_k'][0]); pressure=float(2.5*d['U114_v'][0]*1e5)
-    drive, electrical_meta=dataio.current_drive(name,d,mark)
+    drive, volts, electrical_meta=dataio.current_drive(name,d,mark)
     scene=dict(name='UPV R123 + I²R: '+name, source=dataio.SOURCE,
                metadata=dict(experiment=name, calibration_status='Fresh uncalibrated R123/Joule model',
                  canonical_sha256=record['canonical_sha256'], electrical=electrical_meta,
@@ -52,7 +58,8 @@ def build(name, parameters=None, *, warmup=False, duration=None):
                    'One uninterrupted chemistry/pressure/thermal trajectory from ambient',
                    'Electrical resistance is unidentified; terminal U/I is NOT internal R',
                    'Casing laminate, gap .2 mm, wall mass and rupture properties are engineering proxies',
-                   'Environment thermocouple is an observer, not an extra heat source']),
+                   'Environment thermocouple is an observer, not an extra heat source',
+                   'Inert R1/R2 condensed residue keeps intact conductivity; it is not an ash insulator']),
                simulation=dict(duration_s=duration,max_dt_s=.2,output_interval_s=5.,stability_factor=.4),
                cells=[],ports=[],interfaces=[],boundaries=[],shells=[],primary_failures=[],
                measurement_probes=[],failure_sample_times_s=times)
@@ -93,15 +100,19 @@ def build(name, parameters=None, *, warmup=False, duration=None):
                 degradation_reference_k=400.,degradation_activation_j_per_mol=p['r1_activation'],
                 reaction_rate_per_s=p['r2_rate'],reaction_reference_k=450.,reaction_activation_j_per_mol=p['r2_activation'],
                 initial_precursor_fraction=0.,overcharge_conversion_per_charge=p['overcharge_gain'],gas_yield=p['gas_yield'],gas_yield_max=.8,
-                gas_yield_reference_k=450.,gas_yield_temperature_per_k=.0005,gas_yield_density_exponent=.2,
+                gas_yield_reference_k=450.,gas_yield_temperature_per_k=p['gas_yield_temperature'],gas_yield_density_exponent=.2,
+                precursor_yield=p['precursor_yield'],precursor_yield_temperature_per_k=p['precursor_temperature'],
+                precursor_yield_voltage_per_v=p['precursor_voltage'],precursor_temperature_ref_k=REFERENCE,
+                precursor_voltage_ref_v=3.65,
                 gas_chemical_fraction=p['gas_fraction'],gas_compartment='inside-'+ident+'-0',
-                residue_conductivity=[.01,.01,.01],max_fraction_per_step=.02,max_temperature_step_k=1.)
+                # S and R2 condensed C are chemically inert, not ash: keep intact k.
+                residue_conductivity=[1.,1.,1.],max_fraction_per_step=.02,max_temperature_step_k=1.)
             scene['shells'].append(dict(contents_id=ident,material_id='unidentified-pouch-laminate-PROXY',thickness_m=t,
                 density_kg_m3=1600.,specific_heat_j_kg_k=1250.,conductivity_w_per_m_k=[.3,50.,50.],
                 conductivity_frame='normal_tangential',initial_temperature_k=initial,contents_contact_h=p['case_h'],
                 seam_contact_h=500.,damage_onset_k=425.,damage_rate_per_s=.1,damage_scale_k=25.,destroyed_conductance_factor=.02))
         if ident=='C2':
-            c['electrical']=dict(current_profile_a=drive,resistance_ohm=p['resistance_ohm'],
+            c['electrical']=dict(current_profile_a=drive,voltage_profile_v=volts,resistance_ohm=p['resistance_ohm'],
                 temperature_log_slope_per_k=p['resistance_temperature'],damage_log_slope=p['resistance_damage'],
                 reference_temperature_k=REFERENCE,min_resistance_ohm=.0001,max_resistance_ohm=.15,max_temperature_step_k=1.,
                 overcharge_fraction=1.,nominal_capacity_coulomb=35.*3600.)

@@ -42,7 +42,8 @@ The current workflow does not read old profiles, does not prescribe C2's
 measured temperature, and does not reset chemistry at the measured explosion.
 
 ```sh
-python3 scripts/calibrate_upv_r123.py heat
+python3 scripts/analyze_upv_heat_balance.py --max-r2-rate 300
+python3 scripts/calibrate_upv_r123.py heat --start data/calibration/upv-r123-overcharge-v2/heat-balance.json
 python3 scripts/calibrate_upv_r123.py failure
 python3 scripts/calibrate_upv_r123.py validate
 ```

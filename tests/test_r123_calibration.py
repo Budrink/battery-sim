@@ -63,8 +63,26 @@ class CalibrationContract(unittest.TestCase):
         for name in ('C1','C3'):
             self.assertNotIn('electrical',cells[name])
         self.assertGreater(cells['C2']['conversion']['overcharge_conversion_per_charge'],0.)
+        self.assertIn('voltage_profile_v',cells['C2']['electrical'])
+        self.assertGreater(len(cells['C2']['electrical']['voltage_profile_v']),10)
+        self.assertEqual(cells['C2']['conversion']['precursor_yield'],1.)
+        self.assertIn('precursor_yield',calibration.HEAT)
         self.assertNotIn('r1_rate',calibration.HEAT)
         self.assertIn('overcharge_gain',calibration.HEAT)
+
+    def test_gas_yield_temperature_is_identified(self):
+        self.assertIn('gas_yield_temperature',calibration.HEAT)
+        self.assertIn('gas_yield_temperature',calibration.LINEAR)
+        lo,hi=model.BOUNDS['gas_yield_temperature']
+        self.assertEqual(lo,0.)
+        # Upper bound is condensed-phase chemistry at the R2 reference, not an
+        # expanded gas inventory: E_eff = bT R T^2 < 150 kJ/mol at 450 K.
+        self.assertLess(hi*8.31446261815324*450.**2,150000.)
+        self.assertGreater(hi,.03)
+        cells={c['id']:c for c in self.scene['cells']}
+        self.assertEqual(cells['C2']['conversion']['gas_yield_temperature_per_k'],model.DEFAULT['gas_yield_temperature'])
+        other,_=model.build('no-cooling',dict(model.DEFAULT,gas_yield_temperature=.03),warmup=True)
+        self.assertAlmostEqual(next(c for c in other['cells'] if c['id']=='C2')['conversion']['gas_yield_temperature_per_k'],.03)
 
     def test_initial_voltage_rejects_resistance_compensation(self):
         calibration.check_initial_voltage(self.scene)

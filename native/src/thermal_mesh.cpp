@@ -139,12 +139,15 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
             for(double x:p.residue_conductivity)positive(x,"residue conductivity");
             {
                 for(double x:{p.degradation_reference_k,p.runaway_reporting_rate_per_s,p.gas_yield_reference_k,p.gas_yield_max})positive(x,"R1/R2 parameter");
-                for(double x:{p.degradation_activation_j_per_mol,p.initial_precursor_fraction,p.gas_yield_temperature_per_k,p.gas_yield_density_exponent})
+                for(double x:{p.degradation_activation_j_per_mol,p.initial_precursor_fraction,p.gas_yield_temperature_per_k,p.gas_yield_density_exponent,
+                    p.precursor_yield_temperature_per_k,p.precursor_yield_voltage_per_v})
                     if(!std::isfinite(x))throw std::runtime_error("Nonfinite R1/R2 parameter");
                 if(p.degradation_activation_j_per_mol<0 ||
                     p.reaction_activation_j_per_mol<=p.degradation_activation_j_per_mol ||
                     p.initial_precursor_fraction<0 || p.initial_precursor_fraction>1 ||
-                    p.gas_yield_max>1 || p.gas_yield>p.gas_yield_max)
+                    p.gas_yield_max>1 || p.gas_yield>p.gas_yield_max ||
+                    p.precursor_yield<=0 || p.precursor_yield>1 ||
+                    p.precursor_temperature_ref_k<=0 || !std::isfinite(p.precursor_voltage_ref_v))
                     throw std::runtime_error("R1 must be heat-neutral, R2 steeper, precursor/yield fractions bounded");
             }
             if(p.gas_yield>1 || p.gas_chemical_fraction>1 || (p.gas_yield==0 && p.gas_chemical_fraction>0) || p.max_fraction_per_step>.1 ||
@@ -166,6 +169,10 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
                 throw std::runtime_error("Overcharge requires a finite nominal capacity and R1/R2 chemistry");
             double last=-1.;for(const auto& q:c.current_profile_a) {
                 if(!std::isfinite(q[0]) || q[0]<0 || q[0]<=last || !std::isfinite(q[1]))throw std::runtime_error("Invalid current profile");
+                last=q[0];
+            }
+            last=-1.;for(const auto& q:c.voltage_profile_v) {
+                if(!std::isfinite(q[0]) || q[0]<0 || q[0]<=last || !std::isfinite(q[1]) || q[1]<0)throw std::runtime_error("Invalid voltage profile");
                 last=q[0];
             }
         }
