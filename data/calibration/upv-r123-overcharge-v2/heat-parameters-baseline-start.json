@@ -1,0 +1,76 @@
+{
+  "parameters": {
+    "resistance_ohm": 0.008,
+    "resistance_temperature": -0.001,
+    "resistance_damage": 1.0,
+    "r1_rate": 1e-06,
+    "r1_activation": 40000.0,
+    "overcharge_gain": 2.0,
+    "r2_rate": 300.0,
+    "r2_activation": 120000.0,
+    "energy_j": 300000.0,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_rate": 20.0,
+    "iss_h": 287.71996866857825,
+    "tim_h": 2000.0,
+    "case_h": 500.0,
+    "environment_h": 8.0,
+    "surface_iss": 0.0,
+    "surface_tim": 0.0,
+    "bulk_slope": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0
+  },
+  "objective": 779.2867483951123,
+  "metrics": {
+    "warmup": {
+      "101": {
+        "rmse_k": 12.384010294130091,
+        "bias_k": -8.722667163440796
+      },
+      "102": {
+        "rmse_k": 0.306750150085011,
+        "bias_k": 0.2625927726348407
+      },
+      "107": {
+        "rmse_k": 11.327941457087586,
+        "bias_k": -7.844199473280677
+      },
+      "108": {
+        "rmse_k": 2.2871137197117224,
+        "bias_k": -1.5080498912096352
+      },
+      "C2_TIM": {
+        "rmse_k": 28.12551655151047,
+        "bias_k": -20.547540162547605
+      },
+      "C2_ISS": {
+        "rmse_k": 31.076992061368017,
+        "bias_k": -23.481316719019166
+      }
+    },
+    "pressure": {
+      "peak_bar": 1.1569880377170947,
+      "observed_peak_bar": 1.0622290969156691,
+      "peak_time_s": 866.168000032194,
+      "rmse_bar": 0.01478259467044678
+    },
+    "joule_j": {
+      "C1": 0.0,
+      "C2": 10795.465198352358,
+      "C3": 0.0
+    },
+    "wall_s": 409.083200808,
+    "steps": 476979,
+    "balance": {
+      "max_thermal_residual_j": 1.0506118997000158e-07,
+      "max_chemical_residual_j": 1.7345882952213287e-08,
+      "max_mass_residual_kg": 2.0539125955565396e-14
+    }
+  },
+  "fingerprint": "dd46896db0b34417c992c009a7b30bf5058c5e3eb63be97b765ab8c8e59ea62f",
+  "validation_used_for_selection": false,
+  "status": "candidate, not independently validated"
+}

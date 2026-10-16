@@ -163,6 +163,10 @@ def fit(args):
     p=dict(model.DEFAULT)
     if args.resume:
         p.update(json.loads((directory/(stage+'-parameters.json')).read_text())['parameters'])
+    if args.start:
+        # Analytic stack-balance seed. It fixes nothing: the objective is still
+        # measured by an actual CUDA trajectory, on the same data and windows.
+        seed=json.loads(args.start.read_text());p.update((seed.get('fit') or seed)['parameters'])
     if stage=='failure':p.update(json.loads((directory/'heat-parameters.json').read_text())['parameters'])
     history=[];best=float('inf');count=0;started=time.monotonic()
     def evaluate(candidate,label):
@@ -226,6 +230,7 @@ def main():
     cli.add_argument('--output',type=Path,default=OUT);cli.add_argument('--timeout',type=float,default=600.)
     cli.add_argument('--rounds',type=int,default=1);cli.add_argument('--no-regimes',action='store_true')
     cli.add_argument('--resume',action='store_true',help='Start from the best current R123/Joule candidate, never a legacy profile')
+    cli.add_argument('--start',type=Path,help='Seed from scripts/analyze_upv_heat_balance.py output, evaluated like any other candidate')
     cli.add_argument('--duration',type=float);args=cli.parse_args()
     if args.stage in ('heat','failure'):fit(args);return
     args.output.mkdir(parents=True,exist_ok=True);p=dict(model.DEFAULT)
