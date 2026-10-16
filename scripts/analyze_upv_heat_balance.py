@@ -247,11 +247,11 @@ def main():
     best_budget = model.BOUNDS['energy_j'][1]*(1 - model.BOUNDS['gas_fraction'][0])/.2
     cases = {'heat-stage defaults': (net_heat_thermal, fixed['gas_yield']),
              'most favourable bounds': (best_budget, model.BOUNDS['gas_yield'][0])}
+    temperature = float(observed['C2_TIM'][-1])
     feasibility = {}
     for label, (heat_per_kg, yield_) in cases.items():
         converted = chemical_required/heat_per_kg
         gas = yield_*converted
-        temperature = float(observed['C2_TIM'][-1])
         feasibility[label] = dict(
             thermal_j_per_kg=heat_per_kg, gas_yield=yield_,
             converted_kg=converted, converted_fraction=converted/.2, gas_kg=gas,
@@ -262,12 +262,32 @@ def main():
     # Part of the measured chamber rise is simply the warmed chamber gas.
     thermal_share = float(observed['pressure_bar'][0]*1e5 *
         (observed['ambient'][-1] - observed['ambient'][0])/observed['ambient'][0])
+    # A seam/valve that weeps before the matrix removes the pressure objection,
+    # so the binding constraint becomes the gas inventory the chamber actually
+    # saw. Retained mass is negligible: the pouch void cannot bank the gas.
+    shell = next(s for s in scene['shells'] if s['contents_id'] == 'C2')
+    strength = fixed['shell_strength_pa']*math.exp(-max(0., temperature - model.REFERENCE)/300.)
+    crack = .2*strength
+    vent_window = end - float(time[np.argmax(observed['C2_TIM'] > 330.)])
+    gamma = 1 + gas_model['specific_r_j_per_kg_k']/gas_model['cv_j_per_kg_k']
+    choked = math.sqrt(gamma)*(2/(gamma + 1))**((gamma + 1)/(2*(gamma - 1)))
+    unit_flow = .7*crack/math.sqrt(gas_model['specific_r_j_per_kg_k']*temperature)*choked
+    seam = dict(
+        crack_pressure_pa=crack, shell_strength_at_temperature_pa=strength,
+        retained_mass_kg=crack*inside/(gas_model['specific_r_j_per_kg_k']*temperature),
+        vent_window_s=vent_window, damage_onset_k=shell['damage_onset_k'])
     report['gas_feasibility'] = dict(
+        seam=seam,
         chemical_required_j=float(chemical_required), inside_c2_volume_m3=inside,
         cases=feasibility, chamber_volume_m3=chamber['volume_m3'],
         observed_chamber_rise_pa=observed_rise_pa, thermal_expansion_share_pa=thermal_share,
         vented_mass_upper_bound_kg=float(max(0., observed_rise_pa - thermal_share)*chamber['volume_m3'] /
                                         (gas_model['specific_r_j_per_kg_k']*float(observed['ambient'][-1]))))
+    vented = report['gas_feasibility']['vented_mass_upper_bound_kg']
+    report['gas_feasibility'].update(
+        required_heat_per_gas_j_per_kg=float(chemical_required/vented),
+        available_heat_per_gas_j_per_kg=float(best_budget/model.BOUNDS['gas_yield'][0]),
+        seam_area_for_vented_mass_m2=float(vented/vent_window/unit_flow))
     report['series'] = dict(
         time_s=time.tolist(), required_j=required.tolist(), required_power_w=power.tolist(),
         fitted_power_w=(chemical + joule).tolist(), joule_power_w=joule.tolist())

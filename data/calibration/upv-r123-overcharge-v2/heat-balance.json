@@ -98,6 +98,13 @@
     "measured_initial_voltage_v": 4.53
   },
   "gas_feasibility": {
+    "seam": {
+      "crack_pressure_pa": 151898.2213038918,
+      "shell_strength_at_temperature_pa": 759491.1065194589,
+      "retained_mass_kg": 6.9514988249445995e-06,
+      "vent_window_s": 361.4679997973144,
+      "damage_onset_k": 425.0
+    },
     "chemical_required_j": 59150.01266887726,
     "inside_c2_volume_m3": 5.000000000000004e-06,
     "cases": {
@@ -123,7 +130,10 @@
     "chamber_volume_m3": 0.1191804772,
     "observed_chamber_rise_pa": 3006.99499999999,
     "thermal_expansion_share_pa": 1424.1983456645344,
-    "vented_mass_upper_bound_kg": 0.0021597575850885553
+    "vented_mass_upper_bound_kg": 0.0021597575850885553,
+    "required_heat_per_gas_j_per_kg": 27387338.781566065,
+    "available_heat_per_gas_j_per_kg": 24000000.0,
+    "seam_area_for_vented_mass_m2": 2.7935010232716116e-08
   },
   "series": {
     "time_s": [
