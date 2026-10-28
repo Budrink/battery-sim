@@ -1,0 +1,87 @@
+{
+  "parameters": {
+    "resistance_ohm": 0.016,
+    "resistance_temperature": -0.02,
+    "resistance_charge": 10,
+    "product_conductivity_ratio": 0.2,
+    "r1_rate": 0.15842579560110023,
+    "r1_activation": 140000,
+    "r2_rate": 1411675.942112499,
+    "r2_activation": 240000,
+    "energy_j": 424264.068711928,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.0005,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.27735866146555965,
+    "precursor_temperature": 0.029623273375245555,
+    "iss_h": 548.334510922672,
+    "tim_h": 697.6587915939645,
+    "case_h": 220.48307663197534,
+    "environment_h": 1.563406124562644,
+    "surface_iss": 0.0,
+    "surface_tim": 6.0,
+    "bulk_slope": -2.88,
+    "case_warm_response": 0.0,
+    "case_hot_response": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0,
+    "battery_iss_factor": 0.3246524673583498,
+    "battery_tim_factor": 0.3272376374473188,
+    "charge_formation_gain": 2
+  },
+  "proposal": {
+    "label": "gentle-r2-stock2",
+    "k1_75": 0.0003,
+    "ea1": 140000,
+    "k2_75": 0.01,
+    "ea2": 240000,
+    "resistance_ohm": 0.016,
+    "resistance_temperature": -0.02,
+    "resistance_charge": 10,
+    "charge_formation_gain": 2
+  },
+  "fingerprint": "ef7a1842326e0304faf6d33130236f4f4831b7895dc244de30fdb9b050551273",
+  "changes": {
+    "resistance_ohm": [
+      0.008777311071596752,
+      0.016
+    ],
+    "resistance_temperature": [
+      -0.01999999999999949,
+      -0.02
+    ],
+    "resistance_charge": [
+      14.838210523443244,
+      10
+    ],
+    "r1_rate": [
+      1e-06,
+      0.15842579560110023
+    ],
+    "r1_activation": [
+      40000.0,
+      140000
+    ],
+    "r2_rate": [
+      100000.00000000001,
+      1411675.942112499
+    ],
+    "r2_activation": [
+      136106.65706689408,
+      240000
+    ],
+    "charge_formation_gain": [
+      0.9665706075586435,
+      2
+    ]
+  },
+  "validation_used_for_selection": false,
+  "shell_material_contacts_and_phi_frozen": true,
+  "electrical_fit_authorized": true,
+  "fit_charge_formation": true,
+  "diagnostic_emf_floor_v": null
+}

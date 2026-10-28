@@ -1,0 +1,354 @@
+{
+  "status": "mesh-limit-not-converged",
+  "pid": 1825941,
+  "results": {
+    "h-20mm": {
+      "status": "complete",
+      "advanced_to_s": 1799.9999999999636,
+      "fresh_from_zero": true,
+      "calibrated": false,
+      "validation_passed": false,
+      "r2_parameters": {
+        "reaction_rate_per_s": 0.01999639111839507,
+        "reaction_reference_k": 450.0,
+        "reaction_activation_j_per_mol": 100000.0
+      },
+      "r2_converted_components": 1,
+      "model_conversion_events": [
+        {
+          "component": "B10",
+          "time_s": 1105.3422755126192
+        }
+      ],
+      "observed_failure_count": null,
+      "conversion_reporting": "10% R2 mass, inferred from constant-yield gas ledger; not R1 residue",
+      "neighbour_peaks": [
+        {
+          "component": "B09",
+          "mean_c": 84.84080615555933,
+          "r2_converted_mass_fraction": 0.004413754964803988
+        },
+        {
+          "component": "B11",
+          "mean_c": 83.90131651299123,
+          "r2_converted_mass_fraction": 0.004113143335214217
+        },
+        {
+          "component": "B02",
+          "mean_c": 82.11846686623517,
+          "r2_converted_mass_fraction": 0.003422973708740701
+        },
+        {
+          "component": "B03",
+          "mean_c": 81.38620433994026,
+          "r2_converted_mass_fraction": 0.003250213792227997
+        },
+        {
+          "component": "B17",
+          "mean_c": 79.25903232767592,
+          "r2_converted_mass_fraction": 0.0028041030604988326
+        },
+        {
+          "component": "B18",
+          "mean_c": 78.79427843246606,
+          "r2_converted_mass_fraction": 0.0027001750523130094
+        }
+      ],
+      "source_peak": {
+        "component": "B10",
+        "mean_c": 1157.7549423838032,
+        "r2_converted_mass_fraction": 0.9999003406306042
+      },
+      "all_gas_r3_j": 65894.4568023469,
+      "final_all_gas_unburned_j": 20116.335758410954,
+      "final_all_gas_oxygen_kg": 0.269860421607217,
+      "maximum_recorded_cavity_pressure_pa": 140386.46730385805,
+      "wall_s": 906.065180386,
+      "realtime_ratio": 1.9866120439956996,
+      "minimum_regular_step_s": 0.01,
+      "balances": {
+        "max_chemical_residual_j": 2.314336597919464e-07,
+        "max_mass_residual_kg": 6.17284001691587e-14,
+        "max_oxidizer_residual_kg": 7.072120666862247e-14,
+        "max_thermal_residual_j": 7.507333066314459e-08
+      },
+      "experimental_envelope_diagnostic": {
+        "objective": 4.871692138863312,
+        "phase_loss": {
+          "warmup": 4.713880684307195,
+          "propagation": 0.15781145455611667,
+          "cooling": 0.0
+        },
+        "envelope_rmse_k": {
+          "warmup": 175.91575676177771,
+          "propagation": 151.83961800238646,
+          "cooling": null
+        },
+        "known_until_s": 1799.9999999999636,
+        "complete": false,
+        "peak_weight": 0.2,
+        "calibrated": false,
+        "validation_passed": false,
+        "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved"
+      },
+      "external_nodes": 1590,
+      "scenario_sha256": "bf91783b3b349cbc01b2c230d1d824957e73db0463f826f90b5ae49d5760fbb9",
+      "run_sha256": "b8f3aba79208f8d48386af0c783478e58033ae4a43dd10ea5a16755921c5f511",
+      "heater_cutoff": [
+        {
+          "id": "fsri-film-ramp",
+          "kind": "heater_cutoff",
+          "time_s": 1111.5999999999985
+        }
+      ]
+    },
+    "h-40mm": {
+      "status": "complete",
+      "advanced_to_s": 1799.9999999999454,
+      "fresh_from_zero": true,
+      "calibrated": false,
+      "validation_passed": false,
+      "r2_parameters": {
+        "reaction_rate_per_s": 0.01999639111839507,
+        "reaction_reference_k": 450.0,
+        "reaction_activation_j_per_mol": 100000.0
+      },
+      "r2_converted_components": 1,
+      "model_conversion_events": [
+        {
+          "component": "B10",
+          "time_s": 1105.3410383864489
+        }
+      ],
+      "observed_failure_count": null,
+      "conversion_reporting": "10% R2 mass, inferred from constant-yield gas ledger; not R1 residue",
+      "neighbour_peaks": [
+        {
+          "component": "B09",
+          "mean_c": 86.84041844099517,
+          "r2_converted_mass_fraction": 0.00517894000444485
+        },
+        {
+          "component": "B11",
+          "mean_c": 85.88688186080611,
+          "r2_converted_mass_fraction": 0.004810209595535557
+        },
+        {
+          "component": "B02",
+          "mean_c": 82.46067235859562,
+          "r2_converted_mass_fraction": 0.0036289025348132434
+        },
+        {
+          "component": "B03",
+          "mean_c": 82.17443863076403,
+          "r2_converted_mass_fraction": 0.00352223154516581
+        },
+        {
+          "component": "B17",
+          "mean_c": 80.40333025929351,
+          "r2_converted_mass_fraction": 0.0031066630860522026
+        },
+        {
+          "component": "B18",
+          "mean_c": 80.17096726894863,
+          "r2_converted_mass_fraction": 0.0030470584554633156
+        }
+      ],
+      "source_peak": {
+        "component": "B10",
+        "mean_c": 1142.8749093496413,
+        "r2_converted_mass_fraction": 0.999900276398037
+      },
+      "all_gas_r3_j": 59248.06837391272,
+      "final_all_gas_unburned_j": 27034.685440112014,
+      "final_all_gas_oxygen_kg": 0.2703677795025161,
+      "maximum_recorded_cavity_pressure_pa": 121166.23767567963,
+      "wall_s": 523.746538471,
+      "realtime_ratio": 3.4367768906975065,
+      "minimum_regular_step_s": 0.01,
+      "balances": {
+        "max_chemical_residual_j": 2.1047890186309814e-07,
+        "max_mass_residual_kg": 1.199040866595169e-14,
+        "max_oxidizer_residual_kg": 6.42264019745653e-14,
+        "max_thermal_residual_j": 6.186019163578749e-08
+      },
+      "experimental_envelope_diagnostic": {
+        "objective": 4.926811366468361,
+        "phase_loss": {
+          "warmup": 4.765131750042585,
+          "propagation": 0.1616796164257764,
+          "cooling": 0.0
+        },
+        "envelope_rmse_k": {
+          "warmup": 177.28346785638425,
+          "propagation": 152.31124984013758,
+          "cooling": null
+        },
+        "known_until_s": 1799.9999999999454,
+        "complete": false,
+        "peak_weight": 0.2,
+        "calibrated": false,
+        "validation_passed": false,
+        "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved"
+      },
+      "external_nodes": 396,
+      "scenario_sha256": "bfc5a6dc29b0f0285a7b2bf2eb3e192e5e68708d4d30cc03e5b22a867b59a554",
+      "run_sha256": "6127b4fecbc4c11653cddff7ea9678d87f65f214e68ec87939bbdd460c2fa4f4",
+      "heater_cutoff": [
+        {
+          "id": "fsri-film-ramp",
+          "kind": "heater_cutoff",
+          "time_s": 1111.271777453667
+        }
+      ]
+    },
+    "h-10mm": {
+      "status": "complete",
+      "advanced_to_s": 1799.9999999999773,
+      "fresh_from_zero": true,
+      "calibrated": false,
+      "validation_passed": false,
+      "r2_parameters": {
+        "reaction_rate_per_s": 0.01999639111839507,
+        "reaction_reference_k": 450.0,
+        "reaction_activation_j_per_mol": 100000.0
+      },
+      "r2_converted_components": 1,
+      "model_conversion_events": [
+        {
+          "component": "B10",
+          "time_s": 1105.3359243826935
+        }
+      ],
+      "observed_failure_count": null,
+      "conversion_reporting": "10% R2 mass, inferred from constant-yield gas ledger; not R1 residue",
+      "neighbour_peaks": [
+        {
+          "component": "B09",
+          "mean_c": 83.6859048577918,
+          "r2_converted_mass_fraction": 0.0040039021973302755
+        },
+        {
+          "component": "B11",
+          "mean_c": 83.13390367274678,
+          "r2_converted_mass_fraction": 0.0038446815508820843
+        },
+        {
+          "component": "B02",
+          "mean_c": 81.28254183264909,
+          "r2_converted_mass_fraction": 0.003193858557990776
+        },
+        {
+          "component": "B03",
+          "mean_c": 81.0109286229233,
+          "r2_converted_mass_fraction": 0.0031330426846198503
+        },
+        {
+          "component": "B17",
+          "mean_c": 78.3830909168338,
+          "r2_converted_mass_fraction": 0.002609969955864856
+        },
+        {
+          "component": "B18",
+          "mean_c": 78.13782981005136,
+          "r2_converted_mass_fraction": 0.0025638223082169484
+        }
+      ],
+      "source_peak": {
+        "component": "B10",
+        "mean_c": 1125.4653430875978,
+        "r2_converted_mass_fraction": 0.9999007813654467
+      },
+      "all_gas_r3_j": 70017.65343078806,
+      "final_all_gas_unburned_j": 15805.300601483374,
+      "final_all_gas_oxygen_kg": 0.2695456737729869,
+      "maximum_recorded_cavity_pressure_pa": 124515.78948100534,
+      "wall_s": 3682.258143657,
+      "realtime_ratio": 0.48883047569617816,
+      "minimum_regular_step_s": 0.01,
+      "balances": {
+        "max_chemical_residual_j": 2.4028122425079346e-07,
+        "max_mass_residual_kg": 1.6786572132332367e-13,
+        "max_oxidizer_residual_kg": 5.084821452783217e-14,
+        "max_thermal_residual_j": 5.9328158386051655e-08
+      },
+      "experimental_envelope_diagnostic": {
+        "objective": 4.792937278435516,
+        "phase_loss": {
+          "warmup": 4.638791734099759,
+          "propagation": 0.1541455443357567,
+          "cooling": 0.0
+        },
+        "envelope_rmse_k": {
+          "warmup": 173.50025074600595,
+          "propagation": 151.4921045358511,
+          "cooling": null
+        },
+        "known_until_s": 1799.9999999999773,
+        "complete": false,
+        "peak_weight": 0.2,
+        "calibrated": false,
+        "validation_passed": false,
+        "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved"
+      },
+      "external_nodes": 9400,
+      "scenario_sha256": "9000d2f5c911cc38a231d453f08ceb371660d0aeaa04bd748d9bb95f08dbc162",
+      "run_sha256": "9092b4c2d303f48011b59a43d891e28e1f2c74380fc4943bb1f50943300809aa",
+      "heater_cutoff": [
+        {
+          "id": "fsri-film-ramp",
+          "kind": "heater_cutoff",
+          "time_s": 1110.4999999999995
+        }
+      ]
+    }
+  },
+  "comparisons": {
+    "h-40mm / h-20mm": {
+      "accepted": false,
+      "maximum_component_rms_relative_kelvin": 0.005402896041065477,
+      "r3_energy_relative_difference": 0.10086415080968487,
+      "reactive_window_exercised": true,
+      "r3_cumulative_rms_relative_difference": 0.06317111217854501,
+      "hottest_external_gas_rms_relative_kelvin": 0.06744936508231887,
+      "same_conversion_count": true,
+      "same_conversion_order": true,
+      "maximum_conversion_time_relative_difference": 1.1192245132461875e-06,
+      "tolerance": 0.05,
+      "scope": "spatial convergence on computed horizon only; NOT experimental validation"
+    },
+    "h-20mm / h-10mm": {
+      "accepted": false,
+      "maximum_component_rms_relative_kelvin": 0.008228235675758122,
+      "r3_energy_relative_difference": 0.05888795791359833,
+      "reactive_window_exercised": true,
+      "r3_cumulative_rms_relative_difference": 0.03647946045028435,
+      "hottest_external_gas_rms_relative_kelvin": 0.07505757173878362,
+      "same_conversion_count": true,
+      "same_conversion_order": true,
+      "maximum_conversion_time_relative_difference": 5.745849106049912e-06,
+      "tolerance": 0.05,
+      "scope": "spatial convergence on computed horizon only; NOT experimental validation"
+    }
+  },
+  "duration_s": 1800.0,
+  "levels_mm": [
+    40.0,
+    20.0,
+    10.0
+  ],
+  "execution_order_mm": [
+    20.0,
+    40.0,
+    10.0
+  ],
+  "stirring_prior": 0.05,
+  "native_sha256": "9f68313fa22cc7b8578cd46ff574fe0263cf06847c9359fc7d8f7ff37409841c",
+  "base_scenario": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-reactive-refinement-20261024-r8/trial-0003/scenario.json",
+  "base_sha256": "4e7653dc3d0e04897332924402b4e61f65af5eb0a4b981fc38c155adba45df28",
+  "fresh_from_zero": true,
+  "calibrated": false,
+  "validation_passed": false,
+  "spatially_converged": false,
+  "phase": "h-10mm"
+}

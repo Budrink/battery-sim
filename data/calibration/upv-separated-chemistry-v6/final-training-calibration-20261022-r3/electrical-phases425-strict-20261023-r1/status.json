@@ -1,0 +1,58 @@
+{
+  "status": "complete",
+  "pid": 1751450,
+  "native_sha256": "6297d6bb0de0c387b3f406ff44468dfb48d3e3a8a9ca4914c5aa2fa72de1024b",
+  "source_scene_sha256": "dce0377388361e9db31de3ec3d6772c850ce80168c6b73f28be17628de792a7c",
+  "plateau_k": 425.0,
+  "chemistry_refitted": false,
+  "ui_guard_strict": true,
+  "current_changed": false,
+  "heldout_temperature_pressure_selection": false,
+  "boundary_conditioned": true,
+  "fully_blind_validation": false,
+  "experiments": {
+    "no-cooling": {
+      "status": "complete",
+      "native_sha256": "6297d6bb0de0c387b3f406ff44468dfb48d3e3a8a9ca4914c5aa2fa72de1024b",
+      "chemistry_refitted": false,
+      "current_changed": false,
+      "refitted": false,
+      "accepted_validation": false,
+      "ui_guard_strict": true,
+      "fully_blind_validation": false,
+      "known_until_s": 1100.0,
+      "advanced_to_s": 1100.0,
+      "wall_s": 802.121731455,
+      "realtime_ratio": 1.371362920195002,
+      "balances": {
+        "max_chemical_residual_j": 1.018051989376545e-07,
+        "max_mass_residual_kg": 4.773959005888173e-14,
+        "max_oxidizer_residual_kg": 4.0939474033052647e-16,
+        "max_thermal_residual_j": 1.3236422091722488e-07
+      },
+      "strict_previous_shape_gates_passed": false
+    },
+    "active-cooling": {
+      "status": "complete",
+      "native_sha256": "6297d6bb0de0c387b3f406ff44468dfb48d3e3a8a9ca4914c5aa2fa72de1024b",
+      "chemistry_refitted": false,
+      "current_changed": false,
+      "refitted": true,
+      "accepted_validation": false,
+      "ui_guard_strict": true,
+      "fully_blind_validation": false,
+      "known_until_s": 1626.6089999116957,
+      "advanced_to_s": 1626.6089999116957,
+      "wall_s": 1102.941229796,
+      "realtime_ratio": 1.474792088616139,
+      "balances": {
+        "max_chemical_residual_j": 7.290509529411793e-08,
+        "max_mass_residual_kg": 2.6423307986078726e-14,
+        "max_oxidizer_residual_kg": 2.983724378680108e-16,
+        "max_thermal_residual_j": 1.2898817658424377e-07
+      },
+      "strict_previous_shape_gates_passed": false
+    }
+  },
+  "phase": "active-cooling"
+}

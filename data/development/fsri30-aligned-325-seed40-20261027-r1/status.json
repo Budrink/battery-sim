@@ -1,0 +1,62 @@
+{
+  "status": "running",
+  "pid": 2151783,
+  "stage": "fresh-aligned-325",
+  "scenario_sha256": "1fd65871a515e39932156a0998f99531b88aeab72da8cea533a1dcf989300733",
+  "seed_40mm_sha256": "f8cb8fe2fb7fe43171932e57df394ede61a63a77c513e551f33507f43c8f492b",
+  "core_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "experiment_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "calibrated": false,
+  "validation_passed": false,
+  "progress": {
+    "last_observed_s": 1264.999999999991,
+    "live_advanced_to_s": 1267.7999999999884,
+    "assessment": {
+      "evaluated": false,
+      "accepted": null,
+      "phase_window_complete": false,
+      "last_observed_s": 1264.999999999991,
+      "reason": null,
+      "constraint": 0.0,
+      "primary_offset_s": null,
+      "timing_error_s": 0.0,
+      "timing_target_met": false,
+      "pulse_match": {
+        "due": 0,
+        "matched": 0,
+        "missing": [],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "arrival_match": {
+        "due": 0,
+        "matched": 0,
+        "missing": [],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "model": {
+        "pulses": [],
+        "arrivals": [],
+        "pulse_groups": [],
+        "arrival_groups": []
+      },
+      "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+      "necessary_not_sufficient": true,
+      "objective": null
+    },
+    "physical_error": null,
+    "wall_s": 382.00654990808107
+  },
+  "run_path": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-seed40-20261027-r1/replay/incomplete-run.json.gz",
+  "run_sha256": "089938622ed5ade8dc33a0d1737e17803fe8dfe7d5696d4c63835dd4fdba9a91",
+  "balances": {
+    "max_chemical_residual_j": 3.259629011154175e-08,
+    "max_mass_residual_kg": 5.861977570020827e-14,
+    "max_oxidizer_residual_kg": 5.495603971894525e-14,
+    "max_thermal_residual_j": 1.303415047004819e-07
+  },
+  "wall_s": 387.1058914591558
+}

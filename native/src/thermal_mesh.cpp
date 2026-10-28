@@ -1,6 +1,7 @@
 #include "battery_native/thermal_mesh.hpp"
 #include "battery_native/reaction.hpp"
 #include "battery_native/conversion.hpp"
+#include "battery_native/gas_thermal_contact.hpp"
 #include <algorithm>
 #include <cmath>
 #include <limits>
@@ -46,6 +47,8 @@ void positive(double x, const std::string& what) {
     if (!std::isfinite(x) || x <= 0) throw std::runtime_error("Expected positive " + what);
 }
 double maximum_g(const ConnectivityLaw& l) {
+    if(l.radiation_coefficient_w_per_k4>0.)
+        return 4.*l.radiation_coefficient_w_per_k4*std::pow(l.radiation_temperature_limit_k,3);
     return std::max(l.background_conductance_w_per_k+l.active_conductance_w_per_k,
                     l.destroyed_background_conductance_w_per_k+l.destroyed_active_conductance_w_per_k)
            * std::max(1.0, l.damage_conductance_factor_at_one);
@@ -54,14 +57,10 @@ void add_link(ThermalMesh& mesh, ThermalLink link) {
     link.maximum_g = maximum_g(link.law)*link.weight;
     mesh.links.push_back(link);
 }
-ThermalLink constant_link(int a, int b, double g) {
+ThermalLink reference_link(int a, int b, double g) {
     ThermalLink e;
     e.a=a; e.b=b;
-    e.law.l0_m=e.law.l_low_m=e.law.l_high_m=1e-4;
-    e.law.destroyed_l0_m=e.law.destroyed_l_m=1e-4;
-    e.law.background_conductance_w_per_k=g;
-    e.law.destroyed_background_conductance_w_per_k=g;
-    e.initial.l_m=e.initial.l0_m=1e-4;
+    e.law=reference_directed_connectivity(g);
     e.initial.conductance_w_per_k=g;
     return e;
 }
@@ -109,6 +108,45 @@ std::vector<Patch> face_patches(const Scenario& s, const ThermalMesh& m, const P
     if(result.empty()) throw std::runtime_error("Empty port: "+p.id);
     return result;
 }
+
+// A fixture wall has no battery owner. Reuse the same aperture/work operator,
+// but require explicit, opposite gas-film incidences on THIS local wall voxel.
+// This does not relax the separate battery-casing bypass checks in MassMesh.
+void validate_material_barrier(const Scenario& s,const ThermalMesh& m,
+    const GasChannel& ch,const PortConfig& outward,
+    const std::unordered_map<std::string,const PortConfig*>& ports) {
+    const auto& wall=s.cells.at(ch.shell_object);
+    if(!s.gas_model.split_transport || wall.is_battery || !wall.shell_contents_id.empty() ||
+       !ch.rupture || !ch.opening.enabled || !ch.opening.deterministic_aperture ||
+       ch.shell_thermal_volume<0 || ch.to<0)
+        throw std::runtime_error("Material barrier needs a passive local deterministic aperture and two explicit gas volumes");
+    for(const int endpoint:{ch.from,ch.to}) {
+        const auto& gas=s.gas_compartments.at(endpoint);
+        if(gas.owner_cell>=0 || (gas.thermal_cell>=0 && s.cells.at(gas.thermal_cell).is_battery))
+            throw std::runtime_error("Material barrier cannot replace a battery casing");
+    }
+    const int k=m.object_offsets.at(ch.shell_object)+ch.shell_thermal_volume;
+    for(const int endpoint:{ch.from,ch.to}) {
+        int found=0;
+        for(const auto& contact:s.gas_contacts) {
+            if(contact.thermal_volume!=ch.shell_thermal_volume)continue;
+            const auto entry=ports.find(contact.port_id);if(entry==ports.end())continue;
+            const auto& face=*entry->second;
+            if(face.cell_index!=outward.cell_index || face.surface.size()!=2 ||
+               face.surface[1]!=outward.surface[1] ||
+               ((face.surface[0]==outward.surface[0])!=(endpoint==ch.to)))continue;
+            if(contact.compartment!=endpoint)
+                throw std::runtime_error("Material barrier patch has ambiguous gas neighbours; split its surface geometry first");
+            for(const auto& patch:face_patches(s,m,face))if(patch.volume==k) {
+                const auto& volume=m.volumes.at(k);const auto size=xyz(volume.size_m);
+                const int axis=patch.axis;
+                const double full=size[(axis+1)%3]*size[(axis+2)%3];
+                if(std::abs(patch.area-full)<=full*1e-9)++found;
+            }
+        }
+        if(found!=1)throw std::runtime_error("Material barrier must join unique opposite gas contacts covering the same local wall patch");
+    }
+}
 }
 
 ThermalMesh build_thermal_mesh(const Scenario& s) {
@@ -134,21 +172,45 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
                 throw std::runtime_error("Conversion has its own composition/capacity/source; legacy chemistry, aging and bulk failure cannot overlap");
             for(double x:{p.mass_kg,p.reactant_cp,p.activated_cp,p.residue_cp,
                 p.degradation_rate_per_s,p.reaction_rate_per_s,p.reaction_reference_k,p.max_fraction_per_step,p.max_temperature_step_k})positive(x,"conversion parameter");
-            for(double x:{p.net_heat_j_per_kg,p.reaction_activation_j_per_mol,p.gas_yield,p.gas_chemical_fraction,p.overcharge_conversion_per_charge})
+            for(double x:{p.net_heat_j_per_kg,p.reaction_activation_j_per_mol,p.gas_yield,p.gas_chemical_fraction,p.charge_conversion_per_nominal_charge})
                 if(!std::isfinite(x)||x<0)throw std::runtime_error("Negative/nonfinite conversion parameter");
             for(double x:p.residue_conductivity)positive(x,"residue conductivity");
+            const auto& phase=p.volatile_phase;
+            if(!std::isfinite(phase.initial_mass_kg)||phase.initial_mass_kg<0.)throw std::runtime_error("Invalid volatile mass");
+            if(phase.initial_mass_kg>0.) {
+                for(double x:{phase.liquid_cp,phase.density_kg_m3,phase.latent_j_per_kg,phase.boiling_temperature_k,
+                    phase.saturation_reference_pa,phase.vapor_specific_r,phase.relaxation_per_s})positive(x,"volatile phase parameter");
+                if(!s.gas_model.cuda_network_transport || !s.gas_model.split_transport)
+                    throw std::runtime_error("Volatile phase requires CUDA network + split LTE; unsupported backends must not drop its inventories");
+                if(c.heat_capacity_j_per_k<=p.mass_kg*p.reactant_cp+phase.initial_mass_kg*phase.liquid_cp)
+                    throw std::runtime_error("Reactive and volatile inventories exceed measured reference heat capacity");
+                if(std::abs(phase.vapor_specific_r-s.gas_model.specific_r_j_per_kg_k)>1e-12)
+                    throw std::runtime_error("Current pseudo-gas requires a common vapor gas constant");
+                if(!std::isfinite(phase.chemical_j_per_kg)||phase.chemical_j_per_kg<0. || phase.chemical_j_per_kg!=s.gas_model.vapor_fuel_heat_j_kg)
+                    throw std::runtime_error("Volatile fuel heat must equal the common gas-network declaration");
+                for(const auto& other:s.cells)if(other.conversion.volatile_phase.initial_mass_kg>0.) {
+                    const auto& q=other.conversion.volatile_phase;
+                    if(q.liquid_cp!=phase.liquid_cp || q.latent_j_per_kg!=phase.latent_j_per_kg ||
+                        q.boiling_temperature_k!=phase.boiling_temperature_k || q.saturation_reference_pa!=phase.saturation_reference_pa ||
+                        q.density_kg_m3!=phase.density_kg_m3 || q.vapor_specific_r!=phase.vapor_specific_r || q.chemical_j_per_kg!=phase.chemical_j_per_kg)
+                        throw std::runtime_error("One common volatile pseudo-species per gas network is supported");
+                }
+            }
             {
                 for(double x:{p.degradation_reference_k,p.runaway_reporting_rate_per_s,p.gas_yield_reference_k,p.gas_yield_max})positive(x,"R1/R2 parameter");
-                for(double x:{p.degradation_activation_j_per_mol,p.initial_precursor_fraction,p.gas_yield_temperature_per_k,p.gas_yield_density_exponent,
-                    p.precursor_yield_temperature_per_k,p.precursor_yield_voltage_per_v})
+                for(double x:{p.degradation_activation_j_per_mol,p.initial_precursor_fraction,p.initial_charged_fraction,p.gas_yield_temperature_per_k,p.gas_yield_density_exponent,
+                    p.precursor_yield_temperature_per_k})
                     if(!std::isfinite(x))throw std::runtime_error("Nonfinite R1/R2 parameter");
+                // Independent reactions: either activation energy may be steeper.
+                // Their relative ordering is a calibration hypothesis, not an invariant.
                 if(p.degradation_activation_j_per_mol<0 ||
-                    p.reaction_activation_j_per_mol<=p.degradation_activation_j_per_mol ||
                     p.initial_precursor_fraction<0 || p.initial_precursor_fraction>1 ||
+                    p.initial_charged_fraction<0 || p.initial_charged_fraction>1 ||
+                    p.initial_precursor_fraction+p.initial_charged_fraction>1 ||
                     p.gas_yield_max>1 || p.gas_yield>p.gas_yield_max ||
-                    p.precursor_yield<=0 || p.precursor_yield>1 ||
-                    p.precursor_temperature_ref_k<=0 || !std::isfinite(p.precursor_voltage_ref_v))
-                    throw std::runtime_error("R1 must be heat-neutral, R2 steeper, precursor/yield fractions bounded");
+                    !std::isfinite(p.precursor_yield) || p.precursor_yield<0 || p.precursor_yield>1 ||
+                    p.precursor_temperature_ref_k<=0)
+                    throw std::runtime_error("R1/R2 activation energies must be nonnegative; precursor/yield fractions bounded");
             }
             if(p.gas_yield>1 || p.gas_chemical_fraction>1 || (p.gas_yield==0 && p.gas_chemical_fraction>0) || p.max_fraction_per_step>.1 ||
                 c.heat_capacity_j_per_k<=p.mass_kg*p.reactant_cp || p.gas_compartment<0 || p.gas_compartment>=static_cast<int>(s.gas_compartments.size()) ||
@@ -158,18 +220,46 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
         if(c.shape==ShapeKind::Cylinder) throw std::runtime_error("CUDA v1 mesh supports prismatic/pouch volumes; cylinder mesher not implemented: "+c.id);
         if(c.electrical.enabled) {
             const auto& e=c.electrical;
-            if(!c.is_battery)throw std::runtime_error("Cell Joule heating requires a battery");
+            // A passive resistive heater uses the same conservative I2R
+            // source, but cannot own battery charging/polarization chemistry.
+            if(!c.is_battery && (e.charge_acceptance_fraction!=0. || e.charge_log_slope!=0.))
+                throw std::runtime_error("Passive resistive heaters cannot store battery charge");
             for(double x:{e.resistance_ohm,e.reference_temperature_k,e.min_resistance_ohm,e.max_resistance_ohm,e.max_temperature_step_k})positive(x,"electrical parameter");
-            for(double x:{e.current_a,e.temperature_log_slope_per_k,e.damage_log_slope})
+            for(double x:{e.current_a,e.temperature_log_slope_per_k})
                 if(!std::isfinite(x))throw std::runtime_error("Nonfinite electrical law");
+            const auto& table=e.temperature_log_response;
+            if(table.count) {
+                if(table.count<2 || table.count>8 || e.temperature_log_slope_per_k!=0.)
+                    throw std::runtime_error("Electrical temperature table requires 2..8 knots and no scalar slope");
+                for(int j=0;j<table.count;++j)
+                    if(!std::isfinite(table.temperature_k[j]) || table.temperature_k[j]<=0. ||
+                       !std::isfinite(table.value[j]) || (j && table.temperature_k[j]<=table.temperature_k[j-1]))
+                        throw std::runtime_error("Invalid electrical temperature table");
+                if(std::abs(table_value(table,e.reference_temperature_k))>1e-10)
+                    throw std::runtime_error("Electrical temperature response must be zero at reference temperature");
+            }
+            if(!std::isfinite(e.product_conductivity_ratio) || e.product_conductivity_ratio<=0. || e.product_conductivity_ratio>1. ||
+                e.terminal_axis<0 || e.terminal_axis>2)throw std::runtime_error("Invalid electrical product conductivity or terminal axis");
+            if(!std::isfinite(e.reversible_voltage_floor_v) || e.reversible_voltage_floor_v<0. ||
+                (e.reversible_voltage_floor_v>0. && c.voltage_profile_v.empty()))
+                throw std::runtime_error("Electrical reversible-voltage prior requires a voltage trace");
             if(e.min_resistance_ohm>e.resistance_ohm || e.resistance_ohm>e.max_resistance_ohm)throw std::runtime_error("Reference resistance outside declared bounds");
-            if(!std::isfinite(e.overcharge_fraction) || e.overcharge_fraction<0 || e.overcharge_fraction>1 ||
+            if(!std::isfinite(e.charge_acceptance_fraction) || e.charge_acceptance_fraction<0 || e.charge_acceptance_fraction>1 ||
                 !std::isfinite(e.nominal_capacity_coulomb) || e.nominal_capacity_coulomb<0 ||
-                (e.overcharge_fraction>0 && (e.nominal_capacity_coulomb<=0 || !c.conversion.enabled)))
-                throw std::runtime_error("Overcharge requires a finite nominal capacity and R1/R2 chemistry");
+                (e.charge_acceptance_fraction>0 && (e.nominal_capacity_coulomb<=0 || !c.conversion.enabled)))
+                throw std::runtime_error("Charging requires a finite nominal capacity and R1/R2 chemistry");
+            if(!std::isfinite(e.charge_log_slope) || e.charge_log_slope<0. ||
+                (e.charge_log_slope>0. && (!c.conversion.enabled || e.nominal_capacity_coulomb<=0.)))
+                throw std::runtime_error("Charge-dependent resistance requires stored-precursor chemistry and a finite nominal capacity");
+            if(e.charge_acceptance_fraction>0. && c.conversion.net_heat_j_per_kg>0. && c.voltage_profile_v.empty())
+                throw std::runtime_error("Charge precursor storage requires terminal voltage to account for electrical work");
             double last=-1.;for(const auto& q:c.current_profile_a) {
                 if(!std::isfinite(q[0]) || q[0]<0 || q[0]<=last || !std::isfinite(q[1]))throw std::runtime_error("Invalid current profile");
                 last=q[0];
+            }
+            if(e.voltage_limited_current) {
+                if(c.voltage_profile_v.empty() || e.current_a<0.)throw std::runtime_error("Voltage-limited setpoint requires voltage and nonnegative charging current");
+                for(const auto& q:c.current_profile_a)if(q[1]<0.)throw std::runtime_error("Voltage-limited setpoint does not support reverse current");
             }
             last=-1.;for(const auto& q:c.voltage_profile_v) {
                 if(!std::isfinite(q[0]) || q[0]<0 || q[0]<=last || !std::isfinite(q[1]) || q[1]<0)throw std::runtime_error("Invalid voltage profile");
@@ -258,7 +348,7 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
             for(int k=0;k<3;++k) if(!c.isothermal && pos[k]+1<n[k]) {
                 const double area=h[(k+1)%3]*h[(k+2)%3];
                 const double base_g=c.conductivity_w_per_m_k[k]*area/h[k];
-                auto link=constant_link(base+local,base+local+stride[k],base_g);
+                auto link=reference_link(base+local,base+local+stride[k],base_g);
                 link.geometry_axis=k;
                 if(c.has_bulk_connectivity) {
                     link.law=c.bulk_connectivity;
@@ -267,8 +357,8 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
                     link.law.destroyed_background_conductance_w_per_k*=base_g;
                     link.law.destroyed_active_conductance_w_per_k*=base_g;
                     link.initial.l0_m=link.law.l0_m;link.initial.l_m=link.law.l_low_m;
-                    link.law.endpoint_a=link.law.endpoint_b=c.has_bulk_response?c.bulk_response:c.surface_connectivity;
                 }
+                link.law.endpoint_a=link.law.endpoint_b=c.has_bulk_response?c.bulk_response:c.surface_connectivity;
                 add_link(m,link);
                 if(c.bulk_failure_transient.relaxation_time_s>0)
                     m.links.back().maximum_g=std::max(m.links.back().maximum_g,base_g*c.bulk_failure_transient.peak_factor);
@@ -287,6 +377,11 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
         if(!std::isfinite(g.batch_pressure_fraction) || g.batch_pressure_fraction<=0 || g.batch_pressure_fraction>.25 ||
            !std::isfinite(g.batch_mean_threshold) || g.batch_mean_threshold<0 || g.batch_mean_threshold>32)
             throw std::runtime_error("Invalid gas batch controls");
+        if((g.averaged_network_transport && !g.cuda_network_transport) ||
+            g.averaged_pressure_iterations<4 || g.averaged_pressure_iterations>GasModel::maximum_pressure_iterations ||
+            g.averaged_payload_iterations<4 || g.averaged_payload_iterations>128 ||
+            (g.implicit_network_mixing && !g.averaged_network_transport))
+            throw std::runtime_error("Invalid averaged CUDA network controls");
         if(g.deterministic_sweeps_per_step<1 || g.deterministic_sweeps_per_step>8)
             throw std::runtime_error("Deterministic gas transport allows one to eight sweeps per thermal step");
         if(!std::isfinite(g.deterministic_pressure_fraction) || g.deterministic_pressure_fraction<=0 || g.deterministic_pressure_fraction>1)
@@ -299,6 +394,26 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
         if(g.cpu_local_transport && !g.split_transport)throw std::runtime_error("CPU local mass transport requires split LTE");
         if(g.cuda_kawasaki_transport && (!g.split_transport || g.cpu_local_transport || g.implicit_local_transport))
             throw std::runtime_error("CUDA Kawasaki requires split LTE and no CPU gas backend");
+        for(double x:{g.mixing_diffusivity_m2_s,g.mixing_flow_fraction,g.vapor_fuel_heat_j_kg,g.thermal_stirring_coefficient})
+            if(!std::isfinite(x)||x<0.)throw std::runtime_error("Invalid gas mixing coefficient");
+        positive(g.mixing_length_cap_m,"gas mixing length cap");
+        positive(g.thermal_stirring_length_m,"physical thermal stirring length");
+        if(g.pressure_pattern_predictor && !g.averaged_network_transport)
+            throw std::runtime_error("Pressure pattern predictor requires averaged network transport");
+        if(g.thermal_stirring_coefficient>0. && !g.cuda_network_transport)
+            throw std::runtime_error("Thermal stirring requires conservative CUDA network transport");
+        if(s.has_gas_mixing_connectivity) {
+            const auto& law=s.gas_mixing_connectivity;
+            if(law.kind!=TransitionKind::DirectedGeometry || law.damage_rate_at_onset_per_s!=0. ||
+                law.relaxation_time_s!=0. || law.endpoint_damage_weight!=0. ||
+                !std::isfinite(law.geometry_reference_logit))
+                throw std::runtime_error("Gas mixing requires instantaneous directed connectivity; aperture owns barrier damage");
+            for(double x:{law.background_conductance_w_per_k,law.active_conductance_w_per_k})
+                if(!std::isfinite(x)||x<0.)throw std::runtime_error("Invalid gas mixing connectivity scale");
+            if(!g.cuda_network_transport)throw std::runtime_error("State-dependent gas mixing requires CUDA network transport");
+        }
+        if((g.mixing_diffusivity_m2_s>0. || g.mixing_flow_fraction>0.) && !g.cuda_network_transport)
+            throw std::runtime_error("Gas mixing is implemented in CUDA network transport only");
         for(double x:{g.reference_temperature_k,g.cv_j_per_kg_k,g.specific_r_j_per_kg_k,g.max_fraction_per_step,g.max_temperature_step_k})positive(x,"gas model");
         if(g.max_fraction_per_step>.1)throw std::runtime_error("Gas step fraction exceeds .1");
         positive(g.pressure_relaxation_fraction,"gas pressure relaxation fraction");
@@ -311,8 +426,17 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
         for(const auto& c:s.gas_compartments) {
             if(c.id.empty() || c.id=="outside_domain" || !compartment_ids.emplace(c.id,true).second)throw std::runtime_error("Invalid/duplicate gas compartment id");
             positive(c.volume_m3,"gas free volume");positive(c.initial_mass_kg,"gas initial mass");positive(c.initial_temperature_k,"gas initial temperature");
+            if(c.ambient.enabled){const auto& b=c.ambient;
+                if(!g.cuda_network_transport || !g.split_transport || c.owner_cell>=0 || c.thermal_cell>=0)
+                    throw std::runtime_error("Open ambient boundary requires free gas in split CUDA network transport");
+                positive(b.pressure_pa,"ambient pressure");positive(b.temperature_k,"ambient temperature");
+                for(double x:{b.area_m2,b.renewal_flow_m3_s,b.discharge_coefficient,b.oxidizer_mass_fraction})
+                    if(!std::isfinite(x)||x<0.)throw std::runtime_error("Invalid open gas boundary");
+                if(b.discharge_coefficient>1. || b.oxidizer_mass_fraction>1.)throw std::runtime_error("Invalid ambient fraction/coefficient");
+            }
             positive(c.oxidizer_heat_j_per_kg,"gas heat per oxidizer mass");
-            for(double x:{c.initial_chemical_j,c.initial_oxidizer_mass_fraction,c.reaction_rate_per_s,c.ignition_temperature_k})
+            positive(c.reaction_reference_k,"R3 reference temperature");
+            for(double x:{c.initial_chemical_j,c.initial_oxidizer_mass_fraction,c.reaction_rate_per_s,c.ignition_temperature_k,c.reaction_activation_j_per_mol})
                 if(!std::isfinite(x)||x<0)throw std::runtime_error("Invalid gas reaction/inventory parameter");
             if(c.initial_oxidizer_mass_fraction>1)throw std::runtime_error("Oxidizer fraction exceeds total gas mass");
             if(c.owner_cell>=static_cast<int>(s.cells.size()) || c.owner_cell< -1 || (c.owner_cell>=0 && !s.cells[c.owner_cell].is_battery))throw std::runtime_error("Invalid gas owner");
@@ -324,6 +448,10 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
         }
         std::unordered_map<std::string,bool> channel_ids;
         for(const auto& ch:s.gas_channels) {
+            positive(ch.mixing_length_m,"gas mixing length");
+            positive(ch.hydraulic_resistance_factor,"gas hydraulic resistance");
+            if(ch.hydraulic_resistance_factor!=1. && (!ch.passage || !g.cuda_network_transport))
+                throw std::runtime_error("Distributed hydraulic resistance requires a CUDA free-gas passage");
             if(!channel_ids.emplace(ch.id,true).second || ch.id.empty() || ch.from<0 || ch.to< -1 || ch.from==ch.to ||
                 ch.from>=static_cast<int>(s.gas_compartments.size()) || ch.to>=static_cast<int>(s.gas_compartments.size()) || (!ch.internal && !ch.passage && !ports.contains(ch.port_id)))
                 throw std::runtime_error("Invalid gas channel endpoints/port/id");
@@ -337,7 +465,10 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
                     if(n.owner_cell>=0 || (n.thermal_cell>=0 && s.cells[n.thermal_cell].is_battery))
                         throw std::runtime_error("Free-space passage cannot bypass a battery casing");
                 }
-                positive(ch.area_m2,"passage area");positive(ch.discharge_coefficient,"passage discharge coefficient");
+                // Exactly blocked passages retain their topology/history, but
+                // carry neither pressure flow nor molecular/thermal mixing.
+                if(!std::isfinite(ch.area_m2) || ch.area_m2<0.)throw std::runtime_error("Invalid passage area");
+                positive(ch.discharge_coefficient,"passage discharge coefficient");
                 if(ch.discharge_coefficient>1)throw std::runtime_error("Passage discharge coefficient exceeds one");
                 continue;
             }
@@ -354,9 +485,12 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
             const auto& source=s.gas_compartments[ch.from];
             const int owner=source.owner_cell>=0?source.owner_cell:
                 (g.split_transport && source.thermal_cell>=0 && s.cells.at(source.thermal_cell).is_battery?source.thermal_cell:-1);
+            const bool material_barrier=ch.rupture && owner<0 && shell.shell_contents_id.empty();
             if(ch.shell_object!=static_cast<int>(p.cell_index) || shell.isothermal ||
-                (owner>=0 && shell.shell_contents_id!=s.cells[owner].id) || (ch.rupture && shell.shell_contents_id.empty()))
+                (owner>=0 && shell.shell_contents_id!=s.cells[owner].id) ||
+                (ch.rupture && shell.shell_contents_id.empty() && !material_barrier))
                 throw std::runtime_error("Battery discharge must cross its own physical shell; rupture cannot refer to contents");
+            if(material_barrier)validate_material_barrier(s,m,ch,p,ports);
             const double channel_area=gas_channel_area(s,ch);
             positive(channel_area,"channel area");positive(ch.discharge_coefficient,"discharge coefficient");positive(ch.strength_reference_k,"shell strength reference");positive(ch.strength_temperature_scale_k,"shell strength scale");
             if(channel_area>p.area_m2*(1.+1e-9) || ch.discharge_coefficient>1 || !std::isfinite(ch.opening_pressure_pa) || ch.opening_pressure_pa<0 ||
@@ -388,10 +522,12 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
                     throw std::runtime_error("Invalid stochastic area rupture law");
                 if(o.binary_pixels && o.initial_mechanical_damage!=0. && o.initial_mechanical_damage!=1.)
                     throw std::runtime_error("Binary shell initial mechanical state must be zero or one");
-                if(owner<0)throw std::runtime_error("Progressive shell opening requires its internal gas compartment");
-                const auto core=s.cells[owner].position_m;
-                if(p.normal.x*(shell.position_m.x-core.x)+p.normal.y*(shell.position_m.y-core.y)+p.normal.z*(shell.position_m.z-core.z)<=0)
-                    throw std::runtime_error("Progressive shell opening requires the outward-facing panel port");
+                if(!material_barrier) {
+                    if(owner<0)throw std::runtime_error("Progressive shell opening requires its internal gas compartment");
+                    const auto core=s.cells[owner].position_m;
+                    if(p.normal.x*(shell.position_m.x-core.x)+p.normal.y*(shell.position_m.y-core.y)+p.normal.z*(shell.position_m.z-core.z)<=0)
+                        throw std::runtime_error("Progressive shell opening requires the outward-facing panel port");
+                }
                 if(!ch.rupture || ch.opening_pressure_pa<=0 || !std::isfinite(o.damage_onset) || o.damage_onset<0 || o.damage_onset>=1 ||
                     !std::isfinite(o.initial_mechanical_damage) || o.initial_mechanical_damage<0 || o.initial_mechanical_damage>1 ||
                     !std::isfinite(o.exponent) || o.exponent<1 || !std::isfinite(o.pressure_damage_rate_per_s) || o.pressure_damage_rate_per_s<0 ||
@@ -415,14 +551,37 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
         }
         for(const auto& contact:s.gas_contacts) {
             if(contact.compartment<0 || contact.compartment>=static_cast<int>(s.gas_compartments.size()) || !ports.contains(contact.port_id))throw std::runtime_error("Invalid gas thermal contact");
-            positive(contact.h_w_per_m2_k,"gas contact h");const auto& p=*ports.at(contact.port_id);
+            const auto& p=*ports.at(contact.port_id);
+            if(!contact.has_connectivity)positive(contact.h_w_per_m2_k,"gas contact reference h");
+            auto law=contact.has_connectivity?contact.connectivity:reference_gas_connectivity(contact.h_w_per_m2_k*p.area_m2);
+            if(law.kind!=TransitionKind::DirectedGeometry || law.damage_rate_at_onset_per_s!=0. || law.relaxation_time_s!=0.)
+                throw std::runtime_error("Gas heat contacts require instantaneous directed geometry; damage belongs to material nodes");
+            law.endpoint_a=contact.gas_surface_connectivity;
+            law.endpoint_b=contact.has_solid_surface_connectivity?contact.solid_surface_connectivity:
+                s.cells[p.cell_index].surface_connectivity;
+            for(const auto& r:{law.endpoint_a,law.endpoint_b}) {
+                positive(r.reference_temperature_k,"gas contact reference temperature");positive(r.temperature_scale_k,"gas contact temperature scale");
+                for(const auto v:{r.linear,r.quadratic,r.damage,r.temperature_contrast,r.damage_contrast})
+                    for(double x:{v.x,v.y,v.z})if(!std::isfinite(x))throw std::runtime_error("Nonfinite gas surface metric");
+            }
+            for(double x:{law.background_conductance_w_per_k,law.active_conductance_w_per_k,
+                law.destroyed_background_conductance_w_per_k,law.destroyed_active_conductance_w_per_k})
+                if(!std::isfinite(x)||x<0.)throw std::runtime_error("Invalid gas connectivity scale");
+            if(!std::isfinite(law.geometry_reference_logit) || !std::isfinite(law.destroyed_geometry_reference_logit) ||
+               !std::isfinite(law.destruction_damage) || law.destruction_damage<=0. || law.destruction_damage>1. ||
+               !std::isfinite(law.endpoint_damage_weight) || law.endpoint_damage_weight<0. || law.endpoint_damage_weight>1. ||
+               law.damage_l_shift_m!=0. || law.damage_conductance_factor_at_one!=1.)
+                throw std::runtime_error("Invalid directed gas contact state law");
             if(enclosed(p.cell_index) && s.gas_compartments[contact.compartment].owner_cell!=static_cast<int>(p.cell_index))
                 throw std::runtime_error("External gas exposure cannot bypass the physical casing");
             if(s.cells[p.cell_index].isothermal)throw std::runtime_error("Gas exposure requires a spatial receiving solid");
             bool found=false;
             if(contact.thermal_volume< -1)throw std::runtime_error("Invalid gas contact thermal volume");
             for(const auto& patch:face_patches(s,m,p))if(contact.thermal_volume<0 || patch.volume==m.object_offsets[p.cell_index]+contact.thermal_volume) {
-                m.gas_patches.push_back({patch.volume,contact.compartment,contact.h_w_per_m2_k*patch.area});found=true;
+                GasThermalPatch q{};q.volume=patch.volume;q.compartment=contact.compartment;
+                q.law=law;q.geometry_axis=patch.axis;q.geometry_weight=patch.area/p.area_m2;
+                q.conductance_w_per_k=gas_contact_conductance(q,law.endpoint_a.reference_temperature_k,law.endpoint_b.reference_temperature_k,0.);
+                m.gas_patches.push_back(q);found=true;
             }
             if(!found)throw std::runtime_error("Gas contact thermal volume is not on its port");
         }
@@ -439,6 +598,7 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
             throw std::runtime_error("Energy outlet and thermal boundary need distinct ports to avoid double counting");
     }
     m.interface_offsets.push_back(0);
+    std::unordered_map<std::string,double> radiative_port_area;
     for(std::size_t j=0;j<s.interfaces.size();++j) {
         const auto& e=s.interfaces[j];
         if((enclosed(e.cell_a) && s.cells[e.cell_b].shell_contents_id!=s.cells[e.cell_a].id) ||
@@ -447,6 +607,19 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
         if(!ports.contains(e.port_a)||!ports.contains(e.port_b)) throw std::runtime_error("Missing contact port: "+e.id);
         const auto& pa=*ports.at(e.port_a); const auto& pb=*ports.at(e.port_b);
         const auto& ca=s.cells[e.cell_a]; const auto& cb=s.cells[e.cell_b];
+        if(e.radiative) {
+            if(!std::isfinite(e.radiation_exchange_area_m2) || e.radiation_exchange_area_m2<=0. ||
+               !std::isfinite(e.effective_emissivity) || e.effective_emissivity<0. || e.effective_emissivity>1. ||
+               !std::isfinite(e.radiation_temperature_limit_k) || e.radiation_temperature_limit_k<=0. ||
+               ca.initial_temperature_k>e.radiation_temperature_limit_k || cb.initial_temperature_k>e.radiation_temperature_limit_k ||
+               e.initial_damage!=0. || e.initial_phase!=EdgePhase::Low)
+                throw std::runtime_error("Invalid finite radiative interface: "+e.id);
+            for(const auto* port:{&pa,&pb}) {
+                radiative_port_area[port->id]+=e.radiation_exchange_area_m2;
+                if(radiative_port_area[port->id]>port->area_m2*(1.+1e-9))
+                    throw std::runtime_error("Radiative view factors exceed port area: "+port->id);
+            }
+        }
         // Parallel aligned material frames, including a shared rigid rotation.
         for(int k=0;k<3;++k) {
             V axis{};axis[k]=1;
@@ -466,8 +639,17 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
             if(du<=0||dv<=0) continue;
             ThermalLink link; link.a=aa.volume; link.b=bb.volume; link.interface_index=static_cast<int>(j);
             link.law=e.law; link.weight=du*dv;
+            if(e.radiative) {
+                link.law=reference_directed_connectivity(0.);
+                link.law.radiation_coefficient_w_per_k4=stefan_boltzmann_w_m2_k4*
+                    e.effective_emissivity*e.radiation_exchange_area_m2;
+                link.law.radiation_temperature_limit_k=e.radiation_temperature_limit_k;
+            }
             link.geometry_axis=axis;
-            link.law.endpoint_a=ca.surface_connectivity;link.law.endpoint_b=cb.surface_connectivity;
+            if(!e.has_endpoint_response) {
+                link.law.endpoint_a=ca.surface_connectivity;
+                link.law.endpoint_b=cb.surface_connectivity;
+            }
             link.series_resistance_k_per_w=(aa.half_resistance+bb.half_resistance)/(du*dv);
             link.series_resistance_a_k_per_w=aa.half_resistance/(du*dv);
             link.initial.l0_m=e.initial_phase==EdgePhase::Destroyed?e.law.destroyed_l0_m:e.law.l0_m;
@@ -483,6 +665,13 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
     }
     for(std::size_t boundary_index=0;boundary_index<s.boundaries.size();++boundary_index) {
         const auto& boundary=s.boundaries[boundary_index];
+        if(boundary.radiative) {
+            if(!std::isfinite(boundary.effective_emissivity) || boundary.effective_emissivity<0. || boundary.effective_emissivity>1. ||
+               !std::isfinite(boundary.radiating_area_fraction) || boundary.radiating_area_fraction<=0. || boundary.radiating_area_fraction>1. ||
+               !std::isfinite(boundary.radiation_temperature_limit_k) || boundary.radiation_temperature_limit_k<=0. ||
+               boundary.temperature_k>boundary.radiation_temperature_limit_k || boundary.has_connectivity || boundary.conductance_w_per_k!=0.)
+                throw std::runtime_error("Invalid exclusive radiative boundary");
+        }
         const auto& profile=boundary.temperature_profile;
         if(!profile.empty()) {
             if(profile.size()<2 || profile.front()[0]!=0 || profile.back()[0]<s.settings.duration_s)
@@ -492,6 +681,8 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
                 if(!std::isfinite(point[0]) || point[0]<=previous)
                     throw std::runtime_error("Boundary profile time must increase: "+boundary.id);
                 positive(point[1],"boundary profile temperature");previous=point[0];
+                if(boundary.radiative && point[1]>boundary.radiation_temperature_limit_k)
+                    throw std::runtime_error("Radiative reservoir exceeds its declared numerical temperature domain");
             }
         }
         if(!ports.contains(boundary.port_id)) throw std::runtime_error("Missing boundary port");
@@ -515,14 +706,23 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
         if(!std::isfinite(boundary.conductance_w_per_k)||boundary.conductance_w_per_k<0) throw std::runtime_error("Invalid boundary G");
         positive(boundary.temperature_k,"boundary temperature");
         for(const auto& p:patches) {
-            auto link=constant_link(p.volume,-1,boundary.conductance_w_per_k*p.area/area);
+            auto link=reference_link(p.volume,-1,boundary.conductance_w_per_k*p.area/area);
+            if(boundary.radiative) {
+                if(m.volumes[p.volume].initial_temperature_k>boundary.radiation_temperature_limit_k)
+                    throw std::runtime_error("Initial radiating solid exceeds its declared numerical temperature domain");
+                link.law=reference_directed_connectivity(0.);link.weight=p.area/area;
+                link.law.radiation_coefficient_w_per_k4=stefan_boltzmann_w_m2_k4*boundary.effective_emissivity*
+                    boundary.radiating_area_fraction*area;
+                link.law.radiation_temperature_limit_k=boundary.radiation_temperature_limit_k;
+            }
             link.geometry_axis=p.axis;
             if(boundary.has_connectivity) {
                 link.law=boundary.connectivity;link.weight=p.area/area;
-                link.law.endpoint_a=c.surface_connectivity;link.law.endpoint_b=boundary.remote_surface_connectivity;
                 link.initial.l0_m=link.law.l0_m;link.initial.l_m=link.law.l_low_m;
             }
+            link.law.endpoint_a=c.surface_connectivity;link.law.endpoint_b=boundary.remote_surface_connectivity;
             link.series_resistance_k_per_w=p.half_resistance/p.area;
+            if(boundary.radiative)link.series_resistance_k_per_w/=boundary.radiating_area_fraction;
             link.series_resistance_a_k_per_w=link.series_resistance_k_per_w;
             link.boundary_temperature_k=boundary.temperature_k;add_link(m,link);
             m.links.back().boundary_index=static_cast<int>(boundary_index);
@@ -545,7 +745,8 @@ ThermalMesh build_thermal_mesh(const Scenario& s) {
             for(const auto v:{r.linear,r.quadratic,r.damage,r.temperature_contrast,r.damage_contrast})
                 for(double x:{v.x,v.y,v.z})if(!std::isfinite(x))throw std::runtime_error("Non-finite structural response");
         }
-        if(!std::isfinite(l.geometry_reference_logit) || !std::isfinite(l.destroyed_geometry_reference_logit))throw std::runtime_error("Non-finite structural reference");
+        if(!std::isfinite(l.geometry_reference_logit) || !std::isfinite(l.destroyed_geometry_reference_logit) ||
+           !std::isfinite(l.interface_damage_log_response))throw std::runtime_error("Non-finite structural reference");
         if((l.kind==TransitionKind::StateGeometry || l.kind==TransitionKind::DirectedGeometry) && (l.relaxation_time_s!=0 || l.damage_l_shift_m!=0 ||
            l.damage_conductance_factor_at_one!=1 || l.destroyed_l_m<l.destroyed_l0_m))
             throw std::runtime_error("State geometry requires instantaneous response and its explicit damage/destroyed branch");

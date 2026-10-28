@@ -1,0 +1,58 @@
+{
+  "status": "stopped",
+  "pid": 1521035,
+  "native_sha256": "8bdf1355bd48357ae13e2daf65f857a90eb5d586d10b773f8f866629b3c541a5",
+  "baseline": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/restart-gas-baseline-20261019-r1",
+  "chemistry_frozen": true,
+  "calibrated": false,
+  "order": [
+    "ISS1",
+    "TIM1",
+    "ISS2",
+    "TIM2",
+    "ISS3",
+    "TIM3",
+    "ISS4"
+  ],
+  "cases": [
+    {
+      "case": "00-retained-0",
+      "status": "complete",
+      "retained": [],
+      "c3_iss_peak_c": 39.57795752896101,
+      "c2_iss_peak_c": 530.4357256788995,
+      "max_c3_iss_gap_c": 436.9950082700658,
+      "speed": 2.4752086901066472,
+      "c3_iss_transport_j": 57.98351816413013,
+      "c3_iss_r3_j": 10.849975466722947
+    },
+    {
+      "case": "01-retained-1",
+      "status": "complete",
+      "retained": [
+        "ISS1"
+      ],
+      "c3_iss_peak_c": 34.21964636430175,
+      "c2_iss_peak_c": 530.3283498908249,
+      "max_c3_iss_gap_c": 111.84057117463692,
+      "speed": 2.517040972702084,
+      "c3_iss_transport_j": 30.506871975129382,
+      "c3_iss_r3_j": 0.7031253053996802
+    },
+    {
+      "case": "02-retained-2",
+      "status": "complete",
+      "retained": [
+        "ISS1",
+        "TIM1"
+      ],
+      "c3_iss_peak_c": 35.889744789210965,
+      "c2_iss_peak_c": 530.728726363007,
+      "max_c3_iss_gap_c": 127.10322506320256,
+      "speed": 2.5271231999945423,
+      "c3_iss_transport_j": 33.90403730529786,
+      "c3_iss_r3_j": 0.7980489341756588
+    }
+  ],
+  "active_case": "03-retained-3"
+}

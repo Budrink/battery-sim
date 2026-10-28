@@ -48,11 +48,19 @@ void laws() {
     require(std::abs(3.*(.01+.2*feedback)*feedback-.004)<1e-15,"Prospective flow budget is wrong");
     require(shell_feedback_dt(0,.2,3.,.004,1.)==1.,"Closed barrier throttled before opening onset");
     require(shell_feedback_dt(.01,0,3.,.004,0.)==1e300,"Fixed aperture throttled by opening feedback");
-    const double slow=shell_slow_aperture_dt(.01,.2,.1);
-    require(std::abs(.2*slow/.01-1e-4)<1e-15,"Slow aperture exceeds relative geometric budget");
-    require(shell_slow_aperture_dt(.01,.2,.05)==slow/2,"Aperture budget does not refine with mass step");
-    require(shell_slow_aperture_dt(0,.2,.1)==0,"Slow-aperture shortcut skips first opening");
-    require(shell_slow_aperture_dt(.01,0,.1)==1e300,"Fixed aperture incurs geometric restriction");
+    const double slow=shell_slow_aperture_dt(.01,.2,.1,.05);
+    require(std::abs(.2*slow/.05-.025)<1e-15,"Slow aperture exceeds whole-element geometric budget");
+    require(shell_slow_aperture_dt(.01,.2,.05,.05)==slow/2,"Aperture budget does not refine with mass step");
+    require(shell_slow_aperture_dt(0,.2,.1,.05)==0,"Slow-aperture shortcut skips first opening");
+    require(shell_slow_aperture_dt(.01,0,.1,.05)==1e300,"Fixed aperture incurs geometric restriction");
+    // Pressure-arrested UPV pinhole: do not bind the whole thermal graph to
+    // a microscopic relative budget. Area/rate below use a unit whole element.
+    const double tiny_area=2.568800803896272e-5,rate=.0023070122552869333*(1-tiny_area);
+    const double tiny_dt=shell_slow_aperture_dt(tiny_area,rate,.02,1.);
+    require(tiny_dt>2. && tiny_dt<2.3,"Pinhole geometry regressed to relative microstep throttling");
+    require(rate*tiny_dt<=.005*(1+1e-14),"Pinhole shortcut exceeds whole-element area budget");
+    require(shell_slow_aperture_dt(tiny_area*1e-9,rate,.02,1.)==tiny_dt,"Whole-element budget depends on old hole size");
+    require(shell_slow_aperture_dt(tiny_area,rate,.02,2.)==2*tiny_dt,"Whole-element area scaling is wrong");
     for(int n:{1,3,4,8}) {
         double f=0;for(int x=0;x<n;++x)for(int y=0;y<n;++y)
             f+=shell_seam_fraction(-.01+(x+.5)*.02/n,-.015+(y+.5)*.03/n,.02/n,.03/n,.02,.03,.001)/(n*n);
@@ -168,10 +176,16 @@ void terminal_connectivity() {
 }
 void stiff_feedback() {
     auto s=fixture(3,5e6);
+    // Relative accuracy of a MICROSCOPIC hole requires a finer absolute budget
+    // than the user-selected .5% of the WHOLE element. Keep both existing
+    // relative convergence/work assertions, requesting that refinement here.
     for(auto& c:s.gas_channels) {
         c.discharge_coefficient=.7;c.opening.damage_onset=.05;c.opening.exponent=1.;
         c.opening.pressure_damage_rate_per_s=.01;c.opening.fracture_energy_j_per_m2=100.;
     }
+    const auto default_budget=evolve(s,.5,.05);
+    double whole_area=0.;for(const auto& c:s.gas_channels)whole_area+=gas_channel_area(s,c);
+    s.gas_model.max_fraction_per_step=2e-4;
     const auto coarse=evolve(s,.5,.05);
     s.gas_model.max_fraction_per_step*=.5;
     for(auto& c:s.gas_channels)c.opening.max_damage_step*=.5;
@@ -180,6 +194,9 @@ void stiff_feedback() {
     for(const auto& c:fine.channels)b+=c.effective_area_m2;
     require(a>0 && std::abs(a-b)/b<.05,"Stiff aperture feedback does not converge");
     require(std::abs(coarse.fracture_work_j-fine.fracture_work_j)/fine.fracture_work_j<.05,"Stiff opening work does not converge");
+    double default_area=0.;for(const auto& c:default_budget.channels)default_area+=c.effective_area_m2;
+    require(std::abs(default_area-b)<=.005*whole_area,"Default opening error exceeds whole-element budget");
+    std::cout<<"default whole-element area error="<<std::abs(default_area-b)/whole_area<<'\n';
     std::cout<<"stiff feedback: coarse/fine area="<<a<<'/'<<b<<" m2\n";
 }
 int main(){try{laws();validation();damage_and_geometry();flow_and_quench();thermal_damage();unload_and_capacity();terminal_connectivity();pressure_feedback();stiff_feedback();

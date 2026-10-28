@@ -1,0 +1,383 @@
+{
+  "trial": "trial-001",
+  "parameters": {
+    "entry": 0.001,
+    "path": 1.0,
+    "opening_rate": 0.01,
+    "strength": 1.0,
+    "case_h": 1.0,
+    "resistance_charge_delta": -0.05,
+    "r2_rate": 1.1,
+    "bulk_metric": 1.0,
+    "damaged_span": 1.0,
+    "damaged_logit": 0.0,
+    "core_contact_damage": 6.0,
+    "casing_contact_damage": 0.0,
+    "wall_hot_scale": 1.0,
+    "reverse_hot_logit": 0.0,
+    "casing_damage_contrast": -6.0,
+    "reverse_profile_power": 3.0,
+    "mobile_energy_fraction": 0.7,
+    "jet_fraction": 0.7,
+    "witness_mouth": 0.00675,
+    "pad_footprint": 0.45,
+    "backing_fraction": 0.03
+  },
+  "fresh": false,
+  "accepted": false,
+  "status": "complete",
+  "objective": 49.333197236254975,
+  "complete": true,
+  "known_until_s": 1100.0,
+  "requested_end_s": 1100.0,
+  "channels": {
+    "101": {
+      "rmse_k": 7.251723621348542,
+      "bias_k": 6.230927797523802,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": 947.0,
+      "covered_samples": 154,
+      "used_for_calibration": true
+    },
+    "102": {
+      "rmse_k": 1.9627565743600528,
+      "bias_k": -1.9428741733469586,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": 947.0,
+      "covered_samples": 154,
+      "used_for_calibration": true
+    },
+    "107": {
+      "rmse_k": 3.946796359436376,
+      "bias_k": 3.8330304700667694,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": 947.0,
+      "covered_samples": 154,
+      "used_for_calibration": true
+    },
+    "108": {
+      "rmse_k": 12.858156583458877,
+      "bias_k": -9.882247447635345,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": 947.0,
+      "covered_samples": 154,
+      "used_for_calibration": true
+    },
+    "C2_TIM": {
+      "rmse_k": 7.9640739670714,
+      "bias_k": -5.906408217365912,
+      "tolerance_k": 10.0,
+      "evaluated_from_s": 947.0,
+      "covered_samples": 154,
+      "used_for_calibration": true
+    },
+    "C2_ISS": {
+      "rmse_k": 238.46362286691297,
+      "bias_k": -222.23995581242514,
+      "tolerance_k": 10.0,
+      "evaluated_from_s": 947.0,
+      "covered_samples": 154,
+      "used_for_calibration": false
+    }
+  },
+  "front": {
+    "accepted": true,
+    "reasons": [],
+    "features": {
+      "pressure": {
+        "predicted": {
+          "amplitude": 6.6299584289634,
+          "peak": 7.694984718599768,
+          "peak_s": 887.1099998010322,
+          "width_10_90_s": 0.8528841339033306,
+          "t10_s": 886.1992158779747,
+          "t90_s": 887.052100011878
+        },
+        "observed": {
+          "amplitude": 6.918135925,
+          "peak": 7.9827295,
+          "peak_s": 887.1099998010322,
+          "width_10_90_s": 0.6074412754780951,
+          "t10_s": 886.4458528026089,
+          "t90_s": 887.053294078087
+        },
+        "maximum_width_s": 2.0
+      },
+      "108": {
+        "predicted": {
+          "amplitude": 990.8604637907767,
+          "peak": 1299.3922110048038,
+          "peak_s": 888.1379997823387,
+          "width_10_90_s": 0.8166014556592245,
+          "t10_s": 886.6940377124683,
+          "t90_s": 887.5106391681276
+        },
+        "observed": {
+          "amplitude": 1207.6619999999998,
+          "peak": 1520.2199999999998,
+          "peak_s": 887.6680000685155,
+          "width_10_90_s": 0.8174814393090628,
+          "t10_s": 886.7221442328051,
+          "t90_s": 887.5396256721142
+        },
+        "maximum_width_s": 2.0
+      }
+    }
+  },
+  "pressure_rmse_bar": 0.021038988814369563,
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "shape": {
+    "shape_objective": 0.9843565548295485,
+    "front_concentration_objective": 0.9702571140759859,
+    "shape_with_front_objective": 1.9546136689055345,
+    "objective_version": "curve-plus-normalized-front-v2-five-temperature-channels-and-pressure-v4",
+    "channels": {
+      "101": {
+        "used_for_calibration": true,
+        "available": true,
+        "shape_rmse": 0.12195185210191845,
+        "calculated_rise_k": 42.833202829568904,
+        "observed_rise_k": 16.817285076860685,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": 8.9494587158552,
+        "observed_max_rise_1_5s_k": 12.604649129258235,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.0,
+        "normalized_front_error": 0.5405681714106222,
+        "pre_burst_offset_k": -16.167045884987317,
+        "loss": 0.12195185210191845,
+        "peak_c": 95.34069988410567,
+        "calculated_rise_front": {
+          "t10_s": 886.8697006097935,
+          "t50_s": 898.4465489451787,
+          "t90_s": 915.9649092090402,
+          "rise_10_90_s": 29.09520859924669
+        },
+        "observed_rise_front": {
+          "t10_s": 887.2944995588742,
+          "t50_s": 887.5002111733036,
+          "t90_s": 914.4428490059636,
+          "rise_10_90_s": 27.148349447089345
+        }
+      },
+      "102": {
+        "used_for_calibration": true,
+        "available": true,
+        "shape_rmse": 0.2388020533550572,
+        "calculated_rise_k": 10.492173023182943,
+        "observed_rise_k": 11.542838294282149,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": 1.8648743656952433,
+        "observed_max_rise_1_5s_k": 1.0290254063122006,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.0,
+        "normalized_front_error": 0.08859118799348589,
+        "pre_burst_offset_k": 1.5467932160585178,
+        "loss": 0.2388020533550572,
+        "peak_c": 44.477087567874435,
+        "calculated_rise_front": {
+          "t10_s": 886.8416162869074,
+          "t50_s": 894.6622425721887,
+          "t90_s": 903.7350607457468,
+          "rise_10_90_s": 16.893444458839326
+        },
+        "observed_rise_front": {
+          "t10_s": 887.0402210630327,
+          "t50_s": 900.7321418705884,
+          "t90_s": 921.2561707570859,
+          "rise_10_90_s": 34.215949694053165
+        }
+      },
+      "C2_ISS": {
+        "used_for_calibration": false,
+        "available": true,
+        "shape_rmse": 0.14709547925654268,
+        "calculated_rise_k": 815.833934063133,
+        "observed_rise_k": 1250.3696567674738,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": 553.2024911401866,
+        "observed_max_rise_1_5s_k": 1171.4802301468944,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.0,
+        "normalized_front_error": 0.2588248895434243,
+        "pre_burst_offset_k": -6.196839787362137,
+        "loss": 0.14709547925654268,
+        "peak_c": 923.8434375082974,
+        "calculated_rise_front": {
+          "t10_s": 884.2966330653171,
+          "t50_s": 886.9570256967653,
+          "t90_s": 887.7446591206163,
+          "rise_10_90_s": 3.4480260552992377
+        },
+        "observed_rise_front": {
+          "t10_s": null,
+          "t50_s": null,
+          "t90_s": null,
+          "rise_10_90_s": null
+        }
+      },
+      "C2_TIM": {
+        "used_for_calibration": true,
+        "available": true,
+        "shape_rmse": 0.24996843274606861,
+        "calculated_rise_k": 161.0403581529912,
+        "observed_rise_k": 218.8034531830075,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": 90.92494076895423,
+        "observed_max_rise_1_5s_k": 58.14646032605674,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.0,
+        "normalized_front_error": 0.2988622005029087,
+        "pre_burst_offset_k": -11.793750979868491,
+        "loss": 0.24996843274606861,
+        "peak_c": 260.12815399011527,
+        "calculated_rise_front": {
+          "t10_s": 882.698319198252,
+          "t50_s": 887.211517494395,
+          "t90_s": 887.8886866120623,
+          "rise_10_90_s": 5.19036741381035
+        },
+        "observed_rise_front": {
+          "t10_s": 888.0171868500348,
+          "t50_s": 890.5611459557173,
+          "t90_s": 893.4270765396572,
+          "rise_10_90_s": 5.409889689622332
+        }
+      },
+      "108": {
+        "used_for_calibration": true,
+        "available": true,
+        "shape_rmse": 0.0551065889180601,
+        "calculated_rise_k": 990.9449154788595,
+        "observed_rise_k": 1207.7477006586512,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": 968.9950398143569,
+        "observed_max_rise_1_5s_k": 1173.1706604892058,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.0,
+        "normalized_front_error": 0.0064789072071971265,
+        "pre_burst_offset_k": -4.025003815404261,
+        "loss": 0.0551065889180601,
+        "peak_c": 1026.2422110048037,
+        "calculated_rise_front": {
+          "t10_s": 886.6939845817216,
+          "t50_s": 886.9710641998855,
+          "t90_s": 887.5106220480238,
+          "rise_10_90_s": 0.816637466302268
+        },
+        "observed_rise_front": {
+          "t10_s": 886.7220909990854,
+          "t50_s": 887.0555146136285,
+          "t90_s": 887.5396165621395,
+          "rise_10_90_s": 0.8175255630541187
+        }
+      },
+      "107": {
+        "used_for_calibration": true,
+        "available": true,
+        "shape_rmse": 0.3185276277084443,
+        "calculated_rise_k": 41.53205338879525,
+        "observed_rise_k": 20.51913380014156,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": 4.218326734651896,
+        "observed_max_rise_1_5s_k": 1.350391531724938,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.0,
+        "normalized_front_error": 0.03575664696177204,
+        "pre_burst_offset_k": -12.359633204218198,
+        "loss": 0.3185276277084443,
+        "peak_c": 93.43594665490173,
+        "calculated_rise_front": {
+          "t10_s": 889.409506026415,
+          "t50_s": 895.8856814723041,
+          "t90_s": 905.8860445684876,
+          "rise_10_90_s": 16.476538542072603
+        },
+        "observed_rise_front": {
+          "t10_s": 896.5029852981921,
+          "t50_s": 906.3266305212769,
+          "t90_s": 919.8751578455548,
+          "rise_10_90_s": 23.372172547362652
+        }
+      }
+    },
+    "cooling_scored": false,
+    "peak_amplitude_fitted": false,
+    "time_shift_s": 0.0,
+    "no_heat_rejected": false,
+    "observation_policy": {
+      "version": "five-temperature-channels-and-pressure-v4",
+      "calibration_channels": [
+        "101",
+        "102",
+        "107",
+        "108",
+        "C2_TIM"
+      ],
+      "informational_channels": [
+        "C2_ISS"
+      ],
+      "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+    }
+  },
+  "time_shift_s": 0.0,
+  "temperature_gain": 1.0,
+  "preserved_front": {
+    "accepted": true,
+    "reasons": [],
+    "witness_pulse_ratio": 0.710012521894123,
+    "minimum_witness_pulse_ratio": 0.5,
+    "pressure_peak_relative_error": 0.03604591404484292,
+    "maximum_witness_pulse_ratio": 4.0,
+    "protected_impulses": {
+      "102": {
+        "predicted_jump_k": 1.8648743656952433,
+        "observed_jump_k": 1.0290254063122006,
+        "maximum_jump_k": 10.0
+      },
+      "107": {
+        "predicted_jump_k": 4.218326734651896,
+        "observed_jump_k": 1.350391531724938,
+        "maximum_jump_k": 10.0
+      }
+    },
+    "pressure_peak_exploration_limit": 0.3,
+    "pressure_peak_acceptance_limit": 0.05
+  },
+  "criteria_version": "cooling-with-protected-pulses-five-temperature-channels-and-pressure-v4",
+  "cooling_objective": 10.176244044695599,
+  "arrival_times": {
+    "pressure": {
+      "error_s": -0.12391549542155644,
+      "loss": 0.0614202000222791
+    },
+    "108": {
+      "error_s": -0.028546512161767623,
+      "loss": 0.0032596134264077873
+    }
+  },
+  "shape_penalty": 39.09227337811069,
+  "timing_penalty": 0.0646798134486869,
+  "arrival_accepted": true,
+  "geometry_objective_version": "cooling-shape-and-physical-arrival-v1",
+  "realtime_ratio": 0.9358622058705233,
+  "warmup_rmse_k": null,
+  "rank": [
+    0,
+    2.5716313166917755,
+    49.333197236254975
+  ]
+}

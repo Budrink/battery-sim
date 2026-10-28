@@ -1,0 +1,78 @@
+{
+  "last_completed_observation_s": 3729.9999999999727,
+  "common_comparison_until_s": 3729.9999999999727,
+  "common_control_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 146.90403935423055,
+    "quantile_rmse_k": [
+      96.1828734689612,
+      70.97383871681144,
+      169.36521090622873,
+      208.20706404466625
+    ],
+    "tail_temperature_c": [
+      654.2260574886417,
+      756.7679067990558,
+      865.8823468503739,
+      908.5551913743737
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "common_candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 612.0515742637853,
+    "quantile_rmse_k": [
+      538.8948518223366,
+      643.0105207128414,
+      630.6986184048677,
+      629.9028337047588
+    ],
+    "tail_temperature_c": [
+      33.0026795729882,
+      48.47819501844083,
+      72.55885507162714,
+      76.33071812197045
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.006192698086238124,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 612.0515742637853,
+    "quantile_rmse_k": [
+      538.8948518223366,
+      643.0105207128414,
+      630.6986184048677,
+      629.9028337047588
+    ],
+    "tail_temperature_c": [
+      33.0026795729882,
+      48.47819501844083,
+      72.55885507162714,
+      76.33071812197045
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.006192698086238124,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+  "common_cooling_rmse_change_k": 465.1475349095547,
+  "radiative_energy_out_j": 14058.159424986137
+}

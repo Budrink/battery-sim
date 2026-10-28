@@ -1,0 +1,78 @@
+{
+  "last_completed_observation_s": 3754.9999999999773,
+  "common_comparison_until_s": 3754.9999999999773,
+  "common_control_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 150.0792055673608,
+    "quantile_rmse_k": [
+      107.18547652987552,
+      73.7946244329883,
+      170.9918428361003,
+      209.57692736628397
+    ],
+    "tail_temperature_c": [
+      652.8022669437871,
+      755.0767731065117,
+      863.2107617910814,
+      906.1814214889449
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "common_candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 91.67694366551831,
+    "quantile_rmse_k": [
+      54.073281466392956,
+      34.64502695887914,
+      96.12994087433489,
+      142.31473853882508
+    ],
+    "tail_temperature_c": [
+      505.36101970708035,
+      638.2106500454689,
+      779.4737713643711,
+      830.8775935795364
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 91.67694366551831,
+    "quantile_rmse_k": [
+      54.073281466392956,
+      34.64502695887914,
+      96.12994087433489,
+      142.31473853882508
+    ],
+    "tail_temperature_c": [
+      505.36101970708035,
+      638.2106500454689,
+      779.4737713643711,
+      830.8775935795364
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+  "common_cooling_rmse_change_k": -58.40226190184248,
+  "radiative_energy_out_j": 252436.77650864422
+}

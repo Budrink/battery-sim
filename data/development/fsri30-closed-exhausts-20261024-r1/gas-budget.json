@@ -1,0 +1,58 @@
+{
+  "module": {
+    "mass_kg": {
+      "initial": 0.0007493250542103258,
+      "final": 0.010467585845953087,
+      "change": 0.009718260791742761
+    },
+    "oxidizer_kg": {
+      "initial": 8.159637011739829e-05,
+      "final": 0.0,
+      "change": -8.159637011739829e-05
+    },
+    "chemical_j": {
+      "initial": 1676.8839563241313,
+      "final": 79339.91002288972,
+      "change": 77663.02606656558
+    },
+    "released_energy_j": {
+      "initial": 8.724504681147298,
+      "final": 1077.6369532192325,
+      "change": 1068.9124485380853
+    }
+  },
+  "outside": {
+    "mass_kg": {
+      "initial": 1.1849826720490435,
+      "final": 1.184982672049271,
+      "change": 2.275957200481571e-13
+    },
+    "oxidizer_kg": {
+      "initial": 0.2748082290057479,
+      "final": 0.27480567116419025,
+      "change": -2.5578415576710256e-06
+    },
+    "chemical_j": {
+      "initial": 1841.302894569605,
+      "final": 1807.7951684508741,
+      "change": -33.50772611873094
+    },
+    "released_energy_j": {
+      "initial": 0.5429323565745238,
+      "final": 34.0506584756433,
+      "change": 33.50772611906878
+    }
+  },
+  "initial_module_oxygen_heat_ceiling_j": 1068.9124485379175,
+  "maximum_oxygen_heat_closure_error_j": 1.6916601452976465e-10,
+  "note": "Global minus ALL outside nodes; includes every unobserved internal pore. Ceiling assumes no module oxygen source/inflow.",
+  "conditioned_transport_diagnostic": true,
+  "full_warmup_validation": false,
+  "provenance": {
+    "run": "/home/konstantin/work/battery-sim/data/development/fsri30-closed-exhausts-20261024-r1/closed/replay/run.json.gz",
+    "run_sha256": "bd5ffe57bcadd60e544f1103b70dd7bc9b9152d5ad1ec68e9a5ab3c82c7c58bb",
+    "script_sha256": "a11aa56bd66a1828dbfaf384382d5b4c18dddba1dc912954153be2afea69fb00",
+    "known_until_s": 5945.0,
+    "partial": false
+  }
+}

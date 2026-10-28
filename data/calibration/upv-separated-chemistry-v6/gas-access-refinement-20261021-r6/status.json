@@ -1,0 +1,228 @@
+{
+  "status": "complete",
+  "phase": "conditional_suffix",
+  "pid": 1629171,
+  "source": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/cooling-fit-20261021-r5/trial-000",
+  "native": "/tmp/battery-sim-pressure-budget-20261021/battery_sim_casing_probe",
+  "native_sha256": "e5f75c154a51269dc75d0ca347fc683bf5c5b863c059aa2342d4bb7fbe17080e",
+  "source_scenario_sha256": "bece6ff98df2825ff3595425dcf3d6bef3c6ec7fc13b58fec7953b1e7e816af5",
+  "geometry_code_sha256": "3af0154591bdade9ca2edb9fad7bd6f1f21047fc567af9f1c31218dd24642701",
+  "runner_code_sha256": "5f3ad03dd68568995dc1bd02ec4be02a973c474a321fd84d2654d757412ce929",
+  "pressure_iterations_limit": 2048,
+  "pressure_relative_acceptance": 1e-06,
+  "minimum_regular_dt_s": 0.02,
+  "chemistry_frozen": true,
+  "materials_frozen": true,
+  "solid_contacts_frozen": true,
+  "accepted_calibration": false,
+  "conditional_geometry_search": true,
+  "trials": [
+    {
+      "trial": "trial-000",
+      "outer_insulation_open_fraction": 1.0,
+      "jet_wetted_fraction": 1.0,
+      "witness_edge_fraction": 0.025,
+      "iss3_accessible_fraction": 0.001,
+      "protected_fraction": 0.0001,
+      "lip_fraction": 0.001,
+      "status": "complete",
+      "shape_objective": 1.6799569169466317,
+      "channels": {
+        "101": {
+          "shape_rmse": 0.21141632263809526,
+          "calculated_rise_k": 24.08155991608487,
+          "observed_rise_k": 16.817285076860685,
+          "short_window_s": 1.5,
+          "calculated_max_rise_1_5s_k": 5.7875780683026505,
+          "observed_max_rise_1_5s_k": 12.604649129258235,
+          "false_impulse_penalty": 0.0,
+          "excitation_penalty": 0.0,
+          "pre_burst_offset_k": -16.11521521981689,
+          "loss": 0.21141632263809526,
+          "peak_c": 76.64088763579207,
+          "calculated_rise_front": {
+            "t10_s": 889.2175038147944,
+            "t50_s": 906.4229276713804,
+            "t90_s": 924.3692621319642,
+            "rise_10_90_s": 35.151758317169765
+          },
+          "observed_rise_front": {
+            "t10_s": 887.2944995588742,
+            "t50_s": 887.5002111733036,
+            "t90_s": 914.4428490059636,
+            "rise_10_90_s": 27.148349447089345
+          }
+        },
+        "102": {
+          "shape_rmse": 0.22671089175363424,
+          "calculated_rise_k": 9.417836933171202,
+          "observed_rise_k": 11.542838294282149,
+          "short_window_s": 1.5,
+          "calculated_max_rise_1_5s_k": 1.625091547044633,
+          "observed_max_rise_1_5s_k": 1.0290254063122006,
+          "false_impulse_penalty": 0.0,
+          "excitation_penalty": 0.0,
+          "pre_burst_offset_k": 1.5660989183782021,
+          "loss": 0.22671089175363424,
+          "peak_c": 43.42205718018238,
+          "calculated_rise_front": {
+            "t10_s": 889.5060986558015,
+            "t50_s": 895.7332071260306,
+            "t90_s": 902.6698259510111,
+            "rise_10_90_s": 13.163727295209696
+          },
+          "observed_rise_front": {
+            "t10_s": 887.0402210630327,
+            "t50_s": 900.7321418705884,
+            "t90_s": 921.2561707570859,
+            "rise_10_90_s": 34.215949694053165
+          }
+        },
+        "C2_ISS": {
+          "shape_rmse": 0.3713213862380358,
+          "calculated_rise_k": 972.5709826052274,
+          "observed_rise_k": 1250.3696567674738,
+          "short_window_s": 1.5,
+          "calculated_max_rise_1_5s_k": 790.0799844773521,
+          "observed_max_rise_1_5s_k": 1171.4802301468944,
+          "false_impulse_penalty": 0.0,
+          "excitation_penalty": 0.0,
+          "pre_burst_offset_k": -16.214420428440917,
+          "loss": 0.3713213862380358,
+          "peak_c": 1070.5629054093129,
+          "calculated_rise_front": {
+            "t10_s": 886.2428720144649,
+            "t50_s": 889.3458098726081,
+            "t90_s": 889.906537961326,
+            "rise_10_90_s": 3.6636659468611015
+          },
+          "observed_rise_front": {
+            "t10_s": null,
+            "t50_s": null,
+            "t90_s": null,
+            "rise_10_90_s": null
+          }
+        },
+        "C2_TIM": {
+          "shape_rmse": 0.1758606246247025,
+          "calculated_rise_k": 246.89140296262212,
+          "observed_rise_k": 218.8034531830075,
+          "short_window_s": 1.5,
+          "calculated_max_rise_1_5s_k": 84.5496168743893,
+          "observed_max_rise_1_5s_k": 58.14646032605674,
+          "false_impulse_penalty": 0.0,
+          "excitation_penalty": 0.0,
+          "pre_burst_offset_k": -12.746910248972085,
+          "loss": 0.1758606246247025,
+          "peak_c": 345.0260395306426,
+          "calculated_rise_front": {
+            "t10_s": 884.0718102892738,
+            "t50_s": 887.552751750857,
+            "t90_s": 890.3396250149792,
+            "rise_10_90_s": 6.267814725705421
+          },
+          "observed_rise_front": {
+            "t10_s": 888.0171868500348,
+            "t50_s": 890.5611459557173,
+            "t90_s": 893.4270765396572,
+            "rise_10_90_s": 5.409889689622332
+          }
+        },
+        "108": {
+          "shape_rmse": 0.40194102632102574,
+          "calculated_rise_k": 1197.6413154702682,
+          "observed_rise_k": 1207.7477006586512,
+          "short_window_s": 1.5,
+          "calculated_max_rise_1_5s_k": 1191.620734216197,
+          "observed_max_rise_1_5s_k": 1173.1706604892058,
+          "false_impulse_penalty": 0.0,
+          "excitation_penalty": 0.0,
+          "pre_burst_offset_k": -3.911081882148096,
+          "loss": 0.40194102632102574,
+          "peak_c": 1233.0525329294687,
+          "calculated_rise_front": {
+            "t10_s": 889.1110611399018,
+            "t50_s": 889.3451743384514,
+            "t90_s": 889.7084208880638,
+            "rise_10_90_s": 0.5973597481619208
+          },
+          "observed_rise_front": {
+            "t10_s": 886.7220909990854,
+            "t50_s": 887.0555146136285,
+            "t90_s": 887.5396165621395,
+            "rise_10_90_s": 0.8175255630541187
+          }
+        },
+        "107": {
+          "shape_rmse": 0.29270666537113804,
+          "calculated_rise_k": 46.01114638069572,
+          "observed_rise_k": 20.51913380014156,
+          "short_window_s": 1.5,
+          "calculated_max_rise_1_5s_k": 5.693587590625725,
+          "observed_max_rise_1_5s_k": 1.350391531724938,
+          "false_impulse_penalty": 0.0,
+          "excitation_penalty": 0.0,
+          "pre_burst_offset_k": -12.997877041164656,
+          "loss": 0.29270666537113804,
+          "peak_c": 97.27679580985574,
+          "calculated_rise_front": {
+            "t10_s": 891.2603517249466,
+            "t50_s": 896.6568487159204,
+            "t90_s": 906.7847620095522,
+            "rise_10_90_s": 15.524410284605551
+          },
+          "observed_rise_front": {
+            "t10_s": 896.5029852981921,
+            "t50_s": 906.3266305212769,
+            "t90_s": 919.8751578455548,
+            "rise_10_90_s": 23.372172547362652
+          }
+        }
+      },
+      "cooling_scored": false,
+      "peak_amplitude_fitted": false,
+      "time_shift_s": 0.0,
+      "no_heat_rejected": false,
+      "accepted_gas_heat_880_900_j": {
+        "C3:case:-x": 14625.545797368364,
+        "ISS1": 12040.894325956135,
+        "C2:case:-x": 2128.710900765917,
+        "ISS2": 10266.324219150867,
+        "C1:case:-x": 90.53307052218729,
+        "ISS3": 68.98741887727903,
+        "C3:case:+x": 25.984878787973912,
+        "TIM1": 20.67386125881423,
+        "C2:case:+x": -5113.722669789829,
+        "TIM2": 5165.857250323235,
+        "C1:case:+x": 23.927926322308412,
+        "TIM3": 24.6172215706529,
+        "chamber-wall": 271635.8770040156,
+        "Al2": 10.305166917694894,
+        "C1:case:-y": 235.37291897713885,
+        "C1:case:-z": 108.54658585427407,
+        "C1:case:+z": 108.5077358942535,
+        "C1:case:+y": 235.3996129510644,
+        "Al3": 59.40433872836118,
+        "steel-R": 5495.027026035185,
+        "ISS4": 4410.33458721119,
+        "steel-L": 5470.0173208382175,
+        "C3:case:-y": 226.27854542948222,
+        "C3:case:-z": 104.24977233403952,
+        "C3:case:+z": 104.2145229084725,
+        "C3:case:+y": 226.3635748627202,
+        "Al1": 54.533811822534304,
+        "C2:case:-y": 440.46202479901405,
+        "C2:case:-z": 218.04452343615648,
+        "C2:case:+z": 208.32139471800437,
+        "C2:case:+y": 449.4572439974006
+      },
+      "realtime_ratio": 0.6334423953852476,
+      "fresh_from_ambient": false
+    }
+  ],
+  "checkpoint_source": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/gas-access-refinement-20261021-r2",
+  "fresh_prefix_wall_s": 343.354823916,
+  "fresh_prefix_complete": true,
+  "active_trial": null,
+  "selected_shape_candidate": "trial-000"
+}

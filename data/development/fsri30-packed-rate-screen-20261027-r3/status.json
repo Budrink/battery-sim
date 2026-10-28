@@ -1,0 +1,39 @@
+{
+  "status": "screen-pruned",
+  "pid": 2086828,
+  "scenario_sha256": "4ba889f31d6ef56605d41cb63b7975aea424dc78cb46d4c398eb18d4b82e082b",
+  "core_sha256": "0bf1a0789a88080c98a3e4725f99c63fbfd17dc183ccd87d3b4434e22a7ec385",
+  "csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "r2_seed_factor": 0.2,
+  "gain": 0.21405515446686751,
+  "coarse_spacing_mm": 80,
+  "primary_search_allowance_s": 250.0,
+  "contact_h_w_m2_k": 2000.0,
+  "contact_h_measured": false,
+  "calibrated": false,
+  "validation_passed": false,
+  "progress": {
+    "time_s": 2449.9999999999727,
+    "wall_s": 2205.561579351,
+    "warmup_metrics": {
+      "rmse_k": 3.6023503427855963,
+      "max_abs_k": 7.212644189399839,
+      "final_error_k": -0.5262268279378759,
+      "final_time_s": 1499.9999999999864,
+      "final_mean_c": 140.74077317206218,
+      "final_t5_c": 141.26700000000005
+    },
+    "primary_pulse_s": 1728.0,
+    "pulse_groups": [
+      {
+        "time_s": 1728.0,
+        "channels": [
+          "B10"
+        ]
+      }
+    ],
+    "wave_reason": "Missing thermal pulse wave(s) at 2134s within 250s timing error limit; Missing first hot arrival wave(s) at 2136s within 250s timing error limit"
+  },
+  "last_time_s": 2449.9999999999727,
+  "reason": "Pruned: Coarse all-wave screening: Missing thermal pulse wave(s) at 2134s within 250s timing error limit; Missing first hot arrival wave(s) at 2136s within 250s timing error limit"
+}

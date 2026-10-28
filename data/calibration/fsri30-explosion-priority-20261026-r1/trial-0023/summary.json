@@ -1,0 +1,206 @@
+{
+  "status": "complete",
+  "advanced_to_s": 5945.0,
+  "fresh_from_zero": true,
+  "calibrated": false,
+  "validation_passed": false,
+  "r2_parameters": {
+    "reaction_rate_per_s": 0.01999639111839507,
+    "reaction_reference_k": 450.0,
+    "reaction_activation_j_per_mol": 100000.0
+  },
+  "r2_converted_components": 30,
+  "model_conversion_events": [
+    {
+      "component": "B10",
+      "time_s": 1115.3217460519998
+    },
+    {
+      "component": "B09",
+      "time_s": 2385.1187875918986
+    },
+    {
+      "component": "B11",
+      "time_s": 2455.1462132671345
+    },
+    {
+      "component": "B02",
+      "time_s": 2480.3502036619866
+    },
+    {
+      "component": "B03",
+      "time_s": 2491.8593724012953
+    },
+    {
+      "component": "B17",
+      "time_s": 2495.5482498250794
+    },
+    {
+      "component": "B18",
+      "time_s": 2502.1835272837134
+    },
+    {
+      "component": "B01",
+      "time_s": 2520.6722806969924
+    },
+    {
+      "component": "B04",
+      "time_s": 2535.6589593985323
+    },
+    {
+      "component": "B08",
+      "time_s": 2542.387054039346
+    },
+    {
+      "component": "B16",
+      "time_s": 2545.4103445984456
+    },
+    {
+      "component": "B19",
+      "time_s": 2551.384326857904
+    },
+    {
+      "component": "B00",
+      "time_s": 2555.4568228301755
+    },
+    {
+      "component": "B12",
+      "time_s": 2556.3985694455732
+    },
+    {
+      "component": "B25",
+      "time_s": 2556.4076204398275
+    },
+    {
+      "component": "B07",
+      "time_s": 2560.472599454372
+    },
+    {
+      "component": "B24",
+      "time_s": 2561.4279347619913
+    },
+    {
+      "component": "B26",
+      "time_s": 2565.252936164704
+    },
+    {
+      "component": "B05",
+      "time_s": 2565.458281043104
+    },
+    {
+      "component": "B15",
+      "time_s": 2565.4720527336503
+    },
+    {
+      "component": "B23",
+      "time_s": 2566.460830410582
+    },
+    {
+      "component": "B20",
+      "time_s": 2570.4790056954625
+    },
+    {
+      "component": "B27",
+      "time_s": 2570.7159677836194
+    },
+    {
+      "component": "B13",
+      "time_s": 2571.023838268003
+    },
+    {
+      "component": "B06",
+      "time_s": 2571.4327669920085
+    },
+    {
+      "component": "B14",
+      "time_s": 2571.475118733
+    },
+    {
+      "component": "B21",
+      "time_s": 2571.478050088227
+    },
+    {
+      "component": "B28",
+      "time_s": 2575.3130188640225
+    },
+    {
+      "component": "B22",
+      "time_s": 2575.4796005514495
+    },
+    {
+      "component": "B29",
+      "time_s": 2576.4542139198893
+    }
+  ],
+  "observed_failure_count": null,
+  "conversion_reporting": "10% R2 mass, inferred from constant-yield gas ledger; not R1 residue",
+  "neighbour_peaks": [
+    {
+      "component": "B07",
+      "mean_c": 1176.0788400449383,
+      "r2_converted_mass_fraction": 0.9999193815029492
+    },
+    {
+      "component": "B22",
+      "mean_c": 1161.7328423273252,
+      "r2_converted_mass_fraction": 0.9999213853888903
+    },
+    {
+      "component": "B00",
+      "mean_c": 1155.1469767929598,
+      "r2_converted_mass_fraction": 0.9999163792874196
+    },
+    {
+      "component": "B15",
+      "mean_c": 1154.6187096830872,
+      "r2_converted_mass_fraction": 0.9999207586693244
+    },
+    {
+      "component": "B05",
+      "mean_c": 1152.5402446761464,
+      "r2_converted_mass_fraction": 0.9999218092563041
+    },
+    {
+      "component": "B28",
+      "mean_c": 1150.8896212426916,
+      "r2_converted_mass_fraction": 0.9999214913029593
+    }
+  ],
+  "source_peak": {
+    "component": "B10",
+    "mean_c": 1097.1762367068786,
+    "r2_converted_mass_fraction": 0.9999025029769276
+  },
+  "all_gas_r3_j": 2078171.3870186687,
+  "final_all_gas_unburned_j": 1.507463588677522e-10,
+  "final_all_gas_oxygen_kg": 0.27317770776938266,
+  "maximum_recorded_cavity_pressure_pa": 808394.9003468433,
+  "wall_s": 3179.047961327,
+  "realtime_ratio": 1.8700567189676607,
+  "minimum_regular_step_s": 0.01,
+  "balances": {
+    "max_chemical_residual_j": 2.3329630494117737e-07,
+    "max_mass_residual_kg": 5.3734794391857577e-14,
+    "max_oxidizer_residual_kg": 1.582067810090848e-13,
+    "max_thermal_residual_j": 8.800998330116272e-07
+  },
+  "experimental_envelope_diagnostic": {
+    "objective": 11.259297290474976,
+    "phase_loss": {
+      "warmup": 4.158608589697901,
+      "propagation": 2.570583466045451,
+      "cooling": 4.530105234731623
+    },
+    "envelope_rmse_k": {
+      "warmup": 160.69952991041478,
+      "propagation": 284.3861325042193,
+      "cooling": 98.88246680985192
+    },
+    "known_until_s": 5945.0,
+    "complete": true,
+    "peak_weight": 0.2,
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved"
+  }
+}

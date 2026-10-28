@@ -1,0 +1,846 @@
+{
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "native_sha256": "6cda01417eb1e30d088faa2c2c38bc1c0f5128ffbdfcd01d7a564b97915672c3",
+  "frozen_scene_sha256": "dce0377388361e9db31de3ec3d6772c850ce80168c6b73f28be17628de792a7c",
+  "validation_refitted": true,
+  "cooling_boundary_conditioned": true,
+  "validation_scope": "Cooling identified from 110--112; other channels checking only, NOT fully blind validation",
+  "calibration_accepted": false,
+  "experiments": {
+    "no-cooling": {
+      "status": "complete_trials_not_validated",
+      "error": null,
+      "requested_end_s": 1100.0,
+      "known_until_s": 1100.0,
+      "wall_s": 811.395004437,
+      "minimum_regular_step_s": 0.01,
+      "phases": {
+        "event_s": 886.6389999166131,
+        "known_interval_s": [
+          0.0,
+          1100.0
+        ],
+        "complete_record": false,
+        "phases": {
+          "pre_burst": {
+            "interval_s": [
+              0.0,
+              881.6389999166131
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 4.812870555944518,
+                "relative_kelvin_rms": 0.014651285000184608,
+                "observed_rise_scale_k": 42.479471347315155,
+                "rmse_over_observed_rise": 0.11329873944508746,
+                "time_weighted_bias_k": -3.255255139882084,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "102": {
+                "time_weighted_rmse_k": 1.1404581294799307,
+                "relative_kelvin_rms": 0.0037620243318573546,
+                "observed_rise_scale_k": 5.640866246711255,
+                "rmse_over_observed_rise": 0.20217783574372858,
+                "time_weighted_bias_k": 0.9007650236775436,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "107": {
+                "time_weighted_rmse_k": 3.564114443352114,
+                "relative_kelvin_rms": 0.01088456672106507,
+                "observed_rise_scale_k": 37.38622931318753,
+                "rmse_over_observed_rise": 0.09533227899222554,
+                "time_weighted_bias_k": -2.2032033857239908,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "108": {
+                "time_weighted_rmse_k": 1.4148286511858332,
+                "relative_kelvin_rms": 0.004582429377311593,
+                "observed_rise_scale_k": 12.220000000000027,
+                "rmse_over_observed_rise": 0.11577975868951146,
+                "time_weighted_bias_k": -0.9179164352888142,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 4.095124327108398,
+                "relative_kelvin_rms": 0.011822464756358647,
+                "observed_rise_scale_k": 85.38753507429402,
+                "rmse_over_observed_rise": 0.04795927559620161,
+                "time_weighted_bias_k": -2.2149537132929527,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 6.877738951478236,
+                "relative_kelvin_rms": 0.019432377923143583,
+                "observed_rise_scale_k": 88.06520385602244,
+                "rmse_over_observed_rise": 0.07809825731764197,
+                "time_weighted_bias_k": -4.499363964587339,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": false
+              }
+            }
+          },
+          "burst_uncertain": {
+            "interval_s": [
+              881.6389999166131,
+              906.6389999166131
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 8.876170096238313,
+                "relative_kelvin_rms": 0.025515524876933385,
+                "observed_rise_scale_k": 54.63000840930118,
+                "rmse_over_observed_rise": 0.16247791927352287,
+                "time_weighted_bias_k": -6.9926512756316015,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "102": {
+                "time_weighted_rmse_k": 4.450479989314847,
+                "relative_kelvin_rms": 0.014388598157514235,
+                "observed_rise_scale_k": 13.173953235503916,
+                "rmse_over_observed_rise": 0.33782418304938,
+                "time_weighted_bias_k": 4.278290010441449,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "107": {
+                "time_weighted_rmse_k": 12.669939366120309,
+                "relative_kelvin_rms": 0.03695602937940804,
+                "observed_rise_scale_k": 47.5191166032364,
+                "rmse_over_observed_rise": 0.26662825977824245,
+                "time_weighted_bias_k": 4.840363861905562,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "108": {
+                "time_weighted_rmse_k": 300.2480767265289,
+                "relative_kelvin_rms": 0.29677125945596744,
+                "observed_rise_scale_k": 1081.2950846792805,
+                "rmse_over_observed_rise": 0.27767450437970365,
+                "time_weighted_bias_k": 52.88815823851637,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 58.967686107164546,
+                "relative_kelvin_rms": 0.10013476925930913,
+                "observed_rise_scale_k": 302.61103819153664,
+                "rmse_over_observed_rise": 0.19486297148830753,
+                "time_weighted_bias_k": -39.29077601600141,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 369.6007327304152,
+                "relative_kelvin_rms": 0.31588009437741116,
+                "observed_rise_scale_k": 1054.1830557933604,
+                "rmse_over_observed_rise": 0.35060393989377864,
+                "time_weighted_bias_k": -284.0103247799764,
+                "covered_s": 12.0,
+                "coverage_fraction": 0.48,
+                "used_for_calibration": false
+              }
+            }
+          },
+          "early_relaxation": {
+            "interval_s": [
+              906.6389999166131,
+              946.6389999166131
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 10.351063514359938,
+                "relative_kelvin_rms": 0.02892530308950446,
+                "observed_rise_scale_k": 58.76982801638479,
+                "rmse_over_observed_rise": 0.17612887196937352,
+                "time_weighted_bias_k": -10.313194177766487,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "102": {
+                "time_weighted_rmse_k": 2.1492268269114536,
+                "relative_kelvin_rms": 0.006830275438523478,
+                "observed_rise_scale_k": 18.749987211883024,
+                "rmse_over_observed_rise": 0.11462550894697976,
+                "time_weighted_bias_k": 1.5432353227241529,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "107": {
+                "time_weighted_rmse_k": 12.506111519362802,
+                "relative_kelvin_rms": 0.035321288930818616,
+                "observed_rise_scale_k": 57.651880851131125,
+                "rmse_over_observed_rise": 0.216924605663016,
+                "time_weighted_bias_k": 11.862713763984797,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "108": {
+                "time_weighted_rmse_k": 49.2657643313267,
+                "relative_kelvin_rms": 0.09773066848678993,
+                "observed_rise_scale_k": 255.66738119295428,
+                "rmse_over_observed_rise": 0.19269475871912428,
+                "time_weighted_bias_k": 41.05199385628295,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 35.20181733595421,
+                "relative_kelvin_rms": 0.062083789390760334,
+                "observed_rise_scale_k": 292.7454888735498,
+                "rmse_over_observed_rise": 0.1202471726256369,
+                "time_weighted_bias_k": -22.275710155870435,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 441.6374452187917,
+                "relative_kelvin_rms": 0.4622155300028942,
+                "observed_rise_scale_k": 872.0147927282321,
+                "rmse_over_observed_rise": 0.5064563685176271,
+                "time_weighted_bias_k": -435.64425777076406,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": false
+              }
+            }
+          },
+          "cooling": {
+            "interval_s": [
+              946.6389999166131,
+              1100.0
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 4.620595745708437,
+                "relative_kelvin_rms": 0.013043215812366641,
+                "observed_rise_scale_k": 58.372776596661936,
+                "rmse_over_observed_rise": 0.07915668938682398,
+                "time_weighted_bias_k": 1.5758888269606621,
+                "covered_s": 153.3610000833869,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "102": {
+                "time_weighted_rmse_k": 2.5535848400917036,
+                "relative_kelvin_rms": 0.007876721712721595,
+                "observed_rise_scale_k": 26.703338976121472,
+                "rmse_over_observed_rise": 0.0956279228741828,
+                "time_weighted_bias_k": -2.476590959374343,
+                "covered_s": 153.3610000833869,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "107": {
+                "time_weighted_rmse_k": 5.179554503293377,
+                "relative_kelvin_rms": 0.014745354638894637,
+                "observed_rise_scale_k": 56.86870215305066,
+                "rmse_over_observed_rise": 0.09107917549012547,
+                "time_weighted_bias_k": 5.0482950225399,
+                "covered_s": 153.3610000833869,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "108": {
+                "time_weighted_rmse_k": 3.39054880934175,
+                "relative_kelvin_rms": 0.00888114180006547,
+                "observed_rise_scale_k": 114.5519193671546,
+                "rmse_over_observed_rise": 0.0295983587885121,
+                "time_weighted_bias_k": 2.5455854745703124,
+                "covered_s": 153.3610000833869,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 12.437273810083134,
+                "relative_kelvin_rms": 0.029328436497578235,
+                "observed_rise_scale_k": 168.37453442711296,
+                "rmse_over_observed_rise": 0.07386671536999594,
+                "time_weighted_bias_k": 8.834896579607587,
+                "covered_s": 153.3610000833869,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 235.49719663631325,
+                "relative_kelvin_rms": 0.3752842375085077,
+                "observed_rise_scale_k": 435.2561908131442,
+                "rmse_over_observed_rise": 0.5410542149816597,
+                "time_weighted_bias_k": -219.4199153938812,
+                "covered_s": 153.3610000833869,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": false
+              }
+            }
+          }
+        },
+        "record_end_s": 18287.75600013323,
+        "requested_window_end_s": 1100.0,
+        "complete_requested_window": true,
+        "max_observation_gap_s": 5.0,
+        "observation_policy": {
+          "version": "five-temperature-channels-and-pressure-v4",
+          "calibration_channels": [
+            "101",
+            "102",
+            "107",
+            "108",
+            "C2_TIM"
+          ],
+          "informational_channels": [
+            "C2_ISS"
+          ],
+          "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+        },
+        "temperature_error_units": "K; temperature DIFFERENCES have the same numerical value in degC",
+        "relative_temperature_reference": "Observed absolute thermodynamic temperature in K, never degC",
+        "relative_rise_reference": "Largest observed rise above the initial temperature within the phase; undefined for rise <=1 K",
+        "interpretation": "Cooling is the primary diagnostic. Burst RMSE is descriptive, not an exact peak target."
+      },
+      "timing": {
+        "whole_run_realtime_ratio": 1.3556898846860086,
+        "timing_scope": "completed replay",
+        "worst_20s_window": {
+          "realtime_ratio": 0.2560548368011098,
+          "minimum": 0.25,
+          "window_s": 20.0,
+          "wall_s": 510.843,
+          "simulated_s": 892.344,
+          "scope": "rolling",
+          "accepted": true
+        },
+        "phase_estimates": {
+          "pre_burst": {
+            "simulated_s": 866.6389999166131,
+            "estimated_wall_s": 464.4838634107904,
+            "realtime_ratio": 1.8658107809229876
+          },
+          "observed_event_and_relaxation": {
+            "simulated_s": 80.0,
+            "estimated_wall_s": 165.1830784530954,
+            "realtime_ratio": 0.48431110952273737
+          },
+          "cooling_tail": {
+            "simulated_s": 153.3610000833869,
+            "estimated_wall_s": 181.72806257311424,
+            "realtime_ratio": 0.8439037863053512
+          },
+          "predicted_event_and_relaxation": {
+            "simulated_s": 30.0,
+            "estimated_wall_s": 90.95353055663838,
+            "realtime_ratio": 0.3298387628979225
+          }
+        },
+        "phase_timing_resolution": "Interpolated native progress samples, nominally every 10 wall seconds"
+      },
+      "electrical_boundary": {
+        "C2": {
+          "current_input": "measured"
+        }
+      },
+      "predicted_shell_ruptures": [
+        {
+          "id": "rupture-C2--x-0",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--x-1",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--x-2",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--x-3",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--x-5",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--x-6",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--x-7",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--x-8",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+x-0",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+x-1",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+x-2",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+x-3",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+x-5",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+x-6",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+x-7",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+x-8",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--y-0",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--y-1",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--y-2",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--y-3",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--y-5",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--y-6",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--y-7",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--y-8",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+y-0",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+y-1",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+y-2",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+y-3",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+y-5",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+y-6",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+y-7",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+y-8",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--z-0",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--z-1",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--z-2",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--z-3",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--z-5",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--z-6",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--z-7",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2--z-8",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+z-0",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+z-1",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+z-2",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+z-3",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+z-5",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+z-6",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+z-7",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+z-8",
+          "kind": "shell_rupture",
+          "time_s": 775.0893949929584
+        },
+        {
+          "id": "rupture-C2-+x-4",
+          "kind": "shell_rupture",
+          "time_s": 883.4670003213732
+        },
+        {
+          "id": "rupture-C2--x-4",
+          "kind": "shell_rupture",
+          "time_s": 883.5270003213732
+        },
+        {
+          "id": "rupture-C2--y-4",
+          "kind": "shell_rupture",
+          "time_s": 885.1199999999999
+        },
+        {
+          "id": "rupture-C2-+y-4",
+          "kind": "shell_rupture",
+          "time_s": 885.1199999999999
+        },
+        {
+          "id": "rupture-C2-+z-4",
+          "kind": "shell_rupture",
+          "time_s": 887.409999801032
+        },
+        {
+          "id": "rupture-C2--z-4",
+          "kind": "shell_rupture",
+          "time_s": 887.5799998010318
+        }
+      ],
+      "first_rupture_error_s": -111.54960492365467,
+      "pressure_peak_bar": 7.881161959565109,
+      "pressure_peak_time_s": 889.0779998386279,
+      "observed_pressure_peak_bar": 7.9827295,
+      "observed_pressure_peak_time_s": 887.1099998010322,
+      "pressure_peak_time_error_s": 1.9680000375956297,
+      "pressure_peak_relative_error": 0.012723410010935583,
+      "predicted_peak_sample_spacing_s": 0.46999971382319927,
+      "source_assumptions": {},
+      "balances": {
+        "max_chemical_residual_j": 1.0174699127674103e-07,
+        "max_mass_residual_kg": 4.829470157119431e-14,
+        "max_oxidizer_residual_kg": 3.2612801348363973e-16,
+        "max_thermal_residual_j": 8.335337042808533e-08
+      }
+    },
+    "active-cooling": {
+      "status": "rejected",
+      "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256); t=1343.978672, dt=0.010000; C2: R=0.149938, heat_J=1.836741, budget_J=1.836065",
+      "requested_end_s": 1626.6089999116957,
+      "known_until_s": 1340.0,
+      "wall_s": 700.449037797,
+      "minimum_regular_step_s": 0.01,
+      "phases": {
+        "event_s": 1413.2479998283088,
+        "known_interval_s": [
+          0.0,
+          1340.0
+        ],
+        "complete_record": false,
+        "phases": {
+          "pre_burst": {
+            "interval_s": [
+              0.0,
+              1340.0
+            ],
+            "complete": false,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 6.113127977691018,
+                "relative_kelvin_rms": 0.0188284996749396,
+                "observed_rise_scale_k": 41.10208410497063,
+                "rmse_over_observed_rise": 0.1487303651580951,
+                "time_weighted_bias_k": -3.3803899311561523,
+                "covered_s": 1340.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "102": {
+                "time_weighted_rmse_k": 0.6449992414829555,
+                "relative_kelvin_rms": 0.0021623147795152343,
+                "observed_rise_scale_k": 6.62902102624264,
+                "rmse_over_observed_rise": 0.09729932050744212,
+                "time_weighted_bias_k": 0.6094588413428665,
+                "covered_s": 1340.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "107": {
+                "time_weighted_rmse_k": 4.139768752760051,
+                "relative_kelvin_rms": 0.012878273362570103,
+                "observed_rise_scale_k": 34.50401955541821,
+                "rmse_over_observed_rise": 0.11997931852870103,
+                "time_weighted_bias_k": -2.27061402625231,
+                "covered_s": 1340.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "108": {
+                "time_weighted_rmse_k": 1.759829573658687,
+                "relative_kelvin_rms": 0.005741368563905514,
+                "observed_rise_scale_k": 12.827466989811626,
+                "rmse_over_observed_rise": 0.1371922901892052,
+                "time_weighted_bias_k": -0.7990973640871923,
+                "covered_s": 1340.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 5.834545497736221,
+                "relative_kelvin_rms": 0.016855840361624557,
+                "observed_rise_scale_k": 77.95436943007081,
+                "rmse_over_observed_rise": 0.07484565060807935,
+                "time_weighted_bias_k": -3.224614745570309,
+                "covered_s": 1340.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 6.019758242595447,
+                "relative_kelvin_rms": 0.01735519159818669,
+                "observed_rise_scale_k": 77.9592207755478,
+                "rmse_over_observed_rise": 0.07721675746255748,
+                "time_weighted_bias_k": -3.1922504727462564,
+                "covered_s": 1340.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": false
+              }
+            }
+          }
+        },
+        "record_end_s": 14903.156999568455,
+        "requested_window_end_s": 1626.6089999116957,
+        "complete_requested_window": false,
+        "max_observation_gap_s": 5.0,
+        "observation_policy": {
+          "version": "five-temperature-channels-and-pressure-v4",
+          "calibration_channels": [
+            "101",
+            "102",
+            "107",
+            "108",
+            "C2_TIM"
+          ],
+          "informational_channels": [
+            "C2_ISS"
+          ],
+          "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+        },
+        "temperature_error_units": "K; temperature DIFFERENCES have the same numerical value in degC",
+        "relative_temperature_reference": "Observed absolute thermodynamic temperature in K, never degC",
+        "relative_rise_reference": "Largest observed rise above the initial temperature within the phase; undefined for rise <=1 K",
+        "interpretation": "Cooling is the primary diagnostic. Burst RMSE is descriptive, not an exact peak target."
+      },
+      "timing": {
+        "whole_run_realtime_ratio": 1.913503707551131,
+        "timing_scope": "preserved committed prefix",
+        "worst_20s_window": {
+          "realtime_ratio": 1.115386844205068,
+          "minimum": 0.25,
+          "window_s": 20.0,
+          "wall_s": 680.898,
+          "simulated_s": 1318.17,
+          "scope": "rolling",
+          "accepted": true
+        },
+        "phase_estimates": {},
+        "phase_timing_resolution": "Interpolated native progress samples, nominally every 10 wall seconds"
+      },
+      "electrical_boundary": {
+        "C2": {
+          "current_input": "measured"
+        }
+      },
+      "predicted_shell_ruptures": [],
+      "first_rupture_error_s": null,
+      "pressure_peak_bar": 1.030708760331458,
+      "pressure_peak_time_s": 1340.0,
+      "observed_pressure_peak_bar": 7.85627575,
+      "observed_pressure_peak_time_s": 1413.2479998283088,
+      "pressure_peak_time_error_s": -73.24799982830882,
+      "pressure_peak_relative_error": 0.8688044064222851,
+      "predicted_peak_sample_spacing_s": 5.0,
+      "source_assumptions": {
+        "frozen_scene_sha256": "dce0377388361e9db31de3ec3d6772c850ce80168c6b73f28be17628de792a7c",
+        "frozen_training_source": "explicit scene; metadata defaults are not replay parameters",
+        "experiment": "active-cooling",
+        "experimental_sha256": "2efdccced6d5c2701bb9cd09572129621924692a2f93b9392c8a248d6e23cdfb",
+        "parameters_refitted": true,
+        "validation_used_for_selection": true,
+        "changes": [
+          "Measured initial temperatures/pressure and electrical protocol",
+          "13 mm Al cooling plate + existing 10 W/K water-side prior; 2000 W/(m2 K) Al/plate contacts",
+          "Gas topology rebuilt around occupied plate; blocked paths stay blocked"
+        ],
+        "limitations": [
+          "Cooling contact and water-side G are unmeasured priors",
+          "Condition holdout within the same experimental campaign, not blind independent validation"
+        ],
+        "new_objects_inheriting_material_profiles": [
+          "cooling-plate"
+        ],
+        "frozen_modified_void_faces": 36,
+        "removed_blocked_nonvoid_routes": 27,
+        "current_input_assumption": "Prescribed current; strict UI consistency required",
+        "cooling_boundary_only_refitted": true,
+        "chemistry_refitted": false,
+        "battery_materials_or_old_contacts_refitted": false
+      },
+      "balances": {
+        "max_chemical_residual_j": 5.670881364494562e-08,
+        "max_mass_residual_kg": 1.8318679906315083e-14,
+        "max_oxidizer_residual_kg": 8.673617379884035e-16,
+        "max_thermal_residual_j": 1.4238321455195546e-07
+      }
+    }
+  },
+  "first_shell_opening_is_not_a_runaway_marker": true,
+  "validation_protocol_faithful": true,
+  "validation_accepted": false
+}

@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <memory>
 #include <vector>
+#include "battery_native/state_geometry.hpp"
 
 // Isolated experimental pressure transport. Constant-cv ideal pseudo-gas,
 // optional constant-capacity immobile material in local thermal equilibrium.
@@ -13,15 +14,25 @@ struct Node {
     double chemical=0,oxidizer=0;
     // Per-adapter-step reaction diagnostics; these are local history, not advected.
     double reaction_released_j=0,reaction_oxidizer_kg=0;
+    double vapor=0,latent=0;
 };
-struct Edge {int a=0,b=0;double area=0,cd=.7;};
+struct Edge {int a=0,b=0;double area=0,cd=.7;double mixing_length=.01;int geometry_axis=0;
+    bool molecular_mixing=false; // internal porous mixture; opened exterior apertures allow entrainment
+    double hydraulic_resistance_factor=1.; // scales pressure mobility, NOT diffusion area
+};
 struct Settings {
     double cv=1000,R=287;
+    double vapor_fuel_heat_j_kg=0.;
+    double thermal_stirring_coefficient=0., mixing_length_cap_m=.05, thermal_stirring_length_m=.02;
     double packet_fraction=.1; // fraction of pressure-equalizing mass, not a time fit
     double equilibrium_atol_pa=1e-6,equilibrium_rtol=1e-10;
     // Deterministic small-dp tail; zero selects the slower event-only reference.
     // Both limits must hold; the relative bound keeps the sqrt(dp) expansion local.
     double tail_atol_pa=100,tail_rtol=1e-3;
+    // Relative reference S law; physical Gref is cv times the instantaneous
+    // thermal exchange rate rho*D*A/L. Pressure-flow entrainment is added
+    // independently; both contributions form ONE conservative mixing packet.
+    ConnectivityLaw mixing_connectivity=reference_directed_connectivity(1.);
 };
 struct Clock {
     std::uint64_t batches=0,limited_batches=0; // whole-graph tau-leap diagnostics

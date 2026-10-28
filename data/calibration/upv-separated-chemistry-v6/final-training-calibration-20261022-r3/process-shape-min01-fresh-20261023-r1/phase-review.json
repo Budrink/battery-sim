@@ -1,0 +1,312 @@
+{
+  "event_s": 886.6389999166131,
+  "known_interval_s": [
+    0.0,
+    1100.0
+  ],
+  "complete_record": false,
+  "phases": {
+    "pre_burst": {
+      "interval_s": [
+        0.0,
+        881.6389999166131
+      ],
+      "complete": true,
+      "numerical_coverage_fraction": 1.0,
+      "channels": {
+        "101": {
+          "time_weighted_rmse_k": 4.812870555944518,
+          "relative_kelvin_rms": 0.014651285000184608,
+          "observed_rise_scale_k": 42.479471347315155,
+          "rmse_over_observed_rise": 0.11329873944508746,
+          "time_weighted_bias_k": -3.255255139882084,
+          "covered_s": 881.6389999166131,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "102": {
+          "time_weighted_rmse_k": 1.1404581294799307,
+          "relative_kelvin_rms": 0.0037620243318573546,
+          "observed_rise_scale_k": 5.640866246711255,
+          "rmse_over_observed_rise": 0.20217783574372858,
+          "time_weighted_bias_k": 0.9007650236775436,
+          "covered_s": 881.6389999166131,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "107": {
+          "time_weighted_rmse_k": 3.564114443352114,
+          "relative_kelvin_rms": 0.01088456672106507,
+          "observed_rise_scale_k": 37.38622931318753,
+          "rmse_over_observed_rise": 0.09533227899222554,
+          "time_weighted_bias_k": -2.2032033857239908,
+          "covered_s": 881.6389999166131,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "108": {
+          "time_weighted_rmse_k": 1.4148286511858332,
+          "relative_kelvin_rms": 0.004582429377311593,
+          "observed_rise_scale_k": 12.220000000000027,
+          "rmse_over_observed_rise": 0.11577975868951146,
+          "time_weighted_bias_k": -0.9179164352888142,
+          "covered_s": 881.6389999166131,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "C2_TIM": {
+          "time_weighted_rmse_k": 4.095124327108398,
+          "relative_kelvin_rms": 0.011822464756358647,
+          "observed_rise_scale_k": 85.38753507429402,
+          "rmse_over_observed_rise": 0.04795927559620161,
+          "time_weighted_bias_k": -2.2149537132929527,
+          "covered_s": 881.6389999166131,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "C2_ISS": {
+          "time_weighted_rmse_k": 6.877738951478236,
+          "relative_kelvin_rms": 0.019432377923143583,
+          "observed_rise_scale_k": 88.06520385602244,
+          "rmse_over_observed_rise": 0.07809825731764197,
+          "time_weighted_bias_k": -4.499363964587339,
+          "covered_s": 881.6389999166131,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": false
+        }
+      }
+    },
+    "burst_uncertain": {
+      "interval_s": [
+        881.6389999166131,
+        906.6389999166131
+      ],
+      "complete": true,
+      "numerical_coverage_fraction": 1.0,
+      "channels": {
+        "101": {
+          "time_weighted_rmse_k": 8.876170096238313,
+          "relative_kelvin_rms": 0.025515524876933385,
+          "observed_rise_scale_k": 54.63000840930118,
+          "rmse_over_observed_rise": 0.16247791927352287,
+          "time_weighted_bias_k": -6.9926512756316015,
+          "covered_s": 25.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "102": {
+          "time_weighted_rmse_k": 4.450479989314847,
+          "relative_kelvin_rms": 0.014388598157514235,
+          "observed_rise_scale_k": 13.173953235503916,
+          "rmse_over_observed_rise": 0.33782418304938,
+          "time_weighted_bias_k": 4.278290010441449,
+          "covered_s": 25.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "107": {
+          "time_weighted_rmse_k": 12.669939366120309,
+          "relative_kelvin_rms": 0.03695602937940804,
+          "observed_rise_scale_k": 47.5191166032364,
+          "rmse_over_observed_rise": 0.26662825977824245,
+          "time_weighted_bias_k": 4.840363861905562,
+          "covered_s": 25.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "108": {
+          "time_weighted_rmse_k": 300.2480767265289,
+          "relative_kelvin_rms": 0.29677125945596744,
+          "observed_rise_scale_k": 1081.2950846792805,
+          "rmse_over_observed_rise": 0.27767450437970365,
+          "time_weighted_bias_k": 52.88815823851637,
+          "covered_s": 25.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "C2_TIM": {
+          "time_weighted_rmse_k": 58.967686107164546,
+          "relative_kelvin_rms": 0.10013476925930913,
+          "observed_rise_scale_k": 302.61103819153664,
+          "rmse_over_observed_rise": 0.19486297148830753,
+          "time_weighted_bias_k": -39.29077601600141,
+          "covered_s": 25.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "C2_ISS": {
+          "time_weighted_rmse_k": 369.6007327304152,
+          "relative_kelvin_rms": 0.31588009437741116,
+          "observed_rise_scale_k": 1054.1830557933604,
+          "rmse_over_observed_rise": 0.35060393989377864,
+          "time_weighted_bias_k": -284.0103247799764,
+          "covered_s": 12.0,
+          "coverage_fraction": 0.48,
+          "used_for_calibration": false
+        }
+      }
+    },
+    "early_relaxation": {
+      "interval_s": [
+        906.6389999166131,
+        946.6389999166131
+      ],
+      "complete": true,
+      "numerical_coverage_fraction": 1.0,
+      "channels": {
+        "101": {
+          "time_weighted_rmse_k": 10.351063514359938,
+          "relative_kelvin_rms": 0.02892530308950446,
+          "observed_rise_scale_k": 58.76982801638479,
+          "rmse_over_observed_rise": 0.17612887196937352,
+          "time_weighted_bias_k": -10.313194177766487,
+          "covered_s": 40.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "102": {
+          "time_weighted_rmse_k": 2.1492268269114536,
+          "relative_kelvin_rms": 0.006830275438523478,
+          "observed_rise_scale_k": 18.749987211883024,
+          "rmse_over_observed_rise": 0.11462550894697976,
+          "time_weighted_bias_k": 1.5432353227241529,
+          "covered_s": 40.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "107": {
+          "time_weighted_rmse_k": 12.506111519362802,
+          "relative_kelvin_rms": 0.035321288930818616,
+          "observed_rise_scale_k": 57.651880851131125,
+          "rmse_over_observed_rise": 0.216924605663016,
+          "time_weighted_bias_k": 11.862713763984797,
+          "covered_s": 40.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "108": {
+          "time_weighted_rmse_k": 49.2657643313267,
+          "relative_kelvin_rms": 0.09773066848678993,
+          "observed_rise_scale_k": 255.66738119295428,
+          "rmse_over_observed_rise": 0.19269475871912428,
+          "time_weighted_bias_k": 41.05199385628295,
+          "covered_s": 40.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "C2_TIM": {
+          "time_weighted_rmse_k": 35.20181733595421,
+          "relative_kelvin_rms": 0.062083789390760334,
+          "observed_rise_scale_k": 292.7454888735498,
+          "rmse_over_observed_rise": 0.1202471726256369,
+          "time_weighted_bias_k": -22.275710155870435,
+          "covered_s": 40.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "C2_ISS": {
+          "time_weighted_rmse_k": 441.6374452187917,
+          "relative_kelvin_rms": 0.4622155300028942,
+          "observed_rise_scale_k": 872.0147927282321,
+          "rmse_over_observed_rise": 0.5064563685176271,
+          "time_weighted_bias_k": -435.64425777076406,
+          "covered_s": 40.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": false
+        }
+      }
+    },
+    "cooling": {
+      "interval_s": [
+        946.6389999166131,
+        1100.0
+      ],
+      "complete": true,
+      "numerical_coverage_fraction": 1.0,
+      "channels": {
+        "101": {
+          "time_weighted_rmse_k": 4.620595745708437,
+          "relative_kelvin_rms": 0.013043215812366641,
+          "observed_rise_scale_k": 58.372776596661936,
+          "rmse_over_observed_rise": 0.07915668938682398,
+          "time_weighted_bias_k": 1.5758888269606621,
+          "covered_s": 153.3610000833869,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "102": {
+          "time_weighted_rmse_k": 2.5535848400917036,
+          "relative_kelvin_rms": 0.007876721712721595,
+          "observed_rise_scale_k": 26.703338976121472,
+          "rmse_over_observed_rise": 0.0956279228741828,
+          "time_weighted_bias_k": -2.476590959374343,
+          "covered_s": 153.3610000833869,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "107": {
+          "time_weighted_rmse_k": 5.179554503293377,
+          "relative_kelvin_rms": 0.014745354638894637,
+          "observed_rise_scale_k": 56.86870215305066,
+          "rmse_over_observed_rise": 0.09107917549012547,
+          "time_weighted_bias_k": 5.0482950225399,
+          "covered_s": 153.3610000833869,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "108": {
+          "time_weighted_rmse_k": 3.39054880934175,
+          "relative_kelvin_rms": 0.00888114180006547,
+          "observed_rise_scale_k": 114.5519193671546,
+          "rmse_over_observed_rise": 0.0295983587885121,
+          "time_weighted_bias_k": 2.5455854745703124,
+          "covered_s": 153.3610000833869,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "C2_TIM": {
+          "time_weighted_rmse_k": 12.437273810083134,
+          "relative_kelvin_rms": 0.029328436497578235,
+          "observed_rise_scale_k": 168.37453442711296,
+          "rmse_over_observed_rise": 0.07386671536999594,
+          "time_weighted_bias_k": 8.834896579607587,
+          "covered_s": 153.3610000833869,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "C2_ISS": {
+          "time_weighted_rmse_k": 235.49719663631325,
+          "relative_kelvin_rms": 0.3752842375085077,
+          "observed_rise_scale_k": 435.2561908131442,
+          "rmse_over_observed_rise": 0.5410542149816597,
+          "time_weighted_bias_k": -219.4199153938812,
+          "covered_s": 153.3610000833869,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": false
+        }
+      }
+    }
+  },
+  "record_end_s": 18287.75600013323,
+  "requested_window_end_s": 1100.0,
+  "complete_requested_window": true,
+  "max_observation_gap_s": 5.0,
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "temperature_error_units": "K; temperature DIFFERENCES have the same numerical value in degC",
+  "relative_temperature_reference": "Observed absolute thermodynamic temperature in K, never degC",
+  "relative_rise_reference": "Largest observed rise above the initial temperature within the phase; undefined for rise <=1 K",
+  "interpretation": "Cooling is the primary diagnostic. Burst RMSE is descriptive, not an exact peak target."
+}

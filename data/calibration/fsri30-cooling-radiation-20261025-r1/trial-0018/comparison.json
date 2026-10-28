@@ -1,0 +1,78 @@
+{
+  "last_completed_observation_s": 3734.9999999999864,
+  "common_comparison_until_s": 3734.9999999999864,
+  "common_control_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 147.5398606350848,
+    "quantile_rmse_k": [
+      98.29543340240642,
+      71.6175325484698,
+      169.73537066051568,
+      208.49672097066724
+    ],
+    "tail_temperature_c": [
+      653.9380956315937,
+      756.4046715458772,
+      865.3451367691101,
+      908.0787386776439
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "common_candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 88.60361452587796,
+    "quantile_rmse_k": [
+      90.04956984237155,
+      63.01679330474363,
+      70.50248427368204,
+      119.79883335087935
+    ],
+    "tail_temperature_c": [
+      468.0046363672211,
+      610.7155212609072,
+      754.7556852490164,
+      809.032856691358
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 88.60361452587796,
+    "quantile_rmse_k": [
+      90.04956984237155,
+      63.01679330474363,
+      70.50248427368204,
+      119.79883335087935
+    ],
+    "tail_temperature_c": [
+      468.0046363672211,
+      610.7155212609072,
+      754.7556852490164,
+      809.032856691358
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+  "common_cooling_rmse_change_k": -58.93624610920685,
+  "radiative_energy_out_j": 334508.61728042236
+}

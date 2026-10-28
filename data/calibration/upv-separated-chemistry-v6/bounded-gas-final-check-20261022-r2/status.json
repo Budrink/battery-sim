@@ -1,0 +1,26 @@
+{
+  "status": "failed",
+  "phase": "fresh_current_core_reference",
+  "pid": 1667796,
+  "native_sha256": "73fed3cee6f17e5609fa27c441a1c889e2373f106bddb963099f1295d6da0bae",
+  "source": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/gas-route-refinement-20261022-r1/trial-010/scenario.json",
+  "source_sha256": "55ab837c6b675a99c5cbda36738f16301495afc2f8fd1df656b541ee8d1c5d67",
+  "experimental_sha256": "f78d3fd97faa34601b4a603c0a8017f3146d1edd64e9451169b7d8f9eae66e60",
+  "criteria_version": "cooling-with-protected-pulses-v3",
+  "minimum_regular_dt_s": 0.02,
+  "end_s": 1100.0,
+  "chemistry_frozen": true,
+  "material_properties_frozen": true,
+  "accepted_calibration": false,
+  "records": [
+    {
+      "trial": "trial-000",
+      "label": "\u0422\u0435\u043a\u0443\u0449\u0430\u044f \u0438\u0441\u0445\u043e\u0434\u043d\u0430\u044f \u0433\u0435\u043e\u043c\u0435\u0442\u0440\u0438\u044f",
+      "conditional_restart": false,
+      "status": "rejected",
+      "error": "CUDA Kawasaki pressure step failed: 25; mixing_iterations=1024 mixing_residual=1.40017"
+    }
+  ],
+  "runner_sha256": "3d0a134aa312cb62e9f547a65ff76d3ec4af18efd646979dc5969a07eee24bd0",
+  "error": "Fresh reference rejected; do not calibrate geometry over a failed reference"
+}

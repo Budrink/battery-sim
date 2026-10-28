@@ -1,0 +1,38 @@
+{
+  "format_version": 1,
+  "kind": "numerical_method",
+  "scope": "pressure-rank-one-predictor-v1",
+  "parameters": {
+    "enabled_by_default": false,
+    "basis": "previous accepted pressure correction in same launch",
+    "projection": "Galerkin energy",
+    "residual_limit": 1e-06,
+    "discard_worse_local_norm": true,
+    "cache_scope": "single GPU launch, no checkpoint persistence"
+  },
+  "evidence": {
+    "numerical_checks": {
+      "accepted": true,
+      "isolated_cuda_cases": "513-node repeated and deliberately bad patterns; 1/2 blocks",
+      "repeated_iterations": [
+        512,
+        0
+      ],
+      "rejected_fallback_iterations": 512,
+      "oracle": "independent dense long-double Cholesky"
+    },
+    "full_warmup_validation": false,
+    "reference_binary_sha256": "e5a40022d1eda5be6ec25f24a162fed17608186e9f34929f48778c6cf8b993de",
+    "pending_trajectory_check": "/home/konstantin/work/battery-sim/data/development/fsri30-grid-pattern-20261025-r1/comparison/status.json"
+  },
+  "compatibility": {
+    "operator": "symmetric frozen-secant gas pressure corrections",
+    "acceptance": "true local b-A*x <= 1e-6",
+    "model": "averaged CUDA gas"
+  },
+  "qualification": "candidate",
+  "producer_core": "e7386cc42effc14e1c8bf6a2ffa6c225b77935921458ca5aadfaa9df7cc59f56",
+  "transferable_as": "numerical_method",
+  "calibrated": false,
+  "validation_passed": false
+}

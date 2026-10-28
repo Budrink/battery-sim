@@ -1,6 +1,7 @@
 #pragma once
 #include "battery_native/thermal_mesh.hpp"
 #include "battery_native/gas_transport_stats.hpp"
+#include "battery_native/electrical_mesh.hpp"
 #include <memory>
 #include <string>
 
@@ -23,18 +24,36 @@ struct ThermalState {
     double conductivity_factor[3]{1.,1.,1.}; // cached local constitutive state
     CellMode mode = CellMode::Healthy;
     double reactant_kg = 0., activated_kg = 0., residue_kg = 0.;
+    double healthy_charged_kg = 0.; // subset of activated_kg, NOT damaged by charging
+    double degraded_mass_kg = 0.; // cumulative R1 only; R2 conversion is separate
     double gross_reaction_energy_j = 0.;
     double sterilized_chemical_j = 0.; // (1-φ) q da: R1 inert path, not heat
+    // B has healthy charged and R1-derived fractions, with one energy ledger.
+    // A already owns intrinsic chemical energy q*A. Charging adds electrical
+    // energy to B; ordinary degradation only transfers that intrinsic reserve.
+    double precursor_charge_energy_j = 0.;
+    double electrical_chemical_input_j = 0.; // cumulative external work stored
+    double precursor_from_charge_kg = 0., precursor_from_degradation_kg = 0.;
     // Per-substep source to the owner's gas compartment.
     double generated_gas_kg = 0., generated_gas_energy_j = 0., generated_gas_chemical_j = 0.;
     double mobile_capacity_j_per_k = 0.; // derived LTE cache; gas inventory owns its energy
+    double liquid_kg=0., evaporated_kg=0., condensed_kg=0.;
+    double r2_generated_gas_kg=0.,r2_reacted_kg=0.;
 };
 struct GasState {
     double mass_kg = 0., energy_j = 0., chemical_j = 0.;
     double temperature_k = 298.15, pressure_pa = 0.;
     double oxidizer_kg = 0., consumed_oxidizer_kg = 0., released_energy_j = 0.;
     double free_volume_m3 = 0.;
+    double vapor_kg=0., latent_j=0.; // condensable vapor + mobile phase-reference energy
+    // Signed OUTWARD open-boundary ledgers (inflow can be negative). These
+    // travel with the numerical volume, never with its mobile mixture.
+    double ambient_mass_out_kg=0., ambient_energy_out_j=0.;
+    double ambient_chemical_out_j=0., ambient_oxidizer_out_kg=0.;
+    double ambient_gross_in_kg=0., ambient_gross_out_kg=0., ambient_entropy_j_k=0.;
 };
+// Conservative source-volume fractions; only explicit unvented graph rebasing.
+struct GasRemap { std::size_t from,to;double fraction; };
 struct GasChannelState {
     bool open = false;
     // Signed in configured from -> to orientation; internal channels can reverse.
@@ -49,6 +68,8 @@ struct GasChannelState {
     double max_bulk_damage = 0., max_seam_damage = 0.; // progressive law only
     double max_thermal_damage = 0.; // weakening, distinct from mechanical opening
     double aperture_radius_m = 0.; // circle/valve; derived on diagnostic download
+    double mixed_mass_kg=0.; // cumulative EACH-WAY mass, net mass remains zero
+    double transferred_vapor_kg=0., transferred_latent_j=0.;
     std::array<double,4> aperture_strips_m{}; // seam fronts: -u,+u,-v,+v
 };
 struct ProcessDiagnostics {
@@ -59,6 +80,7 @@ struct ProcessDiagnostics {
     double oxidizer_residual_kg = 0., escaped_oxidizer_kg = 0.;
     double fracture_work_j = 0.;
     double joule_energy_j = 0.;
+    double electrical_chemical_input_j = 0.;
 };
 class CudaSolver {
 public:
@@ -77,10 +99,19 @@ public:
     double prepare_step(double time_s, double dt_cap, double stability, const RuntimeParameters&);
     void commit_step();
     void discard_step();
+    // Apparatus drive only: fixed-R passive resistor, explicit I2R and UI.
+    // Does not inject a thermal source or alter any battery's chemistry/current.
+    void set_resistive_heater_power(std::size_t object,double power_w);
+    std::string save_state() const;
+    void restore_state(const std::string&);
+    void rebase_unvented_from(const CudaSolver&,const std::vector<GasRemap>&);
+    std::vector<double> last_gas_film_heat_j() const;
     void download_macros(std::vector<CellState>&, std::vector<InterfaceState>&);
     void download_field(std::vector<ThermalState>&) const;
     void download_shell_states(std::vector<ShellDamageState>&) const;
     void download_link_states(std::vector<InterfaceState>&) const;
+    // Last accepted beginning-of-step electrical constitutive snapshot.
+    void download_electrical_states(std::vector<ElectricalState>&) const;
     const std::string& device_name() const;
     const ThermalState* device_field() const; // read-only, valid until the next step/reset
     ProcessDiagnostics process_diagnostics() const;

@@ -1,0 +1,90 @@
+{
+  "objective": 85.82704605252268,
+  "phase_loss": {
+    "warmup": 0.1303596361407696,
+    "propagation": 6.695757025280402,
+    "cooling": 26.127592505049524
+  },
+  "envelope_rmse_k": {
+    "warmup": 13.672754554158004,
+    "propagation": 607.3398951381002,
+    "cooling": 488.557130091189
+  },
+  "known_until_s": 5945.0,
+  "complete": true,
+  "peak_weight": 0.2,
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved",
+  "features": {
+    "minimum_autonomous_propagation": 32.0,
+    "first_conversion_timing": 16.0
+  },
+  "cascade": {
+    "reacted_components": 0,
+    "events": [],
+    "inter_event_delays_s": [],
+    "autonomous_cascade": false,
+    "observed_failure_count": null,
+    "observed_component_order": null,
+    "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+  },
+  "constraint": -1.0,
+  "numerical_violations": [],
+  "wall_s": 677.558556858,
+  "realtime_ratio": 8.77414939244274,
+  "scene_hash": "c1facdbbe44e5c4dbf0d634735a6a59460e60ff522231be507e33d699ffa97d9",
+  "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+  "minimum_regular_step_s": 0.01,
+  "balances": {
+    "max_thermal_residual_j": 4.837256710743532e-07,
+    "max_chemical_residual_j": 2.2444874048233032e-07,
+    "max_mass_residual_kg": 2.19824158875781e-13,
+    "max_oxidizer_residual_kg": 2.8429480991576384e-12
+  },
+  "original_envelope_objective": 80.9537091664707,
+  "transport_loss_parts": {
+    "neighbour_preheat": 17.35098588115421,
+    "neighbour_conversion": 19.999205588133123,
+    "minimum_cascade": 32.0,
+    "experimental_envelope": 16.476854583235347
+  },
+  "transfer": {
+    "source_component": "B10",
+    "source_peak_k": 377.726704996189,
+    "hottest_neighbours": [
+      {
+        "component": "B02",
+        "peak_k": 309.6578867743947
+      },
+      {
+        "component": "B03",
+        "peak_k": 309.6293922930055
+      },
+      {
+        "component": "B01",
+        "peak_k": 306.4028536685508
+      },
+      {
+        "component": "B04",
+        "peak_k": 306.2614330302062
+      },
+      {
+        "component": "B17",
+        "peak_k": 304.9157170655481
+      },
+      {
+        "component": "B18",
+        "peak_k": 304.8645901316871
+      }
+    ],
+    "max_neighbour_converted_fraction": 1.986049389153462e-06,
+    "top_three_neighbour_mean_peak_k": 308.5633775786503,
+    "recorded_r3_j": 0.0006295452728166338,
+    "hood_unburned_chemical_j": 0.7244410058628524,
+    "hood_temperature_k": 298.15446703899477,
+    "global_r3_history_complete": false,
+    "note": "Neighbour heating/conversion are model diagnostics, NOT invented thermocouple locations"
+  },
+  "search_direction": "neighbour-energy-delivery"
+}

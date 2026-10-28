@@ -1,0 +1,80 @@
+{
+  "source": "data/calibration/upv-charge-degradation-v5/pair-contacts-20261018/frozen-contact-check/frozen-parameters.json",
+  "parameters": {
+    "resistance_ohm": 0.008777311071596752,
+    "resistance_temperature": -0.01999999999999949,
+    "resistance_charge": 14.838210523443244,
+    "product_conductivity_ratio": 0.2,
+    "r1_rate": 1e-06,
+    "r1_activation": 40000.0,
+    "overcharge_gain": 0.9665706075586435,
+    "r2_rate": 100000.00000000001,
+    "r2_activation": 136106.65706689408,
+    "energy_j": 424264.068711928,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.0005,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.27735866146555965,
+    "precursor_temperature": 0.029623273375245555,
+    "precursor_voltage": 0.0,
+    "iss_h": 548.334510922672,
+    "tim_h": 697.6587915939645,
+    "case_h": 220.48307663197534,
+    "environment_h": 1.563406124562644,
+    "surface_iss": 0.0,
+    "surface_tim": 6.0,
+    "bulk_slope": -2.88,
+    "case_warm_response": 0.0,
+    "case_hot_response": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0,
+    "battery_iss_factor": 0.3246524673583498,
+    "battery_tim_factor": 0.3272376374473188
+  },
+  "fingerprint": "ec66d4da2b4bc24e1564f3824e7fb21b0c47cbf87e2df49455ec007ad1fa94ed",
+  "search_script_sha256": "a11396857cca83ed6d43ed9896f8f8bcf56102e543d2a12e52b40f114372ebea",
+  "proposals": [
+    {
+      "label": "cold-store-200",
+      "k1_75": 3e-05,
+      "ea1": 160000.0,
+      "k2_75": 0.010767030543859956,
+      "ea2": 200000.0
+    },
+    {
+      "label": "cold-store-220",
+      "k1_75": 3e-05,
+      "ea1": 160000.0,
+      "k2_75": 0.03430090191052344,
+      "ea2": 220000.0
+    },
+    {
+      "label": "cold-store-240",
+      "k1_75": 3e-05,
+      "ea1": 160000.0,
+      "k2_75": 0.10927357056178252,
+      "ea2": 240000.0
+    }
+  ],
+  "free": [
+    "r1_activation",
+    "r1_rate",
+    "r2_activation",
+    "r2_rate"
+  ],
+  "calibration_only": true,
+  "validation_used_for_selection": false,
+  "rate_anchor_k": 348.15,
+  "source_pointer_sha256": "abe5bc9c01122cb92655d335077949f06b54081a1bf4d674ec1c22dfe1afcab9",
+  "previous_fingerprint": "95be956eb194327827c20d58afc3bd8292da813485af7870fc47dab902bc8bf9",
+  "input_validation_ordering_relaxed": true,
+  "cold_r2_rate_upper_at_25c_per_s": 1e-07,
+  "cold_storage_prior_is_not_calendar_life_calibration": true,
+  "diagnostic_emf_floor_v": 0.0,
+  "baseline_equivalence_source": "data/calibration/upv-charge-degradation-v5/kinetics-fit-20261018-r1/baseline-equivalence/result.json",
+  "early_pruning": "Source surface error >15 K for 30 s before measured event; no forced ignition"
+}

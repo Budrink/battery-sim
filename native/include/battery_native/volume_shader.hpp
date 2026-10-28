@@ -23,11 +23,26 @@ uniform sampler1D uPalette;
 uniform ivec3 uGrid;
 uniform int uOffset;
 uniform int uLayer;
+uniform bool uCylinder;
 uniform vec3 uLocalEye;
 uniform vec3 uDestroyed;
 uniform vec2 uRange;
 uniform float uOpacity;
 uniform float uCut;
+uniform int uHoleCount;
+uniform int uHoleAxis;
+uniform vec3 uDimensions;
+uniform vec4 uHoles[64]; // local centre (m), radius (m)
+uniform vec2 uHoleBounds[64];
+bool opening(vec3 p) {
+    int u=(uHoleAxis+1)%3,v=(uHoleAxis+2)%3;
+    vec3 physical=p*uDimensions;
+    for(int k=0;k<uHoleCount;++k) {
+        vec2 d=vec2(physical[u]-uHoles[k][u],physical[v]-uHoles[k][v]);
+        if(all(lessThanEqual(abs(d),uHoleBounds[k])) && length(d)<=uHoles[k].w)return true;
+    }
+    return false;
+}
 vec4 sampleAt(ivec3 p) {
     p=clamp(p,ivec3(0),uGrid-1);
     return texelFetch(uSamples,uOffset+p.x+uGrid.x*(p.y+uGrid.y*p.z));
@@ -57,7 +72,10 @@ void main() {
     float alpha=1.0-exp(log(max(1.0-uOpacity,1e-5))*ds);
     vec4 sum=vec4(0);
     for(int i=0;i<steps;++i) {
-        vec4 s=field(uLocalEye+d*(entry+(float(i)+0.5)*ds));
+        vec3 point=uLocalEye+d*(entry+(float(i)+0.5)*ds);
+        if(uCylinder && dot(point.xy,point.xy)>.25)continue;
+        if(opening(point))continue;
+        vec4 s=field(point);
         float t=uLayer==0?(s.x-uRange.x)/max(uRange.y-uRange.x,1.0):s.y;
         vec3 rgb=texture(uPalette,(clamp(t,0.0,1.0)*255.0+0.5)/256.0).rgb;
         if(uLayer!=0 && s.z>0.5)rgb=uDestroyed;

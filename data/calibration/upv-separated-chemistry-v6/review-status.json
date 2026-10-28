@@ -1,0 +1,111 @@
+{
+  "status": "model revised and verified; calibration not complete",
+  "revision": "separated-charge-r1-v6",
+  "model_fingerprint": "646c26d4f1b847183f3fa9ad230ea62aa9e9c7976be3c905d9cb1badfd4403a4",
+  "current_seed": "data/calibration/upv-separated-chemistry-v6/current-seed.json",
+  "defaults_reset": false,
+  "material_and_transfer_geometry_changed": false,
+  "accepted_new_parameters": false,
+  "validation_performed": false,
+  "validation_used_for_selection": false,
+  "tests": {
+    "native_cuda_passed": 8,
+    "python_contract_passed": 44,
+    "native_parser_python_passed": 2,
+    "optional_jsonschema_skipped": 3
+  },
+  "numerical_prefix_check": "data/calibration/upv-separated-chemistry-v6/final-build-prefix-check/summary.json",
+  "trials": [
+    {
+      "label": "joint-stock-2",
+      "status": "failed",
+      "error": "Command '['/tmp/battery-sim-cuda-v1/battery_sim_casing_probe', '/tmp/battery-r123-trial-h_go0xup/scene.json']' timed out after 110.0 seconds",
+      "last_sample_s": 495.0,
+      "objective": null,
+      "fingerprint": "ef7a1842326e0304faf6d33130236f4f4831b7895dc244de30fdb9b050551273"
+    },
+    {
+      "label": "gentle-r2-stock2",
+      "status": "failed",
+      "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256); t=597.774949, dt=0.079284; C2: R=0.042332, heat_J=4.087956, budget_J=4.085401",
+      "last_sample_s": 455.0,
+      "objective": null,
+      "fingerprint": "ef7a1842326e0304faf6d33130236f4f4831b7895dc244de30fdb9b050551273"
+    },
+    {
+      "label": "middle-r2-stock2",
+      "status": "failed",
+      "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256); t=531.268548, dt=0.079284; C2: R=0.044988, heat_J=4.344480, budget_J=4.344222",
+      "last_sample_s": 430.0,
+      "objective": null,
+      "fingerprint": "ef7a1842326e0304faf6d33130236f4f4831b7895dc244de30fdb9b050551273"
+    },
+    {
+      "label": "middle-r2-stock4",
+      "status": "failed",
+      "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256); t=479.122781, dt=0.079284; C2: R=0.047279, heat_J=4.565656, budget_J=4.565584",
+      "last_sample_s": 420.0,
+      "objective": null,
+      "fingerprint": "ef7a1842326e0304faf6d33130236f4f4831b7895dc244de30fdb9b050551273"
+    },
+    {
+      "label": "bracket-fast",
+      "status": "pruned",
+      "error": "Pruned: C2_TIM: persistent 30 s error exceeds 15 K at 570.00 s",
+      "last_sample_s": 570.0,
+      "objective": null,
+      "fingerprint": "cd65c99ead9980c0c38bfc7875836d00f17e05e078686a531ebf65a0890689e5"
+    },
+    {
+      "label": "bracket-middle",
+      "status": "pruned",
+      "error": "Pruned: C2_ISS: persistent 30 s error exceeds 15 K at 545.00 s",
+      "last_sample_s": 545.0,
+      "objective": null,
+      "fingerprint": "cd65c99ead9980c0c38bfc7875836d00f17e05e078686a531ebf65a0890689e5"
+    },
+    {
+      "label": "bracket-slow",
+      "status": "pruned",
+      "error": "Pruned: C2_TIM: persistent 30 s error exceeds 15 K at 605.00 s",
+      "last_sample_s": 605.0,
+      "objective": null,
+      "fingerprint": "cd65c99ead9980c0c38bfc7875836d00f17e05e078686a531ebf65a0890689e5"
+    },
+    {
+      "label": "r1-steep-220-r2-200",
+      "status": "failed",
+      "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256); t=546.593189, dt=0.079284; C2: R=0.044337, heat_J=4.281621, budget_J=4.277744",
+      "last_sample_s": 390.0,
+      "objective": null,
+      "fingerprint": "cd65c99ead9980c0c38bfc7875836d00f17e05e078686a531ebf65a0890689e5"
+    },
+    {
+      "label": "r1-steep-240-r2-180",
+      "status": "failed",
+      "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256); t=536.030695, dt=0.079284; C2: R=0.044705, heat_J=4.317072, budget_J=4.316552",
+      "last_sample_s": 415.0,
+      "objective": null,
+      "fingerprint": "cd65c99ead9980c0c38bfc7875836d00f17e05e078686a531ebf65a0890689e5"
+    },
+    {
+      "label": "r1-steep-240-r2-200",
+      "status": "pruned",
+      "error": "Pruned: C2_ISS: persistent 30 s error exceeds 15 K at 565.00 s",
+      "last_sample_s": 565.0,
+      "objective": null,
+      "fingerprint": "cd65c99ead9980c0c38bfc7875836d00f17e05e078686a531ebf65a0890689e5"
+    },
+    {
+      "label": "stock2-progress",
+      "status": "failed",
+      "error": "Command '['/tmp/battery-sim-cuda-v1/battery_sim_casing_probe', '/tmp/battery-r123-trial-7drv_33h/scene.json']' timed out after 85.0 seconds",
+      "last_sample_s": 495.0,
+      "objective": null,
+      "fingerprint": "cd65c99ead9980c0c38bfc7875836d00f17e05e078686a531ebf65a0890689e5"
+    }
+  ],
+  "pending_choice": null,
+  "resolved_choice": "User approved removing the fixed 3.65 V reserve; strict full UI budget retained",
+  "scope": "Historical review before the approved reserve removal; see ui-budget-review.json for current results"
+}

@@ -1,0 +1,78 @@
+{
+  "last_completed_observation_s": 4165.0,
+  "common_comparison_until_s": 4089.9999999999045,
+  "common_control_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 193.2093995639603,
+    "quantile_rmse_k": [
+      240.72187438885518,
+      100.33614066708898,
+      181.8996404205358,
+      219.58517072219232
+    ],
+    "tail_temperature_c": [
+      636.5674082232241,
+      739.6611551212337,
+      830.533572465015,
+      876.2216131539163
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "common_candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 80.20178160197479,
+    "quantile_rmse_k": [
+      81.64329345729924,
+      68.03979496043975,
+      59.65928651739731,
+      104.28341937213787
+    ],
+    "tail_temperature_c": [
+      399.9625985871802,
+      536.4450263992481,
+      686.1439601950235,
+      724.8505796454258
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 81.4649096573155,
+    "quantile_rmse_k": [
+      91.48254945248819,
+      69.09355502774658,
+      57.554683963933314,
+      100.45201926796129
+    ],
+    "tail_temperature_c": [
+      387.9197418489316,
+      523.8143860073142,
+      673.3934148176343,
+      708.0747626692693
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+  "common_cooling_rmse_change_k": -113.0076179619855,
+  "radiative_energy_out_j": 403426.68376929394
+}

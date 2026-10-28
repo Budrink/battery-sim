@@ -1,0 +1,82 @@
+{
+  "parameters": {
+    "resistance_ohm": 0.01575896073469769,
+    "resistance_temperature": -0.0034,
+    "resistance_damage": 1.0,
+    "r1_rate": 1e-06,
+    "r1_activation": 40000.0,
+    "overcharge_gain": 1.171506001541235,
+    "r2_rate": 192.45443619995837,
+    "r2_activation": 88502.44826857552,
+    "energy_j": 326020.4587578172,
+    "gas_fraction": 0.6405,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.03,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.42,
+    "precursor_temperature": 0.0,
+    "precursor_voltage": 0.0,
+    "iss_h": 287.71996866857825,
+    "tim_h": 2000.0,
+    "case_h": 500.0,
+    "environment_h": 8.0,
+    "surface_iss": 0.0,
+    "surface_tim": 0.0,
+    "bulk_slope": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0
+  },
+  "objective": 17.41376897279907,
+  "metrics": {
+    "warmup": {
+      "101": {
+        "rmse_k": 3.6666187730577136,
+        "bias_k": -2.545082702867872
+      },
+      "102": {
+        "rmse_k": 2.0566590300032432,
+        "bias_k": 1.452914276389188
+      },
+      "107": {
+        "rmse_k": 2.8936163545465505,
+        "bias_k": -1.9200995271277888
+      },
+      "108": {
+        "rmse_k": 0.2828873231281277,
+        "bias_k": -0.01877698625839717
+      },
+      "C2_TIM": {
+        "rmse_k": 2.7982461675519184,
+        "bias_k": -0.8467533215300959
+      },
+      "C2_ISS": {
+        "rmse_k": 3.1509489380763385,
+        "bias_k": -0.7112487027225767
+      }
+    },
+    "pressure": {
+      "peak_bar": 1.0481033643288467,
+      "observed_peak_bar": 1.0622290969156691,
+      "peak_time_s": 866.168000032194,
+      "rmse_bar": 0.006579000442460298
+    },
+    "joule_j": {
+      "C1": 0.0,
+      "C2": 20619.848826357702,
+      "C3": 0.0
+    },
+    "wall_s": 56.521007939,
+    "steps": 81916,
+    "balance": {
+      "max_thermal_residual_j": 2.129163476638496e-07,
+      "max_chemical_residual_j": 4.889443516731262e-09,
+      "max_mass_residual_kg": 1.021405182655144e-14
+    }
+  },
+  "fingerprint": "7d516a72a54fc3495830ea639968bc6b8b60c3d09ed996b304a02b928a15743d",
+  "validation_used_for_selection": false,
+  "status": "candidate, not independently validated"
+}

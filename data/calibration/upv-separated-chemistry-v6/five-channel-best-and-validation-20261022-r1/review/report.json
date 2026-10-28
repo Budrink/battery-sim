@@ -1,0 +1,368 @@
+{
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "native_sha256": "9cdde6b19b28e4b6a8e5233daeefce20081d3d9be146722618ea20edb6aec60b",
+  "frozen_scene_sha256": "1918970cc20deb84542a28a25aba4565849257bbb2334fb310a611c0a51bcebd",
+  "validation_refitted": false,
+  "calibration_accepted": false,
+  "experiments": {
+    "no-cooling": {
+      "status": "single_full_complete_not_calibrated",
+      "error": null,
+      "requested_end_s": 1100.0,
+      "known_until_s": 1100.0,
+      "wall_s": 636.910877316,
+      "minimum_regular_step_s": 0.02,
+      "phases": {
+        "event_s": 886.6389999166131,
+        "known_interval_s": [
+          0.0,
+          1100.0
+        ],
+        "complete_record": false,
+        "phases": {
+          "pre_burst": {
+            "interval_s": [
+              0.0,
+              881.6389999166131
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 6.21283797208531,
+                "time_weighted_bias_k": -4.26005153054919,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "102": {
+                "time_weighted_rmse_k": 0.8429585305597209,
+                "time_weighted_bias_k": 0.6908957401643769,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "107": {
+                "time_weighted_rmse_k": 5.0440348476290335,
+                "time_weighted_bias_k": -3.261324603597721,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "108": {
+                "time_weighted_rmse_k": 1.5671870606777856,
+                "time_weighted_bias_k": -1.0179507662029454,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 4.441128437921085,
+                "time_weighted_bias_k": -2.1612784757005934,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 6.238235579546454,
+                "time_weighted_bias_k": -3.559486109376614,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": false
+              }
+            }
+          },
+          "burst_uncertain": {
+            "interval_s": [
+              881.6389999166131,
+              906.6389999166131
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 8.594258322174538,
+                "time_weighted_bias_k": -5.6385183157444025,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "102": {
+                "time_weighted_rmse_k": 3.5468309740305393,
+                "time_weighted_bias_k": 3.411715363842704,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "107": {
+                "time_weighted_rmse_k": 10.04742794521,
+                "time_weighted_bias_k": -0.5457683839826492,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "108": {
+                "time_weighted_rmse_k": 98.69425612492617,
+                "time_weighted_bias_k": -80.57257262285152,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 82.5801367022835,
+                "time_weighted_bias_k": -50.96889339459706,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 443.81402549347445,
+                "time_weighted_bias_k": -345.2566668995224,
+                "covered_s": 12.0,
+                "coverage_fraction": 0.48,
+                "used_for_calibration": false
+              }
+            }
+          },
+          "early_relaxation": {
+            "interval_s": [
+              906.6389999166131,
+              946.6389999166131
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 3.987689872852896,
+                "time_weighted_bias_k": 3.7807579300442087,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "102": {
+                "time_weighted_rmse_k": 1.7196703753200695,
+                "time_weighted_bias_k": 1.0504554030678357,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "107": {
+                "time_weighted_rmse_k": 6.651839601701905,
+                "time_weighted_bias_k": 5.982709255855059,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "108": {
+                "time_weighted_rmse_k": 54.3563307809063,
+                "time_weighted_bias_k": -48.394228505360616,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 60.9935382557006,
+                "time_weighted_bias_k": -56.14046080756411,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 496.8534248052824,
+                "time_weighted_bias_k": -490.7890596200449,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": false
+              }
+            }
+          },
+          "cooling": {
+            "interval_s": [
+              946.6389999166131,
+              1100.0
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 4.0092818099318706,
+                "time_weighted_bias_k": -1.321023662705652,
+                "covered_s": 153.3610000833869,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "102": {
+                "time_weighted_rmse_k": 2.351656574280099,
+                "time_weighted_bias_k": -2.3102829298336585,
+                "covered_s": 153.3610000833869,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "107": {
+                "time_weighted_rmse_k": 7.654417023241123,
+                "time_weighted_bias_k": 7.3494481306008685,
+                "covered_s": 153.3610000833869,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "108": {
+                "time_weighted_rmse_k": 9.493185848930404,
+                "time_weighted_bias_k": 2.0924036525055456,
+                "covered_s": 153.3610000833869,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 23.333554406135633,
+                "time_weighted_bias_k": -23.230303339333307,
+                "covered_s": 153.3610000833869,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 250.9281494259214,
+                "time_weighted_bias_k": -233.85210047794365,
+                "covered_s": 153.3610000833869,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": false
+              }
+            }
+          }
+        },
+        "record_end_s": 18287.75600013323,
+        "requested_window_end_s": 1100.0,
+        "complete_requested_window": true,
+        "max_observation_gap_s": 5.0,
+        "observation_policy": {
+          "version": "five-temperature-channels-and-pressure-v4",
+          "calibration_channels": [
+            "101",
+            "102",
+            "107",
+            "108",
+            "C2_TIM"
+          ],
+          "informational_channels": [
+            "C2_ISS"
+          ],
+          "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+        },
+        "interpretation": "Cooling is the primary diagnostic. Burst RMSE is descriptive, not an exact peak target."
+      },
+      "balances": {
+        "max_chemical_residual_j": 9.962241165339947e-08,
+        "max_mass_residual_kg": 4.6629367034256575e-14,
+        "max_oxidizer_residual_kg": 1.2004286453759505e-15,
+        "max_thermal_residual_j": 1.4412944437935948e-07
+      }
+    },
+    "active-cooling": {
+      "status": "rejected",
+      "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256); t=1305.804555, dt=0.044697; C2: R=0.148474, heat_J=8.129606, budget_J=8.128049",
+      "requested_end_s": 1626.6089999116957,
+      "known_until_s": 1265.0,
+      "wall_s": 360.113194474,
+      "minimum_regular_step_s": 0.03857789080700513,
+      "phases": {
+        "event_s": 1413.2479998283088,
+        "known_interval_s": [
+          0.0,
+          1265.0
+        ],
+        "complete_record": false,
+        "phases": {
+          "pre_burst": {
+            "interval_s": [
+              0.0,
+              1265.0
+            ],
+            "complete": false,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 4.710039063759733,
+                "time_weighted_bias_k": -2.471871437229563,
+                "covered_s": 1265.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "102": {
+                "time_weighted_rmse_k": 0.6463956931316469,
+                "time_weighted_bias_k": 0.6035829056715186,
+                "covered_s": 1265.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "107": {
+                "time_weighted_rmse_k": 3.0600841900469895,
+                "time_weighted_bias_k": -1.5648702221768616,
+                "covered_s": 1265.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "108": {
+                "time_weighted_rmse_k": 1.142412742584665,
+                "time_weighted_bias_k": -0.4224890388610139,
+                "covered_s": 1265.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 3.003840151808061,
+                "time_weighted_bias_k": -1.1237720686368442,
+                "covered_s": 1265.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": true
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 3.4486385583547934,
+                "time_weighted_bias_k": -1.126293973745389,
+                "covered_s": 1265.0,
+                "coverage_fraction": 1.0,
+                "used_for_calibration": false
+              }
+            }
+          }
+        },
+        "record_end_s": 14903.156999568455,
+        "requested_window_end_s": 1626.6089999116957,
+        "complete_requested_window": false,
+        "max_observation_gap_s": 5.0,
+        "observation_policy": {
+          "version": "five-temperature-channels-and-pressure-v4",
+          "calibration_channels": [
+            "101",
+            "102",
+            "107",
+            "108",
+            "C2_TIM"
+          ],
+          "informational_channels": [
+            "C2_ISS"
+          ],
+          "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+        },
+        "interpretation": "Cooling is the primary diagnostic. Burst RMSE is descriptive, not an exact peak target."
+      },
+      "balances": {
+        "max_chemical_residual_j": 4.5605702325701714e-08,
+        "max_mass_residual_kg": 1.4765966227514582e-14,
+        "max_oxidizer_residual_kg": 4.440892098500626e-16,
+        "max_thermal_residual_j": 1.3748649507761002e-07
+      }
+    }
+  }
+}

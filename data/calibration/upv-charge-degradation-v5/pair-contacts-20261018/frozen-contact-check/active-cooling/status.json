@@ -1,0 +1,42 @@
+{
+  "status": "complete",
+  "parameters_sha256": "6250638bf5d1ca017499f0759abeac3eb218e86e24dbfdd05168e4fa7f77728b",
+  "model_fingerprint": "95be956eb194327827c20d58afc3bd8292da813485af7870fc47dab902bc8bf9",
+  "metrics": {
+    "channels": {
+      "101": {
+        "rmse_k": 3.8639598880170247,
+        "end_bias_k": -7.432283391434623
+      },
+      "102": {
+        "rmse_k": 0.49210205511028643,
+        "end_bias_k": 0.6567619673002696
+      },
+      "107": {
+        "rmse_k": 2.171225374183761,
+        "end_bias_k": -4.163457629937341
+      },
+      "108": {
+        "rmse_k": 0.7575242617496301,
+        "end_bias_k": -1.8667495595035462
+      },
+      "C2_TIM": {
+        "rmse_k": 2.6172815969043115,
+        "end_bias_k": -4.767326182692955
+      },
+      "C2_ISS": {
+        "rmse_k": 2.1132557998134445,
+        "end_bias_k": -4.50261010849664
+      }
+    },
+    "rmse_all_six_k": 2.301319408311465,
+    "pressure_rmse_bar": 0.017805818371371615,
+    "wall_s": 15.522921363,
+    "balances": {
+      "max_thermal_residual_j": 1.445187081117183e-08,
+      "max_chemical_residual_j": 3.1488980312133208e-09,
+      "max_mass_residual_kg": 4.6629367034256575e-15
+    }
+  },
+  "validation_used_for_selection": false
+}

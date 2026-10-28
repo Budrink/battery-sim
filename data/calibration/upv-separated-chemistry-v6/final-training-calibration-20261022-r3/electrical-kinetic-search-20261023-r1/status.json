@@ -1,0 +1,49 @@
+{
+  "status": "stopped",
+  "pid": 1722732,
+  "native_sha256": "e7234238a1dcedad671ee39f3a120047432705a2341a7babdf69b439d6ca9e27",
+  "reference": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/final-fresh-check-20261023-r2",
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "current_input": "measured",
+  "validation_used": false,
+  "max_slowdown": 5.0,
+  "records": [],
+  "best": null,
+  "accepted_calibration": false,
+  "points": [
+    {
+      "resistance_temperature_delta": 0.003,
+      "resistance_scale": 1.0010061422859786,
+      "resistance_charge_delta": -1.229728123962856,
+      "r2_activation_delta": -20000.0,
+      "r2_rate": 0.9
+    },
+    {
+      "resistance_temperature_delta": 0.006,
+      "resistance_scale": 1.011700359284,
+      "resistance_charge_delta": -2.459456247925712,
+      "r2_activation_delta": -40000.0,
+      "r2_rate": 0.7
+    },
+    {
+      "resistance_temperature_delta": 0.006,
+      "resistance_scale": 1.011700359284,
+      "resistance_charge_delta": -2.459456247925712,
+      "r2_activation_delta": -40000.0,
+      "r2_rate": 1.1
+    }
+  ]
+}

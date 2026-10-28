@@ -1,0 +1,82 @@
+{
+  "parameters": {
+    "resistance_ohm": 0.0195,
+    "resistance_temperature": -0.02,
+    "resistance_charge": 12,
+    "product_conductivity_ratio": 0.2,
+    "r1_rate": 0.3879570986662446,
+    "r1_activation": 160000,
+    "overcharge_gain": 0.9665706075586435,
+    "r2_rate": 15425887.067080097,
+    "r2_activation": 240000,
+    "energy_j": 424264.068711928,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.0005,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.27735866146555965,
+    "precursor_temperature": 0.029623273375245555,
+    "precursor_voltage": 0.0,
+    "iss_h": 548.334510922672,
+    "tim_h": 697.6587915939645,
+    "case_h": 220.48307663197534,
+    "environment_h": 1.563406124562644,
+    "surface_iss": 0.0,
+    "surface_tim": 6.0,
+    "bulk_slope": -2.88,
+    "case_warm_response": 0.0,
+    "case_hot_response": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0,
+    "battery_iss_factor": 0.3246524673583498,
+    "battery_tim_factor": 0.3272376374473188
+  },
+  "proposal": {
+    "label": "joule-feedback-12",
+    "k1_75": 0.0003,
+    "ea1": 160000,
+    "k2_75": 0.10927357056178252,
+    "ea2": 240000,
+    "resistance_ohm": 0.0195,
+    "resistance_temperature": -0.02,
+    "resistance_charge": 12
+  },
+  "fingerprint": "ec66d4da2b4bc24e1564f3824e7fb21b0c47cbf87e2df49455ec007ad1fa94ed",
+  "changes": {
+    "resistance_ohm": [
+      0.008777311071596752,
+      0.0195
+    ],
+    "resistance_temperature": [
+      -0.01999999999999949,
+      -0.02
+    ],
+    "resistance_charge": [
+      14.838210523443244,
+      12
+    ],
+    "r1_rate": [
+      1e-06,
+      0.3879570986662446
+    ],
+    "r1_activation": [
+      40000.0,
+      160000
+    ],
+    "r2_rate": [
+      100000.00000000001,
+      15425887.067080097
+    ],
+    "r2_activation": [
+      136106.65706689408,
+      240000
+    ]
+  },
+  "validation_used_for_selection": false,
+  "shell_material_contacts_and_phi_frozen": true,
+  "electrical_fit_authorized": true,
+  "diagnostic_emf_floor_v": null
+}

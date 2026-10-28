@@ -1,0 +1,34 @@
+{
+  "format_version": 1,
+  "kind": "numerical_method",
+  "scope": "fsri30-stateless-spatial-r3-rejected-v1",
+  "parameters": {
+    "spatial_quadrature": 8,
+    "conservative_fields": 6,
+    "slopes": "current coarse neighbor MC-limited",
+    "intrinsic_kinetics_changed": false
+  },
+  "evidence": {
+    "result_path": "/home/konstantin/work/battery-sim/data/development/fsri30-spatial-reactor-20261025-r2/rejection-report.json",
+    "result_sha256": "0266d438d862eb983035c59dc61d79368477068e346f5089a4c0bb63704cbac7",
+    "source_archive": "/home/konstantin/work/battery-sim/data/development/fsri30-spatial-reactor-20261025-r2/source-evidence.tar.gz",
+    "source_archive_sha256": "c4fbf35a89105175611d0cc3030c94a5985d348486a42dc32f59c47376cddbd1",
+    "numerical_checks": {
+      "accepted": false,
+      "reason": "R3 heat error 14.7% on first burst"
+    },
+    "implementation_removed_from_working_core": true,
+    "isolated_cuda_checks_passed": true,
+    "fresh_full_cascade": false,
+    "promoted": false
+  },
+  "compatibility": {
+    "solver": "averaged-reactive-transit",
+    "scope": "rejected prototype, not transferable physical law"
+  },
+  "qualification": "candidate",
+  "producer_core": "6d67cc57da9e99e5ad3931569544bfb9ba920b8aab8c60963c82876e9b8be4dd",
+  "transferable_as": "numerical_method",
+  "calibrated": false,
+  "validation_passed": false
+}

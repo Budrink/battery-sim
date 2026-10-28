@@ -1,0 +1,29 @@
+{
+  "format_version": 1,
+  "kind": "geometry_prior",
+  "scope": "fsri30-cooling-boundary",
+  "parameters": {
+    "effective_emissivity": 0.8862741123605519,
+    "thermal_stirring_coefficient": 0.056014865181110214
+  },
+  "evidence": {
+    "result_path": "/home/konstantin/work/battery-sim/data/calibration/fsri30-cooling-radiation-20261025-r1/best.json",
+    "trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-cooling-radiation-20261025-r1/trial-0019",
+    "result_run_sha256": "5fbd07f31af8e8c72ba63d6f33221c244cfd3ba551bcc2dbb22c887726f1ce4e",
+    "computed_until_s": 4195.0,
+    "full_fresh_trajectory": false,
+    "anchor_rmse_k": 91.51750375506867,
+    "interpretation": "Fixture-level development seed, not a material property or independent validation"
+  },
+  "compatibility": {
+    "fixture": "ulfsri-30-ABS-open-air",
+    "frozen_base_sha256": "0c8f51bb4a498b573a47160832634cc3d8cab70e3755cb7d532c03099185507a",
+    "gas_spacing_m": 0.02,
+    "thermal_stirring_length_m": 0.02
+  },
+  "qualification": "candidate",
+  "producer_core": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "transferable_as": "geometry_prior",
+  "calibrated": false,
+  "validation_passed": false
+}

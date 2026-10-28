@@ -1,0 +1,134 @@
+{
+  "parameters": {
+    "resistance_ohm": 0.003979770532481331,
+    "resistance_temperature": -0.001,
+    "product_conductivity_ratio": 0.2,
+    "r1_rate": 1e-06,
+    "r1_activation": 40000.0,
+    "overcharge_gain": 2.0,
+    "r2_rate": 300.0,
+    "r2_activation": 120000.0,
+    "energy_j": 300000.0,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.0005,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 1.0,
+    "precursor_temperature": 0.0,
+    "precursor_voltage": 0.0,
+    "iss_h": 500.0000000028993,
+    "tim_h": 381.0921436924085,
+    "case_h": 1440.4213561502204,
+    "environment_h": 3.536558821633186,
+    "surface_iss": 1.2666312443343486e-11,
+    "surface_tim": 2.8799999999999994,
+    "bulk_slope": -2.879999999999865,
+    "case_warm_response": 0.0,
+    "case_hot_response": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0
+  },
+  "objective": 4.6028067399917205,
+  "metrics": {
+    "onset": {
+      "101": {
+        "rmse_k": 0.15418099873496047,
+        "bias_k": 0.15301966640901157
+      },
+      "102": {
+        "rmse_k": 0.061134084546400555,
+        "bias_k": 0.05768648595778524
+      },
+      "107": {
+        "rmse_k": 0.11051695803678818,
+        "bias_k": -0.10981682272449737
+      },
+      "108": {
+        "rmse_k": 0.0897224098096758,
+        "bias_k": -0.08742469032745634
+      },
+      "C2_TIM": {
+        "rmse_k": 0.06625248395771066,
+        "bias_k": 0.06374090956837954
+      },
+      "C2_ISS": {
+        "rmse_k": 0.0956593993474647,
+        "bias_k": -0.08696923999556334
+      }
+    },
+    "warmup": {
+      "101": {
+        "rmse_k": 0.1523017461905206,
+        "bias_k": 0.1508485983230624
+      },
+      "102": {
+        "rmse_k": 0.06049207903301243,
+        "bias_k": 0.05570098707436309
+      },
+      "107": {
+        "rmse_k": 0.11015730729759671,
+        "bias_k": -0.10911279015561463
+      },
+      "108": {
+        "rmse_k": 0.08835009481523555,
+        "bias_k": -0.08567017691765268
+      },
+      "C2_TIM": {
+        "rmse_k": 0.06592261366374796,
+        "bias_k": 0.06347658568044183
+      },
+      "C2_ISS": {
+        "rmse_k": 0.09470760287801167,
+        "bias_k": -0.08626369892698312
+      }
+    },
+    "pressure": {
+      "peak_bar": 1.0321757163689766,
+      "observed_peak_bar": 1.032358575,
+      "peak_time_s": 76.9559999166122,
+      "rmse_bar": 0.00032770109107289024
+    },
+    "joule_j": {
+      "C1": 0.0,
+      "C2": 241.80673313449697,
+      "C3": 0.0
+    },
+    "heat_sources": {
+      "joule_j": 241.80673313449697,
+      "r2_local_j": 2.4849397965314832,
+      "r3_j": 0.0,
+      "joule_share": 0.9898279799441504
+    },
+    "electrical_response": {
+      "max_resistance_ohm": 0.003971507023048597,
+      "max_power_w": 4.83731885634982,
+      "charging_last_resistance_ohm": 0.003969598165928408,
+      "voltage_decomposition": "Effective R includes unresolved polarization; 3.65\u20134.2 V interval is a prior"
+    },
+    "wall_s": 1.706029905,
+    "steps": 1426,
+    "balance": {
+      "max_thermal_residual_j": 2.6833404831450025e-08,
+      "max_chemical_residual_j": 2.561137080192566e-09,
+      "max_mass_residual_kg": 2.55351295663786e-15
+    }
+  },
+  "fingerprint": "551c08b31298a868ec39660183ec055f9f83c4cf4dfe565b29e04f7a19183ae1",
+  "validation_used_for_selection": false,
+  "status": "candidate, not independently validated",
+  "calibration_prior": {
+    "joule_share_min": null,
+    "share_residual_scale": 0.02,
+    "electrical_envelope": true,
+    "unexplained_voltage_prior_v": [
+      3.65,
+      4.2
+    ],
+    "protocol": "onset10",
+    "onset_window_s": 50.0,
+    "r2_treated_as_off": true
+  }
+}

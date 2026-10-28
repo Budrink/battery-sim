@@ -1,0 +1,43 @@
+{
+  "source": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/rupture-impulse-20261021-r3/bulk4-r3",
+  "source_scene_sha256": "2c939b7a528e992cceb3fa052fb3a0263a1e62b64dd2588464b7fd8c8a5c4008",
+  "native_sha256": "fc83abd7553e95c8a09474217c77564c3ae4c92b30cee7664f137d8a52c93f1a",
+  "axes": {
+    "gas_yield_scale": [
+      0.35,
+      1.15,
+      "log"
+    ],
+    "casing_damage_metric": [
+      0.0,
+      6.0,
+      "linear"
+    ],
+    "warm_mixing_scale": [
+      1.0,
+      30.0,
+      "log"
+    ],
+    "warm_surface_scale": [
+      1.0,
+      50.0,
+      "log"
+    ],
+    "gas_transport_response_scale": [
+      1.0,
+      100.0,
+      "log"
+    ]
+  },
+  "end_s": 1500.0,
+  "extended_end_s": 3600.0,
+  "conditional_gas_response_only": true,
+  "full_fresh_extended_required": true,
+  "geometry_remains_diagnostic": true,
+  "validation_used_for_selection": false,
+  "unchanged": "R1/R2 kinetics, chemical inventory/energy, Cp/k, solid contacts, shell mechanics, current/UI budget; forward gas heating law and warm reverse-law endpoints",
+  "scripts": {
+    "calibrate_upv_cooling.py": "38ed5a17a2ea206853770de780557c400dba48fecb60a3aa7978438958ccc0fb",
+    "upv_cooling_fit.py": "5193fc42bee9f6de5028dbd4e85f453abfb16e716d4f1e1e7539a7e580e3055b"
+  }
+}

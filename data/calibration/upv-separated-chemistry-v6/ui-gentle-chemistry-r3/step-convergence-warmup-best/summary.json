@@ -1,0 +1,23 @@
+{
+  "fingerprint": "3ae900e520e7c7ae96d2b782d2fad6e3c64bb17b37a4de3b01f5af1c62e9ff1a",
+  "duration_s": 626.956,
+  "refinement": 0.5,
+  "max_temperature_difference_k": {
+    "101": 2.4097863047245482e-05,
+    "102": 1.061605672703081e-05,
+    "107": 5.934851253641682e-05,
+    "108": 1.7432883851142833e-05,
+    "C2_ISS": 7.823786359040241e-05,
+    "C2_TIM": 6.407340458736144e-05
+  },
+  "coarse_wall_s": 42.45160119,
+  "fine_wall_s": 48.539332295,
+  "full_explosion_convergence_verified": false,
+  "balances": {
+    "max_thermal_residual_j": 3.105560608673841e-08,
+    "max_chemical_residual_j": 7.225025910884142e-09,
+    "max_mass_residual_kg": 6.439293542825908e-15
+  },
+  "thermal_cfl_was_not_halved": true,
+  "scope": "Adaptive source/gas tolerances and max_dt halved; thermal CFL unchanged, so not every realized dt is halved. Warmup only, not explosion convergence."
+}

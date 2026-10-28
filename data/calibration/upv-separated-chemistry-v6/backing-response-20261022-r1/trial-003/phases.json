@@ -1,0 +1,199 @@
+{
+  "event_s": 886.6389999166131,
+  "known_interval_s": [
+    835.0,
+    1100.0
+  ],
+  "complete_record": false,
+  "phases": {
+    "pre_burst": {
+      "interval_s": [
+        835.0,
+        881.6389999166131
+      ],
+      "complete": false,
+      "numerical_coverage_fraction": 1.0,
+      "channels": {
+        "101": {
+          "time_weighted_rmse_k": 15.103100604100417,
+          "time_weighted_bias_k": -15.085848154240285,
+          "covered_s": 46.6389999166131,
+          "coverage_fraction": 1.0
+        },
+        "102": {
+          "time_weighted_rmse_k": 1.5363680999508902,
+          "time_weighted_bias_k": 1.5362191442276651,
+          "covered_s": 46.6389999166131,
+          "coverage_fraction": 1.0
+        },
+        "107": {
+          "time_weighted_rmse_k": 12.185992973450166,
+          "time_weighted_bias_k": -12.178577840863724,
+          "covered_s": 46.6389999166131,
+          "coverage_fraction": 1.0
+        },
+        "108": {
+          "time_weighted_rmse_k": 3.6579891428399223,
+          "time_weighted_bias_k": -3.652544809543944,
+          "covered_s": 46.6389999166131,
+          "coverage_fraction": 1.0
+        },
+        "C2_TIM": {
+          "time_weighted_rmse_k": 11.37999655056112,
+          "time_weighted_bias_k": -11.30871014345552,
+          "covered_s": 46.6389999166131,
+          "coverage_fraction": 1.0
+        },
+        "C2_ISS": {
+          "time_weighted_rmse_k": 12.168662539754225,
+          "time_weighted_bias_k": -12.089225834851515,
+          "covered_s": 46.6389999166131,
+          "coverage_fraction": 1.0
+        }
+      }
+    },
+    "burst_uncertain": {
+      "interval_s": [
+        881.6389999166131,
+        906.6389999166131
+      ],
+      "complete": true,
+      "numerical_coverage_fraction": 1.0,
+      "channels": {
+        "101": {
+          "time_weighted_rmse_k": 13.590566461715248,
+          "time_weighted_bias_k": -11.881534079800362,
+          "covered_s": 25.0,
+          "coverage_fraction": 1.0
+        },
+        "102": {
+          "time_weighted_rmse_k": 5.241500156581863,
+          "time_weighted_bias_k": 4.715440786496316,
+          "covered_s": 25.0,
+          "coverage_fraction": 1.0
+        },
+        "107": {
+          "time_weighted_rmse_k": 10.2159579260886,
+          "time_weighted_bias_k": 0.17831162068098813,
+          "covered_s": 25.0,
+          "coverage_fraction": 1.0
+        },
+        "108": {
+          "time_weighted_rmse_k": 279.0515884523853,
+          "time_weighted_bias_k": -106.21026784998489,
+          "covered_s": 25.0,
+          "coverage_fraction": 1.0
+        },
+        "C2_TIM": {
+          "time_weighted_rmse_k": 66.80323148002759,
+          "time_weighted_bias_k": 55.70029211125126,
+          "covered_s": 25.0,
+          "coverage_fraction": 1.0
+        },
+        "C2_ISS": {
+          "time_weighted_rmse_k": 415.4197319754616,
+          "time_weighted_bias_k": -318.6406976639518,
+          "covered_s": 12.0,
+          "coverage_fraction": 0.48
+        }
+      }
+    },
+    "early_relaxation": {
+      "interval_s": [
+        906.6389999166131,
+        946.6389999166131
+      ],
+      "complete": true,
+      "numerical_coverage_fraction": 1.0,
+      "channels": {
+        "101": {
+          "time_weighted_rmse_k": 11.690141367300093,
+          "time_weighted_bias_k": -11.092690109609805,
+          "covered_s": 40.0,
+          "coverage_fraction": 1.0
+        },
+        "102": {
+          "time_weighted_rmse_k": 1.9421607361482065,
+          "time_weighted_bias_k": 1.1442166423162061,
+          "covered_s": 40.0,
+          "coverage_fraction": 1.0
+        },
+        "107": {
+          "time_weighted_rmse_k": 11.879268204479823,
+          "time_weighted_bias_k": 11.864600134953001,
+          "covered_s": 40.0,
+          "coverage_fraction": 1.0
+        },
+        "108": {
+          "time_weighted_rmse_k": 68.59308026436666,
+          "time_weighted_bias_k": -60.46287383131215,
+          "covered_s": 40.0,
+          "coverage_fraction": 1.0
+        },
+        "C2_TIM": {
+          "time_weighted_rmse_k": 94.16600984807378,
+          "time_weighted_bias_k": 90.63643370621021,
+          "covered_s": 40.0,
+          "coverage_fraction": 1.0
+        },
+        "C2_ISS": {
+          "time_weighted_rmse_k": 361.3424434202204,
+          "time_weighted_bias_k": -347.20147162747634,
+          "covered_s": 40.0,
+          "coverage_fraction": 1.0
+        }
+      }
+    },
+    "cooling": {
+      "interval_s": [
+        946.6389999166131,
+        1100.0
+      ],
+      "complete": true,
+      "numerical_coverage_fraction": 1.0,
+      "channels": {
+        "101": {
+          "time_weighted_rmse_k": 14.457550466510297,
+          "time_weighted_bias_k": 12.395932933091537,
+          "covered_s": 153.3610000833869,
+          "coverage_fraction": 1.0
+        },
+        "102": {
+          "time_weighted_rmse_k": 2.9604327593815216,
+          "time_weighted_bias_k": -2.914211498547005,
+          "covered_s": 153.3610000833869,
+          "coverage_fraction": 1.0
+        },
+        "107": {
+          "time_weighted_rmse_k": 17.738691924104167,
+          "time_weighted_bias_k": 17.549290102100674,
+          "covered_s": 153.3610000833869,
+          "coverage_fraction": 1.0
+        },
+        "108": {
+          "time_weighted_rmse_k": 18.29998362576788,
+          "time_weighted_bias_k": 13.237880876191529,
+          "covered_s": 153.3610000833869,
+          "coverage_fraction": 1.0
+        },
+        "C2_TIM": {
+          "time_weighted_rmse_k": 135.05374923112603,
+          "time_weighted_bias_k": 134.82564148032097,
+          "covered_s": 153.3610000833869,
+          "coverage_fraction": 1.0
+        },
+        "C2_ISS": {
+          "time_weighted_rmse_k": 107.15138642837158,
+          "time_weighted_bias_k": -76.8030539663665,
+          "covered_s": 153.3610000833869,
+          "coverage_fraction": 1.0
+        }
+      }
+    }
+  },
+  "record_end_s": 18287.75600013323,
+  "requested_window_end_s": 1100.0,
+  "complete_requested_window": true,
+  "max_observation_gap_s": 5.0,
+  "interpretation": "Cooling is the primary diagnostic. Burst RMSE is descriptive, not an exact peak target."
+}

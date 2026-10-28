@@ -1,0 +1,37 @@
+{
+  "status": "stopped",
+  "pid": 2053161,
+  "stage": "heater-fine",
+  "trials": [
+    {
+      "gain": 0.21405515446686751,
+      "status": "complete",
+      "reason": null,
+      "metrics": {
+        "rmse_k": 4.1495639091270595,
+        "max_abs_k": 7.37422266832732,
+        "final_error_k": 0.13731719027924782,
+        "final_time_s": 1499.9999999999864,
+        "final_mean_c": 141.4043171902793,
+        "final_t5_c": 141.26700000000005
+      },
+      "last_observed_s": 1499.9999999999864
+    }
+  ],
+  "calibrated": false,
+  "validation_passed": false,
+  "active_trial": 0,
+  "gain": 0.21405515446686751,
+  "progress": {
+    "time_s": 320.0,
+    "wall_s": 240.356643507,
+    "metrics": {
+      "rmse_k": 5.811340780719608,
+      "max_abs_k": 7.374584385537048,
+      "final_error_k": 6.337468439114389,
+      "final_time_s": 320.0,
+      "final_mean_c": 40.13546843911439,
+      "final_t5_c": 33.798
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "observation": "110: Al2 tip, NOT plate temperature",
+  "refitted": false,
+  "formula": "area-weighted T_face = adjacent T - total Qdot * dz/(2*k*A); passive uniform Al bulk only",
+  "unmeasured_contact_prior_h_w_m2_k": 2000.0,
+  "rows": [
+    {
+      "time_s": 1065.0,
+      "observed_t110_c": 31.86463910229645,
+      "model_al2_face_c": 46.020094210045215,
+      "model_plate_mean_c": 25.520155284483508,
+      "heat_to_plate_w": 3.3693189946714197,
+      "effective_contact_g_w_per_k": 0.13872773536895672
+    },
+    {
+      "time_s": 1165.0,
+      "observed_t110_c": 34.0789608592122,
+      "model_al2_face_c": 53.20700441444808,
+      "model_plate_mean_c": 25.714904471730563,
+      "heat_to_plate_w": 4.51839785549442,
+      "effective_contact_g_w_per_k": 0.13872773536895672
+    },
+    {
+      "time_s": 1265.0,
+      "observed_t110_c": 37.329843391713496,
+      "model_al2_face_c": 60.819701157475606,
+      "model_plate_mean_c": 25.925680247377386,
+      "heat_to_plate_w": 5.734729779979113,
+      "effective_contact_g_w_per_k": 0.13872773536895672
+    }
+  ]
+}

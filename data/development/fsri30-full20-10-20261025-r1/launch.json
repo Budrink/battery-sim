@@ -1,0 +1,40 @@
+{
+  "pid": 1845730,
+  "command": [
+    "python3",
+    "scripts/check_fsri30_resolved_gas.py",
+    "--base",
+    "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-reactive-refinement-20261024-r8/trial-0003/scenario.json",
+    "--probe",
+    "/home/konstantin/work/battery-sim/build/calibration-probes/battery_sim_casing_probe-grid-pattern-20261025-r1",
+    "--output",
+    "/home/konstantin/work/battery-sim/data/development/fsri30-full20-10-20261025-r1/checks",
+    "--duration",
+    "5945",
+    "--levels-mm",
+    "20",
+    "10",
+    "--wall-spacing-mm",
+    "10",
+    "--stirring",
+    ".05",
+    "--stirring-length-mm",
+    "20",
+    "--all-levels"
+  ],
+  "pilot": "/home/konstantin/work/battery-sim/data/development/fsri30-grid-pattern-20261025-r1/comparison-r3",
+  "pilot_status_sha256": "8900422a13e6a83c7c2f2d26fa434d0e2664c6923b257bdb80e2e71490536242",
+  "native_sha256": "e7386cc42effc14e1c8bf6a2ffa6c225b77935921458ca5aadfaa9df7cc59f56",
+  "base_sha256": "4e7653dc3d0e04897332924402b4e61f65af5eb0a4b981fc38c155adba45df28",
+  "fresh_from_zero": true,
+  "parameters_unchanged": true,
+  "validated": false,
+  "pressure_pattern_predictor": false,
+  "physical_minimum_step_s": 0.01,
+  "scope": "Full 5945s spatial convergence check, NOT experimental validation",
+  "scripts_sha256": {
+    "check_fsri30_resolved_gas.py": "a90fa252e370e8a3d91980ab60ecb0f606f008f75a5d410e67a71cd6b3d32ddd",
+    "fsri30_resolved_gas.py": "0e239de22b8665bb090cf7ed8a9af70d8d351ff324a65c94f41d86b3c98040c5",
+    "free_gas_mesh.py": "1e026070500577f739adcd3e3df66bedf6afaa6be55b9308ba98ad04c287189e"
+  }
+}

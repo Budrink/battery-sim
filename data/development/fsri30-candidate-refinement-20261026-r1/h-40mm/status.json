@@ -1,0 +1,251 @@
+{
+  "trial": "/home/konstantin/work/battery-sim/data/development/fsri30-candidate-refinement-20261026-r1/h-40mm",
+  "parameters": {
+    "r2_rate_scale": 0.04919319392060936,
+    "gas_can_contact_scale": 1.0,
+    "cross_column_open_fraction": 1.0,
+    "axial_open_fraction": 1.0,
+    "thermal_stirring_coefficient": 0.06722339346183823,
+    "effective_emissivity": 0.7664775109756737
+  },
+  "level_mm": 40,
+  "status": "pruned",
+  "native_sha256": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "scenario_sha256": "f8cb8fe2fb7fe43171932e57df394ede61a63a77c513e551f33507f43c8f492b",
+  "screening_only": true,
+  "calibrated": false,
+  "validation_passed": false,
+  "assessment": {
+    "evaluated": true,
+    "accepted": false,
+    "phase_window_complete": false,
+    "last_observed_s": 2504.999999999959,
+    "reason": "Missing thermal pulse wave(s) at 2134s even with mesh uncertainty; Missing first hot arrival wave(s) at 2136s even with mesh uncertainty",
+    "constraint": 2.0,
+    "primary_offset_s": 23.0,
+    "timing_error_s": 23.0,
+    "timing_target_met": false,
+    "pulse_match": {
+      "due": 2,
+      "matched": 1,
+      "pairs": [
+        {
+          "reference_time_s": 1763.0,
+          "model_time_s": 1786.0,
+          "offset_s": 23.0,
+          "search_offset_s": 23.0,
+          "search_center_offset_s": 0.0,
+          "search_half_width_s": 250.0,
+          "reference_channels": [
+            "T2",
+            "T5"
+          ],
+          "model_channels": [
+            "B10"
+          ]
+        }
+      ],
+      "missing": [
+        {
+          "reference_time_s": 2134.0,
+          "channels": [
+            "T1",
+            "T2",
+            "T3",
+            "T4",
+            "T5"
+          ],
+          "search_center_offset_s": 0.0,
+          "search_half_width_s": 250.0
+        }
+      ],
+      "worst_offset_s": 23.0,
+      "target_met": false
+    },
+    "arrival_match": {
+      "due": 2,
+      "matched": 1,
+      "pairs": [
+        {
+          "reference_time_s": 1765.0,
+          "model_time_s": 1787.0,
+          "offset_s": 22.0,
+          "search_offset_s": 22.0,
+          "search_center_offset_s": 0.0,
+          "search_half_width_s": 250.0,
+          "reference_channels": [
+            "T5"
+          ],
+          "model_channels": [
+            "B10"
+          ]
+        }
+      ],
+      "missing": [
+        {
+          "reference_time_s": 2136.0,
+          "channels": [
+            "T1",
+            "T2",
+            "T3",
+            "T4"
+          ],
+          "search_center_offset_s": 0.0,
+          "search_half_width_s": 250.0
+        }
+      ],
+      "worst_offset_s": 22.0,
+      "target_met": false
+    },
+    "model": {
+      "pulses": [
+        {
+          "channel": "B10",
+          "time_s": 1786.0,
+          "rise_k": 1073.8360944169945,
+          "slope_k_s": 228.04079024491557
+        }
+      ],
+      "arrivals": [
+        {
+          "channel": "B10",
+          "time_s": 1787.0
+        }
+      ],
+      "pulse_groups": [
+        {
+          "time_s": 1786.0,
+          "end_s": 1786.0,
+          "events": [
+            {
+              "channel": "B10",
+              "time_s": 1786.0,
+              "rise_k": 1073.8360944169945,
+              "slope_k_s": 228.04079024491557
+            }
+          ],
+          "channels": [
+            "B10"
+          ]
+        }
+      ],
+      "arrival_groups": [
+        {
+          "time_s": 1787.0,
+          "end_s": 1787.0,
+          "events": [
+            {
+              "channel": "B10",
+              "time_s": 1787.0
+            }
+          ],
+          "channels": [
+            "B10"
+          ]
+        }
+      ]
+    },
+    "scope": "Coarse mesh refinement eligibility ONLY, not experimental acceptance",
+    "necessary_not_sufficient": true,
+    "objective": null,
+    "raw_assessment": {
+      "evaluated": true,
+      "accepted": false,
+      "phase_window_complete": false,
+      "last_observed_s": 2504.999999999959,
+      "reason": "Missing thermal pulse wave(s) at 2134s within 100s timing error limit; Missing first hot arrival wave(s) at 2136s within 100s timing error limit",
+      "constraint": 2.0,
+      "primary_offset_s": 23.0,
+      "timing_error_s": 23.0,
+      "timing_target_met": false,
+      "pulse_match": {
+        "due": 2,
+        "matched": 1,
+        "missing": [
+          {
+            "reference_time_s": 2134.0,
+            "channels": [
+              "T1",
+              "T2",
+              "T3",
+              "T4",
+              "T5"
+            ],
+            "nearest_any_model_group_s": 348.0
+          }
+        ],
+        "pairs": [
+          {
+            "reference_time_s": 1763.0,
+            "model_time_s": 1786.0,
+            "offset_s": 23.0,
+            "reference_channels": [
+              "T2",
+              "T5"
+            ],
+            "model_channels": [
+              "B10"
+            ]
+          }
+        ],
+        "worst_offset_s": 23.0,
+        "target_met": false
+      },
+      "arrival_match": {
+        "due": 2,
+        "matched": 1,
+        "missing": [
+          {
+            "reference_time_s": 2136.0,
+            "channels": [
+              "T1",
+              "T2",
+              "T3",
+              "T4"
+            ],
+            "nearest_any_model_group_s": 349.0
+          }
+        ],
+        "pairs": [
+          {
+            "reference_time_s": 1765.0,
+            "model_time_s": 1787.0,
+            "offset_s": 22.0,
+            "reference_channels": [
+              "T5"
+            ],
+            "model_channels": [
+              "B10"
+            ]
+          }
+        ],
+        "worst_offset_s": 22.0,
+        "target_met": false
+      },
+      "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+      "necessary_not_sufficient": true,
+      "objective": null
+    },
+    "screening_only": true,
+    "fine_grid_verification_required": true,
+    "search_primary_offset_s": 23.0,
+    "primary_target_offset_s": 0.0,
+    "primary_search_tolerance_s": 50.0,
+    "primary_deadline_s": 2074.0
+  },
+  "physical_error": null,
+  "temperature_rejection": null,
+  "temperature_guard_deferred_for_mesh_timing": null,
+  "wall_s": 508.2753220619634,
+  "live_advanced_to_s": 2509.399999999955,
+  "minimum_regular_step_s": 0.01,
+  "error": "Pruned: Missing thermal pulse wave(s) at 2134s even with mesh uncertainty; Missing first hot arrival wave(s) at 2136s even with mesh uncertainty",
+  "run_sha256": "661b7966f855af79e86fb16e609e592e8d1733ffdb47e25d94d89a941b154787",
+  "run_path": "/home/konstantin/work/battery-sim/data/development/fsri30-candidate-refinement-20261026-r1/h-40mm/replay/incomplete-run.json.gz",
+  "balances": {
+    "max_chemical_residual_j": 2.514570951461792e-08,
+    "max_mass_residual_kg": 9.325873406851315e-15,
+    "max_oxidizer_residual_kg": 8.670841822322473e-14,
+    "max_thermal_residual_j": 6.460322765633464e-08
+  }
+}

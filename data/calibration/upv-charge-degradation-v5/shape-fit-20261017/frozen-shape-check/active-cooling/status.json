@@ -1,0 +1,60 @@
+{
+  "status": "complete",
+  "parameters_sha256": "f732440b17dad692c657a5ea83f8c43be379207706ca08deaff3a9aeb41d20b1",
+  "model_fingerprint": "e28993a79f44eb11ec029c7bb5dee9e3e992543b9d8647cc07e757b1425c3c24",
+  "metrics": {
+    "charging_prefix_s": 600.0,
+    "channels": {
+      "101": {
+        "rmse_k": 4.366088091767681,
+        "end_error_k": -8.794556837115294,
+        "model_end_c": 35.29668677160754,
+        "observed_end_c": 44.091243608722834
+      },
+      "102": {
+        "rmse_k": 0.39580808250610344,
+        "end_error_k": 0.2587451561485068,
+        "model_end_c": 26.474617336645053,
+        "observed_end_c": 26.215872180496547
+      },
+      "107": {
+        "rmse_k": 3.058164025146421,
+        "end_error_k": -6.890289299559811,
+        "model_end_c": 34.118268595049926,
+        "observed_end_c": 41.00855789460974
+      },
+      "108": {
+        "rmse_k": 0.971892664024439,
+        "end_error_k": -2.4591298729955042,
+        "model_end_c": 27.007428021614203,
+        "observed_end_c": 29.466557894609707
+      },
+      "C2_ISS": {
+        "rmse_k": 0.9993547064921601,
+        "end_error_k": 2.6034076598746765,
+        "model_end_c": 78.6804354787742,
+        "observed_end_c": 76.07702781889952
+      },
+      "C2_TIM": {
+        "rmse_k": 2.980548088373541,
+        "end_error_k": -4.906890702573776,
+        "model_end_c": 63.74546268022641,
+        "observed_end_c": 68.65235338280019
+      }
+    },
+    "heat_sources": {
+      "joule_j": 16409.92659697059,
+      "r2_local_j": 21093.449294089336,
+      "r3_j": 13.932090482175747,
+      "electrical_chemical_input_j": 35162.69624501133,
+      "precursor_charge_energy_j": 14.375323131199977,
+      "joule_share": 0.4373961640596389
+    },
+    "balance": {
+      "max_thermal_residual_j": 2.120395947713405e-08,
+      "max_chemical_residual_j": 3.9217411540448666e-09,
+      "max_mass_residual_kg": 7.105427357601002e-15
+    }
+  },
+  "validation_used_for_selection": false
+}

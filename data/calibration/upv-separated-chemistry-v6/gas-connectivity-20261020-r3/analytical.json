@@ -1,0 +1,143 @@
+{
+  "contacts": {
+    "C3:case:+x": {
+      "conductance_w_k": 0.02543505424050965,
+      "material": "unidentified-pouch-laminate-PROXY",
+      "solid_capacity_j_k": 4.880699999999999
+    },
+    "C3:case:-x": {
+      "conductance_w_k": 0.02543505424050965,
+      "material": "unidentified-pouch-laminate-PROXY",
+      "solid_capacity_j_k": 4.880699999999999
+    },
+    "ISS1": {
+      "conductance_w_k": 0.025435054240509652,
+      "material": "ISS",
+      "solid_capacity_j_k": 5.010852
+    },
+    "TIM1": {
+      "conductance_w_k": 0.025435054240509652,
+      "material": "TIM",
+      "solid_capacity_j_k": 126.166095
+    }
+  },
+  "tests": [
+    {
+      "analytic_temperature_k": 300.3187618597258,
+      "conductance_w_k": 0.02543505424050965,
+      "duration_s": 1.0,
+      "error_k": 4.4298451484792167e-07,
+      "gas_capacity_j_k": 0.003898246884656765,
+      "heat_to_solid_j": 1.5557831708380159,
+      "material": "C3:case:-x",
+      "max_dt_s": 0.05,
+      "solid_capacity_j_k": 4.880699999999999,
+      "temperature_k": 300.3187623027103,
+      "thermal_residual_j": 6.821210263296962e-13
+    },
+    {
+      "analytic_temperature_k": 338.6186262354414,
+      "conductance_w_k": 0.02543505424050965,
+      "duration_s": 20.0,
+      "error_k": 0.004652246589273545,
+      "gas_capacity_j_k": 10.0,
+      "heat_to_solid_j": 188.50863528724335,
+      "material": "C3:case:-x",
+      "max_dt_s": 0.05,
+      "solid_capacity_j_k": 4.880699999999999,
+      "temperature_k": 338.6232784820307,
+      "thermal_residual_j": 4.547473508864641e-12
+    },
+    {
+      "analytic_temperature_k": 338.6186262354414,
+      "conductance_w_k": 0.02543505424050965,
+      "duration_s": 20.0,
+      "error_k": 0.00046513824082694555,
+      "gas_capacity_j_k": 10.0,
+      "heat_to_solid_j": 188.48819926752424,
+      "material": "C3:case:-x",
+      "max_dt_s": 0.005,
+      "solid_capacity_j_k": 4.880699999999999,
+      "temperature_k": 338.61909137368224,
+      "thermal_residual_j": 1.1823431123048067e-11
+    },
+    {
+      "analytic_temperature_k": 300.3104887056289,
+      "conductance_w_k": 0.02543505424050965,
+      "duration_s": 1.0,
+      "error_k": 4.203311050332559e-07,
+      "gas_capacity_j_k": 0.003898246884656765,
+      "heat_to_solid_j": 1.5558150577951682,
+      "material": "ISS1",
+      "max_dt_s": 0.05,
+      "solid_capacity_j_k": 5.010852,
+      "temperature_k": 300.31048912596003,
+      "thermal_residual_j": 6.821210263296962e-13
+    },
+    {
+      "analytic_temperature_k": 337.6651899439606,
+      "conductance_w_k": 0.02543505424050965,
+      "duration_s": 20.0,
+      "error_k": 0.004425657000695082,
+      "gas_capacity_j_k": 10.0,
+      "heat_to_solid_j": 188.75686867331183,
+      "material": "ISS1",
+      "max_dt_s": 0.05,
+      "solid_capacity_j_k": 5.010852,
+      "temperature_k": 337.6696156009613,
+      "thermal_residual_j": 5.4569682106375694e-12
+    },
+    {
+      "analytic_temperature_k": 337.6651899439606,
+      "conductance_w_k": 0.02543505424050965,
+      "duration_s": 20.0,
+      "error_k": 0.0004424851277349262,
+      "gas_capacity_j_k": 10.0,
+      "heat_to_solid_j": 188.73690958855832,
+      "material": "ISS1",
+      "max_dt_s": 0.005,
+      "solid_capacity_j_k": 5.010852,
+      "temperature_k": 337.66563242908836,
+      "thermal_residual_j": 1.000444171950221e-11
+    },
+    {
+      "analytic_temperature_k": 300.0123405902994,
+      "conductance_w_k": 0.02543505424050965,
+      "duration_s": 1.0,
+      "error_k": 6.664322427241132e-10,
+      "gas_capacity_j_k": 0.003898246884656765,
+      "heat_to_solid_j": 1.5569641721510932,
+      "material": "TIM1",
+      "max_dt_s": 0.05,
+      "solid_capacity_j_k": 126.166095,
+      "temperature_k": 300.01234059096583,
+      "thermal_residual_j": 1.4551915228366852e-11
+    },
+    {
+      "analytic_temperature_k": 301.5693242892586,
+      "conductance_w_k": 0.02543505424050965,
+      "duration_s": 20.0,
+      "error_k": 7.694625651311071e-06,
+      "gas_capacity_j_k": 10.0,
+      "heat_to_solid_j": 197.996488165345,
+      "material": "TIM1",
+      "max_dt_s": 0.05,
+      "solid_capacity_j_k": 126.166095,
+      "temperature_k": 301.56933198388424,
+      "thermal_residual_j": 8.731149137020111e-11
+    },
+    {
+      "analytic_temperature_k": 301.5693242892586,
+      "conductance_w_k": 0.02543505424050965,
+      "duration_s": 20.0,
+      "error_k": 7.694201258345856e-07,
+      "gas_capacity_j_k": 10.0,
+      "heat_to_solid_j": 197.9956144394214,
+      "material": "TIM1",
+      "max_dt_s": 0.005,
+      "solid_capacity_j_k": 126.166095,
+      "temperature_k": 301.5693250586787,
+      "thermal_residual_j": 2.9831426218152046e-10
+    }
+  ]
+}

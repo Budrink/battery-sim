@@ -1,0 +1,46 @@
+{
+  "status": "complete",
+  "objective": 79.91905164772523,
+  "phase_loss": {
+    "warmup": 0.1388679958192087,
+    "propagation": 6.408363924988978,
+    "cooling": 25.371819726917035
+  },
+  "envelope_rmse_k": {
+    "warmup": 13.165560231850568,
+    "propagation": 586.6692733738719,
+    "cooling": 474.70078848130515
+  },
+  "known_until_s": 5945.0,
+  "complete": true,
+  "peak_weight": 0.2,
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved",
+  "features": {
+    "minimum_autonomous_propagation": 32.0,
+    "first_conversion_timing": 16.0
+  },
+  "cascade": {
+    "reacted_components": 0,
+    "events": [],
+    "inter_event_delays_s": [],
+    "autonomous_cascade": false,
+    "observed_failure_count": null,
+    "observed_component_order": null,
+    "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+  },
+  "constraint": -1.0,
+  "numerical_violations": [],
+  "wall_s": 683.622538226,
+  "realtime_ratio": 8.696319485643746,
+  "scene_hash": "faef2a1aa2fcca3b0eef726c2c57acf978f1033e68e8d87761797353805d7513",
+  "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+  "minimum_regular_step_s": 0.01,
+  "balances": {
+    "max_thermal_residual_j": 5.714373401133344e-07,
+    "max_chemical_residual_j": 2.100132405757904e-07,
+    "max_mass_residual_kg": 2.495781359357352e-13,
+    "max_oxidizer_residual_kg": 4.337086245698174e-13
+  }
+}

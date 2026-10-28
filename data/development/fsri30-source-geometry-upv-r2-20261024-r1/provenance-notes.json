@@ -1,0 +1,9 @@
+{
+  "scope": "Metadata interpretation only; no active input/state/physics changed",
+  "source_snapshot": "build/calibration-probes/fsri30-source-reconstruction-20261024-r1-source.tar.gz",
+  "actual_kinetics": "scenario metadata.r2_transfer and the actual cell conversion fields override historical no-UPV wording inherited from the old unfitted reconstruction",
+  "actual_geometry": "metadata.geometry_reconstruction and the actual compartments/channels/contacts describe the new geometry; old flat transport_parameters/near_field are predecessor metadata, not an active 30-outlet geometry",
+  "future_generator_cleanup": "Later generator revision explicitly nests predecessor metadata and corrects no-UPV wording; physical scenario fields are unchanged",
+  "running_scenarios_edited": false,
+  "running_controller_restarted": false
+}

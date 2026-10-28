@@ -1,0 +1,192 @@
+{
+  "status": "fixed reserve removed; warmup candidate only; full calibration NOT complete",
+  "model_fingerprint": "3ae900e520e7c7ae96d2b782d2fad6e3c64bb17b37a4de3b01f5af1c62e9ff1a",
+  "seed": "data/calibration/upv-separated-chemistry-v6/ui-budget-seed-final-20261018.json",
+  "fixed_reversible_voltage_floor_v": 0.0,
+  "user_approved": true,
+  "full_ui_budget_retained": true,
+  "defaults_reset": false,
+  "solid_materials_shell_and_transfer_geometry_changed": false,
+  "native_physics_changed_this_continuation": false,
+  "accepted_full_profile": false,
+  "validation_performed": false,
+  "validation_used_for_selection": false,
+  "warmup_candidate": "data/calibration/upv-separated-chemistry-v6/ui-gentle-chemistry-r3/q20-r012-gentle120",
+  "warmup_diagnostics": {
+    "objective": 34.9123393842532,
+    "channels": {
+      "101": {
+        "rmse_fit_window_k": 2.9684972924498716,
+        "end_error_k": -5.485165145575024
+      },
+      "102": {
+        "rmse_fit_window_k": 0.48315603758407494,
+        "end_error_k": 0.9774432535069764
+      },
+      "107": {
+        "rmse_fit_window_k": 1.8131825885184272,
+        "end_error_k": -3.238465882420712
+      },
+      "108": {
+        "rmse_fit_window_k": 0.6993203562885998,
+        "end_error_k": -1.805153579459386
+      },
+      "C2_TIM": {
+        "rmse_fit_window_k": 1.9259710537375427,
+        "end_error_k": 0.20770574488523152
+      },
+      "C2_ISS": {
+        "rmse_fit_window_k": 2.16155302649609,
+        "end_error_k": 1.4950409520109247
+      }
+    },
+    "fit_end_s": 626.956,
+    "first300_joule_share": 0.9999107082933412,
+    "objective_note": "No chamber-pressure target while shell strength is uncalibrated"
+  },
+  "warmup_max_cumulative_budget_fraction": 0.9999920987538888,
+  "warmup_max_budget_excess_j": 0.0,
+  "adaptive_refinement_check": "data/calibration/upv-separated-chemistry-v6/ui-gentle-chemistry-r3/step-convergence-warmup-best/summary.json",
+  "refinement_check_is_not_full_explosion_convergence": true,
+  "tests_python_passed": 55,
+  "tests_native_cuda_passed": 8,
+  "native_test_report": "data/calibration/upv-separated-chemistry-v6/ui-budget-native-tests.xml",
+  "trials": [
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-budget-r0/r1-steep-220-r2-200",
+      "label": "r1-steep-220-r2-200",
+      "status": "pruned",
+      "error": "Pruned: C2_ISS: persistent 30 s error exceeds 15 K at 555.00 s",
+      "last_sample_s": 555.0,
+      "objective": null,
+      "fingerprint": "d438997f1e79362152c7e1afb24bd8ef186f0c92d546aadb7edd32f9328ffb74"
+    },
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-budget-r0/r1-steep-240-r2-180",
+      "label": "r1-steep-240-r2-180",
+      "status": "pruned",
+      "error": "Pruned: C2_ISS: persistent 30 s error exceeds 15 K at 610.00 s",
+      "last_sample_s": 610.0,
+      "objective": null,
+      "fingerprint": "d438997f1e79362152c7e1afb24bd8ef186f0c92d546aadb7edd32f9328ffb74"
+    },
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-budget-r0/r1-steep-240-r2-200",
+      "label": "r1-steep-240-r2-200",
+      "status": "pruned",
+      "error": "Pruned: C2_ISS: persistent 30 s error exceeds 15 K at 565.00 s",
+      "last_sample_s": 565.0,
+      "objective": null,
+      "fingerprint": "d438997f1e79362152c7e1afb24bd8ef186f0c92d546aadb7edd32f9328ffb74"
+    },
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-electric-shape-r1/q15-r012-negative",
+      "label": "q15-r012-negative",
+      "status": "complete",
+      "error": null,
+      "last_sample_s": 626.956,
+      "objective": 139.41868924095678,
+      "fingerprint": "d438997f1e79362152c7e1afb24bd8ef186f0c92d546aadb7edd32f9328ffb74"
+    },
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-electric-shape-r1/q20-r006-flat",
+      "label": "q20-r006-flat",
+      "status": "failed",
+      "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256); t=603.567792, dt=0.079284; C2: R=0.146649, heat_J=14.161749, budget_J=14.159818",
+      "last_sample_s": 580.0,
+      "objective": null,
+      "fingerprint": "d438997f1e79362152c7e1afb24bd8ef186f0c92d546aadb7edd32f9328ffb74"
+    },
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-electric-shape-r1/q20-r008-negative",
+      "label": "q20-r008-negative",
+      "status": "failed",
+      "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256); t=619.834130, dt=0.000012; C2: R=0.146170, heat_J=0.002186, budget_J=0.002186",
+      "last_sample_s": 610.0,
+      "objective": null,
+      "fingerprint": "d438997f1e79362152c7e1afb24bd8ef186f0c92d546aadb7edd32f9328ffb74"
+    },
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-electric-shape-r2/q16-r016-a015",
+      "label": "q16-r016-a015",
+      "status": "interrupted",
+      "error": "Branch stopped after two related candidates stalled during early R2; retained checkpoint is incomplete",
+      "last_sample_s": null,
+      "objective": null,
+      "fingerprint": null
+    },
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-electric-shape-r2/q18-r014-a015",
+      "label": "q18-r014-a015",
+      "status": "failed",
+      "error": "Command '['/tmp/battery-sim-cuda-v1/battery_sim_casing_probe', '/tmp/battery-r123-trial-9g8amc9j/scene.json']' timed out after 100.0 seconds",
+      "last_sample_s": 605.0,
+      "objective": null,
+      "fingerprint": "d438997f1e79362152c7e1afb24bd8ef186f0c92d546aadb7edd32f9328ffb74"
+    },
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-electric-shape-r2/q20-r012-a015",
+      "label": "q20-r012-a015",
+      "status": "failed",
+      "error": "Command '['/tmp/battery-sim-cuda-v1/battery_sim_casing_probe', '/tmp/battery-r123-trial-1dycve9s/scene.json']' timed out after 100.0 seconds",
+      "last_sample_s": 590.0,
+      "objective": null,
+      "fingerprint": "d438997f1e79362152c7e1afb24bd8ef186f0c92d546aadb7edd32f9328ffb74"
+    },
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-gentle-chemistry-r3/q16-r016-gentle120",
+      "label": "q16-r016-gentle120",
+      "status": "complete",
+      "error": null,
+      "last_sample_s": 626.956,
+      "objective": 79.23027541756633,
+      "fingerprint": "3ae900e520e7c7ae96d2b782d2fad6e3c64bb17b37a4de3b01f5af1c62e9ff1a"
+    },
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-gentle-chemistry-r3/q18-r014-gentle120",
+      "label": "q18-r014-gentle120",
+      "status": "complete",
+      "error": null,
+      "last_sample_s": 626.956,
+      "objective": 44.22269463867694,
+      "fingerprint": "3ae900e520e7c7ae96d2b782d2fad6e3c64bb17b37a4de3b01f5af1c62e9ff1a"
+    },
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-gentle-chemistry-r3/q20-r012-gentle120",
+      "label": "q20-r012-gentle120",
+      "status": "complete",
+      "error": null,
+      "last_sample_s": 626.956,
+      "objective": 34.9123393842532,
+      "fingerprint": "3ae900e520e7c7ae96d2b782d2fad6e3c64bb17b37a4de3b01f5af1c62e9ff1a"
+    },
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-full-continuation-r4/q16-low-cold-chemistry",
+      "label": "q16-low-cold-chemistry",
+      "status": "failed",
+      "error": "Command '['/tmp/battery-sim-cuda-v1/battery_sim_casing_probe', '/tmp/battery-r123-trial-9yjdcwys/scene.json']' timed out after 160.0 seconds",
+      "last_sample_s": 794.0,
+      "objective": null,
+      "fingerprint": "3ae900e520e7c7ae96d2b782d2fad6e3c64bb17b37a4de3b01f5af1c62e9ff1a"
+    },
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-full-continuation-r4/q18-low-cold-chemistry",
+      "label": "q18-low-cold-chemistry",
+      "status": "failed",
+      "error": "Command '['/tmp/battery-sim-cuda-v1/battery_sim_casing_probe', '/tmp/battery-r123-trial-gqpt9pae/scene.json']' timed out after 160.0 seconds",
+      "last_sample_s": 756.0,
+      "objective": null,
+      "fingerprint": "3ae900e520e7c7ae96d2b782d2fad6e3c64bb17b37a4de3b01f5af1c62e9ff1a"
+    },
+    {
+      "directory": "data/calibration/upv-separated-chemistry-v6/ui-full-continuation-r4/warmup-best-continued",
+      "label": "warmup-best-continued",
+      "status": "failed",
+      "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256); t=687.933828, dt=0.005991; C2: R=0.145848, heat_J=1.064333, budget_J=1.064315",
+      "last_sample_s": 685.0,
+      "objective": null,
+      "fingerprint": "3ae900e520e7c7ae96d2b782d2fad6e3c64bb17b37a4de3b01f5af1c62e9ff1a"
+    }
+  ],
+  "note": "Timeouts and interrupted trajectories are incomplete, not completed bad fits; no full-window RMSE assigned to them. Historical v5 metrics remain historical."
+}

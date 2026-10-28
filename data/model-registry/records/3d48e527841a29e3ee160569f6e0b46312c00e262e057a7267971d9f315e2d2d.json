@@ -1,0 +1,29 @@
+{
+  "format_version": 1,
+  "kind": "constitutive_law",
+  "scope": "upv-to-fsri30-r2-hypothesis",
+  "parameters": {
+    "reaction_rate_per_s": 0.01999639111839507,
+    "reaction_reference_k": 450.0,
+    "reaction_activation_j_per_mol": 100000.0
+  },
+  "evidence": {
+    "result_path": "/home/konstantin/work/battery-sim/data/development/fsri30-source-geometry-upv-r2-smoke-20261024-r1/status.json",
+    "fresh_from_zero": true,
+    "independent_validation": {
+      "accepted": false
+    },
+    "source_training_only": true,
+    "chemistry_equivalence_confirmed": false
+  },
+  "compatibility": {
+    "model": "r1-r2-r3",
+    "target_material": "unidentified-18650",
+    "source_scenario_sha256": "747c5aefc5932b1759ee48f6042692907f3992d0719190ba44c3135404b3b210"
+  },
+  "qualification": "candidate",
+  "producer_core": "9b14777a04a50054ec89283e821d9aeb607f0cab8042841e11fe8eac58008f1e",
+  "transferable_as": "constitutive_law",
+  "calibrated": false,
+  "validation_passed": false
+}

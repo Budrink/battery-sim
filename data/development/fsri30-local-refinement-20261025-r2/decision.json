@@ -1,0 +1,39 @@
+{
+  "status": "tested-candidates-rejected-original20-retained",
+  "spatially_converged": false,
+  "selected_scenario": "/home/konstantin/work/battery-sim/data/development/fsri30-full20-10-20261025-r1/checks/h-20mm/scenario.json",
+  "selected_producer_core": "e7386cc42effc14e1c8bf6a2ffa6c225b77935921458ca5aadfaa9df7cc59f56",
+  "reference_horizon_s": 2525.0,
+  "reference_fine_run_complete_to_5945s": false,
+  "baseline_event_difference_s": {
+    "shared_events": 30,
+    "mean_absolute_delay_s": 6.046437094076934,
+    "maximum_absolute_delay_s": 9.994060250382063
+  },
+  "candidate_event_difference_s": {
+    "shared_events": 30,
+    "mean_absolute_delay_s": 18.724636163230645,
+    "maximum_absolute_delay_s": 28.43104228982702
+  },
+  "baseline_r3_total_difference": 0.006517674846855674,
+  "candidate_wall_s": 1788.968458123,
+  "candidate_speed_x_realtime": 1.4114279033456243,
+  "active_registry_unchanged": true,
+  "candidate_evidence_records": {
+    "rejected_quadrature": "4b3e10fe754d1c7aa4588a59c4429b32cd5fce7e32e7467d157878c2608b43ac",
+    "nested_grid_trial": "623a43de30805c56374aa4d3086b9802b833904aac92a186734a47ef1669bd3f"
+  },
+  "working_native_source_comparison": {
+    "archive": "/home/konstantin/work/battery-sim/build/calibration-probes/fsri30-grid-pattern-20261025-r1-source.tar.gz",
+    "compared_files": 149,
+    "different_files": [],
+    "source_identical": true,
+    "current_probe_sha256": "88e385f9ac98734c63add0e38baedd0adea427de6b0ddcc751b2e0857615be58",
+    "current_build_qualification": "three isolated production CUDA regressions passed; no new full-calibration score assigned"
+  },
+  "retained_code_change": "nested Cartesian refinement + identity/conservative-child tests",
+  "failed_cuda_prototype_removed": true,
+  "physical_parameters_changed": false,
+  "experimental_validation": false,
+  "processes_running": false
+}

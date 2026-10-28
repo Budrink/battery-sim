@@ -1,0 +1,102 @@
+{
+  "event_s": 1413.2479998283088,
+  "known_interval_s": [
+    0.0,
+    880.0
+  ],
+  "complete_record": false,
+  "phases": {
+    "pre_burst": {
+      "interval_s": [
+        0.0,
+        880.0
+      ],
+      "complete": false,
+      "numerical_coverage_fraction": 1.0,
+      "channels": {
+        "101": {
+          "time_weighted_rmse_k": 1.2604216618295343,
+          "relative_kelvin_rms": 0.004157349781367177,
+          "observed_rise_scale_k": 10.540189494202764,
+          "rmse_over_observed_rise": 0.11958244797427807,
+          "time_weighted_bias_k": 0.057800723260918056,
+          "covered_s": 880.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "102": {
+          "time_weighted_rmse_k": 0.6092082846738005,
+          "relative_kelvin_rms": 0.002052558021462092,
+          "observed_rise_scale_k": 0.9670600642808154,
+          "rmse_over_observed_rise": null,
+          "time_weighted_bias_k": 0.5586224139796969,
+          "covered_s": 880.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "107": {
+          "time_weighted_rmse_k": 0.6954387110972127,
+          "relative_kelvin_rms": 0.0023051037968846513,
+          "observed_rise_scale_k": 7.830800014438978,
+          "rmse_over_observed_rise": 0.08880813069097845,
+          "time_weighted_bias_k": 0.0990435537519939,
+          "covered_s": 880.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "108": {
+          "time_weighted_rmse_k": 0.3151359616284841,
+          "relative_kelvin_rms": 0.0010607465020942594,
+          "observed_rise_scale_k": 1.522010527455734,
+          "rmse_over_observed_rise": 0.20705241911518216,
+          "time_weighted_bias_k": 0.18923209752228362,
+          "covered_s": 880.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "C2_TIM": {
+          "time_weighted_rmse_k": 1.7325415711280898,
+          "relative_kelvin_rms": 0.005568750820250869,
+          "observed_rise_scale_k": 24.873200021658477,
+          "rmse_over_observed_rise": 0.06965495270489803,
+          "time_weighted_bias_k": 0.22273562430847935,
+          "covered_s": 880.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "C2_ISS": {
+          "time_weighted_rmse_k": 2.080087256852319,
+          "relative_kelvin_rms": 0.006616999198225042,
+          "observed_rise_scale_k": 28.571615820061538,
+          "rmse_over_observed_rise": 0.07280257686342638,
+          "time_weighted_bias_k": 0.1628728489295281,
+          "covered_s": 880.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": false
+        }
+      }
+    }
+  },
+  "record_end_s": 14903.156999568455,
+  "requested_window_end_s": 1626.6089999116957,
+  "complete_requested_window": false,
+  "max_observation_gap_s": 5.0,
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "temperature_error_units": "K; temperature DIFFERENCES have the same numerical value in degC",
+  "relative_temperature_reference": "Observed absolute thermodynamic temperature in K, never degC",
+  "relative_rise_reference": "Largest observed rise above the initial temperature within the phase; undefined for rise <=1 K",
+  "interpretation": "Cooling is the primary diagnostic. Burst RMSE is descriptive, not an exact peak target."
+}

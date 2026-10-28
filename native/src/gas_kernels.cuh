@@ -1,6 +1,8 @@
 // Included inside cuda_solver.cu's private namespace. All fluxes use old states;
 // every channel/thermal patch has a single flux shared by its two recipients.
-struct DeviceGas { double volume, reaction_rate, oxidizer_heat, ignition_temperature; int thermal_volume=-1; };
+struct DeviceGas {
+    double volume;GasCombustionLaw combustion;int thermal_volume=-1;
+};
 __device__ double gas_local_capacity(const DeviceGas& config,const GasState& gas,GasModel model,
     const ThermalState* solid,const DeviceVolume* volumes,const Material* materials) {
     double capacity=gas.mass_kg*model.cv_j_per_kg_k;
@@ -98,13 +100,13 @@ __global__ void gas_transfer_kernel(int count,const DeviceChannel* channels,cons
     s.transferred_chemical_j=old[i].transferred_chemical_j+q.chemical;s.transferred_oxidizer_kg=old[i].transferred_oxidizer_kg+q.oxidizer;
     next[i]=s;
 }
-__global__ void gas_contact_kernel(int count,const GasThermalPatch* patches,const GasState* gas,const ThermalState* solid,double* flux,double* conductance) {
+__global__ void gas_contact_kernel(int count,const GasThermalPatch* patches,const GasState* gas,const ThermalState* solid,double* flux,double* conductance,bool coupled=false) {
     int i=blockIdx.x*blockDim.x+threadIdx.x;if(i>=count)return;const auto& p=patches[i];
     if(p.channel>=0)return; // directional pool is handled by aperture_flux_kernel
-    // h is an effective gas-to-volume-centre coefficient including the unresolved
-    // boundary layer/half-volume, not a separately measured surface-film h.
-    flux[i]=p.conductance_w_per_k*(gas[p.compartment].temperature_k-solid[p.volume].temperature_k);
-    conductance[i]=p.conductance_w_per_k;
+    if(coupled){flux[i]=0.;conductance[i]=0.;return;}
+    const auto& receiver=solid[p.volume];
+    conductance[i]=gas_contact_conductance(p,gas[p.compartment].temperature_k,receiver.temperature_k,receiver.damage);
+    flux[i]=conductance[i]*(gas[p.compartment].temperature_k-receiver.temperature_k);
 }
 struct GasRateBudget {double outgoing_mass=0.,thermal_power=0.,pressure_dt=1e300;};
 __device__ GasRateBudget gas_rate_budget(int node,DeviceRows rows,const DeviceChannel* channels,
@@ -131,17 +133,19 @@ __global__ void gas_limit_kernel(int count,const GasState* gas,DeviceRows channe
     int i=blockIdx.x*blockDim.x+threadIdx.x;double limit=1e300;
     if(i<count) {
         const auto& s=gas[i];double power=fracture_power?fracture_power[i]:0.,sumg=0;
-        if(s.temperature_k>=config[i].ignition_temperature)
-            power+=config[i].reaction_rate*fmin(s.chemical_j,s.oxidizer_kg*config[i].oxidizer_heat);
+        const auto& chemistry=config[i].combustion;
+        if(!model.coupled_gas_films)power+=combustion_rate(chemistry,s.temperature_k+fmin(model.max_temperature_step_k,.05*s.temperature_k))*
+            fmin(s.chemical_j,s.oxidizer_kg*chemistry.oxidizer_heat_j_per_kg);
         if(!mass_stage)for(int k=patch_rows.offsets[i];k<patch_rows.offsets[i+1];++k) {const int j=patch_rows.ids[k];power+=fabs(flux[j]);sumg+=conductance[j];}
         if(!mass_stage)for(int k=source_rows.offsets[i];k<source_rows.offsets[i+1];++k) {const int j=source_rows.ids[k];
             const auto& m=materials[volumes[j].object];const auto& c=m.conversion;
-            const double current=m.electrical.enabled?maximum_charging_current(m.electrical,m.current,time,time+horizon):0.;
-            const double voltage=m.voltage.count?sample_drive(m.voltage,time):c.precursor_voltage_ref_v;
-            const double ka=degradation_rate(c,solid[j].temperature_k)+overcharge_r1_rate(c,m.electrical,solid[j].temperature_k,current);
-            const double phi=precursor_branch(c,solid[j].temperature_k,voltage);
+            const double current=m.electrical.enabled?maximum_charging_current(m.electrical,m.current,time,time+fmax(horizon,*step)):0.;
+            const double fraction=volumes[j].capacity_j_per_k/m.capacity;
+            const double charging=charging_precursor_rate(c,m.electrical,current,charge_capacity_fraction(c,solid[j],fraction));
+            const double aging=degradation_rate(c,solid[j].temperature_k);
+            const double phi=precursor_branch(c,solid[j].temperature_k);
             power+=(completion_rate(c,solid[j].temperature_k)*solid[j].activated_kg+
-                phi*ka*solid[j].reactant_kg)*speed*maximum_gas_yield(c)*
+                phi*aging*healthy_mass(solid[j])+charging*solid[j].reactant_kg)*speed*maximum_gas_yield(c)*
                 model.cv_j_per_kg_k*fabs(solid[j].temperature_k-s.temperature_k);
         }
         // CPU groups resolve pressure/mass stiffness internally. Keep the
@@ -167,17 +171,18 @@ __global__ void gas_reaction_kernel(int count,const GasState* old,const DeviceGa
     DeviceRows rows,const DeviceChannel* channels,const GasTransfer* transfer,
     DeviceRows source_rows,const GasTransfer* sources,const double* step,GasTransfer* reaction,bool mass_stage=false) {
     int i=blockIdx.x*blockDim.x+threadIdx.x;if(i>=count)return;
-    const auto& c=config[i];reaction[i]={};
-    if(old[i].temperature_k<c.ignition_temperature || c.reaction_rate<=0)return;
+    const auto& c=config[i].combustion;reaction[i]={};
+    const double rate=combustion_rate(c,old[i].temperature_k);
+    if(!(rate>0.))return;
     double chemical=old[i].chemical_j,oxidizer=old[i].oxidizer_kg;
     for(int k=rows.offsets[i];k<rows.offsets[i+1];++k) {
         const int j=rows.ids[k];const double sign=channels[j].from==i?-1.:1.;
         chemical+=sign*transfer[j].chemical;oxidizer+=sign*transfer[j].oxidizer;
     }
     if(!mass_stage)for(int k=source_rows.offsets[i];k<source_rows.offsets[i+1];++k)chemical+=sources[source_rows.ids[k]].chemical;
-    const double available=fmin(old[i].chemical_j,old[i].oxidizer_kg*c.oxidizer_heat);
-    const double q=fmax(0.,fmin(available*(-expm1(-c.reaction_rate**step)),fmin(chemical,oxidizer*c.oxidizer_heat)));
-    reaction[i]={0.,q,-q,-q/c.oxidizer_heat};
+    const double available=fmin(old[i].chemical_j,old[i].oxidizer_kg*c.oxidizer_heat_j_per_kg);
+    const double q=fmax(0.,fmin(available*(-expm1(-rate**step)),fmin(chemical,oxidizer*c.oxidizer_heat_j_per_kg)));
+    reaction[i]={0.,q,-q,-q/c.oxidizer_heat_j_per_kg};
 }
 __global__ void gas_advance_kernel(int count,const GasState* old,GasState* next,const DeviceGas* config,
     DeviceRows channel_rows,const DeviceChannel* channels,const GasTransfer* transfer,DeviceRows patch_rows,const double* flux,

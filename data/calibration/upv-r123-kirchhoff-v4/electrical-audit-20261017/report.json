@@ -1,0 +1,670 @@
+{
+  "experiment": "no-cooling",
+  "source": "https://zenodo.org/records/22273467/files/TR_Experimental_Data_Description.pdf",
+  "canonical_sha256": "f78d3fd97faa34601b4a603c0a8017f3146d1edd64e9451169b7d8f9eae66e60",
+  "electrical": {
+    "member": "01_MiniModule_NoCooling/MiniModule_NoCooling_Electrical_20250701.csv",
+    "sha256": "42a66010c715159852846bd48548e41a6da51f986e8d9467b005795a58d226a4",
+    "alignment_offset_s": 26.9559999166122,
+    "synchronization_measured": false,
+    "alignment": "Last electrical OFF record aligned to first corroborated pressure step"
+  },
+  "pressure_temperature_marker": {
+    "time_s": 886.6389999166131,
+    "previous_s": 886.168000032194,
+    "index": 1885,
+    "bracket_s": 0.4709998844191432
+  },
+  "thermal_audit_stop_s": 866.168000032194,
+  "assumptions": [
+    "Event marker means major gas-release signature, NOT internal damage onset.",
+    "Final source OFF record is not proof of a fuse trip; error field is NONE.",
+    "Electrical clock aligned by final record to pressure marker; synchronization is unmeasured.",
+    "U_rev choices 3.65 / 4.0 / 4.2 V are constant sensitivity priors, not measured OCV bounds.",
+    "I*(U-U_rev) is a conditional quasi-steady irreversible-power estimate/ceiling, not measured Joule heat.",
+    "Polarization storage, reversible entropic heat, external lead losses and changing chemistry are unresolved.",
+    "Apparent R includes polarization; constant-current U/I cannot uniquely identify ohmic R or damage fraction.",
+    "Thermal scenarios use surface-to-bulk estimates, initial heat capacities and fixed environment-h prior.",
+    "Thermal residual is signed and diagnostic: it is not uniquely R2, nor clipped into positive heat.",
+    "No work is inferred outside the electrical recording span.",
+    "U/I fields and logger P are separate instrument readings; their maximum discrepancy is reported.",
+    "No validation observations used for parameter selection; no parameters fitted here."
+  ],
+  "thermal_scenarios_are_rigorous_bounds": false,
+  "model_fits_performed": false,
+  "ui_minus_logger_power_max_abs_w": 26.920000000000073,
+  "final_vent_window": {
+    "start_s": 866.168000032194,
+    "end_s": 886.6389999166131,
+    "ui_work_j": 6560.191621650301,
+    "conditional_excess_work_j": {
+      "3.65": 3962.319466373563,
+      "4.0": 3713.2084377853753,
+      "4.2": 3570.859278592121
+    }
+  },
+  "checkpoints": [
+    {
+      "time_s": 26.9559999166122,
+      "seconds_before_marker": 859.6830000000009,
+      "voltage_v": 4.53,
+      "current_a": 34.9,
+      "power_ui_w": 158.097,
+      "work_ui_j": 0.0,
+      "charge_c": 0.0,
+      "squared_current_a2s": 0.0,
+      "conditional": {
+        "3.65": {
+          "excess_power_w": 30.71200000000001,
+          "apparent_resistance_ohm": 0.02521489971346706,
+          "excess_work_j": 0.0,
+          "excess_fraction_of_ui": null,
+          "weighted_apparent_resistance_ohm": null,
+          "thermal_residual_scenarios_j": {
+            "observed-only": -46.09939805971644,
+            "interpolated": -25.649208835645723,
+            "neighbour-max": -13.876022504008054
+          }
+        },
+        "4.0": {
+          "excess_power_w": 18.497000000000007,
+          "apparent_resistance_ohm": 0.015186246418338116,
+          "excess_work_j": 0.0,
+          "excess_fraction_of_ui": null,
+          "weighted_apparent_resistance_ohm": null,
+          "thermal_residual_scenarios_j": {
+            "observed-only": -46.09939805971644,
+            "interpolated": -25.649208835645723,
+            "neighbour-max": -13.876022504008054
+          }
+        },
+        "4.2": {
+          "excess_power_w": 11.517000000000001,
+          "apparent_resistance_ohm": 0.009455587392550145,
+          "excess_work_j": 0.0,
+          "excess_fraction_of_ui": null,
+          "weighted_apparent_resistance_ohm": null,
+          "thermal_residual_scenarios_j": {
+            "observed-only": -46.09939805971644,
+            "interpolated": -25.649208835645723,
+            "neighbour-max": -13.876022504008054
+          }
+        }
+      },
+      "thermal_required_scenarios_j": {
+        "observed-only": -46.09939805971644,
+        "interpolated": -25.649208835645723,
+        "neighbour-max": -13.876022504008054
+      }
+    },
+    {
+      "time_s": 100.0,
+      "seconds_before_marker": 786.6389999166131,
+      "voltage_v": 4.74,
+      "current_a": 34.9,
+      "power_ui_w": 165.426,
+      "work_ui_j": 11873.789868294498,
+      "charge_c": 2549.2356029102334,
+      "squared_current_a2s": 88968.32254156718,
+      "conditional": {
+        "3.65": {
+          "excess_power_w": 38.04100000000001,
+          "apparent_resistance_ohm": 0.031232091690544424,
+          "excess_work_j": 2569.0799176721466,
+          "excess_fraction_of_ui": 0.21636562093221198,
+          "weighted_apparent_resistance_ohm": 0.028876344346852652,
+          "thermal_residual_scenarios_j": {
+            "observed-only": -2160.2806042144603,
+            "interpolated": -2128.8053840373404,
+            "neighbour-max": -2103.5987828166585
+          }
+        },
+        "4.0": {
+          "excess_power_w": 25.826000000000008,
+          "apparent_resistance_ohm": 0.02120343839541548,
+          "excess_work_j": 1676.8474566535642,
+          "excess_fraction_of_ui": 0.14122259828187608,
+          "weighted_apparent_resistance_ohm": 0.01884769105172371,
+          "thermal_residual_scenarios_j": {
+            "observed-only": -1268.0481431958779,
+            "interpolated": -1236.5729230187583,
+            "neighbour-max": -1211.3663217980761
+          }
+        },
+        "4.2": {
+          "excess_power_w": 18.846,
+          "apparent_resistance_ohm": 0.015472779369627508,
+          "excess_work_j": 1167.0003360715164,
+          "excess_fraction_of_ui": 0.0982837281959698,
+          "weighted_apparent_resistance_ohm": 0.01311703202593573,
+          "thermal_residual_scenarios_j": {
+            "observed-only": -758.20102261383,
+            "interpolated": -726.7258024367104,
+            "neighbour-max": -701.5192012160283
+          }
+        }
+      },
+      "thermal_required_scenarios_j": {
+        "observed-only": 408.79931345768637,
+        "interpolated": 440.274533634806,
+        "neighbour-max": 465.48113485548805
+      }
+    },
+    {
+      "time_s": 300.0,
+      "seconds_before_marker": 586.6389999166131,
+      "voltage_v": 5.31,
+      "current_a": 34.9,
+      "power_ui_w": 185.319,
+      "work_ui_j": 47251.44557895329,
+      "charge_c": 9529.235602910261,
+      "squared_current_a2s": 332570.3225415664,
+      "conditional": {
+        "3.65": {
+          "excess_power_w": 57.93399999999999,
+          "apparent_resistance_ohm": 0.047564469914040106,
+          "excess_work_j": 12469.735628330833,
+          "excess_fraction_of_ui": 0.26390167487034716,
+          "weighted_apparent_resistance_ohm": 0.037495034232263164,
+          "thermal_residual_scenarios_j": {
+            "observed-only": -6758.989516996709,
+            "interpolated": -5145.120848482173,
+            "neighbour-max": -3907.417822680698
+          }
+        },
+        "4.0": {
+          "excess_power_w": 45.71899999999999,
+          "apparent_resistance_ohm": 0.037535816618911165,
+          "excess_work_j": 9134.503167312243,
+          "excess_fraction_of_ui": 0.19331690396750376,
+          "weighted_apparent_resistance_ohm": 0.027466380937134174,
+          "thermal_residual_scenarios_j": {
+            "observed-only": -3423.7570559781198,
+            "interpolated": -1809.888387463583,
+            "neighbour-max": -572.1853616621083
+          }
+        },
+        "4.2": {
+          "excess_power_w": 38.738999999999976,
+          "apparent_resistance_ohm": 0.0318051575931232,
+          "excess_work_j": 7228.65604673019,
+          "excess_fraction_of_ui": 0.15298274916587892,
+          "weighted_apparent_resistance_ohm": 0.021735721911346175,
+          "thermal_residual_scenarios_j": {
+            "observed-only": -1517.9099353960664,
+            "interpolated": 95.95873311847026,
+            "neighbour-max": 1333.661758919945
+          }
+        }
+      },
+      "thermal_required_scenarios_j": {
+        "observed-only": 5710.746111334123,
+        "interpolated": 7324.61477984866,
+        "neighbour-max": 8562.317805650135
+      }
+    },
+    {
+      "time_s": 500.0,
+      "seconds_before_marker": 386.6389999166131,
+      "voltage_v": 5.26,
+      "current_a": 34.9,
+      "power_ui_w": 183.57399999999998,
+      "work_ui_j": 84556.71798080762,
+      "charge_c": 16509.235602910216,
+      "squared_current_a2s": 576172.3225415648,
+      "conditional": {
+        "3.65": {
+          "excess_power_w": 56.18899999999999,
+          "apparent_resistance_ohm": 0.046131805157593124,
+          "excess_work_j": 24298.00803018533,
+          "excess_fraction_of_ui": 0.2873575111524599,
+          "weighted_apparent_resistance_ohm": 0.04217142524827281,
+          "thermal_residual_scenarios_j": {
+            "observed-only": -4481.695027530361,
+            "interpolated": 2987.346273585841,
+            "neighbour-max": 7398.988863242008
+          }
+        },
+        "4.0": {
+          "excess_power_w": 43.97399999999999,
+          "apparent_resistance_ohm": 0.036103151862464176,
+          "excess_work_j": 18519.775569166755,
+          "excess_fraction_of_ui": 0.21902193003009304,
+          "weighted_apparent_resistance_ohm": 0.03214277195314384,
+          "thermal_residual_scenarios_j": {
+            "observed-only": 1296.5374334882144,
+            "interpolated": 8765.578734604416,
+            "neighbour-max": 13177.221324260583
+          }
+        },
+        "4.2": {
+          "excess_power_w": 36.993999999999986,
+          "apparent_resistance_ohm": 0.03037249283667621,
+          "excess_work_j": 15217.928448584702,
+          "excess_fraction_of_ui": 0.17997302653159755,
+          "weighted_apparent_resistance_ohm": 0.02641211292735584,
+          "thermal_residual_scenarios_j": {
+            "observed-only": 4598.384554070268,
+            "interpolated": 12067.42585518647,
+            "neighbour-max": 16479.068444842636
+          }
+        }
+      },
+      "thermal_required_scenarios_j": {
+        "observed-only": 19816.31300265497,
+        "interpolated": 27285.35430377117,
+        "neighbour-max": 31696.99689342734
+      }
+    },
+    {
+      "time_s": 700.0,
+      "seconds_before_marker": 186.6389999166131,
+      "voltage_v": 5.1,
+      "current_a": 34.9,
+      "power_ui_w": 177.98999999999998,
+      "work_ui_j": 120455.93656484212,
+      "charge_c": 23489.235602910096,
+      "squared_current_a2s": 819774.3225415638,
+      "conditional": {
+        "3.65": {
+          "excess_power_w": 50.60499999999999,
+          "apparent_resistance_ohm": 0.041547277936962744,
+          "excess_work_j": 34720.22661422027,
+          "excess_fraction_of_ui": 0.28824006192115054,
+          "weighted_apparent_resistance_ohm": 0.04235339612318719,
+          "thermal_residual_scenarios_j": {
+            "observed-only": 2461.560218343875,
+            "interpolated": 17504.1946911708,
+            "neighbour-max": 26151.43898069956
+          }
+        },
+        "4.0": {
+          "excess_power_w": 38.389999999999986,
+          "apparent_resistance_ohm": 0.0315186246418338,
+          "excess_work_j": 26498.99415320174,
+          "excess_fraction_of_ui": 0.2199891089546855,
+          "weighted_apparent_resistance_ohm": 0.03232474282805827,
+          "thermal_residual_scenarios_j": {
+            "observed-only": 10682.792679362406,
+            "interpolated": 25725.42715218933,
+            "neighbour-max": 34372.67144171809
+          }
+        },
+        "4.2": {
+          "excess_power_w": 31.40999999999998,
+          "apparent_resistance_ohm": 0.025787965616045832,
+          "excess_work_j": 21801.147032619716,
+          "excess_fraction_of_ui": 0.18098856440241975,
+          "weighted_apparent_resistance_ohm": 0.026594083802270307,
+          "thermal_residual_scenarios_j": {
+            "observed-only": 15380.63979994443,
+            "interpolated": 30423.274272771356,
+            "neighbour-max": 39070.518562300116
+          }
+        }
+      },
+      "thermal_required_scenarios_j": {
+        "observed-only": 37181.78683256415,
+        "interpolated": 52224.42130539107,
+        "neighbour-max": 60871.66559491983
+      }
+    },
+    {
+      "time_s": 800.0,
+      "seconds_before_marker": 86.6389999166131,
+      "voltage_v": 5.1,
+      "current_a": 34.9,
+      "power_ui_w": 177.98999999999998,
+      "work_ui_j": 138254.93656484238,
+      "charge_c": 26979.235602910037,
+      "squared_current_a2s": 941575.3225415634,
+      "conditional": {
+        "3.65": {
+          "excess_power_w": 50.60499999999999,
+          "apparent_resistance_ohm": 0.041547277936962744,
+          "excess_work_j": 39780.72661422075,
+          "excess_fraction_of_ui": 0.28773458368022437,
+          "weighted_apparent_resistance_ohm": 0.04224911768804852,
+          "thermal_residual_scenarios_j": {
+            "observed-only": 9642.934785957717,
+            "interpolated": 28892.093961832128,
+            "neighbour-max": 38562.76394729565
+          }
+        },
+        "4.0": {
+          "excess_power_w": 38.389999999999986,
+          "apparent_resistance_ohm": 0.0315186246418338,
+          "excess_work_j": 30337.994153202235,
+          "excess_fraction_of_ui": 0.2194351601975061,
+          "weighted_apparent_resistance_ohm": 0.032220464392919604,
+          "thermal_residual_scenarios_j": {
+            "observed-only": 19085.667246976234,
+            "interpolated": 38334.826422850645,
+            "neighbour-max": 48005.49640831417
+          }
+        },
+        "4.2": {
+          "excess_power_w": 31.40999999999998,
+          "apparent_resistance_ohm": 0.025787965616045832,
+          "excess_work_j": 24942.147032620225,
+          "excess_fraction_of_ui": 0.18040691820738142,
+          "weighted_apparent_resistance_ohm": 0.026489805367131653,
+          "thermal_residual_scenarios_j": {
+            "observed-only": 24481.514367558244,
+            "interpolated": 43730.673543432655,
+            "neighbour-max": 53401.34352889618
+          }
+        }
+      },
+      "thermal_required_scenarios_j": {
+        "observed-only": 49423.66140017847,
+        "interpolated": 68672.82057605288,
+        "neighbour-max": 78343.4905615164
+      }
+    },
+    {
+      "time_s": 850.0,
+      "seconds_before_marker": 36.6389999166131,
+      "voltage_v": 5.15,
+      "current_a": 34.9,
+      "power_ui_w": 179.735,
+      "work_ui_j": 147174.18158898814,
+      "charge_c": 28724.235602910016,
+      "squared_current_a2s": 1002475.8225415627,
+      "conditional": {
+        "3.65": {
+          "excess_power_w": 52.350000000000016,
+          "apparent_resistance_ohm": 0.04297994269340975,
+          "excess_work_j": 42330.72163836658,
+          "excess_fraction_of_ui": 0.28762328542504256,
+          "weighted_apparent_resistance_ohm": 0.042226177117215755,
+          "thermal_residual_scenarios_j": {
+            "observed-only": 17755.912713948754,
+            "interpolated": 38238.197695680195,
+            "neighbour-max": 48157.22959348862
+          }
+        },
+        "4.0": {
+          "excess_power_w": 40.13500000000001,
+          "apparent_resistance_ohm": 0.03295128939828081,
+          "excess_work_j": 32277.239177348078,
+          "excess_fraction_of_ui": 0.219313189506896,
+          "weighted_apparent_resistance_ohm": 0.032197523822086856,
+          "thermal_residual_scenarios_j": {
+            "observed-only": 27809.395174967256,
+            "interpolated": 48291.6801566987,
+            "neighbour-max": 58210.71205450712
+          }
+        },
+        "4.2": {
+          "excess_power_w": 33.15500000000001,
+          "apparent_resistance_ohm": 0.02722063037249284,
+          "excess_work_j": 26532.392056766068,
+          "excess_fraction_of_ui": 0.18027884898224072,
+          "weighted_apparent_resistance_ohm": 0.026466864796298898,
+          "thermal_residual_scenarios_j": {
+            "observed-only": 33554.242295549266,
+            "interpolated": 54036.52727728071,
+            "neighbour-max": 63955.55917508913
+          }
+        }
+      },
+      "thermal_required_scenarios_j": {
+        "observed-only": 60086.634352315334,
+        "interpolated": 80568.91933404678,
+        "neighbour-max": 90487.9512318552
+      }
+    },
+    {
+      "time_s": 866.168000032194,
+      "seconds_before_marker": 20.470999884419143,
+      "voltage_v": 5.359180332605738,
+      "current_a": 34.9,
+      "power_ui_w": 187.03539360794025,
+      "work_ui_j": 150123.73845518392,
+      "charge_c": 29288.49880403357,
+      "squared_current_a2s": 1022168.608260775,
+      "conditional": {
+        "3.65": {
+          "excess_power_w": 59.65039360794025,
+          "apparent_resistance_ohm": 0.04897364849873175,
+          "excess_work_j": 43220.71782046139,
+          "excess_fraction_of_ui": 0.2879006229475425,
+          "weighted_apparent_resistance_ohm": 0.04228335469429222,
+          "thermal_residual_scenarios_j": {
+            "observed-only": 19282.59879767299,
+            "interpolated": 41025.93261944337,
+            "neighbour-max": 51684.472781640565
+          }
+        },
+        "4.0": {
+          "excess_power_w": 47.43539360794025,
+          "apparent_resistance_ohm": 0.038944995203602804,
+          "excess_work_j": 32969.74323904964,
+          "excess_fraction_of_ui": 0.21961712103840272,
+          "weighted_apparent_resistance_ohm": 0.03225470139916332,
+          "thermal_residual_scenarios_j": {
+            "observed-only": 29533.573379084737,
+            "interpolated": 51276.907200855116,
+            "neighbour-max": 61935.44736305231
+          }
+        },
+        "4.2": {
+          "excess_power_w": 40.455393607940245,
+          "apparent_resistance_ohm": 0.033214336177814836,
+          "excess_work_j": 27112.043478242922,
+          "excess_fraction_of_ui": 0.18059797709032283,
+          "weighted_apparent_resistance_ohm": 0.026524042373375366,
+          "thermal_residual_scenarios_j": {
+            "observed-only": 35391.273139891455,
+            "interpolated": 57134.60696166183,
+            "neighbour-max": 67793.14712385903
+          }
+        }
+      },
+      "thermal_required_scenarios_j": {
+        "observed-only": 62503.31661813438,
+        "interpolated": 84246.65043990476,
+        "neighbour-max": 94905.19060210195
+      }
+    },
+    {
+      "time_s": 880.0,
+      "seconds_before_marker": 6.638999916613102,
+      "voltage_v": 7.86128844587212,
+      "current_a": 34.9,
+      "power_ui_w": 274.358966760937,
+      "work_ui_j": 152974.30207790926,
+      "charge_c": 29771.23560291,
+      "squared_current_a2s": 1039016.1225415622,
+      "conditional": {
+        "3.65": {
+          "excess_power_w": 146.97396676093695,
+          "apparent_resistance_ohm": 0.12066729071266818,
+          "excess_work_j": 44309.29212728776,
+          "excess_fraction_of_ui": 0.2896518665254063,
+          "weighted_apparent_resistance_ohm": 0.04264543269925566
+        },
+        "4.0": {
+          "excess_power_w": 134.75896676093697,
+          "apparent_resistance_ohm": 0.11063863741753925,
+          "excess_work_j": 33889.35966626926,
+          "excess_fraction_of_ui": 0.22153629208263706,
+          "weighted_apparent_resistance_ohm": 0.032616779404126744
+        },
+        "4.2": {
+          "excess_power_w": 127.77896676093697,
+          "apparent_resistance_ohm": 0.10490797839175128,
+          "excess_work_j": 27935.112545687254,
+          "excess_fraction_of_ui": 0.1826131066867689,
+          "weighted_apparent_resistance_ohm": 0.026886120378338794
+        }
+      }
+    },
+    {
+      "time_s": 884.0,
+      "seconds_before_marker": 2.638999916613102,
+      "voltage_v": 15.966363920635088,
+      "current_a": 34.9,
+      "power_ui_w": 557.2261008301646,
+      "work_ui_j": 154500.442398784,
+      "charge_c": 29910.83560291,
+      "squared_current_a2s": 1043888.1625415622,
+      "conditional": {
+        "3.65": {
+          "excess_power_w": 429.8411008301645,
+          "apparent_resistance_ohm": 0.3529044103333836,
+          "excess_work_j": 45325.892448162514,
+          "excess_fraction_of_ui": 0.2933706321123081,
+          "weighted_apparent_resistance_ohm": 0.0434202571449869
+        },
+        "4.0": {
+          "excess_power_w": 417.62610083016455,
+          "apparent_resistance_ohm": 0.3428757570382547,
+          "excess_work_j": 34857.099987144014,
+          "excess_fraction_of_ui": 0.2256116516299267,
+          "weighted_apparent_resistance_ohm": 0.033391603849857995
+        },
+        "4.2": {
+          "excess_power_w": 410.6461008301645,
+          "apparent_resistance_ohm": 0.33714509801246667,
+          "excess_work_j": 28874.932866562012,
+          "excess_fraction_of_ui": 0.186892234211423,
+          "weighted_apparent_resistance_ohm": 0.02766094482407004
+        }
+      }
+    },
+    {
+      "time_s": 885.0,
+      "seconds_before_marker": 1.638999916613102,
+      "voltage_v": 20.921384953937395,
+      "current_a": 34.9,
+      "power_ui_w": 730.1563348924151,
+      "work_ui_j": 155129.72704066796,
+      "charge_c": 29945.73560291,
+      "squared_current_a2s": 1045106.1725415621,
+      "conditional": {
+        "3.65": {
+          "excess_power_w": 602.7713348924151,
+          "apparent_resistance_ohm": 0.494882090370699,
+          "excess_work_j": 45827.79209004645,
+          "excess_fraction_of_ui": 0.29541592681351453,
+          "weighted_apparent_resistance_ohm": 0.04384989132596857
+        },
+        "4.0": {
+          "excess_power_w": 590.5563348924151,
+          "apparent_resistance_ohm": 0.48485343707557005,
+          "excess_work_j": 35346.784629027956,
+          "excess_fraction_of_ui": 0.22785307048056389,
+          "weighted_apparent_resistance_ohm": 0.03382123803083966
+        },
+        "4.2": {
+          "excess_power_w": 583.576334892415,
+          "apparent_resistance_ohm": 0.4791227780497821,
+          "excess_work_j": 29357.637508445943,
+          "excess_fraction_of_ui": 0.18924572400459203,
+          "weighted_apparent_resistance_ohm": 0.0280905790050517
+        }
+      }
+    },
+    {
+      "time_s": 886.0,
+      "seconds_before_marker": 0.638999916613102,
+      "voltage_v": 26.77109905979091,
+      "current_a": 34.9,
+      "power_ui_w": 934.3113571867027,
+      "work_ui_j": 155970.6062375422,
+      "charge_c": 29980.635602910002,
+      "squared_current_a2s": 1046324.1825415621,
+      "conditional": {
+        "3.65": {
+          "excess_power_w": 806.9263571867027,
+          "apparent_resistance_ohm": 0.6624956750656422,
+          "excess_work_j": 46541.2862869207,
+          "excess_fraction_of_ui": 0.2983978033401924,
+          "weighted_apparent_resistance_ohm": 0.04448075182002399
+        },
+        "4.0": {
+          "excess_power_w": 794.7113571867027,
+          "apparent_resistance_ohm": 0.6524670217705132,
+          "excess_work_j": 36048.063825902194,
+          "excess_fraction_of_ui": 0.23112088037281353,
+          "weighted_apparent_resistance_ohm": 0.03445209852489507
+        },
+        "4.2": {
+          "excess_power_w": 787.7313571867028,
+          "apparent_resistance_ohm": 0.6467363627447252,
+          "excess_work_j": 30051.936705320186,
+          "excess_fraction_of_ui": 0.19267692439145415,
+          "weighted_apparent_resistance_ohm": 0.028721439499107115
+        }
+      }
+    },
+    {
+      "time_s": 886.5339999166135,
+      "seconds_before_marker": 0.10499999999956344,
+      "voltage_v": 45.06,
+      "current_a": 32.0,
+      "power_ui_w": 1441.92,
+      "work_ui_j": 156599.86847683458,
+      "charge_c": 29998.564599999812,
+      "squared_current_a2s": 1046926.5773266632,
+      "conditional": {
+        "3.65": {
+          "excess_power_w": 1325.1200000000001,
+          "apparent_resistance_ohm": 1.2940625000000001,
+          "excess_work_j": 47105.10768683527,
+          "excess_fraction_of_ui": 0.3007991522917748,
+          "weighted_apparent_resistance_ohm": 0.044993707015365494
+        },
+        "4.0": {
+          "excess_power_w": 1313.92,
+          "apparent_resistance_ohm": 1.283125,
+          "excess_work_j": 36605.610076835335,
+          "excess_fraction_of_ui": 0.23375249566221895,
+          "weighted_apparent_resistance_ohm": 0.03496483026566018
+        },
+        "4.2": {
+          "excess_power_w": 1307.52,
+          "apparent_resistance_ohm": 1.276875,
+          "excess_work_j": 30605.897156835374,
+          "excess_fraction_of_ui": 0.1954401204453299,
+          "weighted_apparent_resistance_ohm": 0.029234043551542858
+        }
+      }
+    },
+    {
+      "time_s": 886.6389999166131,
+      "seconds_before_marker": 0.0,
+      "voltage_v": 59.99,
+      "current_a": -0.0,
+      "power_ui_w": -0.0,
+      "work_ui_j": 156683.93007683422,
+      "charge_c": 30000.244599999805,
+      "squared_current_a2s": 1046962.417326663,
+      "conditional": {
+        "3.65": {
+          "excess_power_w": -0.0,
+          "apparent_resistance_ohm": null,
+          "excess_work_j": 47183.03728683494,
+          "excess_fraction_of_ui": 0.30113514043014783,
+          "weighted_apparent_resistance_ohm": 0.045066600773801556
+        },
+        "4.0": {
+          "excess_power_w": -0.0,
+          "apparent_resistance_ohm": null,
+          "excess_work_j": 36682.951676835,
+          "excess_fraction_of_ui": 0.23412070184125786,
+          "weighted_apparent_resistance_ohm": 0.03503750571152502
+        },
+        "4.2": {
+          "excess_power_w": -0.0,
+          "apparent_resistance_ohm": null,
+          "excess_work_j": 30682.90275683503,
+          "excess_fraction_of_ui": 0.1958267369333207,
+          "weighted_apparent_resistance_ohm": 0.029306594247366997
+        }
+      }
+    }
+  ]
+}

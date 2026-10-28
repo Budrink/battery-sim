@@ -1,0 +1,73 @@
+{
+  "parameters": {
+    "resistance_ohm": 0.008717567034586841,
+    "resistance_temperature": -0.01999999999999949,
+    "resistance_charge": 14.838210523443244,
+    "product_conductivity_ratio": 0.2,
+    "r1_rate": 1e-06,
+    "r1_activation": 40000.0,
+    "overcharge_gain": 1.2414063627953473,
+    "r2_rate": 99999.99999999895,
+    "r2_activation": 136106.65706689408,
+    "energy_j": 424264.068711928,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.0005,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.27735866146555965,
+    "precursor_temperature": 0.031108151524561964,
+    "precursor_voltage": 0.0,
+    "iss_h": 200.0,
+    "tim_h": 300.0,
+    "case_h": 180.0,
+    "environment_h": 1.563406124562644,
+    "surface_iss": -5.5,
+    "surface_tim": 6.0,
+    "bulk_slope": -2.88,
+    "case_warm_response": 0.0,
+    "case_hot_response": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0
+  },
+  "changes": {
+    "resistance_ohm": [
+      0.006061507638786001,
+      0.008717567034586841
+    ],
+    "resistance_temperature": [
+      -0.001,
+      -0.01999999999999949
+    ],
+    "resistance_charge": [
+      4.799999999981872,
+      14.838210523443244
+    ],
+    "overcharge_gain": [
+      0.75,
+      1.2414063627953473
+    ],
+    "r2_rate": [
+      99999.99999988705,
+      99999.99999999895
+    ],
+    "r2_activation": [
+      80000.00000335186,
+      136106.65706689408
+    ],
+    "precursor_yield": [
+      1.0,
+      0.27735866146555965
+    ],
+    "precursor_temperature": [
+      0.0,
+      0.031108151524561964
+    ]
+  },
+  "source": "/home/konstantin/work/battery-sim/data/calibration/upv-charge-degradation-v5/last-adapted-pair-20261017/frozen-parameters.json",
+  "source_sha256": "8ddfdccc792cbdd71c3fce58217a1bc77085f81db3c84f2c7a00da090aff21e7",
+  "fingerprint": "07b153f020efbd2c1f025d61618500004275c28af7a4399ba5de81edff12ea0a",
+  "validation_used_for_selection": false
+}

@@ -1,0 +1,35 @@
+{
+  "format_version": 1,
+  "kind": "numerical_method",
+  "scope": "advective-surface-enthalpy-v1",
+  "parameters": {
+    "operator": "pressure enthalpy + directed-S mixing + finite-capacity surfaces",
+    "solver": "BiCGStab correction",
+    "species_unchanged": true,
+    "physical_step_unchanged": true
+  },
+  "evidence": {
+    "result_path": "/home/konstantin/work/battery-sim/data/development/fsri30-joint-enthalpy-preflight-20261026-r1/regressions.json",
+    "result_sha256": "f3e1520055071d878736c09f1be8fba6dc8c51a6d05a7a9f11c0d1a0aace4209",
+    "preflight_path": "/home/konstantin/work/battery-sim/data/development/fsri30-joint-enthalpy-preflight-20261026-r1/report.json",
+    "full_warmup_validation": false,
+    "numerical_checks": {
+      "accepted": true,
+      "simultaneous_dense_reference_cases": 38,
+      "mass_energy_oxygen": true,
+      "channel_energy_ledger": true,
+      "cold_real_mesh": true
+    },
+    "whole_cascade_verified": false
+  },
+  "compatibility": {
+    "solver": "CUDA averaged gas",
+    "mixing": "implicit_surfaces",
+    "finite_surface_capacity": true
+  },
+  "qualification": "candidate",
+  "producer_core": "6aa586496f59297caa81356c0fff28a17ffe733ba4a9693fb6f4a7e951f7813e",
+  "transferable_as": "numerical_method",
+  "calibrated": false,
+  "validation_passed": false
+}

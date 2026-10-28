@@ -1,0 +1,38 @@
+{
+  "status": "complete",
+  "stage": "conditioned-hot-film",
+  "checkpoint_sha": "9d8bad0ddb5dc78f27725203ee908cc71f606f0f205febd14adddc81a40c029f",
+  "source_scenario_sha": "55188986af4d6184887039d9db4b0521ca3cf60b81223f2935e76453a44e75a7",
+  "core_sha": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "source_run": "/home/konstantin/work/battery-sim/data/development/fsri30-b17-hot-film-075-2200-20261027-r1",
+  "source_checkpoint_time_s": 1899.9999999999272,
+  "response_multiplier": 0.8333333333333334,
+  "end_s": 2199.9999999999727,
+  "reject_pulse_before_s": 2034.0,
+  "progress": {
+    "time_s": 2199.9999999999727,
+    "wall_s": 460.396581419,
+    "pulses": [
+      {
+        "channel": "B17",
+        "time_s": 2053.0,
+        "rise_k": 572.2055313111971,
+        "slope_k_s": 121.8151924601342
+      },
+      {
+        "channel": "B18",
+        "time_s": 2053.0,
+        "rise_k": 522.3542792563312,
+        "slope_k_s": 120.20228593316233
+      }
+    ],
+    "temperatures_c": {
+      "B10": 700.8742828144262,
+      "B17": 769.374464343182,
+      "B18": 768.7253842593435
+    },
+    "max_thermal_residual_j": 2.6219640858471394e-07,
+    "max_mass_residual_kg": 4.707345624410664e-14
+  },
+  "wall_s": 460.396581419
+}

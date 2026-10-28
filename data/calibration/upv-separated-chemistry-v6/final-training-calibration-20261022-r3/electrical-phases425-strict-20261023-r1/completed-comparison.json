@@ -1,0 +1,172 @@
+{
+  "experiments": {
+    "no-cooling": {
+      "complete": true,
+      "end_s": 1100.0,
+      "wall_s": 802.121731455,
+      "realtime_ratio": 1.371362920195002,
+      "minimum_regular_step_s": 0.01,
+      "predicted_pressure_peak_bar": 7.980380628520771,
+      "predicted_pressure_peak_s": 890.0,
+      "observed_pressure_peak_bar": 7.9827295,
+      "observed_pressure_peak_s": 887.1099998010322,
+      "pressure_peak_time_error_s": 2.890000198967755,
+      "peak_observation_spacing_s": 0.45299998950213194,
+      "peak_sampling_note": "Dense sampling around the event; observation spacing is recorded separately from integration dt",
+      "temperature_peaks": {
+        "101": {
+          "predicted_c": 85.7787713404528,
+          "predicted_time_s": 1025.0,
+          "observed_c": 85.495
+        },
+        "102": {
+          "predicted_c": 50.8087254541054,
+          "predicted_time_s": 1100.0,
+          "observed_c": 53.60500000000002
+        },
+        "107": {
+          "predicted_c": 96.20543977241942,
+          "predicted_time_s": 915.0319999549538,
+          "observed_c": 84.93200000000002
+        },
+        "108": {
+          "predicted_c": 1051.448539055259,
+          "predicted_time_s": 890.4859998961911,
+          "observed_c": 1247.0699999999997
+        },
+        "C2_TIM": {
+          "predicted_c": 253.68585606494446,
+          "predicted_time_s": 892.3670001793653,
+          "observed_c": 329.68500000000006
+        }
+      },
+      "phase_rmse_k": {
+        "pre_burst": {
+          "101": 4.818868466316451,
+          "102": 1.1402216965774583,
+          "107": 3.569261977475786,
+          "108": 1.415242460128558,
+          "C2_TIM": 4.133446206430266,
+          "C2_ISS": 6.911869733282871
+        },
+        "burst_uncertain": {
+          "101": 9.318897521333978,
+          "102": 4.218778384979248,
+          "107": 12.085156342206625,
+          "108": 337.4837368472097,
+          "C2_TIM": 58.75185109981213,
+          "C2_ISS": 365.52658485630513
+        },
+        "early_relaxation": {
+          "101": 10.403955249107684,
+          "102": 2.175797007630988,
+          "107": 12.015828087685298,
+          "108": 53.24071284668717,
+          "C2_TIM": 35.49573934087653,
+          "C2_ISS": 445.73971361246475
+        },
+        "cooling": {
+          "101": 4.661492796206433,
+          "102": 2.544162767405608,
+          "107": 4.741834173147904,
+          "108": 3.6438875310200394,
+          "C2_TIM": 12.538436551382055,
+          "C2_ISS": 238.40257485748918
+        }
+      },
+      "balances": {
+        "max_chemical_residual_j": 1.018051989376545e-07,
+        "max_mass_residual_kg": 4.773959005888173e-14,
+        "max_oxidizer_residual_kg": 4.0939474033052647e-16,
+        "max_thermal_residual_j": 1.3236422091722488e-07
+      }
+    },
+    "active-cooling": {
+      "complete": true,
+      "end_s": 1626.6089999116957,
+      "wall_s": 1102.941229796,
+      "realtime_ratio": 1.474792088616139,
+      "minimum_regular_step_s": 0.01,
+      "predicted_pressure_peak_bar": 6.606867108527863,
+      "predicted_pressure_peak_s": 1355.0,
+      "observed_pressure_peak_bar": 7.85627575,
+      "observed_pressure_peak_s": 1413.2479998283088,
+      "pressure_peak_time_error_s": -58.24799982830882,
+      "peak_observation_spacing_s": 5.0,
+      "peak_sampling_note": "Only 5 s sampling around the early model event: pressure/TC amplitudes may be under-resolved; no amplitude-convergence claim",
+      "temperature_peaks": {
+        "101": {
+          "predicted_c": 79.55486779213834,
+          "predicted_time_s": 1490.0,
+          "observed_c": 91.935
+        },
+        "102": {
+          "predicted_c": 47.19086752370998,
+          "predicted_time_s": 1626.6089999116957,
+          "observed_c": 51.295000000000016
+        },
+        "107": {
+          "predicted_c": 87.37270831840686,
+          "predicted_time_s": 1380.0,
+          "observed_c": 93.981
+        },
+        "108": {
+          "predicted_c": 947.04520249819,
+          "predicted_time_s": 1355.0,
+          "observed_c": 70.32
+        },
+        "C2_TIM": {
+          "predicted_c": 235.50110886937426,
+          "predicted_time_s": 1365.0,
+          "observed_c": 673.1145
+        }
+      },
+      "phase_rmse_k": {
+        "pre_burst": {
+          "101": 6.180930180135419,
+          "102": 1.6901544838716327,
+          "107": 5.740226873557981,
+          "108": 84.11385230355506,
+          "C2_TIM": 23.286589364299466,
+          "C2_ISS": 62.57921213498857
+        },
+        "burst_uncertain": {
+          "101": 4.549058878421229,
+          "102": 6.7082893129356345,
+          "107": 12.931441988080751,
+          "108": 95.48187484517577,
+          "C2_TIM": 362.3986678555979,
+          "C2_ISS": 481.1630785656032
+        },
+        "early_relaxation": {
+          "101": 3.2874533484382367,
+          "102": 0.9447223554236699,
+          "107": 6.539965128773198,
+          "108": 59.8719965312721,
+          "C2_TIM": 300.498078868553,
+          "C2_ISS": 469.15827590405354
+        },
+        "cooling": {
+          "101": 16.757191402753598,
+          "102": 2.804995162566493,
+          "107": 30.12312024952543,
+          "108": 18.436424081168077,
+          "C2_TIM": 157.45277654087366,
+          "C2_ISS": 208.2510534918003
+        }
+      },
+      "balances": {
+        "max_chemical_residual_j": 7.290509529411793e-08,
+        "max_mass_residual_kg": 2.6423307986078726e-14,
+        "max_oxidizer_residual_kg": 2.983724378680108e-16,
+        "max_thermal_residual_j": 1.2898817658424377e-07
+      }
+    }
+  },
+  "same_frozen_training_source": true,
+  "ui_guard_strict": true,
+  "chemistry_refitted": false,
+  "validation_passed": false,
+  "validation_boundary_conditioned": true,
+  "hot_electrical_response_is_tested_prior_not_measured": true
+}

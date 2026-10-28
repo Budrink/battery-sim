@@ -1,0 +1,78 @@
+{
+  "last_completed_observation_s": 3744.9999999999773,
+  "common_comparison_until_s": 3744.9999999999773,
+  "common_control_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 148.84030265955025,
+    "quantile_rmse_k": [
+      102.6789628994168,
+      73.07665136029775,
+      170.4017945372433,
+      209.03063126130314
+    ],
+    "tail_temperature_c": [
+      653.3670222016435,
+      755.691153907707,
+      864.2750712936523,
+      907.1283891666063
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "common_candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 619.8362863634843,
+    "quantile_rmse_k": [
+      530.1981665533576,
+      642.7928686689157,
+      648.270578529674,
+      649.8004130162946
+    ],
+    "tail_temperature_c": [
+      35.33409256856169,
+      46.03889707578378,
+      53.308278108718355,
+      54.88645119144019
+    ],
+    "positive_rise_sum_k": [
+      0.011209334690647665,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 619.8362863634843,
+    "quantile_rmse_k": [
+      530.1981665533576,
+      642.7928686689157,
+      648.270578529674,
+      649.8004130162946
+    ],
+    "tail_temperature_c": [
+      35.33409256856169,
+      46.03889707578378,
+      53.308278108718355,
+      54.88645119144019
+    ],
+    "positive_rise_sum_k": [
+      0.011209334690647665,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+  "common_cooling_rmse_change_k": 470.99598370393403,
+  "radiative_energy_out_j": 13839.921226615246
+}

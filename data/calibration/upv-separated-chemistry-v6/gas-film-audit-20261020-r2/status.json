@@ -1,0 +1,67 @@
+{
+  "status": "complete",
+  "pid": 1522594,
+  "native_sha256": "1565f239c5354d4f29dec0ac35018a9c75149f24cc838b00c4569637c0bd4f31",
+  "cases": {
+    "\u0411\u0435\u0437 \u043f\u0440\u043e\u043a\u043b\u0430\u0434\u043e\u043a": {
+      "contacts": {
+        "C3:case:-x": {
+          "conductance_w_k": 0.025435054240509652,
+          "heat_to_solid_j": 67.03042198269624,
+          "positive_step_heat_j": 73.72056020712274,
+          "negative_step_heat_j": -6.690138224426505
+        }
+      },
+      "gas_energy_balance": {
+        "mass_kg": 8.315446659215979e-06,
+        "chemical_j": 15.910237317691484,
+        "released_energy_j": 10.849975466722947,
+        "oxidizer_kg": 8.326175675760715e-14,
+        "vapor_kg": 3.354853609065682e-06,
+        "gas_energy_change_j": 1.8030716481568236,
+        "r3_during_suffix_j": 10.849975466722947,
+        "net_inward_transport_energy_j": 57.98351816413013,
+        "inferred_heat_to_surfaces_j": 67.03042198269625
+      },
+      "closure_j": -1.4210854715202004e-14,
+      "trace_temperature_difference_k": 0.0,
+      "wall_s": 79.84734881,
+      "speed": 2.5047794695839944,
+      "minimum_regular_step_s": 0.005
+    },
+    "\u0412\u0441\u0435 \u043f\u0440\u043e\u043a\u043b\u0430\u0434\u043a\u0438": {
+      "contacts": {
+        "C3:case:-x": {
+          "conductance_w_k": 0.025435054240509652,
+          "heat_to_solid_j": -1.648571643036108,
+          "positive_step_heat_j": 5.464024113925259,
+          "negative_step_heat_j": -7.112595756961368
+        },
+        "ISS1": {
+          "conductance_w_k": 0.025435054240509652,
+          "heat_to_solid_j": 17.817451545251707,
+          "positive_step_heat_j": 17.817451545251707,
+          "negative_step_heat_j": 0.0
+        }
+      },
+      "gas_energy_balance": {
+        "mass_kg": 5.296602113258554e-06,
+        "chemical_j": 8.593791144111956,
+        "released_energy_j": 1.1903036035058938,
+        "oxidizer_kg": 1.4298180846315343e-10,
+        "vapor_kg": 2.5423907949993297e-06,
+        "gas_energy_change_j": 1.3066887396252755,
+        "r3_during_suffix_j": 1.1903036035058938,
+        "net_inward_transport_energy_j": 16.285265038335012,
+        "inferred_heat_to_surfaces_j": 16.16887990221563
+      },
+      "closure_j": -2.842170943040401e-14,
+      "trace_temperature_difference_k": 0.0,
+      "wall_s": 51.895236841,
+      "speed": 3.8539182432633075,
+      "minimum_regular_step_s": 0.005
+    }
+  },
+  "physics_unchanged": true,
+  "active_case": "\u0412\u0441\u0435 \u043f\u0440\u043e\u043a\u043b\u0430\u0434\u043a\u0438"
+}

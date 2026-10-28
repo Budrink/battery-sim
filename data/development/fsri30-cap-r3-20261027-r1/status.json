@@ -1,0 +1,75 @@
+{
+  "status": "pruned",
+  "stage": "fresh-from-zero",
+  "pid": 2193986,
+  "source": "/home/konstantin/work/battery-sim/data/development/fsri30-r2x128-vent25-diff3-20261027-r1/scenario.json",
+  "source_sha256": "f750be0e6c17bc15748f1522a1cbecba58aa5718a0dfbdafc4aa2c2fdf304cd1",
+  "core_sha256": "f87267dcf7421b131d934e0730a5692fd8535e1cd8d8a848a243b10bf769c9c5",
+  "scenario_sha256": "f7282bca7d60b357524027a7c4a9eea3a039de89b2b7e45276beebf062a5d7e9",
+  "controls": {
+    "cap_conductivity_w_m_k": 0.05,
+    "cap_faces": "+z only, all 30 batteries",
+    "cap_material_is_unmeasured_proxy": true,
+    "gas_fuel_energy_multiplier": 0.7,
+    "direct_r2_heat_per_mass_unchanged": true,
+    "r2_rate_relative_to_last_run": 0.9909250635970733,
+    "r2_rate_per_s": 0.00018734096916943785,
+    "r3_rate_multiplier": 1.0,
+    "outlet_hydraulic_resistance": 25.0,
+    "mixing_diffusivity_m2_s": 0.00018000000000000004,
+    "fresh_initial_state": true,
+    "calibrated": false,
+    "validation_passed": false,
+    "objective": "Primary onset and cooling shape; secondary timing must also qualify",
+    "timing_correction": "Offline previous onset 1761 -> target1763 using -219.3857 s/log(rate); cap feedback is not fitted"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "progress": {
+    "time_s": 1930.0,
+    "wall_s": 1002.125379878,
+    "pulses": [
+      {
+        "channel": "B10",
+        "time_s": 1752.0,
+        "rise_k": 1012.1635662523872,
+        "slope_k_s": 135.22110106401408
+      },
+      {
+        "channel": "B17",
+        "time_s": 1918.0,
+        "rise_k": 401.7791480056436,
+        "slope_k_s": 97.7541775294203
+      },
+      {
+        "channel": "B18",
+        "time_s": 1916.0,
+        "rise_k": 403.9277616375875,
+        "slope_k_s": 92.63840426396908
+      }
+    ],
+    "secondary_events": [
+      {
+        "cell": "B17",
+        "time_s": 1920.0
+      },
+      {
+        "cell": "B18",
+        "time_s": 1920.0
+      }
+    ],
+    "temperatures_c": {
+      "B10": 696.9615850711615,
+      "B17": 545.8283774907904,
+      "B18": 537.6634467488484
+    },
+    "ledgers": {
+      "max_chemical_residual_j": 3.213062882423401e-08,
+      "max_mass_residual_kg": 6.972200594645983e-14,
+      "max_oxidizer_residual_kg": 1.5432100042289676e-14,
+      "max_thermal_residual_j": 3.62793798558414e-07
+    }
+  },
+  "monitor_pid": 2194016,
+  "reason": "Pruned: Secondary pulse over 100 s early relative to T4 proxy (2157 s)"
+}

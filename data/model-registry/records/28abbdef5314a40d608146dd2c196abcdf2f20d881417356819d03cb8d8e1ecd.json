@@ -1,0 +1,24 @@
+{
+  "format_version": 1,
+  "kind": "geometry_prior",
+  "scope": "fsri30-closed-exhaust-ablation",
+  "parameters": {
+    "module_exits_closed": true
+  },
+  "evidence": {
+    "result_path": "/home/konstantin/work/battery-sim/data/development/fsri30-closed-exhausts-20261024-r1/summary.json",
+    "result_sha256": "ddf09b4061355c122a29783a73fd1ac0d4f241beabade71f48a7006c7069c336",
+    "conditioned_transport_diagnostic": true,
+    "full_warmup_validation": false,
+    "note": "Counterfactual closed boundary, not measured geometry; preserve all old vent history"
+  },
+  "compatibility": {
+    "fixture": "fsri30-reconstruction-v1",
+    "stage": "conditioned-at-1755s"
+  },
+  "qualification": "candidate",
+  "producer_core": "9b14777a04a50054ec89283e821d9aeb607f0cab8042841e11fe8eac58008f1e",
+  "transferable_as": "geometry_prior",
+  "calibrated": false,
+  "validation_passed": false
+}

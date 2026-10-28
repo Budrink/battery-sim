@@ -1,0 +1,29 @@
+{
+  "path": "/home/konstantin/work/battery-sim/data/development/fsri30-full20-10-20261025-r1/checks/h-20mm/replay/run.json.gz",
+  "sha256": "edddb3c7309fa646ed47d258586376ebcc6a00628f8c817b3de539176bbec5f6",
+  "cooling": {
+    "complete": true,
+    "envelope_rmse_k": 544.3363254709217,
+    "quantile_rmse_k": [
+      767.0500765035978,
+      452.3466689358427,
+      439.81689540708226,
+      445.85413608229373
+    ],
+    "tail_temperature_c": [
+      1005.7897083520483,
+      1044.729027619659,
+      1083.5106916117384,
+      1096.1749208204242
+    ],
+    "positive_rise_sum_k": [
+      123.37926331070298,
+      125.77579563565473,
+      145.71857827416648,
+      153.88085250009613
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "producer_core": "e7386cc42effc14e1c8bf6a2ffa6c225b77935921458ca5aadfaa9df7cc59f56",
+  "recomputed_on_current_core": false
+}

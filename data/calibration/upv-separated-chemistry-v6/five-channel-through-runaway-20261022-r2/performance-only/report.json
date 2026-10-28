@@ -1,0 +1,24 @@
+{
+  "native_sha256": "e7234238a1dcedad671ee39f3a120047432705a2341a7babdf69b439d6ca9e27",
+  "synthetic": true,
+  "experimental_validation": false,
+  "results": [
+    {
+      "modules": 1,
+      "batteries": 3,
+      "gas_volumes": 1401,
+      "solid_volumes": 340,
+      "wall_s": 12.32793813,
+      "simulated_s": 10.0,
+      "realtime_ratio": 0.8111656543493702,
+      "minimum_regular_step_s": 0.02,
+      "balances": {
+        "max_chemical_residual_j": 1.7695128917694092e-08,
+        "max_mass_residual_kg": 4.884981308350689e-15,
+        "max_oxidizer_residual_kg": 2.42861286636753e-16,
+        "max_thermal_residual_j": 4.487083060666919e-08
+      }
+    }
+  ],
+  "limitation": "Replicated modules with narrow inter-chamber tubes; not evidence of full 30-battery cascade accuracy"
+}

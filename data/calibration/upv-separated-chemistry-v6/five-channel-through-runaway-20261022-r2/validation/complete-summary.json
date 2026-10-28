@@ -1,0 +1,299 @@
+{
+  "timing": {
+    "whole_run_realtime_ratio": 2.4671627970001877,
+    "worst_20s_window": {
+      "realtime_ratio": 0.36273850432020255,
+      "minimum": 0.25,
+      "window_s": 20.0,
+      "wall_s": 430.581,
+      "simulated_s": 1333.4,
+      "scope": "rolling",
+      "accepted": true
+    },
+    "phase_estimates": {
+      "pre_burst": {
+        "simulated_s": 1393.2479998283088,
+        "estimated_wall_s": 513.5617514968928,
+        "realtime_ratio": 2.7129123143757683
+      },
+      "observed_event_and_relaxation": {
+        "simulated_s": 80.0,
+        "estimated_wall_s": 61.29336166222117,
+        "realtime_ratio": 1.305198439610286
+      },
+      "cooling_tail": {
+        "simulated_s": 153.3610000833869,
+        "estimated_wall_s": 84.44835959488603,
+        "realtime_ratio": 1.8160329083843334
+      },
+      "predicted_event_and_relaxation": {
+        "simulated_s": 30.0,
+        "estimated_wall_s": 17.01273540095326,
+        "realtime_ratio": 1.7633848580469331
+      }
+    },
+    "phase_timing_resolution": "Interpolated native progress samples, nominally every 10 wall seconds"
+  },
+  "electrical": {
+    "C2": {
+      "current_input": "voltage_limited_setpoint",
+      "commanded_positive_charge_c": 33136.04000379565,
+      "actual_positive_charge_c": 31549.30663047906,
+      "charge_deficit_fraction": 0.04788542545019967,
+      "voltage_limited_time_s": 70.94119183359794,
+      "actual_terminal_work_j": 165054.21866286785,
+      "joule_energy_j": 82184.91568333338,
+      "electrical_chemical_input_j": 78945.31808395311,
+      "accounted_energy_minus_delivered_work_j": -3923.9848955813504,
+      "measured_actual_current_available": false
+    }
+  },
+  "ruptures": [
+    {
+      "id": "rupture-C2--x-0",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--x-1",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--x-2",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--x-3",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--x-5",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--x-6",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--x-7",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--x-8",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+x-0",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+x-1",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+x-2",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+x-3",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+x-5",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+x-6",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+x-7",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+x-8",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--y-0",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--y-1",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--y-2",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--y-3",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--y-5",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--y-6",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--y-7",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--y-8",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+y-0",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+y-1",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+y-2",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+y-3",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+y-5",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+y-6",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+y-7",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+y-8",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+z-0",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+z-1",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+z-2",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+z-3",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+z-5",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+z-6",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+z-7",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2-+z-8",
+      "kind": "shell_rupture",
+      "time_s": 1286.4303198873313
+    },
+    {
+      "id": "rupture-C2--x-4",
+      "kind": "shell_rupture",
+      "time_s": 1322.4799999999977
+    },
+    {
+      "id": "rupture-C2-+x-4",
+      "kind": "shell_rupture",
+      "time_s": 1322.4799999999977
+    },
+    {
+      "id": "rupture-C2-+y-4",
+      "kind": "shell_rupture",
+      "time_s": 1323.7799999999966
+    },
+    {
+      "id": "rupture-C2--y-4",
+      "kind": "shell_rupture",
+      "time_s": 1324.439999999996
+    },
+    {
+      "id": "rupture-C2-+z-4",
+      "kind": "shell_rupture",
+      "time_s": 1324.5999999999958
+    },
+    {
+      "id": "rupture-C3--x-0",
+      "kind": "shell_rupture",
+      "time_s": 1354.2909596619938
+    },
+    {
+      "id": "rupture-C3--x-1",
+      "kind": "shell_rupture",
+      "time_s": 1354.2909596619938
+    },
+    {
+      "id": "rupture-C3--x-2",
+      "kind": "shell_rupture",
+      "time_s": 1354.2909596619938
+    }
+  ],
+  "residuals": {
+    "max_chemical_residual_j": 7.05476850271225e-08,
+    "max_mass_residual_kg": 2.6423307986078726e-14,
+    "max_oxidizer_residual_kg": 1.4224732503009818e-15,
+    "max_thermal_residual_j": 1.603257260285318e-07
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "status": "complete_trials_not_validated",
+  "pid": 1735520,
+  "native_sha256": "6cda01417eb1e30d088faa2c2c38bc1c0f5128ffbdfcd01d7a564b97915672c3",
+  "reference": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/reverse-cooling-fresh-20261023-r1",
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "current_input": "measured",
+  "validation_used": false,
+  "max_slowdown": 5.0,
+  "records": [
+    {
+      "trial": "trial-000",
+      "parameters": {
+        "entry": 0.001,
+        "path": 1.0,
+        "opening_rate": 1.0,
+        "strength": 1.0,
+        "case_h": 1.0,
+        "resistance_charge_delta": 0.0,
+        "r2_rate": 1.0,
+        "bulk_metric": 1.0,
+        "resistance_scale": 1.0,
+        "resistance_temperature_delta": 0.0,
+        "r2_activation_delta": 0.0,
+        "product_conductivity_scale": 1.0,
+        "damaged_span": 1.0,
+        "damaged_logit": 0.0,
+        "core_contact_damage": 0.0,
+        "casing_contact_damage": 0.0,
+        "wall_hot_scale": 1.0,
+        "reverse_hot_logit": 0.0,
+        "wall_hot_knee_k": 700.0,
+        "casing_damage_contrast": 0.0,
+        "reverse_profile_power": 0.0,
+        "casing_gas_damage": 0.0,
+        "damaged_iss_scale": 1.0,
+        "core_surface_power": 0.0,
+        "intact_iss_scale": 1.0,
+        "iss_temperature_contrast": 0.0,
+        "damaged_tim_scale": 1.0,
+        "al_surface_softening": 0.0,
+        "tim_al_scale": 1.0,
+        "mobile_energy_fraction": 0.7,
+        "jet_fraction": 0.7,
+        "witness_mouth": 0.00675,
+        "pad_footprint": 0.45,
+        "backing_fraction": 0.01
+      },
+      "fresh": true,
+      "accepted": false,
+      "status": "rejected",
+      "error": "Pruned: pressure front too broad; pressure peak timing outside 3 s; pressure burst missing; 108 front too broad; 108 peak timing outside 3 s; 108 burst missing; C1/ISS rapid pulse below half the observed jump; Chamber pressure peak outside 30% exploration bracket; Missing witness heating"
+    }
+  ],
+  "best": null,
+  "accepted_calibration": false,
+  "points": [
+    {}
+  ],
+  "previous_core_sha256": "e7234238a1dcedad671ee39f3a120047432705a2341a7babdf69b439d6ca9e27",
+  "fresh_core_transition": true,
+  "overlay_base": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/stored-charge-initial-scene-20261023-r1.json",
+  "overlay_base_sha256": "39a511b87f41bf5de0032723261eebfa8d63d1a519a32d7cadb0796b09a6e9d4",
+  "gas_contact_only_pivot_verified": false
+}

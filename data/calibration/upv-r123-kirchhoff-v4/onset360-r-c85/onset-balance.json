@@ -1,0 +1,32 @@
+{
+  "experiment": "no-cooling",
+  "onset_s": 26.9559999166122,
+  "window_s": 360.0,
+  "temperature_k": 300.2210574474542,
+  "delta_k": {
+    "101": 6.719746788100736,
+    "102": 0.08813192961792993,
+    "107": 5.361163806497871,
+    "108": 0.7124361727945825,
+    "C2_TIM": 17.729514857908498,
+    "C2_ISS": 22.57874889145637
+  },
+  "mean_c2_k": 20.154131874682434,
+  "mean_all_k": 8.864957074395997,
+  "stack_capacity_j_per_k": 3032.8692029999997,
+  "c2_capacity_j_per_k": 401.35144599999995,
+  "stored_if_mixed_j": 61124.845875925006,
+  "stored_if_c2_isolated_j": 8088.889970778485,
+  "stored_if_mean_all_j": 26886.255296852596,
+  "integral_i2_a2s": 438141.33919000113,
+  "supplied_ui_j": 63461.97869450013,
+  "well_mixed_resistance_ohm": 0.0195,
+  "isolated_c2_resistance_ohm": 0.018461827833302708,
+  "r1_overcharge_rate_per_s": 0.0006191944643800169,
+  "r1_converted_fraction": 0.19981314287123286,
+  "r2_rate_per_s": 3.3730497260155474e-05,
+  "r2_converted_fraction": 0.01206955055790293,
+  "r2_treated_as_off": true,
+  "r1_heat_neutral": true,
+  "notes": "Observed \u0394T~0.05 K. Neighbours barely move, so heat is still in C2: isolated C*\u0394T matches ~2 m\u03a9. Mixed-stack 15 m\u03a9 would require the whole module to rise. R2/R1 heat is not a 10 s source."
+}

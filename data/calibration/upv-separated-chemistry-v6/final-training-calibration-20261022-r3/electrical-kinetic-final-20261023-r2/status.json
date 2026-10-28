@@ -1,0 +1,36 @@
+{
+  "status": "stopped",
+  "pid": 1728068,
+  "native_sha256": "e7234238a1dcedad671ee39f3a120047432705a2341a7babdf69b439d6ca9e27",
+  "reference": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/final-fresh-check-20261023-r2",
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "current_input": "measured",
+  "validation_used": false,
+  "max_slowdown": 5.0,
+  "records": [],
+  "best": null,
+  "accepted_calibration": false,
+  "points": [
+    {
+      "wall_hot_scale": 0.95,
+      "intact_iss_scale": 1.1,
+      "r2_rate": 1.0044642857142858
+    }
+  ],
+  "overlay_base": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/electrical-kinetic-search-20261023-r5/trial-000/scenario.json",
+  "overlay_base_sha256": "02723e262dc82c588466bab1684f9837ec5abe4cc2c1ea8d75755f20bafce230",
+  "gas_contact_only_pivot_verified": false
+}

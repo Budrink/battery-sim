@@ -1,0 +1,95 @@
+{
+  "status": "complete",
+  "stage": "done",
+  "checkpoint_sha": "97623cea1d814ae781da33cc5e5a4035736f01612b664ba2f4c6168bfe116d74",
+  "original_core_sha": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "diagnostic_probe_sha": "3c443c9f0f534c9240244ad28a13e770c6911a63e30946b8213e85f0b9f9336a",
+  "trials": [
+    {
+      "threshold_pa": 40000.0,
+      "status": "complete",
+      "cells": {
+        "B10": {
+          "first_observed_open_s": 1600.0,
+          "final_open_fraction": 0.0005506082176847261,
+          "transferred_mass_kg": 0.0012981567393685087,
+          "final_mean_c": 185.16274598397712,
+          "final_pressure_pa": 132489.11562455381
+        },
+        "B17": {
+          "first_observed_open_s": null,
+          "final_open_fraction": 0.0,
+          "transferred_mass_kg": 0.0,
+          "final_mean_c": 40.98813706788792,
+          "final_pressure_pa": 138816.37543083236
+        },
+        "B18": {
+          "first_observed_open_s": null,
+          "final_open_fraction": 0.0,
+          "transferred_mass_kg": 0.0,
+          "final_mean_c": 40.92550500875069,
+          "final_pressure_pa": 138747.77011508946
+        }
+      },
+      "wall_s": 118.252861594
+    },
+    {
+      "threshold_pa": 80000.0,
+      "status": "complete",
+      "cells": {
+        "B10": {
+          "first_observed_open_s": 1600.0,
+          "final_open_fraction": 0.001356928193612454,
+          "transferred_mass_kg": 0.0012505609008470146,
+          "final_mean_c": 187.03546312293173,
+          "final_pressure_pa": 101410.9915514241
+        },
+        "B17": {
+          "first_observed_open_s": null,
+          "final_open_fraction": 0.0,
+          "transferred_mass_kg": 0.0,
+          "final_mean_c": 40.97982797536628,
+          "final_pressure_pa": 138809.60150637408
+        },
+        "B18": {
+          "first_observed_open_s": null,
+          "final_open_fraction": 0.0,
+          "transferred_mass_kg": 0.0,
+          "final_mean_c": 40.916567555254346,
+          "final_pressure_pa": 138740.41204293183
+        }
+      },
+      "wall_s": 115.517197713
+    },
+    {
+      "threshold_pa": 160000.0,
+      "status": "complete",
+      "cells": {
+        "B10": {
+          "first_observed_open_s": 1600.0,
+          "final_open_fraction": 0.0009821868022994403,
+          "transferred_mass_kg": 0.0012062711141215363,
+          "final_mean_c": 187.90180089701346,
+          "final_pressure_pa": 104073.15282528849
+        },
+        "B17": {
+          "first_observed_open_s": null,
+          "final_open_fraction": 0.0,
+          "transferred_mass_kg": 0.0,
+          "final_mean_c": 40.96909286651157,
+          "final_pressure_pa": 138800.53942858707
+        },
+        "B18": {
+          "first_observed_open_s": null,
+          "final_open_fraction": 0.0,
+          "transferred_mass_kg": 0.0,
+          "final_mean_c": 40.90530318480825,
+          "final_pressure_pa": 138730.93851522394
+        }
+      },
+      "wall_s": 112.939462081
+    }
+  ],
+  "control_max_temperature_delta_k": 0.0,
+  "current_threshold_pa": 160000.0
+}

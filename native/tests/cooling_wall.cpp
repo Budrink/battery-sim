@@ -49,6 +49,7 @@ int main(){try {
     // half-volume resistance. No fluid state or custom wall kernel is involved.
     auto isolated=fixture(10);isolated.cells={isolated.cells[1]};auto& w=isolated.cells[0];
     w.position_m={0,0,0};w.thermal_divisions={1,1,1};w.initial_temperature_k=400.;
+    w.surface_connectivity={}; // Explicit neutral-metric analytical limit.
     isolated.interfaces.clear();isolated.ports={{"sink","wall",0,"contact","+x",.0004,{.01,0,0},{1,0,0}}};
     isolated.boundaries={{"water","sink",0,300.,10.}};
     Simulation exact(isolated);exact.run_to_end();

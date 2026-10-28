@@ -1,0 +1,169 @@
+[
+  {
+    "label": "neutral",
+    "parameters": {
+      "resistance_ohm": 0.024,
+      "resistance_temperature": 0.0,
+      "product_conductivity_ratio": 0.7,
+      "r1_rate": 1e-06,
+      "r1_activation": 40400.0,
+      "overcharge_gain": 0.46463453985661696,
+      "r2_rate": 100.0,
+      "r2_activation": 100000.0,
+      "energy_j": 450000.0,
+      "gas_fraction": 0.7,
+      "gas_yield": 0.4,
+      "gas_yield_temperature": 0.03,
+      "gas_rate": 20.0,
+      "gas_reference_k": 600.0,
+      "gas_activation": 80000.0,
+      "precursor_yield": 0.6,
+      "precursor_temperature": 0.0,
+      "precursor_voltage": 0.0,
+      "iss_h": 287.71996866857825,
+      "tim_h": 2000.0,
+      "case_h": 500.0,
+      "environment_h": 8.0,
+      "surface_iss": 0.0,
+      "surface_tim": 0.0,
+      "bulk_slope": 0.0,
+      "shell_strength_pa": 1000000.0,
+      "opening_rate": 0.2,
+      "sink_g": 10.0
+    },
+    "status": "complete",
+    "objective": 131.2797174645346,
+    "metrics": {
+      "warmup": {
+        "101": {
+          "rmse_k": 6.778145996745913,
+          "bias_k": -4.658775672087296
+        },
+        "102": {
+          "rmse_k": 1.094116772883641,
+          "bias_k": 0.9167745962803481
+        },
+        "107": {
+          "rmse_k": 5.754770017340022,
+          "bias_k": -3.835110030177301
+        },
+        "108": {
+          "rmse_k": 1.313647264269923,
+          "bias_k": -0.726604427505111
+        },
+        "C2_TIM": {
+          "rmse_k": 9.99691422963647,
+          "bias_k": -6.042897320613105
+        },
+        "C2_ISS": {
+          "rmse_k": 12.456540841628131,
+          "bias_k": -5.007494306454355
+        }
+      },
+      "pressure": {
+        "peak_bar": 1.0781522262836845,
+        "observed_peak_bar": 1.0622290969156691,
+        "peak_time_s": 866.168000032194,
+        "rmse_bar": 0.008427844872176318
+      },
+      "joule_j": {
+        "C1": 0.0,
+        "C2": 25568.88840356061,
+        "C3": 0.0
+      },
+      "heat_sources": {
+        "joule_j": 25568.88840356061,
+        "r2_local_j": 57202.01994508893,
+        "r3_j": 35.1023602361678,
+        "joule_share": 0.3087805847023721
+      },
+      "electrical_response": {
+        "max_resistance_ohm": 0.03117895266938999,
+        "max_power_w": 37.9762761408437,
+        "charging_last_resistance_ohm": 0.03117895266938999,
+        "voltage_decomposition": "Effective R includes unresolved polarization; 3.65\u20134.2 V interval is a prior"
+      },
+      "wall_s": 188.57373866,
+      "steps": 231385,
+      "balance": {
+        "max_thermal_residual_j": 2.1330197341740131e-07,
+        "max_chemical_residual_j": 1.0244548320770264e-08,
+        "max_mass_residual_kg": 1.509903313490213e-14
+      }
+    }
+  },
+  {
+    "label": "warm-soft-hot-open",
+    "parameters": {
+      "resistance_ohm": 0.024,
+      "resistance_temperature": 0.0,
+      "product_conductivity_ratio": 0.7,
+      "r1_rate": 1e-06,
+      "r1_activation": 40400.0,
+      "overcharge_gain": 0.55,
+      "r2_rate": 100.0,
+      "r2_activation": 100000.0,
+      "energy_j": 450000.0,
+      "gas_fraction": 0.7,
+      "gas_yield": 0.4,
+      "gas_yield_temperature": 0.03,
+      "gas_rate": 20.0,
+      "gas_reference_k": 600.0,
+      "gas_activation": 80000.0,
+      "precursor_yield": 0.6,
+      "precursor_temperature": 0.0,
+      "precursor_voltage": 0.0,
+      "iss_h": 287.71996866857825,
+      "tim_h": 2000.0,
+      "case_h": 500.0,
+      "environment_h": 8.0,
+      "surface_iss": 0.0,
+      "surface_tim": 0.0,
+      "bulk_slope": 0.0,
+      "shell_strength_pa": 1000000.0,
+      "opening_rate": 0.2,
+      "sink_g": 10.0,
+      "case_warm_response": -0.8,
+      "case_hot_response": 2.0
+    },
+    "status": "pruned",
+    "error": "Pruned: C2_ISS: trailing interval RMSE 29.57 K > 21.07 K at 765.000 s"
+  },
+  {
+    "label": "warm-soft-hot-open-slower",
+    "parameters": {
+      "resistance_ohm": 0.024,
+      "resistance_temperature": 0.0,
+      "product_conductivity_ratio": 0.7,
+      "r1_rate": 1e-06,
+      "r1_activation": 40400.0,
+      "overcharge_gain": 0.5,
+      "r2_rate": 100.0,
+      "r2_activation": 100000.0,
+      "energy_j": 450000.0,
+      "gas_fraction": 0.7,
+      "gas_yield": 0.4,
+      "gas_yield_temperature": 0.03,
+      "gas_rate": 20.0,
+      "gas_reference_k": 600.0,
+      "gas_activation": 80000.0,
+      "precursor_yield": 0.6,
+      "precursor_temperature": 0.0,
+      "precursor_voltage": 0.0,
+      "iss_h": 287.71996866857825,
+      "tim_h": 2000.0,
+      "case_h": 500.0,
+      "environment_h": 8.0,
+      "surface_iss": 0.0,
+      "surface_tim": 0.0,
+      "bulk_slope": 0.0,
+      "shell_strength_pa": 1000000.0,
+      "opening_rate": 0.2,
+      "sink_g": 10.0,
+      "case_warm_response": -0.8,
+      "case_hot_response": 2.0
+    },
+    "status": "pruned",
+    "error": "Pruned: C2_ISS: trailing interval RMSE 26.06 K > 20.00 K at 810.000 s"
+  }
+]

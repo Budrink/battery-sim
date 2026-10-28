@@ -1,0 +1,510 @@
+{
+  "last_observed_s": 2289.9999999999773,
+  "primary_s": 1763.0,
+  "partial": true,
+  "assessment": {
+    "evaluated": true,
+    "accepted": false,
+    "phase_window_complete": false,
+    "last_observed_s": 2289.9999999999773,
+    "reason": "Missing first hot arrival wave(s) at 2136s within 100s timing error limit",
+    "constraint": 1.0,
+    "primary_offset_s": 0.0,
+    "timing_error_s": 3.0,
+    "timing_target_met": false,
+    "pulse_match": {
+      "due": 1,
+      "matched": 1,
+      "missing": [],
+      "pairs": [
+        {
+          "reference_time_s": 1763.0,
+          "model_time_s": 1763.0,
+          "offset_s": 0.0,
+          "reference_channels": [
+            "T2",
+            "T5"
+          ],
+          "model_channels": [
+            "B10"
+          ]
+        }
+      ],
+      "worst_offset_s": 0.0,
+      "target_met": true
+    },
+    "arrival_match": {
+      "due": 2,
+      "matched": 1,
+      "missing": [
+        {
+          "reference_time_s": 2136.0,
+          "channels": [
+            "T1",
+            "T2",
+            "T3",
+            "T4"
+          ],
+          "nearest_any_model_group_s": 374.0
+        }
+      ],
+      "pairs": [
+        {
+          "reference_time_s": 1765.0,
+          "model_time_s": 1762.0,
+          "offset_s": -3.0,
+          "reference_channels": [
+            "T5"
+          ],
+          "model_channels": [
+            "B10"
+          ]
+        }
+      ],
+      "worst_offset_s": 3.0,
+      "target_met": false
+    },
+    "model": {
+      "pulses": [
+        {
+          "channel": "B10",
+          "time_s": 1763.0,
+          "rise_k": 971.5827035921702,
+          "slope_k_s": 204.1668547901569
+        }
+      ],
+      "arrivals": [
+        {
+          "channel": "B10",
+          "time_s": 1762.0
+        }
+      ],
+      "pulse_groups": [
+        {
+          "time_s": 1763.0,
+          "end_s": 1763.0,
+          "events": [
+            {
+              "channel": "B10",
+              "time_s": 1763.0,
+              "rise_k": 971.5827035921702,
+              "slope_k_s": 204.1668547901569
+            }
+          ],
+          "channels": [
+            "B10"
+          ]
+        }
+      ],
+      "arrival_groups": [
+        {
+          "time_s": 1762.0,
+          "end_s": 1762.0,
+          "events": [
+            {
+              "channel": "B10",
+              "time_s": 1762.0
+            }
+          ],
+          "channels": [
+            "B10"
+          ]
+        }
+      ]
+    },
+    "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+    "necessary_not_sufficient": true,
+    "objective": null
+  },
+  "physical_error": null,
+  "calibrated": false,
+  "validation_passed": false,
+  "native_sha256": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "run_sha256": "5624d647949eb969fc53de0944f89ad6d349676c040d8bb17eafd13a4ee02a4e",
+  "since_start": {
+    "interval_s": [
+      0.0,
+      2289.9999999999773
+    ],
+    "vent_net": {
+      "transferred_mass_kg": 0.011297566794575206,
+      "transferred_chemical_j": 82424.88115175124,
+      "delivered_gas_energy_j": 4830.8428282055065,
+      "transferred_oxidizer_kg": 0.00013642851765999263
+    },
+    "escaped_thermal_j": 52586.49437623868,
+    "escaped_chemical_j": 25480.48273233927,
+    "escaped_net_mass_kg": 0.014100968077560484,
+    "r3_inside_including_battery_pores_j": 449.54044965871435,
+    "r3_outside_j": 56630.68991674758,
+    "remaining_fuel_inside_j": 990.0408470907869,
+    "remaining_fuel_outside_j": 313.70850266349083,
+    "oxygen_inside_kg": 1.3006469186671588e-06,
+    "gas_sensible_inside_change_j": 19.205909214159533,
+    "gas_sensible_outside_change_j": 835.8326150080976,
+    "film_to_source_can_j": -18621.664605473998,
+    "film_to_other_cans_j": 28223.02981226297,
+    "film_to_other_cans_by_id_j": {
+      "B00": 500.65258863351534,
+      "B01": 1055.5702318454858,
+      "B02": 2615.95487385032,
+      "B03": 2603.5735608431696,
+      "B04": 1032.6913921375149,
+      "B05": 425.93346721988814,
+      "B06": 313.7558126818964,
+      "B07": 440.4932750858688,
+      "B08": 775.4037694585473,
+      "B09": 2859.770297445044,
+      "B11": 2842.9659440331416,
+      "B12": 733.9830955615155,
+      "B13": 270.07994867540606,
+      "B14": 264.2096804789668,
+      "B15": 417.71305694511824,
+      "B16": 915.8805873142595,
+      "B17": 2519.2460232378394,
+      "B18": 2513.2260090951418,
+      "B19": 894.0208508469555,
+      "B20": 324.50587424514003,
+      "B21": 202.38515047289533,
+      "B22": 311.1771190852448,
+      "B23": 415.47154465554064,
+      "B24": 643.2274881366203,
+      "B25": 838.0705192753683,
+      "B26": 630.0285328492845,
+      "B27": 344.1228733719407,
+      "B28": 235.86672403539148,
+      "B29": 283.04952074595514
+    },
+    "film_to_abs_j": 14113.468167595183,
+    "solid_boundary_out_j": 4362.851897271813,
+    "hottest_neighbor": {
+      "id": "B09",
+      "mean_temperature_c": 88.56442687349067
+    },
+    "maximum_gas_pressure_pa": 101325.44699143719,
+    "pressure_scope": "Observed exterior and body/top/base cavities; not closed battery pores",
+    "mass_scope": "Signed net gas including displaced air; not tagged battery effluent"
+  },
+  "post_primary": [
+    {
+      "interval_s": [
+        1749.9999999999682,
+        1765.0
+      ],
+      "vent_net": {
+        "transferred_mass_kg": 0.008431174464783647,
+        "transferred_chemical_j": 73642.37141734194,
+        "delivered_gas_energy_j": 4903.378833943001,
+        "transferred_oxidizer_kg": 3.299182722159124e-05
+      },
+      "escaped_thermal_j": 14492.94128347017,
+      "escaped_chemical_j": 10219.94335514639,
+      "escaped_net_mass_kg": 0.10272901451053522,
+      "r3_inside_including_battery_pores_j": 338.4475683397104,
+      "r3_outside_j": 39628.67234356654,
+      "remaining_fuel_inside_j": 3849.4433682383387,
+      "remaining_fuel_outside_j": 25534.34008953661,
+      "oxygen_inside_kg": 1.559881834811705e-09,
+      "gas_sensible_inside_change_j": 34.8788292923673,
+      "gas_sensible_outside_change_j": 28115.790363260643,
+      "film_to_source_can_j": 35.53775901322754,
+      "film_to_other_cans_j": 4615.492933080196,
+      "film_to_other_cans_by_id_j": {
+        "B00": 162.78386307235647,
+        "B01": 187.12373074067068,
+        "B02": 236.6566335137502,
+        "B03": 233.82231893643242,
+        "B04": 181.86529232637062,
+        "B05": 144.91403753983627,
+        "B06": 130.8045302959933,
+        "B07": 158.34218792554032,
+        "B08": 159.94222751772074,
+        "B09": 216.24192527121005,
+        "B11": 210.69375654969198,
+        "B12": 147.35620175404196,
+        "B13": 120.36236316950294,
+        "B14": 120.16046017739147,
+        "B15": 150.88604365653075,
+        "B16": 159.3039789978979,
+        "B17": 204.26754017572966,
+        "B18": 204.4902154372988,
+        "B19": 154.57322048580698,
+        "B20": 124.07460146594984,
+        "B21": 110.0320707981603,
+        "B22": 118.24793238875206,
+        "B23": 147.8834214987413,
+        "B24": 152.31187405323533,
+        "B25": 165.35207169684733,
+        "B26": 153.4915497429962,
+        "B27": 132.51585415119558,
+        "B28": 115.88872781782544,
+        "B29": 111.10430192271947
+      },
+      "film_to_abs_j": 2581.333859752446,
+      "solid_boundary_out_j": 8.958302868411039,
+      "hottest_neighbor": {
+        "id": "B09",
+        "mean_temperature_c": 38.71982312696491
+      },
+      "maximum_gas_pressure_pa": 104000.38882783642,
+      "pressure_scope": "Observed exterior and body/top/base cavities; not closed battery pores",
+      "mass_scope": "Signed net gas including displaced air; not tagged battery effluent"
+    },
+    {
+      "interval_s": [
+        1749.9999999999682,
+        1799.9999999999682
+      ],
+      "vent_net": {
+        "transferred_mass_kg": 0.010412219251125275,
+        "transferred_chemical_j": 80486.76223211343,
+        "delivered_gas_energy_j": 4755.309687741507,
+        "transferred_oxidizer_kg": 3.099333439941747e-05
+      },
+      "escaped_thermal_j": 27034.365541934087,
+      "escaped_chemical_j": 14974.92170572296,
+      "escaped_net_mass_kg": 0.09762124420150789,
+      "r3_inside_including_battery_pores_j": 351.1944415502512,
+      "r3_outside_j": 56601.45792227681,
+      "remaining_fuel_inside_j": 1094.9438599853074,
+      "remaining_fuel_outside_j": 10650.966975020912,
+      "oxygen_inside_kg": 1.027008947468433e-06,
+      "gas_sensible_inside_change_j": 16.71109564813014,
+      "gas_sensible_outside_change_j": 26001.058469098592,
+      "film_to_source_can_j": -1472.4613895951918,
+      "film_to_other_cans_j": 9333.387478463635,
+      "film_to_other_cans_by_id_j": {
+        "B00": 252.50241535486737,
+        "B01": 361.7035295518512,
+        "B02": 662.3164422257094,
+        "B03": 654.6317129630734,
+        "B04": 355.92821735534085,
+        "B05": 217.65568067354155,
+        "B06": 169.01062329742973,
+        "B07": 296.26719500060966,
+        "B08": 288.58541252170164,
+        "B09": 670.5922314923305,
+        "B11": 662.6938833828134,
+        "B12": 268.8303530614965,
+        "B13": 166.0392357365219,
+        "B14": 160.85849818686768,
+        "B15": 228.21425913124426,
+        "B16": 309.84806013673267,
+        "B17": 609.5410064537191,
+        "B18": 609.6961458456029,
+        "B19": 305.84128512651944,
+        "B20": 182.01358564906312,
+        "B21": 148.14002654261068,
+        "B22": 218.26341289595217,
+        "B23": 212.41738450803155,
+        "B24": 258.2187753654792,
+        "B25": 313.17677256498354,
+        "B26": 259.3920468444127,
+        "B27": 190.80089163962,
+        "B28": 150.109259615989,
+        "B29": 150.09913533951953
+      },
+      "film_to_abs_j": 10176.727513644028,
+      "solid_boundary_out_j": 221.26902518608648,
+      "hottest_neighbor": {
+        "id": "B09",
+        "mean_temperature_c": 50.04384066725845
+      },
+      "maximum_gas_pressure_pa": 101326.48993288813,
+      "pressure_scope": "Observed exterior and body/top/base cavities; not closed battery pores",
+      "mass_scope": "Signed net gas including displaced air; not tagged battery effluent"
+    },
+    {
+      "interval_s": [
+        1749.9999999999682,
+        1859.9999999999136
+      ],
+      "vent_net": {
+        "transferred_mass_kg": 0.010412010939255607,
+        "transferred_chemical_j": 80496.71648816887,
+        "delivered_gas_energy_j": 4755.081158150051,
+        "transferred_oxidizer_kg": 2.982143132819109e-05
+      },
+      "escaped_thermal_j": 37058.3327729741,
+      "escaped_chemical_j": 19188.214119625896,
+      "escaped_net_mass_kg": 0.06291982128958955,
+      "r3_inside_including_battery_pores_j": 371.9201727608888,
+      "r3_outside_j": 56629.984652534324,
+      "remaining_fuel_inside_j": 1065.229093803615,
+      "remaining_fuel_outside_j": 6419.1020869161885,
+      "oxygen_inside_kg": 6.167951324131948e-07,
+      "gas_sensible_inside_change_j": 16.708276437146196,
+      "gas_sensible_outside_change_j": 15655.158718955889,
+      "film_to_source_can_j": -3978.465480889981,
+      "film_to_other_cans_j": 12302.624140400776,
+      "film_to_other_cans_by_id_j": {
+        "B00": 288.39225934213715,
+        "B01": 456.75024865831233,
+        "B02": 987.4616768974131,
+        "B03": 978.928511885515,
+        "B04": 448.0340981774601,
+        "B05": 244.20380072168427,
+        "B06": 193.8350527547172,
+        "B07": 317.91149089883726,
+        "B08": 353.2893393243469,
+        "B09": 1043.908257477967,
+        "B11": 1034.5831197209789,
+        "B12": 330.0886478199935,
+        "B13": 178.4831190553877,
+        "B14": 178.41501255344753,
+        "B15": 255.00470999671654,
+        "B16": 391.5233628265394,
+        "B17": 927.3454767851939,
+        "B18": 926.5483681855534,
+        "B19": 384.6755194397795,
+        "B20": 198.80895567327028,
+        "B21": 155.3895760470963,
+        "B22": 234.8970198771703,
+        "B23": 243.30192385179018,
+        "B24": 309.8889631685525,
+        "B25": 384.12218248952837,
+        "B26": 308.66986282336137,
+        "B27": 210.76049213720066,
+        "B28": 163.11695531360587,
+        "B29": 174.28613649721945
+      },
+      "film_to_abs_j": 11272.727289206327,
+      "solid_boundary_out_j": 705.2766436382769,
+      "hottest_neighbor": {
+        "id": "B09",
+        "mean_temperature_c": 58.437811891266335
+      },
+      "maximum_gas_pressure_pa": 101327.16897447442,
+      "pressure_scope": "Observed exterior and body/top/base cavities; not closed battery pores",
+      "mass_scope": "Signed net gas including displaced air; not tagged battery effluent"
+    },
+    {
+      "interval_s": [
+        1749.9999999999682,
+        2134.9999999999955
+      ],
+      "vent_net": {
+        "transferred_mass_kg": 0.010411861079387644,
+        "transferred_chemical_j": 80527.65845372278,
+        "delivered_gas_energy_j": 4754.859895891615,
+        "transferred_oxidizer_kg": 2.5299483053523393e-05
+      },
+      "escaped_thermal_j": 51085.27292287599,
+      "escaped_chemical_j": 24818.916329594842,
+      "escaped_net_mass_kg": 0.0172806666743156,
+      "r3_inside_including_battery_pores_j": 424.18599216407165,
+      "r3_outside_j": 56630.664839786674,
+      "remaining_fuel_inside_j": 1001.6703031730243,
+      "remaining_fuel_outside_j": 818.6616552483412,
+      "oxygen_inside_kg": 1.1489862007385554e-06,
+      "gas_sensible_inside_change_j": 15.837286663873556,
+      "gas_sensible_outside_change_j": 2047.928533601699,
+      "film_to_source_can_j": -11967.9334667866,
+      "film_to_other_cans_j": 21743.39030269316,
+      "film_to_other_cans_by_id_j": {
+        "B00": 426.4705212951322,
+        "B01": 808.9757573504518,
+        "B02": 1945.3871570429437,
+        "B03": 1934.0344891803288,
+        "B04": 789.8866462845186,
+        "B05": 355.9668346248964,
+        "B06": 280.36399922286824,
+        "B07": 400.24492968245426,
+        "B08": 600.6672366491534,
+        "B09": 2102.973377511124,
+        "B11": 2088.3125427367186,
+        "B12": 564.4040040439164,
+        "B13": 234.40294402616865,
+        "B14": 240.67073729280423,
+        "B15": 360.5779996466621,
+        "B16": 696.4532175231008,
+        "B17": 1851.296373023767,
+        "B18": 1846.8249870956815,
+        "B19": 678.778590859519,
+        "B20": 273.85608506607673,
+        "B21": 186.25098009458762,
+        "B22": 291.9175924227085,
+        "B23": 359.0334105229824,
+        "B24": 510.27496536204717,
+        "B25": 652.1815951106566,
+        "B26": 500.3182927959681,
+        "B27": 294.23462088975475,
+        "B28": 213.09602464844465,
+        "B29": 255.53439068771695
+      },
+      "film_to_abs_j": 12878.791464802362,
+      "solid_boundary_out_j": 2991.7442902907237,
+      "hottest_neighbor": {
+        "id": "B09",
+        "mean_temperature_c": 82.24130997707425
+      },
+      "maximum_gas_pressure_pa": 101325.70206461835,
+      "pressure_scope": "Observed exterior and body/top/base cavities; not closed battery pores",
+      "mass_scope": "Signed net gas including displaced air; not tagged battery effluent"
+    },
+    {
+      "interval_s": [
+        1749.9999999999682,
+        2289.9999999999773
+      ],
+      "vent_net": {
+        "transferred_mass_kg": 0.010418289702448345,
+        "transferred_chemical_j": 80549.8172866996,
+        "delivered_gas_energy_j": 4755.452546305469,
+        "transferred_oxidizer_kg": 2.3232763124473922e-05
+      },
+      "escaped_thermal_j": 52490.56703304792,
+      "escaped_chemical_j": 25346.01495183935,
+      "escaped_net_mass_kg": 0.013193792253495944,
+      "r3_inside_including_battery_pores_j": 449.2732678296452,
+      "r3_outside_j": 56630.67820310357,
+      "remaining_fuel_inside_j": 990.0408470907869,
+      "remaining_fuel_outside_j": 313.70850266349083,
+      "oxygen_inside_kg": 1.3006469186671588e-06,
+      "gas_sensible_inside_change_j": 15.148188115330981,
+      "gas_sensible_outside_change_j": 827.5116481180146,
+      "film_to_source_can_j": -14714.875392852768,
+      "film_to_other_cans_j": 24873.940466737575,
+      "film_to_other_cans_by_id_j": {
+        "B00": 486.74647343646836,
+        "B01": 954.1794167727938,
+        "B02": 2215.694599316815,
+        "B03": 2203.3633903465243,
+        "B04": 931.2365909767743,
+        "B05": 410.614626384965,
+        "B06": 312.2148710873315,
+        "B07": 434.9645588047619,
+        "B08": 707.9718642738967,
+        "B09": 2381.28217714462,
+        "B11": 2364.4779428014017,
+        "B12": 666.4375783734582,
+        "B13": 264.2729636137491,
+        "B14": 263.79497085069454,
+        "B15": 408.186628249441,
+        "B16": 824.2683217811234,
+        "B17": 2106.16821843144,
+        "B18": 2100.107183097874,
+        "B19": 802.1418028458212,
+        "B20": 313.4848815834074,
+        "B21": 201.5535279755524,
+        "B22": 311.056522606504,
+        "B23": 407.44318991722065,
+        "B24": 598.5553078374492,
+        "B25": 766.0914877760299,
+        "B26": 585.1857096237256,
+        "B27": 334.8663201708898,
+        "B28": 234.7082729718535,
+        "B29": 282.8710676849868
+      },
+      "film_to_abs_j": 13404.21839498383,
+      "solid_boundary_out_j": 4188.362187643264,
+      "hottest_neighbor": {
+        "id": "B09",
+        "mean_temperature_c": 88.56442687349067
+      },
+      "maximum_gas_pressure_pa": 101325.44699143719,
+      "pressure_scope": "Observed exterior and body/top/base cavities; not closed battery pores",
+      "mass_scope": "Signed net gas including displaced air; not tagged battery effluent"
+    }
+  ]
+}

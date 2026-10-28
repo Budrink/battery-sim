@@ -1,0 +1,85 @@
+{
+  "format_version": 1,
+  "kind": "geometry_prior",
+  "scope": "fsri30-explosion-priority-boundary",
+  "parameters": {
+    "effective_emissivity": 0.7664775109756737,
+    "thermal_stirring_coefficient": 0.06722339346183823
+  },
+  "evidence": {
+    "result_path": "/home/konstantin/work/battery-sim/data/calibration/fsri30-balance-bracket-20261026-r2/best.json",
+    "trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-explosion-priority-20261026-r1/trial-0023",
+    "result_run_sha256": "9d0f0ab6d8fcf6619cfd271f4c03175f3df5cb3be16b402c0fd1a700c74ea967",
+    "computed_until_s": 5945.0,
+    "full_fresh_trajectory": true,
+    "anchor_rmse_k": 86.47631622662797,
+    "burst": {
+      "evaluated": true,
+      "accepted": true,
+      "phase_window_complete": true,
+      "last_observed_s": 5945.0,
+      "reference": {
+        "peak_time_s": 2580.0,
+        "peak_temperature_k": 1180.801,
+        "local_base_time_s": 2529.0,
+        "local_base_temperature_k": 434.335,
+        "rise50_time_s": 2569.7436140226287,
+        "rise90_time_s": 2575.532131895479,
+        "rise50_90_duration_s": 5.788517872850207,
+        "window_start_s": 1701.0,
+        "window_end_s": 3600.0,
+        "evaluation_after_s": 2720.0,
+        "scope": "Collective median thermal front; 9 TC versus 30 component means, no sensor mapping"
+      },
+      "policy": {
+        "timing_target_s": 10.0,
+        "timing_limit_s": 100.0,
+        "phase_end_s": 3600.0,
+        "confirmation_s": 40.0,
+        "smoothing_seconds": 11,
+        "ascent_lookback_s": 300.0,
+        "peak_absolute_tolerance_k": 250.0,
+        "peak_relative_kelvin_tolerance": 0.25,
+        "maximum_rise_duration_factor": 4.0,
+        "rise_duration_slack_s": 30.0,
+        "minimum_converted_components": 2
+      },
+      "scope": "Collective median thermal front; 9 TC versus 30 component means, no sensor mapping",
+      "measured": {
+        "peak_time_s": 2582.0,
+        "peak_temperature_k": 1362.105029290553,
+        "local_base_time_s": 2282.0,
+        "local_base_temperature_k": 315.0081502554767,
+        "rise50_time_s": 2563.7589981874135,
+        "rise90_time_s": 2575.042256071044,
+        "rise50_90_duration_s": 11.28325788363054
+      },
+      "converted_components": 30,
+      "timing_offsets_s": {
+        "peak_time_s": 2.0,
+        "rise50_time_s": -5.984615835215209,
+        "rise90_time_s": -0.48987582443487554
+      },
+      "timing_error_s": 5.984615835215209,
+      "timing_target_met": true,
+      "peak_error_k": 181.304029290553,
+      "peak_error_limit_k": 295.20025,
+      "rise_duration_limit_s": 35.78851787285021,
+      "constraint": 0.0,
+      "reason": null
+    },
+    "explosion_priority": true,
+    "interpretation": "Fixture-level development seed, not a material property or independent validation"
+  },
+  "compatibility": {
+    "fixture": "ulfsri-30-ABS-open-air",
+    "frozen_base_sha256": "0c8f51bb4a498b573a47160832634cc3d8cab70e3755cb7d532c03099185507a",
+    "gas_spacing_m": 0.02,
+    "thermal_stirring_length_m": 0.02
+  },
+  "qualification": "candidate",
+  "producer_core": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "transferable_as": "geometry_prior",
+  "calibrated": false,
+  "validation_passed": false
+}

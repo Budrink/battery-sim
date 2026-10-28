@@ -1,0 +1,70 @@
+{
+  "label": "cold-store-200",
+  "status": "failed",
+  "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256)",
+  "parameters": {
+    "resistance_ohm": 0.008777311071596752,
+    "resistance_temperature": -0.01999999999999949,
+    "resistance_charge": 14.838210523443244,
+    "product_conductivity_ratio": 0.2,
+    "r1_rate": 0.038795709866624464,
+    "r1_activation": 160000.0,
+    "overcharge_gain": 0.9665706075586435,
+    "r2_rate": 66610.36135037753,
+    "r2_activation": 200000.0,
+    "energy_j": 424264.068711928,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.0005,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.27735866146555965,
+    "precursor_temperature": 0.029623273375245555,
+    "precursor_voltage": 0.0,
+    "iss_h": 548.334510922672,
+    "tim_h": 697.6587915939645,
+    "case_h": 220.48307663197534,
+    "environment_h": 1.563406124562644,
+    "surface_iss": 0.0,
+    "surface_tim": 6.0,
+    "bulk_slope": -2.88,
+    "case_warm_response": 0.0,
+    "case_hot_response": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0,
+    "battery_iss_factor": 0.3246524673583498,
+    "battery_tim_factor": 0.3272376374473188
+  },
+  "proposal": {
+    "label": "cold-store-200",
+    "k1_75": 3e-05,
+    "ea1": 160000.0,
+    "k2_75": 0.010767030543859956,
+    "ea2": 200000.0
+  },
+  "last_sample_s": 450.0,
+  "objective": null,
+  "diagnostics": null,
+  "snapshots": {
+    "300.0": {
+      "c2_mean_c": 35.65955228334832,
+      "c2_tim_error_k": -2.6080096953524503,
+      "c2_iss_error_k": -4.990754881499754,
+      "b_mg": 4665.316216894549,
+      "r2_local_power_w": 0.00964723009453657,
+      "thermal_formed_g": 0.00020892291012079362,
+      "charge_formed_g": 4.665602374391265,
+      "chamber_bar": 1.0322335040810817
+    }
+  },
+  "fingerprint": "ec66d4da2b4bc24e1564f3824e7fb21b0c47cbf87e2df49455ec007ad1fa94ed",
+  "validation_used_for_selection": false,
+  "wall_s": 29.54713310598163,
+  "balances": {
+    "max_thermal_residual_j": 2.6664253027774976e-08,
+    "max_chemical_residual_j": 4.423782229423523e-09,
+    "max_mass_residual_kg": 6.217248937900877e-15
+  }
+}

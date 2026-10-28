@@ -1,0 +1,106 @@
+{
+  "status": "rejected",
+  "pid": 1743367,
+  "native_sha256": "6cda01417eb1e30d088faa2c2c38bc1c0f5128ffbdfcd01d7a564b97915672c3",
+  "source_cooled": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/process-shape-min01-heldout-20261023-r1/scenario.json",
+  "source_cooled_sha256": "5cf05c5f8cbf509de735a9b4ab4b015f41d477418836554eec0b7124303e0718",
+  "data_sha256": "2efdccced6d5c2701bb9cd09572129621924692a2f93b9392c8a248d6e23cdfb",
+  "fitted_channels": [
+    "110",
+    "111",
+    "112"
+  ],
+  "chemistry_refitted": false,
+  "battery_temperatures_or_pressure_used_for_selection": false,
+  "validation_claim": "Cooling-boundary-conditioned check, NOT fully blind validation",
+  "trials": [
+    {
+      "parameters": {
+        "contact_h_w_per_m2_k": 199999.9999999997,
+        "water_g_w_per_k": 6.52752960760962
+      },
+      "initializer": {
+        "method": "Frozen native Al-state driven single-plate initializer; fresh CUDA verification mandatory",
+        "surrogate_score": 0.30607484254239514,
+        "contact_at_upper_bound": true,
+        "inference": "Upper-bound h indicates only a strong-contact lower bound, not an identified exact conductivity"
+      },
+      "metrics": {
+        "score": 0.6635394495682795,
+        "fit_window_s": [
+          650.0,
+          1250.0
+        ],
+        "contact_rmse_k": 1.3686196814612595,
+        "incremental_water_power_rmse_w": 4.430493773418399,
+        "contact_observer_reconstruction_error_k": 1.1368683772161603e-13,
+        "fitted_channels": [
+          "110",
+          "111",
+          "112"
+        ],
+        "battery_or_pressure_target_used": false
+      },
+      "run": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/cooling-boundary-110-112-20261023-r1/prefix-00",
+      "wall_s": 630.11981439
+    }
+  ],
+  "phase": "conditioned_check",
+  "current_trial": 0,
+  "parameters": {
+    "contact_h_w_per_m2_k": 199999.9999999997,
+    "water_g_w_per_k": 6.52752960760962
+  },
+  "initializer": {
+    "method": "Frozen native Al-state driven single-plate initializer; fresh CUDA verification mandatory",
+    "surrogate_score": 0.30607484254239514,
+    "contact_at_upper_bound": true,
+    "inference": "Upper-bound h indicates only a strong-contact lower bound, not an identified exact conductivity"
+  },
+  "best": {
+    "parameters": {
+      "contact_h_w_per_m2_k": 199999.9999999997,
+      "water_g_w_per_k": 6.52752960760962
+    },
+    "initializer": {
+      "method": "Frozen native Al-state driven single-plate initializer; fresh CUDA verification mandatory",
+      "surrogate_score": 0.30607484254239514,
+      "contact_at_upper_bound": true,
+      "inference": "Upper-bound h indicates only a strong-contact lower bound, not an identified exact conductivity"
+    },
+    "metrics": {
+      "score": 0.6635394495682795,
+      "fit_window_s": [
+        650.0,
+        1250.0
+      ],
+      "contact_rmse_k": 1.3686196814612595,
+      "incremental_water_power_rmse_w": 4.430493773418399,
+      "contact_observer_reconstruction_error_k": 1.1368683772161603e-13,
+      "fitted_channels": [
+        "110",
+        "111",
+        "112"
+      ],
+      "battery_or_pressure_target_used": false
+    },
+    "run": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/cooling-boundary-110-112-20261023-r1/prefix-00",
+    "wall_s": 630.11981439
+  },
+  "requested_end_s": 1626.6089999116957,
+  "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256); t=1343.978672, dt=0.010000; C2: R=0.149938, heat_J=1.836741, budget_J=1.836065",
+  "known_until_s": 1340.0,
+  "advanced_to_s": 1340.3118307751818,
+  "wall_s": 700.449037797,
+  "realtime_ratio": 1.913503707551131,
+  "accepted_validation": false,
+  "refitted": true,
+  "battery_parameters_refitted": false,
+  "balances": {
+    "max_chemical_residual_j": 5.670881364494562e-08,
+    "max_mass_residual_kg": 1.8318679906315083e-14,
+    "max_oxidizer_residual_kg": 8.673617379884035e-16,
+    "max_thermal_residual_j": 1.4238321455195546e-07
+  },
+  "fully_blind_validation": false
+}

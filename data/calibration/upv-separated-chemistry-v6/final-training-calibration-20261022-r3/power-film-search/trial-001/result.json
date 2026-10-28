@@ -1,0 +1,30 @@
+{
+  "trial": "trial-001",
+  "parameters": {
+    "entry": 0.001,
+    "path": 1.0,
+    "opening_rate": 0.01,
+    "strength": 1.0,
+    "case_h": 1.0,
+    "resistance_charge_delta": -0.05,
+    "r2_rate": 1.1,
+    "bulk_metric": 1.0,
+    "damaged_span": 1.0,
+    "damaged_logit": 0.0,
+    "core_contact_damage": 6.0,
+    "casing_contact_damage": 0.0,
+    "wall_hot_scale": 0.9,
+    "reverse_hot_logit": 0.0,
+    "casing_damage_contrast": -6.0,
+    "reverse_profile_power": 2.0,
+    "mobile_energy_fraction": 0.7,
+    "jet_fraction": 0.7,
+    "witness_mouth": 0.00675,
+    "pad_footprint": 0.45,
+    "backing_fraction": 0.03
+  },
+  "fresh": false,
+  "accepted": false,
+  "status": "rejected",
+  "error": "Pruned: temperature critical zone 108: persistent error +109.8 K at 935.000 s"
+}

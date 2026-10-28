@@ -1,0 +1,242 @@
+{
+  "status": "stopped",
+  "pid": 2167586,
+  "stage": "cascade-check",
+  "trials": [
+    {
+      "gain": 0.19767037747050903,
+      "status": "complete",
+      "reason": null,
+      "metrics": {
+        "rmse_k": 3.0954750552587473,
+        "max_abs_k": 6.639169547185418,
+        "final_error_k": -1.1021947259884541,
+        "final_time_s": 1499.9999999999864,
+        "final_mean_c": 140.1648052740116,
+        "final_t5_c": 141.26700000000005
+      },
+      "last_observed_s": 1499.9999999999864,
+      "checkpoint": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact025-mix3-r3x15-20261027-r1/heater-00/committed-1500.bin",
+      "checkpoint_sha256": "300427512e2b941d14005a676e1ede3ee0bab428ee3d9e813be16cd68e617c53",
+      "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact025-mix3-r3x15-20261027-r1/heater-00/replay/run.json.gz"
+    }
+  ],
+  "source_sha256": "a28abd4711e734756e96dc00a3d21e9cd888085ddfad6fbf8f33dd9276dec6ed",
+  "core_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "experiment_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "sensor_face": "+x",
+  "sensor_mapping_confirmed": false,
+  "feedforward_w": 0.0,
+  "max_power_w": 30.0,
+  "r2_scale_vs_40mm": 1.0,
+  "initial_gain": 0.19767037747050903,
+  "early_primary_allowed": true,
+  "fixed": "geometry, materials, contacts, other chemistry, heater ramp and maximum power",
+  "calibrated": false,
+  "validation_passed": false,
+  "active_trial": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact025-mix3-r3x15-20261027-r1/heater-00",
+  "gain": 0.19767037747050903,
+  "progress": {
+    "time_s": 1960.0,
+    "wall_s": 441.233591876,
+    "assessment": {
+      "evaluated": true,
+      "accepted": false,
+      "phase_window_complete": false,
+      "last_observed_s": 1960.0,
+      "reason": "Primary thermal-front timing error: model 1642s versus data 1763s; Missing thermal pulse wave(s) at 1763s within 100s timing error limit; Missing first hot arrival wave(s) at 1765s within 100s timing error limit",
+      "constraint": 2.0,
+      "primary_offset_s": -121.0,
+      "timing_error_s": 121.0,
+      "timing_target_met": false,
+      "pulse_match": {
+        "due": 1,
+        "matched": 0,
+        "missing": [
+          {
+            "reference_time_s": 1763.0,
+            "channels": [
+              "T2",
+              "T5"
+            ],
+            "nearest_any_model_group_s": 121.0
+          }
+        ],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "arrival_match": {
+        "due": 1,
+        "matched": 0,
+        "missing": [
+          {
+            "reference_time_s": 1765.0,
+            "channels": [
+              "T5"
+            ],
+            "nearest_any_model_group_s": 124.0
+          }
+        ],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "model": {
+        "pulses": [
+          {
+            "channel": "B10",
+            "time_s": 1642.0,
+            "rise_k": 932.2283832453923,
+            "slope_k_s": 161.23943486403073
+          },
+          {
+            "channel": "B10",
+            "time_s": 1902.0,
+            "rise_k": 194.3035303493641,
+            "slope_k_s": 17.913953946744243
+          },
+          {
+            "channel": "B17",
+            "time_s": 1918.0,
+            "rise_k": 529.3250541590473,
+            "slope_k_s": 79.69343526424541
+          },
+          {
+            "channel": "B18",
+            "time_s": 1911.0,
+            "rise_k": 648.8967787341115,
+            "slope_k_s": 121.80594127031469
+          }
+        ],
+        "arrivals": [
+          {
+            "channel": "B10",
+            "time_s": 1641.0
+          },
+          {
+            "channel": "B17",
+            "time_s": 1910.0
+          },
+          {
+            "channel": "B18",
+            "time_s": 1911.0
+          }
+        ],
+        "pulse_groups": [
+          {
+            "time_s": 1642.0,
+            "end_s": 1642.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1642.0,
+                "rise_k": 932.2283832453923,
+                "slope_k_s": 161.23943486403073
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          },
+          {
+            "time_s": 1902.0,
+            "end_s": 1918.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1902.0,
+                "rise_k": 194.3035303493641,
+                "slope_k_s": 17.913953946744243
+              },
+              {
+                "channel": "B18",
+                "time_s": 1911.0,
+                "rise_k": 648.8967787341115,
+                "slope_k_s": 121.80594127031469
+              },
+              {
+                "channel": "B17",
+                "time_s": 1918.0,
+                "rise_k": 529.3250541590473,
+                "slope_k_s": 79.69343526424541
+              }
+            ],
+            "channels": [
+              "B10",
+              "B17",
+              "B18"
+            ]
+          }
+        ],
+        "arrival_groups": [
+          {
+            "time_s": 1641.0,
+            "end_s": 1641.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1641.0
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          },
+          {
+            "time_s": 1910.0,
+            "end_s": 1911.0,
+            "events": [
+              {
+                "channel": "B17",
+                "time_s": 1910.0
+              },
+              {
+                "channel": "B18",
+                "time_s": 1911.0
+              }
+            ],
+            "channels": [
+              "B17",
+              "B18"
+            ]
+          }
+        ]
+      },
+      "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+      "necessary_not_sufficient": true,
+      "objective": null
+    },
+    "physical_error": null,
+    "temperature_rejection": null,
+    "secondary_events": [
+      {
+        "cell": "B18",
+        "time_s": 1900.0
+      },
+      {
+        "cell": "B17",
+        "time_s": 1905.0
+      }
+    ]
+  },
+  "best": {
+    "gain": 0.19767037747050903,
+    "status": "complete",
+    "reason": null,
+    "metrics": {
+      "rmse_k": 3.0954750552587473,
+      "max_abs_k": 6.639169547185418,
+      "final_error_k": -1.1021947259884541,
+      "final_time_s": 1499.9999999999864,
+      "final_mean_c": 140.1648052740116,
+      "final_t5_c": 141.26700000000005
+    },
+    "last_observed_s": 1499.9999999999864,
+    "checkpoint": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact025-mix3-r3x15-20261027-r1/heater-00/committed-1500.bin",
+    "checkpoint_sha256": "300427512e2b941d14005a676e1ede3ee0bab428ee3d9e813be16cd68e617c53",
+    "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact025-mix3-r3x15-20261027-r1/heater-00/replay/run.json.gz"
+  },
+  "restart_from_warmup": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact025-mix3-r3x15-20261027-r1/heater-00/committed-1500.bin",
+  "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact025-mix3-r3x15-20261027-r1/heater-00/replay/run.json.gz"
+}

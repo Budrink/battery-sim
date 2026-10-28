@@ -1,0 +1,32 @@
+{
+  "status": "contrasts_complete_not_calibrated",
+  "pid": 1656361,
+  "reference": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/gas-access-refinement-20261022-r4-fresh",
+  "response": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/gas-response-refinement-20261022-r1/trial-005",
+  "native_sha256": "e5f75c154a51269dc75d0ca347fc683bf5c5b863c059aa2342d4bb7fbe17080e",
+  "response_sha256": "3ad02a3f04c53b0df1acc8a52c666c6cc7327462eabe6f398029e041615c1ecd",
+  "experimental_sha256": "f78d3fd97faa34601b4a603c0a8017f3146d1edd64e9451169b7d8f9eae66e60",
+  "criteria_version": "cooling-with-protected-pulses-v3",
+  "end_s": 1100.0,
+  "minimum_regular_dt_s": 0.02,
+  "chemistry_frozen": true,
+  "materials_frozen": true,
+  "solid_contacts_frozen": true,
+  "numerical_tolerances_frozen": true,
+  "geometry_is_unmeasured_hypothesis": true,
+  "accepted_calibration": false,
+  "records": [
+    {
+      "trial": "trial-000",
+      "backing_open_fraction": 1.0,
+      "lip_open_fraction": 1.0,
+      "conditional_restart": true,
+      "status": "rejected",
+      "error": "Pruned: C1/ISS rapid pulse above four times the observed jump; 102: unobserved rapid impulse on protected TIM face; 107: unobserved rapid impulse on protected TIM face"
+    }
+  ],
+  "best": null,
+  "probe_upv_backing_response.py_sha256": "66863b0b9c9e2f6ed16ae9d6f186b72135c7b2bf4bcf71f3fead71da2d8bb972",
+  "upv_backing_response.py_sha256": "d117ac92fe501b151f56d1cecc644873c44029e56014380de56b3b96c3875a8d",
+  "upv_gas_response_refinement.py_sha256": "f77b319546f95ebb28a4675207166110a81f8e7bd77ce3f75ea1cc05ae7c48d4"
+}

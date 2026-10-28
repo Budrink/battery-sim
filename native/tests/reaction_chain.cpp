@@ -31,6 +31,27 @@ Scenario fixture(double temperature=500.) {
     g.reaction_rate_per_s=5.; // Even enabled R3 cannot burn without oxygen.
     s.gas_compartments={g};return s;
 }
+void initially_charged_is_not_aged() {
+    auto scene=fixture(300.);auto& c=scene.cells[0].conversion;
+    c.initial_precursor_fraction=0.;c.initial_charged_fraction=.8;
+    c.activated_cp=1200.;scene.cells[0].thermal_divisions={3,3,3};
+    Simulation sim(scene);balance(sim.process_diagnostics());
+    double bc=0.,reserve=0.;
+    for(const auto& v:sim.thermal_states()) {
+        require(v.damage==0. && v.degraded_mass_kg==0.,"Initial charging is counted as degradation");
+        require(std::abs(v.temperature_k-300.)<1e-10,"Initial charge creates sensible heat");
+        bc+=v.healthy_charged_kg;reserve+=v.precursor_charge_energy_j;
+    }
+    require(std::abs(bc-.8*c.mass_kg)<1e-15,"Initial Bc inventory");
+    require(std::abs(reserve-.8*c.mass_kg*c.net_heat_j_per_kg)<1e-10,"Initial charge reserve");
+    sim.run_to_end();balance(sim.process_diagnostics());
+    auto hot=fixture(500.);hot.cells[0].conversion.initial_precursor_fraction=.1;
+    hot.cells[0].conversion.initial_charged_fraction=.7;
+    Simulation reacting(hot);reacting.run_to_end();balance(reacting.process_diagnostics());
+    hot.cells[0].conversion.initial_charged_fraction=.95;
+    bool rejected=false;try {build_thermal_mesh(hot);}catch(const std::runtime_error&) {rejected=true;}
+    require(rejected,"Overfull initial charged/aged inventory accepted");
+}
 void exact_neutral_r1() {
     auto p=fixture().cells[0].conversion;GasModel g;g.reference_temperature_k=300.;
     p.reaction_rate_per_s=0.;ThermalState state;state.temperature_k=300.;state.reactant_kg=p.mass_kg;
@@ -109,7 +130,7 @@ void initial_capacity_and_tiles() {
 }
 void r1_byproduct_branch() {
     ConversionLaw p=fixture().cells[0].conversion;GasModel g;g.reference_temperature_k=300.;
-    p.reaction_rate_per_s=0.;p.precursor_yield=.25;p.precursor_yield_temperature_per_k=0.;p.precursor_yield_voltage_per_v=0.;
+    p.reaction_rate_per_s=0.;p.precursor_yield=.25;p.precursor_yield_temperature_per_k=0.;
     ThermalState s;s.temperature_k=300.;s.reactant_kg=p.mass_kg;
     const double q0=conversion_chemical(p,s);
     const double heat=advance_conversion(p,g,s,1.,10.,1.,0.);
@@ -119,12 +140,11 @@ void r1_byproduct_branch() {
     require(std::abs(s.residue_kg-.75*da)<1e-16,"Complement of R1 is not inert residue");
     require(std::abs(s.sterilized_chemical_j-p.net_heat_j_per_kg*.75*da)<1e-12,"Inert path is not a chemical sink");
     require(std::abs(conversion_chemical(p,s)+s.sterilized_chemical_j-q0)<1e-12,"Branching leaks chemical reserve");
-    require(std::abs(precursor_branch(p,300.,3.65)-.25)<1e-15,"Reference branch");
+    require(std::abs(precursor_branch(p,300.)-.25)<1e-15,"Reference branch");
     p.precursor_yield_temperature_per_k=.02;
-    require(std::abs(precursor_branch(p,p.precursor_temperature_ref_k+std::log(2.)/.02,p.precursor_voltage_ref_v)-.5)<1e-12,"Heat does not raise R1→B yield");
-    p.precursor_yield_temperature_per_k=0.;p.precursor_yield_voltage_per_v=1.;
-    require(std::abs(precursor_branch(p,300.,3.65+1.)-.25*std::exp(1.))<1e-12,"Voltage does not raise R1→B yield");
-    p.precursor_yield=2.;require(precursor_branch(p,300.,3.65)==1.,"Branch exceeds 1");
+    require(std::abs(precursor_branch(p,p.precursor_temperature_ref_k+std::log(2.)/.02)-.5)<1e-12,"Heat does not raise R1→B yield");
+    p.precursor_yield_temperature_per_k=0.;
+    p.precursor_yield=2.;require(precursor_branch(p,300.)==1.,"Branch exceeds 1");
 }
 void tensor_without_length() {
     ConnectivityLaw law;law.kind=TransitionKind::DirectedGeometry;
@@ -138,7 +158,29 @@ void tensor_without_length() {
     auto unchanged=evaluate_directed_geometry(law,{},0,500.,300.,0.,0.,0.,1.,0.,1.,1);
     require(a.conductance_w_per_k==unchanged.conductance_w_per_k && unchanged.l_m==0.,"Tensor contact uses an independent length");
 }
+void volatile_full_solver() {
+    auto s=fixture(600.);s.settings.duration_s=.05;s.settings.max_dt_s=.001;
+    auto& c=s.cells[0].conversion;c.initial_precursor_fraction=0.;
+    c.degradation_activation_j_per_mol=0.;c.degradation_rate_per_s=1e-9;
+    c.volatile_phase.initial_mass_kg=.001;c.volatile_phase.chemical_j_per_kg=2e6;
+    s.gas_model.vapor_fuel_heat_j_kg=2e6;s.gas_model.mixing_diffusivity_m2_s=.001;
+    s.gas_compartments[0].thermal_cell=0;s.gas_compartments[0].reactant_density_kg_m3=2000.;
+    s.gas_compartments[0].residue_density_kg_m3=2000.;
+    const auto mesh=build_thermal_mesh(s);RuntimeParameters runtime;
+    CudaSolver control(s,mesh,64),retry(s,mesh,256);
+    const auto initial=retry.process_diagnostics();balance(initial);
+    std::vector<ThermalState> before,after;retry.download_field(before);
+    const double dt=retry.prepare_step(0.,.001,.4,runtime);
+    retry.download_field(after);require(before[0].liquid_kg==after[0].liquid_kg,"Phase prepare publishes inventory");
+    retry.discard_step();require(retry.prepare_step(0.,.001,.4,runtime)==dt,"Phase retry changes dt");retry.commit_step();
+    control.step(0.,.001,.4,runtime);std::vector<ThermalState> ref;control.download_field(ref);retry.download_field(after);
+    require(ref[0].liquid_kg==after[0].liquid_kg && ref[0].temperature_k==after[0].temperature_k,"Phase retry/tile changes trajectory");
+    require(after[0].liquid_kg<.001,"CUDA solver did not run phase operator");balance(retry.process_diagnostics());
+    Simulation sim(s);while(!sim.finished()){sim.step();balance(sim.process_diagnostics());}
+    const auto d=sim.process_diagnostics();require(d.gas[0].vapor_kg>0 && d.gas[0].latent_j>0 && d.gas[0].chemical_j>0,"Phase payload missing from full solver");
+    std::cout<<"volatile full CUDA solver: latent/mass/chemical closure and exact transactional retry pass\n";
+}
 int main(){try {
-    exact_neutral_r1();gas_yield_and_mesh();rupture_and_oxygen();initial_capacity_and_tiles();r1_byproduct_branch();tensor_without_length();
+    initially_charged_is_not_aged();exact_neutral_r1();gas_yield_and_mesh();rupture_and_oxygen();initial_capacity_and_tiles();r1_byproduct_branch();tensor_without_length();volatile_full_solver();
     std::cout<<"R1/R2/R3: analytic chain, balances, oxygen/casing, density, refinement and CUDA tiles pass\n";
 }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

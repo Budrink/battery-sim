@@ -1,0 +1,59 @@
+{
+  "seed_parameters": {
+    "resistance_ohm": 0.024,
+    "resistance_temperature": 0.0,
+    "product_conductivity_ratio": 0.7,
+    "r1_rate": 1e-06,
+    "r1_activation": 40400.0,
+    "overcharge_gain": 0.46463453985661696,
+    "r2_rate": 100.0,
+    "r2_activation": 100000.0,
+    "energy_j": 450000.0,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.03,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.6,
+    "precursor_temperature": 0.0,
+    "precursor_voltage": 0.0,
+    "iss_h": 287.71996866857825,
+    "tim_h": 2000.0,
+    "case_h": 500.0,
+    "environment_h": 8.0,
+    "surface_iss": 0.0,
+    "surface_tim": 0.0,
+    "bulk_slope": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0
+  },
+  "trials": [
+    [
+      "neutral",
+      {}
+    ],
+    [
+      "warm-soft-hot-open",
+      {
+        "case_warm_response": -0.8,
+        "case_hot_response": 2.0,
+        "overcharge_gain": 0.55
+      }
+    ],
+    [
+      "warm-soft-hot-open-slower",
+      {
+        "case_warm_response": -0.8,
+        "case_hot_response": 2.0,
+        "overcharge_gain": 0.5
+      }
+    ]
+  ],
+  "fingerprint": "1519322bb7f6cf960b5c429598b0b6d52e2879d9a4cfac05422c0a4cd022b873",
+  "source_seed_is_not_reused_as_a_current_replay": true,
+  "material_C_k_geometry_frozen": true,
+  "electrical_law_frozen": true,
+  "validation_used_for_selection": false
+}

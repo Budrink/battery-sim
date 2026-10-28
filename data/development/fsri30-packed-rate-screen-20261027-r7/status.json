@@ -1,0 +1,46 @@
+{
+  "status": "numerical-review-needed",
+  "pid": 2115022,
+  "scenario_sha256": "d139799fd78796c6c0a6d4864eb5eea576eb7cd7e7de06d56e3c82b7f419d580",
+  "core_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "r2_seed_factor": 0.2,
+  "gain": 0.21405515446686751,
+  "coarse_spacing_mm": 80,
+  "primary_search_allowance_s": 250.0,
+  "contact_h_w_m2_k": 2437.5,
+  "contact_h_measured": false,
+  "calibrated": false,
+  "validation_passed": false,
+  "progress": {
+    "time_s": 1970.0,
+    "wall_s": 1583.993534897,
+    "warmup_metrics": {
+      "rmse_k": 3.5522187466157353,
+      "max_abs_k": 7.167654411582021,
+      "final_error_k": -1.684053103574115,
+      "final_time_s": 1499.9999999999864,
+      "final_mean_c": 139.58294689642594,
+      "final_t5_c": 141.26700000000005
+    },
+    "primary_pulse_s": 1722.0,
+    "pulse_groups": [
+      {
+        "time_s": 1722.0,
+        "channels": [
+          "B10"
+        ]
+      },
+      {
+        "time_s": 1941.0,
+        "channels": [
+          "B17",
+          "B18"
+        ]
+      }
+    ],
+    "wave_reason": null
+  },
+  "last_time_s": 1970.0,
+  "reason": "Restart suffix below rolling 0.2x speed floor"
+}

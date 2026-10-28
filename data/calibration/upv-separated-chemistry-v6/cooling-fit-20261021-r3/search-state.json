@@ -1,0 +1,340 @@
+{
+  "status": "stopped",
+  "pid": 1613140,
+  "records": [
+    {
+      "label": "trial-000",
+      "parameters": {
+        "gas_yield_scale": 0.6,
+        "casing_damage_metric": 4.0,
+        "warm_mixing_scale": 10.0,
+        "warm_surface_scale": 10.0
+      },
+      "conditional_restart": true,
+      "origin": "contrast",
+      "axis": null,
+      "status": "complete",
+      "objective": 91.4872780499237,
+      "complete": true,
+      "accepted": false,
+      "known_until_s": 1500.0,
+      "requested_end_s": 1500.0,
+      "channels": {
+        "101": {
+          "rmse_k": 5.04081889394792,
+          "bias_k": 4.935236496457447,
+          "tolerance_k": 5.0,
+          "evaluated_from_s": 947.0,
+          "covered_samples": 554
+        },
+        "102": {
+          "rmse_k": 18.21420418708139,
+          "bias_k": 16.858323294573896,
+          "tolerance_k": 5.0,
+          "evaluated_from_s": 947.0,
+          "covered_samples": 554
+        },
+        "107": {
+          "rmse_k": 10.791977853193979,
+          "bias_k": 10.018731356648411,
+          "tolerance_k": 5.0,
+          "evaluated_from_s": 947.0,
+          "covered_samples": 554
+        },
+        "108": {
+          "rmse_k": 15.635324944308005,
+          "bias_k": 12.447239019950503,
+          "tolerance_k": 5.0,
+          "evaluated_from_s": 947.0,
+          "covered_samples": 554
+        },
+        "C2_TIM": {
+          "rmse_k": 34.01769850531909,
+          "bias_k": 23.814963560336455,
+          "tolerance_k": 10.0,
+          "evaluated_from_s": 947.0,
+          "covered_samples": 554
+        },
+        "C2_ISS": {
+          "rmse_k": 71.44412263241249,
+          "bias_k": -32.31127627970532,
+          "tolerance_k": 10.0,
+          "evaluated_from_s": 947.0,
+          "covered_samples": 554
+        }
+      },
+      "front": {
+        "accepted": true,
+        "reasons": [],
+        "features": {
+          "pressure": {
+            "predicted": {
+              "amplitude": 5.3265181142535365,
+              "peak": 6.398328373253758,
+              "peak_s": 887.1099998010322,
+              "width_10_90_s": 0.6911616277812982,
+              "t10_s": 886.1998146377822,
+              "t90_s": 886.8909762655635
+            },
+            "observed": {
+              "amplitude": 6.918135925,
+              "peak": 7.9827295,
+              "peak_s": 887.1099998010322,
+              "width_10_90_s": 0.6074412754780951,
+              "t10_s": 886.4458528026089,
+              "t90_s": 887.053294078087
+            },
+            "maximum_width_s": 2.0
+          },
+          "108": {
+            "predicted": {
+              "amplitude": 751.6112175653785,
+              "peak": 1060.7284334405506,
+              "peak_s": 887.6680000685155,
+              "width_10_90_s": 0.9145719521084175,
+              "t10_s": 886.2647297117304,
+              "t90_s": 887.1793016638388
+            },
+            "observed": {
+              "amplitude": 1207.6619999999998,
+              "peak": 1520.2199999999998,
+              "peak_s": 887.6680000685155,
+              "width_10_90_s": 0.8174814393090628,
+              "t10_s": 886.7221442328051,
+              "t90_s": 887.5396256721142
+            },
+            "maximum_width_s": 2.0
+          }
+        }
+      },
+      "pressure_rmse_bar": 0.03443594842289877,
+      "balance": {
+        "max_thermal_residual_j": 1.2654345482587814e-07,
+        "max_chemical_residual_j": 9.361247066408396e-08,
+        "max_mass_residual_kg": 4.6074255521943996e-14
+      },
+      "realtime_factor": 1.34421521091953
+    }
+  ],
+  "best": {
+    "label": "trial-000",
+    "parameters": {
+      "gas_yield_scale": 0.6,
+      "casing_damage_metric": 4.0,
+      "warm_mixing_scale": 10.0,
+      "warm_surface_scale": 10.0
+    },
+    "conditional_restart": true,
+    "origin": "contrast",
+    "axis": null,
+    "status": "complete",
+    "objective": 91.4872780499237,
+    "complete": true,
+    "accepted": false,
+    "known_until_s": 1500.0,
+    "requested_end_s": 1500.0,
+    "channels": {
+      "101": {
+        "rmse_k": 5.04081889394792,
+        "bias_k": 4.935236496457447,
+        "tolerance_k": 5.0,
+        "evaluated_from_s": 947.0,
+        "covered_samples": 554
+      },
+      "102": {
+        "rmse_k": 18.21420418708139,
+        "bias_k": 16.858323294573896,
+        "tolerance_k": 5.0,
+        "evaluated_from_s": 947.0,
+        "covered_samples": 554
+      },
+      "107": {
+        "rmse_k": 10.791977853193979,
+        "bias_k": 10.018731356648411,
+        "tolerance_k": 5.0,
+        "evaluated_from_s": 947.0,
+        "covered_samples": 554
+      },
+      "108": {
+        "rmse_k": 15.635324944308005,
+        "bias_k": 12.447239019950503,
+        "tolerance_k": 5.0,
+        "evaluated_from_s": 947.0,
+        "covered_samples": 554
+      },
+      "C2_TIM": {
+        "rmse_k": 34.01769850531909,
+        "bias_k": 23.814963560336455,
+        "tolerance_k": 10.0,
+        "evaluated_from_s": 947.0,
+        "covered_samples": 554
+      },
+      "C2_ISS": {
+        "rmse_k": 71.44412263241249,
+        "bias_k": -32.31127627970532,
+        "tolerance_k": 10.0,
+        "evaluated_from_s": 947.0,
+        "covered_samples": 554
+      }
+    },
+    "front": {
+      "accepted": true,
+      "reasons": [],
+      "features": {
+        "pressure": {
+          "predicted": {
+            "amplitude": 5.3265181142535365,
+            "peak": 6.398328373253758,
+            "peak_s": 887.1099998010322,
+            "width_10_90_s": 0.6911616277812982,
+            "t10_s": 886.1998146377822,
+            "t90_s": 886.8909762655635
+          },
+          "observed": {
+            "amplitude": 6.918135925,
+            "peak": 7.9827295,
+            "peak_s": 887.1099998010322,
+            "width_10_90_s": 0.6074412754780951,
+            "t10_s": 886.4458528026089,
+            "t90_s": 887.053294078087
+          },
+          "maximum_width_s": 2.0
+        },
+        "108": {
+          "predicted": {
+            "amplitude": 751.6112175653785,
+            "peak": 1060.7284334405506,
+            "peak_s": 887.6680000685155,
+            "width_10_90_s": 0.9145719521084175,
+            "t10_s": 886.2647297117304,
+            "t90_s": 887.1793016638388
+          },
+          "observed": {
+            "amplitude": 1207.6619999999998,
+            "peak": 1520.2199999999998,
+            "peak_s": 887.6680000685155,
+            "width_10_90_s": 0.8174814393090628,
+            "t10_s": 886.7221442328051,
+            "t90_s": 887.5396256721142
+          },
+          "maximum_width_s": 2.0
+        }
+      }
+    },
+    "pressure_rmse_bar": 0.03443594842289877,
+    "balance": {
+      "max_thermal_residual_j": 1.2654345482587814e-07,
+      "max_chemical_residual_j": 9.361247066408396e-08,
+      "max_mass_residual_kg": 4.6074255521943996e-14
+    },
+    "realtime_factor": 1.34421521091953
+  },
+  "accepted_calibration": false,
+  "known_control": {
+    "objective": 103.13537712366076,
+    "complete": true,
+    "accepted": false,
+    "known_until_s": 1500.0,
+    "requested_end_s": 1500.0,
+    "channels": {
+      "101": {
+        "rmse_k": 7.217070674052376,
+        "bias_k": 7.050495131403305,
+        "tolerance_k": 5.0,
+        "evaluated_from_s": 947.0,
+        "covered_samples": 554
+      },
+      "102": {
+        "rmse_k": 19.32471127152527,
+        "bias_k": 18.504528510691113,
+        "tolerance_k": 5.0,
+        "evaluated_from_s": 947.0,
+        "covered_samples": 554
+      },
+      "107": {
+        "rmse_k": 13.818710591846388,
+        "bias_k": 13.44094758385989,
+        "tolerance_k": 5.0,
+        "evaluated_from_s": 947.0,
+        "covered_samples": 554
+      },
+      "108": {
+        "rmse_k": 19.13189282099781,
+        "bias_k": 15.907452848210438,
+        "tolerance_k": 5.0,
+        "evaluated_from_s": 947.0,
+        "covered_samples": 554
+      },
+      "C2_TIM": {
+        "rmse_k": 35.689612945080064,
+        "bias_k": 27.93759983876174,
+        "tolerance_k": 10.0,
+        "evaluated_from_s": 947.0,
+        "covered_samples": 554
+      },
+      "C2_ISS": {
+        "rmse_k": 71.39311998851879,
+        "bias_k": -28.073027974906715,
+        "tolerance_k": 10.0,
+        "evaluated_from_s": 947.0,
+        "covered_samples": 554
+      }
+    },
+    "front": {
+      "accepted": true,
+      "reasons": [],
+      "features": {
+        "pressure": {
+          "predicted": {
+            "amplitude": 5.101511606326264,
+            "peak": 6.171899297578924,
+            "peak_s": 887.1099998010322,
+            "width_10_90_s": 0.6532015689916761,
+            "t10_s": 886.203023997673,
+            "t90_s": 886.8562255666646
+          },
+          "observed": {
+            "amplitude": 6.918135925,
+            "peak": 7.9827295,
+            "peak_s": 887.1099998010322,
+            "width_10_90_s": 0.6074412754780951,
+            "t10_s": 886.4458528026089,
+            "t90_s": 887.053294078087
+          },
+          "maximum_width_s": 2.0
+        },
+        "108": {
+          "predicted": {
+            "amplitude": 747.4599778563002,
+            "peak": 1056.5472848500533,
+            "peak_s": 887.6680000685155,
+            "width_10_90_s": 1.0320689096424758,
+            "t10_s": 886.2677623501397,
+            "t90_s": 887.2998312597822
+          },
+          "observed": {
+            "amplitude": 1207.6619999999998,
+            "peak": 1520.2199999999998,
+            "peak_s": 887.6680000685155,
+            "width_10_90_s": 0.8174814393090628,
+            "t10_s": 886.7221442328051,
+            "t90_s": 887.5396256721142
+          },
+          "maximum_width_s": 2.0
+        }
+      }
+    },
+    "pressure_rmse_bar": 0.030371533611572066,
+    "parameters": {
+      "gas_yield_scale": 0.6,
+      "casing_damage_metric": 4.0,
+      "warm_mixing_scale": 10.0,
+      "warm_surface_scale": 1.0
+    },
+    "label": "known-control",
+    "path": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/cooling-fit-20261021-r2/trial-000",
+    "conditional_restart": false
+  },
+  "external_conditional_prefix": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/cooling-fit-20261021-r1/trial-000",
+  "wall_s": 563.4113676149864
+}

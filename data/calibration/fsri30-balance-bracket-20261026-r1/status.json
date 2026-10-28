@@ -1,0 +1,152 @@
+{
+  "status": "stopped",
+  "pid": 1952531,
+  "native_sha256": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "trials": 24,
+  "calibrated": false,
+  "validation_passed": false,
+  "engineering_cooling_converged": false,
+  "explosion_priority": true,
+  "balance_search": true,
+  "best_trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-explosion-priority-20261026-r1/trial-0023",
+  "best_burst": {
+    "evaluated": true,
+    "accepted": true,
+    "phase_window_complete": true,
+    "last_observed_s": 5945.0,
+    "reference": {
+      "peak_time_s": 2580.0,
+      "peak_temperature_k": 1180.801,
+      "local_base_time_s": 2529.0,
+      "local_base_temperature_k": 434.335,
+      "rise50_time_s": 2569.7436140226287,
+      "rise90_time_s": 2575.532131895479,
+      "rise50_90_duration_s": 5.788517872850207,
+      "window_start_s": 1701.0,
+      "window_end_s": 3600.0,
+      "evaluation_after_s": 2720.0,
+      "scope": "Collective median thermal front; 9 TC versus 30 component means, no sensor mapping"
+    },
+    "policy": {
+      "timing_target_s": 10.0,
+      "timing_limit_s": 100.0,
+      "phase_end_s": 3600.0,
+      "confirmation_s": 40.0,
+      "smoothing_seconds": 11,
+      "ascent_lookback_s": 300.0,
+      "peak_absolute_tolerance_k": 250.0,
+      "peak_relative_kelvin_tolerance": 0.25,
+      "maximum_rise_duration_factor": 4.0,
+      "rise_duration_slack_s": 30.0,
+      "minimum_converted_components": 2
+    },
+    "scope": "Collective median thermal front; 9 TC versus 30 component means, no sensor mapping",
+    "measured": {
+      "peak_time_s": 2582.0,
+      "peak_temperature_k": 1362.105029290553,
+      "local_base_time_s": 2282.0,
+      "local_base_temperature_k": 315.0081502554767,
+      "rise50_time_s": 2563.7589981874135,
+      "rise90_time_s": 2575.042256071044,
+      "rise50_90_duration_s": 11.28325788363054
+    },
+    "converted_components": 30,
+    "timing_offsets_s": {
+      "peak_time_s": 2.0,
+      "rise50_time_s": -5.984615835215209,
+      "rise90_time_s": -0.48987582443487554
+    },
+    "timing_error_s": 5.984615835215209,
+    "timing_target_met": true,
+    "peak_error_k": 181.304029290553,
+    "peak_error_limit_k": 295.20025,
+    "rise_duration_limit_s": 35.78851787285021,
+    "constraint": 0.0,
+    "reason": null
+  },
+  "development_record": "af687b40254b01d658955b34c202d06b07b03730433ed30c87faf81545a160b5",
+  "active_trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-balance-bracket-20261026-r1/trial-0025",
+  "parameters": {
+    "effective_emissivity": 0.3932387554878369,
+    "thermal_stirring_coefficient": 0.07452091483809048
+  },
+  "proposal": {
+    "objective_scope": "Measured full-tail hot/cold balance ONLY inside the target burst band",
+    "center_trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-explosion-priority-20261026-r1/trial-0023",
+    "center_full_median_bias_k": -81.82234838838475,
+    "method": "expand-full-tail-sign-bracket",
+    "note": "Opposite full-tail sign has NOT yet been measured with the target burst; test an intermediate boundary",
+    "timing_prediction_available": true,
+    "predicted_timing_offsets_s": {
+      "peak_time_s": 3.835093263963987,
+      "rise50_time_s": -5.944660360276476,
+      "rise90_time_s": 1.9341995473372968
+    },
+    "derivative_samples": 10,
+    "proposal_only": true,
+    "actual_burst_gate_required": true,
+    "nearest_previous_distance": 0.11934095404455403
+  },
+  "progress": {
+    "status": "running",
+    "last_completed_observation_s": 4730.0,
+    "live_advanced_to_s": 4731.000000000004,
+    "wall_s": 2603.384526021,
+    "minimum_regular_step_s": 0.01,
+    "burst": {
+      "evaluated": true,
+      "accepted": true,
+      "phase_window_complete": true,
+      "last_observed_s": 4730.0,
+      "reference": {
+        "peak_time_s": 2580.0,
+        "peak_temperature_k": 1180.801,
+        "local_base_time_s": 2529.0,
+        "local_base_temperature_k": 434.335,
+        "rise50_time_s": 2569.7436140226287,
+        "rise90_time_s": 2575.532131895479,
+        "rise50_90_duration_s": 5.788517872850207,
+        "window_start_s": 1701.0,
+        "window_end_s": 3600.0,
+        "evaluation_after_s": 2720.0,
+        "scope": "Collective median thermal front; 9 TC versus 30 component means, no sensor mapping"
+      },
+      "policy": {
+        "timing_target_s": 10.0,
+        "timing_limit_s": 100.0,
+        "phase_end_s": 3600.0,
+        "confirmation_s": 40.0,
+        "smoothing_seconds": 11,
+        "ascent_lookback_s": 300.0,
+        "peak_absolute_tolerance_k": 250.0,
+        "peak_relative_kelvin_tolerance": 0.25,
+        "maximum_rise_duration_factor": 4.0,
+        "rise_duration_slack_s": 30.0,
+        "minimum_converted_components": 2
+      },
+      "scope": "Collective median thermal front; 9 TC versus 30 component means, no sensor mapping",
+      "measured": {
+        "peak_time_s": 2570.0,
+        "peak_temperature_k": 1362.6751378675892,
+        "local_base_time_s": 2270.0,
+        "local_base_temperature_k": 316.11426381338526,
+        "rise50_time_s": 2553.748451075977,
+        "rise90_time_s": 2560.693367370947,
+        "rise50_90_duration_s": 6.944916294969971
+      },
+      "converted_components": 30,
+      "timing_offsets_s": {
+        "peak_time_s": -10.0,
+        "rise50_time_s": -15.995162946651817,
+        "rise90_time_s": -14.838764524532053
+      },
+      "timing_error_s": 15.995162946651817,
+      "timing_target_met": false,
+      "peak_error_k": 181.8741378675893,
+      "peak_error_limit_k": 295.20025,
+      "rise_duration_limit_s": 35.78851787285021,
+      "constraint": 0.0,
+      "reason": null
+    }
+  }
+}

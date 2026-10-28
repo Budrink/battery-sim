@@ -1,0 +1,556 @@
+{
+  "status": "complete",
+  "source": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/c3-hot-response-20261021-r22/route_drift",
+  "native_sha256": "dac8a4df366cd71095da2eb35fa96a629e86ab9393373267ae4c9a549d420d2c",
+  "cases": {
+    "bulk4": {
+      "complete": true,
+      "known_until_s": 1186.639,
+      "first_open_sample_s": 820.0,
+      "net_ejected_mass_g": 113.69099069289838,
+      "net_ejected_mass_crossings_s": {
+        "0.01": 875.0,
+        "0.1": 884.7570000914857,
+        "0.5": 887.6680000685155,
+        "0.9": 900.9219999192283
+      },
+      "peak_accepted_interval_flow_g_s": 32.88225815547113,
+      "peak_accepted_interval_flow_interval_s": [
+        884.7570000914857,
+        885.0
+      ],
+      "chamber_peak_bar": 6.526327126788982,
+      "chamber_peak_s": 889.5470000104979,
+      "chamber_peak_delay_s": 2.908000093884766,
+      "first_gap_ISS1_100c_s": 880.0,
+      "first_C3_ISS_mean_100c_s": 885.0,
+      "samples": [
+        {
+          "time_s": 750.0,
+          "pressure_bar": 1.0339430366987523,
+          "cumulative_mass_g": 0.0,
+          "open_area_mm2": 0.0,
+          "delivered_energy_kj": 0.0,
+          "gap_ISS1_max_c": 41.660418213844935,
+          "C3_ISS_mean_c": 32.67611235737513,
+          "C3_ISS_max_c": 32.77136727798751,
+          "net_gas_and_vapor_produced_g": 0.025358142524845757,
+          "r2_power_kw": 0.0015161663410653593
+        },
+        {
+          "time_s": 850.0,
+          "pressure_bar": 1.0455627224014392,
+          "cumulative_mass_g": 0.5519218422666339,
+          "open_area_mm2": 0.549705946546147,
+          "delivered_energy_kj": 0.11311032084532929,
+          "gap_ISS1_max_c": 60.32331661424479,
+          "C3_ISS_mean_c": 35.325437711138136,
+          "C3_ISS_max_c": 35.4635155140744,
+          "net_gas_and_vapor_produced_g": 0.551020296570908,
+          "r2_power_kw": 0.01992415962191503
+        },
+        {
+          "time_s": 875.0,
+          "pressure_bar": 1.05873143440354,
+          "cumulative_mass_g": 1.3883681211692505,
+          "open_area_mm2": 0.549705946546147,
+          "delivered_energy_kj": 0.28966239018452455,
+          "gap_ISS1_max_c": 69.90920775788709,
+          "C3_ISS_mean_c": 36.12918546709312,
+          "C3_ISS_max_c": 36.27741595883754,
+          "net_gas_and_vapor_produced_g": 1.3892550752701185,
+          "r2_power_kw": 0.10178301369388862
+        },
+        {
+          "time_s": 886.6389999166131,
+          "pressure_bar": 5.112089156897064,
+          "cumulative_mass_g": 49.36692798672941,
+          "open_area_mm2": 4276.552680067509,
+          "delivered_energy_kj": 19.767895209537485,
+          "gap_ISS1_max_c": 833.6641786931897,
+          "C3_ISS_mean_c": 554.0711093573715,
+          "C3_ISS_max_c": 559.2737166722432,
+          "net_gas_and_vapor_produced_g": 49.43310530505389,
+          "r2_power_kw": 1.4689025560874318
+        },
+        {
+          "time_s": 890.0,
+          "pressure_bar": 6.058441075702359,
+          "cumulative_mass_g": 89.34760172560429,
+          "open_area_mm2": 25014.481345763765,
+          "delivered_energy_kj": 44.31718412646523,
+          "gap_ISS1_max_c": 764.9425958273638,
+          "C3_ISS_mean_c": 687.2239536955542,
+          "C3_ISS_max_c": 691.1346193226659,
+          "net_gas_and_vapor_produced_g": 89.47374916341693,
+          "r2_power_kw": 0.0
+        },
+        {
+          "time_s": 900.0,
+          "pressure_bar": 3.0223870381502156,
+          "cumulative_mass_g": 101.36543737068116,
+          "open_area_mm2": 25014.481345763765,
+          "delivered_energy_kj": 55.150327994692574,
+          "gap_ISS1_max_c": 257.4607464355921,
+          "C3_ISS_mean_c": 162.74881110069572,
+          "C3_ISS_max_c": 168.4660642675276,
+          "net_gas_and_vapor_produced_g": 101.44232493690095,
+          "r2_power_kw": 0.0
+        },
+        {
+          "time_s": 910.0,
+          "pressure_bar": 2.6785193522273563,
+          "cumulative_mass_g": 113.52222216512662,
+          "open_area_mm2": 25014.481345763765,
+          "delivered_energy_kj": 65.37557170068334,
+          "gap_ISS1_max_c": 187.15078625589314,
+          "C3_ISS_mean_c": 128.89702933250504,
+          "C3_ISS_max_c": 135.1723054061721,
+          "net_gas_and_vapor_produced_g": 113.60832234871904,
+          "r2_power_kw": 0.0
+        },
+        {
+          "time_s": 930.0,
+          "pressure_bar": 2.297792482836476,
+          "cumulative_mass_g": 113.72356103979124,
+          "open_area_mm2": 25014.481345763765,
+          "delivered_energy_kj": 67.41883969261275,
+          "gap_ISS1_max_c": 130.4509429053275,
+          "C3_ISS_mean_c": 122.86667293427081,
+          "C3_ISS_max_c": 129.0945579041006,
+          "net_gas_and_vapor_produced_g": 113.80467543672408,
+          "r2_power_kw": 0.0
+        },
+        {
+          "time_s": 950.0,
+          "pressure_bar": 2.206625842179397,
+          "cumulative_mass_g": 113.72019580832091,
+          "open_area_mm2": 25014.481345763765,
+          "delivered_energy_kj": 68.84491383134963,
+          "gap_ISS1_max_c": 122.59619621121345,
+          "C3_ISS_mean_c": 118.14587661832286,
+          "C3_ISS_max_c": 123.50745440084751,
+          "net_gas_and_vapor_produced_g": 113.80467543672408,
+          "r2_power_kw": 0.0
+        },
+        {
+          "time_s": 1186.639,
+          "pressure_bar": 2.009362772909999,
+          "cumulative_mass_g": 113.69099069289838,
+          "open_area_mm2": 25014.481345763765,
+          "delivered_energy_kj": 74.84424113031915,
+          "gap_ISS1_max_c": 84.78541075890297,
+          "C3_ISS_mean_c": 94.30938992541309,
+          "C3_ISS_max_c": 95.10932593863248,
+          "net_gas_and_vapor_produced_g": 113.80467543672408,
+          "r2_power_kw": 0.0
+        }
+      ],
+      "observation_note": "Face maximum is a spatial envelope, not a fitted thermocouple or proof of jet direction.",
+      "first_C3_ISS_max_100c_s": 885.0,
+      "temperature_phases": {
+        "event_s": 886.6389999166131,
+        "known_interval_s": [
+          0.0,
+          1186.639
+        ],
+        "complete_record": false,
+        "phases": {
+          "pre_burst": {
+            "interval_s": [
+              0.0,
+              881.6389999166131
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 6.150011943022353,
+                "time_weighted_bias_k": -4.2222396528153805,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0
+              },
+              "102": {
+                "time_weighted_rmse_k": 0.8780353196700604,
+                "time_weighted_bias_k": 0.7133542275270147,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0
+              },
+              "107": {
+                "time_weighted_rmse_k": 4.246092931260651,
+                "time_weighted_bias_k": -2.8219199963574755,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0
+              },
+              "108": {
+                "time_weighted_rmse_k": 1.4421041400133316,
+                "time_weighted_bias_k": -0.969681401668748,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 4.316601967954235,
+                "time_weighted_bias_k": -2.0390975727236476,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 3.406227618948995,
+                "time_weighted_bias_k": -1.309584890230004,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0
+              }
+            }
+          },
+          "burst_uncertain": {
+            "interval_s": [
+              881.6389999166131,
+              906.6389999166131
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 126.05394566216656,
+                "time_weighted_bias_k": 86.8162752350055,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0
+              },
+              "102": {
+                "time_weighted_rmse_k": 91.68834385762892,
+                "time_weighted_bias_k": 76.0822530549394,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0
+              },
+              "107": {
+                "time_weighted_rmse_k": 82.84401946751646,
+                "time_weighted_bias_k": 60.95424038219742,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0
+              },
+              "108": {
+                "time_weighted_rmse_k": 220.5029729518186,
+                "time_weighted_bias_k": -153.8873031585717,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 100.47403869677537,
+                "time_weighted_bias_k": 67.73963653158157,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 427.4396234418314,
+                "time_weighted_bias_k": -329.5620040931288,
+                "covered_s": 12.0,
+                "coverage_fraction": 0.48
+              }
+            }
+          },
+          "early_relaxation": {
+            "interval_s": [
+              906.6389999166131,
+              946.6389999166131
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 8.448029036762644,
+                "time_weighted_bias_k": 7.909837082683294,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0
+              },
+              "102": {
+                "time_weighted_rmse_k": 38.90507091784663,
+                "time_weighted_bias_k": 38.81700567229994,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0
+              },
+              "107": {
+                "time_weighted_rmse_k": 10.97793894928689,
+                "time_weighted_bias_k": 10.648288549613067,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0
+              },
+              "108": {
+                "time_weighted_rmse_k": 75.29854147493401,
+                "time_weighted_bias_k": -66.5901512406134,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 59.82364163211138,
+                "time_weighted_bias_k": 56.02710688950327,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 374.09790637206436,
+                "time_weighted_bias_k": -360.39038994897464,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0
+              }
+            }
+          },
+          "cooling": {
+            "interval_s": [
+              946.6389999166131,
+              1186.639
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 7.7790166742468765,
+                "time_weighted_bias_k": 7.394159314432542,
+                "covered_s": 240.0000000833868,
+                "coverage_fraction": 1.0
+              },
+              "102": {
+                "time_weighted_rmse_k": 26.57781533438483,
+                "time_weighted_bias_k": 26.283354488728367,
+                "covered_s": 240.0000000833868,
+                "coverage_fraction": 1.0
+              },
+              "107": {
+                "time_weighted_rmse_k": 17.613470557731212,
+                "time_weighted_bias_k": 16.53191024256069,
+                "covered_s": 240.0000000833868,
+                "coverage_fraction": 1.0
+              },
+              "108": {
+                "time_weighted_rmse_k": 27.052515613749467,
+                "time_weighted_bias_k": 22.317185123024693,
+                "covered_s": 240.0000000833868,
+                "coverage_fraction": 1.0
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 69.79193915341324,
+                "time_weighted_bias_k": 68.47121925438813,
+                "covered_s": 240.0000000833868,
+                "coverage_fraction": 1.0
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 97.67829193636702,
+                "time_weighted_bias_k": -57.544192790286075,
+                "covered_s": 240.0000000833868,
+                "coverage_fraction": 1.0
+              }
+            }
+          }
+        },
+        "record_end_s": 18287.75600013323,
+        "requested_window_end_s": 1186.639,
+        "complete_requested_window": true,
+        "max_observation_gap_s": 5.0,
+        "interpretation": "Cooling is the primary diagnostic. Burst RMSE is descriptive, not an exact peak target."
+      },
+      "objective": {
+        "objective": 44.042160945679115,
+        "phase_loss": {
+          "warmup": 3.5264903607468576,
+          "burst": 5.273982162681814,
+          "early": 8.780012147372108,
+          "tail": 20.009652199810905
+        },
+        "peak_features": {
+          "101": 2.3426966221613204,
+          "102": 1.6351096087073307,
+          "107": 1.314644411932909,
+          "108": 0.13570250338770584,
+          "C2_TIM": 0.07438409173787067,
+          "C2_ISS": 0.14623630839067356,
+          "pressure": 0.8032505287496178
+        },
+        "temperature_phase_weights": {
+          "warmup": 1.0,
+          "burst": 0.15,
+          "early": 0.5,
+          "tail": 1.0
+        },
+        "temperature_peak_weight": 0.1,
+        "full_window_s": 1186.639,
+        "known_until_s": 1186.639,
+        "phases": {
+          "warmup": {
+            "101": {
+              "rmse_k": 5.858725562385168,
+              "bias_k": -4.024020704404741
+            },
+            "102": {
+              "rmse_k": 0.8571666190875341,
+              "bias_k": 0.6960999165677609
+            },
+            "107": {
+              "rmse_k": 4.0802500011695875,
+              "bias_k": -2.6972940316335983
+            },
+            "108": {
+              "rmse_k": 1.3974423058745482,
+              "bias_k": -0.9315744055877097
+            },
+            "C2_TIM": {
+              "rmse_k": 4.001695179288231,
+              "bias_k": -1.8506658590784275
+            },
+            "C2_ISS": {
+              "rmse_k": 3.3932073136550196,
+              "bias_k": -1.2644962202195758
+            }
+          },
+          "peak": {
+            "101": {
+              "rmse_k": 142.6051753168894,
+              "bias_k": 100.0594436641103
+            },
+            "102": {
+              "rmse_k": 89.45882313689665,
+              "bias_k": 70.24901709754741
+            },
+            "107": {
+              "rmse_k": 80.6385138989996,
+              "bias_k": 57.012046059369894
+            },
+            "108": {
+              "rmse_k": 295.43499536170805,
+              "bias_k": -18.453591767218864
+            },
+            "C2_TIM": {
+              "rmse_k": 136.23936562032125,
+              "bias_k": 95.71444055541099
+            },
+            "C2_ISS": {
+              "rmse_k": 477.5993125384046,
+              "bias_k": -208.1283980105716
+            }
+          },
+          "early": {
+            "101": {
+              "rmse_k": 101.52095576168584,
+              "bias_k": 62.89974104957485
+            },
+            "102": {
+              "rmse_k": 81.96795100925011,
+              "bias_k": 69.9588707224588
+            },
+            "107": {
+              "rmse_k": 70.85453636352423,
+              "bias_k": 49.40543871530246
+            },
+            "108": {
+              "rmse_k": 187.33815722513413,
+              "bias_k": -176.56986802851807
+            },
+            "C2_TIM": {
+              "rmse_k": 75.11691605171406,
+              "bias_k": 51.52853167137678
+            },
+            "C2_ISS": {
+              "rmse_k": 529.6101318236564,
+              "bias_k": -521.5871576066069
+            }
+          },
+          "propagation": {
+            "101": {
+              "rmse_k": 7.659547261717876,
+              "bias_k": 7.288838379749454
+            },
+            "102": {
+              "rmse_k": 27.949256268909448,
+              "bias_k": 27.474943345419813
+            },
+            "107": {
+              "rmse_k": 16.939149418523478,
+              "bias_k": 15.76570461147759
+            },
+            "108": {
+              "rmse_k": 30.662726294079835,
+              "bias_k": 14.766876459287218
+            },
+            "C2_TIM": {
+              "rmse_k": 69.54634815040629,
+              "bias_k": 68.23624924057243
+            },
+            "C2_ISS": {
+              "rmse_k": 138.5680764955196,
+              "bias_k": -84.57644669071193
+            }
+          },
+          "cooldown": {
+            "101": {
+              "rmse_k": 11.518017044503779,
+              "bias_k": 11.518017044503779
+            },
+            "102": {
+              "rmse_k": 20.790449627580585,
+              "bias_k": 20.790449627580585
+            },
+            "107": {
+              "rmse_k": 24.697679899306365,
+              "bias_k": 24.697679899306365
+            },
+            "108": {
+              "rmse_k": 38.105611202139585,
+              "bias_k": 38.105611202139585
+            },
+            "C2_TIM": {
+              "rmse_k": 49.296987199193325,
+              "bias_k": 49.296987199193325
+            },
+            "C2_ISS": {
+              "rmse_k": 23.467822557772024,
+              "bias_k": 23.467822557772024
+            }
+          },
+          "pressure": {
+            "peak_bar": 6.526327126788982,
+            "observed_peak_bar": 7.9827295,
+            "peak_time_s": 889.5470000104979,
+            "rmse_bar": 0.5508230554850273
+          },
+          "joule_j": {
+            "C1": 0.0,
+            "C2": 73070.17230528616,
+            "C3": 0.0
+          },
+          "heat_sources": {
+            "joule_j": 73070.17230528616,
+            "r2_local_j": 151803.83565350558,
+            "r3_j": 354204.13864901377,
+            "electrical_chemical_input_j": 81741.84366143953,
+            "precursor_charge_energy_j": 0.0,
+            "joule_share": 0.12618361223493843
+          },
+          "electrical_response": {
+            "max_resistance_ohm": 0.15953005740660847,
+            "max_power_w": 194.3092052218232,
+            "charging_last_resistance_ohm": 0.008096167389744217,
+            "voltage_decomposition": "Effective R includes unresolved polarization; full UI budget enforced; a voltage-envelope prior is opt-in"
+          },
+          "wall_s": 592.7319662,
+          "steps": 26979,
+          "balance": {
+            "max_thermal_residual_j": 8.66129994392395e-08,
+            "max_chemical_residual_j": 9.553332347422838e-08,
+            "max_mass_residual_kg": 4.4297898682543746e-14
+          }
+        },
+        "objective_note": "All six T channels; cooling prioritized, temperature burst/peaks softened but nonzero; pressure and safety unchanged; no fitted time shift"
+      },
+      "wall_s": 592.7319662,
+      "realtime_factor": 2.0019824603142857,
+      "minimum_regular_step_s": 0.02,
+      "balance": {
+        "max_thermal_residual_j": 8.66129994392395e-08,
+        "max_chemical_residual_j": 9.553332347422838e-08,
+        "max_mass_residual_kg": 4.4297898682543746e-14
+      }
+    }
+  },
+  "script_sha256": "2735cd6103685e9a0fa7f508d3044db92488f00f01853fef40f2f21cd44844bd",
+  "calibrated": false,
+  "validation_run": false,
+  "diagnostic_only": true
+}

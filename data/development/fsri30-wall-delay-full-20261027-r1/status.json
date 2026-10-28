@@ -1,0 +1,189 @@
+{
+  "status": "complete",
+  "stage": "fresh-from-zero",
+  "pid": 2199109,
+  "source": "/home/konstantin/work/battery-sim/data/development/fsri30-wall-damage-replay-20261027-r1/scenario.json",
+  "source_sha256": "24a90fb724335f58d95bbfc386a3e6d722e6f9d0d96fb7ccf1ca6ab19e8d3e9c",
+  "core_sha256": "812722f565a339d09a19f2c935f0ef9cb43f31f56f442861589d59e7a7424aea",
+  "scenario_sha256": "6895d5de718ebec1471a26da90979899fcad1dc61bff2e4ebaca29f67dc8a7cc",
+  "controls": {
+    "r2_rate_multiplier": 0.888240501116696,
+    "r2_rate_per_s": 0.00015594988490846484,
+    "insulation_damage_rate_multiplier": 0.1,
+    "insulation_rate_per_s": 1e-07,
+    "insulation_onset_c": 150.0,
+    "insulation_temperature_scale_k": 5.0,
+    "complete_damage_hold_200c_s": 453.9992976248485,
+    "complete_damage_hold_220c_s": 8.31528719103568,
+    "full_damage_ramp_point1_k_s_c": 211.03038822758836,
+    "same_law_all_batteries": true,
+    "irreversible": true,
+    "heater_r3_gas_valves_unchanged": true,
+    "cold_and_destroyed_conductances_unchanged": true,
+    "method": "Tentative thermal-dose delay and archived local R2 timing sensitivity",
+    "objective": "Later primary; delayed secondary via irreversible inner insulation",
+    "fresh_initial_state": true,
+    "calibrated": false,
+    "validation_passed": false
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "progress": {
+    "time_s": 2999.9999999999045,
+    "wall_s": 2285.167032117,
+    "pulses": [
+      {
+        "channel": "B10",
+        "time_s": 1767.0,
+        "rise_k": 975.4102311965772,
+        "slope_k_s": 109.32790409847439
+      },
+      {
+        "channel": "B17",
+        "time_s": 1947.0,
+        "rise_k": 508.1154095156909,
+        "slope_k_s": 121.945093514576
+      },
+      {
+        "channel": "B18",
+        "time_s": 1947.0,
+        "rise_k": 519.1100800171488,
+        "slope_k_s": 122.12913005207236
+      }
+    ],
+    "secondary_events": [
+      {
+        "cell": "B00",
+        "time_s": 2145.0
+      },
+      {
+        "cell": "B01",
+        "time_s": 2135.0
+      },
+      {
+        "cell": "B02",
+        "time_s": 2120.0
+      },
+      {
+        "cell": "B03",
+        "time_s": 2125.0
+      },
+      {
+        "cell": "B04",
+        "time_s": 2145.0
+      },
+      {
+        "cell": "B05",
+        "time_s": 2165.0
+      },
+      {
+        "cell": "B06",
+        "time_s": 2170.0
+      },
+      {
+        "cell": "B07",
+        "time_s": 2065.0
+      },
+      {
+        "cell": "B08",
+        "time_s": 2000.0
+      },
+      {
+        "cell": "B09",
+        "time_s": 1980.0
+      },
+      {
+        "cell": "B11",
+        "time_s": 1950.0
+      },
+      {
+        "cell": "B12",
+        "time_s": 1965.0
+      },
+      {
+        "cell": "B13",
+        "time_s": 2090.0
+      },
+      {
+        "cell": "B14",
+        "time_s": 2135.0
+      },
+      {
+        "cell": "B15",
+        "time_s": 2050.0
+      },
+      {
+        "cell": "B16",
+        "time_s": 1995.0
+      },
+      {
+        "cell": "B17",
+        "time_s": 1930.0
+      },
+      {
+        "cell": "B18",
+        "time_s": 1930.0
+      },
+      {
+        "cell": "B19",
+        "time_s": 1965.0
+      },
+      {
+        "cell": "B20",
+        "time_s": 2080.0
+      },
+      {
+        "cell": "B21",
+        "time_s": 2105.0
+      },
+      {
+        "cell": "B22",
+        "time_s": 2145.0
+      },
+      {
+        "cell": "B23",
+        "time_s": 2145.0
+      },
+      {
+        "cell": "B24",
+        "time_s": 2140.0
+      },
+      {
+        "cell": "B25",
+        "time_s": 2130.0
+      },
+      {
+        "cell": "B26",
+        "time_s": 2150.0
+      },
+      {
+        "cell": "B27",
+        "time_s": 2155.0
+      },
+      {
+        "cell": "B28",
+        "time_s": 2170.0
+      },
+      {
+        "cell": "B29",
+        "time_s": 2185.0
+      }
+    ],
+    "temperatures_c": {
+      "B10": 740.5171430059253,
+      "B17": 740.4351188312716,
+      "B18": 741.4155126273947
+    },
+    "ledgers": {
+      "max_chemical_residual_j": 7.171183824539185e-08,
+      "max_mass_residual_kg": 9.015010959956271e-14,
+      "max_oxidizer_residual_kg": 8.132383655379272e-14,
+      "max_thermal_residual_j": 6.668269634246826e-07
+    }
+  },
+  "stopping_policy": "physical checks only",
+  "visual_manifest": "/home/konstantin/work/battery-sim/data/development/fsri30-wall-delay-full-20261027-r1/visual/manifest.json",
+  "monitor_pid": 2199133,
+  "end_s": 2999.9999999999045,
+  "wall_s": 2285.167032117
+}

@@ -1,0 +1,284 @@
+{
+  "status": "common-observed-prefix-compared",
+  "common_horizon_s": 2240.0,
+  "full_requested_horizon_s": 5945.0,
+  "full_horizon_spatial_check_passed": false,
+  "calibrated": false,
+  "validation_passed": false,
+  "native_sha256": "e7386cc42effc14e1c8bf6a2ffa6c225b77935921458ca5aadfaa9df7cc59f56",
+  "base_sha256": "4e7653dc3d0e04897332924402b4e61f65af5eb0a4b981fc38c155adba45df28",
+  "sources": {
+    "20": {
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-full20-10-20261025-r1/checks/h-20mm/replay/run.json.gz",
+      "partial": false,
+      "last_observation_s": 5945.0,
+      "advanced_to_s": 5945.0,
+      "live_state": null,
+      "balances": {
+        "max_chemical_residual_j": 2.2165477275848389e-07,
+        "max_mass_residual_kg": 6.661338147750939e-14,
+        "max_oxidizer_residual_kg": 7.527312106958561e-14,
+        "max_thermal_residual_j": 1.914333552122116e-06
+      }
+    },
+    "10": {
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-full20-10-20261025-r1/checks/h-10mm/replay/incomplete-run.json.gz",
+      "partial": true,
+      "last_observation_s": 2240.0,
+      "advanced_to_s": 2240.970000000012,
+      "live_state": {
+        "objects": {
+          "B00": {
+            "max_temperature_k": 316.5408059018602,
+            "r2_power_w": 0.01026588040300093
+          },
+          "B01": {
+            "max_temperature_k": 330.0752716242097,
+            "r2_power_w": 0.0479586974182102
+          },
+          "B02": {
+            "max_temperature_k": 374.0063490682638,
+            "r2_power_w": 3.253218847613516
+          },
+          "B03": {
+            "max_temperature_k": 374.53925295134064,
+            "r2_power_w": 2.904936626553661
+          },
+          "B04": {
+            "max_temperature_k": 328.4623575924343,
+            "r2_power_w": 0.04055190920467562
+          },
+          "B05": {
+            "max_temperature_k": 312.7529522265964,
+            "r2_power_w": 0.006536914322379399
+          },
+          "B06": {
+            "max_temperature_k": 310.90370040348046,
+            "r2_power_w": 0.005257836652144115
+          },
+          "B07": {
+            "max_temperature_k": 313.04483451335784,
+            "r2_power_w": 0.0067498893245232505
+          },
+          "B08": {
+            "max_temperature_k": 321.84688635742145,
+            "r2_power_w": 0.0188976193761292
+          },
+          "B09": {
+            "max_temperature_k": 1631.4353536123522,
+            "r2_power_w": 0.0
+          },
+          "B10": {
+            "max_temperature_k": 537.3383779391015,
+            "r2_power_w": 0.0
+          },
+          "B11": {
+            "max_temperature_k": 399.3126149360616,
+            "r2_power_w": 17.852452892773563
+          },
+          "B12": {
+            "max_temperature_k": 319.4460358105322,
+            "r2_power_w": 0.014518474575444869
+          },
+          "B13": {
+            "max_temperature_k": 307.09644637514185,
+            "r2_power_w": 0.00324328768944251
+          },
+          "B14": {
+            "max_temperature_k": 308.1572745984506,
+            "r2_power_w": 0.0037345442287304866
+          },
+          "B15": {
+            "max_temperature_k": 312.69081396148664,
+            "r2_power_w": 0.006451785023690762
+          },
+          "B16": {
+            "max_temperature_k": 324.9264622967619,
+            "r2_power_w": 0.026994564198540575
+          },
+          "B17": {
+            "max_temperature_k": 365.02301202971006,
+            "r2_power_w": 1.3749723740086934
+          },
+          "B18": {
+            "max_temperature_k": 364.03176680367955,
+            "r2_power_w": 1.3322446814242572
+          },
+          "B19": {
+            "max_temperature_k": 323.317805039161,
+            "r2_power_w": 0.022754624645704782
+          },
+          "B20": {
+            "max_temperature_k": 308.3586309089185,
+            "r2_power_w": 0.0037963207240852464
+          },
+          "B21": {
+            "max_temperature_k": 305.24048468301805,
+            "r2_power_w": 0.0025706870618584683
+          },
+          "B22": {
+            "max_temperature_k": 308.9203731204427,
+            "r2_power_w": 0.004121393270568478
+          },
+          "B23": {
+            "max_temperature_k": 313.9502801319244,
+            "r2_power_w": 0.007556645245117375
+          },
+          "B24": {
+            "max_temperature_k": 318.36637255327463,
+            "r2_power_w": 0.012759409669935155
+          },
+          "B25": {
+            "max_temperature_k": 322.71925919552405,
+            "r2_power_w": 0.021214909977004467
+          },
+          "B26": {
+            "max_temperature_k": 317.36550644624907,
+            "r2_power_w": 0.011379455003133806
+          },
+          "B27": {
+            "max_temperature_k": 309.9554589481807,
+            "r2_power_w": 0.00463809915995551
+          },
+          "B28": {
+            "max_temperature_k": 307.25886725294345,
+            "r2_power_w": 0.003323761569585554
+          },
+          "B29": {
+            "max_temperature_k": 309.91715347531465,
+            "r2_power_w": 0.004666215322739681
+          }
+        },
+        "time_s": 2240.970000000012
+      },
+      "balances": {
+        "max_chemical_residual_j": 2.561137080192566e-07,
+        "max_mass_residual_kg": 1.7186252421197423e-13,
+        "max_oxidizer_residual_kg": 5.3512749786932545e-14,
+        "max_thermal_residual_j": 6.446498446166515e-08
+      }
+    }
+  },
+  "global_comparison": {
+    "accepted": false,
+    "maximum_component_rms_relative_kelvin": 0.045949297552956014,
+    "r3_energy_relative_difference": 0.48359806193295723,
+    "reactive_window_exercised": true,
+    "r3_cumulative_rms_relative_difference": 0.030133819662409564,
+    "hottest_external_gas_rms_relative_kelvin": 0.05848540799797664,
+    "same_conversion_count": false,
+    "same_conversion_order": false,
+    "maximum_conversion_time_relative_difference": 7.41265980912363e-06,
+    "tolerance": 0.05,
+    "scope": "spatial convergence on computed horizon only; NOT experimental validation"
+  },
+  "phase_comparisons": {
+    "preheat": {
+      "accepted": true,
+      "start_s": 0.0,
+      "end_s": 1074.9999999999545,
+      "tolerance": 0.05,
+      "maximum_component_rms_relative_kelvin": 0.00019639854488320984,
+      "hottest_gas_rms_relative_kelvin": 0.0013757921712127274,
+      "r3_increment_relative_difference": 5.946723313242363e-08,
+      "r3_increment_shape_relative_difference": 2.526441849816608e-07,
+      "r3_increment_j": [
+        0.03423795187258767,
+        0.03423200514927443
+      ]
+    },
+    "first_burst": {
+      "accepted": true,
+      "start_s": 1074.9999999999545,
+      "end_s": 1230.0,
+      "tolerance": 0.05,
+      "maximum_component_rms_relative_kelvin": 0.005053594453538017,
+      "hottest_gas_rms_relative_kelvin": 0.04137595208085089,
+      "r3_increment_relative_difference": 0.0013266821924367857,
+      "r3_increment_shape_relative_difference": 0.018151246877584223,
+      "r3_increment_j": [
+        67767.33351005186,
+        67857.3586594111
+      ]
+    },
+    "between_bursts": {
+      "accepted": false,
+      "start_s": 1230.0,
+      "end_s": 2199.9999999999227,
+      "tolerance": 0.05,
+      "maximum_component_rms_relative_kelvin": 0.007146537811693175,
+      "hottest_gas_rms_relative_kelvin": 0.02033066219614915,
+      "r3_increment_relative_difference": 0.06500296146958229,
+      "r3_increment_shape_relative_difference": 0.05114341831573744,
+      "r3_increment_j": [
+        933.2667430543661,
+        998.1494107416947
+      ]
+    },
+    "cascade_onset": {
+      "accepted": false,
+      "start_s": 2199.9999999999227,
+      "end_s": 2239.9999999999955,
+      "tolerance": 0.05,
+      "maximum_component_rms_relative_kelvin": 0.32448192717666907,
+      "hottest_gas_rms_relative_kelvin": 0.3944535582516395,
+      "r3_increment_relative_difference": 0.9998345013642169,
+      "r3_increment_shape_relative_difference": 0.4385280841277953,
+      "r3_increment_j": [
+        64657.19766181783,
+        10.700678006585804
+      ]
+    },
+    "through_before_cascade": {
+      "accepted": true,
+      "start_s": 0.0,
+      "end_s": 2199.9999999999227,
+      "tolerance": 0.05,
+      "maximum_component_rms_relative_kelvin": 0.004933563303682169,
+      "hottest_gas_rms_relative_kelvin": 0.01754587874499237,
+      "r3_increment_relative_difference": 0.0022497507959498447,
+      "r3_increment_shape_relative_difference": 0.005002334812236957,
+      "r3_increment_j": [
+        68700.6344910581,
+        68855.54230215793
+      ]
+    }
+  },
+  "conversion_events": {
+    "20": [
+      {
+        "component": "B10",
+        "time_s": 1105.3444146376805
+      },
+      {
+        "component": "B09",
+        "time_s": 2230.107294117922
+      }
+    ],
+    "10": [
+      {
+        "component": "B10",
+        "time_s": 1105.336221095563
+      }
+    ]
+  },
+  "conversion_definition": "10% R2 converted mass, linear interpolation between completed observations",
+  "right_censored_fine_events": [
+    {
+      "component": "B09",
+      "coarse_event_s": 2230.107294117922,
+      "fine_not_crossed_by_s": 2240.0,
+      "fine_delay_lower_bound_s": 9.89270588207819
+    }
+  ],
+  "fine_live_state_beyond_observations": {
+    "time_s": 2240.970000000012,
+    "B09": {
+      "max_temperature_k": 1631.4353536123522,
+      "r2_power_w": 0.0
+    },
+    "used_as_observation": false
+  },
+  "note": "No extrapolation, no fitted time shift. A missing event at the cutoff is censored, not proof of a different cascade order.",
+  "plot": "/home/konstantin/work/battery-sim/data/development/fsri30-full20-10-20261025-r1/common-prefix-20261025-r1/comparison.png"
+}

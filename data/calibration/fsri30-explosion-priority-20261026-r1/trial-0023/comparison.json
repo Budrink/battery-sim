@@ -1,0 +1,78 @@
+{
+  "last_completed_observation_s": 5945.0,
+  "common_comparison_until_s": 4089.9999999999045,
+  "common_control_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 193.2093995639603,
+    "quantile_rmse_k": [
+      240.72187438885518,
+      100.33614066708898,
+      181.8996404205358,
+      219.58517072219232
+    ],
+    "tail_temperature_c": [
+      636.5674082232241,
+      739.6611551212337,
+      830.533572465015,
+      876.2216131539163
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "common_candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 81.3160293070443,
+    "quantile_rmse_k": [
+      85.042013316158,
+      52.47503205277605,
+      66.7178858408206,
+      109.59989589494192
+    ],
+    "tail_temperature_c": [
+      414.160065114217,
+      550.740206264753,
+      692.2350801491496,
+      727.9199469794443
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "candidate_cooling": {
+    "complete": true,
+    "envelope_rmse_k": 98.88246680985192,
+    "quantile_rmse_k": [
+      159.04140057188033,
+      84.78540605577781,
+      51.15141727136871,
+      63.33852938636717
+    ],
+    "tail_temperature_c": [
+      228.17753134543767,
+      328.9165701956091,
+      414.0287080141512,
+      434.8998266099602
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+  "common_cooling_rmse_change_k": -111.89337025691599,
+  "radiative_energy_out_j": 596683.10604057
+}

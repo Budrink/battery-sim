@@ -1,0 +1,59 @@
+{
+  "status": "complete",
+  "completion_scope": "Numerical core replay through the burst window; NOT protocol-faithful experimental validation",
+  "protocol_faithful": false,
+  "validation_claim": false,
+  "protocol_audit": "Primary description prescribes constant 35 A with 80 V source compliance. Using measured terminal U as compliance changes the experiment; this replay is diagnostic only.",
+  "pid": 1683271,
+  "source": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/five-channel-best-and-validation-20261022-r1/trial-000/scenario.json",
+  "source_scene_sha256": "1918970cc20deb84542a28a25aba4565849257bbb2334fb310a611c0a51bcebd",
+  "native_sha256": "e7234238a1dcedad671ee39f3a120047432705a2341a7babdf69b439d6ca9e27",
+  "refitted": false,
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "requested_end_s": 1626.6089999116957,
+  "observed_event_s": 1413.2479998283088,
+  "initialization": "Fresh from measured initial state; never reuse training checkpoint",
+  "provenance": {
+    "frozen_scene_sha256": "1918970cc20deb84542a28a25aba4565849257bbb2334fb310a611c0a51bcebd",
+    "frozen_training_source": "explicit scene; metadata defaults are not replay parameters",
+    "experiment": "active-cooling",
+    "experimental_sha256": "2efdccced6d5c2701bb9cd09572129621924692a2f93b9392c8a248d6e23cdfb",
+    "parameters_refitted": false,
+    "validation_used_for_selection": false,
+    "changes": [
+      "Measured initial temperatures/pressure and electrical protocol",
+      "13 mm Al cooling plate + existing 10 W/K water-side prior; 2000 W/(m2 K) Al/plate contacts",
+      "Gas topology rebuilt around occupied plate; blocked paths stay blocked"
+    ],
+    "limitations": [
+      "Cooling contact and water-side G are unmeasured priors",
+      "Condition holdout within the same experimental campaign, not blind independent validation"
+    ],
+    "frozen_modified_void_faces": 36,
+    "removed_blocked_nonvoid_routes": 27,
+    "current_input_assumption": "35 A protocol setpoint, voltage-limited actual current; no measured validation current log"
+  },
+  "observation_error_pruning": false,
+  "wall_s": 659.303472754,
+  "realtime_ratio": 2.4671627970001877,
+  "known_until_s": 1626.6089999116957,
+  "balances": {
+    "max_chemical_residual_j": 7.05476850271225e-08,
+    "max_mass_residual_kg": 2.6423307986078726e-14,
+    "max_oxidizer_residual_kg": 1.4224732503009818e-15,
+    "max_thermal_residual_j": 1.603257260285318e-07
+  }
+}

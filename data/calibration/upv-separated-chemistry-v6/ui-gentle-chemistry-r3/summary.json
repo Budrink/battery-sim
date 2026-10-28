@@ -1,0 +1,377 @@
+[
+  {
+    "label": "q20-r012-gentle120",
+    "status": "complete",
+    "error": null,
+    "parameters": {
+      "resistance_ohm": 0.012,
+      "resistance_temperature": -0.015,
+      "resistance_charge": 20,
+      "product_conductivity_ratio": 0.2,
+      "r1_rate": 0.05697143004198283,
+      "r1_activation": 220000,
+      "r2_rate": 0.3564419094188068,
+      "r2_activation": 120000,
+      "energy_j": 424264.068711928,
+      "gas_fraction": 0.7,
+      "gas_yield": 0.4,
+      "gas_yield_temperature": 0.0005,
+      "gas_rate": 20.0,
+      "gas_reference_k": 600.0,
+      "gas_activation": 80000.0,
+      "precursor_yield": 0.27735866146555965,
+      "precursor_temperature": 0.029623273375245555,
+      "iss_h": 548.334510922672,
+      "tim_h": 697.6587915939645,
+      "case_h": 220.48307663197534,
+      "environment_h": 1.563406124562644,
+      "surface_iss": 0.0,
+      "surface_tim": 6.0,
+      "bulk_slope": -2.88,
+      "case_warm_response": 0.0,
+      "case_hot_response": 0.0,
+      "shell_strength_pa": 1000000.0,
+      "opening_rate": 0.2,
+      "sink_g": 10.0,
+      "battery_iss_factor": 0.3246524673583498,
+      "battery_tim_factor": 0.3272376374473188,
+      "charge_formation_gain": 2
+    },
+    "proposal": {
+      "label": "q20-r012-gentle120",
+      "k1_75": 3e-06,
+      "ea1": 220000,
+      "k2_75": 3e-05,
+      "ea2": 120000,
+      "resistance_ohm": 0.012,
+      "resistance_temperature": -0.015,
+      "resistance_charge": 20,
+      "charge_formation_gain": 2
+    },
+    "last_sample_s": 626.956,
+    "objective": 34.9123393842532,
+    "diagnostics": {
+      "objective": 34.9123393842532,
+      "channels": {
+        "101": {
+          "rmse_fit_window_k": 2.9684972924498716,
+          "end_error_k": -5.485165145575024
+        },
+        "102": {
+          "rmse_fit_window_k": 0.48315603758407494,
+          "end_error_k": 0.9774432535069764
+        },
+        "107": {
+          "rmse_fit_window_k": 1.8131825885184272,
+          "end_error_k": -3.238465882420712
+        },
+        "108": {
+          "rmse_fit_window_k": 0.6993203562885998,
+          "end_error_k": -1.805153579459386
+        },
+        "C2_TIM": {
+          "rmse_fit_window_k": 1.9259710537375427,
+          "end_error_k": 0.20770574488523152
+        },
+        "C2_ISS": {
+          "rmse_fit_window_k": 2.16155302649609,
+          "end_error_k": 1.4950409520109247
+        }
+      },
+      "fit_end_s": 626.956,
+      "first300_joule_share": 0.9999107082933412,
+      "objective_note": "No chamber-pressure target while shell strength is uncalibrated"
+    },
+    "snapshots": {
+      "300.0": {
+        "c2_mean_c": 41.574175818086246,
+        "c2_tim_error_k": 1.0691321924263661,
+        "c2_iss_error_k": -0.219214491437981,
+        "b_mg": 18475.082418758884,
+        "r2_local_power_w": 0.008662703752116713,
+        "thermal_formed_g": 3.970722846353595e-06,
+        "charge_formed_g": 18.47551684982122,
+        "chamber_bar": 1.032272063536476
+      },
+      "500.0": {
+        "c2_mean_c": 66.27551192094626,
+        "c2_tim_error_k": -2.8780450055220967,
+        "c2_iss_error_k": -2.8875692683474767,
+        "b_mg": 28689.413080222104,
+        "r2_local_power_w": 0.38780316712870255,
+        "thermal_formed_g": 0.002139359803781568,
+        "charge_formed_g": 28.702367053645823,
+        "chamber_bar": 1.0324682716714857
+      },
+      "626.956": {
+        "c2_mean_c": 91.4701241210613,
+        "c2_tim_error_k": 0.2843098979976162,
+        "c2_iss_error_k": 1.591507994093547,
+        "b_mg": 31982.204187861727,
+        "r2_local_power_w": 9.042605095019304,
+        "thermal_formed_g": 0.5681062107758533,
+        "charge_formed_g": 31.7778541652405,
+        "chamber_bar": 1.0335925601321958
+      }
+    },
+    "fingerprint": "3ae900e520e7c7ae96d2b782d2fad6e3c64bb17b37a4de3b01f5af1c62e9ff1a",
+    "validation_used_for_selection": false,
+    "wall_s": 44.84319619706366,
+    "balances": {
+      "max_thermal_residual_j": 3.1095623853616416e-08,
+      "max_chemical_residual_j": 7.457856554538012e-09,
+      "max_mass_residual_kg": 4.3298697960381105e-15
+    },
+    "diagnostic_emf_floor_v": null
+  },
+  {
+    "label": "q18-r014-gentle120",
+    "status": "complete",
+    "error": null,
+    "parameters": {
+      "resistance_ohm": 0.014,
+      "resistance_temperature": -0.015,
+      "resistance_charge": 18,
+      "product_conductivity_ratio": 0.2,
+      "r1_rate": 0.05697143004198283,
+      "r1_activation": 220000,
+      "r2_rate": 0.3564419094188068,
+      "r2_activation": 120000,
+      "energy_j": 424264.068711928,
+      "gas_fraction": 0.7,
+      "gas_yield": 0.4,
+      "gas_yield_temperature": 0.0005,
+      "gas_rate": 20.0,
+      "gas_reference_k": 600.0,
+      "gas_activation": 80000.0,
+      "precursor_yield": 0.27735866146555965,
+      "precursor_temperature": 0.029623273375245555,
+      "iss_h": 548.334510922672,
+      "tim_h": 697.6587915939645,
+      "case_h": 220.48307663197534,
+      "environment_h": 1.563406124562644,
+      "surface_iss": 0.0,
+      "surface_tim": 6.0,
+      "bulk_slope": -2.88,
+      "case_warm_response": 0.0,
+      "case_hot_response": 0.0,
+      "shell_strength_pa": 1000000.0,
+      "opening_rate": 0.2,
+      "sink_g": 10.0,
+      "battery_iss_factor": 0.3246524673583498,
+      "battery_tim_factor": 0.3272376374473188,
+      "charge_formation_gain": 2
+    },
+    "proposal": {
+      "label": "q18-r014-gentle120",
+      "k1_75": 3e-06,
+      "ea1": 220000,
+      "k2_75": 3e-05,
+      "ea2": 120000,
+      "resistance_ohm": 0.014,
+      "resistance_temperature": -0.015,
+      "resistance_charge": 18,
+      "charge_formation_gain": 2
+    },
+    "last_sample_s": 626.956,
+    "objective": 44.22269463867694,
+    "diagnostics": {
+      "objective": 44.22269463867694,
+      "channels": {
+        "101": {
+          "rmse_fit_window_k": 2.972860559094674,
+          "end_error_k": -5.840694552307355
+        },
+        "102": {
+          "rmse_fit_window_k": 0.5178337797020096,
+          "end_error_k": 1.012853498585912
+        },
+        "107": {
+          "rmse_fit_window_k": 1.8449254303551743,
+          "end_error_k": -3.678966474552965
+        },
+        "108": {
+          "rmse_fit_window_k": 0.6699464146963254,
+          "end_error_k": -1.7865528331090559
+        },
+        "C2_TIM": {
+          "rmse_fit_window_k": 2.3108250434718554,
+          "end_error_k": -1.9146332934361112
+        },
+        "C2_ISS": {
+          "rmse_fit_window_k": 2.7267724633932557,
+          "end_error_k": -1.9032145110177794
+        }
+      },
+      "fit_end_s": 626.956,
+      "first300_joule_share": 0.9999066934794161,
+      "objective_note": "No chamber-pressure target while shell strength is uncalibrated"
+    },
+    "snapshots": {
+      "300.0": {
+        "c2_mean_c": 42.27112509357136,
+        "c2_tim_error_k": 1.604687383482542,
+        "c2_iss_error_k": 0.3724686582810932,
+        "b_mg": 18261.225895506097,
+        "r2_local_power_w": 0.009477958706338864,
+        "thermal_formed_g": 4.903459149502355e-06,
+        "charge_formed_g": 18.261700924118497,
+        "chamber_bar": 1.0322784570133987
+      },
+      "500.0": {
+        "c2_mean_c": 65.06322320582962,
+        "c2_tim_error_k": -3.3504473766888054,
+        "c2_iss_error_k": -3.8154306715554185,
+        "b_mg": 28885.700211115298,
+        "r2_local_power_w": 0.3341342532796999,
+        "thermal_formed_g": 0.0017199391578481503,
+        "charge_formed_g": 28.898108421410292,
+        "chamber_bar": 1.0324645373817585
+      },
+      "626.956": {
+        "c2_mean_c": 87.07541449715598,
+        "c2_tim_error_k": -1.8688488646563428,
+        "c2_iss_error_k": -1.8587624315794073,
+        "b_mg": 32753.30067201955,
+        "r2_local_power_w": 5.52348744629684,
+        "thermal_formed_g": 0.2458319029944254,
+        "charge_formed_g": 32.73850814055867,
+        "chamber_bar": 1.033294261735621
+      }
+    },
+    "fingerprint": "3ae900e520e7c7ae96d2b782d2fad6e3c64bb17b37a4de3b01f5af1c62e9ff1a",
+    "validation_used_for_selection": false,
+    "wall_s": 44.408614123938605,
+    "balances": {
+      "max_thermal_residual_j": 2.1398591343313456e-08,
+      "max_chemical_residual_j": 6.628397386521101e-09,
+      "max_mass_residual_kg": 5.329070518200751e-15
+    },
+    "diagnostic_emf_floor_v": null
+  },
+  {
+    "label": "q16-r016-gentle120",
+    "status": "complete",
+    "error": null,
+    "parameters": {
+      "resistance_ohm": 0.016,
+      "resistance_temperature": -0.015,
+      "resistance_charge": 16,
+      "product_conductivity_ratio": 0.2,
+      "r1_rate": 0.05697143004198283,
+      "r1_activation": 220000,
+      "r2_rate": 0.3564419094188068,
+      "r2_activation": 120000,
+      "energy_j": 424264.068711928,
+      "gas_fraction": 0.7,
+      "gas_yield": 0.4,
+      "gas_yield_temperature": 0.0005,
+      "gas_rate": 20.0,
+      "gas_reference_k": 600.0,
+      "gas_activation": 80000.0,
+      "precursor_yield": 0.27735866146555965,
+      "precursor_temperature": 0.029623273375245555,
+      "iss_h": 548.334510922672,
+      "tim_h": 697.6587915939645,
+      "case_h": 220.48307663197534,
+      "environment_h": 1.563406124562644,
+      "surface_iss": 0.0,
+      "surface_tim": 6.0,
+      "bulk_slope": -2.88,
+      "case_warm_response": 0.0,
+      "case_hot_response": 0.0,
+      "shell_strength_pa": 1000000.0,
+      "opening_rate": 0.2,
+      "sink_g": 10.0,
+      "battery_iss_factor": 0.3246524673583498,
+      "battery_tim_factor": 0.3272376374473188,
+      "charge_formation_gain": 2
+    },
+    "proposal": {
+      "label": "q16-r016-gentle120",
+      "k1_75": 3e-06,
+      "ea1": 220000,
+      "k2_75": 3e-05,
+      "ea2": 120000,
+      "resistance_ohm": 0.016,
+      "resistance_temperature": -0.015,
+      "resistance_charge": 16,
+      "charge_formation_gain": 2
+    },
+    "last_sample_s": 626.956,
+    "objective": 79.23027541756633,
+    "diagnostics": {
+      "objective": 79.23027541756633,
+      "channels": {
+        "101": {
+          "rmse_fit_window_k": 3.048482247993373,
+          "end_error_k": -6.333079206170169
+        },
+        "102": {
+          "rmse_fit_window_k": 0.5408494287787248,
+          "end_error_k": 1.0152061222557336
+        },
+        "107": {
+          "rmse_fit_window_k": 1.9509525844706908,
+          "end_error_k": -4.253418006920697
+        },
+        "108": {
+          "rmse_fit_window_k": 0.6574998363705266,
+          "end_error_k": -1.8090280617186068
+        },
+        "C2_TIM": {
+          "rmse_fit_window_k": 2.9541144429480934,
+          "end_error_k": -4.389597843099352
+        },
+        "C2_ISS": {
+          "rmse_fit_window_k": 3.7003424808613605,
+          "end_error_k": -5.612701018280518
+        }
+      },
+      "fit_end_s": 626.956,
+      "first300_joule_share": 0.9999033888865207,
+      "objective_note": "No chamber-pressure target while shell strength is uncalibrated"
+    },
+    "snapshots": {
+      "300.0": {
+        "c2_mean_c": 42.73294221339211,
+        "c2_tim_error_k": 1.9953596173971277,
+        "c2_iss_error_k": 0.7739741196472778,
+        "b_mg": 18106.97567221642,
+        "r2_local_power_w": 0.010049557383447778,
+        "thermal_formed_g": 5.755212868850118e-06,
+        "charge_formed_g": 18.107484187982593,
+        "chamber_bar": 1.032283316206468
+      },
+      "500.0": {
+        "c2_mean_c": 63.41703305942042,
+        "c2_tim_error_k": -4.134136608487154,
+        "c2_iss_error_k": -5.105516135065329,
+        "b_mg": 29214.41063439925,
+        "r2_local_power_w": 0.27325053022147816,
+        "thermal_formed_g": 0.0012470282592253659,
+        "charge_formed_g": 29.225819940913876,
+        "chamber_bar": 1.0324571772142739
+      },
+      "626.956": {
+        "c2_mean_c": 82.34749337685759,
+        "c2_tim_error_k": -4.375150454909203,
+        "c2_iss_error_k": -5.616793954798425,
+        "b_mg": 33798.31486000991,
+        "r2_local_power_w": 3.2540681381854997,
+        "thermal_formed_g": 0.09944751308159998,
+        "charge_formed_g": 33.844637143814346,
+        "chamber_bar": 1.033058349331121
+      }
+    },
+    "fingerprint": "3ae900e520e7c7ae96d2b782d2fad6e3c64bb17b37a4de3b01f5af1c62e9ff1a",
+    "validation_used_for_selection": false,
+    "wall_s": 44.81253959494643,
+    "balances": {
+      "max_thermal_residual_j": 3.220338840037584e-08,
+      "max_chemical_residual_j": 7.297785487025976e-09,
+      "max_mass_residual_kg": 3.552713678800501e-15
+    },
+    "diagnostic_emf_floor_v": null
+  }
+]

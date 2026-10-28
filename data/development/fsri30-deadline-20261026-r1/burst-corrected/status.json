@@ -1,0 +1,85 @@
+{
+  "status": "failed",
+  "pid": 1961918,
+  "native_sha256": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "scenario_sha256": "9a1aecfd6f8721a19c6f4aa489a8922ef35dd99019fde6a2fabada8e163613d0",
+  "source_profile_sha256": "885d4a28be3cbfb87671e1e615ab86596471a59863d41e2fe173c5e1b6cf469c",
+  "reference_sha256": "78c78f1af099758f523136471e492598d288dd49efb946b17e133f0bae4b55c5",
+  "controller_sha256": "4b618f599a154d67dfacdf1d02d50fcbf332f9e0e0853d58f47059a61bc87f33",
+  "experimental_csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "fresh_from_zero": true,
+  "duration_s": 5945.0,
+  "mesh_mm": 20.0,
+  "parameters": {
+    "effective_emissivity": 0.3932387554878369,
+    "thermal_stirring_coefficient": 0.07616407585243641
+  },
+  "only_change": "Shared exterior radiation and existing conservative free-gas mixing",
+  "explosion_priority": true,
+  "condensed_residue_unchanged": true,
+  "calibrated": false,
+  "validation_passed": false,
+  "burst": {
+    "evaluated": false,
+    "accepted": null,
+    "phase_window_complete": false,
+    "last_observed_s": 2535.0,
+    "reference": {
+      "peak_time_s": 2580.0,
+      "peak_temperature_k": 1180.801,
+      "local_base_time_s": 2529.0,
+      "local_base_temperature_k": 434.335,
+      "rise50_time_s": 2569.7436140226287,
+      "rise90_time_s": 2575.532131895479,
+      "rise50_90_duration_s": 5.788517872850207,
+      "window_start_s": 1701.0,
+      "window_end_s": 3600.0,
+      "evaluation_after_s": 2720.0,
+      "scope": "Collective median thermal front; 9 TC versus 30 component means, no sensor mapping"
+    },
+    "policy": {
+      "timing_target_s": 10.0,
+      "timing_limit_s": 100.0,
+      "phase_end_s": 3600.0,
+      "confirmation_s": 40.0,
+      "smoothing_seconds": 11,
+      "ascent_lookback_s": 300.0,
+      "peak_absolute_tolerance_k": 250.0,
+      "peak_relative_kelvin_tolerance": 0.25,
+      "maximum_rise_duration_factor": 4.0,
+      "rise_duration_slack_s": 30.0,
+      "minimum_converted_components": 2
+    },
+    "scope": "Collective median thermal front; 9 TC versus 30 component means, no sensor mapping"
+  },
+  "last_completed_observation_s": 2535.0,
+  "live_advanced_to_s": 2538.80352275504,
+  "wall_s": 2648.116438846,
+  "minimum_regular_step_s": 0.01,
+  "inherited_pre_cooling_mismatch": {
+    "reason": "persistent gross envelope divergence for 60 s outside uncertain peaks",
+    "last_observed_s": 1565.0,
+    "candidate_rmse_k": 167.56986392048864,
+    "reference_rmse_k": 192.36018144974162,
+    "note": "Inherited pre-cooling mismatch, not accepted calibration; cooling test continues"
+  },
+  "error": "Restart suffix below rolling 0.2x speed floor",
+  "prefix_sha256": "6fbbf848485bf46111f179ca2f5b1538ffe691cfde108f2904e2f7f784e6df47",
+  "result": {
+    "last_completed_observation_s": 2535.0,
+    "common_comparison_until_s": 2535.0,
+    "common_control_cooling": {
+      "complete": false
+    },
+    "common_candidate_cooling": {
+      "complete": false
+    },
+    "candidate_cooling": {
+      "complete": false
+    },
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+    "radiative_energy_out_j": 7155.3412105952875
+  }
+}

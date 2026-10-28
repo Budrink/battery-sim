@@ -1,0 +1,21 @@
+{
+  "trial": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/cooling-fit-20261021-r5/trial-000",
+  "run": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/cooling-fit-20261021-r5/trial-000/replay/run.json.gz",
+  "run_sha256": "4c66d5f68e9a8633cd8a341cc47b3704d65fec77956ec19051221cb318515e75",
+  "scenario_sha256": "bece6ff98df2825ff3595425dcf3d6bef3c6ec7fc13b58fec7953b1e7e816af5",
+  "experimental_sha256": "f78d3fd97faa34601b4a603c0a8017f3146d1edd64e9451169b7d8f9eae66e60",
+  "end_s": 1500.0,
+  "parameters": {
+    "gas_yield_scale": 0.6,
+    "casing_damage_metric": 4.0,
+    "warm_mixing_scale": 10.0,
+    "warm_surface_scale": 10.0,
+    "gas_transport_response_scale": 10.0
+  },
+  "observations": "Raw experimental scans; C2 channels are means 105/106 and 103/104, matching the existing comparison. Missing scans remain missing.",
+  "simulation_rerun": false,
+  "fitted_time_shift_s": 0.0,
+  "temperature_gain": 1.0,
+  "smoothing": false,
+  "extrapolation": false
+}

@@ -1,0 +1,112 @@
+{
+  "status": "pruned",
+  "pid": 1919997,
+  "native_sha256": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "scenario_sha256": "90697fc50e20f1eaa6c5670aee96d4c14ce8a7d7f7bd2073b3575ebc8d192103",
+  "source_profile_sha256": "885d4a28be3cbfb87671e1e615ab86596471a59863d41e2fe173c5e1b6cf469c",
+  "reference_sha256": "78c78f1af099758f523136471e492598d288dd49efb946b17e133f0bae4b55c5",
+  "controller_sha256": "c9774fa62019d94967048ddc2aeed46489407bcfca09be3284f1ae128c6d5fd7",
+  "experimental_csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "fresh_from_zero": true,
+  "duration_s": 5945.0,
+  "mesh_mm": 20.0,
+  "parameters": {
+    "effective_emissivity": 0.7664775109756737,
+    "thermal_stirring_coefficient": 0.06722339346183823
+  },
+  "only_change": "Shared exterior radiation and existing conservative free-gas mixing",
+  "condensed_residue_unchanged": true,
+  "calibrated": false,
+  "validation_passed": false,
+  "last_completed_observation_s": 3754.999999999982,
+  "live_advanced_to_s": 3758.099999999979,
+  "wall_s": 2083.088925753,
+  "minimum_regular_step_s": 0.01,
+  "inherited_pre_cooling_mismatch": {
+    "reason": "persistent gross envelope divergence for 60 s outside uncertain peaks",
+    "last_observed_s": 1554.9999999999864,
+    "candidate_rmse_k": 176.83911031893126,
+    "reference_rmse_k": 196.97610537528027,
+    "note": "Inherited pre-cooling mismatch, not accepted calibration; cooling test continues"
+  },
+  "error": "Pruned: Cooling prefix RMSE 101.4 K exceeds 97.1 K for stable window",
+  "prefix_sha256": "a24f537409abf673e7387836587f6f2ff56973c2d124f610c59880c1ec966429",
+  "result": {
+    "last_completed_observation_s": 3754.999999999982,
+    "common_comparison_until_s": 3754.999999999982,
+    "common_control_cooling": {
+      "complete": false,
+      "envelope_rmse_k": 150.0792055673608,
+      "quantile_rmse_k": [
+        107.18547652987552,
+        73.7946244329883,
+        170.9918428361003,
+        209.57692736628397
+      ],
+      "tail_temperature_c": [
+        652.8022669437871,
+        755.0767731065117,
+        863.2107617910814,
+        906.1814214889449
+      ],
+      "positive_rise_sum_k": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+    },
+    "common_candidate_cooling": {
+      "complete": false,
+      "envelope_rmse_k": 84.1108263205093,
+      "quantile_rmse_k": [
+        69.59849779836341,
+        50.08701080610353,
+        74.06040805490498,
+        124.34195120206597
+      ],
+      "tail_temperature_c": [
+        480.9543964064952,
+        618.894354156574,
+        753.5325947847051,
+        808.9932301836499
+      ],
+      "positive_rise_sum_k": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+    },
+    "candidate_cooling": {
+      "complete": false,
+      "envelope_rmse_k": 84.1108263205093,
+      "quantile_rmse_k": [
+        69.59849779836341,
+        50.08701080610353,
+        74.06040805490498,
+        124.34195120206597
+      ],
+      "tail_temperature_c": [
+        480.9543964064952,
+        618.894354156574,
+        753.5325947847051,
+        808.9932301836499
+      ],
+      "positive_rise_sum_k": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+    },
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+    "common_cooling_rmse_change_k": -65.96837924685148,
+    "radiative_energy_out_j": 315651.81902710954
+  }
+}

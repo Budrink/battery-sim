@@ -1,0 +1,65 @@
+{
+  "format_version": 1,
+  "kind": "geometry_prior",
+  "scope": "fsri30-open-exterior",
+  "parameters": {
+    "renewal_m3_s": 0.01,
+    "ambient_pressure_pa": 101325.0,
+    "ambient_temperature_k": 298.15,
+    "ambient_oxygen_fraction": 0.232,
+    "exterior_boundary": "only outer faces of original 1 m3 air domain",
+    "module_exit_areas_m2": {
+      "vent--y-7-air-5-2-5": 1.5494313788057896e-05,
+      "vent-+y-22-air-5-12-5": 1.5494313788057896e-05
+    }
+  },
+  "evidence": {
+    "full_run": "/home/konstantin/work/battery-sim/data/development/fsri30-open-boundary-20261025-r2/open-0.01m3s/replay/run.json.gz",
+    "full_run_sha256": "e652bd5dc3754dcf1f70e1685da756fd21f5f614c0ec5ec9c562f59f70ce61a6",
+    "fresh_from_zero": true,
+    "computed_until_s": 5945.0,
+    "cooling": {
+      "complete": true,
+      "envelope_rmse_k": 284.70646932830806,
+      "quantile_rmse_k": [
+        434.55191271171077,
+        180.56799002847427,
+        213.0445277791295,
+        239.58914839491644
+      ],
+      "tail_temperature_c": [
+        572.5422428292774,
+        669.3342918995479,
+        746.7291242128576,
+        766.5636137303142
+      ],
+      "positive_rise_sum_k": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+    },
+    "balances": {
+      "max_chemical_residual_j": 2.2025778889656067e-07,
+      "max_mass_residual_kg": 5.950795411990839e-14,
+      "max_oxidizer_residual_kg": 1.8368639942423215e-13,
+      "max_thermal_residual_j": 1.7613638192415237e-06
+    },
+    "rejected_area_x4_prefix": "/home/konstantin/work/battery-sim/data/development/fsri30-open-cooling-report-20261025-r2/aperture-negative-diagnostic.json",
+    "interpretation": "Source-backed open apparatus boundary improves qualitative cooling; quantitative fit remains inadequate. NOT a material law or validation."
+  },
+  "compatibility": {
+    "fixture": "ulfsri-30-ABS-open-air",
+    "base_profile_sha256": "dffb50bf11bb56fc26a4f6517e5d2b707f7774eeec0c6c1533c066be0d46743c",
+    "gas_spacing_m": 0.02,
+    "external_volume_m3": 1.0,
+    "boundary_model": "ambient-pressure-CSTR-v1"
+  },
+  "qualification": "candidate",
+  "producer_core": "f6b72f5930e0f3e891c3127b8825acf6a6e847190adbb762d1d9a055824e7629",
+  "transferable_as": "geometry_prior",
+  "calibrated": false,
+  "validation_passed": false
+}

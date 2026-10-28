@@ -1,0 +1,368 @@
+{
+  "gas_count": 1401,
+  "solid_count": 340,
+  "step_s": 0.02,
+  "iterations": 1024,
+  "fields": {
+    "temperature": {
+      "max_normalized_residual": 1.0379864152070062,
+      "max_recorded_normalized_residual": 1.4001683018920192,
+      "max_operator_to_capacity_ratio": 2106247467078.5583,
+      "worst_rows": [
+        {
+          "index": 1371,
+          "name": "gap-ISS2-2",
+          "capacity": 8.51098705401121e-17,
+          "origin": 0.8936271898089172,
+          "iterate": 0.633762694291474,
+          "normalized_residual": 1.0379864152070062,
+          "recorded_normalized_residual": 1.4001683018920192,
+          "extensive_residual_j_or_kg": -1.7668577884132671e-15,
+          "arithmetic_roundoff_bound_j_or_kg": 3.2289862253098496e-12,
+          "residual_to_roundoff_bound": 0.0005471865363079155
+        },
+        {
+          "index": 577,
+          "name": "void-7-2-4",
+          "capacity": 1.953081299119197e-10,
+          "origin": 0.8936686909044582,
+          "iterate": 0.5319592693004971,
+          "normalized_residual": 9.364688160990316e-07,
+          "recorded_normalized_residual": 8.791813503001844e-07,
+          "extensive_residual_j_or_kg": 3.657999463862627e-15,
+          "arithmetic_roundoff_bound_j_or_kg": 7.331995304647855e-13,
+          "residual_to_roundoff_bound": 0.004989091389002622
+        },
+        {
+          "index": 575,
+          "name": "void-7-2-2",
+          "capacity": 2.365696153469921e-11,
+          "origin": 0.7336444169657398,
+          "iterate": 0.4310105371520701,
+          "normalized_residual": 1.756596184182415e-07,
+          "recorded_normalized_residual": 1.7274169815398356e-07,
+          "extensive_residual_j_or_kg": -8.311145672240562e-17,
+          "arithmetic_roundoff_bound_j_or_kg": 1.975698993081804e-14,
+          "residual_to_roundoff_bound": 0.004206686191238262
+        },
+        {
+          "index": 1372,
+          "name": "gap-ISS2-3",
+          "capacity": 8.832959270762175e-10,
+          "origin": 0.7839463415895814,
+          "iterate": 0.6186318181673258,
+          "normalized_residual": 1.55138050597217e-07,
+          "recorded_normalized_residual": 1.5024167425384454e-07,
+          "extensive_residual_j_or_kg": -2.740656164541319e-15,
+          "arithmetic_roundoff_bound_j_or_kg": 1.6155769103339695e-12,
+          "residual_to_roundoff_bound": 0.001696394734915328
+        },
+        {
+          "index": 1373,
+          "name": "gap-ISS2-4",
+          "capacity": 7.918433364315449e-10,
+          "origin": 0.8935767139472817,
+          "iterate": 0.4760165149604367,
+          "normalized_residual": 1.4697896267044289e-07,
+          "recorded_normalized_residual": 1.6320408870570535e-07,
+          "extensive_residual_j_or_kg": -2.32768624372422e-15,
+          "arithmetic_roundoff_bound_j_or_kg": 9.909467325175336e-13,
+          "residual_to_roundoff_bound": 0.0023489519338851387
+        }
+      ],
+      "double_sparse_reference": {
+        "max_iterate_difference": 6.106226635438361e-12,
+        "capacity_weighted_difference": 5.102848517787934e-13
+      },
+      "reference_warnings": []
+    },
+    "chemical": {
+      "max_normalized_residual": 0.4335828647492038,
+      "max_recorded_normalized_residual": 0.45381354753583714,
+      "max_operator_to_capacity_ratio": 1595309163481.5022,
+      "worst_rows": [
+        {
+          "index": 1371,
+          "name": "gap-ISS2-2",
+          "capacity": 8.51098705401121e-17,
+          "origin": 6.526550746496815,
+          "iterate": 3.372584301687014,
+          "normalized_residual": 0.4335828647492038,
+          "recorded_normalized_residual": 0.45381354753583714,
+          "extensive_residual_j_or_kg": 3.690218148721567e-14,
+          "arithmetic_roundoff_bound_j_or_kg": 6.914117281968698e-12,
+          "residual_to_roundoff_bound": 0.005337222378835363
+        },
+        {
+          "index": 575,
+          "name": "void-7-2-2",
+          "capacity": 2.365696153469921e-11,
+          "origin": 6.519092685940541,
+          "iterate": 2.3375420505972926,
+          "normalized_residual": 2.0036946181310395e-08,
+          "recorded_normalized_residual": 1.9540327508987455e-08,
+          "extensive_residual_j_or_kg": -4.740132650840983e-16,
+          "arithmetic_roundoff_bound_j_or_kg": 7.416708439835906e-14,
+          "residual_to_roundoff_bound": 0.0063911540938851544
+        },
+        {
+          "index": 577,
+          "name": "void-7-2-4",
+          "capacity": 1.953081299119197e-10,
+          "origin": 6.522535664449947,
+          "iterate": 2.785413800975799,
+          "normalized_residual": 1.1346260199352393e-08,
+          "recorded_normalized_residual": 5.060168257983248e-09,
+          "extensive_residual_j_or_kg": -2.216016861029561e-15,
+          "arithmetic_roundoff_bound_j_or_kg": 1.5802164282791476e-12,
+          "residual_to_roundoff_bound": 0.0014023502232809962
+        },
+        {
+          "index": 322,
+          "name": "void-3-2-5",
+          "capacity": 2.1573402137781467e-07,
+          "origin": 3.6334076406540654,
+          "iterate": 2.0769370571142205,
+          "normalized_residual": 9.730229383134708e-09,
+          "recorded_normalized_residual": 9.730236685190828e-09,
+          "extensive_residual_j_or_kg": -2.0991415137522234e-12,
+          "arithmetic_roundoff_bound_j_or_kg": 1.2642868847824702e-10,
+          "residual_to_roundoff_bound": 0.016603363833149278
+        },
+        {
+          "index": 579,
+          "name": "void-7-2-6",
+          "capacity": 5.291853617496933e-10,
+          "origin": 6.549675716078872,
+          "iterate": 2.518456030331932,
+          "normalized_residual": 8.567464758308334e-09,
+          "recorded_normalized_residual": 8.782388324641019e-09,
+          "extensive_residual_j_or_kg": -4.533776937403145e-15,
+          "arithmetic_roundoff_bound_j_or_kg": 1.236517441932046e-12,
+          "residual_to_roundoff_bound": 0.0036665693371208444
+        }
+      ],
+      "double_sparse_reference": {
+        "max_iterate_difference": 2.7533531010703882e-14,
+        "capacity_weighted_difference": 2.955036486817273e-19
+      },
+      "reference_warnings": []
+    },
+    "oxygen": {
+      "max_normalized_residual": 0.01340610965801652,
+      "max_recorded_normalized_residual": 0.012779136241323995,
+      "max_operator_to_capacity_ratio": 1595309163481.5022,
+      "worst_rows": [
+        {
+          "index": 1371,
+          "name": "gap-ISS2-2",
+          "capacity": 8.51098705401121e-17,
+          "origin": 5.865057908034913e-13,
+          "iterate": 0.11151243860443458,
+          "normalized_residual": 0.01340610965801652,
+          "recorded_normalized_residual": 0.012779136241323995,
+          "extensive_residual_j_or_kg": -1.1409922574403325e-21,
+          "arithmetic_roundoff_bound_j_or_kg": 2.286110620048028e-19,
+          "residual_to_roundoff_bound": 0.004990975709724676
+        },
+        {
+          "index": 577,
+          "name": "void-7-2-4",
+          "capacity": 1.953081299119197e-10,
+          "origin": 5.759206860857235e-06,
+          "iterate": 0.13240617850344327,
+          "normalized_residual": 9.615362582621213e-10,
+          "recorded_normalized_residual": 1.0545742652419471e-09,
+          "extensive_residual_j_or_kg": 1.8779584844367956e-22,
+          "arithmetic_roundoff_bound_j_or_kg": 7.51164578862587e-20,
+          "residual_to_roundoff_bound": 0.002500062619140534
+        },
+        {
+          "index": 1369,
+          "name": "gap-ISS2-0",
+          "capacity": 9.274626117900344e-10,
+          "origin": 8.503576180148997e-05,
+          "iterate": 0.12734874275856417,
+          "normalized_residual": 7.675558895117366e-10,
+          "recorded_normalized_residual": 7.867874826625164e-10,
+          "extensive_residual_j_or_kg": -7.118793899813783e-22,
+          "arithmetic_roundoff_bound_j_or_kg": 1.1507535741493917e-19,
+          "residual_to_roundoff_bound": 0.0061862018591389714
+        },
+        {
+          "index": 579,
+          "name": "void-7-2-6",
+          "capacity": 5.291853617496933e-10,
+          "origin": 0.0005402176466087354,
+          "iterate": 0.14217906675172606,
+          "normalized_residual": 6.683073862593247e-10,
+          "recorded_normalized_residual": 6.642314276851784e-10,
+          "extensive_residual_j_or_kg": 3.5365848595763275e-22,
+          "arithmetic_roundoff_bound_j_or_kg": 6.980741128641368e-20,
+          "residual_to_roundoff_bound": 0.005066202562742271
+        },
+        {
+          "index": 585,
+          "name": "void-7-3-2",
+          "capacity": 4.830801456488678e-10,
+          "origin": 0.00010839274925014569,
+          "iterate": 0.1407843139413434,
+          "normalized_residual": 5.712677996573976e-10,
+          "recorded_normalized_residual": 5.706260891595798e-10,
+          "extensive_residual_j_or_kg": 2.7596813186300386e-22,
+          "arithmetic_roundoff_bound_j_or_kg": 5.1037820763151956e-20,
+          "residual_to_roundoff_bound": 0.005407130001566329
+        }
+      ],
+      "double_sparse_reference": {
+        "max_iterate_difference": 1.887379141862766e-15,
+        "capacity_weighted_difference": 4.591761189855242e-20
+      },
+      "reference_warnings": []
+    },
+    "vapor": {
+      "max_normalized_residual": 0.0005243690150558569,
+      "max_recorded_normalized_residual": 0.0005202608480080279,
+      "max_operator_to_capacity_ratio": 1595309163481.5022,
+      "worst_rows": [
+        {
+          "index": 1371,
+          "name": "gap-ISS2-2",
+          "capacity": 8.51098705401121e-17,
+          "origin": 0.0012558469347133758,
+          "iterate": 0.008838306870441393,
+          "normalized_residual": 0.0005243690150558569,
+          "recorded_normalized_residual": 0.0005202608480080279,
+          "extensive_residual_j_or_kg": 4.462897898665007e-23,
+          "arithmetic_roundoff_bound_j_or_kg": 1.811936628113162e-20,
+          "residual_to_roundoff_bound": 0.002463054076737988
+        },
+        {
+          "index": 585,
+          "name": "void-7-3-2",
+          "capacity": 4.830801456488678e-10,
+          "origin": 0.002259895324819958,
+          "iterate": 0.01018636210098759,
+          "normalized_residual": 6.459938658077868e-11,
+          "recorded_normalized_residual": 6.42561841054077e-11,
+          "extensive_residual_j_or_kg": -3.1206681078270083e-23,
+          "arithmetic_roundoff_bound_j_or_kg": 3.692810005490926e-21,
+          "residual_to_roundoff_bound": 0.008450659804286744
+        },
+        {
+          "index": 576,
+          "name": "void-7-2-3",
+          "capacity": 5.18436530738773e-10,
+          "origin": 0.002229324613508852,
+          "iterate": 0.009929705599098951,
+          "normalized_residual": 6.318311132469507e-11,
+          "recorded_normalized_residual": 6.420234905608989e-11,
+          "extensive_residual_j_or_kg": 3.275643303645659e-23,
+          "arithmetic_roundoff_bound_j_or_kg": 3.995037400749756e-21,
+          "residual_to_roundoff_bound": 0.008199280695171748
+        },
+        {
+          "index": 575,
+          "name": "void-7-2-2",
+          "capacity": 2.365696153469921e-11,
+          "origin": 0.002239647148416543,
+          "iterate": 0.010225382850468529,
+          "normalized_residual": 5.6233332630840816e-11,
+          "recorded_normalized_residual": 5.6335226117523366e-11,
+          "extensive_residual_j_or_kg": 1.3303097870157472e-24,
+          "arithmetic_roundoff_bound_j_or_kg": 3.244377283747467e-22,
+          "residual_to_roundoff_bound": 0.00410035476971147
+        },
+        {
+          "index": 577,
+          "name": "void-7-2-4",
+          "capacity": 1.953081299119197e-10,
+          "origin": 0.0012557091211614273,
+          "iterate": 0.009578738226804506,
+          "normalized_residual": 5.552987699340692e-11,
+          "recorded_normalized_residual": 4.963793933675808e-11,
+          "extensive_residual_j_or_kg": -1.084543642982124e-23,
+          "arithmetic_roundoff_bound_j_or_kg": 5.434194195088453e-21,
+          "residual_to_roundoff_bound": 0.0019957763820114467
+        }
+      ],
+      "double_sparse_reference": {
+        "max_iterate_difference": 1.6653345369377348e-16,
+        "capacity_weighted_difference": 2.6688885256131346e-21
+      },
+      "reference_warnings": []
+    },
+    "latent": {
+      "max_normalized_residual": 0.0004242559906783377,
+      "max_recorded_normalized_residual": 0.00042898777724492535,
+      "max_operator_to_capacity_ratio": 1595309163481.5022,
+      "worst_rows": [
+        {
+          "index": 1371,
+          "name": "gap-ISS2-2",
+          "capacity": 8.51098705401121e-17,
+          "origin": 0.0006277707006369427,
+          "iterate": 0.004419153435220701,
+          "normalized_residual": 0.0004242559906783377,
+          "recorded_normalized_residual": 0.00042898777724492535,
+          "extensive_residual_j_or_kg": -3.610837244250033e-17,
+          "arithmetic_roundoff_bound_j_or_kg": 9.059683140565818e-15,
+          "residual_to_roundoff_bound": 0.003985610962575585
+        },
+        {
+          "index": 577,
+          "name": "void-7-2-4",
+          "capacity": 1.953081299119197e-10,
+          "origin": 0.0006278545605671586,
+          "iterate": 0.004789369113402257,
+          "normalized_residual": 4.658785449528792e-11,
+          "recorded_normalized_residual": 5.531502848773108e-11,
+          "extensive_residual_j_or_kg": -9.098986738083304e-18,
+          "arithmetic_roundoff_bound_j_or_kg": 2.7170970975442295e-15,
+          "residual_to_roundoff_bound": 0.0033487896867238067
+        },
+        {
+          "index": 585,
+          "name": "void-7-3-2",
+          "capacity": 4.830801456488678e-10,
+          "origin": 0.0011299476624179025,
+          "iterate": 0.0050931810504938006,
+          "normalized_residual": 2.3410421726312422e-11,
+          "recorded_normalized_residual": 2.3545418829142575e-11,
+          "extensive_residual_j_or_kg": 1.1309109937248425e-17,
+          "arithmetic_roundoff_bound_j_or_kg": 1.846405002745465e-15,
+          "residual_to_roundoff_bound": 0.006124934627252759
+        },
+        {
+          "index": 1372,
+          "name": "gap-ISS2-3",
+          "capacity": 8.832959270762175e-10,
+          "origin": 0.0051652518277801734,
+          "iterate": 0.005751674168483612,
+          "normalized_residual": 2.1093450168268566e-11,
+          "recorded_normalized_residual": 2.056136435566273e-11,
+          "extensive_residual_j_or_kg": -1.863175862161678e-17,
+          "arithmetic_roundoff_bound_j_or_kg": 5.858946775810933e-15,
+          "residual_to_roundoff_bound": 0.0031800525477615332
+        },
+        {
+          "index": 576,
+          "name": "void-7-2-3",
+          "capacity": 5.18436530738773e-10,
+          "origin": 0.001114662306704843,
+          "iterate": 0.004964852799549479,
+          "normalized_residual": 1.5670932347273664e-11,
+          "recorded_normalized_residual": 1.5457782118388568e-11,
+          "extensive_residual_j_or_kg": -8.124383799562574e-18,
+          "arithmetic_roundoff_bound_j_or_kg": 1.9975187003748793e-15,
+          "residual_to_roundoff_bound": 0.0040672379177415716
+        }
+      ],
+      "double_sparse_reference": {
+        "max_iterate_difference": 7.37257477290143e-17,
+        "capacity_weighted_difference": 1.2883316403544811e-21
+      },
+      "reference_warnings": []
+    }
+  }
+}

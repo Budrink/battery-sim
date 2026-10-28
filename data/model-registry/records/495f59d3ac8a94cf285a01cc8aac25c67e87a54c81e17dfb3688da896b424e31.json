@@ -1,0 +1,44 @@
+{
+  "format_version": 1,
+  "kind": "numerical_method",
+  "scope": "fsri30-coarse-search-discrepancy",
+  "parameters": {
+    "primary_bias_s": {
+      "pulse_groups": 143.0,
+      "arrival_groups": 145.0
+    },
+    "primary_uncertainty_s": 100.0,
+    "unmeasured_allowance_s": 150.0
+  },
+  "evidence": {
+    "primary_bias_s": {
+      "pulse_groups": 143.0,
+      "arrival_groups": 145.0
+    },
+    "observed_parameter_pairs": 1,
+    "measured_level_mm": 80,
+    "target_level_mm": 20,
+    "primary_uncertainty_s": 100.0,
+    "unmeasured_allowance_s": 150.0,
+    "scope": "Primary events only; local numerical evidence, not a global time correction",
+    "allowance_is_engineering_prior": true,
+    "coarse_history_sha256": "b6c2fb7c37d4c0f43b041deee4c054ff998f4fc619719c21aef4304aef292691",
+    "fine_history_sha256": "9d0f0ab6d8fcf6619cfd271f4c03175f3df5cb3be16b402c0fd1a700c74ea967",
+    "coarse_trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-all-waves-multilevel-20261026-r1/h-80mm/trial-0000",
+    "fine_trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-explosion-priority-20261026-r1/trial-0023",
+    "base_sha256": "90697fc50e20f1eaa6c5670aee96d4c14ce8a7d7f7bd2073b3575ebc8d192103",
+    "native_sha256": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+    "interpretation": "Single matched-parameter numerical pair; search guidance, not validation or time-warped output"
+  },
+  "compatibility": {
+    "fixture": "ulfsri-30-ABS-open-air",
+    "base_sha256": "90697fc50e20f1eaa6c5670aee96d4c14ce8a7d7f7bd2073b3575ebc8d192103",
+    "measured_coarse_level_mm": 80,
+    "reference_level_mm": 20
+  },
+  "qualification": "candidate",
+  "producer_core": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "transferable_as": "numerical_method",
+  "calibrated": false,
+  "validation_passed": false
+}

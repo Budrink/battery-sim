@@ -14,6 +14,10 @@ public:
                  GasChannelState* channels,double duration);
     void commit();
     void statistics(SolverProfile&) const;
+    std::string save_state() const;
+    void restore_state(const std::string&);
+    // Read-only heat records from the last completed prepare (accepted stage).
+    std::vector<double> last_film_heat_j() const;
 private:
     struct Impl;
     std::unique_ptr<Impl> impl_;

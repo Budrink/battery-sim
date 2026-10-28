@@ -1,0 +1,65 @@
+{
+  "status": "complete",
+  "error": null,
+  "onset_s": 466.5039997198619,
+  "requested_end_s": 1066.503999719862,
+  "last_observation_s": 1066.503999719862,
+  "last_checkpoint_advanced_to_s": null,
+  "wall_s": 18.718232436,
+  "parameters_sha256": "a341ee7792d1210ca8c6c6c0d732417c11552f948fdd50ceaf5013288b3adca5",
+  "metrics": {
+    "charging_prefix_s": 600.0,
+    "channels": {
+      "101": {
+        "rmse_k": 2.9557368844881373,
+        "end_error_k": -7.434284459490641,
+        "model_end_c": 36.65695914923219,
+        "observed_end_c": 44.091243608722834
+      },
+      "102": {
+        "rmse_k": 0.9721195123411042,
+        "end_error_k": 1.4255662849463988,
+        "model_end_c": 27.641438465442945,
+        "observed_end_c": 26.215872180496547
+      },
+      "107": {
+        "rmse_k": 2.141820445474522,
+        "end_error_k": -5.5326999192909625,
+        "model_end_c": 35.475857975318775,
+        "observed_end_c": 41.00855789460974
+      },
+      "108": {
+        "rmse_k": 0.4796632851552325,
+        "end_error_k": -1.3066177735352653,
+        "model_end_c": 28.159940121074442,
+        "observed_end_c": 29.466557894609707
+      },
+      "C2_ISS": {
+        "rmse_k": 8.045342870051886,
+        "end_error_k": -5.7738281257493895,
+        "model_end_c": 70.30319969315013,
+        "observed_end_c": 76.07702781889952
+      },
+      "C2_TIM": {
+        "rmse_k": 5.658375750454305,
+        "end_error_k": -6.727782116923777,
+        "model_end_c": 61.92457126587641,
+        "observed_end_c": 68.65235338280019
+      }
+    },
+    "heat_sources": {
+      "joule_j": 7033.9818386614725,
+      "r2_local_j": 29921.530207644777,
+      "r3_j": 33.3077400847435,
+      "electrical_chemical_input_j": 49851.17196421663,
+      "precursor_charge_energy_j": 0.3804495140200229,
+      "joule_share": 0.19016507905043864
+    },
+    "balance": {
+      "max_thermal_residual_j": 5.374167812988162e-07,
+      "max_chemical_residual_j": 4.7712092055007815e-09,
+      "max_mass_residual_kg": 3.3306690738754696e-15
+    }
+  },
+  "validation_used_for_selection": false
+}

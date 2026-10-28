@@ -1,0 +1,35 @@
+{
+  "method": "frozen-boundary energy perturbation plus Arrhenius/timing sensitivity",
+  "source": "data/development/fsri30-cap-r3-20261027-r1",
+  "fit_window_s": [
+    300,
+    1550
+  ],
+  "cold_h_bounds": [
+    75,
+    350
+  ],
+  "cold_h_w_m2_k": 200.70114011783562,
+  "hot_h_w_m2_k": 950.0,
+  "warmup_rmse_unmodified_k": 3.5693241129119704,
+  "warmup_rmse_frozen_prediction_k": 1.9530920320887877,
+  "predicted_core_temperature_changes_k": {
+    "1000": -3.0966233144825033,
+    "1400": -3.14512910609264,
+    "1600": -2.0146560151499115,
+    "1650": 0.25649359543092376,
+    "1700": 2.737939886668645
+  },
+  "r2_multipliers_by_evaluation_time": [
+    1.0732496284316992,
+    0.9371772210512367,
+    0.820208878223676
+  ],
+  "r2_multiplier": 0.9371772210512367,
+  "r2_rate_per_s": 0.00017557168887525918,
+  "r3_change_from_last_run": 1.0,
+  "r3_reason": "No independent identification from this frozen boundary estimate; retain previous 30% energy reduction",
+  "caution": "Mean-temperature correction applied to hotspot kinetics; ignores heater and gas feedback. Initial guess only.",
+  "calibrated": false,
+  "validation_passed": false
+}

@@ -1,0 +1,32 @@
+{
+  "status": "complete",
+  "pid": 1630864,
+  "reference": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/gas-access-refinement-20261021-r9",
+  "native_sha256": "e5f75c154a51269dc75d0ca347fc683bf5c5b863c059aa2342d4bb7fbe17080e",
+  "tolerance": 0.05,
+  "conservation_relaxed": false,
+  "only_minimum_dt_changed": true,
+  "calibration": false,
+  "accepted": false,
+  "speedup": 1.5017552033419832,
+  "failures": [
+    "temperature/C2_ISS",
+    "temperature/108",
+    "pressure/chamber",
+    "local-gas/inside-C2-/mass_kg",
+    "local-gas/inside-C2-/chemical_j",
+    "local-gas/gap-ISS1-/mass_kg",
+    "local-gas/gap-ISS1-/chemical_j",
+    "local-gas/gap-TIM1-/chemical_j",
+    "local-gas/gap-ISS2-/mass_kg",
+    "local-gas/gap-ISS2-/chemical_j",
+    "local-gas/gap-TIM2-/mass_kg",
+    "local-gas/gap-TIM2-/chemical_j",
+    "local-gas/gap-ISS3-/mass_kg",
+    "local-gas/gap-ISS3-/chemical_j",
+    "local-gas/gap-TIM3-/chemical_j",
+    "gas-heat/ISS1",
+    "gas-heat/C1:case:-x",
+    "gas-heat/ISS3"
+  ]
+}

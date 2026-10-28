@@ -1,0 +1,36 @@
+{
+  "format_version": 1,
+  "kind": "numerical_method",
+  "scope": "averaged-reactive-transit-v1",
+  "parameters": {
+    "gas_network.reactive_transit": true
+  },
+  "evidence": {
+    "numerical_checks": {
+      "accepted": true,
+      "scope": "fixed-temperature analytical/local-throughflow only",
+      "analytic_cases": 5184,
+      "throughflow_fraction_dt_01": 0.561777,
+      "throughflow_fraction_dt_005": 0.566974,
+      "old_split_fraction_dt_01": 0.00426134,
+      "cuda_regressions_passed": 5
+    },
+    "experimental_replay": "pending",
+    "time_dependent_arrhenius_verified": false,
+    "source_hashes": {
+      "native/include/battery_native/reactive_transit.hpp": "54e133d0e152a3ae45d9b5b7ca144c2f841cb1b831e0ad81bc66ae2257ee62ac",
+      "native/src/reactive_average_gas.cuh": "46261955ae9f372c6a1d5c6da33d10ca3d997109b35fa0375c0ce0452f92865c",
+      "native/tests/reactive_transit.cu": "7791a1342598cce540d99568e7cea21fc9af37cf521ed4de81c5a4af01bc07bd"
+    }
+  },
+  "compatibility": {
+    "backend": "cuda_network",
+    "integrator": "averaged",
+    "gas_surface_mixing": "joint"
+  },
+  "qualification": "candidate",
+  "producer_core": "b1c01eaadb1b8b2a91d81390404d922e3ebd4315583c40062515d009fd62e46f",
+  "transferable_as": "numerical_method",
+  "calibrated": false,
+  "validation_passed": false
+}

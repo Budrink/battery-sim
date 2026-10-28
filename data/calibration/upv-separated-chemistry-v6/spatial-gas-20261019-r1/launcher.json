@@ -1,0 +1,22 @@
+{
+  "pid": 1477659,
+  "args": [
+    "/usr/bin/python3",
+    "-u",
+    "scripts/check_upv_phase_mixing.py",
+    "--base",
+    "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/phase-mixing-20261019-r2/combined/parameters.json",
+    "--output",
+    "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/spatial-gas-20261019-r1",
+    "--cases",
+    "combined",
+    "--duration",
+    "925",
+    "--timeout",
+    "7200",
+    "--reference",
+    "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/phase-mixing-20261019-r2/combined/trial-run.json.gz"
+  ],
+  "started_utc": "2026-10-19T12:25:35.859396+00:00",
+  "purpose": "Frozen-parameter spatial gas geometry diagnostic; not calibration"
+}

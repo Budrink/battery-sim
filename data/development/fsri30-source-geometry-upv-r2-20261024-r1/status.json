@@ -1,0 +1,23 @@
+{
+  "status": "stopped",
+  "pid": 1814600,
+  "native_sha256": "9b14777a04a50054ec89283e821d9aeb607f0cab8042841e11fe8eac58008f1e",
+  "source_scenario": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-reactive-refinement-20261024-r8/trial-0003/scenario.json",
+  "source_scenario_sha256": "4e7653dc3d0e04897332924402b4e61f65af5eb0a4b981fc38c155adba45df28",
+  "cases": [
+    "combined",
+    "r2-only",
+    "geometry-only",
+    "reference"
+  ],
+  "results": {
+    "combined": {
+      "status": "failed",
+      "error": "CUDA Kawasaki pressure step failed: 24; pressure_iterations=1024 relative_residual=2.43221e-05"
+    }
+  },
+  "fresh_from_zero": true,
+  "calibrated": false,
+  "validation_passed": false,
+  "phase": "r2-only"
+}

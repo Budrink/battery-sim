@@ -1,0 +1,42 @@
+{
+  "format_version": 1,
+  "kind": "numerical_method",
+  "scope": "fsri30-nested-jet-refinement-tested-v1",
+  "parameters": {
+    "bulk_spacing_m": 0.02,
+    "near_spacing_m": 0.01,
+    "halo_m": 0.04,
+    "wall_spacing_m": 0.01,
+    "alignment": "nested-coarse-cells-v1",
+    "gas_nodes": 4048
+  },
+  "evidence": {
+    "result_path": "/home/konstantin/work/battery-sim/data/development/fsri30-local-refinement-20261025-r2/status.json",
+    "result_sha256": "f615256ad5c79bc1b406015cdf1239d75d839d176b82e34e2f8d3c7f66e73850",
+    "source_archive": "/home/konstantin/work/battery-sim/data/development/fsri30-local-refinement-20261025-r2/source-evidence.tar.gz",
+    "source_archive_sha256": "fb2cd60c91ea00aea5e2af2d223950e4183136132f304c53776506e946945a12",
+    "numerical_checks": {
+      "accepted": false,
+      "reason": "Timing/shape worse than original 20 mm"
+    },
+    "geometry_and_ledger_checks_accepted": true,
+    "all_30_converted": true,
+    "fresh_full_cascade": true,
+    "mean_event_difference_s": 18.724636163230645,
+    "maximum_event_difference_s": 28.43104228982702,
+    "speed_x_realtime": 1.4114279033456243,
+    "not_auto_selected": true,
+    "experimental_validation": false
+  },
+  "compatibility": {
+    "fixture": "fsri30-resolved-gas",
+    "stage": "fresh0..2525s",
+    "boundary": "closed finite atmosphere",
+    "source_profile_sha256": "4e7653dc3d0e04897332924402b4e61f65af5eb0a4b981fc38c155adba45df28"
+  },
+  "qualification": "candidate",
+  "producer_core": "6d67cc57da9e99e5ad3931569544bfb9ba920b8aab8c60963c82876e9b8be4dd",
+  "transferable_as": "numerical_method",
+  "calibrated": false,
+  "validation_passed": false
+}

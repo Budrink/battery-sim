@@ -1,0 +1,279 @@
+{
+  "status": "stopped",
+  "pid": 2161770,
+  "stage": "cascade-check",
+  "trials": [
+    {
+      "gain": 0.21405515446686751,
+      "status": "complete",
+      "reason": null,
+      "metrics": {
+        "rmse_k": 4.499415753095325,
+        "max_abs_k": 11.932830407864742,
+        "final_error_k": 11.932830407864742,
+        "final_time_s": 1499.9999999999864,
+        "final_mean_c": 153.1998304078648,
+        "final_t5_c": 141.26700000000005
+      },
+      "last_observed_s": 1499.9999999999864,
+      "checkpoint": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-joint-r2x020-early-20261027-r1/heater-00/committed-1500.bin",
+      "checkpoint_sha256": "f710a5446f89f516df12698c1c4a39885d22ca3414d4b5c74304258db6b92cae",
+      "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-joint-r2x020-early-20261027-r1/heater-00/replay/run.json.gz"
+    },
+    {
+      "gain": 4.0,
+      "status": "pruned",
+      "reason": "Pruned: Warmup cannot meet the required error bound",
+      "metrics": {
+        "rmse_k": 47.72583812147959,
+        "max_abs_k": 59.6601911010319,
+        "final_error_k": 59.6601911010319,
+        "final_time_s": 350.0,
+        "final_mean_c": 95.50819110103191,
+        "final_t5_c": 35.84800000000001
+      },
+      "last_observed_s": 350.0
+    },
+    {
+      "gain": 0.125,
+      "status": "pruned",
+      "reason": "Pruned: Warmup cannot meet the required error bound",
+      "metrics": {
+        "rmse_k": 5.330546018023517,
+        "max_abs_k": 11.189920823128261,
+        "final_error_k": -11.189920823128261,
+        "final_time_s": 655.0,
+        "final_mean_c": 52.80407917687177,
+        "final_t5_c": 63.99400000000003
+      },
+      "last_observed_s": 655.0
+    },
+    {
+      "gain": 0.16216791725676805,
+      "status": "pruned",
+      "reason": "Pruned: Warmup cannot meet the required error bound",
+      "metrics": {
+        "rmse_k": 5.736593859109681,
+        "max_abs_k": 10.900048278734005,
+        "final_error_k": -10.793512864636796,
+        "final_time_s": 1084.9999999999454,
+        "final_mean_c": 91.65348713536338,
+        "final_t5_c": 102.44700000000017
+      },
+      "last_observed_s": 1084.9999999999454
+    },
+    {
+      "gain": 0.18502198564858743,
+      "status": "pruned",
+      "reason": "Pruned: Warmup cannot meet the required error bound",
+      "metrics": {
+        "rmse_k": 4.3263434022012826,
+        "max_abs_k": 11.353093178342647,
+        "final_error_k": -9.90889080156876,
+        "final_time_s": 1429.9999999999454,
+        "final_mean_c": 127.4081091984379,
+        "final_t5_c": 137.31700000000666
+      },
+      "last_observed_s": 1429.9999999999454
+    },
+    {
+      "gain": 0.19767037747050903,
+      "status": "complete",
+      "reason": null,
+      "metrics": {
+        "rmse_k": 3.0206845383390633,
+        "max_abs_k": 6.540576292926232,
+        "final_error_k": -0.40006136513841284,
+        "final_time_s": 1499.9999999999864,
+        "final_mean_c": 140.86693863486164,
+        "final_t5_c": 141.26700000000005
+      },
+      "last_observed_s": 1499.9999999999864,
+      "checkpoint": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-joint-r2x020-early-20261027-r1/heater-05/committed-1500.bin",
+      "checkpoint_sha256": "aedb8b7cb159b1c42a433ec0c57e2a2941c20e01094a5f1f96acbfb43e195de7",
+      "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-joint-r2x020-early-20261027-r1/heater-05/replay/run.json.gz"
+    }
+  ],
+  "source_sha256": "1fd65871a515e39932156a0998f99531b88aeab72da8cea533a1dcf989300733",
+  "core_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "experiment_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "sensor_face": "+x",
+  "sensor_mapping_confirmed": false,
+  "feedforward_w": 0.0,
+  "max_power_w": 30.0,
+  "r2_scale_vs_40mm": 0.2,
+  "initial_gain": 0.21405515446686751,
+  "early_primary_allowed": true,
+  "fixed": "geometry, materials, contacts, other chemistry, heater ramp and maximum power",
+  "calibrated": false,
+  "validation_passed": false,
+  "active_trial": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-joint-r2x020-early-20261027-r1/heater-05",
+  "gain": 0.19767037747050903,
+  "progress": {
+    "time_s": 2734.9999999999045,
+    "wall_s": 801.137954077,
+    "assessment": {
+      "evaluated": true,
+      "accepted": false,
+      "phase_window_complete": false,
+      "last_observed_s": 2734.9999999999045,
+      "reason": "Primary thermal-front timing error: model 1597s versus data 1763s; Missing thermal pulse wave(s) at 1763, 2134, 2422, 2569s within 100s timing error limit; Missing first hot arrival wave(s) at 1765, 2136, 2570s within 100s timing error limit",
+      "constraint": 7.0,
+      "primary_offset_s": -166.0,
+      "timing_error_s": 166.0,
+      "timing_target_met": false,
+      "pulse_match": {
+        "due": 4,
+        "matched": 0,
+        "missing": [
+          {
+            "reference_time_s": 1763.0,
+            "channels": [
+              "T2",
+              "T5"
+            ],
+            "nearest_any_model_group_s": 166.0
+          },
+          {
+            "reference_time_s": 2134.0,
+            "channels": [
+              "T1",
+              "T2",
+              "T3",
+              "T4",
+              "T5"
+            ],
+            "nearest_any_model_group_s": 537.0
+          },
+          {
+            "reference_time_s": 2422.0,
+            "channels": [
+              "T4"
+            ],
+            "nearest_any_model_group_s": 825.0
+          },
+          {
+            "reference_time_s": 2569.0,
+            "channels": [
+              "T2",
+              "T3",
+              "T4",
+              "T5",
+              "T6"
+            ],
+            "nearest_any_model_group_s": 972.0
+          }
+        ],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "arrival_match": {
+        "due": 3,
+        "matched": 0,
+        "missing": [
+          {
+            "reference_time_s": 1765.0,
+            "channels": [
+              "T5"
+            ],
+            "nearest_any_model_group_s": 168.0
+          },
+          {
+            "reference_time_s": 2136.0,
+            "channels": [
+              "T1",
+              "T2",
+              "T3",
+              "T4"
+            ],
+            "nearest_any_model_group_s": 539.0
+          },
+          {
+            "reference_time_s": 2570.0,
+            "channels": [
+              "T6"
+            ],
+            "nearest_any_model_group_s": 973.0
+          }
+        ],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "model": {
+        "pulses": [
+          {
+            "channel": "B10",
+            "time_s": 1597.0,
+            "rise_k": 956.227217639266,
+            "slope_k_s": 204.51961633427175
+          }
+        ],
+        "arrivals": [
+          {
+            "channel": "B10",
+            "time_s": 1597.0
+          }
+        ],
+        "pulse_groups": [
+          {
+            "time_s": 1597.0,
+            "end_s": 1597.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1597.0,
+                "rise_k": 956.227217639266,
+                "slope_k_s": 204.51961633427175
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ],
+        "arrival_groups": [
+          {
+            "time_s": 1597.0,
+            "end_s": 1597.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1597.0
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ]
+      },
+      "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+      "necessary_not_sufficient": true,
+      "objective": null
+    },
+    "physical_error": null,
+    "temperature_rejection": null,
+    "secondary_events": []
+  },
+  "best": {
+    "gain": 0.19767037747050903,
+    "status": "complete",
+    "reason": null,
+    "metrics": {
+      "rmse_k": 3.0206845383390633,
+      "max_abs_k": 6.540576292926232,
+      "final_error_k": -0.40006136513841284,
+      "final_time_s": 1499.9999999999864,
+      "final_mean_c": 140.86693863486164,
+      "final_t5_c": 141.26700000000005
+    },
+    "last_observed_s": 1499.9999999999864,
+    "checkpoint": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-joint-r2x020-early-20261027-r1/heater-05/committed-1500.bin",
+    "checkpoint_sha256": "aedb8b7cb159b1c42a433ec0c57e2a2941c20e01094a5f1f96acbfb43e195de7",
+    "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-joint-r2x020-early-20261027-r1/heater-05/replay/run.json.gz"
+  },
+  "restart_from_warmup": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-joint-r2x020-early-20261027-r1/heater-05/committed-1500.bin",
+  "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-joint-r2x020-early-20261027-r1/heater-05/replay/run.json.gz"
+}

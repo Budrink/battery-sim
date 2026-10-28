@@ -1,0 +1,48 @@
+{
+  "status": "oracle-linear-subcell-representability",
+  "all_coarse_air_volumes": 1590,
+  "fine_air_volumes": 9400,
+  "results": {
+    "first_burst": {
+      "temperature_k": {
+        "subcell_variance_captured": 0.985489047192159,
+        "subcell_variance_captured_after_sample_positivity_limit": 0.985489047192159,
+        "negative_reconstruction_fraction": 0.0
+      },
+      "fuel_density_j_m3": {
+        "subcell_variance_captured": 0.9908326097119561,
+        "subcell_variance_captured_after_sample_positivity_limit": 0.989951096590736,
+        "negative_reconstruction_fraction": 0.010908346972176759
+      },
+      "oxygen_density_kg_m3": {
+        "subcell_variance_captured": 0.9992008646037287,
+        "subcell_variance_captured_after_sample_positivity_limit": 0.9990898320604407,
+        "negative_reconstruction_fraction": 0.009509001636661211
+      }
+    },
+    "held_out_cascade": {
+      "temperature_k": {
+        "subcell_variance_captured": 0.9960349945762607,
+        "subcell_variance_captured_after_sample_positivity_limit": 0.9960349945762607,
+        "negative_reconstruction_fraction": 0.0
+      },
+      "fuel_density_j_m3": {
+        "subcell_variance_captured": 0.997727082088371,
+        "subcell_variance_captured_after_sample_positivity_limit": 0.9976827972562958,
+        "negative_reconstruction_fraction": 0.006526434558349452
+      },
+      "oxygen_density_kg_m3": {
+        "subcell_variance_captured": 0.9996338538213573,
+        "subcell_variance_captured_after_sample_positivity_limit": 0.9995279510259175,
+        "negative_reconstruction_fraction": 0.07796744036105738
+      }
+    }
+  },
+  "coarse_coefficients_predicted": false,
+  "physical_model_changed": false,
+  "patterns_promoted": false,
+  "representation": "Mean plus three zero-mean spatial slopes per scalar; irregular and nested boxes included",
+  "limitation": "Oracle coefficients from fine snapshots, not a dynamic coarse closure. Temperature is volume-weighted, not sensible energy. Sample-center positivity is not face-flux positivity.",
+  "source_sha256": "24b406b348f7b89d411651075294efaba6055d12599e16da9848d583696f24f9",
+  "fine_fields_sha256": "74578020cca8d0490f245ad7ba0fc865726a169b23b2a1411a3fe067999fa9c2"
+}

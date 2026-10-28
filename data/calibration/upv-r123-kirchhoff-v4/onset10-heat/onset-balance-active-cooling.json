@@ -1,0 +1,32 @@
+{
+  "experiment": "active-cooling",
+  "onset_s": 466.5039997198619,
+  "window_s": 10.0,
+  "temperature_k": 297.257375,
+  "delta_k": {
+    "101": -0.001910527073562207,
+    "102": -0.009500000000002728,
+    "107": -0.015221052347385466,
+    "108": -0.0013684205790127635,
+    "C2_TIM": 0.02189736823157773,
+    "C2_ISS": 0.06451052662362144
+  },
+  "mean_c2_k": 0.04320394742759959,
+  "mean_all_k": 0.009734649142539334,
+  "stack_capacity_j_per_k": 3032.8692029999997,
+  "c2_capacity_j_per_k": 401.35144599999995,
+  "stored_if_mixed_j": 131.03192160119784,
+  "stored_if_c2_isolated_j": 17.33996677297507,
+  "stored_if_mean_all_j": 29.5239175864179,
+  "integral_i2_a2s": 12250.0,
+  "supplied_ui_j": 1516.799095,
+  "well_mixed_resistance_ohm": 0.01069648339601615,
+  "isolated_c2_resistance_ohm": 0.0014155074916714343,
+  "r1_overcharge_rate_per_s": 0.0005292785555978729,
+  "r1_converted_fraction": 0.005278803445488478,
+  "r2_rate_per_s": 2.0886544291742678e-05,
+  "r2_converted_fraction": 0.00020884363204931589,
+  "r2_treated_as_off": true,
+  "r1_heat_neutral": true,
+  "notes": "Observed \u0394T~0.05 K. Mixed-stack C*\u0394T matches I\u00b2R near 13 m\u03a9; isolated C2 would need ~2 m\u03a9. R2/R1 heat is not a 10 s source."
+}

@@ -1,0 +1,34 @@
+{
+  "status": "stopped",
+  "pid": 2172653,
+  "stage": "heater-calibration",
+  "trials": [],
+  "source_sha256": "fa83a43d4838cd236fe82f5fa09a9d3fac7856d40c3ed8fdf76e24c0fb8b08eb",
+  "core_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "experiment_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "sensor_face": "+x",
+  "sensor_mapping_confirmed": false,
+  "feedforward_w": 0.0,
+  "max_power_w": 30.0,
+  "r2_multiplier_on_source": 0.9,
+  "initial_gain": 0.19767037747050903,
+  "early_primary_allowed": true,
+  "fixed": "geometry, materials, contacts, other chemistry, heater ramp and maximum power",
+  "calibrated": false,
+  "validation_passed": false,
+  "active_trial": "/home/konstantin/work/battery-sim/data/development/fsri30-r2x09-fuel5-r3same-20261027-r1/heater-00",
+  "gain": 0.19767037747050903,
+  "progress": {
+    "time_s": 640.0,
+    "wall_s": 200.170161402,
+    "metrics": {
+      "rmse_k": 5.180212126077828,
+      "max_abs_k": 6.97038743648568,
+      "final_error_k": 3.748273046471411,
+      "final_time_s": 640.0,
+      "final_mean_c": 66.41627304647142,
+      "final_t5_c": 62.668000000000006
+    },
+    "physical_error": null
+  }
+}

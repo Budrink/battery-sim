@@ -1,0 +1,69 @@
+{
+  "trial": "/home/konstantin/work/battery-sim/data/development/fsri30-internal-radiation-20261026-r2/trial-0000",
+  "parameters": {
+    "r2_rate_scale": 0.02300523837999681,
+    "gas_can_contact_scale": 1.0,
+    "cross_column_open_fraction": 1.0,
+    "axial_open_fraction": 1.0,
+    "thermal_stirring_coefficient": 0.06722339346183823,
+    "effective_emissivity": 0.7664775109756737
+  },
+  "level_mm": 20,
+  "status": "interrupted",
+  "native_sha256": "3988147a34fab4fba5d06b75a97874058740abaa691586fa1af35c459f3713e5",
+  "scenario_sha256": "c9014968dd537488c910858c84426369623048875678eb35a1f90a0dea9f00a2",
+  "screening_only": false,
+  "calibrated": false,
+  "validation_passed": false,
+  "assessment": {
+    "evaluated": false,
+    "accepted": null,
+    "phase_window_complete": false,
+    "last_observed_s": 440.0,
+    "reason": null,
+    "constraint": 0.0,
+    "primary_offset_s": null,
+    "timing_error_s": 0.0,
+    "timing_target_met": false,
+    "pulse_match": {
+      "due": 0,
+      "matched": 0,
+      "missing": [],
+      "pairs": [],
+      "worst_offset_s": 0.0,
+      "target_met": false
+    },
+    "arrival_match": {
+      "due": 0,
+      "matched": 0,
+      "missing": [],
+      "pairs": [],
+      "worst_offset_s": 0.0,
+      "target_met": false
+    },
+    "model": {
+      "pulses": [],
+      "arrivals": [],
+      "pulse_groups": [],
+      "arrival_groups": []
+    },
+    "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+    "necessary_not_sufficient": true,
+    "objective": null
+  },
+  "physical_error": null,
+  "delivery": null,
+  "temperature_rejection": null,
+  "temperature_guard_deferred_for_mesh_timing": null,
+  "wall_s": 221.52629021601751,
+  "live_advanced_to_s": 442.3669489068466,
+  "minimum_regular_step_s": 0.040678480892893276,
+  "run_sha256": "90f6fb683623ffdbf1ffd5b9e30fece1209727c675456ff1e911f145a72c5822",
+  "run_path": "/home/konstantin/work/battery-sim/data/development/fsri30-internal-radiation-20261026-r2/trial-0000/replay/incomplete-run.json.gz",
+  "balances": {
+    "max_chemical_residual_j": 2.658925950527191e-07,
+    "max_mass_residual_kg": 5.46229728115577e-14,
+    "max_oxidizer_residual_kg": 9.492406860545088e-15,
+    "max_thermal_residual_j": 6.5203096255572746e-09
+  }
+}

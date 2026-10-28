@@ -1,0 +1,70 @@
+{
+  "parameters": {
+    "effective_emissivity": 0.3952809319042697,
+    "thermal_stirring_coefficient": 0.07354794349164498,
+    "abs_contact_strength": 0.5325482171297369
+  },
+  "observed_cooling_window_s": [
+    3600.0,
+    4200.0
+  ],
+  "common_window_only": true,
+  "full_score_available": false,
+  "proposal_only": true,
+  "actual_fresh_replay_required": true,
+  "base_rank_rmse_k": 84.44554342050357,
+  "conditioned_hot_contact_rank_rmse_k": 84.72910527606017,
+  "predicted_rank_rmse_k": 73.74466456000391,
+  "predicted_rank_bias_k": [
+    64.27663096630751,
+    40.41636988780216,
+    -78.12479007030971,
+    -66.66179973874745,
+    -62.21908934025018,
+    -27.184690449866512,
+    5.925129417260358,
+    32.99387859134786,
+    69.94595046737932
+  ],
+  "phase_forecast": {
+    "timing_prediction_available": true,
+    "predicted_timing_offsets_s": {
+      "peak_time_s": 4.09034186262862,
+      "rise50_time_s": -2.824186482032001,
+      "rise90_time_s": -1.1709573498990515
+    },
+    "derivative_samples": 12,
+    "proposal_only": true,
+    "actual_burst_gate_required": true
+  },
+  "sources": {
+    "base": {
+      "path": "/home/konstantin/work/battery-sim/data/calibration/fsri30-balance-bracket-20261026-r2/trial-0026/replay/run.json.gz",
+      "sha256": "440c66a145bddf3e838991183f83d37899d1698704bf0948dccafbe77beed696",
+      "start_s": 0.0,
+      "end_s": 5945.0
+    },
+    "lower_mix": {
+      "path": "/home/konstantin/work/battery-sim/data/calibration/fsri30-balance-bracket-20261026-r1/trial-0025/replay/incomplete-run.json.gz",
+      "sha256": "19bbd9ed776ae4b4eeb0a55d669162d0fa8748eabe28c8ee47b574c8b28cb546",
+      "start_s": 0.0,
+      "end_s": 4770.0
+    },
+    "higher_epsilon": {
+      "path": "/home/konstantin/work/battery-sim/data/calibration/fsri30-explosion-priority-20261026-r1/trial-0023/replay/run.json.gz",
+      "sha256": "9d0f0ab6d8fcf6619cfd271f4c03175f3df5cb3be16b402c0fd1a700c74ea967",
+      "start_s": 0.0,
+      "end_s": 5945.0
+    },
+    "hot_contact": {
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-deadline-20261026-r1/abs-hot-suffix/vent-suffix/replay/run.json.gz",
+      "sha256": "60fc9561868cdc364c62c07498246f874b17dd193891ab637bee39c2e3d63d4b",
+      "start_s": 2999.9999999999545,
+      "end_s": 4200.0
+    }
+  },
+  "csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "phase_center_trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-balance-bracket-20261026-r2/trial-0026",
+  "new_hot_contact_phase_response_measured": false,
+  "scope": "Measured local response proposal, nine rank curves versus nine TC order statistics; positions unresolved; NOT validation"
+}

@@ -1,0 +1,40 @@
+{
+  "format_version": 1,
+  "kind": "numerical_method",
+  "scope": "pressure-orifice-consistency-v1",
+  "parameters": {
+    "operator": "frozen-polytropic-compliance plus nonlinear orifice mobility",
+    "inner": "SPD PCG",
+    "outer": "Picard",
+    "outer_limit": 32,
+    "flow_relative_tolerance": 0.01,
+    "flow_inventory_floor": 1e-06,
+    "physical_step_unchanged": true
+  },
+  "evidence": {
+    "result_path": "/home/konstantin/work/battery-sim/data/development/fsri30-nonlinear-pressure-20261026-r1/exits-1.0/gas-budget.json",
+    "result_sha256": "04770249a9057427ee396ce2fc46004cc2ac9678d13d9f19e0873b44db125136",
+    "run_sha256": "25ee688f799d97c0b61aa3e04064752c99371cf35eeac273d27d43210181e1e7",
+    "computed_until_s": 1849.9999999999272,
+    "full_fresh_prefix": true,
+    "full_warmup_validation": false,
+    "numerical_checks": {
+      "accepted": true,
+      "three_volume_nonlinear_reference": true,
+      "dense_pressure_reference": true,
+      "matched_pattern_reference": true,
+      "actual_cuda_hot_prefix": true
+    },
+    "whole_cascade_verified": false
+  },
+  "compatibility": {
+    "solver": "CUDA averaged gas",
+    "pressure_law": "compressible orifice",
+    "compliance": "frozen polytropic"
+  },
+  "qualification": "candidate",
+  "producer_core": "89c758122fe59872ea6d98eb971cfc44809eb90239f4afc3bca90adac1c27175",
+  "transferable_as": "numerical_method",
+  "calibrated": false,
+  "validation_passed": false
+}

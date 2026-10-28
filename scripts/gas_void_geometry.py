@@ -2,7 +2,7 @@
 
 Solid boxes are excluded exactly using their faces as grid cuts. A connection
 exists only across a shared face; touching at an edge/corner is insufficient.
-Outer faces connect to a surrounding reservoir, not to an outside-domain sink.
+Outer faces are exposed to the caller; they need not be gas outlets.
 """
 from bisect import bisect_right
 from itertools import product
@@ -25,11 +25,17 @@ class VoidGrid:
         for lo, hi in obstacles:
             if any(not math.isfinite(v) for row in (lo, hi) for v in row) or any(b <= a for a, b in zip(lo, hi)):
                 raise ValueError('Invalid solid obstacle')
-        self.cuts = [cuts([bounds[0][k], bounds[1][k], *divisions[k],
-                          *[v[k] for box in obstacles for v in box if bounds[0][k] < v[k] < bounds[1][k]]])
-                     for k in range(3)]
-        if any(v < bounds[0][k] or v > bounds[1][k] for k in range(3) for v in self.cuts[k]):
+        if any(not math.isfinite(v) or v < bounds[0][k] or v > bounds[1][k]
+               for k in range(3) for v in divisions[k]):
             raise ValueError('Grid cuts outside envelope')
+        # Round only interior construction cuts. Preserve exact endpoints and
+        # reject invalid input BEFORE deduplication; never clip an outside cut.
+        self.cuts=[]
+        for k in range(3):
+            a,b=bounds[0][k],bounds[1][k]
+            raw=[*divisions[k],*[v[k]for box in obstacles for v in box]]
+            interior=cuts(v for v in raw if a<v<b)
+            self.cuts.append([a,*[v for v in interior if a<v<b],b])
         self.cells = {}
         for ijk in product(*(range(len(c)-1) for c in self.cuts)):
             lo = [self.cuts[k][i] for k, i in enumerate(ijk)]

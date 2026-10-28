@@ -1,0 +1,18 @@
+{
+  "scope": "Exterior-radiation implementation and manufactured CUDA smoke test only",
+  "calibrated": false,
+  "validation_passed": false,
+  "production_scenario_sha256": "885d4a28be3cbfb87671e1e615ab86596471a59863d41e2fe173c5e1b6cf469c",
+  "native": "build/calibration-probes/battery_sim_casing_probe-radiation-20261025-r1",
+  "native_sha256": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "library_sha256": "a1ee4fa9b6d49cf89146422d8d69b5077f8f9441df3c6ecb1a0cf7654740e435",
+  "source_archive": "build/calibration-probes/fsri30-radiation-20261025-r1-source.tar.gz",
+  "source_archive_sha256": "e3e0ebc87e5b3ec15feb5a982f85a297cc8715e552d1f9ab449aba44d6a98361",
+  "unchanged_condensed_conversion_sha256": "75d4e4920ce496a33d21b6016500dd20fd60e8630ab92f39035e0e902757064c",
+  "tests": {
+    "real_cuda_passed": ["cuda_radiation", "cuda_gas_ambient", "cuda_cooling_wall"],
+    "fsri_python_total": 155,
+    "fsri_python_passed": 145,
+    "fsri_python_explicit_skips": 10
+  }
+}

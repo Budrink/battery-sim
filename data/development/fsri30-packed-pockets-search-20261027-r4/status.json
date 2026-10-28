@@ -1,0 +1,53 @@
+{
+  "status": "stopped",
+  "pid": 2048438,
+  "stage": "heater-coarse",
+  "trials": [
+    {
+      "gain": 1.0,
+      "status": "censored",
+      "reason": "Prior bad warmup prefix preserved",
+      "metrics": {
+        "rmse_k": 27.715843755993472,
+        "max_abs_k": 36.14680313417955,
+        "final_error_k": 36.14680313417955,
+        "final_time_s": 239.99999999999005,
+        "final_mean_c": 63.144803134180734,
+        "final_t5_c": 26.998000000001184
+      },
+      "last_observed_s": 239.99999999999005,
+      "run_path": "/home/konstantin/work/battery-sim/data/development/fsri30-packed-pockets-search-20261027-r3/heater-coarse-00/replay/incomplete-run.json.gz",
+      "run_sha256": "df57fe2d638c3d6a394e4ffa5be8bb1e50056b5c42e0d503805b2c30bb1d1a5d"
+    },
+    {
+      "gain": 0.25,
+      "status": "pruned",
+      "reason": "Pruned: Warmup candidate grossly diverged from T5 proxy",
+      "metrics": {
+        "rmse_k": 15.606156600286884,
+        "max_abs_k": 20.011726519675335,
+        "final_error_k": 20.011726519675335,
+        "final_time_s": 204.99999999999204,
+        "final_mean_c": 45.91372651967316,
+        "final_t5_c": 25.901999999997827
+      },
+      "last_observed_s": 204.99999999999204
+    }
+  ],
+  "calibrated": false,
+  "validation_passed": false,
+  "active_trial": 1,
+  "gain": 0.125,
+  "progress": {
+    "time_s": 485.0,
+    "wall_s": 240.285762094,
+    "metrics": {
+      "rmse_k": 17.27501941539063,
+      "max_abs_k": 19.34375469196027,
+      "final_error_k": 16.647676219996526,
+      "final_time_s": 485.0,
+      "final_mean_c": 64.89467621999654,
+      "final_t5_c": 48.247000000000014
+    }
+  }
+}

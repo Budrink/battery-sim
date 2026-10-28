@@ -1,0 +1,162 @@
+{
+  "trial": "/home/konstantin/work/battery-sim/data/development/fsri30-packed-fine-2406-20261027-r1/cascade-0000",
+  "parameters": {
+    "r2_rate_scale": 0.1,
+    "gas_can_contact_scale": 1.0,
+    "cross_column_open_fraction": 1.0,
+    "axial_open_fraction": 1.0,
+    "thermal_stirring_coefficient": 0.06722339346183823,
+    "effective_emissivity": 0.7664775109756737
+  },
+  "level_mm": 20,
+  "status": "pruned",
+  "native_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "scenario_sha256": "918423da5a902f85a159869ddc47e49241281313e05f6ea4035fd1ddbd369877",
+  "screening_only": false,
+  "calibrated": false,
+  "validation_passed": false,
+  "assessment": {
+    "evaluated": true,
+    "accepted": false,
+    "phase_window_complete": false,
+    "last_observed_s": 2284.9999999999363,
+    "reason": "Missing first hot arrival wave(s) at 2136s within 100s timing error limit",
+    "constraint": 1.0,
+    "primary_offset_s": -40.0,
+    "timing_error_s": 42.0,
+    "timing_target_met": false,
+    "pulse_match": {
+      "due": 1,
+      "matched": 1,
+      "missing": [],
+      "pairs": [
+        {
+          "reference_time_s": 1763.0,
+          "model_time_s": 1723.0,
+          "offset_s": -40.0,
+          "reference_channels": [
+            "T2",
+            "T5"
+          ],
+          "model_channels": [
+            "B10"
+          ]
+        }
+      ],
+      "worst_offset_s": 40.0,
+      "target_met": false
+    },
+    "arrival_match": {
+      "due": 2,
+      "matched": 1,
+      "missing": [
+        {
+          "reference_time_s": 2136.0,
+          "channels": [
+            "T1",
+            "T2",
+            "T3",
+            "T4"
+          ],
+          "nearest_any_model_group_s": 413.0
+        }
+      ],
+      "pairs": [
+        {
+          "reference_time_s": 1765.0,
+          "model_time_s": 1723.0,
+          "offset_s": -42.0,
+          "reference_channels": [
+            "T5"
+          ],
+          "model_channels": [
+            "B10"
+          ]
+        }
+      ],
+      "worst_offset_s": 42.0,
+      "target_met": false
+    },
+    "model": {
+      "pulses": [
+        {
+          "channel": "B10",
+          "time_s": 1723.0,
+          "rise_k": 1002.1043134165182,
+          "slope_k_s": 145.7383289933855
+        }
+      ],
+      "arrivals": [
+        {
+          "channel": "B10",
+          "time_s": 1723.0
+        }
+      ],
+      "pulse_groups": [
+        {
+          "time_s": 1723.0,
+          "end_s": 1723.0,
+          "events": [
+            {
+              "channel": "B10",
+              "time_s": 1723.0,
+              "rise_k": 1002.1043134165182,
+              "slope_k_s": 145.7383289933855
+            }
+          ],
+          "channels": [
+            "B10"
+          ]
+        }
+      ],
+      "arrival_groups": [
+        {
+          "time_s": 1723.0,
+          "end_s": 1723.0,
+          "events": [
+            {
+              "channel": "B10",
+              "time_s": 1723.0
+            }
+          ],
+          "channels": [
+            "B10"
+          ]
+        }
+      ]
+    },
+    "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+    "necessary_not_sufficient": true,
+    "objective": null
+  },
+  "physical_error": null,
+  "delivery": {
+    "observed_time_s": 2134.999999999968,
+    "target_time_s": 2135.0,
+    "top4_neighbor_mean_k": 400.21134554073416,
+    "maximum_neighbor_k": 404.3925407870648,
+    "neighbors": [
+      "B18",
+      "B17",
+      "B09",
+      "B11"
+    ],
+    "source_excluded": "B10",
+    "exploration_only": true,
+    "qualifies_cascade": false
+  },
+  "temperature_rejection": null,
+  "temperature_guard_deferred_for_mesh_timing": null,
+  "wall_s": 3082.430059025064,
+  "live_advanced_to_s": 2288.9999999999327,
+  "minimum_regular_step_s": 0.01,
+  "error": "Pruned: Missing first hot arrival wave(s) at 2136s within 100s timing error limit",
+  "run_sha256": "e0bbb27a176842bbe2ef22ccb622f5615217f1b07b226832e4a5ed097ae6ffb1",
+  "run_path": "/home/konstantin/work/battery-sim/data/development/fsri30-packed-fine-2406-20261027-r1/cascade-0000/replay/incomplete-run.json.gz",
+  "balances": {
+    "max_chemical_residual_j": 2.300366759300232e-07,
+    "max_mass_residual_kg": 6.750155989720952e-14,
+    "max_oxidizer_residual_kg": 9.275913370743183e-14,
+    "max_thermal_residual_j": 2.633023541420698e-07
+  }
+}

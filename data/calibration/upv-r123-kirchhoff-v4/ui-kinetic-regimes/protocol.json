@@ -1,0 +1,94 @@
+{
+  "fingerprint": "cd86446a3af88b7fac4601e1cf186b89f9daa34a4d075933eed89bd78b004eec",
+  "source_profile_sha256": "c23e2ed8c7877317bccc3538e86d0c5617f7e46d0e922f8fba84056af5e1bd27",
+  "baseline": {
+    "resistance_ohm": 0.024,
+    "resistance_temperature": 0.003,
+    "product_conductivity_ratio": 0.6752499999999999,
+    "r1_rate": 1e-06,
+    "r1_activation": 40000.0,
+    "overcharge_gain": 0.5,
+    "r2_rate": 100.0,
+    "r2_activation": 100000.0,
+    "energy_j": 450000.0,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.03,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.42,
+    "precursor_temperature": 0.0,
+    "precursor_voltage": 0.0,
+    "iss_h": 287.71996866857825,
+    "tim_h": 2000.0,
+    "case_h": 500.0,
+    "environment_h": 8.0,
+    "surface_iss": 0.0,
+    "surface_tim": 0.0,
+    "bulk_slope": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0
+  },
+  "trials": [
+    {
+      "label": "moderate-branch",
+      "changes": {
+        "resistance_ohm": 0.024,
+        "resistance_temperature": 0.0,
+        "product_conductivity_ratio": 0.7,
+        "overcharge_gain": 0.4,
+        "precursor_yield": 0.6
+      }
+    },
+    {
+      "label": "separated-r1-r2",
+      "changes": {
+        "resistance_ohm": 0.023,
+        "resistance_temperature": -0.002,
+        "product_conductivity_ratio": 0.3,
+        "r1_activation": 20000.0,
+        "overcharge_gain": 1.0,
+        "precursor_yield": 0.7,
+        "r2_rate": 10.0,
+        "r2_activation": 120000.0,
+        "energy_j": 500000.0,
+        "gas_fraction": 0.65,
+        "gas_yield_temperature": 0.04
+      }
+    },
+    {
+      "label": "intermediate-r1-r2",
+      "changes": {
+        "resistance_ohm": 0.022,
+        "resistance_temperature": -0.002,
+        "product_conductivity_ratio": 0.4,
+        "r1_activation": 30000.0,
+        "overcharge_gain": 0.7,
+        "precursor_yield": 0.6,
+        "r2_rate": 10.0,
+        "r2_activation": 120000.0,
+        "energy_j": 500000.0,
+        "gas_fraction": 0.65,
+        "gas_yield_temperature": 0.04
+      }
+    },
+    {
+      "label": "slower-r2",
+      "changes": {
+        "resistance_ohm": 0.024,
+        "resistance_temperature": 0.0,
+        "product_conductivity_ratio": 0.7,
+        "overcharge_gain": 0.4,
+        "precursor_yield": 0.6,
+        "r2_rate": 30.0,
+        "r2_activation": 100000.0
+      }
+    }
+  ],
+  "voltage_floor_v": 3.65,
+  "validation_used_for_selection": false,
+  "no_thermal_contact_or_material_fitting": true,
+  "pruning_score_ceiling": 821.6283422872724
+}

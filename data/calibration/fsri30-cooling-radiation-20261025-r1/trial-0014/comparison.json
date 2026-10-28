@@ -1,0 +1,78 @@
+{
+  "last_completed_observation_s": 3764.9999999999363,
+  "common_comparison_until_s": 3764.9999999999363,
+  "common_control_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 150.8983699487578,
+    "quantile_rmse_k": [
+      109.48635886263837,
+      74.60934315585551,
+      171.40524276187764,
+      210.1135362211674
+    ],
+    "tail_temperature_c": [
+      652.2436556478842,
+      754.4677939189777,
+      862.1521515658577,
+      905.2378016993752
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "common_candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 89.79973404918104,
+    "quantile_rmse_k": [
+      83.82050928014286,
+      61.78237826951824,
+      74.5164443985218,
+      125.93779581522074
+    ],
+    "tail_temperature_c": [
+      461.4273039310034,
+      604.9978625540249,
+      752.2764957073879,
+      809.2044740516163
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 89.79973404918104,
+    "quantile_rmse_k": [
+      83.82050928014286,
+      61.78237826951824,
+      74.5164443985218,
+      125.93779581522074
+    ],
+    "tail_temperature_c": [
+      461.4273039310034,
+      604.9978625540249,
+      752.2764957073879,
+      809.2044740516163
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+  "common_cooling_rmse_change_k": -61.09863589957675,
+  "radiative_energy_out_j": 332735.00919826684
+}

@@ -1,0 +1,36 @@
+{
+  "status": "failed",
+  "source": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/thermal-gas-mixing-20261020-r1/temperature",
+  "native_sha256": "cc474c5d0ce8bd472613a9626ec129b568fdba1988e4782a1ee6e5b646cb8a41",
+  "diagnostic_only": true,
+  "calibrated": false,
+  "validation_run": false,
+  "cases": {},
+  "acceptance": {
+    "throughflow": {
+      "flow_kg_s": 0.0001863260517133697,
+      "area_x10_flow_kg_s": 0.0018575077450012048,
+      "window_x2_flow_kg_s": 0.00018626195611757578
+    },
+    "882.877000": {
+      "net_mass_scale": 1.0,
+      "entropy_backtracks": 0,
+      "mass_residual_kg": 4.163336342344337e-16,
+      "energy_residual_j": 1.7462298274040222e-10
+    },
+    "930.000000": {
+      "net_mass_scale": 1.0,
+      "entropy_backtracks": 0,
+      "mass_residual_kg": 1.1102230246251565e-16,
+      "energy_residual_j": 2.1827872842550278e-11
+    },
+    "950.000000": {
+      "net_mass_scale": 1.0,
+      "entropy_backtracks": 0,
+      "mass_residual_kg": 1.6653345369377348e-16,
+      "energy_residual_j": -1.1641532182693481e-10
+    }
+  },
+  "duration_s": 950.0,
+  "error": "CUDA Kawasaki pressure step failed: 23; attempt=0 scale=1 invalid=0 node=1401 dS=-0.445701; attempt=1 scale=0.5 invalid=0 node=1401 dS=-0.135408; attempt=2 scale=0.25 invalid=0 node=1401 dS=-0.0390019; attempt=3 scale=0.125 invalid=0 node=1401 dS=-0.0102166; attempt=4 scale=0.0625 invalid=0 node=1401 dS=-0.00263604; attempt=5 scale=0.03125 invalid=0 node=1401 dS=-0.000638227; attempt=6 scale=0.015625 invalid=0 node=1401 dS=-0.000142311; attempt=7 scale=0.0078125 invalid=0 node=1401 dS=-2.65184e-05; snapshot=/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/averaged-guard-20261020-r1/failure-window.json"
+}

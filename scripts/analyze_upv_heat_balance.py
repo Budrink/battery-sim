@@ -114,26 +114,49 @@ def smooth(y, window):
     return np.convolve(padded, kernel, mode='same')[window:-window]
 
 
-def chain_power(time, temperature, current, p, net_heat_thermal):
-    """Exact two-stage chain at frozen T per step, as in conversion.hpp."""
+def precursor_branch(p, temperature, voltage):
+    """Same frozen-on-substep R1 byproduct fraction as conversion.hpp."""
+    phi0 = p.get('precursor_yield', 1.)
+    bt = p.get('precursor_temperature', 0.)
+    bv = p.get('precursor_voltage', 0.)
+    if phi0 >= 1. and bt == 0. and bv == 0.:
+        return 1.
+    exponent = bt*(temperature - model.REFERENCE) + bv*(voltage - 3.65)
+    return min(1., max(0., phi0*math.exp(min(80., max(-80., exponent)))))
+
+
+def chain_power(time, temperature, current, p, net_heat_thermal, voltage=None):
+    """Uncapped initial-guess chain, NOT an electrical-budget validation.
+
+    Same independent formation rates and shared B energy as conversion.hpp;
+    CUDA still enforces local terminal-work limits and spatial temperatures.
+    extra is stored electrical energy expressed in equivalent B kilograms.
+    """
     reactant, activated = p['mass_kg'], 0.
+    extra=0.
     power = np.zeros_like(time)
     completed = np.zeros_like(time)
     for i in range(len(time)-1):
         dt = time[i+1] - time[i]
         t = temperature[i]
-        ka = p['r1_rate']*math.exp(min(80., p['r1_activation']/RGAS*(1/400. - 1/t))) + \
-            p['overcharge_gain']*max(0., current[i])/p['nominal_charge_c'] * \
-            math.exp(min(80., p['r1_activation']/RGAS*(1/model.REFERENCE - 1/t)))
+        v = 3.65 if voltage is None else float(voltage[i])
+        kd=p['r1_rate']*math.exp(min(80., p['r1_activation']/RGAS*(1/400. - 1/t)))
+        kc=p['charge_formation_gain']*max(0., current[i])/p['nominal_charge_c']
+        ka=kd+kc
         kb = p['r2_rate']*math.exp(min(80., max(-80., p['r2_activation']/RGAS*(1/450. - 1/t))))
+        phi = precursor_branch(p, t, v)
         da = reactant*(-math.expm1(-ka*dt))
         difference = abs(kb - ka)
         feed = reactant*ka*math.exp(-min(ka, kb)*dt) * \
             (-math.expm1(-difference*dt)/difference if difference > 0 else dt)
-        db = activated*(-math.expm1(-kb*dt)) + max(0., da - min(da, feed))
+        to_precursor = phi*da
+        db = activated*(-math.expm1(-kb*dt)) + phi*max(0., da - min(da, feed))
+        share=kc/ka if ka>0 else 0.
+        extra_burned=extra*(-math.expm1(-kb*dt))+phi*max(0.,da-min(da,feed))*share
+        extra=extra*math.exp(-kb*dt)+phi*min(da,feed)*share
         reactant -= da
-        activated += da - db
-        power[i] = net_heat_thermal*db/dt
+        activated += to_precursor - db
+        power[i] = net_heat_thermal*(db+extra_burned)/dt
         completed[i] = db
     power[-1] = power[-2] if len(power) > 1 else 0.
     return power, 1 - reactant/p['mass_kg'], completed
@@ -189,18 +212,30 @@ def main():
             required_source_j=float(stored[-1] + cumulative_loss[-1]),
             per_cell_j={k: float(capacities[k]*(v[-1] - v[0])) for k, v in temperatures.items()})
 
-    r_max = model.BOUNDS['resistance_ohm'][1]
+    cooling_data, _cooling_record = dataio.load('active-cooling')
+    cooling_mark = dataio.event(cooling_data)
+    _drive, _volts, cooling_electrical = dataio.current_drive('active-cooling', cooling_data, cooling_mark)
+    cooling_onset = cooling_electrical['onset_s']
+    cooling_u = float(np.interp(cooling_onset, cooling_data['time_s'], cooling_data['U115_v']))
+    cooling_r_max = (cooling_u - 3.65)/cooling_electrical['current_a']
+    r_max = min(model.BOUNDS['resistance_ohm'][1],
+                float((electrical[0, 1] + .05 - 3.65)/electrical[0, 2]),
+                cooling_r_max)
     squared = np.r_[0., np.cumsum(.5*(current[:-1]**2 + current[1:]**2)*np.diff(time))]
     report['joule'] = dict(
         squared_current_integral_a2s=float(squared[-1]),
         max_resistance_ohm=r_max, max_joule_j=float(squared[-1]*r_max),
-        voltage_limited_resistance_ohm=float((electrical[0, 1] + .05 - 3.65)/electrical[0, 2]))
+        voltage_limited_resistance_ohm=float((electrical[0, 1] + .05 - 3.65)/electrical[0, 2]),
+        cooling_onset_resistance_ohm=float(cooling_r_max),
+        cooling_onset_voltage_v=cooling_u,
+        envelope_is_electrical_work_not_thermal_selection=True)
 
     required = bands['interpolated']['stored'] + bands['interpolated']['cumulative_loss']
     smoothed = smooth(required, window)
     power = np.gradient(smoothed, time)
 
-    names = ('resistance_ohm', 'overcharge_gain', 'r2_rate', 'r2_activation')
+    names = ('resistance_ohm', 'charge_formation_gain', 'precursor_yield', 'r2_rate', 'r2_activation')
+    linear = {'r2_activation', 'precursor_yield'}
     fixed = dict(model.DEFAULT)
     if args.energy_j:
         fixed['energy_j'] = args.energy_j
@@ -208,26 +243,34 @@ def main():
         fixed['gas_fraction'] = args.gas_fraction
     net_heat_thermal = fixed['energy_j']*(1 - fixed['gas_fraction'])/.2
     chain = dict(mass_kg=.2, r1_rate=fixed['r1_rate'], r1_activation=fixed['r1_activation'],
-                 nominal_charge_c=35.*3600.)
+                 nominal_charge_c=35.*3600., precursor_temperature=fixed['precursor_temperature'],
+                 precursor_voltage=fixed['precursor_voltage'])
+    voltage = np.interp(time, electrical[:, 0] + offset, electrical[:, 1],
+                        left=electrical[0, 1], right=electrical[-1, 1])
+
+    def encode(key, value):
+        return value if key in linear else math.log(value)
+
+    def decode(key, value):
+        return float(value if key in linear else np.exp(value))
 
     def residual(x):
-        p = dict(chain, **{k: float(np.exp(v)) if k != 'r2_activation' else float(v)
-                           for k, v in zip(names, x)})
-        chemical, _converted, _db = chain_power(time, observed['C2_TIM'], current, p, net_heat_thermal)
+        p = dict(chain, **{k: decode(k, v) for k, v in zip(names, x)})
+        chemical, _converted, _db = chain_power(time, observed['C2_TIM'], current, p, net_heat_thermal, voltage)
         joule = p['resistance_ohm']*current**2
         return (smooth(chemical, window) + joule - power)/10.
 
     bounds = dict(model.BOUNDS)
+    bounds['resistance_ohm'] = (bounds['resistance_ohm'][0], r_max)
     if args.max_r2_rate:
         bounds['r2_rate'] = (bounds['r2_rate'][0], args.max_r2_rate)
         fixed['r2_rate'] = min(fixed['r2_rate'], args.max_r2_rate)
-    lo = [math.log(bounds[k][0]) if k != 'r2_activation' else bounds[k][0] for k in names]
-    hi = [math.log(bounds[k][1]) if k != 'r2_activation' else bounds[k][1] for k in names]
-    start = [math.log(fixed[k]) if k != 'r2_activation' else fixed[k] for k in names]
+    lo = [encode(k, bounds[k][0]) for k in names]
+    hi = [encode(k, bounds[k][1]) for k in names]
+    start = [encode(k, min(max(fixed[k], bounds[k][0]), bounds[k][1])) for k in names]
     solution = least_squares(residual, start, bounds=(lo, hi), x_scale='jac', diff_step=.05)
-    fitted = dict(chain, **{k: float(np.exp(v)) if k != 'r2_activation' else float(v)
-                            for k, v in zip(names, solution.x)})
-    chemical, converted, completed = chain_power(time, observed['C2_TIM'], current, fitted, net_heat_thermal)
+    fitted = dict(chain, **{k: decode(k, v) for k, v in zip(names, solution.x)})
+    chemical, converted, completed = chain_power(time, observed['C2_TIM'], current, fitted, net_heat_thermal, voltage)
     joule = fitted['resistance_ohm']*current**2
     cumulative = np.r_[0., np.cumsum(.5*((chemical+joule)[:-1] + (chemical+joule)[1:])*np.diff(time))]
     report['fit'] = dict(
@@ -319,10 +362,46 @@ def main():
         time_s=time.tolist(), required_j=required.tolist(), required_power_w=power.tolist(),
         fitted_power_w=(chemical + joule).tolist(), joule_power_w=joule.tolist())
 
+    # Held-out cooling is a check on the heat path, never a fit target.
+    cooling_scene, _cooling_meta = model.build('active-cooling', warmup=True)
+    cooling_end = cooling_scene['simulation']['duration_s']
+    cooling_time = cooling_data['time_s'][cooling_data['time_s'] <= cooling_end]
+    cooling_obs = {c: np.mean([cooling_data['T'+i+'_k'] for i in ids], axis=0)[:len(cooling_time)]
+                   for c, ids in dataio.CHANNELS.items()}
+    cooling_obs['ambient'] = cooling_data['T109_k'][:len(cooling_time)]
+    cooling_layers = layer_temperatures(cooling_scene, cooling_obs, 'interpolated')
+    cooling_cap = {r[0]: r[1] for r in stack(cooling_scene)}
+    cooling_stored = sum(cooling_cap[k]*(v - v[0]) for k, v in cooling_layers.items() if k in cooling_cap)
+    charge = (cooling_time >= cooling_onset) & (cooling_time <= cooling_end)
+    c2_cool = .5*(cooling_obs['C2_TIM'] + cooling_obs['C2_ISS'])
+    c2_train = .5*(observed['C2_TIM'] + observed['C2_ISS'])
+    train_charge = current > 1.
+    dTdt_train = float(np.polyfit(time[train_charge], c2_train[train_charge], 1)[0]) if train_charge.any() else 0.
+    dTdt_cool = float(np.polyfit(cooling_time[charge], c2_cool[charge], 1)[0]) if charge.any() else 0.
+    stack_c = float(sum(capacities.values()))
+    implied_g = stack_c*(dTdt_train - dTdt_cool)/max(1e-6, float(np.mean(c2_cool[charge]) - 298.15))
+    report['held_out_cooling'] = dict(
+        used_for_selection=False,
+        onset_s=float(cooling_onset), duration_s=float(cooling_end),
+        c2_start_k=float(c2_cool[charge][0]) if charge.any() else None,
+        c2_end_k=float(c2_cool[charge][-1]) if charge.any() else None,
+        stored_j=float(cooling_stored[-1]),
+        training_charge_dTdt_k_per_s=dTdt_train,
+        cooling_charge_dTdt_k_per_s=dTdt_cool,
+        implied_extraction_w=float(stack_c*(dTdt_train - dTdt_cool)),
+        implied_sink_g_w_per_k=float(implied_g),
+        prior_sink_g_w_per_k=model.DEFAULT['sink_g'],
+        note='Order-of-magnitude plate path only; chemistry also slows when C2 is held down')
+    seed = dict(model.DEFAULT, **report['fit']['parameters'])
+    report['fit']['parameters'] = seed
+    report['fit']['seed_note'] = 'DEFAULT plus 0-D no-cooling balance; cooling not used for selection'
+
+    args.output.parent.mkdir(parents=True, exist_ok=True)
     if args.plot:
         import matplotlib
         matplotlib.use('Agg')
         import matplotlib.pyplot as plt
+        args.plot.parent.mkdir(parents=True, exist_ok=True)
         figure, axes = plt.subplots(1, 2, figsize=(12, 4.5))
         axes[0].fill_between(time, bands['observed-only']['stored'] + bands['observed-only']['cumulative_loss'],
                              bands['neighbour-max']['stored'] + bands['neighbour-max']['cumulative_loss'],
@@ -338,7 +417,6 @@ def main():
         figure.suptitle('no-cooling warmup: analytic stack balance')
         figure.tight_layout();figure.savefig(args.plot, dpi=110)
 
-    args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2, allow_nan=False) + '\n')
     printable = {k: v for k, v in report.items() if k != 'series'}
     print(json.dumps(printable, indent=2))

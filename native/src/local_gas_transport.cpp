@@ -1,6 +1,7 @@
 #include "battery_native/local_gas_transport.hpp"
 #include "battery_native/mixture_equilibrium.hpp"
 #include "battery_native/gas_timestep.hpp"
+#include "battery_native/gas_combustion.hpp"
 #include <array>
 #include <cmath>
 #include <stdexcept>
@@ -133,9 +134,10 @@ void LocalGasTransport::advance(std::vector<GasState>& gas,std::vector<ThermalSt
     for(int i=0;i<int(gas.size());++i) {
         auto& g=gas[i];const auto& c=scenario_.gas_compartments[i];
         const auto& old=reaction_input[i];
-        if(old.temperature_k>=c.ignition_temperature_k && c.reaction_rate_per_s>0) {
+        const double rate=combustion_rate(gas_combustion_law(c),old.temperature_k);
+        if(rate>0) {
             const double available=fmin(old.chemical_j,old.oxidizer_kg*c.oxidizer_heat_j_per_kg);
-            const double q=fmax(0.,fmin(available*(-expm1(-c.reaction_rate_per_s*duration)),
+            const double q=fmax(0.,fmin(available*(-expm1(-rate*duration)),
                 fmin(g.chemical_j,g.oxidizer_kg*c.oxidizer_heat_j_per_kg)));
             g.chemical_j-=q;g.energy_j+=q;g.released_energy_j+=q;
             g.oxidizer_kg-=q/c.oxidizer_heat_j_per_kg;g.consumed_oxidizer_kg+=q/c.oxidizer_heat_j_per_kg;

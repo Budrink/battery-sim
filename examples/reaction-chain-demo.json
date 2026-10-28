@@ -43,10 +43,12 @@
     "compartments": [
       {"id": "inside-B", "contents_id": "B", "volume_m3": 0.000001,
         "initial_mass_kg": 0.0000007060975609756098, "initial_temperature_k": 500,
-        "initial_oxidizer_mass_fraction": 0},
+        "initial_oxidizer_mass_fraction": 0, "reaction_rate_per_s": 5,
+        "reaction_reference_k": 600, "reaction_activation_j_per_mol": 80000},
       {"id": "cavity", "volume_m3": 0.001,
         "initial_mass_kg": 0.001176829268292683, "initial_temperature_k": 300,
-        "initial_oxidizer_mass_fraction": 0.232, "reaction_rate_per_s": 5}
+        "initial_oxidizer_mass_fraction": 0.232, "reaction_rate_per_s": 5,
+        "reaction_reference_k": 600, "reaction_activation_j_per_mol": 80000}
     ],
     "channels": [{
       "id": "case-rupture", "from": "inside-B", "to": "cavity", "port_id": "B:case:+z:outer",

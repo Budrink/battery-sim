@@ -1,0 +1,42 @@
+{
+  "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+  "checks": [
+    {
+      "level": 0,
+      "advanced_to_s": 1.0,
+      "wall_s": 0.370973548,
+      "minimum_dt_s": 0.16557685344271078,
+      "pressure_iterations": 512,
+      "payload_iterations": 16,
+      "gas_interval_s": 0.05
+    },
+    {
+      "level": 1,
+      "advanced_to_s": 0.9999999999999999,
+      "wall_s": 0.359300438,
+      "minimum_dt_s": 0.1,
+      "pressure_iterations": 1024,
+      "payload_iterations": 32,
+      "gas_interval_s": 0.025
+    },
+    {
+      "level": 2,
+      "advanced_to_s": 1.0,
+      "wall_s": 0.456402754,
+      "minimum_dt_s": 0.04999999999999971,
+      "pressure_iterations": 2048,
+      "payload_iterations": 64,
+      "gas_interval_s": 0.0125
+    },
+    {
+      "level": 3,
+      "advanced_to_s": 1.0,
+      "wall_s": 0.566078707,
+      "minimum_dt_s": 0.024999999999999467,
+      "pressure_iterations": 2048,
+      "payload_iterations": 128,
+      "gas_interval_s": 0.01
+    }
+  ],
+  "passed": true
+}

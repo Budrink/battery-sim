@@ -1,0 +1,88 @@
+{
+  "fingerprint": "7d516a72a54fc3495830ea639968bc6b8b60c3d09ed996b304a02b928a15743d",
+  "source_profile_sha256": "32e5d52480e92b59966112bb562ab047f9ef9c8dc8fbf79cc302c804e0658603",
+  "baseline": {
+    "resistance_ohm": 0.01575896073469769,
+    "resistance_temperature": -0.0034,
+    "resistance_damage": 1.0,
+    "r1_rate": 1e-06,
+    "r1_activation": 40000.0,
+    "overcharge_gain": 1.171506001541235,
+    "r2_rate": 192.45443619995837,
+    "r2_activation": 88502.44826857552,
+    "energy_j": 326020.4587578172,
+    "gas_fraction": 0.6405,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.03,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.42,
+    "precursor_temperature": 0.0,
+    "precursor_voltage": 0.0,
+    "iss_h": 287.71996866857825,
+    "tim_h": 2000.0,
+    "case_h": 500.0,
+    "environment_h": 8.0,
+    "surface_iss": 0.0,
+    "surface_tim": 0.0,
+    "bulk_slope": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0
+  },
+  "trials": [
+    {
+      "label": "slow-r1-only",
+      "changes": {
+        "overcharge_gain": 0.4
+      }
+    },
+    {
+      "label": "joule-delayed-r2",
+      "changes": {
+        "resistance_ohm": 0.024,
+        "overcharge_gain": 0.4,
+        "r2_rate": 3.0,
+        "r2_activation": 100000.0
+      }
+    },
+    {
+      "label": "joule-delayed-r2-larger-reserve",
+      "changes": {
+        "resistance_ohm": 0.024,
+        "overcharge_gain": 0.4,
+        "r2_rate": 3.0,
+        "r2_activation": 100000.0,
+        "energy_j": 600000.0,
+        "gas_fraction": 0.3
+      }
+    },
+    {
+      "label": "joule-moderate-delay",
+      "changes": {
+        "resistance_ohm": 0.024,
+        "overcharge_gain": 0.4,
+        "r2_rate": 10.0,
+        "r2_activation": 100000.0,
+        "energy_j": 600000.0,
+        "gas_fraction": 0.3
+      }
+    },
+    {
+      "label": "joule-slower-feed",
+      "changes": {
+        "resistance_ohm": 0.024,
+        "overcharge_gain": 0.2,
+        "r2_rate": 10.0,
+        "r2_activation": 100000.0,
+        "energy_j": 600000.0,
+        "gas_fraction": 0.3
+      }
+    }
+  ],
+  "voltage_floor_v": 3.65,
+  "validation_used_for_selection": false,
+  "no_thermal_contact_or_material_fitting": true,
+  "pruning_score_ceiling": 69.65507589119628
+}

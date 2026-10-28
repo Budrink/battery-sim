@@ -8,7 +8,8 @@ __global__ void aperture_flux_kernel(int count,const int* ids,const GasThermalPa
     const auto& state=channel_state[p.channel];const auto d=damage[p.barrier_volume];
     const double opening=(1.-p.seam_fraction)*shell_open_fraction(c.opening,d.bulk)+
                          p.seam_fraction*shell_open_fraction(c.opening,d.seam);
-    const double g=aperture_conductance(p.conductance_w_per_k,opening,state.opening_fraction,
+    const double reference=gas_contact_conductance(p,gas[c.from].temperature_k,solid[p.volume].temperature_k,solid[p.volume].damage);
+    const double g=aperture_conductance(reference,opening,state.opening_fraction,
         p.aperture_area_fraction,state.mass_flow_kg_s,model.cv_j_per_kg_k+model.specific_r_j_per_kg_k);
     conductance[i]=g;
     flux[i]=g*(gas[c.from].temperature_k-solid[p.volume].temperature_k);

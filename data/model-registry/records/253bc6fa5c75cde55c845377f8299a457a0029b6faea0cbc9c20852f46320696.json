@@ -1,0 +1,33 @@
+{
+  "format_version": 1,
+  "kind": "geometry_prior",
+  "scope": "fsri30-conditioned-gas",
+  "parameters": {
+    "shared_gap_fraction": 0.3005615957081318,
+    "exhaust_area_scale": 0.05164771262685961,
+    "passage_area_scale": 0.2515131738335484,
+    "hot_contact_span": 24.430337213749603,
+    "mixing_flow_fraction": 0.7199653716292232
+  },
+  "evidence": {
+    "result_path": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-conditioned-transport-20261024-r6/best.json",
+    "result_sha256": "8d0f0818015c99be252abab6e69bbbb3009be1102715b97ca92b548332597422",
+    "trial": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-conditioned-transport-20261024-r6/trial-0023",
+    "objective": 50.04542176781331,
+    "reacted_components": 1,
+    "conditioned_transport_diagnostic": true,
+    "full_warmup_validation": false,
+    "interpretation": "Development geometry seed only, not a material law or accepted calibration"
+  },
+  "compatibility": {
+    "fixture": "fsri30-reconstruction-v1",
+    "stage": "conditioned-post-burst",
+    "geometry_sha256": "fc3e43e5a85162d52163212f1fd7a0405a81d21a45348615a5aeef7a8a678a08",
+    "dimensions": "fsri30_suffix_model-v1"
+  },
+  "qualification": "candidate",
+  "producer_core": "4f32bc661db1d7b3ca606796174895a7bbf6141a617643a0bfb2a1026264c426",
+  "transferable_as": "geometry_prior",
+  "calibrated": false,
+  "validation_passed": false
+}

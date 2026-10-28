@@ -1,0 +1,127 @@
+{
+  "version": 2,
+  "seed": 20261023,
+  "dimension": 9,
+  "parameters": [
+    {
+      "name": "heater_power_w",
+      "lower": 4.5,
+      "upper": 9.0,
+      "initial": 6.0,
+      "log": false,
+      "meaning": "Unmeasured heater power; published ramp is 0.1 K/s"
+    },
+    {
+      "name": "casing_contact_h",
+      "lower": 200.0,
+      "upper": 2000.0,
+      "initial": 500.0,
+      "log": true,
+      "meaning": "Shared contents-to-steel contact, W/(m2 K)"
+    },
+    {
+      "name": "gas_contact_h",
+      "lower": 10.0,
+      "upper": 300.0,
+      "initial": 20.0,
+      "log": true,
+      "meaning": "Shared gas-to-can directed-contact scale, W/(m2 K)"
+    },
+    {
+      "name": "passage_open_fraction",
+      "lower": 0.2,
+      "upper": 1.0,
+      "initial": 1.0,
+      "log": false,
+      "meaning": "Accessible fraction of reconstructed interstitial passages"
+    },
+    {
+      "name": "exhaust_area_scale",
+      "lower": 0.25,
+      "upper": 2.0,
+      "initial": 1.0,
+      "log": true,
+      "meaning": "Unmeasured enclosure exit area relative to reconstruction"
+    },
+    {
+      "name": "mixing_flow_fraction",
+      "lower": 0.05,
+      "upper": 0.9,
+      "initial": 0.25,
+      "log": false,
+      "meaning": "Shared flow-associated mixing coefficient"
+    },
+    {
+      "name": "r2_rate_450_per_s",
+      "lower": 5e-06,
+      "upper": 8e-05,
+      "initial": 2e-05,
+      "log": true,
+      "meaning": "Shared R2 Arrhenius rate at 450 K; activation fixed"
+    },
+    {
+      "name": "r3_rate_600_per_s",
+      "lower": 0.2,
+      "upper": 30.0,
+      "initial": 1.0,
+      "log": true,
+      "meaning": "Shared R3 Arrhenius rate at 600 K"
+    },
+    {
+      "name": "r3_activation_j_mol",
+      "lower": 45000.0,
+      "upper": 100000.0,
+      "initial": 80000.0,
+      "log": false,
+      "meaning": "Shared R3 activation energy"
+    }
+  ],
+  "cold_r3_stability_prior": {
+    "temperature_k": 298.15,
+    "maximum_rate_per_s": 1e-06,
+    "measured": false,
+    "rationale": "Do not fit hot fire by making initially cold external gas rapidly self-oxidize"
+  },
+  "base_path": "/home/konstantin/work/battery-sim/data/development/ul-fsri-30-20261023-r1/source-scenario.json",
+  "base_sha256": "e6bc2cf59fe33f640d9a8238745f88cf8c24123c1a13e9ec0cf19b47522e3add",
+  "native_path": "/home/konstantin/work/battery-sim/build/calibration-probes/battery_sim_casing_probe-fsri30-initial-soc-20261023-r2",
+  "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+  "raw_csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "source_sha256": {
+    "bounded_bayes.py": "2f7cefa42ed9cfeb35b86f11248c63285d4efa05089ec785d903435092353c40",
+    "calibrate_fsri30_bayes.py": "2f842c73eed147b41ca25107c458a459feef01cfe4c84ccbd98872276bbd0b1b",
+    "fsri30_objective.py": "9303186400cf930688e7708b596a529571a775cc1fdf5fb07c1d5842fb994f17",
+    "fsri30_search_model.py": "92512f27d5934a6d98852ff2e1d8b181fd57f725cc8084b27aaddbcb43aafda5",
+    "fsri30_numerical_policy.py": "48ffb73f1b108f559bff9f9ad2d23a59ab5d3ed93422790a8e930e28605888cf",
+    "fsri30_data.py": "4502193ae84ac4169917c701ac989ba384d0c0612f933186f2fe8e40b756ede8",
+    "generate_fsri30.py": "e1a57253d5ea9e4da48a10acdb7492941636222c405ec1576a7366252c4e2aa6",
+    "check_upv_restart.py": "33d83d653cb614517e6f4c5fdebd0c1b0f7d615062a500ca46568dd149e21baf",
+    "realtime_guard.py": "92268e95e9878e137ac034cb96e5c90dcf0ccc56635022e21e0aee0c8a465f43"
+  },
+  "horizon_s": 5945.0,
+  "initial_design": 12,
+  "minimum_realtime_ratio": 0.2,
+  "minimum_dt_s": 0.005,
+  "source_unknowns": {
+    "dataset_id": "ulfsri/fsri-lib-ess-demo-2020/v1.1",
+    "csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+    "duration_s": 5945.0,
+    "untimed_rows_excluded": 136,
+    "sensor_mapping_confirmed": false,
+    "calorimeter_boundary_confirmed": false,
+    "observed_hrr_integral_j": 127856949.8488,
+    "excluded_targets": [
+      "per-component measured failure order/count",
+      "individual TC RMSE",
+      "calorimeter HRR amplitude/integral"
+    ],
+    "known_omissions": [
+      "ABS combustion/pyrolysis",
+      "thermal radiation"
+    ],
+    "independent_validation_available": false,
+    "development_search_allowed": true,
+    "quantitative_validation_claim_allowed": false,
+    "note": "Raw sources confirm thirty components and propagation, but do not resolve these identifiability limitations"
+  }
+}

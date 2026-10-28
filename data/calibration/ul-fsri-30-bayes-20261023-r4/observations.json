@@ -1,0 +1,681 @@
+[
+  {
+    "objective": 37.78627230846381,
+    "phase_loss": {
+      "warmup": 0.230430690777709,
+      "propagation": 5.440056896234809,
+      "cooling": 23.751318544421796
+    },
+    "envelope_rmse_k": {
+      "warmup": 17.32933815928467,
+      "propagation": 519.2075743427368,
+      "cooling": 447.4670616774312
+    },
+    "known_until_s": 5945.0,
+    "complete": true,
+    "peak_weight": 0.2,
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved",
+    "features": {
+      "minimum_autonomous_propagation": 8.0,
+      "first_conversion_timing": 0.3644661770294958
+    },
+    "cascade": {
+      "reacted_components": 1,
+      "events": [
+        {
+          "component": "B10",
+          "time_s": 1755.3339307793842
+        }
+      ],
+      "inter_event_delays_s": [],
+      "autonomous_cascade": false,
+      "observed_failure_count": null,
+      "observed_component_order": null,
+      "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+    },
+    "constraint": -1.0,
+    "numerical_violations": [],
+    "wall_s": 684.054758902,
+    "realtime_ratio": 8.690824707575349,
+    "scene_hash": "519b38cca1499fcb070613e1c0e76a713e3aa6ab9a9fb5fe26864deb527a628a",
+    "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+    "minimum_regular_step_s": 0.01,
+    "balances": {
+      "max_thermal_residual_j": 3.6043422824150184e-07,
+      "max_chemical_residual_j": 2.384185791015625e-07,
+      "max_mass_residual_kg": 4.107825191113079e-13,
+      "max_oxidizer_residual_kg": 4.376499163072367e-13
+    },
+    "x": [
+      0.3333333333333333,
+      0.3979400086720376,
+      0.20379504709050617,
+      1.0,
+      0.6666666666666667,
+      0.23529411764705885,
+      0.5,
+      0.32120436191602464,
+      0.6363636363636364
+    ],
+    "trial": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-bayes-20261023-r1/preflight-time-refinement",
+    "proposal": {
+      "method": "declared-initial-point"
+    },
+    "numerical_policy": {
+      "accuracy_level": 1,
+      "layers": 1,
+      "provisional": true,
+      "numerically_verified": false
+    }
+  },
+  {
+    "objective": 38.06049728401527,
+    "phase_loss": {
+      "warmup": 0.22567571878155485,
+      "propagation": 5.416204788692356,
+      "cooling": 23.73644742287721
+    },
+    "envelope_rmse_k": {
+      "warmup": 17.114263321293446,
+      "propagation": 517.7907949557406,
+      "cooling": 447.24173419090135
+    },
+    "known_until_s": 5945.0,
+    "complete": true,
+    "peak_weight": 0.2,
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved",
+    "features": {
+      "minimum_autonomous_propagation": 8.0,
+      "first_conversion_timing": 0.6821693536641532
+    },
+    "cascade": {
+      "reacted_components": 1,
+      "events": [
+        {
+          "component": "B10",
+          "time_s": 1775.334189742538
+        }
+      ],
+      "inter_event_delays_s": [],
+      "autonomous_cascade": false,
+      "observed_failure_count": null,
+      "observed_component_order": null,
+      "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+    },
+    "constraint": -1.0,
+    "numerical_violations": [],
+    "wall_s": 693.556087855,
+    "realtime_ratio": 8.5717652892161,
+    "scene_hash": "059bc0a7ae5ff7172bf67cd971800a51afdaf96cae75d1f5b1e46adb78e5e994",
+    "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+    "minimum_regular_step_s": 0.01,
+    "balances": {
+      "max_thermal_residual_j": 1.8872187865781598e-06,
+      "max_chemical_residual_j": 2.4028122425079346e-07,
+      "max_mass_residual_kg": 1.7541523789077473e-13,
+      "max_oxidizer_residual_kg": 4.92605956026182e-13
+    },
+    "x": [
+      0.3333333333333333,
+      0.3979400086720376,
+      0.20379504709050617,
+      1.0,
+      0.0,
+      0.8823529411764706,
+      0.5,
+      0.7362099290004865,
+      0.6363636363636364
+    ],
+    "trial": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-bayes-20261023-r4/trial-0001",
+    "proposal": {
+      "method": "declared-physical-hypothesis",
+      "rationale": "Test gas retention, oxygen-bearing mixing and hot R3 kinetics without changing heater, battery properties or energy reserve"
+    }
+  },
+  {
+    "objective": 38.15946668253189,
+    "phase_loss": {
+      "warmup": 0.22549917361231236,
+      "propagation": 5.437137397804879,
+      "cooling": 23.719661500103765
+    },
+    "envelope_rmse_k": {
+      "warmup": 17.103835472689298,
+      "propagation": 518.4044349270323,
+      "cooling": 446.94481572539564
+    },
+    "known_until_s": 5945.0,
+    "complete": true,
+    "peak_weight": 0.2,
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved",
+    "features": {
+      "minimum_autonomous_propagation": 8.0,
+      "first_conversion_timing": 0.7771686110109364
+    },
+    "cascade": {
+      "reacted_components": 1,
+      "events": [
+        {
+          "component": "B10",
+          "time_s": 1780.341450384957
+        }
+      ],
+      "inter_event_delays_s": [],
+      "autonomous_cascade": false,
+      "observed_failure_count": null,
+      "observed_component_order": null,
+      "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+    },
+    "constraint": -1.0,
+    "numerical_violations": [],
+    "wall_s": 656.98922144,
+    "realtime_ratio": 9.04885469349048,
+    "scene_hash": "ca7523c25021e9853388269e4f7b5af454cf14946bf84f0f0bba2d4695cd1b00",
+    "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+    "minimum_regular_step_s": 0.01,
+    "balances": {
+      "max_thermal_residual_j": 1.0725050287874183e-06,
+      "max_chemical_residual_j": 2.4121254682540894e-07,
+      "max_mass_residual_kg": 4.0323300254385686e-13,
+      "max_oxidizer_residual_kg": 4.933831121434196e-13
+    },
+    "x": [
+      0.3333333333333333,
+      0.3979400086720376,
+      0.20379504709050617,
+      1.0,
+      0.33333333333333337,
+      0.5882352941176471,
+      0.5,
+      0.5404604490558215,
+      0.5454545454545454
+    ],
+    "trial": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-bayes-20261023-r4/trial-0002",
+    "proposal": {
+      "method": "declared-physical-hypothesis",
+      "rationale": "Test gas retention, oxygen-bearing mixing and hot R3 kinetics without changing heater, battery properties or energy reserve"
+    }
+  },
+  {
+    "objective": 63.9753003738576,
+    "phase_loss": {
+      "warmup": 6.413107343172343,
+      "propagation": 5.738665424873534,
+      "cooling": 24.683673038600407
+    },
+    "envelope_rmse_k": {
+      "warmup": 226.3811957452324,
+      "propagation": 539.6843855004187,
+      "cooling": 464.05744243554756
+    },
+    "known_until_s": 5945.0,
+    "complete": true,
+    "peak_weight": 0.2,
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved",
+    "features": {
+      "minimum_autonomous_propagation": 8.0,
+      "first_conversion_timing": 19.139854567211316
+    },
+    "cascade": {
+      "reacted_components": 1,
+      "events": [
+        {
+          "component": "B10",
+          "time_s": 1180.3532722377454
+        }
+      ],
+      "inter_event_delays_s": [],
+      "autonomous_cascade": false,
+      "observed_failure_count": null,
+      "observed_component_order": null,
+      "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+    },
+    "constraint": -1.0,
+    "numerical_violations": [],
+    "wall_s": 648.623903707,
+    "realtime_ratio": 9.165557985179511,
+    "scene_hash": "801b868144da2d8b67e4ab0b6ffd3fcef6c48ffb08c76811e469513d085a5f7d",
+    "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+    "minimum_regular_step_s": 0.01,
+    "balances": {
+      "max_thermal_residual_j": 1.7263631661990075e-06,
+      "max_chemical_residual_j": 2.6635825634002686e-07,
+      "max_mass_residual_kg": 1.9539925233402755e-13,
+      "max_oxidizer_residual_kg": 2.0844437287337314e-13
+    },
+    "x": [
+      0.9157692436128855,
+      0.11464788299053907,
+      0.9294160064309835,
+      0.012454262003302574,
+      0.9437216371297836,
+      0.9822337664663792,
+      0.7115509686991572,
+      0.730388792231679,
+      0.6516373110935092
+    ],
+    "trial": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-bayes-20261023-r4/trial-0003",
+    "proposal": {
+      "method": "sobol-maximin",
+      "minimum_distance": 1.594104270293637
+    }
+  },
+  {
+    "objective": 48.17568921454152,
+    "phase_loss": {
+      "warmup": 3.5069519852933007,
+      "propagation": 5.84917025824591,
+      "cooling": 24.555490101445265
+    },
+    "envelope_rmse_k": {
+      "warmup": 167.950951750335,
+      "propagation": 535.4657774371043,
+      "cooling": 461.7326816841441
+    },
+    "known_until_s": 5945.0,
+    "complete": true,
+    "peak_weight": 0.2,
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved",
+    "features": {
+      "minimum_autonomous_propagation": 8.0,
+      "first_conversion_timing": 6.264076869557044
+    },
+    "cascade": {
+      "reacted_components": 1,
+      "events": [
+        {
+          "component": "B10",
+          "time_s": 1470.0582704349665
+        }
+      ],
+      "inter_event_delays_s": [],
+      "autonomous_cascade": false,
+      "observed_failure_count": null,
+      "observed_component_order": null,
+      "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+    },
+    "constraint": -1.0,
+    "numerical_violations": [],
+    "wall_s": 670.76471824,
+    "realtime_ratio": 8.863018340617128,
+    "scene_hash": "a4972a66a03f4e86d55b341505c12e8f21285e77e4074e6062c25d308a9861d5",
+    "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+    "minimum_regular_step_s": 0.01,
+    "balances": {
+      "max_thermal_residual_j": 1.5714513210696168e-06,
+      "max_chemical_residual_j": 2.5797635316848755e-07,
+      "max_mass_residual_kg": 2.020605904817785e-13,
+      "max_oxidizer_residual_kg": 7.617240171953199e-13
+    },
+    "x": [
+      0.8752391375601292,
+      0.9987262971699238,
+      0.9223957294598222,
+      0.07585113309323788,
+      0.07419789023697376,
+      0.8476939480751753,
+      0.0529854241758585,
+      0.0453948313370347,
+      0.44370443746447563
+    ],
+    "trial": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-bayes-20261023-r4/trial-0004",
+    "proposal": {
+      "method": "sobol-maximin",
+      "minimum_distance": 1.5835528634818632
+    }
+  },
+  {
+    "objective": 80.45118117304852,
+    "phase_loss": {
+      "warmup": 0.08414568857554154,
+      "propagation": 6.543448982527918,
+      "cooling": 25.823586501945066
+    },
+    "envelope_rmse_k": {
+      "warmup": 10.098846493786104,
+      "propagation": 596.0139215187957,
+      "cooling": 482.3253670765728
+    },
+    "known_until_s": 5945.0,
+    "complete": true,
+    "peak_weight": 0.2,
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved",
+    "features": {
+      "minimum_autonomous_propagation": 32.0,
+      "first_conversion_timing": 16.0
+    },
+    "cascade": {
+      "reacted_components": 0,
+      "events": [],
+      "inter_event_delays_s": [],
+      "autonomous_cascade": false,
+      "observed_failure_count": null,
+      "observed_component_order": null,
+      "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+    },
+    "constraint": -1.0,
+    "numerical_violations": [],
+    "wall_s": 657.788475628,
+    "realtime_ratio": 9.037859768406895,
+    "scene_hash": "dcfc291a856fcbe91794c645e85e4d0388d07fd43efd2946e0c64c36a6bd2b7e",
+    "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+    "minimum_regular_step_s": 0.01,
+    "balances": {
+      "max_thermal_residual_j": 1.6740773389756214e-06,
+      "max_chemical_residual_j": 2.1327286958694458e-07,
+      "max_mass_residual_kg": 2.3225865675158275e-13,
+      "max_oxidizer_residual_kg": 9.113265697635597e-13
+    },
+    "x": [
+      0.027166839689016342,
+      0.5766236456111073,
+      0.9063415937125683,
+      0.17083759792149067,
+      0.15920048393309116,
+      0.04387515876442194,
+      0.9897883664816618,
+      0.7941118283197284,
+      0.9681422263383865
+    ],
+    "trial": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-bayes-20261023-r4/trial-0005",
+    "proposal": {
+      "method": "sobol-maximin",
+      "minimum_distance": 1.4547489305882524
+    }
+  },
+  {
+    "objective": 79.91905164772523,
+    "phase_loss": {
+      "warmup": 0.1388679958192087,
+      "propagation": 6.408363924988978,
+      "cooling": 25.371819726917035
+    },
+    "envelope_rmse_k": {
+      "warmup": 13.165560231850568,
+      "propagation": 586.6692733738719,
+      "cooling": 474.70078848130515
+    },
+    "known_until_s": 5945.0,
+    "complete": true,
+    "peak_weight": 0.2,
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved",
+    "features": {
+      "minimum_autonomous_propagation": 32.0,
+      "first_conversion_timing": 16.0
+    },
+    "cascade": {
+      "reacted_components": 0,
+      "events": [],
+      "inter_event_delays_s": [],
+      "autonomous_cascade": false,
+      "observed_failure_count": null,
+      "observed_component_order": null,
+      "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+    },
+    "constraint": -1.0,
+    "numerical_violations": [],
+    "wall_s": 683.622538226,
+    "realtime_ratio": 8.696319485643746,
+    "scene_hash": "faef2a1aa2fcca3b0eef726c2c57acf978f1033e68e8d87761797353805d7513",
+    "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+    "minimum_regular_step_s": 0.01,
+    "balances": {
+      "max_thermal_residual_j": 5.714373401133344e-07,
+      "max_chemical_residual_j": 2.100132405757904e-07,
+      "max_mass_residual_kg": 2.495781359357352e-13,
+      "max_oxidizer_residual_kg": 4.337086245698174e-13
+    },
+    "x": [
+      0.160116368609791,
+      0.42443596525498617,
+      0.03789259715126257,
+      0.9649174300720915,
+      0.6497691526232909,
+      0.42307433402987527,
+      0.2771662819199264,
+      0.13557719661897835,
+      0.416503252169456
+    ],
+    "trial": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-bayes-20261023-r4/trial-0006",
+    "proposal": {
+      "method": "constrained-gp-expected-improvement",
+      "feasible_probability": 1.0,
+      "expected_improvement": 0.07089593859810306,
+      "predicted_log_loss": 3.6291163574319394,
+      "posterior_sd": 0.13840966479676825,
+      "predicted_wall_s": 668.894343033848,
+      "radius": 0.44999999999999996,
+      "kernel_length": 1.261774935127951
+    }
+  },
+  {
+    "objective": 41.71269628182253,
+    "phase_loss": {
+      "warmup": 0.19391979083013222,
+      "propagation": 5.456554481007657,
+      "cooling": 23.650971192676238
+    },
+    "envelope_rmse_k": {
+      "warmup": 15.76450434871245,
+      "propagation": 518.179922576925,
+      "cooling": 445.76954565340833
+    },
+    "known_until_s": 5945.0,
+    "complete": true,
+    "peak_weight": 0.2,
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved",
+    "features": {
+      "minimum_autonomous_propagation": 8.0,
+      "first_conversion_timing": 4.411250817308499
+    },
+    "cascade": {
+      "reacted_components": 1,
+      "events": [
+        {
+          "component": "B10",
+          "time_s": 1890.2531433894412
+        }
+      ],
+      "inter_event_delays_s": [],
+      "autonomous_cascade": false,
+      "observed_failure_count": null,
+      "observed_component_order": null,
+      "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+    },
+    "constraint": -1.0,
+    "numerical_violations": [],
+    "wall_s": 676.277405338,
+    "realtime_ratio": 8.790771291595524,
+    "scene_hash": "99146bba9255a0c2b1dcfbd2e9acd1b6d998c3fdbfdc8643ae7c589cfd5e9d63",
+    "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+    "minimum_regular_step_s": 0.01,
+    "balances": {
+      "max_thermal_residual_j": 4.94132109452039e-07,
+      "max_chemical_residual_j": 2.0349398255348206e-07,
+      "max_mass_residual_kg": 1.9806378759312793e-13,
+      "max_oxidizer_residual_kg": 4.110600748674642e-13
+    },
+    "x": [
+      0.291085165956368,
+      0.352606500456193,
+      0.22767784076309627,
+      0.925725962780416,
+      0.5825917559831093,
+      0.41508229999693436,
+      0.5196175715420395,
+      0.5007514874362092,
+      0.6299420449290085
+    ],
+    "trial": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-bayes-20261023-r4/trial-0007",
+    "proposal": {
+      "method": "constrained-gp-expected-improvement",
+      "feasible_probability": 1.0,
+      "expected_improvement": 0.0562762624664684,
+      "predicted_log_loss": 3.7974876939473634,
+      "posterior_sd": 0.28202547213168605,
+      "predicted_wall_s": 671.5880180531548,
+      "radius": 0.44999999999999996,
+      "kernel_length": 0.22262810589706145
+    }
+  },
+  {
+    "objective": 39.00946923135284,
+    "phase_loss": {
+      "warmup": 0.7878306137925086,
+      "propagation": 5.970047987803237,
+      "cooling": 24.047550481881032
+    },
+    "envelope_rmse_k": {
+      "warmup": 76.89149161205549,
+      "propagation": 527.9184152629906,
+      "cooling": 452.43748899238625
+    },
+    "known_until_s": 5945.0,
+    "complete": true,
+    "peak_weight": 0.2,
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved",
+    "features": {
+      "minimum_autonomous_propagation": 8.0,
+      "first_conversion_timing": 0.2040401478760573
+    },
+    "cascade": {
+      "reacted_components": 1,
+      "events": [
+        {
+          "component": "B10",
+          "time_s": 1660.3462769503694
+        }
+      ],
+      "inter_event_delays_s": [],
+      "autonomous_cascade": false,
+      "observed_failure_count": null,
+      "observed_component_order": null,
+      "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+    },
+    "constraint": -1.0,
+    "numerical_violations": [],
+    "wall_s": 689.644731098,
+    "realtime_ratio": 8.620380511767012,
+    "scene_hash": "d22bda93c2f3a8322f86ff315dde4d1f3039d4f4c31799219b02939253dd24a3",
+    "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+    "minimum_regular_step_s": 0.01,
+    "balances": {
+      "max_thermal_residual_j": 2.9870136586396256e-07,
+      "max_chemical_residual_j": 2.3283064365386963e-07,
+      "max_mass_residual_kg": 3.885780586188048e-13,
+      "max_oxidizer_residual_kg": 4.472533454702443e-13
+    },
+    "x": [
+      0.3949319426746418,
+      0.35689728176602115,
+      0.31612250024905586,
+      0.9781282960204407,
+      0.6448164997777592,
+      0.14812902767101635,
+      0.5929397581610829,
+      0.3482117847450715,
+      0.604587817971002
+    ],
+    "trial": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-bayes-20261023-r4/trial-0008",
+    "proposal": {
+      "method": "constrained-gp-expected-improvement",
+      "feasible_probability": 1.0,
+      "expected_improvement": 0.06384094069395703,
+      "predicted_log_loss": 3.694237148970566,
+      "posterior_sd": 0.20213112815663456,
+      "predicted_wall_s": 678.0749228344384,
+      "radius": 0.44999999999999996,
+      "kernel_length": 0.30439533660608786
+    }
+  },
+  {
+    "objective": 44.31156569926782,
+    "phase_loss": {
+      "warmup": 2.6569898585957317,
+      "propagation": 5.840653348541127,
+      "cooling": 23.785891193966904
+    },
+    "envelope_rmse_k": {
+      "warmup": 156.17603215874863,
+      "propagation": 523.7248391404008,
+      "cooling": 448.3390856391797
+    },
+    "known_until_s": 5945.0,
+    "complete": true,
+    "peak_weight": 0.2,
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved",
+    "features": {
+      "minimum_autonomous_propagation": 8.0,
+      "first_conversion_timing": 4.028031298164054
+    },
+    "cascade": {
+      "reacted_components": 1,
+      "events": [
+        {
+          "component": "B10",
+          "time_s": 1520.3692957913088
+        }
+      ],
+      "inter_event_delays_s": [],
+      "autonomous_cascade": false,
+      "observed_failure_count": null,
+      "observed_component_order": null,
+      "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+    },
+    "constraint": -1.0,
+    "numerical_violations": [],
+    "wall_s": 686.091954841,
+    "realtime_ratio": 8.665019255877645,
+    "scene_hash": "4b8451178539692fa5e947a5a2424b512e40cca50d3033b8c4ae076c9b4abbfe",
+    "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+    "minimum_regular_step_s": 0.01,
+    "balances": {
+      "max_thermal_residual_j": 6.232091891433811e-07,
+      "max_chemical_residual_j": 1.862645149230957e-07,
+      "max_mass_residual_kg": 4.596323321948148e-13,
+      "max_oxidizer_residual_kg": 3.730349362740526e-13
+    },
+    "x": [
+      0.4194248174348224,
+      0.5197210002076714,
+      0.13734185442805846,
+      0.9586349690100178,
+      0.5566936932100605,
+      0.22921439378412772,
+      0.6191732984781265,
+      0.3868124339361382,
+      0.7497212545074183
+    ],
+    "trial": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-bayes-20261023-r4/trial-0009",
+    "proposal": {
+      "method": "constrained-gp-expected-improvement",
+      "feasible_probability": 1.0,
+      "expected_improvement": 0.0690912576100744,
+      "predicted_log_loss": 3.6972902861977324,
+      "posterior_sd": 0.21884020317327996,
+      "predicted_wall_s": 678.7545647191022,
+      "radius": 0.26999999999999996,
+      "kernel_length": 0.35617699336896935
+    }
+  }
+]

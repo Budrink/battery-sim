@@ -1,0 +1,78 @@
+{
+  "last_completed_observation_s": 3754.999999999982,
+  "common_comparison_until_s": 3754.999999999982,
+  "common_control_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 150.0792055673608,
+    "quantile_rmse_k": [
+      107.18547652987552,
+      73.7946244329883,
+      170.9918428361003,
+      209.57692736628397
+    ],
+    "tail_temperature_c": [
+      652.8022669437871,
+      755.0767731065117,
+      863.2107617910814,
+      906.1814214889449
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "common_candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 84.1108263205093,
+    "quantile_rmse_k": [
+      69.59849779836341,
+      50.08701080610353,
+      74.06040805490498,
+      124.34195120206597
+    ],
+    "tail_temperature_c": [
+      480.9543964064952,
+      618.894354156574,
+      753.5325947847051,
+      808.9932301836499
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 84.1108263205093,
+    "quantile_rmse_k": [
+      69.59849779836341,
+      50.08701080610353,
+      74.06040805490498,
+      124.34195120206597
+    ],
+    "tail_temperature_c": [
+      480.9543964064952,
+      618.894354156574,
+      753.5325947847051,
+      808.9932301836499
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+  "common_cooling_rmse_change_k": -65.96837924685148,
+  "radiative_energy_out_j": 315651.81902710954
+}

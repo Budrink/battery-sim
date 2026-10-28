@@ -1,0 +1,68 @@
+{
+  "status": "complete",
+  "pid": 1529215,
+  "native_sha256": "ca5b6f1558f94681ad24dbfb1688c107fcb7873ae537c8dd59942ec89e0457a2",
+  "cases": {
+    "\u0411\u0435\u0437 \u043f\u0440\u043e\u043a\u043b\u0430\u0434\u043e\u043a": {
+      "contacts": {
+        "C3:case:-x": {
+          "conductance_w_k": 0.025435054240509652,
+          "heat_to_solid_j": 68.12696475413243,
+          "positive_step_heat_j": 74.25825009195366,
+          "negative_step_heat_j": -6.131285337821206
+        }
+      },
+      "gas_energy_balance": {
+        "mass_kg": 8.29993212106678e-06,
+        "chemical_j": 15.931526083356328,
+        "released_energy_j": 10.553019508661082,
+        "oxidizer_kg": 8.306986784423826e-14,
+        "vapor_kg": 3.3328558425203438e-06,
+        "gas_energy_change_j": 1.7913298904252757,
+        "r3_during_suffix_j": 10.553019508661082,
+        "net_inward_transport_energy_j": 59.36527513589668,
+        "inferred_heat_to_surfaces_j": 68.12696475413249
+      },
+      "closure_j": -5.684341886080802e-14,
+      "difference_from_archived_scalar_physics_k": 69.57746832075452,
+      "wall_s": 101.505276742,
+      "speed": 1.9703409164466192,
+      "minimum_regular_step_s": 0.005
+    },
+    "\u0412\u0441\u0435 \u043f\u0440\u043e\u043a\u043b\u0430\u0434\u043a\u0438": {
+      "contacts": {
+        "C3:case:-x": {
+          "conductance_w_k": 0.025435054240509652,
+          "heat_to_solid_j": -1.6863520058912795,
+          "positive_step_heat_j": 5.482581726737115,
+          "negative_step_heat_j": -7.168933732628398
+        },
+        "ISS1": {
+          "conductance_w_k": 0.025435054240509656,
+          "heat_to_solid_j": 17.81491000927406,
+          "positive_step_heat_j": 17.81491000927406,
+          "negative_step_heat_j": 0.0
+        }
+      },
+      "gas_energy_balance": {
+        "mass_kg": 5.297579689740792e-06,
+        "chemical_j": 8.862293756511619,
+        "released_energy_j": 1.2068908352828869,
+        "oxidizer_kg": 1.5145578584781539e-10,
+        "vapor_kg": 2.4670578570193415e-06,
+        "gas_energy_change_j": 1.2690697788887317,
+        "r3_during_suffix_j": 1.2068908352828869,
+        "net_inward_transport_energy_j": 16.1907369469886,
+        "inferred_heat_to_surfaces_j": 16.128558003382757
+      },
+      "closure_j": 2.4868995751603507e-14,
+      "difference_from_archived_scalar_physics_k": 0.6476209303992846,
+      "wall_s": 73.675204651,
+      "speed": 2.714617501877348,
+      "minimum_regular_step_s": 0.005
+    }
+  },
+  "physics_unchanged": false,
+  "change": "All gas/surface heat uses shared directed connectivity; parameters frozen",
+  "active_case": "\u0412\u0441\u0435 \u043f\u0440\u043e\u043a\u043b\u0430\u0434\u043a\u0438"
+}

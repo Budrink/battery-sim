@@ -1,0 +1,78 @@
+{
+  "trial": "/home/konstantin/work/battery-sim/data/development/fsri30-can-contacts-20261026-r1/trial-0000",
+  "parameters": {
+    "r2_rate_scale": 0.02300523837999681,
+    "gas_can_contact_scale": 1.0,
+    "cross_column_open_fraction": 1.0,
+    "axial_open_fraction": 1.0,
+    "thermal_stirring_coefficient": 0.06722339346183823,
+    "effective_emissivity": 0.7664775109756737
+  },
+  "level_mm": 20,
+  "status": "pruned",
+  "native_sha256": "6aa586496f59297caa81356c0fff28a17ffe733ba4a9693fb6f4a7e951f7813e",
+  "scenario_sha256": "b2fcf02e35bd69d68fc0341db68cd8c715cff2205e9e86eb42c7456db3186a5f",
+  "screening_only": false,
+  "calibrated": false,
+  "validation_passed": false,
+  "assessment": {
+    "evaluated": true,
+    "accepted": false,
+    "phase_window_complete": false,
+    "last_observed_s": 1914.9999999999227,
+    "reason": "Missing first hot arrival wave(s) at 1765s within 100s timing error limit",
+    "constraint": 1.0,
+    "primary_offset_s": null,
+    "timing_error_s": 0.0,
+    "timing_target_met": false,
+    "pulse_match": {
+      "due": 0,
+      "matched": 0,
+      "missing": [],
+      "pairs": [],
+      "worst_offset_s": 0.0,
+      "target_met": false
+    },
+    "arrival_match": {
+      "due": 1,
+      "matched": 0,
+      "missing": [
+        {
+          "reference_time_s": 1765.0,
+          "channels": [
+            "T5"
+          ],
+          "nearest_any_model_group_s": null
+        }
+      ],
+      "pairs": [],
+      "worst_offset_s": 0.0,
+      "target_met": false
+    },
+    "model": {
+      "pulses": [],
+      "arrivals": [],
+      "pulse_groups": [],
+      "arrival_groups": []
+    },
+    "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+    "necessary_not_sufficient": true,
+    "objective": null
+  },
+  "physical_error": null,
+  "delivery": null,
+  "temperature_rejection": null,
+  "temperature_guard_deferred_for_mesh_timing": null,
+  "wall_s": 1029.9820589430165,
+  "live_advanced_to_s": 1917.5999999999203,
+  "minimum_regular_step_s": 0.01,
+  "error": "Pruned: Missing first hot arrival wave(s) at 1765s within 100s timing error limit",
+  "run_sha256": "6216a7844f26b13db7b445330c48e50b46d2d50c2cdedcb16f0b5268ab99e917",
+  "run_path": "/home/konstantin/work/battery-sim/data/development/fsri30-can-contacts-20261026-r1/trial-0000/replay/incomplete-run.json.gz",
+  "balances": {
+    "max_chemical_residual_j": 2.1187588572502136e-07,
+    "max_mass_residual_kg": 5.595524044110789e-14,
+    "max_oxidizer_residual_kg": 1.0336176359260207e-13,
+    "max_thermal_residual_j": 2.3779284674674273e-07
+  }
+}

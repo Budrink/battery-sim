@@ -1,0 +1,111 @@
+{
+  "trial": "/home/konstantin/work/battery-sim/data/development/fsri30-candidate-refinement-20261026-r1/h-20mm",
+  "parameters": {
+    "r2_rate_scale": 0.04919319392060936,
+    "gas_can_contact_scale": 1.0,
+    "cross_column_open_fraction": 1.0,
+    "axial_open_fraction": 1.0,
+    "thermal_stirring_coefficient": 0.06722339346183823,
+    "effective_emissivity": 0.7664775109756737
+  },
+  "level_mm": 20,
+  "status": "pruned",
+  "native_sha256": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "scenario_sha256": "fe02de50fb3bfe3f5fe13134e0ec2e9136510247ae464df059b78578a8a21946",
+  "screening_only": false,
+  "calibrated": false,
+  "validation_passed": false,
+  "assessment": {
+    "evaluated": true,
+    "accepted": false,
+    "phase_window_complete": false,
+    "last_observed_s": 1629.999999999991,
+    "reason": "Primary thermal-front timing error: model 1612s versus data 1763s",
+    "constraint": 0.51,
+    "primary_offset_s": -151.0,
+    "timing_error_s": 151.0,
+    "timing_target_met": false,
+    "pulse_match": {
+      "due": 0,
+      "matched": 0,
+      "missing": [],
+      "pairs": [],
+      "worst_offset_s": 0.0,
+      "target_met": false
+    },
+    "arrival_match": {
+      "due": 0,
+      "matched": 0,
+      "missing": [],
+      "pairs": [],
+      "worst_offset_s": 0.0,
+      "target_met": false
+    },
+    "model": {
+      "pulses": [
+        {
+          "channel": "B10",
+          "time_s": 1612.0,
+          "rise_k": 994.2959627056935,
+          "slope_k_s": 204.15838550473939
+        }
+      ],
+      "arrivals": [
+        {
+          "channel": "B10",
+          "time_s": 1612.0
+        }
+      ],
+      "pulse_groups": [
+        {
+          "time_s": 1612.0,
+          "end_s": 1612.0,
+          "events": [
+            {
+              "channel": "B10",
+              "time_s": 1612.0,
+              "rise_k": 994.2959627056935,
+              "slope_k_s": 204.15838550473939
+            }
+          ],
+          "channels": [
+            "B10"
+          ]
+        }
+      ],
+      "arrival_groups": [
+        {
+          "time_s": 1612.0,
+          "end_s": 1612.0,
+          "events": [
+            {
+              "channel": "B10",
+              "time_s": 1612.0
+            }
+          ],
+          "channels": [
+            "B10"
+          ]
+        }
+      ]
+    },
+    "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+    "necessary_not_sufficient": true,
+    "objective": null
+  },
+  "physical_error": null,
+  "temperature_rejection": null,
+  "temperature_guard_deferred_for_mesh_timing": null,
+  "wall_s": 688.3420722959563,
+  "live_advanced_to_s": 1633.3999999999878,
+  "minimum_regular_step_s": 0.01,
+  "error": "Pruned: Primary thermal-front timing error: model 1612s versus data 1763s",
+  "run_sha256": "71ac2efc7800f1c35536f03924e2ee2ea1d9065d8c8e5cd799a009e41a3994e8",
+  "run_path": "/home/konstantin/work/battery-sim/data/development/fsri30-candidate-refinement-20261026-r1/h-20mm/replay/incomplete-run.json.gz",
+  "balances": {
+    "max_chemical_residual_j": 2.2724270820617676e-07,
+    "max_mass_residual_kg": 5.3734794391857577e-14,
+    "max_oxidizer_residual_kg": 9.015010959956271e-14,
+    "max_thermal_residual_j": 8.426195563515648e-08
+  }
+}

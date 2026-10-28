@@ -1,0 +1,63 @@
+{
+  "status": "stopped",
+  "stage": "fresh-from-zero",
+  "pid": 2191782,
+  "source": "/home/konstantin/work/battery-sim/data/development/fsri30-valve80kpa-only-20261027-r1/selected-scenario.json",
+  "source_sha256": "b443096a6ac66b593822d8cbfebaaffa61ba641a4cf39266d976119e20e8a56b",
+  "core_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "scenario_sha256": "f750be0e6c17bc15748f1522a1cbecba58aa5718a0dfbdafc4aa2c2fdf304cd1",
+  "controls": {
+    "r2_rate_multiplier": 1.28,
+    "r3_rate_multiplier": 1.0,
+    "outlet_hydraulic_resistance": 25.0,
+    "mixing_diffusivity_multiplier": 3.0,
+    "outlets": 8,
+    "fresh_initial_state": true,
+    "calibrated": false,
+    "validation_passed": false,
+    "objective": "Primary timing and cooling shape; peak amplitude is not a rejection criterion."
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "progress": {
+    "time_s": 1924.999999999991,
+    "wall_s": 921.444036855,
+    "pulses": [
+      {
+        "channel": "B10",
+        "time_s": 1761.0,
+        "rise_k": 1017.8866271308927,
+        "slope_k_s": 221.82251923292753
+      },
+      {
+        "channel": "B17",
+        "time_s": 1912.0,
+        "rise_k": 521.1051375928873,
+        "slope_k_s": 118.52168469079606
+      }
+    ],
+    "secondary_events": [
+      {
+        "cell": "B17",
+        "time_s": 1895.0
+      },
+      {
+        "cell": "B18",
+        "time_s": 1895.0
+      }
+    ],
+    "temperatures_c": {
+      "B10": 779.9403054919823,
+      "B17": 1072.3720588564179,
+      "B18": 1071.0865209203912
+    },
+    "ledgers": {
+      "max_chemical_residual_j": 5.21540641784668e-08,
+      "max_mass_residual_kg": 6.927791673660977e-14,
+      "max_oxidizer_residual_kg": 1.4155343563970746e-14,
+      "max_thermal_residual_j": 3.495370037853718e-07
+    }
+  },
+  "monitor_pid": 2191811,
+  "reason": "Stopped by user"
+}

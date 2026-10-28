@@ -1,0 +1,47 @@
+{
+  "status": "complete",
+  "pid": 1760325,
+  "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+  "calibrated": false,
+  "scenario_sha256": "4f933283ba0c7c26b7308ae8ece8762ad9912f415c295c1e6c71677f0d9fd9af",
+  "duration_s": 5945.0,
+  "diagnostic_only": true,
+  "validation_passed": false,
+  "sensor_component_mapping_confirmed": false,
+  "advanced_to_s": 5945.0,
+  "wall_s": 344.840171008,
+  "realtime_ratio": 17.239870814998756,
+  "battery_count": 30,
+  "thermal_volumes": 2437,
+  "gas_compartments": 931,
+  "minimum_regular_step_s": 0.01,
+  "main_condensed_heat_pulse_sample_end_s": 1785.0,
+  "maximum_other_component_temperature_c": 39.610347914593774,
+  "external_gas_oxidation_energy_j": 7356.393555040559,
+  "final_hood_unburned_chemical_j": 75718.81610924451,
+  "final_hood_temperature_k": 311.5349588668041,
+  "final_hood_oxygen_kg": 0.2739651591939827,
+  "model_first_reported_reaction_s": 1315.1668846293114,
+  "components_releasing_10pct_of_initial_reserve": 1,
+  "ten_percent_release_times_s": {
+    "B10": 1785.0
+  },
+  "maximum_battery_temperature_c": 1388.0830157172286,
+  "measured_event_markers_s": {
+    "runaway": 1701.0,
+    "flaming": 1739.0
+  },
+  "observed_hrr_peak_kw": 413.8746,
+  "observed_hrr_peak_s": 2949.0,
+  "observed_hrr_integral_j": 127856949.8488,
+  "balances": {
+    "max_chemical_residual_j": 2.3283064365386963e-07,
+    "max_mass_residual_kg": 1.0036416142611415e-13,
+    "max_oxidizer_residual_kg": 1.5404344466674047e-13,
+    "max_thermal_residual_j": 1.8810220581144677e-07
+  },
+  "comparison_limits": [
+    "No numeric validation claim; uncalibrated chemistry and unknown sensor positions",
+    "Experimental oxygen-consumption HRR includes ABS fire; plotted model R3 is gas oxidation only"
+  ]
+}

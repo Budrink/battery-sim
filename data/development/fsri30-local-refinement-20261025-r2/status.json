@@ -1,0 +1,419 @@
+{
+  "status": "complete-unpromoted",
+  "phase": "local-refinement",
+  "pid": 1876675,
+  "native_sha256": "6d67cc57da9e99e5ad3931569544bfb9ba920b8aab8c60963c82876e9b8be4dd",
+  "pinned_files": {
+    "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-reactive-refinement-20261024-r8/trial-0003/scenario.json": "4e7653dc3d0e04897332924402b4e61f65af5eb0a4b981fc38c155adba45df28",
+    "/home/konstantin/work/battery-sim/data/development/fsri30-full20-10-20261025-r1/checks/h-20mm/scenario.json": "dffb50bf11bb56fc26a4f6517e5d2b707f7774eeec0c6c1533c066be0d46743c",
+    "/home/konstantin/work/battery-sim/data/development/fsri30-spatial-reactor-20261025-r2/native-probe": "6d67cc57da9e99e5ad3931569544bfb9ba920b8aab8c60963c82876e9b8be4dd",
+    "/home/konstantin/work/battery-sim/scripts/check_fsri30_local_refinement.py": "57b62c5f76bf52c94e45c35abc57facd88946ad0afe71950ed9fbc6711787b0c",
+    "/home/konstantin/work/battery-sim/scripts/check_fsri30_spatial_reactor.py": "2f34422b35c84235812a15926e51f2e189c6e6069a559d45fd4fc5929ad33365",
+    "/home/konstantin/work/battery-sim/scripts/free_gas_mesh.py": "95512c4151b77bf34f4686b28965797f2a1be064808ba050aeb66f0d08e705b2",
+    "/home/konstantin/work/battery-sim/scripts/fsri30_resolved_gas.py": "c518bae7c485b1766e20220d5a9e73958e8c9701ada8eb25f405df0b8682d039",
+    "/home/konstantin/work/battery-sim/data/development/fsri30-local-refinement-20261025-r1/baseline-off/scenario.json": "e6ddb7e8ee6bb6b1950bb1fd71ed07fb264b732d0c5530087353f32803a2f0df",
+    "/home/konstantin/work/battery-sim/data/development/fsri30-local-refinement-20261025-r1/baseline-off/replay/run.json.gz": "5129f9f058e1f66e21ef44761f764b0b51eeef787e442f567ee8163230b728b9",
+    "/home/konstantin/work/battery-sim/data/development/fsri30-local-refinement-20261025-r1/contract.json": "6279fc995c1256974b40a29da688c2992d7b80f20afc50441610e8a13ce9fa4c"
+  },
+  "physical_parameters_frozen": true,
+  "reactive_reconstruction": false,
+  "physical_minimum_step_s": 0.01,
+  "fresh_from_zero": true,
+  "results": {
+    "baseline-off": {
+      "advanced_to_s": 1230.0,
+      "wall_s": 532.723949379,
+      "speed_x": 2.308888123828147,
+      "balances": {
+        "max_chemical_residual_j": 2.2165477275848389e-07,
+        "max_mass_residual_kg": 5.728750807065808e-14,
+        "max_oxidizer_residual_kg": 7.527312106958561e-14,
+        "max_thermal_residual_j": 6.10230017628055e-08
+      },
+      "run_sha256": "5129f9f058e1f66e21ef44761f764b0b51eeef787e442f567ee8163230b728b9",
+      "off_vs_archived": {
+        "bitwise_equal": true,
+        "max_absolute_difference": 0.0,
+        "compared_fields": 6371,
+        "started_at_s": 0.0,
+        "compared_until_s": 1230.0,
+        "differences": {}
+      }
+    },
+    "local-refinement": {
+      "advanced_to_s": 2524.999999999959,
+      "wall_s": 1788.968458123,
+      "speed_x": 1.4114279033456243,
+      "balances": {
+        "max_chemical_residual_j": 2.277083694934845e-07,
+        "max_mass_residual_kg": 5.684341886080802e-14,
+        "max_oxidizer_residual_kg": 6.17284001691587e-14,
+        "max_thermal_residual_j": 2.062879502773285e-07
+      },
+      "run_sha256": "128f57c4ee1bb733ad59c0e085b45485e345dd262d9f5346c924ba2df0cd65b3",
+      "comparison": {
+        "windows": {
+          "first_burst": {
+            "old20": {
+              "accepted": true,
+              "start_s": 1099.9999999999318,
+              "end_s": 1230.0,
+              "tolerance": 0.05,
+              "maximum_component_rms_relative_kelvin": 0.0055016567901872895,
+              "hottest_gas_rms_relative_kelvin": 0.045027066345277,
+              "r3_increment_relative_difference": 0.0013266794685743316,
+              "r3_increment_shape_relative_difference": 0.019760578488805566,
+              "r3_increment_j": [
+                67767.3235489194,
+                67857.3484999662
+              ]
+            },
+            "new20": {
+              "accepted": false,
+              "start_s": 1099.9999999999318,
+              "end_s": 1230.0,
+              "tolerance": 0.05,
+              "maximum_component_rms_relative_kelvin": 0.0023175046684675922,
+              "hottest_gas_rms_relative_kelvin": 0.06880379545305408,
+              "r3_increment_relative_difference": 0.009695595451206945,
+              "r3_increment_shape_relative_difference": 0.04207609249637984,
+              "r3_increment_j": [
+                67199.43110051897,
+                67857.3484999662
+              ]
+            }
+          },
+          "cascade": {
+            "old20": {
+              "accepted": false,
+              "start_s": 2199.9999999999227,
+              "end_s": 2399.999999999982,
+              "tolerance": 0.05,
+              "maximum_component_rms_relative_kelvin": 0.15808262302469775,
+              "hottest_gas_rms_relative_kelvin": 0.20473550384706213,
+              "r3_increment_relative_difference": 0.07253348237212986,
+              "r3_increment_shape_relative_difference": 0.050510852577285194,
+              "r3_increment_j": [
+                1822800.1884306078,
+                1690586.1430951613
+              ]
+            },
+            "new20": {
+              "accepted": false,
+              "start_s": 2199.999999999968,
+              "end_s": 2399.999999999968,
+              "tolerance": 0.05,
+              "maximum_component_rms_relative_kelvin": 0.2438249151046155,
+              "hottest_gas_rms_relative_kelvin": 0.28627893255882386,
+              "r3_increment_relative_difference": 0.12791110038135706,
+              "r3_increment_shape_relative_difference": 0.12254016690679663,
+              "r3_increment_j": [
+                1938547.9437181694,
+                1690586.1430951613
+              ]
+            }
+          },
+          "observed_prefix": {
+            "old20": {
+              "accepted": false,
+              "start_s": 0.0,
+              "end_s": 2524.9999999999727,
+              "tolerance": 0.05,
+              "maximum_component_rms_relative_kelvin": 0.04527160015320184,
+              "hottest_gas_rms_relative_kelvin": 0.060677980741660774,
+              "r3_increment_relative_difference": 0.006517674846855674,
+              "r3_increment_shape_relative_difference": 0.012349599854336545,
+              "r3_increment_j": [
+                2398113.987510684,
+                2382483.860294393
+              ]
+            },
+            "new20": {
+              "accepted": false,
+              "start_s": 0.0,
+              "end_s": 2524.999999999959,
+              "tolerance": 0.05,
+              "maximum_component_rms_relative_kelvin": 0.0694836757590525,
+              "hottest_gas_rms_relative_kelvin": 0.08392490961604432,
+              "r3_increment_relative_difference": 0.010214610661014414,
+              "r3_increment_shape_relative_difference": 0.029830363556456622,
+              "r3_increment_j": [
+                2407071.154975829,
+                2382483.860294393
+              ]
+            }
+          }
+        },
+        "timing": {
+          "old20": {
+            "shared_events": 30,
+            "mean_absolute_delay_s": 6.046437094076934,
+            "maximum_absolute_delay_s": 9.994060250382063,
+            "events": [
+              {
+                "component": "B10",
+                "time_s": 1105.3444146376805
+              },
+              {
+                "component": "B09",
+                "time_s": 2230.107294117922
+              },
+              {
+                "component": "B11",
+                "time_s": 2256.227936579413
+              },
+              {
+                "component": "B02",
+                "time_s": 2276.081505014706
+              },
+              {
+                "component": "B03",
+                "time_s": 2285.183321885514
+              },
+              {
+                "component": "B17",
+                "time_s": 2295.2141140892663
+              },
+              {
+                "component": "B18",
+                "time_s": 2295.233139098558
+              },
+              {
+                "component": "B01",
+                "time_s": 2315.6704992782857
+              },
+              {
+                "component": "B04",
+                "time_s": 2325.4288734581437
+              },
+              {
+                "component": "B08",
+                "time_s": 2336.366636035602
+              },
+              {
+                "component": "B16",
+                "time_s": 2340.4296332027775
+              },
+              {
+                "component": "B19",
+                "time_s": 2345.4361214156097
+              },
+              {
+                "component": "B00",
+                "time_s": 2346.407234513205
+              },
+              {
+                "component": "B12",
+                "time_s": 2346.4093393935113
+              },
+              {
+                "component": "B25",
+                "time_s": 2350.2746812665996
+              },
+              {
+                "component": "B07",
+                "time_s": 2355.2474614806542
+              },
+              {
+                "component": "B05",
+                "time_s": 2355.2932523072614
+              },
+              {
+                "component": "B26",
+                "time_s": 2355.4641225385594
+              },
+              {
+                "component": "B24",
+                "time_s": 2355.6966190131297
+              },
+              {
+                "component": "B15",
+                "time_s": 2356.4209247226354
+              },
+              {
+                "component": "B23",
+                "time_s": 2360.465308344504
+              },
+              {
+                "component": "B20",
+                "time_s": 2361.4607586931547
+              },
+              {
+                "component": "B06",
+                "time_s": 2361.4669269663177
+              },
+              {
+                "component": "B13",
+                "time_s": 2365.3071493499892
+              },
+              {
+                "component": "B27",
+                "time_s": 2365.4744807943575
+              },
+              {
+                "component": "B14",
+                "time_s": 2370.267815692195
+              },
+              {
+                "component": "B22",
+                "time_s": 2370.289400046482
+              },
+              {
+                "component": "B28",
+                "time_s": 2370.4761757343995
+              },
+              {
+                "component": "B21",
+                "time_s": 2370.481822217496
+              },
+              {
+                "component": "B29",
+                "time_s": 2371.43451350611
+              }
+            ]
+          },
+          "new20": {
+            "shared_events": 30,
+            "mean_absolute_delay_s": 18.724636163230645,
+            "maximum_absolute_delay_s": 28.43104228982702,
+            "events": [
+              {
+                "component": "B10",
+                "time_s": 1105.3345122859205
+              },
+              {
+                "component": "B09",
+                "time_s": 2211.6165189967246
+              },
+              {
+                "component": "B11",
+                "time_s": 2240.0055094395925
+              },
+              {
+                "component": "B02",
+                "time_s": 2266.003667747015
+              },
+              {
+                "component": "B03",
+                "time_s": 2266.1025768056065
+              },
+              {
+                "component": "B18",
+                "time_s": 2277.1982262138426
+              },
+              {
+                "component": "B17",
+                "time_s": 2280.214383096085
+              },
+              {
+                "component": "B01",
+                "time_s": 2305.41646964279
+              },
+              {
+                "component": "B04",
+                "time_s": 2310.421935170398
+              },
+              {
+                "component": "B08",
+                "time_s": 2325.671017014623
+              },
+              {
+                "component": "B16",
+                "time_s": 2325.813527061845
+              },
+              {
+                "component": "B19",
+                "time_s": 2330.6654057056926
+              },
+              {
+                "component": "B12",
+                "time_s": 2335.4444528938106
+              },
+              {
+                "component": "B00",
+                "time_s": 2335.462669430003
+              },
+              {
+                "component": "B25",
+                "time_s": 2335.680950385282
+              },
+              {
+                "component": "B24",
+                "time_s": 2341.4249494284986
+              },
+              {
+                "component": "B07",
+                "time_s": 2341.4287633125027
+              },
+              {
+                "component": "B05",
+                "time_s": 2341.436195400506
+              },
+              {
+                "component": "B26",
+                "time_s": 2345.44734942586
+              },
+              {
+                "component": "B15",
+                "time_s": 2345.4689719924436
+              },
+              {
+                "component": "B23",
+                "time_s": 2345.7200200233724
+              },
+              {
+                "component": "B27",
+                "time_s": 2350.313241678215
+              },
+              {
+                "component": "B20",
+                "time_s": 2351.408898220327
+              },
+              {
+                "component": "B06",
+                "time_s": 2351.4381166924736
+              },
+              {
+                "component": "B13",
+                "time_s": 2355.4528967134243
+              },
+              {
+                "component": "B14",
+                "time_s": 2356.4249651948185
+              },
+              {
+                "component": "B28",
+                "time_s": 2356.4560222216523
+              },
+              {
+                "component": "B22",
+                "time_s": 2360.2781494605706
+              },
+              {
+                "component": "B21",
+                "time_s": 2360.4726773321913
+              },
+              {
+                "component": "B29",
+                "time_s": 2360.4760772491063
+              }
+            ]
+          }
+        },
+        "scope": "Unshifted numerical comparison; event interpolation has 5 s sampling uncertainty",
+        "calibrated": false,
+        "experimental_validation": false,
+        "promoted": false
+      }
+    }
+  },
+  "promoted": false,
+  "experimental_validation": false,
+  "total_gas_nodes": 4048,
+  "baseline_reuse": {
+    "source": "/home/konstantin/work/battery-sim/data/development/fsri30-local-refinement-20261025-r1/baseline-off",
+    "native_sha256": "6d67cc57da9e99e5ad3931569544bfb9ba920b8aab8c60963c82876e9b8be4dd",
+    "run_sha256": "5129f9f058e1f66e21ef44761f764b0b51eeef787e442f567ee8163230b728b9",
+    "scope": "same-core identical-scene baseline only; refined trajectory still fresh from zero"
+  }
+}

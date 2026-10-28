@@ -1,4 +1,5 @@
 #pragma once
+#include "battery_native/heating_protocol.hpp"
 
 #include <array>
 #include <cstddef>
@@ -60,6 +61,15 @@ struct BulkFailureTransient {
 
 // R1: heat-neutral aging; R2: exothermic decomposition; R3: gas combustion.
 // Chemical and sensible inventories share the gas reference temperature.
+struct VolatileLaw {
+    // Separate, initially condensed inventory within the measured inert mass.
+    // Zero mass disables this module. All coefficients are explicit priors.
+    double initial_mass_kg=0., liquid_cp=1800., density_kg_m3=1200.;
+    double latent_j_per_kg=500000., boiling_temperature_k=400.;
+    double saturation_reference_pa=101325., vapor_specific_r=287.;
+    double relaxation_per_s=10.;
+    double chemical_j_per_kg=0.; // optional fuel reserve, owned by liquid before evaporation
+};
 struct ConversionLaw {
     bool enabled = false;
     double mass_kg = 0., reactant_cp = 1000., activated_cp = 1000., residue_cp = 1000.;
@@ -68,42 +78,83 @@ struct ConversionLaw {
     double reaction_reference_k = 500., reaction_activation_j_per_mol = 0.;
     double degradation_reference_k = 298.15, degradation_activation_j_per_mol = 40000.;
     double initial_precursor_fraction = 0.;
-    double overcharge_conversion_per_charge = 0.; // fraction transformed per nominal charge, at electrical T_ref
+    // Pre-existing healthy charged Bc, distinct from aged Bd above. Fractions
+    // refer to the original reactive mass and their sum must not exceed one.
+    double initial_charged_fraction = 0.;
+    double charge_conversion_per_nominal_charge = 0.; // charging formation per nominal charge; NOT thermal R1
     // R1 byproduct split: φ of consumed A becomes B, 1-φ is inert residue.
-    // φ=1 recovers A→B. Heating and overvoltage raise φ, so R2 feeds its own fuel.
-    double precursor_yield = 1., precursor_yield_temperature_per_k = 0., precursor_yield_voltage_per_v = 0.;
-    double precursor_temperature_ref_k = 298.15, precursor_voltage_ref_v = 3.65;
+    // φ=1 recovers A→B. This branch belongs to thermal R1, never to charging.
+    double precursor_yield = 1., precursor_yield_temperature_per_k = 0.;
+    double precursor_temperature_ref_k = 298.15;
     // Reporting only; never a cutoff in the R2 kinetic law (fraction of m0/s).
     double runaway_reporting_rate_per_s = 1e-5;
     double gas_yield = 0., gas_chemical_fraction = 0.;
-    // Effective gas/evaporation yield: y0 exp(bT*(T-T0)) (rho/rho0)^brho.
+    // R2 gas yield: y0 exp(bT*(T-T0)) (rho/rho0)^brho.
+    // An explicit volatile reservoir, when declared, is a separate mass source.
     // rho is condensed inventory per ORIGINAL local volume, not mesh density.
     double gas_yield_reference_k = 500., gas_yield_temperature_per_k = 0.;
     double gas_yield_density_exponent = 0., gas_yield_max = .95;
     double max_fraction_per_step = .01, max_temperature_step_k = .5;
     double residue_conductivity[3]{1.,1.,1.};
     int gas_compartment = -1;
+    VolatileLaw volatile_phase;
 };
-// Whole-cell resistance, not one resistor per thermal voxel. Positive Joule
-// power is partitioned by reference thermal volume; current is externally driven.
+// Small, device-copyable constitutive table. Linear interpolation, constant
+// endpoint extension. An empty table preserves the scalar constitutive law.
+struct ScalarTable {
+    int count = 0;
+    double temperature_k[8]{};
+    double value[8]{};
+};
+// Reference whole-cell OHMIC resistance, calibrated on the intact homogeneous
+// geometry. Kirchhoff redistributes a prescribed total current on the core mesh.
 struct ElectricalLaw {
     bool enabled = false;
+    // False: recorded current is authoritative; inconsistent U/I is an error.
+    // True: current is a nonnegative source setpoint with voltage compliance.
+    bool voltage_limited_current = false;
     double current_a = 0., resistance_ohm = .01, reference_temperature_k = 298.15;
-    double temperature_log_slope_per_k = 0., damage_log_slope = 0.;
+    double temperature_log_slope_per_k = 0.;
+    ScalarTable temperature_log_response; // log(R_T/R_ref); exclusive with nonzero scalar slope
+    double product_conductivity_ratio = .2; // common R1/R2 condensed residue, not ash
+    int terminal_axis = 2; // equipotential opposite full faces; explicit effective geometry
+    double reversible_voltage_floor_v = 0.; // declared prior, not inferred OCV; only a charge-work bound
     double min_resistance_ohm = 1e-6, max_resistance_ohm = 1.;
     double max_temperature_step_k = .5;
-    double overcharge_fraction = 0., nominal_capacity_coulomb = 0.;
+    double charge_acceptance_fraction = 0., nominal_capacity_coulomb = 0.;
+    // Charging polarization: R *= exp(slope * Bc/(A+Bc)), local committed
+    // accepted precursor stock. R2 consumption removes this contribution.
+    // Not total SOC, a throughput clock, a second mixture penalty, or U/I.
+    double charge_log_slope = 0.;
 };
 struct GasModel {
+    static constexpr int maximum_pressure_iterations = 8192;
     bool split_transport = false; // thermal/chemistry stage, then pressure-driven mass stage
     bool cpu_local_transport = false;
     bool cuda_kawasaki_transport = false;
     bool cuda_batched_transport = false; // shares the CUDA mixture adapter, not edge coloring
     bool cuda_deterministic_transport = false; // bounded, fixed-count conservative graph sweeps
     bool cuda_network_transport = false; // simultaneous whole-graph deterministic analytic edge flux
+    bool averaged_network_transport = false; // coarse joint pressure + implicit throughflow payloads
+    bool reactive_transit = false; // opt-in: integrate R3 while advecting, not only at resident endpoints
+    bool implicit_network_mixing = false; // joint finite-volume counterexchange, no pairwise mass cap
+    bool joint_gas_surface_mixing = false; // simultaneous mixing and finite surface heat uptake
+    bool free_gas_response_only = false; // free-gas convection must not change internal porous-cell conductivity
+    int averaged_pressure_iterations = 512, averaged_payload_iterations = 16;
+    bool pressure_pattern_predictor = false; // verified recycled pressure correction, not a physical extrapolation
+    bool coupled_gas_films = false; // local exponential R3 + finite surface cooling
+    double coupled_transport_interval_s = .01; // numerical coupling window, never a fitted material time
+    double minimum_step_s = 0.; // internal copy of simulation.minimum_dt_s, not a material law
     int deterministic_sweeps_per_step = 4;
     double deterministic_pressure_fraction = .75;
     double network_pressure_fraction = 1.; // limiter on simultaneous network pressure change
+    // Equal-mass counterexchange through OPEN channels, independent of dP.
+    double mixing_diffusivity_m2_s=0., mixing_flow_fraction=0.;
+    // Optional unresolved thermal stirring in free gas. Separate from pressure
+    // flow and disabled for pores; one conservative counterexchange of species
+    // and sensible energy, never a heat source.
+    double thermal_stirring_coefficient=0., mixing_length_cap_m=.05, thermal_stirring_length_m=.02;
+    double vapor_fuel_heat_j_kg=0.; // common volatile pseudo-species
     double batch_pressure_fraction = .2, batch_mean_threshold = 32.;
     double kawasaki_packet_fraction = .03125, kawasaki_tail_atol_pa = 100.;
     double kawasaki_tail_rtol = .001;
@@ -119,15 +170,23 @@ struct GasModel {
     double pressure_relaxation_fraction = .2;
     double pressure_absolute_tolerance_pa = 1., pressure_relative_tolerance = 1e-5;
 };
+// Open far-field control surface; never a contact through a solid. Renewal
+// describes unresolved hood entrainment, with explicit equal mass in/out.
+struct GasAmbientBoundary {
+    bool enabled=false;
+    double pressure_pa=101325., temperature_k=298.15, oxidizer_mass_fraction=.232;
+    double area_m2=0., discharge_coefficient=.7, renewal_flow_m3_s=0.;
+};
 struct GasCompartment {
     std::string id;
     int owner_cell = -1; // battery contents, or -1 for a receiving cavity
     double volume_m3 = 1e-4, initial_mass_kg = 0., initial_temperature_k = 298.15;
-    // Opt-in, already-ignited effective chemistry (not a flame/ignition model).
+    // Effective oxygen-limited oxidation; rate is normalized at reaction_reference_k.
     // Oxidizer is a constituent of total gas mass; reaction changes its label,
     // not total mass. A common pseudo-species R/cv is retained after reaction.
     double initial_chemical_j = 0., initial_oxidizer_mass_fraction = 0.;
     double reaction_rate_per_s = 0., oxidizer_heat_j_per_kg = 13.1e6;
+    double reaction_reference_k = 600., reaction_activation_j_per_mol = 0.;
     double ignition_temperature_k = 0.;
     // Optional mobile phase sharing ONE numerical solid volume (local LTE).
     // Independent of owner_cell, which is the legacy lumped source association.
@@ -135,6 +194,7 @@ struct GasCompartment {
     // Optional occupied-volume closure for the reacting inventory. Zero keeps
     // an explicitly fixed pore volume; densities are never inferred from cp.
     double reactant_density_kg_m3 = 0., residue_density_kg_m3 = 0.;
+    GasAmbientBoundary ambient;
 };
 struct ShellOpeningLaw {
     bool enabled = false;
@@ -182,13 +242,10 @@ struct GasChannel {
     double surface_link_h_w_per_m2_k = 0.;
     // Local shell voxel, x-fastest; -1 retains a whole-panel channel.
     int shell_thermal_volume = -1;
-    bool passage = false; // free-space connection, never bypasses a casing
-};
-struct GasContact {
-    std::string port_id;
-    int compartment = -1;
-    double h_w_per_m2_k = 0.;
-    int thermal_volume = -1; // optional local face patch, same h, no area duplication
+    bool passage = false; // free-space connection; area=0 explicitly blocks it
+    double mixing_length_m=.01; // geometric transport distance, not grid count
+    double hydraulic_resistance_factor=1.; // distributed passage length / reference length
+    int mixing_axis=0; // principal direction for the instantaneous gas metric
 };
 
 const char* name(ShapeKind value);
@@ -206,14 +263,6 @@ struct PortConfig {
     Vec3 centroid_m;
     Vec3 normal;
     std::array<double,2> rectangle_m{0.,0.}; // ordered axes (normal+1)%3, (normal+2)%3
-};
-
-// Small, device-copyable constitutive table. Linear interpolation, constant
-// endpoint extension. An empty table preserves the legacy constitutive law.
-struct ScalarTable {
-    int count = 0;
-    double temperature_k[8]{};
-    double value[8]{};
 };
 
 struct HeatCapacityLaw {
@@ -260,7 +309,28 @@ struct ConnectivityLaw {
     double destroyed_background_conductance_w_per_k = 0.0;
     double destroyed_active_conductance_w_per_k = 0.0;
     double geometry_reference_logit = 0.0;
+    // Existing irreversible interface damage contributes to log-connectivity.
+    // Zero preserves historical profiles; no extra damage state or reaction.
+    double interface_damage_log_response = 0.0;
     SurfaceConnectivity endpoint_a, endpoint_b; // populated from the node material profiles by the mesher
+    // Optional radiative constitutive branch of the SAME conservative edge.
+    // Generated by an explicit radiative boundary or finite surface pair.
+    double radiation_coefficient_w_per_k4 = 0.;
+    double radiation_temperature_limit_k = 4000.;
+};
+
+struct GasContact {
+    std::string port_id;
+    int compartment = -1;
+    double h_w_per_m2_k = 0.; // reference scale only, NEVER a separate flux law
+    int thermal_volume = -1;
+    bool has_connectivity=false;
+    ConnectivityLaw connectivity;
+    SurfaceConnectivity gas_surface_connectivity;
+    // A gas-facing contact can have its own reverse boundary response without
+    // altering the solid's bulk law or its contacts with other solids.
+    bool has_solid_surface_connectivity=false;
+    SurfaceConnectivity solid_surface_connectivity;
 };
 
 struct CellConfig {
@@ -322,9 +392,17 @@ struct InterfaceConfig {
     std::string material_b;
     std::string interface_material;
     ConnectivityLaw law;
+    // Optional contact-material endpoint responses, instead of whole-object
+    // profiles. Keeps an inner liner from changing bulk/gas/seam transport.
+    bool has_endpoint_response = false;
     double initial_l_m = 0.0;
     double initial_damage = 0.0;
     EdgePhase initial_phase = EdgePhase::Low;
+    // Ai*Fij=Aj*Fji, supplied by geometry, not a fitted heating power.
+    bool radiative = false;
+    double radiation_exchange_area_m2 = 0.;
+    double effective_emissivity = 0.;
+    double radiation_temperature_limit_k = 4000.;
 };
 
 struct AmbientBoundary {
@@ -339,6 +417,10 @@ struct AmbientBoundary {
     bool has_connectivity = false;
     ConnectivityLaw connectivity;
     SurfaceConnectivity remote_surface_connectivity;
+    bool radiative = false;
+    double effective_emissivity = 0.;
+    double radiating_area_fraction = 1.;
+    double radiation_temperature_limit_k = 4000.;
 };
 
 struct FailureEvent {
@@ -354,6 +436,7 @@ struct SimulationSettings {
     double output_interval_s = 0.1;
     double stability_factor = 0.2;
     double step_interval_s = 0.0; // outer step; 0 preserves legacy max_dt_s cadence
+    double minimum_dt_s = 0.; // opt-in coarse integration; accuracy floor, NOT a conduction CFL override
 };
 
 struct Scenario {
@@ -367,7 +450,11 @@ struct Scenario {
     std::vector<InterfaceConfig> interfaces;
     std::vector<AmbientBoundary> boundaries;
     std::vector<FailureEvent> primary_failures;
+    std::vector<HeatingProtocol> heating_protocols;
     GasModel gas_model;
+    SurfaceConnectivity gas_surface_connectivity;
+    ConnectivityLaw gas_mixing_connectivity;
+    bool has_gas_mixing_connectivity=false;
     std::vector<GasCompartment> gas_compartments;
     std::vector<GasChannel> gas_channels;
     std::vector<GasContact> gas_contacts;

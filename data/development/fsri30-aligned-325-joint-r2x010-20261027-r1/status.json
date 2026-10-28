@@ -1,0 +1,134 @@
+{
+  "status": "cascade-pruned",
+  "pid": 2157398,
+  "stage": "cascade-check",
+  "trials": [
+    {
+      "gain": 0.21405515446686751,
+      "status": "complete",
+      "reason": null,
+      "metrics": {
+        "rmse_k": 4.053915314234764,
+        "max_abs_k": 7.170735905152412,
+        "final_error_k": 2.6516899648891012,
+        "final_time_s": 1499.9999999999864,
+        "final_mean_c": 143.91868996488915,
+        "final_t5_c": 141.26700000000005
+      },
+      "last_observed_s": 1499.9999999999864
+    }
+  ],
+  "source_sha256": "1fd65871a515e39932156a0998f99531b88aeab72da8cea533a1dcf989300733",
+  "core_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "experiment_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "sensor_face": "+x",
+  "sensor_mapping_confirmed": false,
+  "feedforward_w": 0.0,
+  "max_power_w": 30.0,
+  "r2_scale_vs_40mm": 0.1,
+  "initial_gain": 0.21405515446686751,
+  "fixed": "geometry, materials, contacts, other chemistry, heater ramp and maximum power",
+  "calibrated": false,
+  "validation_passed": false,
+  "active_trial": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-joint-r2x010-20261027-r1/heater-00",
+  "gain": 0.21405515446686751,
+  "progress": {
+    "time_s": 1674.9999999999818,
+    "wall_s": 620.67256723,
+    "assessment": {
+      "evaluated": true,
+      "accepted": false,
+      "phase_window_complete": false,
+      "last_observed_s": 1674.9999999999818,
+      "reason": "Primary thermal-front timing error: model 1652s versus data 1763s",
+      "constraint": 0.1100000000000001,
+      "primary_offset_s": -111.0,
+      "timing_error_s": 111.0,
+      "timing_target_met": false,
+      "pulse_match": {
+        "due": 0,
+        "matched": 0,
+        "missing": [],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "arrival_match": {
+        "due": 0,
+        "matched": 0,
+        "missing": [],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "model": {
+        "pulses": [
+          {
+            "channel": "B10",
+            "time_s": 1652.0,
+            "rise_k": 984.5420837976712,
+            "slope_k_s": 217.67364593573245
+          }
+        ],
+        "arrivals": [
+          {
+            "channel": "B10",
+            "time_s": 1652.0
+          }
+        ],
+        "pulse_groups": [
+          {
+            "time_s": 1652.0,
+            "end_s": 1652.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1652.0,
+                "rise_k": 984.5420837976712,
+                "slope_k_s": 217.67364593573245
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ],
+        "arrival_groups": [
+          {
+            "time_s": 1652.0,
+            "end_s": 1652.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1652.0
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ]
+      },
+      "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+      "necessary_not_sufficient": true,
+      "objective": null
+    },
+    "physical_error": null,
+    "temperature_rejection": null
+  },
+  "best": {
+    "gain": 0.21405515446686751,
+    "status": "complete",
+    "reason": null,
+    "metrics": {
+      "rmse_k": 4.053915314234764,
+      "max_abs_k": 7.170735905152412,
+      "final_error_k": 2.6516899648891012,
+      "final_time_s": 1499.9999999999864,
+      "final_mean_c": 143.91868996488915,
+      "final_t5_c": 141.26700000000005
+    },
+    "last_observed_s": 1499.9999999999864
+  },
+  "reason": "Pruned: Primary thermal-front timing error: model 1652s versus data 1763s"
+}

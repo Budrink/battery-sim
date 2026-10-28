@@ -1,0 +1,36 @@
+{
+  "status": "completed-with-failures",
+  "pid": 1814375,
+  "native_sha256": "9b14777a04a50054ec89283e821d9aeb607f0cab8042841e11fe8eac58008f1e",
+  "source_scenario": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-reactive-refinement-20261024-r8/trial-0003/scenario.json",
+  "source_scenario_sha256": "4e7653dc3d0e04897332924402b4e61f65af5eb0a4b981fc38c155adba45df28",
+  "cases": [
+    "combined",
+    "r2-only",
+    "geometry-only",
+    "reference"
+  ],
+  "results": {
+    "combined": {
+      "status": "failed",
+      "error": "Object of type bool_ is not JSON serializable"
+    },
+    "r2-only": {
+      "status": "failed",
+      "error": "Object of type bool_ is not JSON serializable"
+    },
+    "geometry-only": {
+      "status": "failed",
+      "error": "Object of type bool_ is not JSON serializable"
+    },
+    "reference": {
+      "status": "failed",
+      "error": "Object of type bool_ is not JSON serializable"
+    }
+  },
+  "fresh_from_zero": true,
+  "calibrated": false,
+  "validation_passed": false,
+  "phase": "reference",
+  "r2_transfer_record": "3d48e527841a29e3ee160569f6e0b46312c00e262e057a7267971d9f315e2d2d"
+}

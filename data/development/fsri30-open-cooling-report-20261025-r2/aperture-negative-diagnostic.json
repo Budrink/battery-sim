@@ -1,0 +1,82 @@
+{
+  "status": "stopped-no-tail-improvement",
+  "path": "/home/konstantin/work/battery-sim/data/development/fsri30-open-apertures-20261025-r2/check/open-0.01m3s/replay/incomplete-run.json.gz",
+  "sha256": "1c85433bddf33e1bcff239ce2ae0d7079a3408b48761a976b418e24d8895c415",
+  "last_observation_s": 4680.0,
+  "advanced_to_s": 4680.1,
+  "partial": true,
+  "full_horizon_score": null,
+  "common_observed_window": {
+    "known_until_s": 4680.0,
+    "control": {
+      "complete": false,
+      "envelope_rmse_k": 245.99155334085572,
+      "quantile_rmse_k": [
+        366.21592440274225,
+        130.7095012948914,
+        194.4299646871018,
+        230.31562925048394
+      ],
+      "tail_temperature_c": [
+        615.2263334511805,
+        719.7054741897098,
+        796.9602917044868,
+        833.720687830949
+      ],
+      "positive_rise_sum_k": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+    },
+    "aperture_x4": {
+      "complete": false,
+      "envelope_rmse_k": 250.98028773064658,
+      "quantile_rmse_k": [
+        377.03007077792097,
+        133.49063963014478,
+        197.0440357950222,
+        230.57892821195372
+      ],
+      "tail_temperature_c": [
+        625.1019778278205,
+        722.2284520209961,
+        791.8870522941392,
+        835.7449268428724
+      ],
+      "positive_rise_sum_k": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+    }
+  },
+  "flows": {
+    "start_s": 3299.9999999999864,
+    "end_s": 3499.999999999909,
+    "channels": [
+      {
+        "channel": "vent-+y-22-air-5-12-5",
+        "area_m2": 6.197725515223158e-05,
+        "mixed_mass_each_way_kg_s": 3.2662044921609593e-07,
+        "pressure_net_mass_kg_s": -7.491097120951426e-09,
+        "net_thermal_w": 0.04983614229293487
+      },
+      {
+        "channel": "vent--y-7-air-5-2-5",
+        "area_m2": 6.197725515223158e-05,
+        "mixed_mass_each_way_kg_s": 3.202425886358734e-07,
+        "pressure_net_mass_kg_s": -7.935139360873714e-09,
+        "net_thermal_w": 0.046418404018640766
+      }
+    ],
+    "module_vent_net_thermal_w": 0.09625454631157564,
+    "ambient_thermal_w": 48.967962775223725,
+    "r3_w": 0.03340041348246286,
+    "note": "Channel delivered energy INCLUDES pressure transport and sensible counterexchange, not advection alone"
+  }
+}

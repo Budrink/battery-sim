@@ -1,0 +1,58 @@
+{
+  "parameters": {
+    "resistance_ohm": 0.008777311071596752,
+    "resistance_temperature": -0.01999999999999949,
+    "resistance_charge": 14.838210523443244,
+    "product_conductivity_ratio": 0.2,
+    "r1_rate": 1e-06,
+    "r1_activation": 40000.0,
+    "overcharge_gain": 0.9665706075586435,
+    "r2_rate": 100000.00000000001,
+    "r2_activation": 136106.65706689408,
+    "energy_j": 424264.068711928,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.0005,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.27735866146555965,
+    "precursor_temperature": 0.029623273375245555,
+    "precursor_voltage": 0.0,
+    "iss_h": 603.9748406619833,
+    "tim_h": 120.11589865597152,
+    "case_h": 91.51913570852793,
+    "environment_h": 1.563406124562644,
+    "surface_iss": 0.0,
+    "surface_tim": 6.0,
+    "bulk_slope": -2.88,
+    "case_warm_response": 0.0,
+    "case_hot_response": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0
+  },
+  "changes": {
+    "iss_h": [
+      200.0,
+      603.9748406619833
+    ],
+    "tim_h": [
+      300.0,
+      120.11589865597152
+    ],
+    "case_h": [
+      180.0,
+      91.51913570852793
+    ],
+    "surface_iss": [
+      -5.5,
+      0.0
+    ]
+  },
+  "source": "/home/konstantin/work/battery-sim/data/calibration/upv-charge-degradation-v5/shape-fit-20261017/frozen-shape-check/frozen-parameters.json",
+  "source_sha256": "25124a1e38868d0e4e9e4e5ca7879072a4cb406e8eddcc2edc1ac99885f4531d",
+  "fingerprint": "b73b79b1175dcb0254cb7a5293ade9a41ae6e3b9c3118d9e7031323a399a87a5",
+  "validation_used_for_selection": false,
+  "refinement": 1.0
+}

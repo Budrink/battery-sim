@@ -1,0 +1,825 @@
+{
+  "diagnostic_only": true,
+  "calibrated": false,
+  "snapshot": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/averaged-guard-20261020-r1/failure-window.json",
+  "attempts": [
+    {
+      "entropy_change_j_per_k": -0.4457013156612768,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 1.0
+    },
+    {
+      "entropy_change_j_per_k": -0.13540832686141968,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 0.5
+    },
+    {
+      "entropy_change_j_per_k": -0.03900187833680202,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 0.25
+    },
+    {
+      "entropy_change_j_per_k": -0.010216567929488662,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 0.125
+    },
+    {
+      "entropy_change_j_per_k": -0.0026360432893530183,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 0.0625
+    },
+    {
+      "entropy_change_j_per_k": -0.0006382268276106662,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 0.03125
+    },
+    {
+      "entropy_change_j_per_k": -0.00014231140727034852,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 0.015625
+    },
+    {
+      "entropy_change_j_per_k": -2.6518371940412178e-05,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 0.0078125
+    }
+  ],
+  "cases": [
+    {
+      "payload_iterations": 16,
+      "error_code": 23,
+      "attempts": [
+        {
+          "entropy_change_j_per_k": -0.44570131566112103,
+          "invalid_mask": 0,
+          "scale": 1.0
+        },
+        {
+          "entropy_change_j_per_k": -0.13540832686125842,
+          "invalid_mask": 0,
+          "scale": 0.5
+        },
+        {
+          "entropy_change_j_per_k": -0.039001878336801896,
+          "invalid_mask": 0,
+          "scale": 0.25
+        },
+        {
+          "entropy_change_j_per_k": -0.010216567929523954,
+          "invalid_mask": 0,
+          "scale": 0.125
+        },
+        {
+          "entropy_change_j_per_k": -0.0026360432893355913,
+          "invalid_mask": 0,
+          "scale": 0.0625
+        },
+        {
+          "entropy_change_j_per_k": -0.0006382268275831656,
+          "invalid_mask": 0,
+          "scale": 0.03125
+        },
+        {
+          "entropy_change_j_per_k": -0.0001423114072526847,
+          "invalid_mask": 0,
+          "scale": 0.015625
+        },
+        {
+          "entropy_change_j_per_k": -2.6518371940929125e-05,
+          "invalid_mask": 0,
+          "scale": 0.0078125
+        }
+      ],
+      "lowest_entropy_nodes": [
+        {
+          "chemical_j": 0.0,
+          "energy_j": 1809.164870005537,
+          "entropy_change_j_per_k": -0.009792304584998135,
+          "id": "void-18-0-9",
+          "latent_j": 0.0,
+          "mass_kg": 0.006027017115576558,
+          "oxidizer_kg": 0.0013982679708138036,
+          "pressure_pa": 103245.4053916841,
+          "temperature_k": 300.17583081518563,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 1.6106410543138724e-31,
+          "energy_j": 210.67959163287563,
+          "entropy_change_j_per_k": -0.008605256866363487,
+          "id": "void-1-0-9",
+          "latent_j": 1.8825185659209016e-33,
+          "mass_kg": 0.0007022279150255225,
+          "oxidizer_kg": 0.0001629168762859203,
+          "pressure_pa": 102994.68877978792,
+          "temperature_k": 300.0159736247718,
+          "vapor_kg": 3.765037131841786e-39
+        },
+        {
+          "chemical_j": 2.301672329893131e-44,
+          "energy_j": 210.79155440798863,
+          "entropy_change_j_per_k": -0.0069705731881151145,
+          "id": "void-0-7-8",
+          "latent_j": 2.6931985461709633e-46,
+          "mass_kg": 0.0007025192511160678,
+          "oxidizer_kg": 0.00016298446625893147,
+          "pressure_pa": 103049.42389242176,
+          "temperature_k": 300.05092966934563,
+          "vapor_kg": 5.3863970923419154e-52
+        },
+        {
+          "chemical_j": 4.287957937076787e-32,
+          "energy_j": 493.6146079636071,
+          "entropy_change_j_per_k": -0.004465615801809264,
+          "id": "void-0-7-4",
+          "latent_j": 5.020439545884513e-34,
+          "mass_kg": 0.0016444389374371138,
+          "oxidizer_kg": 0.00038150983348540687,
+          "pressure_pa": 103235.42401246066,
+          "temperature_k": 300.17205061619006,
+          "vapor_kg": 1.004087909176901e-39
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 438.0891919919995,
+          "entropy_change_j_per_k": -0.003981328997701539,
+          "id": "void-18-4-0",
+          "latent_j": 0.0,
+          "mass_kg": 0.0014595309344350368,
+          "oxidizer_kg": 0.0003386111767889361,
+          "pressure_pa": 103213.56993473659,
+          "temperature_k": 300.15752434981954,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 211.01920870290078,
+          "entropy_change_j_per_k": -0.003460511374674624,
+          "id": "void-18-7-1",
+          "latent_j": 0.0,
+          "mass_kg": 0.0007031093355945883,
+          "oxidizer_kg": 0.00016312136585793703,
+          "pressure_pa": 103160.71698480024,
+          "temperature_k": 300.12289415052527,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 114.26997018621678,
+          "entropy_change_j_per_k": -0.0034336210843699533,
+          "id": "void-18-4-6",
+          "latent_j": 0.0,
+          "mass_kg": 0.00038073549858544354,
+          "oxidizer_kg": 8.833063567182852e-05,
+          "pressure_pa": 103072.56998758361,
+          "temperature_k": 300.129540352205,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 7.2489144427795836e-40,
+          "energy_j": 1809.6126641419896,
+          "entropy_change_j_per_k": -0.0028995255512711537,
+          "id": "void-0-7-9",
+          "latent_j": 8.481991804665059e-42,
+          "mass_kg": 0.006028176269535672,
+          "oxidizer_kg": 0.0013985368945322579,
+          "pressure_pa": 103270.96010364903,
+          "temperature_k": 300.1923937239774,
+          "vapor_kg": 1.696398360933009e-47
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 211.07560677319827,
+          "entropy_change_j_per_k": -0.002889631978536311,
+          "id": "void-18-6-9",
+          "latent_j": 0.0,
+          "mass_kg": 0.0007032551004298322,
+          "oxidizer_kg": 0.00016315518329972507,
+          "pressure_pa": 103188.2882443278,
+          "temperature_k": 300.140882937341,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 438.2394189420792,
+          "entropy_change_j_per_k": -0.002874527863843568,
+          "id": "void-18-4-9",
+          "latent_j": 0.0,
+          "mass_kg": 0.0014599197227897064,
+          "oxidizer_kg": 0.000338701375687232,
+          "pressure_pa": 103248.9633206077,
+          "temperature_k": 300.18049081812785,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 211.08975699602226,
+          "entropy_change_j_per_k": -0.002614791157704577,
+          "id": "void-18-6-0",
+          "latent_j": 0.0,
+          "mass_kg": 0.0007032920231198303,
+          "oxidizer_kg": 0.00016316374936380535,
+          "pressure_pa": 103195.20584742654,
+          "temperature_k": 300.14524558322165,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 493.686931309537,
+          "entropy_change_j_per_k": -0.0025497762821071746,
+          "id": "void-18-0-5",
+          "latent_j": 0.0,
+          "mass_kg": 0.0016446294641202796,
+          "oxidizer_kg": 0.00038155403567589284,
+          "pressure_pa": 103250.54984375212,
+          "temperature_k": 300.18125181383186,
+          "vapor_kg": 0.0
+        }
+      ]
+    },
+    {
+      "payload_iterations": 32,
+      "error_code": 23,
+      "attempts": [
+        {
+          "entropy_change_j_per_k": -0.44570131568732996,
+          "invalid_mask": 0,
+          "scale": 1.0
+        },
+        {
+          "entropy_change_j_per_k": -0.1354083268612393,
+          "invalid_mask": 0,
+          "scale": 0.5
+        },
+        {
+          "entropy_change_j_per_k": -0.03900187833680245,
+          "invalid_mask": 0,
+          "scale": 0.25
+        },
+        {
+          "entropy_change_j_per_k": -0.010216567929523954,
+          "invalid_mask": 0,
+          "scale": 0.125
+        },
+        {
+          "entropy_change_j_per_k": -0.0026360432893355913,
+          "invalid_mask": 0,
+          "scale": 0.0625
+        },
+        {
+          "entropy_change_j_per_k": -0.0006382268275831656,
+          "invalid_mask": 0,
+          "scale": 0.03125
+        },
+        {
+          "entropy_change_j_per_k": -0.0001423114072526847,
+          "invalid_mask": 0,
+          "scale": 0.015625
+        },
+        {
+          "entropy_change_j_per_k": -2.6518371940929125e-05,
+          "invalid_mask": 0,
+          "scale": 0.0078125
+        }
+      ],
+      "lowest_entropy_nodes": [
+        {
+          "chemical_j": 0.0,
+          "energy_j": 1809.164870005537,
+          "entropy_change_j_per_k": -0.009792304584998135,
+          "id": "void-18-0-9",
+          "latent_j": 0.0,
+          "mass_kg": 0.006027017115576558,
+          "oxidizer_kg": 0.0013982679708138036,
+          "pressure_pa": 103245.4053916841,
+          "temperature_k": 300.17583081518563,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 1.6106410543138168e-31,
+          "energy_j": 210.67959163287563,
+          "entropy_change_j_per_k": -0.008605256866363487,
+          "id": "void-1-0-9",
+          "latent_j": 1.8825185659208356e-33,
+          "mass_kg": 0.0007022279150255225,
+          "oxidizer_kg": 0.0001629168762859203,
+          "pressure_pa": 102994.68877978792,
+          "temperature_k": 300.0159736247718,
+          "vapor_kg": 3.7650371318416544e-39
+        },
+        {
+          "chemical_j": 2.301672389469375e-44,
+          "energy_j": 210.79155440798863,
+          "entropy_change_j_per_k": -0.0069705731881151145,
+          "id": "void-0-7-8",
+          "latent_j": 2.69319861595967e-46,
+          "mass_kg": 0.0007025192511160678,
+          "oxidizer_kg": 0.00016298446625893147,
+          "pressure_pa": 103049.42389242176,
+          "temperature_k": 300.05092966934563,
+          "vapor_kg": 5.386397231919327e-52
+        },
+        {
+          "chemical_j": 4.2879579370768164e-32,
+          "energy_j": 493.6146079636071,
+          "entropy_change_j_per_k": -0.004465615801809264,
+          "id": "void-0-7-4",
+          "latent_j": 5.0204395458845495e-34,
+          "mass_kg": 0.0016444389374371138,
+          "oxidizer_kg": 0.00038150983348540687,
+          "pressure_pa": 103235.42401246066,
+          "temperature_k": 300.17205061619006,
+          "vapor_kg": 1.0040879091769084e-39
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 438.0891919919995,
+          "entropy_change_j_per_k": -0.003981328997701539,
+          "id": "void-18-4-0",
+          "latent_j": 0.0,
+          "mass_kg": 0.0014595309344350368,
+          "oxidizer_kg": 0.0003386111767889361,
+          "pressure_pa": 103213.56993473659,
+          "temperature_k": 300.15752434981954,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 211.01920870290078,
+          "entropy_change_j_per_k": -0.003460511374674624,
+          "id": "void-18-7-1",
+          "latent_j": 0.0,
+          "mass_kg": 0.0007031093355945883,
+          "oxidizer_kg": 0.00016312136585793703,
+          "pressure_pa": 103160.71698480024,
+          "temperature_k": 300.12289415052527,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 114.26997018621678,
+          "entropy_change_j_per_k": -0.0034336210843699533,
+          "id": "void-18-4-6",
+          "latent_j": 0.0,
+          "mass_kg": 0.00038073549858544354,
+          "oxidizer_kg": 8.833063567182852e-05,
+          "pressure_pa": 103072.56998758361,
+          "temperature_k": 300.129540352205,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 7.248914443015007e-40,
+          "energy_j": 1809.6126641419896,
+          "entropy_change_j_per_k": -0.0028995255512711537,
+          "id": "void-0-7-9",
+          "latent_j": 8.481991804940943e-42,
+          "mass_kg": 0.006028176269535672,
+          "oxidizer_kg": 0.0013985368945322579,
+          "pressure_pa": 103270.96010364903,
+          "temperature_k": 300.1923937239774,
+          "vapor_kg": 1.6963983609881847e-47
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 211.07560677319827,
+          "entropy_change_j_per_k": -0.002889631978536311,
+          "id": "void-18-6-9",
+          "latent_j": 0.0,
+          "mass_kg": 0.0007032551004298322,
+          "oxidizer_kg": 0.00016315518329972507,
+          "pressure_pa": 103188.2882443278,
+          "temperature_k": 300.140882937341,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 438.2394189420792,
+          "entropy_change_j_per_k": -0.002874527863843568,
+          "id": "void-18-4-9",
+          "latent_j": 0.0,
+          "mass_kg": 0.0014599197227897064,
+          "oxidizer_kg": 0.000338701375687232,
+          "pressure_pa": 103248.9633206077,
+          "temperature_k": 300.18049081812785,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 211.08975699602226,
+          "entropy_change_j_per_k": -0.002614791157704577,
+          "id": "void-18-6-0",
+          "latent_j": 0.0,
+          "mass_kg": 0.0007032920231198303,
+          "oxidizer_kg": 0.00016316374936380535,
+          "pressure_pa": 103195.20584742654,
+          "temperature_k": 300.14524558322165,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 493.686931309537,
+          "entropy_change_j_per_k": -0.0025497762821071746,
+          "id": "void-18-0-5",
+          "latent_j": 0.0,
+          "mass_kg": 0.0016446294641202796,
+          "oxidizer_kg": 0.00038155403567589284,
+          "pressure_pa": 103250.54984375212,
+          "temperature_k": 300.18125181383186,
+          "vapor_kg": 0.0
+        }
+      ]
+    },
+    {
+      "payload_iterations": 64,
+      "error_code": 23,
+      "attempts": [
+        {
+          "entropy_change_j_per_k": -0.44570131568732996,
+          "invalid_mask": 0,
+          "scale": 1.0
+        },
+        {
+          "entropy_change_j_per_k": -0.1354083268612393,
+          "invalid_mask": 0,
+          "scale": 0.5
+        },
+        {
+          "entropy_change_j_per_k": -0.03900187833680245,
+          "invalid_mask": 0,
+          "scale": 0.25
+        },
+        {
+          "entropy_change_j_per_k": -0.010216567929523954,
+          "invalid_mask": 0,
+          "scale": 0.125
+        },
+        {
+          "entropy_change_j_per_k": -0.0026360432893355913,
+          "invalid_mask": 0,
+          "scale": 0.0625
+        },
+        {
+          "entropy_change_j_per_k": -0.0006382268275831656,
+          "invalid_mask": 0,
+          "scale": 0.03125
+        },
+        {
+          "entropy_change_j_per_k": -0.0001423114072526847,
+          "invalid_mask": 0,
+          "scale": 0.015625
+        },
+        {
+          "entropy_change_j_per_k": -2.6518371940929125e-05,
+          "invalid_mask": 0,
+          "scale": 0.0078125
+        }
+      ],
+      "lowest_entropy_nodes": [
+        {
+          "chemical_j": 0.0,
+          "energy_j": 1809.164870005537,
+          "entropy_change_j_per_k": -0.009792304584998135,
+          "id": "void-18-0-9",
+          "latent_j": 0.0,
+          "mass_kg": 0.006027017115576558,
+          "oxidizer_kg": 0.0013982679708138036,
+          "pressure_pa": 103245.4053916841,
+          "temperature_k": 300.17583081518563,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 1.6106410543138168e-31,
+          "energy_j": 210.67959163287563,
+          "entropy_change_j_per_k": -0.008605256866363487,
+          "id": "void-1-0-9",
+          "latent_j": 1.8825185659208356e-33,
+          "mass_kg": 0.0007022279150255225,
+          "oxidizer_kg": 0.0001629168762859203,
+          "pressure_pa": 102994.68877978792,
+          "temperature_k": 300.0159736247718,
+          "vapor_kg": 3.7650371318416544e-39
+        },
+        {
+          "chemical_j": 2.301672389469375e-44,
+          "energy_j": 210.79155440798863,
+          "entropy_change_j_per_k": -0.0069705731881151145,
+          "id": "void-0-7-8",
+          "latent_j": 2.69319861595967e-46,
+          "mass_kg": 0.0007025192511160678,
+          "oxidizer_kg": 0.00016298446625893147,
+          "pressure_pa": 103049.42389242176,
+          "temperature_k": 300.05092966934563,
+          "vapor_kg": 5.386397231919327e-52
+        },
+        {
+          "chemical_j": 4.2879579370768164e-32,
+          "energy_j": 493.6146079636071,
+          "entropy_change_j_per_k": -0.004465615801809264,
+          "id": "void-0-7-4",
+          "latent_j": 5.0204395458845495e-34,
+          "mass_kg": 0.0016444389374371138,
+          "oxidizer_kg": 0.00038150983348540687,
+          "pressure_pa": 103235.42401246066,
+          "temperature_k": 300.17205061619006,
+          "vapor_kg": 1.0040879091769084e-39
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 438.0891919919995,
+          "entropy_change_j_per_k": -0.003981328997701539,
+          "id": "void-18-4-0",
+          "latent_j": 0.0,
+          "mass_kg": 0.0014595309344350368,
+          "oxidizer_kg": 0.0003386111767889361,
+          "pressure_pa": 103213.56993473659,
+          "temperature_k": 300.15752434981954,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 211.01920870290078,
+          "entropy_change_j_per_k": -0.003460511374674624,
+          "id": "void-18-7-1",
+          "latent_j": 0.0,
+          "mass_kg": 0.0007031093355945883,
+          "oxidizer_kg": 0.00016312136585793703,
+          "pressure_pa": 103160.71698480024,
+          "temperature_k": 300.12289415052527,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 114.26997018621678,
+          "entropy_change_j_per_k": -0.0034336210843699533,
+          "id": "void-18-4-6",
+          "latent_j": 0.0,
+          "mass_kg": 0.00038073549858544354,
+          "oxidizer_kg": 8.833063567182852e-05,
+          "pressure_pa": 103072.56998758361,
+          "temperature_k": 300.129540352205,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 7.248914443015007e-40,
+          "energy_j": 1809.6126641419896,
+          "entropy_change_j_per_k": -0.0028995255512711537,
+          "id": "void-0-7-9",
+          "latent_j": 8.481991804940943e-42,
+          "mass_kg": 0.006028176269535672,
+          "oxidizer_kg": 0.0013985368945322579,
+          "pressure_pa": 103270.96010364903,
+          "temperature_k": 300.1923937239774,
+          "vapor_kg": 1.6963983609881847e-47
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 211.07560677319827,
+          "entropy_change_j_per_k": -0.002889631978536311,
+          "id": "void-18-6-9",
+          "latent_j": 0.0,
+          "mass_kg": 0.0007032551004298322,
+          "oxidizer_kg": 0.00016315518329972507,
+          "pressure_pa": 103188.2882443278,
+          "temperature_k": 300.140882937341,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 438.2394189420792,
+          "entropy_change_j_per_k": -0.002874527863843568,
+          "id": "void-18-4-9",
+          "latent_j": 0.0,
+          "mass_kg": 0.0014599197227897064,
+          "oxidizer_kg": 0.000338701375687232,
+          "pressure_pa": 103248.9633206077,
+          "temperature_k": 300.18049081812785,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 211.08975699602226,
+          "entropy_change_j_per_k": -0.002614791157704577,
+          "id": "void-18-6-0",
+          "latent_j": 0.0,
+          "mass_kg": 0.0007032920231198303,
+          "oxidizer_kg": 0.00016316374936380535,
+          "pressure_pa": 103195.20584742654,
+          "temperature_k": 300.14524558322165,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 493.686931309537,
+          "entropy_change_j_per_k": -0.0025497762821071746,
+          "id": "void-18-0-5",
+          "latent_j": 0.0,
+          "mass_kg": 0.0016446294641202796,
+          "oxidizer_kg": 0.00038155403567589284,
+          "pressure_pa": 103250.54984375212,
+          "temperature_k": 300.18125181383186,
+          "vapor_kg": 0.0
+        }
+      ]
+    },
+    {
+      "payload_iterations": 128,
+      "error_code": 23,
+      "attempts": [
+        {
+          "entropy_change_j_per_k": -0.44570131568732996,
+          "invalid_mask": 0,
+          "scale": 1.0
+        },
+        {
+          "entropy_change_j_per_k": -0.1354083268612393,
+          "invalid_mask": 0,
+          "scale": 0.5
+        },
+        {
+          "entropy_change_j_per_k": -0.03900187833680245,
+          "invalid_mask": 0,
+          "scale": 0.25
+        },
+        {
+          "entropy_change_j_per_k": -0.010216567929523954,
+          "invalid_mask": 0,
+          "scale": 0.125
+        },
+        {
+          "entropy_change_j_per_k": -0.0026360432893355913,
+          "invalid_mask": 0,
+          "scale": 0.0625
+        },
+        {
+          "entropy_change_j_per_k": -0.0006382268275831656,
+          "invalid_mask": 0,
+          "scale": 0.03125
+        },
+        {
+          "entropy_change_j_per_k": -0.0001423114072526847,
+          "invalid_mask": 0,
+          "scale": 0.015625
+        },
+        {
+          "entropy_change_j_per_k": -2.6518371940929125e-05,
+          "invalid_mask": 0,
+          "scale": 0.0078125
+        }
+      ],
+      "lowest_entropy_nodes": [
+        {
+          "chemical_j": 0.0,
+          "energy_j": 1809.164870005537,
+          "entropy_change_j_per_k": -0.009792304584998135,
+          "id": "void-18-0-9",
+          "latent_j": 0.0,
+          "mass_kg": 0.006027017115576558,
+          "oxidizer_kg": 0.0013982679708138036,
+          "pressure_pa": 103245.4053916841,
+          "temperature_k": 300.17583081518563,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 1.6106410543138168e-31,
+          "energy_j": 210.67959163287563,
+          "entropy_change_j_per_k": -0.008605256866363487,
+          "id": "void-1-0-9",
+          "latent_j": 1.8825185659208356e-33,
+          "mass_kg": 0.0007022279150255225,
+          "oxidizer_kg": 0.0001629168762859203,
+          "pressure_pa": 102994.68877978792,
+          "temperature_k": 300.0159736247718,
+          "vapor_kg": 3.7650371318416544e-39
+        },
+        {
+          "chemical_j": 2.301672389469375e-44,
+          "energy_j": 210.79155440798863,
+          "entropy_change_j_per_k": -0.0069705731881151145,
+          "id": "void-0-7-8",
+          "latent_j": 2.69319861595967e-46,
+          "mass_kg": 0.0007025192511160678,
+          "oxidizer_kg": 0.00016298446625893147,
+          "pressure_pa": 103049.42389242176,
+          "temperature_k": 300.05092966934563,
+          "vapor_kg": 5.386397231919327e-52
+        },
+        {
+          "chemical_j": 4.2879579370768164e-32,
+          "energy_j": 493.6146079636071,
+          "entropy_change_j_per_k": -0.004465615801809264,
+          "id": "void-0-7-4",
+          "latent_j": 5.0204395458845495e-34,
+          "mass_kg": 0.0016444389374371138,
+          "oxidizer_kg": 0.00038150983348540687,
+          "pressure_pa": 103235.42401246066,
+          "temperature_k": 300.17205061619006,
+          "vapor_kg": 1.0040879091769084e-39
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 438.0891919919995,
+          "entropy_change_j_per_k": -0.003981328997701539,
+          "id": "void-18-4-0",
+          "latent_j": 0.0,
+          "mass_kg": 0.0014595309344350368,
+          "oxidizer_kg": 0.0003386111767889361,
+          "pressure_pa": 103213.56993473659,
+          "temperature_k": 300.15752434981954,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 211.01920870290078,
+          "entropy_change_j_per_k": -0.003460511374674624,
+          "id": "void-18-7-1",
+          "latent_j": 0.0,
+          "mass_kg": 0.0007031093355945883,
+          "oxidizer_kg": 0.00016312136585793703,
+          "pressure_pa": 103160.71698480024,
+          "temperature_k": 300.12289415052527,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 114.26997018621678,
+          "entropy_change_j_per_k": -0.0034336210843699533,
+          "id": "void-18-4-6",
+          "latent_j": 0.0,
+          "mass_kg": 0.00038073549858544354,
+          "oxidizer_kg": 8.833063567182852e-05,
+          "pressure_pa": 103072.56998758361,
+          "temperature_k": 300.129540352205,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 7.248914443015007e-40,
+          "energy_j": 1809.6126641419896,
+          "entropy_change_j_per_k": -0.0028995255512711537,
+          "id": "void-0-7-9",
+          "latent_j": 8.481991804940943e-42,
+          "mass_kg": 0.006028176269535672,
+          "oxidizer_kg": 0.0013985368945322579,
+          "pressure_pa": 103270.96010364903,
+          "temperature_k": 300.1923937239774,
+          "vapor_kg": 1.6963983609881847e-47
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 211.07560677319827,
+          "entropy_change_j_per_k": -0.002889631978536311,
+          "id": "void-18-6-9",
+          "latent_j": 0.0,
+          "mass_kg": 0.0007032551004298322,
+          "oxidizer_kg": 0.00016315518329972507,
+          "pressure_pa": 103188.2882443278,
+          "temperature_k": 300.140882937341,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 438.2394189420792,
+          "entropy_change_j_per_k": -0.002874527863843568,
+          "id": "void-18-4-9",
+          "latent_j": 0.0,
+          "mass_kg": 0.0014599197227897064,
+          "oxidizer_kg": 0.000338701375687232,
+          "pressure_pa": 103248.9633206077,
+          "temperature_k": 300.18049081812785,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 211.08975699602226,
+          "entropy_change_j_per_k": -0.002614791157704577,
+          "id": "void-18-6-0",
+          "latent_j": 0.0,
+          "mass_kg": 0.0007032920231198303,
+          "oxidizer_kg": 0.00016316374936380535,
+          "pressure_pa": 103195.20584742654,
+          "temperature_k": 300.14524558322165,
+          "vapor_kg": 0.0
+        },
+        {
+          "chemical_j": 0.0,
+          "energy_j": 493.686931309537,
+          "entropy_change_j_per_k": -0.0025497762821071746,
+          "id": "void-18-0-5",
+          "latent_j": 0.0,
+          "mass_kg": 0.0016446294641202796,
+          "oxidizer_kg": 0.00038155403567589284,
+          "pressure_pa": 103250.54984375212,
+          "temperature_k": 300.18125181383186,
+          "vapor_kg": 0.0
+        }
+      ]
+    }
+  ]
+}

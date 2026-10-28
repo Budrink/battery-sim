@@ -1,0 +1,179 @@
+{
+  "run_sha256": "78c78f1af099758f523136471e492598d288dd49efb946b17e133f0bae4b55c5",
+  "scene_sha256": "0c8f51bb4a498b573a47160832634cc3d8cab70e3755cb7d532c03099185507a",
+  "last_observed_s": 4089.9999999999045,
+  "advanced_live_s_not_observation": 4094.7999999999,
+  "partial": true,
+  "calibrated": false,
+  "validation_passed": false,
+  "heat_paths": {
+    "start_s": 3299.9999999999955,
+    "end_s": 3499.999999999918,
+    "panels": {
+      "ABS:-x": {
+        "gas_inside_to_wall_j": 2870.0956519234255,
+        "wall_to_external_gas_j": 1936.644590214886,
+        "stored_energy_change_j": 1088.5621139323425,
+        "gas_inside_to_wall_w": 14.350478259622674,
+        "wall_to_external_gas_w": 9.683222951078173,
+        "stored_energy_change_w": 5.442810569663816
+      },
+      "ABS:-z": {
+        "gas_inside_to_wall_j": 3427.661447888856,
+        "wall_to_external_gas_j": 1386.0671986583113,
+        "stored_energy_change_j": 2037.978446132534,
+        "gas_inside_to_wall_w": 17.138307239450903,
+        "wall_to_external_gas_w": 6.930335993294236,
+        "stored_energy_change_w": 10.189892230666608
+      },
+      "ABS:+z": {
+        "gas_inside_to_wall_j": 2661.432612931026,
+        "wall_to_external_gas_j": 2231.1770067554,
+        "stored_energy_change_j": 170.3803138775806,
+        "gas_inside_to_wall_w": 13.307163064660275,
+        "wall_to_external_gas_w": 11.155885033781312,
+        "stored_energy_change_w": 0.8519015693882322
+      },
+      "ABS:+y": {
+        "gas_inside_to_wall_j": 1635.7050622043841,
+        "wall_to_external_gas_j": 1142.3389538255997,
+        "stored_energy_change_j": 468.1116056792537,
+        "gas_inside_to_wall_w": 8.178525311025082,
+        "wall_to_external_gas_w": 5.711694769130206,
+        "stored_energy_change_w": 2.340558028397173
+      },
+      "ABS:-y": {
+        "gas_inside_to_wall_j": 1525.1841288576493,
+        "wall_to_external_gas_j": 1160.5851518090703,
+        "stored_energy_change_j": 335.6244003156984,
+        "gas_inside_to_wall_w": 7.625920644291194,
+        "wall_to_external_gas_w": 5.802925759047595,
+        "stored_energy_change_w": 1.6781220015791405
+      },
+      "ABS:+x": {
+        "gas_inside_to_wall_j": 3126.6280827303485,
+        "wall_to_external_gas_j": 2002.8241193038375,
+        "stored_energy_change_j": 1286.4130860311675,
+        "gas_inside_to_wall_w": 15.633140413657785,
+        "wall_to_external_gas_w": 10.014120596523059,
+        "stored_energy_change_w": 6.432065430158324
+      }
+    },
+    "total_power_w": {
+      "gas_inside_to_wall": 76.23353493270791,
+      "wall_to_external_gas": 49.29818510285458,
+      "stored_energy_change": 26.93534982985329
+    },
+    "abs_union_energy_closure_j": -9.094947017729282e-12,
+    "closure_accepted": true,
+    "ambient_export_w": 48.64579742576712,
+    "r3_power_w": 0.04728724966758827
+  },
+  "outside_surface": {
+    "time_s": 3499.999999999918,
+    "conductance_w_per_k": 0.5376646537449169,
+    "instantaneous_wall_to_gas_w": 49.66125215401646,
+    "conductance_weighted_gas_temperature_k": 802.0279885995382,
+    "conductance_weighted_wall_temperature_k": 894.3927215387749,
+    "film_resistance_k_per_w": 1.859895369790159,
+    "apparent_wall_to_298K_resistance_k_per_w": 12.006195890704149,
+    "diagnostic_gas_precision": "float32",
+    "scope": "Observed ordinary exterior ABS gas films only"
+  },
+  "radiation": {
+    "time_s": 3499.999999999918,
+    "panels": [
+      {
+        "solid": "ABS:+x",
+        "area_m2": 0.015824000000000005,
+        "center_mean_temperature_k": 904.0072915331933,
+        "center_min_temperature_k": 746.2290064005434,
+        "center_max_temperature_k": 988.9896123598684,
+        "blackbody_mean_center_estimate_w": 592.170283945337,
+        "blackbody_min_center_estimate_w": 271.14770362954994,
+        "blackbody_max_center_estimate_w": 851.3199788614265
+      },
+      {
+        "solid": "ABS:+y",
+        "area_m2": 0.007619333872002294,
+        "center_mean_temperature_k": 871.9636553984899,
+        "center_min_temperature_k": 753.4601156362872,
+        "center_max_temperature_k": 918.033674244831,
+        "blackbody_mean_center_estimate_w": 246.34561319530653,
+        "blackbody_min_center_estimate_w": 135.8278237137398,
+        "blackbody_max_center_estimate_w": 303.4621509277451
+      },
+      {
+        "solid": "ABS:+z",
+        "area_m2": 0.013525866832934262,
+        "center_mean_temperature_k": 978.0285049700055,
+        "center_min_temperature_k": 870.382101884601,
+        "center_max_temperature_k": 1093.139623557742,
+        "blackbody_mean_center_estimate_w": 695.6901579000886,
+        "blackbody_min_center_estimate_w": 434.10555367697157,
+        "blackbody_max_center_estimate_w": 1089.103976609993
+      },
+      {
+        "solid": "ABS:-x",
+        "area_m2": 0.015824000000000005,
+        "center_mean_temperature_k": 888.875776409163,
+        "center_min_temperature_k": 742.9586776264149,
+        "center_max_temperature_k": 961.5316391306226,
+        "blackbody_mean_center_estimate_w": 553.0441207299418,
+        "blackbody_min_center_estimate_w": 266.30218985289537,
+        "blackbody_max_center_estimate_w": 759.886634148524
+      },
+      {
+        "solid": "ABS:-y",
+        "area_m2": 0.007619333872002294,
+        "center_mean_temperature_k": 872.2206993553051,
+        "center_min_temperature_k": 756.3805560798107,
+        "center_max_temperature_k": 918.1577196192169,
+        "blackbody_mean_center_estimate_w": 246.64024750096024,
+        "blackbody_min_center_estimate_w": 137.99923496909443,
+        "blackbody_max_center_estimate_w": 303.6280458770772
+      },
+      {
+        "solid": "ABS:-z",
+        "area_m2": 0.013525866832934262,
+        "center_mean_temperature_k": 831.1715523182338,
+        "center_min_temperature_k": 754.4951224099365,
+        "center_max_temperature_k": 913.8402257339209,
+        "blackbody_mean_center_estimate_w": 359.98864767227116,
+        "blackbody_min_center_estimate_w": 242.48299651819826,
+        "blackbody_max_center_estimate_w": 528.8213256833203
+      }
+    ],
+    "blackbody_center_based_potential_per_unit_emissivity_viewfactor_w": 2693.879070943906,
+    "sensitivity_not_assumed_physics": {
+      "0.05": 134.6939535471953,
+      "0.1": 269.3879070943906,
+      "0.3": 808.1637212831718
+    },
+    "emissivity_measured": false,
+    "view_factors_measured": false,
+    "added_to_solver": false,
+    "limitations": "Potential using voxel-center temperatures, not solved surface radiation or a predicted cooling trajectory; material survival uncertain"
+  },
+  "residue": {
+    "last_observed_s": 4089.9999999999045,
+    "retained_r1_r2_residue_kg": 0.5025217880383652,
+    "retained_residue_capacity_j_k": 402.0174304306921,
+    "retained_residue_sensible_energy_uniform_mean_estimate_j": 289781.62327074545,
+    "condensed_ejecta_transport_implemented": false,
+    "note": "NOT all residue should be ejected; requires cell-specific post-test/ejecta mass evidence. Existing gas/vapor/latent energy already exported and must not be counted twice."
+  },
+  "abs": {
+    "structural_damage_implemented": false,
+    "pyrolysis_implemented": false,
+    "temperature_dependent_material_removal_implemented": false
+  },
+  "support": {
+    "explicit_solid_contact_present": false,
+    "experiment_support_contact_confirmed": false
+  },
+  "sources": {
+    "ejecta": "https://www.nasa.gov/centers-and-facilities/nesc/calorimetry-of-lithium-ion-cells-during-thermal-runaway/",
+    "fractional_mass_data": "https://www.nlr.gov/transportation/battery-failure"
+  }
+}

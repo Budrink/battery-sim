@@ -1,0 +1,132 @@
+{
+  "status": "stopped",
+  "pid": 2154868,
+  "stage": "heater-calibration",
+  "trials": [
+    {
+      "gain": 0.21405515446686751,
+      "status": "pruned",
+      "reason": "Pruned: Warmup cannot meet the required error bound",
+      "metrics": {
+        "rmse_k": 83.82151902025484,
+        "max_abs_k": 1049.6436240299536,
+        "final_error_k": 1049.6436240299536,
+        "final_time_s": 1280.0,
+        "final_mean_c": 1169.2946240299534,
+        "final_t5_c": 119.65100000000001
+      },
+      "last_observed_s": 1280.0
+    },
+    {
+      "gain": 0.125,
+      "status": "pruned",
+      "reason": "Pruned: Warmup cannot meet the required error bound",
+      "metrics": {
+        "rmse_k": 10.757787071131736,
+        "max_abs_k": 20.019654893048255,
+        "final_error_k": -20.019654893048255,
+        "final_time_s": 995.0,
+        "final_mean_c": 74.15634510695173,
+        "final_t5_c": 94.17599999999999
+      },
+      "last_observed_s": 995.0
+    },
+    {
+      "gain": 0.13919804906097372,
+      "status": "pruned",
+      "reason": "Pruned: Warmup cannot meet the required error bound",
+      "metrics": {
+        "rmse_k": 9.81533337352717,
+        "max_abs_k": 18.45882693748979,
+        "final_error_k": -18.45882693748979,
+        "final_time_s": 1109.9999999999227,
+        "final_mean_c": 86.39717306248917,
+        "final_t5_c": 104.85599999997896
+      },
+      "last_observed_s": 1109.9999999999227
+    },
+    {
+      "gain": 0.15170910867331386,
+      "status": "pruned",
+      "reason": "Saved prefix already exceeds 10 K acceptance limit",
+      "metrics": {
+        "rmse_k": 6.384792383779588,
+        "max_abs_k": 12.162806943079488,
+        "final_error_k": -12.0773788095986,
+        "final_time_s": 980.0,
+        "final_mean_c": 80.90462119040137,
+        "final_t5_c": 92.98199999999997
+      },
+      "last_observed_s": 980.0,
+      "run_path": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-heater-20261027-r1/heater-03/replay/incomplete-run.json.gz",
+      "run_sha256": "786a2f47ad6b5df6f579b768e747f07d39beb6ac57d2901b84968e60634e7381"
+    },
+    {
+      "gain": 0.16252286270252647,
+      "status": "pruned",
+      "reason": "Pruned: Warmup cannot meet the required error bound",
+      "metrics": {
+        "rmse_k": 5.294814988722199,
+        "max_abs_k": 10.097715186231824,
+        "final_error_k": -10.097715186231824,
+        "final_time_s": 1034.999999999991,
+        "final_mean_c": 88.08728481376443,
+        "final_t5_c": 98.18499999999625
+      },
+      "last_observed_s": 1034.999999999991
+    },
+    {
+      "gain": 0.17172625889236837,
+      "status": "pruned",
+      "reason": "Pruned: Warmup cannot meet the required error bound",
+      "metrics": {
+        "rmse_k": 5.150324357192028,
+        "max_abs_k": 10.220445711970683,
+        "final_error_k": -10.167026887508712,
+        "final_time_s": 1214.9999999999318,
+        "final_mean_c": 105.99597311248311,
+        "final_t5_c": 116.16299999999183
+      },
+      "last_observed_s": 1214.9999999999318
+    },
+    {
+      "gain": 0.17946282714040176,
+      "status": "pruned",
+      "reason": "Pruned: Warmup cannot meet the required error bound",
+      "metrics": {
+        "rmse_k": 65.09356892073211,
+        "max_abs_k": 1051.2927775073956,
+        "final_error_k": 1051.2927775073956,
+        "final_time_s": 1410.0,
+        "final_mean_c": 1187.2297775073957,
+        "final_t5_c": 135.937
+      },
+      "last_observed_s": 1410.0
+    }
+  ],
+  "source_sha256": "1fd65871a515e39932156a0998f99531b88aeab72da8cea533a1dcf989300733",
+  "core_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "experiment_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "sensor_face": "+x",
+  "sensor_mapping_confirmed": false,
+  "feedforward_w": 0.0,
+  "max_power_w": 30.0,
+  "fixed": "geometry, materials, contacts, chemistry, heater ramp and maximum power",
+  "calibrated": false,
+  "validation_passed": false,
+  "active_trial": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-heater-20261027-r1/heater-07",
+  "gain": 0.17324641960864867,
+  "progress": {
+    "time_s": 390.0,
+    "wall_s": 100.043854125,
+    "metrics": {
+      "rmse_k": 3.9378490901692724,
+      "max_abs_k": 5.589582732634142,
+      "final_error_k": 2.671762948570688,
+      "final_time_s": 390.0,
+      "final_mean_c": 41.89676294857071,
+      "final_t5_c": 39.22500000000002
+    },
+    "physical_error": null
+  }
+}

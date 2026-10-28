@@ -1,0 +1,125 @@
+{
+  "status": "stopped",
+  "pid": 1949338,
+  "native_sha256": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "trials": 23,
+  "calibrated": false,
+  "validation_passed": false,
+  "engineering_cooling_converged": false,
+  "explosion_priority": true,
+  "best_trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-explosion-priority-20261026-r1/trial-0023",
+  "best_burst": {
+    "evaluated": true,
+    "accepted": true,
+    "phase_window_complete": true,
+    "last_observed_s": 5945.0,
+    "reference": {
+      "peak_time_s": 2580.0,
+      "peak_temperature_k": 1180.801,
+      "local_base_time_s": 2529.0,
+      "local_base_temperature_k": 434.335,
+      "rise50_time_s": 2569.7436140226287,
+      "rise90_time_s": 2575.532131895479,
+      "rise50_90_duration_s": 5.788517872850207,
+      "window_start_s": 1701.0,
+      "window_end_s": 3600.0,
+      "evaluation_after_s": 2720.0,
+      "scope": "Collective median thermal front; 9 TC versus 30 component means, no sensor mapping"
+    },
+    "policy": {
+      "timing_target_s": 10.0,
+      "timing_limit_s": 100.0,
+      "phase_end_s": 3600.0,
+      "confirmation_s": 40.0,
+      "smoothing_seconds": 11,
+      "ascent_lookback_s": 300.0,
+      "peak_absolute_tolerance_k": 250.0,
+      "peak_relative_kelvin_tolerance": 0.25,
+      "maximum_rise_duration_factor": 4.0,
+      "rise_duration_slack_s": 30.0,
+      "minimum_converted_components": 2
+    },
+    "scope": "Collective median thermal front; 9 TC versus 30 component means, no sensor mapping",
+    "measured": {
+      "peak_time_s": 2582.0,
+      "peak_temperature_k": 1362.105029290553,
+      "local_base_time_s": 2282.0,
+      "local_base_temperature_k": 315.0081502554767,
+      "rise50_time_s": 2563.7589981874135,
+      "rise90_time_s": 2575.042256071044,
+      "rise50_90_duration_s": 11.28325788363054
+    },
+    "converted_components": 30,
+    "timing_offsets_s": {
+      "peak_time_s": 2.0,
+      "rise50_time_s": -5.984615835215209,
+      "rise90_time_s": -0.48987582443487554
+    },
+    "timing_error_s": 5.984615835215209,
+    "timing_target_met": true,
+    "peak_error_k": 181.304029290553,
+    "peak_error_limit_k": 295.20025,
+    "rise_duration_limit_s": 35.78851787285021,
+    "constraint": 0.0,
+    "reason": null
+  },
+  "development_record": "5fc1c93083d3ef46066d3da75ee38ad2f1ea77a924fb105757e91847a3a87564",
+  "active_trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-explosion-priority-20261026-r1/trial-0024",
+  "parameters": {
+    "effective_emissivity": 0.7507272120159529,
+    "thermal_stirring_coefficient": 0.06954470980093481
+  },
+  "proposal": {
+    "method": "constrained-gp-expected-improvement",
+    "feasible_probability": 0.1475658532359348,
+    "expected_improvement": 0.21860498233741105,
+    "predicted_log_loss": -0.14167385864149917,
+    "posterior_sd": 0.3255200514397898,
+    "predicted_wall_s": 2473.0813620271933,
+    "radius": 0.09719999999999998,
+    "kernel_length": 0.06,
+    "objective_scope": "Completed collective-burst window first; observed cooling anchor only breaks timing ties"
+  },
+  "progress": {
+    "status": "running",
+    "last_completed_observation_s": 385.0,
+    "live_advanced_to_s": 389.60000000000105,
+    "wall_s": 140.209736371,
+    "minimum_regular_step_s": 0.09999999999888587,
+    "burst": {
+      "evaluated": false,
+      "accepted": null,
+      "phase_window_complete": false,
+      "last_observed_s": 385.0,
+      "reference": {
+        "peak_time_s": 2580.0,
+        "peak_temperature_k": 1180.801,
+        "local_base_time_s": 2529.0,
+        "local_base_temperature_k": 434.335,
+        "rise50_time_s": 2569.7436140226287,
+        "rise90_time_s": 2575.532131895479,
+        "rise50_90_duration_s": 5.788517872850207,
+        "window_start_s": 1701.0,
+        "window_end_s": 3600.0,
+        "evaluation_after_s": 2720.0,
+        "scope": "Collective median thermal front; 9 TC versus 30 component means, no sensor mapping"
+      },
+      "policy": {
+        "timing_target_s": 10.0,
+        "timing_limit_s": 100.0,
+        "phase_end_s": 3600.0,
+        "confirmation_s": 40.0,
+        "smoothing_seconds": 11,
+        "ascent_lookback_s": 300.0,
+        "peak_absolute_tolerance_k": 250.0,
+        "peak_relative_kelvin_tolerance": 0.25,
+        "maximum_rise_duration_factor": 4.0,
+        "rise_duration_slack_s": 30.0,
+        "minimum_converted_components": 2
+      },
+      "scope": "Collective median thermal front; 9 TC versus 30 component means, no sensor mapping"
+    }
+  },
+  "best_last_observed_s": 5945.0,
+  "best_anchor_rmse_k": 86.47631622662797
+}

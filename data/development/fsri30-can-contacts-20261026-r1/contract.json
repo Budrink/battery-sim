@@ -1,0 +1,581 @@
+{
+  "native_sha256": "6aa586496f59297caa81356c0fff28a17ffe733ba4a9693fb6f4a7e951f7813e",
+  "base_sha256": "90697fc50e20f1eaa6c5670aee96d4c14ce8a7d7f7bd2073b3575ebc8d192103",
+  "csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "seed_parameters": {
+    "r2_rate_scale": 0.02300523837999681,
+    "gas_can_contact_scale": 1.0,
+    "cross_column_open_fraction": 1.0,
+    "axial_open_fraction": 1.0,
+    "thermal_stirring_coefficient": 0.06722339346183823,
+    "effective_emissivity": 0.7664775109756737
+  },
+  "policy": {
+    "phase_end_s": 3600.0,
+    "smoothing_s": 5,
+    "pulse_half_window_s": 10,
+    "pulse_minimum_rise_k": 150.0,
+    "pulse_minimum_slope_k_s": 5.0,
+    "pulse_separation_s": 25,
+    "group_span_s": 35.0,
+    "hot_threshold_k": 773.15,
+    "timing_limit_s": 100.0,
+    "timing_target_s": 10.0,
+    "confirmation_s": 40.0
+  },
+  "contact_hypothesis": {
+    "width_m": 0.001,
+    "contact_h_w_m2_k": 1000.0,
+    "width_measured": false,
+    "contact_h_measured": false,
+    "contact_pairs": [
+      {
+        "a": "B00",
+        "b": "B01",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B00",
+        "b": "B07",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B00",
+        "b": "B08",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B01",
+        "b": "B02",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B01",
+        "b": "B08",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B01",
+        "b": "B09",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B02",
+        "b": "B03",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B02",
+        "b": "B09",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B03",
+        "b": "B04",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B03",
+        "b": "B11",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B04",
+        "b": "B05",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B04",
+        "b": "B11",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B04",
+        "b": "B12",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B05",
+        "b": "B06",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B05",
+        "b": "B12",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B05",
+        "b": "B13",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B06",
+        "b": "B13",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B06",
+        "b": "B14",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B07",
+        "b": "B08",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B07",
+        "b": "B15",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B08",
+        "b": "B09",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B08",
+        "b": "B15",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B08",
+        "b": "B16",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B09",
+        "b": "B10",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B09",
+        "b": "B16",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B09",
+        "b": "B17",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B10",
+        "b": "B11",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B10",
+        "b": "B17",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B10",
+        "b": "B18",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B11",
+        "b": "B12",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B11",
+        "b": "B18",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B11",
+        "b": "B19",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B12",
+        "b": "B13",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B12",
+        "b": "B19",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B12",
+        "b": "B20",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B13",
+        "b": "B14",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B13",
+        "b": "B20",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B13",
+        "b": "B21",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B14",
+        "b": "B21",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B14",
+        "b": "B22",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B15",
+        "b": "B16",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B15",
+        "b": "B23",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B16",
+        "b": "B17",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B16",
+        "b": "B23",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B16",
+        "b": "B24",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B17",
+        "b": "B18",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B17",
+        "b": "B24",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B17",
+        "b": "B25",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B18",
+        "b": "B19",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B18",
+        "b": "B25",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B18",
+        "b": "B26",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B19",
+        "b": "B20",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B19",
+        "b": "B26",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B19",
+        "b": "B27",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B20",
+        "b": "B21",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B20",
+        "b": "B27",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B20",
+        "b": "B28",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B21",
+        "b": "B22",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B21",
+        "b": "B28",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B21",
+        "b": "B29",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B22",
+        "b": "B29",
+        "face_a": "+x",
+        "face_b": "-x",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B23",
+        "b": "B24",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B24",
+        "b": "B25",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B25",
+        "b": "B26",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B26",
+        "b": "B27",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B27",
+        "b": "B28",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      },
+      {
+        "a": "B28",
+        "b": "B29",
+        "face_a": "+y",
+        "face_b": "-y",
+        "area_m2": 6.500000000000001e-05,
+        "nominal_conductance_w_k": 0.065
+      }
+    ],
+    "excluded_heater_side": true,
+    "gas_film_exposure": "area-averaged strip exclusion",
+    "positions": "digitised drawing; assumed close packed; no physical gaps validated",
+    "gas_passages": "retained prior geometry; not resolved for zero-gap contacts",
+    "validation_passed": false
+  },
+  "script_sha256": "3bb4e9b07cedd53db397aad01dd5fddd795db0bed72119cf0394eb1a75a03628",
+  "adapter_sha256": "ea4c1ecbb748f6f9135b17d477dd4307b9fa03b49c45872f44247190f118fa41",
+  "fresh_from_zero": true,
+  "minimum_realtime_ratio": 0.2,
+  "calibrated": false,
+  "validation_passed": false
+}

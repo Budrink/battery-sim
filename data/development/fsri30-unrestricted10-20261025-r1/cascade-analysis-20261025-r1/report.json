@@ -1,0 +1,3006 @@
+{
+  "status": "stopped-cascade-compared",
+  "observed_through_s": 2524.9999999999773,
+  "fine_live_time_s": 2525.9999999999764,
+  "fine_wall_s": 6176.66642031,
+  "full_requested_horizon_s": 5945.0,
+  "full_horizon_complete": false,
+  "native_sha256": "e7386cc42effc14e1c8bf6a2ffa6c225b77935921458ca5aadfaa9df7cc59f56",
+  "previous_fine_prefix_repeat": {
+    "accepted": true,
+    "tolerance": 1e-10,
+    "maximum_scaled_difference": 0.0,
+    "compared_fields": 52,
+    "until_s": 2240.0,
+    "changed_fields": {}
+  },
+  "global_comparison": {
+    "accepted": false,
+    "maximum_component_rms_relative_kelvin": 0.045271600153201835,
+    "r3_energy_relative_difference": 0.006517674846855674,
+    "reactive_window_exercised": true,
+    "r3_cumulative_rms_relative_difference": 0.012349599854336545,
+    "hottest_external_gas_rms_relative_kelvin": 0.060677980741660774,
+    "same_conversion_count": true,
+    "same_conversion_order": false,
+    "maximum_conversion_time_relative_difference": 0.004437525050995217,
+    "tolerance": 0.05,
+    "scope": "spatial convergence on computed horizon only; NOT experimental validation"
+  },
+  "phases": {
+    "before_cascade": {
+      "accepted": true,
+      "start_s": 0.0,
+      "end_s": 2199.9999999999227,
+      "tolerance": 0.05,
+      "maximum_component_rms_relative_kelvin": 0.004933563303682169,
+      "hottest_gas_rms_relative_kelvin": 0.01754587874499237,
+      "r3_increment_relative_difference": 0.0022497507959498447,
+      "r3_increment_shape_relative_difference": 0.005002334812236957,
+      "r3_increment_j": [
+        68700.6344910581,
+        68855.54230215793
+      ]
+    },
+    "cascade": {
+      "accepted": false,
+      "start_s": 2199.9999999999227,
+      "end_s": 2399.999999999982,
+      "tolerance": 0.05,
+      "maximum_component_rms_relative_kelvin": 0.15808262302469775,
+      "hottest_gas_rms_relative_kelvin": 0.20473550384706213,
+      "r3_increment_relative_difference": 0.07253348237212986,
+      "r3_increment_shape_relative_difference": 0.050510852577285194,
+      "r3_increment_j": [
+        1822800.1884306078,
+        1690586.1430951613
+      ]
+    },
+    "after_cascade": {
+      "accepted": false,
+      "start_s": 2399.999999999982,
+      "end_s": 2524.9999999999727,
+      "tolerance": 0.05,
+      "maximum_component_rms_relative_kelvin": 0.00847077351318326,
+      "hottest_gas_rms_relative_kelvin": 0.018541964214168084,
+      "r3_increment_relative_difference": 0.1868717961625784,
+      "r3_increment_shape_relative_difference": 0.135102900226893,
+      "r3_increment_j": [
+        506613.1645890181,
+        623042.1748970735
+      ]
+    }
+  },
+  "events": {
+    "events": [
+      {
+        "component": "B10",
+        "coarse_event_s": 1105.3444146376805,
+        "fine_event_s": 1105.336221095563,
+        "raw_delay_s": -0.00819354211762402,
+        "event_aligned_rms_relative_kelvin": 0.004506234236313332,
+        "event_aligned_maximum_relative_kelvin": 0.023427043860291055,
+        "coarse_peak_k": 1430.0118863437824,
+        "fine_peak_k": 1396.510935161669,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            1105.0,
+            1110.0
+          ],
+          "10": [
+            1105.0,
+            1110.0
+          ]
+        },
+        "delay_bracket_s": [
+          -5.0,
+          5.0
+        ]
+      },
+      {
+        "component": "B09",
+        "coarse_event_s": 2230.107294117922,
+        "fine_event_s": 2240.0475612865516,
+        "raw_delay_s": 9.940267168629816,
+        "event_aligned_rms_relative_kelvin": 0.0058444235260999055,
+        "event_aligned_maximum_relative_kelvin": 0.01685797116295337,
+        "coarse_peak_k": 1384.7926932360465,
+        "fine_peak_k": 1361.4478979468047,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2230.0,
+            2235.0
+          ],
+          "10": [
+            2240.0,
+            2245.0
+          ]
+        },
+        "delay_bracket_s": [
+          5.0,
+          15.0
+        ]
+      },
+      {
+        "component": "B11",
+        "coarse_event_s": 2256.227936579413,
+        "fine_event_s": 2260.216346802047,
+        "raw_delay_s": 3.9884102226342293,
+        "event_aligned_rms_relative_kelvin": 0.0756123725245764,
+        "event_aligned_maximum_relative_kelvin": 0.459469124431427,
+        "coarse_peak_k": 1327.5570788039643,
+        "fine_peak_k": 1385.318161871486,
+        "event_aligned_shape_passes": false,
+        "observed_event_brackets_s": {
+          "20": [
+            2255.0,
+            2260.0
+          ],
+          "10": [
+            2260.0,
+            2265.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B02",
+        "coarse_event_s": 2276.081505014706,
+        "fine_event_s": 2281.921532255049,
+        "raw_delay_s": 5.840027240342806,
+        "event_aligned_rms_relative_kelvin": 0.008228053108429001,
+        "event_aligned_maximum_relative_kelvin": 0.049608754958172595,
+        "coarse_peak_k": 1347.1144420400406,
+        "fine_peak_k": 1345.5230826075435,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2275.0,
+            2280.0
+          ],
+          "10": [
+            2280.0,
+            2285.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B03",
+        "coarse_event_s": 2285.183321885514,
+        "fine_event_s": 2287.0132899216337,
+        "raw_delay_s": 1.8299680361196806,
+        "event_aligned_rms_relative_kelvin": 0.05931396833445517,
+        "event_aligned_maximum_relative_kelvin": 0.35984883359630976,
+        "coarse_peak_k": 1373.3899536812087,
+        "fine_peak_k": 1355.675534976694,
+        "event_aligned_shape_passes": false,
+        "observed_event_brackets_s": {
+          "20": [
+            2285.0,
+            2290.0
+          ],
+          "10": [
+            2285.0,
+            2290.0
+          ]
+        },
+        "delay_bracket_s": [
+          -5.0,
+          5.0
+        ]
+      },
+      {
+        "component": "B17",
+        "coarse_event_s": 2295.2141140892663,
+        "fine_event_s": 2295.3622356434657,
+        "raw_delay_s": 0.1481215541994061,
+        "event_aligned_rms_relative_kelvin": 0.044931614807973835,
+        "event_aligned_maximum_relative_kelvin": 0.26914369324669174,
+        "coarse_peak_k": 1388.8778928677982,
+        "fine_peak_k": 1345.483434545107,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2295.0,
+            2300.0
+          ],
+          "10": [
+            2295.0,
+            2300.0
+          ]
+        },
+        "delay_bracket_s": [
+          -5.0,
+          5.0
+        ]
+      },
+      {
+        "component": "B18",
+        "coarse_event_s": 2295.233139098558,
+        "fine_event_s": 2300.2270751845235,
+        "raw_delay_s": 4.993936085965743,
+        "event_aligned_rms_relative_kelvin": 0.001919901490079401,
+        "event_aligned_maximum_relative_kelvin": 0.003273632773802206,
+        "coarse_peak_k": 1381.0070797082687,
+        "fine_peak_k": 1380.768044467648,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2295.0,
+            2300.0
+          ],
+          "10": [
+            2300.0,
+            2305.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B01",
+        "coarse_event_s": 2315.6704992782857,
+        "fine_event_s": 2320.678039760408,
+        "raw_delay_s": 5.007540482122295,
+        "event_aligned_rms_relative_kelvin": 0.0021235329226222577,
+        "event_aligned_maximum_relative_kelvin": 0.0052162116182146254,
+        "coarse_peak_k": 1368.8035175663638,
+        "fine_peak_k": 1369.1785881781584,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2315.0,
+            2320.0
+          ],
+          "10": [
+            2320.0,
+            2325.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B04",
+        "coarse_event_s": 2325.4288734581437,
+        "fine_event_s": 2328.017480924946,
+        "raw_delay_s": 2.5886074668023866,
+        "event_aligned_rms_relative_kelvin": 0.042068345282953536,
+        "event_aligned_maximum_relative_kelvin": 0.2523881267661887,
+        "coarse_peak_k": 1399.582881099692,
+        "fine_peak_k": 1370.223850543393,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2325.0,
+            2330.0
+          ],
+          "10": [
+            2325.0,
+            2330.0
+          ]
+        },
+        "delay_bracket_s": [
+          -5.0,
+          5.0
+        ]
+      },
+      {
+        "component": "B08",
+        "coarse_event_s": 2336.366636035602,
+        "fine_event_s": 2345.4291864255097,
+        "raw_delay_s": 9.062550389907756,
+        "event_aligned_rms_relative_kelvin": 0.06384150638942873,
+        "event_aligned_maximum_relative_kelvin": 0.38540830562872264,
+        "coarse_peak_k": 1375.080443747439,
+        "fine_peak_k": 1407.7397764726034,
+        "event_aligned_shape_passes": false,
+        "observed_event_brackets_s": {
+          "20": [
+            2335.0,
+            2340.0
+          ],
+          "10": [
+            2345.0,
+            2350.0
+          ]
+        },
+        "delay_bracket_s": [
+          5.0,
+          15.0
+        ]
+      },
+      {
+        "component": "B16",
+        "coarse_event_s": 2340.4296332027775,
+        "fine_event_s": 2345.4084645413727,
+        "raw_delay_s": 4.978831338595228,
+        "event_aligned_rms_relative_kelvin": 0.0033013571983829086,
+        "event_aligned_maximum_relative_kelvin": 0.008798850628981529,
+        "coarse_peak_k": 1410.0843497199398,
+        "fine_peak_k": 1397.6772281524895,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2340.0,
+            2345.0
+          ],
+          "10": [
+            2345.0,
+            2350.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B19",
+        "coarse_event_s": 2345.4361214156097,
+        "fine_event_s": 2350.437185810995,
+        "raw_delay_s": 5.001064395385129,
+        "event_aligned_rms_relative_kelvin": 0.002861925100733404,
+        "event_aligned_maximum_relative_kelvin": 0.0045621938192757635,
+        "coarse_peak_k": 1414.7168487274346,
+        "fine_peak_k": 1417.3020187699806,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2345.0,
+            2350.0
+          ],
+          "10": [
+            2350.0,
+            2355.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B00",
+        "coarse_event_s": 2346.407234513205,
+        "fine_event_s": 2355.441160592584,
+        "raw_delay_s": 9.033926079378944,
+        "event_aligned_rms_relative_kelvin": 0.06177463460469143,
+        "event_aligned_maximum_relative_kelvin": 0.3719334925609477,
+        "coarse_peak_k": 1384.0503300709527,
+        "fine_peak_k": 1404.7331230791897,
+        "event_aligned_shape_passes": false,
+        "observed_event_brackets_s": {
+          "20": [
+            2345.0,
+            2350.0
+          ],
+          "10": [
+            2355.0,
+            2360.0
+          ]
+        },
+        "delay_bracket_s": [
+          5.0,
+          15.0
+        ]
+      },
+      {
+        "component": "B12",
+        "coarse_event_s": 2346.4093393935113,
+        "fine_event_s": 2355.2292791616132,
+        "raw_delay_s": 8.819939768101904,
+        "event_aligned_rms_relative_kelvin": 0.060970018686019437,
+        "event_aligned_maximum_relative_kelvin": 0.36686726296421823,
+        "coarse_peak_k": 1388.183895990291,
+        "fine_peak_k": 1399.0073088924332,
+        "event_aligned_shape_passes": false,
+        "observed_event_brackets_s": {
+          "20": [
+            2345.0,
+            2350.0
+          ],
+          "10": [
+            2355.0,
+            2360.0
+          ]
+        },
+        "delay_bracket_s": [
+          5.0,
+          15.0
+        ]
+      },
+      {
+        "component": "B25",
+        "coarse_event_s": 2350.2746812665996,
+        "fine_event_s": 2355.440645301141,
+        "raw_delay_s": 5.165964034541503,
+        "event_aligned_rms_relative_kelvin": 0.004306465067903738,
+        "event_aligned_maximum_relative_kelvin": 0.015893555511060236,
+        "coarse_peak_k": 1416.2369756608023,
+        "fine_peak_k": 1413.013355082172,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2350.0,
+            2355.0
+          ],
+          "10": [
+            2355.0,
+            2360.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B07",
+        "coarse_event_s": 2355.2474614806542,
+        "fine_event_s": 2360.4701936942465,
+        "raw_delay_s": 5.2227322135922805,
+        "event_aligned_rms_relative_kelvin": 0.008686207244381388,
+        "event_aligned_maximum_relative_kelvin": 0.02453147259273257,
+        "coarse_peak_k": 1401.858909856736,
+        "fine_peak_k": 1426.7918937152972,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2355.0,
+            2360.0
+          ],
+          "10": [
+            2360.0,
+            2365.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B05",
+        "coarse_event_s": 2355.2932523072614,
+        "fine_event_s": 2360.7106104950885,
+        "raw_delay_s": 5.417358187827176,
+        "event_aligned_rms_relative_kelvin": 0.03900018683994814,
+        "event_aligned_maximum_relative_kelvin": 0.2366152631723072,
+        "coarse_peak_k": 1409.1339010756712,
+        "fine_peak_k": 1385.9007567405445,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2355.0,
+            2360.0
+          ],
+          "10": [
+            2360.0,
+            2365.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B26",
+        "coarse_event_s": 2355.4641225385594,
+        "fine_event_s": 2360.4663877024827,
+        "raw_delay_s": 5.002265163923312,
+        "event_aligned_rms_relative_kelvin": 0.002373298672093731,
+        "event_aligned_maximum_relative_kelvin": 0.006129401971787966,
+        "coarse_peak_k": 1382.7621798684431,
+        "fine_peak_k": 1383.825635486366,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2355.0,
+            2360.0
+          ],
+          "10": [
+            2360.0,
+            2365.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B24",
+        "coarse_event_s": 2355.6966190131297,
+        "fine_event_s": 2361.358305111808,
+        "raw_delay_s": 5.661686098678274,
+        "event_aligned_rms_relative_kelvin": 0.03154600803159173,
+        "event_aligned_maximum_relative_kelvin": 0.18875443645319143,
+        "coarse_peak_k": 1390.3826950646246,
+        "fine_peak_k": 1386.394905110297,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2355.0,
+            2360.0
+          ],
+          "10": [
+            2360.0,
+            2365.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B15",
+        "coarse_event_s": 2356.4209247226354,
+        "fine_event_s": 2361.4508667255786,
+        "raw_delay_s": 5.029942002943244,
+        "event_aligned_rms_relative_kelvin": 0.002844255415005427,
+        "event_aligned_maximum_relative_kelvin": 0.008703010944156644,
+        "coarse_peak_k": 1391.1239849165177,
+        "fine_peak_k": 1395.6045341290258,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2355.0,
+            2360.0
+          ],
+          "10": [
+            2360.0,
+            2365.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B23",
+        "coarse_event_s": 2360.465308344504,
+        "fine_event_s": 2365.3049889582167,
+        "raw_delay_s": 4.839680613712517,
+        "event_aligned_rms_relative_kelvin": 0.004196687976482783,
+        "event_aligned_maximum_relative_kelvin": 0.020350120360557417,
+        "coarse_peak_k": 1423.7781027819897,
+        "fine_peak_k": 1420.4837099838594,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2360.0,
+            2365.0
+          ],
+          "10": [
+            2365.0,
+            2370.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B20",
+        "coarse_event_s": 2361.4607586931547,
+        "fine_event_s": 2370.7093704265935,
+        "raw_delay_s": 9.248611733438793,
+        "event_aligned_rms_relative_kelvin": 0.03230926056592838,
+        "event_aligned_maximum_relative_kelvin": 0.18772509933372467,
+        "coarse_peak_k": 1384.5096612884643,
+        "fine_peak_k": 1386.8279443243287,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2360.0,
+            2365.0
+          ],
+          "10": [
+            2370.0,
+            2375.0
+          ]
+        },
+        "delay_bracket_s": [
+          5.0,
+          15.0
+        ]
+      },
+      {
+        "component": "B06",
+        "coarse_event_s": 2361.4669269663177,
+        "fine_event_s": 2370.9872494318947,
+        "raw_delay_s": 9.52032246557701,
+        "event_aligned_rms_relative_kelvin": 0.011672993281562783,
+        "event_aligned_maximum_relative_kelvin": 0.05577778351182217,
+        "coarse_peak_k": 1389.71245377663,
+        "fine_peak_k": 1387.776641581665,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2360.0,
+            2365.0
+          ],
+          "10": [
+            2370.0,
+            2375.0
+          ]
+        },
+        "delay_bracket_s": [
+          5.0,
+          15.0
+        ]
+      },
+      {
+        "component": "B13",
+        "coarse_event_s": 2365.3071493499892,
+        "fine_event_s": 2370.721432646947,
+        "raw_delay_s": 5.414283296957819,
+        "event_aligned_rms_relative_kelvin": 0.04026636661522862,
+        "event_aligned_maximum_relative_kelvin": 0.244232504916422,
+        "coarse_peak_k": 1416.8500067271864,
+        "fine_peak_k": 1386.9594414160542,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2365.0,
+            2370.0
+          ],
+          "10": [
+            2370.0,
+            2375.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B27",
+        "coarse_event_s": 2365.4744807943575,
+        "fine_event_s": 2370.479174006006,
+        "raw_delay_s": 5.004693211648373,
+        "event_aligned_rms_relative_kelvin": 0.0030570520470892177,
+        "event_aligned_maximum_relative_kelvin": 0.006958356501121023,
+        "coarse_peak_k": 1421.8223072302321,
+        "fine_peak_k": 1431.7851789383062,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2365.0,
+            2370.0
+          ],
+          "10": [
+            2370.0,
+            2375.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B14",
+        "coarse_event_s": 2370.267815692195,
+        "fine_event_s": 2376.3260920360517,
+        "raw_delay_s": 6.058276343856505,
+        "event_aligned_rms_relative_kelvin": 0.06071386102188375,
+        "event_aligned_maximum_relative_kelvin": 0.3666527566561196,
+        "coarse_peak_k": 1408.1899125993193,
+        "fine_peak_k": 1391.8158714371061,
+        "event_aligned_shape_passes": false,
+        "observed_event_brackets_s": {
+          "20": [
+            2370.0,
+            2375.0
+          ],
+          "10": [
+            2375.0,
+            2380.0
+          ]
+        },
+        "delay_bracket_s": [
+          0.0,
+          10.0
+        ]
+      },
+      {
+        "component": "B22",
+        "coarse_event_s": 2370.289400046482,
+        "fine_event_s": 2380.283460296864,
+        "raw_delay_s": 9.994060250382063,
+        "event_aligned_rms_relative_kelvin": 0.0058739417564656095,
+        "event_aligned_maximum_relative_kelvin": 0.014449177288918976,
+        "coarse_peak_k": 1408.8255803974105,
+        "fine_peak_k": 1412.3464156089537,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2370.0,
+            2375.0
+          ],
+          "10": [
+            2380.0,
+            2385.0
+          ]
+        },
+        "delay_bracket_s": [
+          5.0,
+          15.0
+        ]
+      },
+      {
+        "component": "B28",
+        "coarse_event_s": 2370.4761757343995,
+        "fine_event_s": 2380.203832612228,
+        "raw_delay_s": 9.727656877828394,
+        "event_aligned_rms_relative_kelvin": 0.009237740779886768,
+        "event_aligned_maximum_relative_kelvin": 0.029256757625054614,
+        "coarse_peak_k": 1424.8558142313495,
+        "fine_peak_k": 1401.9242636271572,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2370.0,
+            2375.0
+          ],
+          "10": [
+            2380.0,
+            2385.0
+          ]
+        },
+        "delay_bracket_s": [
+          5.0,
+          15.0
+        ]
+      },
+      {
+        "component": "B21",
+        "coarse_event_s": 2370.481822217496,
+        "fine_event_s": 2380.2854852561413,
+        "raw_delay_s": 9.803663038645482,
+        "event_aligned_rms_relative_kelvin": 0.008016919316708095,
+        "event_aligned_maximum_relative_kelvin": 0.02520384489947012,
+        "coarse_peak_k": 1438.0100892740747,
+        "fine_peak_k": 1412.0976493269804,
+        "event_aligned_shape_passes": true,
+        "observed_event_brackets_s": {
+          "20": [
+            2370.0,
+            2375.0
+          ],
+          "10": [
+            2380.0,
+            2385.0
+          ]
+        },
+        "delay_bracket_s": [
+          5.0,
+          15.0
+        ]
+      },
+      {
+        "component": "B29",
+        "coarse_event_s": 2371.43451350611,
+        "fine_event_s": 2380.475047024562,
+        "raw_delay_s": 9.040533518452321,
+        "event_aligned_rms_relative_kelvin": 0.06193274044495994,
+        "event_aligned_maximum_relative_kelvin": 0.3739019994535269,
+        "coarse_peak_k": 1399.9378516750494,
+        "fine_peak_k": 1434.8547255738988,
+        "event_aligned_shape_passes": false,
+        "observed_event_brackets_s": {
+          "20": [
+            2370.0,
+            2375.0
+          ],
+          "10": [
+            2380.0,
+            2385.0
+          ]
+        },
+        "delay_bracket_s": [
+          5.0,
+          15.0
+        ]
+      }
+    ],
+    "shared_events": 30,
+    "missing_on_fine": [],
+    "missing_on_coarse": [],
+    "shape_window_relative_to_own_event_s": [
+      -60.0,
+      120.0
+    ],
+    "shape_metric_is_diagnostic_only": true,
+    "time_predictor": {
+      "status": "diagnostic-fit",
+      "scale": 1.0045383425413459,
+      "training_components": [
+        "B09",
+        "B11",
+        "B02",
+        "B03",
+        "B17",
+        "B18",
+        "B01",
+        "B04",
+        "B08",
+        "B16",
+        "B19",
+        "B00",
+        "B12",
+        "B25"
+      ],
+      "held_out": [
+        {
+          "component": "B07",
+          "predicted_fine_event_s": 2360.911756108582,
+          "observed_fine_event_s": 2360.4701936942465,
+          "residual_s": 0.4415624143352943
+        },
+        {
+          "component": "B05",
+          "predicted_fine_event_s": 2360.9577547496456,
+          "observed_fine_event_s": 2360.7106104950885,
+          "residual_s": 0.2471442545570426
+        },
+        {
+          "component": "B26",
+          "predicted_fine_event_s": 2361.1294004485835,
+          "observed_fine_event_s": 2360.4663877024827,
+          "residual_s": 0.663012746100776
+        },
+        {
+          "component": "B24",
+          "predicted_fine_event_s": 2361.362952071795,
+          "observed_fine_event_s": 2361.358305111808,
+          "residual_s": 0.004646959986985166
+        },
+        {
+          "component": "B15",
+          "predicted_fine_event_s": 2362.0905449287147,
+          "observed_fine_event_s": 2361.4508667255786,
+          "residual_s": 0.6396782031360999
+        },
+        {
+          "component": "B23",
+          "predicted_fine_event_s": 2366.153283348828,
+          "observed_fine_event_s": 2365.3049889582167,
+          "residual_s": 0.8482943906114997
+        },
+        {
+          "component": "B20",
+          "predicted_fine_event_s": 2367.153251392144,
+          "observed_fine_event_s": 2370.7093704265935,
+          "residual_s": -3.5561190344496936
+        },
+        {
+          "component": "B06",
+          "predicted_fine_event_s": 2367.1594476590435,
+          "observed_fine_event_s": 2370.9872494318947,
+          "residual_s": -3.827801772851217
+        },
+        {
+          "component": "B13",
+          "predicted_fine_event_s": 2371.017098287327,
+          "observed_fine_event_s": 2370.721432646947,
+          "residual_s": 0.2956656403798661
+        },
+        {
+          "component": "B27",
+          "predicted_fine_event_s": 2371.185189139108,
+          "observed_fine_event_s": 2370.479174006006,
+          "residual_s": 0.7060151331020279
+        },
+        {
+          "component": "B14",
+          "predicted_fine_event_s": 2376.000277832627,
+          "observed_fine_event_s": 2376.3260920360517,
+          "residual_s": -0.32581420342467027
+        },
+        {
+          "component": "B22",
+          "predicted_fine_event_s": 2376.0219601441077,
+          "observed_fine_event_s": 2380.283460296864,
+          "residual_s": -4.2615001527565255
+        },
+        {
+          "component": "B28",
+          "predicted_fine_event_s": 2376.2095834840748,
+          "observed_fine_event_s": 2380.203832612228,
+          "residual_s": -3.9942491281531147
+        },
+        {
+          "component": "B21",
+          "predicted_fine_event_s": 2376.215255592846,
+          "observed_fine_event_s": 2380.2854852561413,
+          "residual_s": -4.070229663295322
+        },
+        {
+          "component": "B29",
+          "predicted_fine_event_s": 2377.1722705208635,
+          "observed_fine_event_s": 2380.475047024562,
+          "residual_s": -3.302776503698624
+        }
+      ],
+      "held_out_rmse_s": 2.4685224723768715,
+      "held_out_raw_delay_rmse_s": 7.312154108131789,
+      "promoted": false,
+      "scope": "Arrival-law hypothesis only, NOT physical flux correction or a solver validation"
+    },
+    "patterns_promoted": false,
+    "limitation": "Fields alone do not uniquely identify flux/source terms. Any learned closure needs conservative replay and held-out layout checks."
+  },
+  "shape_details": {
+    "rows": [
+      {
+        "component": "B00",
+        "raw_arrival_delay_s": 9.033926079378944,
+        "aligned_all_rms_relative_kelvin": 0.06177463460469143,
+        "aligned_outside_jump_rms_relative_kelvin": 0.005012461987476831,
+        "aligned_after_jump_rms_relative_kelvin": 0.0009329317687848674,
+        "recorded_peak_k": {
+          "20": 1388.9721770660149,
+          "10": 1407.3582629445766
+        },
+        "recorded_peak_relative_difference": 0.013064254044377476
+      },
+      {
+        "component": "B01",
+        "raw_arrival_delay_s": 5.007540482122295,
+        "aligned_all_rms_relative_kelvin": 0.0021235329226222577,
+        "aligned_outside_jump_rms_relative_kelvin": 0.002105553099847598,
+        "aligned_after_jump_rms_relative_kelvin": 0.0011095418455350208,
+        "recorded_peak_k": {
+          "20": 1371.210556526651,
+          "10": 1371.677639276362
+        },
+        "recorded_peak_relative_difference": 0.0003405193292772043
+      },
+      {
+        "component": "B02",
+        "raw_arrival_delay_s": 5.840027240342806,
+        "aligned_all_rms_relative_kelvin": 0.008228053108429001,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0011064121536930567,
+        "aligned_after_jump_rms_relative_kelvin": 0.0006228918624123996,
+        "recorded_peak_k": {
+          "20": 1352.202159570031,
+          "10": 1355.0675168223845
+        },
+        "recorded_peak_relative_difference": 0.0021145494351991834
+      },
+      {
+        "component": "B03",
+        "raw_arrival_delay_s": 1.8299680361196806,
+        "aligned_all_rms_relative_kelvin": 0.05931396833445517,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0020938849190388163,
+        "aligned_after_jump_rms_relative_kelvin": 0.001953882551194049,
+        "recorded_peak_k": {
+          "20": 1374.5681832564387,
+          "10": 1366.8954881578238
+        },
+        "recorded_peak_relative_difference": 0.005581894875842242
+      },
+      {
+        "component": "B04",
+        "raw_arrival_delay_s": 2.5886074668023866,
+        "aligned_all_rms_relative_kelvin": 0.042068345282953536,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0029030271799248336,
+        "aligned_after_jump_rms_relative_kelvin": 0.001655192492827825,
+        "recorded_peak_k": {
+          "20": 1403.0117689606068,
+          "10": 1386.6734822885949
+        },
+        "recorded_peak_relative_difference": 0.011645152972676638
+      },
+      {
+        "component": "B05",
+        "raw_arrival_delay_s": 5.417358187827176,
+        "aligned_all_rms_relative_kelvin": 0.03900018683994814,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0021064257404086765,
+        "aligned_after_jump_rms_relative_kelvin": 0.0014335820070837393,
+        "recorded_peak_k": {
+          "20": 1411.1528873552534,
+          "10": 1388.1292954576222
+        },
+        "recorded_peak_relative_difference": 0.016315448243727423
+      },
+      {
+        "component": "B06",
+        "raw_arrival_delay_s": 9.52032246557701,
+        "aligned_all_rms_relative_kelvin": 0.011672993281562783,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0036018955612831492,
+        "aligned_after_jump_rms_relative_kelvin": 0.0008727276070392176,
+        "recorded_peak_k": {
+          "20": 1394.9925431434413,
+          "10": 1390.1899855762824
+        },
+        "recorded_peak_relative_difference": 0.0034427119992604875
+      },
+      {
+        "component": "B07",
+        "raw_arrival_delay_s": 5.2227322135922805,
+        "aligned_all_rms_relative_kelvin": 0.008686207244381388,
+        "aligned_outside_jump_rms_relative_kelvin": 0.006842365370444097,
+        "aligned_after_jump_rms_relative_kelvin": 0.00207851567756794,
+        "recorded_peak_k": {
+          "20": 1402.8040097561236,
+          "10": 1430.578858148702
+        },
+        "recorded_peak_relative_difference": 0.01941511174610924
+      },
+      {
+        "component": "B08",
+        "raw_arrival_delay_s": 9.062550389907756,
+        "aligned_all_rms_relative_kelvin": 0.06384150638942873,
+        "aligned_outside_jump_rms_relative_kelvin": 0.004046005345514692,
+        "aligned_after_jump_rms_relative_kelvin": 0.0012859760428448877,
+        "recorded_peak_k": {
+          "20": 1381.3537728494189,
+          "10": 1411.422265394614
+        },
+        "recorded_peak_relative_difference": 0.02130368301706533
+      },
+      {
+        "component": "B09",
+        "raw_arrival_delay_s": 9.940267168629816,
+        "aligned_all_rms_relative_kelvin": 0.0058444235260999055,
+        "aligned_outside_jump_rms_relative_kelvin": 0.005078180614758382,
+        "aligned_after_jump_rms_relative_kelvin": 0.0060254000767504595,
+        "recorded_peak_k": {
+          "20": 1385.595268001372,
+          "10": 1361.6962635537282
+        },
+        "recorded_peak_relative_difference": 0.017248185671214476
+      },
+      {
+        "component": "B10",
+        "raw_arrival_delay_s": -0.00819354211762402,
+        "aligned_all_rms_relative_kelvin": 0.004506234236313332,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0018803996594062135,
+        "aligned_after_jump_rms_relative_kelvin": 0.002153644352964522,
+        "recorded_peak_k": {
+          "20": 1435.3994010958759,
+          "10": 1400.060863499049
+        },
+        "recorded_peak_relative_difference": 0.02461930635462658
+      },
+      {
+        "component": "B11",
+        "raw_arrival_delay_s": 3.9884102226342293,
+        "aligned_all_rms_relative_kelvin": 0.0756123725245764,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0015107367528381214,
+        "aligned_after_jump_rms_relative_kelvin": 0.001363994605327636,
+        "recorded_peak_k": {
+          "20": 1333.4907434471484,
+          "10": 1388.0016084445251
+        },
+        "recorded_peak_relative_difference": 0.03927291198060266
+      },
+      {
+        "component": "B12",
+        "raw_arrival_delay_s": 8.819939768101904,
+        "aligned_all_rms_relative_kelvin": 0.060970018686019437,
+        "aligned_outside_jump_rms_relative_kelvin": 0.007209457931189107,
+        "aligned_after_jump_rms_relative_kelvin": 0.0036578970024509524,
+        "recorded_peak_k": {
+          "20": 1395.626660693675,
+          "10": 1400.4330844770748
+        },
+        "recorded_peak_relative_difference": 0.0034320981392656695
+      },
+      {
+        "component": "B13",
+        "raw_arrival_delay_s": 5.414283296957819,
+        "aligned_all_rms_relative_kelvin": 0.04026636661522862,
+        "aligned_outside_jump_rms_relative_kelvin": 0.002186177729123975,
+        "aligned_after_jump_rms_relative_kelvin": 0.0025244578151556256,
+        "recorded_peak_k": {
+          "20": 1418.8797199560304,
+          "10": 1388.5404949125789
+        },
+        "recorded_peak_relative_difference": 0.02138252074276718
+      },
+      {
+        "component": "B14",
+        "raw_arrival_delay_s": 6.058276343856505,
+        "aligned_all_rms_relative_kelvin": 0.06071386102188375,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0036450280848367503,
+        "aligned_after_jump_rms_relative_kelvin": 0.0026752307323035275,
+        "recorded_peak_k": {
+          "20": 1409.1302017951045,
+          "10": 1394.704321614007
+        },
+        "recorded_peak_relative_difference": 0.010237435946458451
+      },
+      {
+        "component": "B15",
+        "raw_arrival_delay_s": 5.029942002943244,
+        "aligned_all_rms_relative_kelvin": 0.002844255415005427,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0018197126644259704,
+        "aligned_after_jump_rms_relative_kelvin": 0.0008623992454532015,
+        "recorded_peak_k": {
+          "20": 1394.58732978097,
+          "10": 1399.8529689421193
+        },
+        "recorded_peak_relative_difference": 0.0037615658772567565
+      },
+      {
+        "component": "B16",
+        "raw_arrival_delay_s": 4.978831338595228,
+        "aligned_all_rms_relative_kelvin": 0.0033013571983829086,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0029772027658168184,
+        "aligned_after_jump_rms_relative_kelvin": 0.0024784855246412735,
+        "recorded_peak_k": {
+          "20": 1414.1053811253737,
+          "10": 1400.7785945957469
+        },
+        "recorded_peak_relative_difference": 0.009424182035868563
+      },
+      {
+        "component": "B17",
+        "raw_arrival_delay_s": 0.1481215541994061,
+        "aligned_all_rms_relative_kelvin": 0.044931614807973835,
+        "aligned_outside_jump_rms_relative_kelvin": 0.007039483158290068,
+        "aligned_after_jump_rms_relative_kelvin": 0.005924956804282094,
+        "recorded_peak_k": {
+          "20": 1390.671072328362,
+          "10": 1346.7305560608268
+        },
+        "recorded_peak_relative_difference": 0.03159662780212065
+      },
+      {
+        "component": "B18",
+        "raw_arrival_delay_s": 4.993936085965743,
+        "aligned_all_rms_relative_kelvin": 0.001919901490079401,
+        "aligned_outside_jump_rms_relative_kelvin": 0.001967999070358108,
+        "aligned_after_jump_rms_relative_kelvin": 0.0021794969769882875,
+        "recorded_peak_k": {
+          "20": 1382.9332843105149,
+          "10": 1382.4491054242274
+        },
+        "recorded_peak_relative_difference": 0.0003501100825184816
+      },
+      {
+        "component": "B19",
+        "raw_arrival_delay_s": 5.001064395385129,
+        "aligned_all_rms_relative_kelvin": 0.002861925100733404,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0030424924169550134,
+        "aligned_after_jump_rms_relative_kelvin": 0.0032805556877719445,
+        "recorded_peak_k": {
+          "20": 1419.094549298635,
+          "10": 1422.1052925795682
+        },
+        "recorded_peak_relative_difference": 0.0021171029294687264
+      },
+      {
+        "component": "B20",
+        "raw_arrival_delay_s": 9.248611733438793,
+        "aligned_all_rms_relative_kelvin": 0.03230926056592838,
+        "aligned_outside_jump_rms_relative_kelvin": 0.004458132154502041,
+        "aligned_after_jump_rms_relative_kelvin": 0.0025124963985805704,
+        "recorded_peak_k": {
+          "20": 1389.0400633341399,
+          "10": 1388.3233634949324
+        },
+        "recorded_peak_relative_difference": 0.0005159677234126087
+      },
+      {
+        "component": "B21",
+        "raw_arrival_delay_s": 9.803663038645482,
+        "aligned_all_rms_relative_kelvin": 0.008016919316708095,
+        "aligned_outside_jump_rms_relative_kelvin": 0.004828047509103066,
+        "aligned_after_jump_rms_relative_kelvin": 0.0027701423618543518,
+        "recorded_peak_k": {
+          "20": 1442.1195358621314,
+          "10": 1413.2723092173035
+        },
+        "recorded_peak_relative_difference": 0.020003353347253873
+      },
+      {
+        "component": "B22",
+        "raw_arrival_delay_s": 9.994060250382063,
+        "aligned_all_rms_relative_kelvin": 0.0058739417564656095,
+        "aligned_outside_jump_rms_relative_kelvin": 0.005936635379087912,
+        "aligned_after_jump_rms_relative_kelvin": 0.003164722209329476,
+        "recorded_peak_k": {
+          "20": 1410.195977508874,
+          "10": 1413.5464649759144
+        },
+        "recorded_peak_relative_difference": 0.0023702704863667536
+      },
+      {
+        "component": "B23",
+        "raw_arrival_delay_s": 4.839680613712517,
+        "aligned_all_rms_relative_kelvin": 0.004196687976482783,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0026302852145674077,
+        "aligned_after_jump_rms_relative_kelvin": 0.002700201153773131,
+        "recorded_peak_k": {
+          "20": 1426.8359972388143,
+          "10": 1422.377477252197
+        },
+        "recorded_peak_relative_difference": 0.0031247599550652057
+      },
+      {
+        "component": "B24",
+        "raw_arrival_delay_s": 5.661686098678274,
+        "aligned_all_rms_relative_kelvin": 0.03154600803159173,
+        "aligned_outside_jump_rms_relative_kelvin": 0.004380636309545319,
+        "aligned_after_jump_rms_relative_kelvin": 0.003045623322765367,
+        "recorded_peak_k": {
+          "20": 1391.8488078425337,
+          "10": 1389.3918036913713
+        },
+        "recorded_peak_relative_difference": 0.0017652809251393984
+      },
+      {
+        "component": "B25",
+        "raw_arrival_delay_s": 5.165964034541503,
+        "aligned_all_rms_relative_kelvin": 0.004306465067903738,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0036196054730550796,
+        "aligned_after_jump_rms_relative_kelvin": 0.0019055941890321415,
+        "recorded_peak_k": {
+          "20": 1418.7284434378578,
+          "10": 1416.9700902670722
+        },
+        "recorded_peak_relative_difference": 0.001239386704988239
+      },
+      {
+        "component": "B26",
+        "raw_arrival_delay_s": 5.002265163923312,
+        "aligned_all_rms_relative_kelvin": 0.002373298672093731,
+        "aligned_outside_jump_rms_relative_kelvin": 0.002458720610951311,
+        "aligned_after_jump_rms_relative_kelvin": 0.0013458234141432012,
+        "recorded_peak_k": {
+          "20": 1383.8734280234398,
+          "10": 1385.0154824782878
+        },
+        "recorded_peak_relative_difference": 0.000824578836335064
+      },
+      {
+        "component": "B27",
+        "raw_arrival_delay_s": 5.004693211648373,
+        "aligned_all_rms_relative_kelvin": 0.0030570520470892177,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0027154918598431537,
+        "aligned_after_jump_rms_relative_kelvin": 0.0030445305509250466,
+        "recorded_peak_k": {
+          "20": 1425.2671520911033,
+          "10": 1436.4644593636883
+        },
+        "recorded_peak_relative_difference": 0.007795046511310903
+      },
+      {
+        "component": "B28",
+        "raw_arrival_delay_s": 9.727656877828394,
+        "aligned_all_rms_relative_kelvin": 0.009237740779886768,
+        "aligned_outside_jump_rms_relative_kelvin": 0.006248422114593255,
+        "aligned_after_jump_rms_relative_kelvin": 0.002835172087361173,
+        "recorded_peak_k": {
+          "20": 1428.177705389856,
+          "10": 1402.5613319327897
+        },
+        "recorded_peak_relative_difference": 0.017936404804802485
+      },
+      {
+        "component": "B29",
+        "raw_arrival_delay_s": 9.040533518452321,
+        "aligned_all_rms_relative_kelvin": 0.06193274044495994,
+        "aligned_outside_jump_rms_relative_kelvin": 0.0029290286595986393,
+        "aligned_after_jump_rms_relative_kelvin": 0.0011943235839969178,
+        "recorded_peak_k": {
+          "20": 1404.0799661124563,
+          "10": 1438.7263032827643
+        },
+        "recorded_peak_relative_difference": 0.024081256519224627
+      }
+    ],
+    "excluded_jump_half_width_s": 10.0,
+    "scope": "Own-event diagnostic, not an unshifted convergence acceptance or a new physical timing law"
+  },
+  "observed_order_inversions": [
+    {
+      "a": "B08",
+      "b": "B16",
+      "order_reversal_resolved_by_observations": false
+    },
+    {
+      "a": "B00",
+      "b": "B12",
+      "order_reversal_resolved_by_observations": false
+    },
+    {
+      "a": "B00",
+      "b": "B25",
+      "order_reversal_resolved_by_observations": false
+    },
+    {
+      "a": "B07",
+      "b": "B26",
+      "order_reversal_resolved_by_observations": false
+    },
+    {
+      "a": "B05",
+      "b": "B26",
+      "order_reversal_resolved_by_observations": false
+    },
+    {
+      "a": "B20",
+      "b": "B27",
+      "order_reversal_resolved_by_observations": false
+    },
+    {
+      "a": "B06",
+      "b": "B13",
+      "order_reversal_resolved_by_observations": false
+    },
+    {
+      "a": "B06",
+      "b": "B27",
+      "order_reversal_resolved_by_observations": false
+    },
+    {
+      "a": "B13",
+      "b": "B27",
+      "order_reversal_resolved_by_observations": false
+    },
+    {
+      "a": "B22",
+      "b": "B28",
+      "order_reversal_resolved_by_observations": false
+    }
+  ],
+  "reaction_cascade_span_s": {
+    "20": 141.32721938818804,
+    "10": 140.42748573801055
+  },
+  "snapshots": {
+    "1115.0": {
+      "20": {
+        "time_s": 1114.9999999999955,
+        "battery_mean_k": {
+          "B00": 300.5203471998392,
+          "B01": 301.1634234288853,
+          "B02": 304.37610522591575,
+          "B03": 304.34974510274765,
+          "B04": 301.0528553751329,
+          "B05": 300.2045154533634,
+          "B06": 300.0541022425354,
+          "B07": 300.7451334516473,
+          "B08": 300.7913512002673,
+          "B09": 305.086846970091,
+          "B10": 1357.1867736017164,
+          "B11": 304.9889455541022,
+          "B12": 300.5144591245526,
+          "B13": 299.967221371371,
+          "B14": 300.0712074448363,
+          "B15": 300.3722549699403,
+          "B16": 300.839388855087,
+          "B17": 304.2923684213423,
+          "B18": 304.27475310866674,
+          "B19": 300.7268671380352,
+          "B20": 299.9809722065354,
+          "B21": 299.94371500782364,
+          "B22": 300.33446567223126,
+          "B23": 300.21951387385707,
+          "B24": 300.41862263139757,
+          "B25": 300.72766486595765,
+          "B26": 300.4078467518864,
+          "B27": 300.028155850746,
+          "B28": 299.899244737437,
+          "B29": 299.9747318873617
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 3467.6281983834438,
+            "mass_kg": 0.0007246192789413306,
+            "maximum_pressure_pa": 124528.67122519937,
+            "maximum_temperature_k": 1280.0203799353483,
+            "minimum_temperature_k": 312.3091373430542,
+            "oxidizer_kg": 1.4017708164789665e-09,
+            "released_energy_j": 536.8307874730588,
+            "sensible_energy_j": 41.31463513830791
+          },
+          "outside": {
+            "chemical_j": 21972.72920563236,
+            "mass_kg": 1.1931511117463922,
+            "maximum_pressure_pa": 126617.52232928366,
+            "maximum_temperature_k": 2270.1249189655687,
+            "minimum_temperature_k": 311.7163749827002,
+            "oxidizer_kg": 0.2707640682359887,
+            "released_energy_j": 53512.021296562045,
+            "sensible_energy_j": 57264.701095274926
+          }
+        },
+        "global_r3_j": 54056.6676020044,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.009019699746378146,
+          "mixed_mass_kg": 0.00745372682940443,
+          "transferred_chemical_j": 75484.75050219451,
+          "delivered_gas_energy_j": 7212.731656884011
+        },
+        "r2_generated_gas_kg": {
+          "B00": 2.2615859938632316e-07,
+          "B01": 2.2961117557306716e-07,
+          "B02": 2.5662005629480354e-07,
+          "B03": 2.5660931633381666e-07,
+          "B04": 2.295949072808556e-07,
+          "B05": 2.2617031687214313e-07,
+          "B06": 2.2589670310200303e-07,
+          "B07": 2.2602937877836302e-07,
+          "B08": 2.2824395932224458e-07,
+          "B09": 2.671092160579213e-07,
+          "B10": 0.008249172179023594,
+          "B11": 2.670803983989394e-07,
+          "B12": 2.2821278594743207e-07,
+          "B13": 2.2598944698025048e-07,
+          "B14": 2.2589762318117197e-07,
+          "B15": 2.2607637921880054e-07,
+          "B16": 2.292806732024072e-07,
+          "B17": 2.5951450220743037e-07,
+          "B18": 2.5950888259619223e-07,
+          "B19": 2.2927009621495083e-07,
+          "B20": 2.2608347951408724e-07,
+          "B21": 2.2590843556935456e-07,
+          "B22": 2.2590741211984232e-07,
+          "B23": 2.260212806198228e-07,
+          "B24": 2.272742369127831e-07,
+          "B25": 2.2834892560086624e-07,
+          "B26": 2.27276001856983e-07,
+          "B27": 2.2604061689774636e-07,
+          "B28": 2.2589197009125834e-07,
+          "B29": 2.2587132177906808e-07
+        }
+      },
+      "10": {
+        "time_s": 1114.9999999999955,
+        "battery_mean_k": {
+          "B00": 300.53718461654887,
+          "B01": 301.3172255172516,
+          "B02": 304.7556094052755,
+          "B03": 304.75216740779973,
+          "B04": 301.2362632889554,
+          "B05": 300.3015907919655,
+          "B06": 300.1040358827668,
+          "B07": 300.63753239159735,
+          "B08": 300.87107399112523,
+          "B09": 305.46878229479455,
+          "B10": 1347.2692870003568,
+          "B11": 305.3971977394479,
+          "B12": 300.6491935615631,
+          "B13": 300.0230454525266,
+          "B14": 300.05837350147095,
+          "B15": 300.4031402318133,
+          "B16": 300.9849479587076,
+          "B17": 304.66781481132887,
+          "B18": 304.63318568485056,
+          "B19": 300.8948646298325,
+          "B20": 300.0615473152596,
+          "B21": 299.94495481570806,
+          "B22": 300.19769312845733,
+          "B23": 300.3041786495119,
+          "B24": 300.56107230989466,
+          "B25": 300.88043171172353,
+          "B26": 300.5296515523525,
+          "B27": 300.1139404435676,
+          "B28": 299.94247163662277,
+          "B29": 299.9501822861408
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 3211.3377826897504,
+            "mass_kg": 0.000721945606709049,
+            "maximum_pressure_pa": 118164.46932340623,
+            "maximum_temperature_k": 1275.4368143079746,
+            "minimum_temperature_k": 311.7787202099892,
+            "oxidizer_kg": 2.10936249207956e-10,
+            "released_energy_j": 321.0111882162481,
+            "sensible_energy_j": 37.588140828318934
+          },
+          "outside": {
+            "chemical_j": 28422.215706189614,
+            "mass_kg": 1.1932708717338656,
+            "maximum_pressure_pa": 123720.1702766752,
+            "maximum_temperature_k": 2274.15570098994,
+            "minimum_temperature_k": 310.4179325915325,
+            "oxidizer_kg": 0.2712189353271717,
+            "released_energy_j": 47769.50632628837,
+            "sensible_energy_j": 51798.35133159444
+          }
+        },
+        "global_r3_j": 48097.92430764328,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.009139459733847092,
+          "mixed_mass_kg": 0.00793169520025437,
+          "transferred_chemical_j": 76191.72203247773,
+          "delivered_gas_energy_j": 7185.65111945468
+        },
+        "r2_generated_gas_kg": {
+          "B00": 2.2623714136270996e-07,
+          "B01": 2.297174912997841e-07,
+          "B02": 2.5684603112233885e-07,
+          "B03": 2.5684375443705e-07,
+          "B04": 2.2970275744882555e-07,
+          "B05": 2.2625062186450957e-07,
+          "B06": 2.2597238029610393e-07,
+          "B07": 2.2610157948863338e-07,
+          "B08": 2.2833311634493377e-07,
+          "B09": 2.673414207754285e-07,
+          "B10": 0.008249196533205614,
+          "B11": 2.6731295469828374e-07,
+          "B12": 2.2830039947672189e-07,
+          "B13": 2.2606025705720268e-07,
+          "B14": 2.259652510176603e-07,
+          "B15": 2.2615667577530685e-07,
+          "B16": 2.2937707730521002e-07,
+          "B17": 2.597201229292533e-07,
+          "B18": 2.597118697823015e-07,
+          "B19": 2.2936474864203832e-07,
+          "B20": 2.2615613060763645e-07,
+          "B21": 2.2597230506847737e-07,
+          "B22": 2.2596592538347455e-07,
+          "B23": 2.2610561529360484e-07,
+          "B24": 2.2736586239465613e-07,
+          "B25": 2.2844636546619646e-07,
+          "B26": 2.273633772982111e-07,
+          "B27": 2.26116841076467e-07,
+          "B28": 2.2596065182687645e-07,
+          "B29": 2.2593368394600873e-07
+        }
+      }
+    },
+    "1200.0": {
+      "20": {
+        "time_s": 1199.9999999999181,
+        "battery_mean_k": {
+          "B00": 304.2819351653736,
+          "B01": 307.1877942160151,
+          "B02": 319.7227863167792,
+          "B03": 319.56610654056726,
+          "B04": 306.7194727035187,
+          "B05": 302.63102644101497,
+          "B06": 302.0289741528456,
+          "B07": 306.1861040213448,
+          "B08": 305.57500388010453,
+          "B09": 321.7930042102858,
+          "B10": 1162.8490647555457,
+          "B11": 321.45789009641203,
+          "B12": 304.4044088259875,
+          "B13": 301.6460867218666,
+          "B14": 302.31612633145755,
+          "B15": 303.53899955545,
+          "B16": 305.89499300554616,
+          "B17": 318.88974070416043,
+          "B18": 318.7971559654714,
+          "B19": 305.58832294873656,
+          "B20": 301.90927495271075,
+          "B21": 301.79860019521476,
+          "B22": 304.82627999169,
+          "B23": 302.856669523889,
+          "B24": 303.95611773155116,
+          "B25": 305.37384856517406,
+          "B26": 303.83759187117255,
+          "B27": 302.0391314297442,
+          "B28": 301.4914745340386,
+          "B29": 302.3579363849227
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 1089.8422955908422,
+            "mass_kg": 0.0008080117275486247,
+            "maximum_pressure_pa": 120260.54217917481,
+            "maximum_temperature_k": 1107.25139304776,
+            "minimum_temperature_k": 302.76721712288054,
+            "oxidizer_kg": 1.780891901969777e-06,
+            "released_energy_j": 571.3916215135569,
+            "sensible_energy_j": 21.507548689319183
+          },
+          "outside": {
+            "chemical_j": 15295.986140985107,
+            "mass_kg": 1.1953127584144556,
+            "maximum_pressure_pa": 120259.70236026711,
+            "maximum_temperature_k": 521.4753033255299,
+            "minimum_temperature_k": 323.47553046327147,
+            "oxidizer_kg": 0.269728212013276,
+            "released_energy_j": 67021.3254725034,
+            "sensible_energy_j": 62637.465243831924
+          }
+        },
+        "global_r3_j": 67603.07209739232,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.011181346414441375,
+          "mixed_mass_kg": 0.012113268464292533,
+          "transferred_chemical_j": 82317.31161348888,
+          "delivered_gas_energy_j": 6727.93157368715
+        },
+        "r2_generated_gas_kg": {
+          "B00": 2.6071645481815195e-07,
+          "B01": 2.755478850943889e-07,
+          "B02": 4.099624467304057e-07,
+          "B03": 4.075175389469425e-07,
+          "B04": 2.732713992576331e-07,
+          "B05": 2.5515459129962915e-07,
+          "B06": 2.5253731929086405e-07,
+          "B07": 2.7028993227463374e-07,
+          "B08": 2.6766984984172575e-07,
+          "B09": 4.5199223007854537e-07,
+          "B10": 0.008249172179023594,
+          "B11": 4.45341557646845e-07,
+          "B12": 2.626408417796539e-07,
+          "B13": 2.522385613428669e-07,
+          "B14": 2.5386112635325496e-07,
+          "B15": 2.5820820347917715e-07,
+          "B16": 2.6939498787177175e-07,
+          "B17": 3.99832279193885e-07,
+          "B18": 3.985019983342008e-07,
+          "B19": 2.6810772762568306e-07,
+          "B20": 2.5306417867292975e-07,
+          "B21": 2.5271418418053795e-07,
+          "B22": 2.635671186460479e-07,
+          "B23": 2.552841319617263e-07,
+          "B24": 2.601614602393103e-07,
+          "B25": 2.6651543418732805e-07,
+          "B26": 2.5986398039867e-07,
+          "B27": 2.5323850105251723e-07,
+          "B28": 2.51462561906908e-07,
+          "B29": 2.5353486861847863e-07
+        }
+      },
+      "10": {
+        "time_s": 1199.9999999999181,
+        "battery_mean_k": {
+          "B00": 303.72646462249446,
+          "B01": 306.9851533516466,
+          "B02": 319.5167428227587,
+          "B03": 319.4799763931505,
+          "B04": 306.6816408434173,
+          "B05": 302.57538642685694,
+          "B06": 301.7974535507201,
+          "B07": 304.44349336090636,
+          "B08": 305.1141025516483,
+          "B09": 321.58282533283983,
+          "B10": 1160.6047918583674,
+          "B11": 321.36532725231945,
+          "B12": 304.3460046467437,
+          "B13": 301.47644291919846,
+          "B14": 301.65154906820794,
+          "B15": 303.00880672044775,
+          "B16": 305.7411257913812,
+          "B17": 318.7832068614418,
+          "B18": 318.71777471357393,
+          "B19": 305.56362431477413,
+          "B20": 301.8120496175187,
+          "B21": 301.2824534072494,
+          "B22": 302.8714111939006,
+          "B23": 302.70042041271086,
+          "B24": 303.9299672733029,
+          "B25": 305.36443195580745,
+          "B26": 303.8349967739635,
+          "B27": 302.00029382611746,
+          "B28": 301.2996180328301,
+          "B29": 301.7206153247813
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 1243.0445555613048,
+            "mass_kg": 0.0008111007496139766,
+            "maximum_pressure_pa": 120530.58408220428,
+            "maximum_temperature_k": 1105.7422184967727,
+            "minimum_temperature_k": 302.0729464427613,
+            "oxidizer_kg": 2.004381348955823e-06,
+            "released_energy_j": 348.0292995833815,
+            "sensible_energy_j": 21.175805710297805
+          },
+          "outside": {
+            "chemical_j": 15067.405332849054,
+            "mass_kg": 1.195309685485933,
+            "maximum_pressure_pa": 120532.90862702335,
+            "maximum_temperature_k": 524.5656871193315,
+            "minimum_temperature_k": 323.25980957998235,
+            "oxidizer_kg": 0.2697222335186329,
+            "released_energy_j": 67320.92216687828,
+            "sensible_energy_j": 63579.239361390966
+          }
+        },
+        "global_r3_j": 67678.46258202352,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.01117827348590972,
+          "mixed_mass_kg": 0.012910032923160524,
+          "transferred_chemical_j": 82388.32749972698,
+          "delivered_gas_energy_j": 7001.610281304441
+        },
+        "r2_generated_gas_kg": {
+          "B00": 2.587647444435162e-07,
+          "B01": 2.7471826671003386e-07,
+          "B02": 4.0693110056266585e-07,
+          "B03": 4.0653260352252154e-07,
+          "B04": 2.7325891695927115e-07,
+          "B05": 2.550734679812769e-07,
+          "B06": 2.5200720555652856e-07,
+          "B07": 2.623207681555741e-07,
+          "B08": 2.6578941146408187e-07,
+          "B09": 4.4842315577065074e-07,
+          "B10": 0.008249196533205614,
+          "B11": 4.441273043716219e-07,
+          "B12": 2.625732357097649e-07,
+          "B13": 2.518338369175424e-07,
+          "B14": 2.5200815431291125e-07,
+          "B15": 2.565499320324819e-07,
+          "B16": 2.689129705109315e-07,
+          "B17": 3.9877490424235637e-07,
+          "B18": 3.977944648214202e-07,
+          "B19": 2.6820332010309334e-07,
+          "B20": 2.528718382743508e-07,
+          "B21": 2.5125704677513713e-07,
+          "B22": 2.5605881233917085e-07,
+          "B23": 2.549594684223041e-07,
+          "B24": 2.6022061504808626e-07,
+          "B25": 2.6662131424020133e-07,
+          "B26": 2.599463164971755e-07,
+          "B27": 2.5319188935207123e-07,
+          "B28": 2.509868082782995e-07,
+          "B29": 2.517152897115069e-07
+        }
+      }
+    },
+    "1800.0": {
+      "20": {
+        "time_s": 1799.9999999999682,
+        "battery_mean_k": {
+          "B00": 312.0281916351314,
+          "B01": 321.60997654920243,
+          "B02": 355.3649839446856,
+          "B03": 354.8106687199059,
+          "B04": 320.3724791364863,
+          "B05": 308.2061210183332,
+          "B06": 308.0697389033665,
+          "B07": 311.1185291413426,
+          "B08": 315.5257130915114,
+          "B09": 361.51240748832595,
+          "B10": 619.7701104113446,
+          "B11": 360.6284881118669,
+          "B12": 313.55095681339003,
+          "B13": 304.5465228787239,
+          "B14": 306.6765074747674,
+          "B15": 309.35481993043527,
+          "B16": 317.8876658518497,
+          "B17": 352.2207962217132,
+          "B18": 351.82673128612214,
+          "B19": 316.8082782604888,
+          "B20": 305.27708927005784,
+          "B21": 303.94613634938133,
+          "B22": 308.79215098997577,
+          "B23": 309.85580830450135,
+          "B24": 312.6578913296936,
+          "B25": 316.1832885343621,
+          "B26": 311.90630421251717,
+          "B27": 306.3481842310944,
+          "B28": 304.94838406195925,
+          "B29": 308.0028103979121
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 1784.1635302631357,
+            "mass_kg": 0.0008007972270859078,
+            "maximum_pressure_pa": 119745.84152868026,
+            "maximum_temperature_k": 608.9643254069671,
+            "minimum_temperature_k": 305.20149307410657,
+            "oxidizer_kg": 2.0974448269812305e-05,
+            "released_energy_j": 895.0155608020575,
+            "sensible_energy_j": 22.503140193877517
+          },
+          "outside": {
+            "chemical_j": 15899.733800386693,
+            "mass_kg": 1.1956563070906567,
+            "maximum_pressure_pa": 119731.00552392959,
+            "maximum_temperature_k": 376.7074663197228,
+            "minimum_temperature_k": 321.11796584997484,
+            "oxidizer_kg": 0.269641355093324,
+            "released_energy_j": 67445.24650665549,
+            "sensible_energy_j": 60692.513935229275
+          }
+        },
+        "global_r3_j": 68488.6428731075,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.011524895090646192,
+          "mixed_mass_kg": 0.012475917970955342,
+          "transferred_chemical_j": 83344.98030704135,
+          "delivered_gas_energy_j": 6757.475787607681
+        },
+        "r2_generated_gas_kg": {
+          "B00": 7.383365197317726e-07,
+          "B01": 1.4519664616852205e-06,
+          "B02": 2.9585990540703743e-05,
+          "B03": 2.8329729871625048e-05,
+          "B04": 1.3203731685409808e-06,
+          "B05": 5.792045521858826e-07,
+          "B06": 5.709596718622547e-07,
+          "B07": 7.611798558904622e-07,
+          "B08": 9.386546177420871e-07,
+          "B09": 4.9400358500708525e-05,
+          "B10": 0.008249172179023594,
+          "B11": 4.6131118727272794e-05,
+          "B12": 8.093220410467006e-07,
+          "B13": 4.867884444471085e-07,
+          "B14": 5.431727769891304e-07,
+          "B15": 6.326052207215078e-07,
+          "B16": 1.0989370170879278e-06,
+          "B17": 2.3562971515575343e-05,
+          "B18": 2.2893527117571996e-05,
+          "B19": 1.021878842879656e-06,
+          "B20": 5.039716176213253e-07,
+          "B21": 4.804177705980659e-07,
+          "B22": 6.52328841197439e-07,
+          "B23": 6.336714624704695e-07,
+          "B24": 7.554828790438706e-07,
+          "B25": 9.714828420189928e-07,
+          "B26": 7.248332350624131e-07,
+          "B27": 5.27689233237575e-07,
+          "B28": 4.931067408119566e-07,
+          "B29": 5.773554001241528e-07
+        }
+      },
+      "10": {
+        "time_s": 1799.9999999999818,
+        "battery_mean_k": {
+          "B00": 311.20263345255245,
+          "B01": 321.3813612903196,
+          "B02": 355.34716888532915,
+          "B03": 354.9340721306562,
+          "B04": 320.4856220861493,
+          "B05": 308.2065612715284,
+          "B06": 307.55834455995586,
+          "B07": 309.13706723161556,
+          "B08": 314.967334135353,
+          "B09": 361.3279809775403,
+          "B10": 619.6002240088606,
+          "B11": 360.4594586786339,
+          "B12": 313.5142926776879,
+          "B13": 304.30401300461114,
+          "B14": 305.53133563829874,
+          "B15": 308.41636100586163,
+          "B16": 317.6558221551996,
+          "B17": 352.0952622101962,
+          "B18": 351.8218404239953,
+          "B19": 316.828193900844,
+          "B20": 305.1735652884153,
+          "B21": 303.2746886774292,
+          "B22": 306.53446619861074,
+          "B23": 309.4865192186459,
+          "B24": 312.66685647954966,
+          "B25": 316.3184702283746,
+          "B26": 312.0765173801787,
+          "B27": 306.42350053255586,
+          "B28": 304.7167329483404,
+          "B29": 307.07327762763674
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 1800.6628146133603,
+            "mass_kg": 0.0008037033990148169,
+            "maximum_pressure_pa": 120004.10653055644,
+            "maximum_temperature_k": 608.7812695122273,
+            "minimum_temperature_k": 304.4356540601295,
+            "oxidizer_kg": 2.1581478564728782e-05,
+            "released_energy_j": 701.0216055264327,
+            "sensible_energy_j": 22.19824076782827
+          },
+          "outside": {
+            "chemical_j": 15687.152705504486,
+            "mass_kg": 1.195639611831645,
+            "maximum_pressure_pa": 120001.48059569925,
+            "maximum_temperature_k": 386.30221813709306,
+            "minimum_temperature_k": 319.9177934232731,
+            "oxidizer_kg": 0.2696294466810029,
+            "released_energy_j": 67777.88079986542,
+            "sensible_energy_j": 61594.410340750845
+          }
+        },
+        "global_r3_j": 68636.73488227396,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.011508199831622821,
+          "mixed_mass_kg": 0.013291119091491653,
+          "transferred_chemical_j": 83465.03350536885,
+          "delivered_gas_energy_j": 7028.819189714643
+        },
+        "r2_generated_gas_kg": {
+          "B00": 6.93728925290848e-07,
+          "B01": 1.4207759649507058e-06,
+          "B02": 2.9282750197938115e-05,
+          "B03": 2.8567870093588866e-05,
+          "B04": 1.3294620337502092e-06,
+          "B05": 5.785185937187941e-07,
+          "B06": 5.53908906127367e-07,
+          "B07": 6.470043659081931e-07,
+          "B08": 8.946852871131731e-07,
+          "B09": 4.828658581172874e-05,
+          "B10": 0.008249196533205614,
+          "B11": 4.580535370607187e-05,
+          "B12": 8.063472273770445e-07,
+          "B13": 4.800198030419034e-07,
+          "B14": 5.068616783760836e-07,
+          "B15": 5.942882270757913e-07,
+          "B16": 1.0779763995929738e-06,
+          "B17": 2.3327241992521703e-05,
+          "B18": 2.2840857297641783e-05,
+          "B19": 1.0224832350918351e-06,
+          "B20": 5.005832212025892e-07,
+          "B21": 4.615787868424585e-07,
+          "B22": 5.501243793400692e-07,
+          "B23": 6.191475631426906e-07,
+          "B24": 7.556375527193032e-07,
+          "B25": 9.796627703155282e-07,
+          "B26": 7.318071305656419e-07,
+          "B27": 5.289718281854516e-07,
+          "B28": 4.86030688577921e-07,
+          "B29": 5.424944802240432e-07
+        }
+      }
+    },
+    "2100.0": {
+      "20": {
+        "time_s": 2099.999999999968,
+        "battery_mean_k": {
+          "B00": 315.2066603396807,
+          "B01": 326.8763684857571,
+          "B02": 365.5126712084273,
+          "B03": 364.68341467143756,
+          "B04": 325.31276817617794,
+          "B05": 310.9125730163276,
+          "B06": 310.2045778788328,
+          "B07": 313.2493322714277,
+          "B08": 319.49920630635773,
+          "B09": 377.5953307552802,
+          "B10": 519.2474388139406,
+          "B11": 374.09843566538274,
+          "B12": 317.1209323775674,
+          "B13": 306.1260244102717,
+          "B14": 308.32429868789,
+          "B15": 311.848687265326,
+          "B16": 322.2514202640992,
+          "B17": 359.70266045052585,
+          "B18": 358.99280327203485,
+          "B19": 320.80192410469493,
+          "B20": 307.0858618840566,
+          "B21": 305.0560947628806,
+          "B22": 310.2080092104961,
+          "B23": 312.5621470969014,
+          "B24": 316.1242252164693,
+          "B25": 320.141301293421,
+          "B26": 315.1181399677527,
+          "B27": 308.39759458411095,
+          "B28": 306.44331459504275,
+          "B29": 309.83589984538776
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 3230.2097828579745,
+            "mass_kg": 0.0007978671443233361,
+            "maximum_pressure_pa": 119734.25295514417,
+            "maximum_temperature_k": 513.5164479470656,
+            "minimum_temperature_k": 306.41201213362626,
+            "oxidizer_kg": 3.911018681945634e-05,
+            "released_energy_j": 976.2095771805127,
+            "sensible_energy_j": 23.337705424221085
+          },
+          "outside": {
+            "chemical_j": 19470.4153354209,
+            "mass_kg": 1.1964605019988592,
+            "maximum_pressure_pa": 119715.30727253828,
+            "maximum_temperature_k": 371.0887587312711,
+            "minimum_temperature_k": 319.34109686288923,
+            "oxidizer_kg": 0.26960909221723095,
+            "released_energy_j": 67497.57231320323,
+            "sensible_energy_j": 60390.69026481686
+          }
+        },
+        "global_r3_j": 68671.67582110935,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.012329089998848311,
+          "mixed_mass_kg": 0.013098538488966912,
+          "transferred_chemical_j": 86967.9876486226,
+          "delivered_gas_energy_j": 6836.5689328506305
+        },
+        "r2_generated_gas_kg": {
+          "B00": 1.185623963062212e-06,
+          "B01": 3.040922698115577e-06,
+          "B02": 9.530536609814173e-05,
+          "B03": 9.014148120762056e-05,
+          "B04": 2.6714642467240335e-06,
+          "B05": 8.48614615727094e-07,
+          "B06": 8.271375099749948e-07,
+          "B07": 1.1344754769381873e-06,
+          "B08": 1.6559062763598128e-06,
+          "B09": 0.00019119381405177812,
+          "B10": 0.008249172179023594,
+          "B11": 0.0001655236371642676,
+          "B12": 1.361090753923494e-06,
+          "B13": 6.435886194410332e-07,
+          "B14": 7.509041757897924e-07,
+          "B15": 9.398632954904048e-07,
+          "B16": 2.0739734772802745e-06,
+          "B17": 6.704147359073984e-05,
+          "B18": 6.418586615689734e-05,
+          "B19": 1.8609593977443453e-06,
+          "B20": 6.788383915127736e-07,
+          "B21": 6.2115296329701e-07,
+          "B22": 9.197631090168769e-07,
+          "B23": 9.659164074467502e-07,
+          "B24": 1.2479807711115872e-06,
+          "B25": 1.7494484360343598e-06,
+          "B26": 1.1667216821336348e-06,
+          "B27": 7.317452161735005e-07,
+          "B28": 6.576938111185774e-07,
+          "B29": 8.266340382713183e-07
+        }
+      },
+      "10": {
+        "time_s": 2099.999999999991,
+        "battery_mean_k": {
+          "B00": 314.33958067098655,
+          "B01": 326.63243710261827,
+          "B02": 365.59804016635036,
+          "B03": 364.7948408759145,
+          "B04": 325.44335147502795,
+          "B05": 310.8995829507464,
+          "B06": 309.6315225039922,
+          "B07": 311.30971964824715,
+          "B08": 318.9053288304311,
+          "B09": 376.8448966343908,
+          "B10": 519.2532918597558,
+          "B11": 374.0896480190737,
+          "B12": 317.0789984247206,
+          "B13": 305.85513299695634,
+          "B14": 307.103822780608,
+          "B15": 310.8514695311856,
+          "B16": 321.98357310737254,
+          "B17": 359.27846719626604,
+          "B18": 358.9852222144144,
+          "B19": 320.8265843142952,
+          "B20": 306.9674351396626,
+          "B21": 304.33730077909564,
+          "B22": 307.97361452262845,
+          "B23": 312.15375650688765,
+          "B24": 316.122046305877,
+          "B25": 320.29410093625285,
+          "B26": 315.3099069425625,
+          "B27": 308.4798863972376,
+          "B28": 306.1850663729497,
+          "B29": 308.86402949394846
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 3217.8864883222564,
+            "mass_kg": 0.0008008286588963134,
+            "maximum_pressure_pa": 120015.82160863205,
+            "maximum_temperature_k": 513.5804792735621,
+            "minimum_temperature_k": 305.6247732707876,
+            "oxidizer_kg": 3.977650664505292e-05,
+            "released_energy_j": 784.0052753642391,
+            "sensible_energy_j": 23.01105884645243
+          },
+          "outside": {
+            "chemical_j": 19237.744281194853,
+            "mass_kg": 1.196446225231654,
+            "maximum_pressure_pa": 119997.63302674452,
+            "maximum_temperature_k": 378.15086002556023,
+            "minimum_temperature_k": 317.16884418779716,
+            "oxidizer_kg": 0.2695966849556544,
+            "released_energy_j": 67832.94760176237,
+            "sensible_energy_j": 61280.7297899334
+          }
+        },
+        "global_r3_j": 68825.42027395513,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.012314813231637528,
+          "mixed_mass_kg": 0.01392619813943854,
+          "transferred_chemical_j": 87070.691882956,
+          "delivered_gas_energy_j": 7106.291386118812
+        },
+        "r2_generated_gas_kg": {
+          "B00": 1.0967814389200093e-06,
+          "B01": 2.9676491784723306e-06,
+          "B02": 9.536441389170214e-05,
+          "B03": 9.09598152668849e-05,
+          "B04": 2.70025266250513e-06,
+          "B05": 8.477572636156472e-07,
+          "B06": 7.930695744234453e-07,
+          "B07": 9.394942906563808e-07,
+          "B08": 1.5642988604063726e-06,
+          "B09": 0.00018482116569752544,
+          "B10": 0.008249196533205614,
+          "B11": 0.00016385502643881847,
+          "B12": 1.3555724590815527e-06,
+          "B13": 6.316898098900512e-07,
+          "B14": 6.853534484732664e-07,
+          "B15": 8.663132752610115e-07,
+          "B16": 2.0249719139513545e-06,
+          "B17": 6.5784317913532e-05,
+          "B18": 6.41250932787985e-05,
+          "B19": 1.863938351315123e-06,
+          "B20": 6.730043285781863e-07,
+          "B21": 5.901256515677825e-07,
+          "B22": 7.513064159192193e-07,
+          "B23": 9.356137832250352e-07,
+          "B24": 1.2484377685316425e-06,
+          "B25": 1.7713812083207188e-06,
+          "B26": 1.183780310327511e-06,
+          "B27": 7.351426421387626e-07,
+          "B28": 6.455167081996165e-07,
+          "B29": 7.634522056764555e-07
+        }
+      }
+    },
+    "2200.0": {
+      "20": {
+        "time_s": 2199.9999999999227,
+        "battery_mean_k": {
+          "B00": 316.2396652960488,
+          "B01": 328.6142034121048,
+          "B02": 369.9381773307232,
+          "B03": 368.7098229835759,
+          "B04": 326.91300870156084,
+          "B05": 311.8398746494594,
+          "B06": 310.8353374561684,
+          "B07": 313.95837632207366,
+          "B08": 320.8947277297647,
+          "B09": 395.06388527380295,
+          "B10": 496.44291196921995,
+          "B11": 384.1587709550813,
+          "B12": 318.33142277444375,
+          "B13": 306.6908099262239,
+          "B14": 308.8200707907881,
+          "B15": 312.6677244347561,
+          "B16": 323.69879125856534,
+          "B17": 362.2466332856794,
+          "B18": 361.31562903044295,
+          "B19": 322.0919147611157,
+          "B20": 307.7313539771858,
+          "B21": 305.4340314862697,
+          "B22": 310.6129527076163,
+          "B23": 313.40319541442824,
+          "B24": 317.231168463562,
+          "B25": 321.37246164347755,
+          "B26": 316.14429811764285,
+          "B27": 309.08952388233865,
+          "B28": 306.92294211074903,
+          "B29": 310.3435472776787
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 3994.9406999667476,
+            "mass_kg": 0.0007955789522182001,
+            "maximum_pressure_pa": 119779.75080248452,
+            "maximum_temperature_k": 491.6181236274715,
+            "minimum_temperature_k": 306.9198338128617,
+            "oxidizer_kg": 3.491075914862133e-05,
+            "released_energy_j": 982.280908011338,
+            "sensible_energy_j": 24.112706330827855
+          },
+          "outside": {
+            "chemical_j": 22975.99191513141,
+            "mass_kg": 1.1970951556001805,
+            "maximum_pressure_pa": 119766.66112174558,
+            "maximum_temperature_k": 369.125957542177,
+            "minimum_temperature_k": 317.21314383503216,
+            "oxidizer_kg": 0.26961107485705593,
+            "released_energy_j": 67517.2445333962,
+            "sensible_energy_j": 60356.477350457135
+          }
+        },
+        "global_r3_j": 68700.6344910581,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.012963743600171244,
+          "mixed_mass_kg": 0.013567908764840913,
+          "transferred_chemical_j": 90493.23644852635,
+          "delivered_gas_energy_j": 6901.241459785315
+        },
+        "r2_generated_gas_kg": {
+          "B00": 1.3765251082362272e-06,
+          "B01": 3.8128784925519617e-06,
+          "B02": 0.0001362835402766939,
+          "B03": 0.00012760176654618422,
+          "B04": 3.314113087987247e-06,
+          "B05": 9.607532602958147e-07,
+          "B06": 9.279958139616755e-07,
+          "B07": 1.2819953733766275e-06,
+          "B08": 1.980610991268717e-06,
+          "B09": 0.00036810659200679687,
+          "B10": 0.008249172179023594,
+          "B11": 0.0002705922882752628,
+          "B12": 1.6037003062772752e-06,
+          "B13": 7.035222496420485e-07,
+          "B14": 8.298726281653669e-07,
+          "B15": 1.0649341613067827e-06,
+          "B16": 2.522800696314772e-06,
+          "B17": 8.946303210851828e-05,
+          "B18": 8.500167865683205e-05,
+          "B19": 2.237117298705238e-06,
+          "B20": 7.469363249717234e-07,
+          "B21": 6.727683072839365e-07,
+          "B22": 1.019239421653798e-06,
+          "B23": 1.1027032311019144e-06,
+          "B24": 1.4621700752700057e-06,
+          "B25": 2.0967122992663656e-06,
+          "B26": 1.3555557610467091e-06,
+          "B27": 8.124156253936861e-07,
+          "B28": 7.197938963528309e-07,
+          "B29": 9.222265531332113e-07
+        }
+      },
+      "10": {
+        "time_s": 2199.9999999999955,
+        "battery_mean_k": {
+          "B00": 315.3647498606406,
+          "B01": 328.35727822931807,
+          "B02": 370.0494363182599,
+          "B03": 368.957437526634,
+          "B04": 327.0423843465471,
+          "B05": 311.8163051523376,
+          "B06": 310.2469060027121,
+          "B07": 312.04716575178475,
+          "B08": 320.2787409630951,
+          "B09": 392.09976604904415,
+          "B10": 496.4485090588755,
+          "B11": 384.10727295183096,
+          "B12": 318.28590463367897,
+          "B13": 306.40846517992674,
+          "B14": 307.58636731554424,
+          "B15": 311.66087512701813,
+          "B16": 323.4068906914475,
+          "B17": 361.5862637514495,
+          "B18": 361.3251229737259,
+          "B19": 322.1148586939698,
+          "B20": 307.6048723436869,
+          "B21": 304.704494691674,
+          "B22": 308.40193048761233,
+          "B23": 312.9850295979486,
+          "B24": 317.2193028259752,
+          "B25": 321.52271888957785,
+          "B26": 316.3351179277346,
+          "B27": 309.16755393036976,
+          "B28": 306.65597409169,
+          "B29": 309.3649952213991
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 3907.9639423349604,
+            "mass_kg": 0.0007987257882510197,
+            "maximum_pressure_pa": 120056.88534997996,
+            "maximum_temperature_k": 491.59506580157966,
+            "minimum_temperature_k": 306.08843926113525,
+            "oxidizer_kg": 3.501177751398234e-05,
+            "released_energy_j": 790.229091818567,
+            "sensible_energy_j": 23.728606030281433
+          },
+          "outside": {
+            "chemical_j": 22645.34586589119,
+            "mass_kg": 1.1970695362826136,
+            "maximum_pressure_pa": 120042.57864033505,
+            "maximum_temperature_k": 375.45342575578286,
+            "minimum_temperature_k": 315.27164813887754,
+            "oxidizer_kg": 0.26959914911763555,
+            "released_energy_j": 67853.54125734749,
+            "sensible_energy_j": 61241.93227701284
+          }
+        },
+        "global_r3_j": 68855.54230215793,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.012938124282593402,
+          "mixed_mass_kg": 0.014390377116445648,
+          "transferred_chemical_j": 90498.88712323771,
+          "delivered_gas_energy_j": 7168.581577073281
+        },
+        "r2_generated_gas_kg": {
+          "B00": 1.2685748231162731e-06,
+          "B01": 3.7182525468970706e-06,
+          "B02": 0.0001366978035105427,
+          "B03": 0.00012900694424619838,
+          "B04": 3.3523942525630048e-06,
+          "B05": 9.596410179567454e-07,
+          "B06": 8.868641993847095e-07,
+          "B07": 1.055881862396344e-06,
+          "B08": 1.8667383754372763e-06,
+          "B09": 0.00034144713574117604,
+          "B10": 0.008249196533205614,
+          "B11": 0.00026922697698135683,
+          "B12": 1.5969103253931505e-06,
+          "B13": 6.895294581933101e-07,
+          "B14": 7.529370091736886e-07,
+          "B15": 9.767917301230798e-07,
+          "B16": 2.4595621126152186e-06,
+          "B17": 8.71135782646088e-05,
+          "B18": 8.491766493851144e-05,
+          "B19": 2.241128322361377e-06,
+          "B20": 7.400464309368288e-07,
+          "B21": 6.371239510831537e-07,
+          "B22": 8.265265743632699e-07,
+          "B23": 1.0656184771090062e-06,
+          "B24": 1.4624427812859768e-06,
+          "B25": 2.1248465030800283e-06,
+          "B26": 1.3770265665158352e-06,
+          "B27": 8.166346905182558e-07,
+          "B28": 7.055652213119672e-07,
+          "B29": 8.48032430118528e-07
+        }
+      }
+    },
+    "2230.0": {
+      "20": {
+        "time_s": 2230.0,
+        "battery_mean_k": {
+          "B00": 316.5835951068962,
+          "B01": 329.22280786982486,
+          "B02": 371.644348886782,
+          "B03": 370.1996550900204,
+          "B04": 327.4423553959146,
+          "B05": 312.14806970580304,
+          "B06": 311.02356332923466,
+          "B07": 314.2037774718097,
+          "B08": 321.4249265235413,
+          "B09": 427.44328461702156,
+          "B10": 490.32342131116434,
+          "B11": 390.1761735075344,
+          "B12": 318.74641891335904,
+          "B13": 306.8828739695852,
+          "B14": 308.969625228213,
+          "B15": 312.94160345989485,
+          "B16": 324.21952550903745,
+          "B17": 363.1168740956944,
+          "B18": 362.0402031619705,
+          "B19": 322.52182687878343,
+          "B20": 307.95148442845107,
+          "B21": 305.55841960781623,
+          "B22": 310.72880549669657,
+          "B23": 313.6679369705754,
+          "B24": 317.5879146118216,
+          "B25": 321.7620142885676,
+          "B26": 316.4743120822023,
+          "B27": 309.3171322134946,
+          "B28": 307.07464450221727,
+          "B29": 310.4857080293136
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 4796.2223430069225,
+            "mass_kg": 0.0007888500650170898,
+            "maximum_pressure_pa": 120110.94569808984,
+            "maximum_temperature_k": 485.102214633906,
+            "minimum_temperature_k": 307.87313593919964,
+            "oxidizer_kg": 2.3634644919058137e-05,
+            "released_energy_j": 983.0848371334484,
+            "sensible_energy_j": 26.24529444618456
+          },
+          "outside": {
+            "chemical_j": 26244.534190292678,
+            "mass_kg": 1.1976439441926845,
+            "maximum_pressure_pa": 119820.3962764724,
+            "maximum_temperature_k": 368.5560514970464,
+            "minimum_temperature_k": 314.38762853448014,
+            "oxidizer_kg": 0.2696217971581972,
+            "released_energy_j": 67523.76937657375,
+            "sensible_energy_j": 60388.7327635557
+          }
+        },
+        "global_r3_j": 68708.34236383354,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.013512532192675309,
+          "mixed_mass_kg": 0.013966129604489681,
+          "transferred_chemical_j": 93768.30356686538,
+          "delivered_gas_energy_j": 6958.617771404614
+        },
+        "r2_generated_gas_kg": {
+          "B00": 1.4386845863191962e-06,
+          "B01": 4.076418782707086e-06,
+          "B02": 0.00015237534565379666,
+          "B03": 0.00014193713431395234,
+          "B04": 3.5312074301733633e-06,
+          "B05": 9.970494223181304e-07,
+          "B06": 9.598177809993898e-07,
+          "B07": 1.328878242370741e-06,
+          "B08": 2.089530310652342e-06,
+          "B09": 0.0006622004398910873,
+          "B10": 0.008249172179023594,
+          "B11": 0.00033225145520157526,
+          "B12": 1.6838223437177631e-06,
+          "B13": 7.22391385819699e-07,
+          "B14": 8.545372274601182e-07,
+          "B15": 1.1050402819186738e-06,
+          "B16": 2.6733830822206787e-06,
+          "B17": 9.730888494517798e-05,
+          "B18": 9.216522345608782e-05,
+          "B19": 2.3616996214333895e-06,
+          "B20": 7.685164749523429e-07,
+          "B21": 6.887603787385796e-07,
+          "B22": 1.050056024162843e-06,
+          "B23": 1.1465814836044914e-06,
+          "B24": 1.5322338333245222e-06,
+          "B25": 2.2110738273445005e-06,
+          "B26": 1.4169718346408116e-06,
+          "B27": 8.380497352391109e-07,
+          "B28": 7.391848011139414e-07,
+          "B29": 9.520754877129968e-07
+        }
+      },
+      "10": {
+        "time_s": 2229.999999999968,
+        "battery_mean_k": {
+          "B00": 315.69329647902856,
+          "B01": 328.9307195374775,
+          "B02": 371.74695785537716,
+          "B03": 370.50036692382673,
+          "B04": 327.553735262381,
+          "B05": 312.10906941721476,
+          "B06": 310.42878252487384,
+          "B07": 312.2904379530217,
+          "B08": 320.7651350244259,
+          "B09": 409.1800740098541,
+          "B10": 490.4094000551745,
+          "B11": 390.1547605084655,
+          "B12": 318.68530202286973,
+          "B13": 306.5894527680346,
+          "B14": 307.73084547337544,
+          "B15": 311.92142375780577,
+          "B16": 323.8886797509902,
+          "B17": 362.3514785762342,
+          "B18": 362.09537934213165,
+          "B19": 322.52977490353857,
+          "B20": 307.8130300205701,
+          "B21": 304.8200039656885,
+          "B22": 308.5271770296102,
+          "B23": 313.24036080015566,
+          "B24": 317.56130718881025,
+          "B25": 321.90041652603566,
+          "B26": 316.65267758537817,
+          "B27": 309.3842882796671,
+          "B28": 306.8003923440827,
+          "B29": 309.5067845052544
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 4436.187909198578,
+            "mass_kg": 0.0007963988859259488,
+            "maximum_pressure_pa": 120088.69446399594,
+            "maximum_temperature_k": 485.8075019369604,
+            "minimum_temperature_k": 306.3915988222442,
+            "oxidizer_kg": 2.8111371205141646e-05,
+            "released_energy_j": 791.106165261439,
+            "sensible_energy_j": 24.485350170915694
+          },
+          "outside": {
+            "chemical_j": 24876.963170239804,
+            "mass_kg": 1.1974539555573016,
+            "maximum_pressure_pa": 120079.12671056681,
+            "maximum_temperature_k": 374.7052474686243,
+            "minimum_temperature_k": 313.3973821708079,
+            "oxidizer_kg": 0.26960545190194524,
+            "released_energy_j": 67860.32090571952,
+            "sensible_energy_j": 61255.05303461553
+          }
+        },
+        "global_r3_j": 68863.61590035548,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.01332254355728186,
+          "mixed_mass_kg": 0.014671096202526823,
+          "transferred_chemical_j": 92737.2840759579,
+          "delivered_gas_energy_j": 7207.8471543168
+        },
+        "r2_generated_gas_kg": {
+          "B00": 1.324488265942533e-06,
+          "B01": 3.9740648879219835e-06,
+          "B02": 0.00015294628468610804,
+          "B03": 0.0001436921040077462,
+          "B04": 3.572531445229133e-06,
+          "B05": 9.9580799156228e-07,
+          "B06": 9.164258742585962e-07,
+          "B07": 1.092976721574777e-06,
+          "B08": 1.967929638920692e-06,
+          "B09": 0.0005029547567138913,
+          "B10": 0.008249196533205614,
+          "B11": 0.0003306248477488858,
+          "B12": 1.6765553978607825e-06,
+          "B13": 7.077204553881705e-07,
+          "B14": 7.740307362009692e-07,
+          "B15": 1.0121982675627784e-06,
+          "B16": 2.6049720627331296e-06,
+          "B17": 9.446923161490391e-05,
+          "B18": 9.21038718523336e-05,
+          "B19": 2.3659758634698484e-06,
+          "B20": 7.612719429228174e-07,
+          "B21": 6.516711200950551e-07,
+          "B22": 8.498894060197143e-07,
+          "B23": 1.1072901821606516e-06,
+          "B24": 1.5323680209446128e-06,
+          "B25": 2.241173590305648e-06,
+          "B26": 1.4398377963841308e-06,
+          "B27": 8.425099342346921e-07,
+          "B28": 7.242996343336177e-07,
+          "B29": 8.744381195898625e-07
+        }
+      }
+    },
+    "2400.0": {
+      "20": {
+        "time_s": 2399.999999999982,
+        "battery_mean_k": {
+          "B00": 1326.4506378071987,
+          "B01": 1276.8334773134422,
+          "B02": 1220.2509766098008,
+          "B03": 1231.637185539935,
+          "B04": 1290.2632648768897,
+          "B05": 1346.6773393210474,
+          "B06": 1351.6716955803386,
+          "B07": 1349.4843547369844,
+          "B08": 1317.9592368905362,
+          "B09": 1169.4822141531793,
+          "B10": 931.7312328135849,
+          "B11": 1186.6272131557405,
+          "B12": 1338.8030874467092,
+          "B13": 1371.515060776696,
+          "B14": 1374.6159655888484,
+          "B15": 1354.4749503697042,
+          "B16": 1321.8938943139267,
+          "B17": 1243.9747941564735,
+          "B18": 1239.7872495781155,
+          "B19": 1328.842136162842,
+          "B20": 1363.3667860511928,
+          "B21": 1384.850399015964,
+          "B22": 1369.4536470098485,
+          "B23": 1358.6419818115155,
+          "B24": 1356.93702535819,
+          "B25": 1338.2182417518113,
+          "B26": 1351.1123601034128,
+          "B27": 1369.4288342097293,
+          "B28": 1376.5180592950724,
+          "B29": 1375.5892074973017
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 2896.775028191522,
+            "mass_kg": 0.0014156453389217232,
+            "maximum_pressure_pa": 740664.0128176108,
+            "maximum_temperature_k": 1327.1859678886783,
+            "minimum_temperature_k": 904.4478551093,
+            "oxidizer_kg": 8.88612600774622e-28,
+            "released_energy_j": 1344.7931385175093,
+            "sensible_energy_j": 1190.5235386017928
+          },
+          "outside": {
+            "chemical_j": 617139.462201428,
+            "mass_kg": 1.5169948649344076,
+            "maximum_pressure_pa": 741944.2831294375,
+            "maximum_temperature_k": 2672.3741062638737,
+            "minimum_temperature_k": 939.0199464681276,
+            "oxidizer_kg": 0.1305011570179575,
+            "released_energy_j": 1889949.5548954604,
+            "sensible_energy_j": 2125359.2683373904
+          }
+        },
+        "global_r3_j": 1891500.8229216659,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.33286345293440284,
+          "mixed_mass_kg": 0.2563625983098038,
+          "transferred_chemical_j": 2507089.017096879,
+          "delivered_gas_energy_j": 324054.63018595066
+        },
+        "r2_generated_gas_kg": {
+          "B00": 0.008249346619345831,
+          "B01": 0.008249305551046564,
+          "B02": 0.008249088211698086,
+          "B03": 0.008249103665319594,
+          "B04": 0.008249309726792995,
+          "B05": 0.008249361917517514,
+          "B06": 0.008249359466112296,
+          "B07": 0.008249324628592944,
+          "B08": 0.008249305305706668,
+          "B09": 0.008248802728178243,
+          "B10": 0.008249172179023594,
+          "B11": 0.008248883263612158,
+          "B12": 0.008249308784193873,
+          "B13": 0.008249353497605628,
+          "B14": 0.00824936830195258,
+          "B15": 0.008249350139193763,
+          "B16": 0.008249302805766972,
+          "B17": 0.008249149774940095,
+          "B18": 0.008249203511334388,
+          "B19": 0.008249317685033574,
+          "B20": 0.00824938055553761,
+          "B21": 0.008249376845915344,
+          "B22": 0.008249337409973101,
+          "B23": 0.008249346219230892,
+          "B24": 0.008249336036499586,
+          "B25": 0.008249287201346597,
+          "B26": 0.008249347596834955,
+          "B27": 0.00824935440805656,
+          "B28": 0.008249372455187313,
+          "B29": 0.008249350671101408
+        }
+      },
+      "10": {
+        "time_s": 2399.9999999999864,
+        "battery_mean_k": {
+          "B00": 1335.5202932990894,
+          "B01": 1279.3752425209673,
+          "B02": 1222.1690148258078,
+          "B03": 1231.900432473672,
+          "B04": 1289.4237972579647,
+          "B05": 1352.7142587890482,
+          "B06": 1362.8272526020985,
+          "B07": 1358.1735263995724,
+          "B08": 1325.3375382906167,
+          "B09": 1169.9736433760654,
+          "B10": 918.5222711683823,
+          "B11": 1185.095715060477,
+          "B12": 1337.6450333715627,
+          "B13": 1370.5740886193048,
+          "B14": 1375.4732171160551,
+          "B15": 1360.9404429408053,
+          "B16": 1321.53677462327,
+          "B17": 1236.7170366277269,
+          "B18": 1242.1045447041508,
+          "B19": 1325.837605091504,
+          "B20": 1371.3114124824947,
+          "B21": 1385.5923562967416,
+          "B22": 1382.3952676545914,
+          "B23": 1361.0795981560937,
+          "B24": 1357.9248760278808,
+          "B25": 1339.2287597116035,
+          "B26": 1353.058742783994,
+          "B27": 1368.7245311640609,
+          "B28": 1379.1196892508171,
+          "B29": 1383.4135078013217
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 2735.0436795295213,
+            "mass_kg": 0.0013403582985823815,
+            "maximum_pressure_pa": 704748.4162010007,
+            "maximum_temperature_k": 1317.9482623267108,
+            "minimum_temperature_k": 905.3877559693651,
+            "oxidizer_kg": 1.978291286934342e-34,
+            "released_energy_j": 978.7281662727298,
+            "sensible_energy_j": 1133.3666518175569
+          },
+          "outside": {
+            "chemical_j": 740389.2967567813,
+            "mass_kg": 1.5125500026609149,
+            "maximum_pressure_pa": 706023.1954796886,
+            "maximum_temperature_k": 2668.300863567823,
+            "minimum_temperature_k": 909.2994731526089,
+            "oxidizer_kg": 0.14058200721065214,
+            "released_energy_j": 1758248.0564395553,
+            "sensible_energy_j": 2000812.0789020148
+          }
+        },
+        "global_r3_j": 1759441.6853973193,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.3284185906608971,
+          "mixed_mass_kg": 0.25437881119817096,
+          "transferred_chemical_j": 2498637.353196324,
+          "delivered_gas_energy_j": 317910.88310346653
+        },
+        "r2_generated_gas_kg": {
+          "B00": 0.008249324184445173,
+          "B01": 0.008249321655168597,
+          "B02": 0.008249077364478292,
+          "B03": 0.008249065804488778,
+          "B04": 0.008249309547411278,
+          "B05": 0.008249351922010949,
+          "B06": 0.008249371266204503,
+          "B07": 0.008249335652957228,
+          "B08": 0.008249318763365352,
+          "B09": 0.008248811168233934,
+          "B10": 0.008249196533205614,
+          "B11": 0.00824885699176118,
+          "B12": 0.008249304273695595,
+          "B13": 0.008249362977028846,
+          "B14": 0.008249374259098222,
+          "B15": 0.008249347199232676,
+          "B16": 0.008249298722021079,
+          "B17": 0.00824917363604338,
+          "B18": 0.008249185518380225,
+          "B19": 0.008249279070471596,
+          "B20": 0.008249353581745958,
+          "B21": 0.008249343222868527,
+          "B22": 0.008249371047665764,
+          "B23": 0.008249344458134232,
+          "B24": 0.008249318570979996,
+          "B25": 0.00824931077947094,
+          "B26": 0.008249336897911531,
+          "B27": 0.008249376923260809,
+          "B28": 0.00824935711361821,
+          "B29": 0.008249350869844657
+        }
+      }
+    },
+    "2524.9999999999773": {
+      "20": {
+        "time_s": 2524.9999999999727,
+        "battery_mean_k": {
+          "B00": 1225.5908807976273,
+          "B01": 1211.5462949453988,
+          "B02": 1165.3115728585913,
+          "B03": 1175.5807217735785,
+          "B04": 1228.2241381853473,
+          "B05": 1271.1946528849019,
+          "B06": 1242.0919870867335,
+          "B07": 1256.6935661307882,
+          "B08": 1263.3464171854118,
+          "B09": 1151.2653417655754,
+          "B10": 1026.484047619216,
+          "B11": 1168.4760140599708,
+          "B12": 1292.3312628108852,
+          "B13": 1316.3095839153193,
+          "B14": 1280.5385729425168,
+          "B15": 1263.130147208653,
+          "B16": 1270.1439923829969,
+          "B17": 1208.0676095382735,
+          "B18": 1208.0303978770987,
+          "B19": 1286.0495696323694,
+          "B20": 1318.79614931173,
+          "B21": 1324.8438250521078,
+          "B22": 1275.3881309839182,
+          "B23": 1244.297072922536,
+          "B24": 1275.2660492245204,
+          "B25": 1265.1169382549494,
+          "B26": 1278.0902718606092,
+          "B27": 1294.8471454393466,
+          "B28": 1296.8227832081668,
+          "B29": 1266.294593114236
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 3663.2375192371546,
+            "mass_kg": 0.0017045800826473638,
+            "maximum_pressure_pa": 873092.7827957498,
+            "maximum_temperature_k": 1315.8900388323768,
+            "minimum_temperature_k": 943.5346219061074,
+            "oxidizer_kg": 8.305232783432662e-25,
+            "released_energy_j": 1344.79313851751,
+            "sensible_energy_j": 1396.861674862007
+          },
+          "outside": {
+            "chemical_j": 116905.35516130646,
+            "mass_kg": 1.520260576152561,
+            "maximum_pressure_pa": 873124.6225070268,
+            "maximum_temperature_k": 2414.1801401239754,
+            "minimum_temperature_k": 1043.2532696309725,
+            "oxidizer_kg": 0.09182839636230761,
+            "released_energy_j": 2396562.7194844782,
+            "sensible_energy_j": 2588757.9476144356
+          }
+        },
+        "global_r3_j": 2398113.987510684,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.336129164152554,
+          "mixed_mass_kg": 0.2595296789362703,
+          "transferred_chemical_j": 2513468.0746457665,
+          "delivered_gas_energy_j": 328119.2329257804
+        },
+        "r2_generated_gas_kg": {
+          "B00": 0.008249346619345831,
+          "B01": 0.008249305551046564,
+          "B02": 0.008249088211698086,
+          "B03": 0.008249103665319594,
+          "B04": 0.008249309726792995,
+          "B05": 0.008249361917517514,
+          "B06": 0.008249359466112296,
+          "B07": 0.008249324628592944,
+          "B08": 0.008249305305706668,
+          "B09": 0.008248802728178243,
+          "B10": 0.008249172179023594,
+          "B11": 0.008248883263612158,
+          "B12": 0.008249308784193873,
+          "B13": 0.008249353497605628,
+          "B14": 0.00824936830195258,
+          "B15": 0.008249350139193763,
+          "B16": 0.008249302805766972,
+          "B17": 0.008249149774940095,
+          "B18": 0.008249203511334388,
+          "B19": 0.008249317685033574,
+          "B20": 0.00824938055553761,
+          "B21": 0.008249376845915344,
+          "B22": 0.008249337409973101,
+          "B23": 0.008249346219230892,
+          "B24": 0.008249336036499586,
+          "B25": 0.008249287201346597,
+          "B26": 0.008249347596834955,
+          "B27": 0.00824935440805656,
+          "B28": 0.008249372455187313,
+          "B29": 0.008249350671101408
+        }
+      },
+      "10": {
+        "time_s": 2524.9999999999773,
+        "battery_mean_k": {
+          "B00": 1228.2739893366654,
+          "B01": 1210.7147907789295,
+          "B02": 1164.910577437114,
+          "B03": 1174.4508222593254,
+          "B04": 1226.2886205938269,
+          "B05": 1273.416091900988,
+          "B06": 1245.7136921674085,
+          "B07": 1259.6559828409115,
+          "B08": 1266.5587759449693,
+          "B09": 1150.3870566628964,
+          "B10": 1020.6547224620089,
+          "B11": 1167.116562076264,
+          "B12": 1290.554421377209,
+          "B13": 1314.4745106980847,
+          "B14": 1279.5249713542382,
+          "B15": 1264.0450776706457,
+          "B16": 1267.9272857930948,
+          "B17": 1201.9175280303493,
+          "B18": 1208.9118082842485,
+          "B19": 1283.1190259188272,
+          "B20": 1323.1730409388038,
+          "B21": 1324.7570883857582,
+          "B22": 1283.0033190435909,
+          "B23": 1242.3278980004577,
+          "B24": 1273.0763953893745,
+          "B25": 1263.8041989809144,
+          "B26": 1277.3697480743626,
+          "B27": 1292.4971583102356,
+          "B28": 1297.4117633687417,
+          "B29": 1269.3865322264328
+        },
+        "gas_groups": {
+          "module": {
+            "chemical_j": 3704.7146555982745,
+            "mass_kg": 0.0017139987365593595,
+            "maximum_pressure_pa": 872417.1954855361,
+            "maximum_temperature_k": 1315.1903968686695,
+            "minimum_temperature_k": 929.8137360817587,
+            "oxidizer_kg": 1.1134266039734055e-28,
+            "released_energy_j": 978.7281662727298,
+            "sensible_energy_j": 1392.577290854917
+          },
+          "outside": {
+            "chemical_j": 132628.20002405948,
+            "mass_kg": 1.5202512961167642,
+            "maximum_pressure_pa": 872564.866157052,
+            "maximum_temperature_k": 2469.271355796115,
+            "minimum_temperature_k": 1016.9908019839244,
+            "oxidizer_kg": 0.09302153584446368,
+            "released_energy_j": 2381290.2313366286,
+            "sensible_energy_j": 2586407.5238022115
+          }
+        },
+        "global_r3_j": 2382483.860294393,
+        "signed_module_to_air_vent_ledgers": {
+          "transferred_mass_kg": 0.3361198841167378,
+          "mixed_mass_kg": 0.2610522397414246,
+          "transferred_chemical_j": 2513918.4313606676,
+          "delivered_gas_energy_j": 327360.9406463055
+        },
+        "r2_generated_gas_kg": {
+          "B00": 0.008249324184445173,
+          "B01": 0.008249321655168597,
+          "B02": 0.008249077364478292,
+          "B03": 0.008249065804488778,
+          "B04": 0.008249309547411278,
+          "B05": 0.008249351922010949,
+          "B06": 0.008249371266204503,
+          "B07": 0.008249335652957228,
+          "B08": 0.008249318763365352,
+          "B09": 0.008248811168233934,
+          "B10": 0.008249196533205614,
+          "B11": 0.00824885699176118,
+          "B12": 0.008249304273695595,
+          "B13": 0.008249362977028846,
+          "B14": 0.008249374259098222,
+          "B15": 0.008249347199232676,
+          "B16": 0.008249298722021079,
+          "B17": 0.00824917363604338,
+          "B18": 0.008249185518380225,
+          "B19": 0.008249279070471596,
+          "B20": 0.008249353581745958,
+          "B21": 0.008249343222868527,
+          "B22": 0.008249371047665764,
+          "B23": 0.008249344458134232,
+          "B24": 0.008249318570979996,
+          "B25": 0.00824931077947094,
+          "B26": 0.008249336897911531,
+          "B27": 0.008249376923260809,
+          "B28": 0.00824935711361821,
+          "B29": 0.008249350869844657
+        }
+      }
+    }
+  },
+  "balances": {
+    "20": {
+      "max_chemical_residual_j": 2.2165477275848389e-07,
+      "max_mass_residual_kg": 6.661338147750939e-14,
+      "max_oxidizer_residual_kg": 7.527312106958561e-14,
+      "max_thermal_residual_j": 1.914333552122116e-06
+    },
+    "10": {
+      "max_chemical_residual_j": 2.561137080192566e-07,
+      "max_mass_residual_kg": 1.7186252421197423e-13,
+      "max_oxidizer_residual_kg": 5.3512749786932545e-14,
+      "max_thermal_residual_j": 1.9650906324386597e-07
+    }
+  },
+  "observation_spacing_s": 4.999999999999716,
+  "calibrated": false,
+  "validation_passed": false,
+  "patterns_promoted": false,
+  "interpretation": "Timing, amplitude and local redistribution are separate. Aligned curves never replace unshifted acceptance. 10 mm is a comparison reference, not a proven continuum limit.",
+  "provenance": {
+    "controller_sha256": "55e8912005367669ed6fea837334df5e0e09ec9b5593b44cfa1da12be141bedb",
+    "raw_results": {
+      "20": {
+        "path": "/home/konstantin/work/battery-sim/data/development/fsri30-full20-10-20261025-r1/checks/h-20mm/replay/run.json.gz",
+        "sha256": "edddb3c7309fa646ed47d258586376ebcc6a00628f8c817b3de539176bbec5f6"
+      },
+      "10": {
+        "path": "/home/konstantin/work/battery-sim/data/development/fsri30-unrestricted10-20261025-r1/replay/incomplete-run.json.gz",
+        "sha256": "5cbd3da6e137daef5033ea0f31fe9456582647d56c4fc27dc5ebfba45e7e0dfc"
+      }
+    }
+  },
+  "spatial_fields": {
+    "status": "spatial-patterns-compared",
+    "until_s": 2524.9999999999727,
+    "snapshots": 506,
+    "coarse_air_nodes": 1590,
+    "fine_air_nodes": 9400,
+    "same_physical_non_air_nodes": 900,
+    "air_volume_rms_relative_kelvin": 0.02292518238875953,
+    "maximum_air_local_relative_kelvin": 0.8526132092222244,
+    "worst_air": {
+      "time_s": 2235.0,
+      "coarse_node": "air-9-1-1",
+      "coarse_k": 2295.919677734375,
+      "restricted_fine_k": 338.3882331848145
+    },
+    "maximum_air_fuel_l1_relative": 0.8343842220377654,
+    "maximum_air_oxygen_l1_relative": 0.15426146232564078,
+    "worst_air_fuel": {
+      "time_s": 2239.9999999999955,
+      "coarse_fuel_j": 36798.613509437084,
+      "fine_fuel_j": 27181.497651845217,
+      "absolute_fuel_difference_l1_j": 30704.182505140066
+    },
+    "maximum_normalized_fuel_distribution_total_variation": 0.4013623953945996,
+    "worst_normalized_fuel_distribution": {
+      "time_s": 2239.9999999999955,
+      "coarse_fuel_j": 36798.613509437084,
+      "fine_fuel_j": 27181.497651845217
+    },
+    "minimum_fuel_per_mesh_for_normalized_pattern_j": 100.0,
+    "maximum_extensive_projection_relative_residual": 1.3425467381540129e-14,
+    "same_node_rms_relative_kelvin": 0.034743245054153445,
+    "same_node_maximum_local_relative_kelvin": 0.7912278916185994,
+    "worst_same_node": {
+      "time_s": 2375.0,
+      "node": "inside-B28-4",
+      "coarse_k": 1725.9154052734375,
+      "fine_k": 360.322998046875
+    },
+    "temperature_weighting": "Physical overlap volume; NOT sensible energy or a mass-weighted temperature",
+    "extensive_weighting": "Physical overlap/fine volume: preserves fuel joules and oxygen kg",
+    "scope": "Observed field redistribution diagnostic, no fabricated heat/mass fluxes or fitted time shifts"
+  },
+  "plot": "/home/konstantin/work/battery-sim/data/development/fsri30-unrestricted10-20261025-r1/cascade-analysis-20261025-r1/cascade-diagnosis.png"
+}

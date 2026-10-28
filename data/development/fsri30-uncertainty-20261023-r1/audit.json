@@ -1,0 +1,115 @@
+{
+  "cases": [
+    {
+      "folder": "data/calibration/ul-fsri-30-bayes-20261023-r1/preflight-time-refinement",
+      "duration_s": 5945.0,
+      "max_thermal_step_s": 0.1,
+      "gas_requested_interval_s": 0.025,
+      "pressure_iteration_cap": 1024,
+      "payload_iteration_cap": 32,
+      "recorded_r3_j": 7864.348692409495,
+      "condensed_r2_j": 41753.84605635199,
+      "recorded_coupled_heat_j": 49618.19474876149,
+      "recorded_gas_nodes": 91,
+      "total_gas_nodes": 931,
+      "omitted_nodes": 840,
+      "complete_global_r3_available": false,
+      "note": "Time interval AND algebraic caps changed together: not an isolated timestep experiment"
+    },
+    {
+      "folder": "data/calibration/ul-fsri-30-bayes-20261023-r2/control-time2-space1",
+      "duration_s": 5945.0,
+      "max_thermal_step_s": 0.05,
+      "gas_requested_interval_s": 0.0125,
+      "pressure_iteration_cap": 2048,
+      "payload_iteration_cap": 64,
+      "recorded_r3_j": 10248.788386260336,
+      "condensed_r2_j": 41756.46716451475,
+      "recorded_coupled_heat_j": 52005.25555077508,
+      "recorded_gas_nodes": 91,
+      "total_gas_nodes": 931,
+      "omitted_nodes": 840,
+      "complete_global_r3_available": false,
+      "note": "Time interval AND algebraic caps changed together: not an isolated timestep experiment"
+    },
+    {
+      "folder": "data/calibration/ul-fsri-30-bayes-20261023-r3/control-time3-space1",
+      "duration_s": 5945.0,
+      "max_thermal_step_s": 0.025,
+      "gas_requested_interval_s": 0.01,
+      "pressure_iteration_cap": 2048,
+      "payload_iteration_cap": 128,
+      "recorded_r3_j": 8176.782610158063,
+      "condensed_r2_j": 41755.97530158619,
+      "recorded_coupled_heat_j": 49932.75791174426,
+      "recorded_gas_nodes": 91,
+      "total_gas_nodes": 931,
+      "omitted_nodes": 840,
+      "complete_global_r3_available": false,
+      "note": "Time interval AND algebraic caps changed together: not an isolated timestep experiment"
+    }
+  ],
+  "analytical_diagnostic": [
+    {
+      "step_s": 0.05,
+      "residence_s": 0.0005,
+      "rate_per_s": 2000.0,
+      "split_heat_j": 0.009900990099009906,
+      "continuous_heat_j": 0.499875,
+      "split_escaped_j": 0.9900990099009904,
+      "split_remaining_j": 0.0,
+      "continuous_remaining_j": 0.00025,
+      "relative_heat_error": 0.9801930680689974,
+      "chemical_closure_j": 2.220446049250313e-16
+    },
+    {
+      "step_s": 0.025,
+      "residence_s": 0.0005,
+      "rate_per_s": 2000.0,
+      "split_heat_j": 0.01960784313724808,
+      "continuous_heat_j": 0.499875,
+      "split_escaped_j": 0.9803921568627457,
+      "split_remaining_j": 6.807813861253731e-15,
+      "continuous_remaining_j": 0.00025,
+      "relative_heat_error": 0.9607745073523419,
+      "chemical_closure_j": 6.661338147750939e-16
+    },
+    {
+      "step_s": 0.0125,
+      "residence_s": 0.0005,
+      "rate_per_s": 2000.0,
+      "split_heat_j": 0.03846153666937109,
+      "continuous_heat_j": 0.499875,
+      "split_escaped_j": 0.9615384615389674,
+      "split_remaining_j": 1.7916601788878043e-09,
+      "continuous_remaining_j": 0.00025,
+      "relative_heat_error": 0.9230576910840289,
+      "chemical_closure_j": -1.3322676295501878e-15
+    },
+    {
+      "step_s": 0.01,
+      "residence_s": 0.0005,
+      "rate_per_s": 2000.0,
+      "split_heat_j": 0.04761902590749176,
+      "continuous_heat_j": 0.499875,
+      "split_escaped_j": 0.9523809524734947,
+      "split_remaining_j": 2.1619014174722225e-08,
+      "continuous_remaining_j": 0.00025,
+      "relative_heat_error": 0.9047381327181961,
+      "chemical_closure_j": 6.661338147750939e-16
+    },
+    {
+      "step_s": 0.005,
+      "residence_s": 0.0005,
+      "rate_per_s": 2000.0,
+      "split_heat_j": 0.09090229487792857,
+      "continuous_heat_j": 0.499875,
+      "split_escaped_j": 0.9090946424062518,
+      "split_remaining_j": 3.062715822046405e-06,
+      "continuous_remaining_j": 0.00025,
+      "relative_heat_error": 0.8181499477310756,
+      "chemical_closure_j": 2.4424906541753444e-15
+    }
+  ],
+  "interpretation": "Throughflow can lose reaction opportunity under splitting despite exact ledgers; this is a diagnosed mechanism, not proof of the unique FSRI discrepancy cause"
+}

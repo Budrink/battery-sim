@@ -1,0 +1,61 @@
+{
+  "trial": "/home/konstantin/work/battery-sim/data/development/fsri30-packed-fine-2406-20261027-r1/cascade-0001",
+  "parameters": {
+    "r2_rate_scale": 0.07866278610665535,
+    "gas_can_contact_scale": 1.0,
+    "cross_column_open_fraction": 1.0,
+    "axial_open_fraction": 1.0,
+    "thermal_stirring_coefficient": 0.06722339346183823,
+    "effective_emissivity": 0.7664775109756737
+  },
+  "level_mm": 20,
+  "status": "running",
+  "native_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "scenario_sha256": "fcc430b4997f83579e8026585523627785ebf34f755b2a9abd56d48b574ab112",
+  "screening_only": false,
+  "calibrated": false,
+  "validation_passed": false,
+  "assessment": {
+    "evaluated": false,
+    "accepted": null,
+    "phase_window_complete": false,
+    "last_observed_s": 675.0,
+    "reason": null,
+    "constraint": 0.0,
+    "primary_offset_s": null,
+    "timing_error_s": 0.0,
+    "timing_target_met": false,
+    "pulse_match": {
+      "due": 0,
+      "matched": 0,
+      "missing": [],
+      "pairs": [],
+      "worst_offset_s": 0.0,
+      "target_met": false
+    },
+    "arrival_match": {
+      "due": 0,
+      "matched": 0,
+      "missing": [],
+      "pairs": [],
+      "worst_offset_s": 0.0,
+      "target_met": false
+    },
+    "model": {
+      "pulses": [],
+      "arrivals": [],
+      "pulse_groups": [],
+      "arrival_groups": []
+    },
+    "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+    "necessary_not_sufficient": true,
+    "objective": null
+  },
+  "physical_error": null,
+  "delivery": null,
+  "temperature_rejection": null,
+  "temperature_guard_deferred_for_mesh_timing": null,
+  "wall_s": 543.4469021449331,
+  "live_advanced_to_s": 676.8000000000004,
+  "minimum_regular_step_s": 0.09999999999888587
+}

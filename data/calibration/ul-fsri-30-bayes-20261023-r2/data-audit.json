@@ -1,0 +1,22 @@
+{
+  "dataset_id": "ulfsri/fsri-lib-ess-demo-2020/v1.1",
+  "csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "duration_s": 5945.0,
+  "untimed_rows_excluded": 136,
+  "sensor_mapping_confirmed": false,
+  "calorimeter_boundary_confirmed": false,
+  "observed_hrr_integral_j": 127856949.8488,
+  "excluded_targets": [
+    "per-component measured failure order/count",
+    "individual TC RMSE",
+    "calorimeter HRR amplitude/integral"
+  ],
+  "known_omissions": [
+    "ABS combustion/pyrolysis",
+    "thermal radiation"
+  ],
+  "independent_validation_available": false,
+  "development_search_allowed": true,
+  "quantitative_validation_claim_allowed": false,
+  "note": "Raw sources confirm thirty components and propagation, but do not resolve these identifiability limitations"
+}

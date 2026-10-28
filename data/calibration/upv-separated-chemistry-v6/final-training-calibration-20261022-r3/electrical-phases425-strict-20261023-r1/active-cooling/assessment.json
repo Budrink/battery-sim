@@ -1,0 +1,351 @@
+{
+  "objective": 1662.349716688417,
+  "complete": true,
+  "accepted": false,
+  "known_until_s": 1626.6089999116957,
+  "requested_end_s": 1626.6089999116957,
+  "channels": {
+    "101": {
+      "rmse_k": 16.811559908199108,
+      "bias_k": -15.593980338317241,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": 1474.0,
+      "covered_samples": 154,
+      "used_for_calibration": true
+    },
+    "102": {
+      "rmse_k": 2.8161031886677748,
+      "bias_k": -2.714241237711772,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": 1474.0,
+      "covered_samples": 154,
+      "used_for_calibration": true
+    },
+    "107": {
+      "rmse_k": 30.181633530651073,
+      "bias_k": -29.480342023873966,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": 1474.0,
+      "covered_samples": 154,
+      "used_for_calibration": true
+    },
+    "108": {
+      "rmse_k": 18.325232578571402,
+      "bias_k": 10.197238649178903,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": 1474.0,
+      "covered_samples": 154,
+      "used_for_calibration": true
+    },
+    "C2_TIM": {
+      "rmse_k": 157.12868787500202,
+      "bias_k": -154.8645895502503,
+      "tolerance_k": 10.0,
+      "evaluated_from_s": 1474.0,
+      "covered_samples": 154,
+      "used_for_calibration": true
+    },
+    "C2_ISS": {
+      "rmse_k": 207.53190354714567,
+      "bias_k": -198.19796292659072,
+      "tolerance_k": 10.0,
+      "evaluated_from_s": 1474.0,
+      "covered_samples": 154,
+      "used_for_calibration": false
+    }
+  },
+  "front": {
+    "accepted": false,
+    "reasons": [
+      "pressure has no resolved rise",
+      "108 has no resolved rise"
+    ],
+    "features": {
+      "pressure": {
+        "predicted": null,
+        "observed": {
+          "amplitude": 6.81245965,
+          "peak": 7.85627575,
+          "peak_s": 1413.2479998283088,
+          "width_10_90_s": 0.6074063897719952,
+          "t10_s": 1412.5646676398153,
+          "t90_s": 1413.1720740295873
+        },
+        "maximum_width_s": 2.0
+      },
+      "108": {
+        "predicted": null,
+        "observed": {
+          "amplitude": 3.8149999999999977,
+          "peak": 316.489,
+          "peak_s": 1432.9849998699501,
+          "width_10_90_s": 17.241322476183996,
+          "t10_s": 1412.8246773092542,
+          "t90_s": 1430.0659997854382
+        },
+        "maximum_width_s": 34.48264495236799
+      }
+    }
+  },
+  "pressure_rmse_bar": 0.026188701487004,
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "shape": {
+    "shape_objective": 53.377918337728424,
+    "front_concentration_objective": 4.316817708897759,
+    "shape_with_front_objective": 57.69473604662618,
+    "objective_version": "curve-plus-normalized-front-v2-five-temperature-channels-and-pressure-v4",
+    "channels": {
+      "101": {
+        "used_for_calibration": true,
+        "available": true,
+        "shape_rmse": 0.5531163807115895,
+        "calculated_rise_k": 5.66241152287688,
+        "observed_rise_k": 6.1957793685202205,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": 0.2357059818975813,
+        "observed_max_rise_1_5s_k": 2.6323224388463586,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.0,
+        "normalized_front_error": 0.3832309247889016,
+        "pre_burst_offset_k": 1.6382400580205285,
+        "loss": 0.5531163807115895,
+        "peak_c": 77.25524519314104,
+        "calculated_rise_front": {
+          "t10_s": 1408.6483693519874,
+          "t50_s": 1424.1261749135535,
+          "t90_s": 1447.9137275239516,
+          "rise_10_90_s": 39.26535817196418
+        },
+        "observed_rise_front": {
+          "t10_s": 1410.2298047780528,
+          "t50_s": 1413.1169869349662,
+          "t90_s": 1453.5537131873464,
+          "rise_10_90_s": 43.32390840929361
+        }
+      },
+      "102": {
+        "used_for_calibration": true,
+        "available": true,
+        "shape_rmse": 0.1469360200627005,
+        "calculated_rise_k": 1.598343646743217,
+        "observed_rise_k": 10.63654996895309,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": 0.05432427141033713,
+        "observed_max_rise_1_5s_k": 1.0509251415921312,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.04973100757213525,
+        "normalized_front_error": 0.06481534239830905,
+        "pre_burst_offset_k": 8.365213152085175,
+        "loss": 0.29612904277910623,
+        "peak_c": 41.907575260754925,
+        "calculated_rise_front": {
+          "t10_s": 1412.446547430348,
+          "t50_s": 1433.119158489632,
+          "t90_s": 1450.7380825207028,
+          "rise_10_90_s": 38.291535090354955
+        },
+        "observed_rise_front": {
+          "t10_s": 1413.2034916385371,
+          "t50_s": 1427.0708081420585,
+          "t90_s": 1445.8704857687267,
+          "rise_10_90_s": 32.66699413018955
+        }
+      },
+      "C2_ISS": {
+        "used_for_calibration": false,
+        "available": true,
+        "shape_rmse": 26.891122391034923,
+        "calculated_rise_k": 1.0,
+        "observed_rise_k": 606.8750301854254,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": -2.0604588596059443,
+        "observed_max_rise_1_5s_k": 208.38881211248247,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.19835221429411184,
+        "normalized_front_error": 2.40383896547191,
+        "pre_burst_offset_k": 77.83008297531052,
+        "loss": 27.48617903391726,
+        "peak_c": 179.48455545362657,
+        "calculated_rise_front": {
+          "t10_s": null,
+          "t50_s": null,
+          "t90_s": null,
+          "rise_10_90_s": null
+        },
+        "observed_rise_front": {
+          "t10_s": 1414.3462390092495,
+          "t50_s": 1416.1594449818283,
+          "t90_s": 1419.2856622819625,
+          "rise_10_90_s": 4.939423272712929
+        }
+      },
+      "C2_TIM": {
+        "used_for_calibration": true,
+        "available": true,
+        "shape_rmse": 25.662871470447666,
+        "calculated_rise_k": 1.0,
+        "observed_rise_k": 559.966414090736,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": -1.465488211700233,
+        "observed_max_rise_1_5s_k": 240.3702329461707,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.1982141786099372,
+        "normalized_front_error": 1.8947465152298828,
+        "pre_burst_offset_k": 96.69713410159682,
+        "loss": 26.25751400627748,
+        "peak_c": 206.4434588260421,
+        "calculated_rise_front": {
+          "t10_s": null,
+          "t50_s": null,
+          "t90_s": null,
+          "rise_10_90_s": null
+        },
+        "observed_rise_front": {
+          "t10_s": 1414.636025070334,
+          "t50_s": 1416.3088375215812,
+          "t90_s": 1418.6715991702952,
+          "rise_10_90_s": 4.035574099961195
+        }
+      },
+      "108": {
+        "used_for_calibration": true,
+        "available": true,
+        "shape_rmse": 20.13959078515451,
+        "calculated_rise_k": 1.0,
+        "observed_rise_k": 2.042841658327177,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": -1.3081435363754963,
+        "observed_max_rise_1_5s_k": 0.698110365700586,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.0,
+        "normalized_front_error": 1.6498784735180294,
+        "pre_burst_offset_k": 123.65310979951511,
+        "loss": 20.13959078515451,
+        "peak_c": 155.3584890388728,
+        "calculated_rise_front": {
+          "t10_s": null,
+          "t50_s": null,
+          "t90_s": null,
+          "rise_10_90_s": null
+        },
+        "observed_rise_front": {
+          "t10_s": 1411.258964716835,
+          "t50_s": 1414.2297276410077,
+          "t90_s": 1419.461178952824,
+          "rise_10_90_s": 8.202214235989004
+        }
+      },
+      "107": {
+        "used_for_calibration": true,
+        "available": true,
+        "shape_rmse": 5.800739398712047,
+        "calculated_rise_k": 1.0,
+        "observed_rise_k": 11.145319982226681,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": -0.267127866875569,
+        "observed_max_rise_1_5s_k": 0.6354903868744941,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.11027624136456478,
+        "normalized_front_error": 0.32414645296263545,
+        "pre_burst_offset_k": 17.21655788360613,
+        "loss": 6.131568122805741,
+        "peak_c": 80.24410241126611,
+        "calculated_rise_front": {
+          "t10_s": null,
+          "t50_s": null,
+          "t90_s": null,
+          "rise_10_90_s": null
+        },
+        "observed_rise_front": {
+          "t10_s": 1412.979469693859,
+          "t50_s": 1440.191463005131,
+          "t90_s": 1451.9015382923424,
+          "rise_10_90_s": 38.92206859848329
+        }
+      }
+    },
+    "cooling_scored": false,
+    "peak_amplitude_fitted": false,
+    "time_shift_s": 0.0,
+    "no_heat_rejected": true,
+    "feature_windows_s": {
+      "baseline_start_s": 1401.6089999116957,
+      "front_start_s": 1407.6089999116957,
+      "short_end_s": 1441.6089999116957,
+      "protected_end_s": 1456.6089999116957
+    },
+    "observation_policy": {
+      "version": "five-temperature-channels-and-pressure-v4",
+      "calibration_channels": [
+        "101",
+        "102",
+        "107",
+        "108",
+        "C2_TIM"
+      ],
+      "informational_channels": [
+        "C2_ISS"
+      ],
+      "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+    }
+  },
+  "time_shift_s": 0.0,
+  "temperature_gain": 1.0,
+  "preserved_front": {
+    "accepted": false,
+    "reasons": [
+      "pressure has no resolved rise",
+      "108 has no resolved rise",
+      "C1/ISS rapid pulse below half the observed jump",
+      "Chamber pressure peak outside 30% exploration bracket",
+      "Missing witness heating"
+    ],
+    "witness_pulse_ratio": 0.08954297483437546,
+    "minimum_witness_pulse_ratio": 0.5,
+    "pressure_peak_relative_error": null,
+    "maximum_witness_pulse_ratio": 4.0,
+    "protected_impulses": {
+      "102": {
+        "predicted_jump_k": 0.05432427141033713,
+        "observed_jump_k": 1.0509251415921312,
+        "maximum_jump_k": 10.0
+      },
+      "107": {
+        "predicted_jump_k": -0.267127866875569,
+        "observed_jump_k": 0.6354903868744941,
+        "maximum_jump_k": 10.0
+      }
+    },
+    "pressure_peak_exploration_limit": 0.3,
+    "pressure_peak_acceptance_limit": 0.05
+  },
+  "criteria_version": "cooling-with-protected-pulses-five-temperature-channels-and-pressure-v4",
+  "cooling_objective": 308.45499575589344,
+  "arrival_times": {
+    "pressure": {
+      "error_s": null,
+      "loss": 100.0
+    },
+    "108": {
+      "error_s": null,
+      "loss": 100.0
+    }
+  },
+  "shape_penalty": 1153.8947209325236,
+  "timing_penalty": 200.0,
+  "arrival_accepted": false,
+  "geometry_objective_version": "cooling-shape-and-physical-arrival-v1"
+}

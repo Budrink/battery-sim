@@ -1,0 +1,51 @@
+{
+  "status": "pruned",
+  "pid": 1917157,
+  "native_sha256": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "scenario_sha256": "0267a8119415d792f8efa05efc94da6df211895cc8e4bbee721b633e79967cbc",
+  "source_profile_sha256": "885d4a28be3cbfb87671e1e615ab86596471a59863d41e2fe173c5e1b6cf469c",
+  "reference_sha256": "78c78f1af099758f523136471e492598d288dd49efb946b17e133f0bae4b55c5",
+  "controller_sha256": "c9774fa62019d94967048ddc2aeed46489407bcfca09be3284f1ae128c6d5fd7",
+  "experimental_csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "fresh_from_zero": true,
+  "duration_s": 5945.0,
+  "mesh_mm": 20.0,
+  "parameters": {
+    "effective_emissivity": 0.9499239407945423,
+    "thermal_stirring_coefficient": 0.011776305179566437
+  },
+  "only_change": "Shared exterior radiation and existing conservative free-gas mixing",
+  "condensed_residue_unchanged": true,
+  "calibrated": false,
+  "validation_passed": false,
+  "last_completed_observation_s": 1514.9999999999545,
+  "live_advanced_to_s": 1515.1999999999543,
+  "wall_s": 640.712570889,
+  "minimum_regular_step_s": 0.01,
+  "inherited_pre_cooling_mismatch": {
+    "reason": "persistent gross envelope divergence for 60 s outside uncertain peaks",
+    "last_observed_s": 1474.999999999991,
+    "candidate_rmse_k": 310.5267463653623,
+    "reference_rmse_k": 234.41427820763656,
+    "note": "Inherited pre-cooling mismatch, not accepted calibration; cooling test continues"
+  },
+  "error": "Pruned: persistent gross envelope divergence for 60 s outside uncertain peaks",
+  "prefix_sha256": "47db9526f67ddd0619fee574821bf6ee92ef4bb3bae8097cc04866d2bd5e4941",
+  "result": {
+    "last_completed_observation_s": 1514.9999999999545,
+    "common_comparison_until_s": 1514.9999999999545,
+    "common_control_cooling": {
+      "complete": false
+    },
+    "common_candidate_cooling": {
+      "complete": false
+    },
+    "candidate_cooling": {
+      "complete": false
+    },
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+    "radiative_energy_out_j": 3438.469613609029
+  }
+}

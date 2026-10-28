@@ -1,0 +1,81 @@
+{
+  "label": "cold-store-220",
+  "status": "pruned",
+  "error": "Pruned: C2_TIM: persistent 30 s error exceeds 15 K at 545.00 s",
+  "parameters": {
+    "resistance_ohm": 0.008777311071596752,
+    "resistance_temperature": -0.01999999999999949,
+    "resistance_charge": 14.838210523443244,
+    "product_conductivity_ratio": 0.2,
+    "r1_rate": 0.038795709866624464,
+    "r1_activation": 160000.0,
+    "overcharge_gain": 0.9665706075586435,
+    "r2_rate": 1013668.5413330735,
+    "r2_activation": 220000.0,
+    "energy_j": 424264.068711928,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.0005,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.27735866146555965,
+    "precursor_temperature": 0.029623273375245555,
+    "precursor_voltage": 0.0,
+    "iss_h": 548.334510922672,
+    "tim_h": 697.6587915939645,
+    "case_h": 220.48307663197534,
+    "environment_h": 1.563406124562644,
+    "surface_iss": 0.0,
+    "surface_tim": 6.0,
+    "bulk_slope": -2.88,
+    "case_warm_response": 0.0,
+    "case_hot_response": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0,
+    "battery_iss_factor": 0.3246524673583498,
+    "battery_tim_factor": 0.3272376374473188
+  },
+  "proposal": {
+    "label": "cold-store-220",
+    "k1_75": 3e-05,
+    "ea1": 160000.0,
+    "k2_75": 0.03430090191052344,
+    "ea2": 220000.0
+  },
+  "last_sample_s": 545.0,
+  "objective": null,
+  "diagnostics": null,
+  "snapshots": {
+    "300.0": {
+      "c2_mean_c": 35.659866790812885,
+      "c2_tim_error_k": -2.607852766931387,
+      "c2_iss_error_k": -4.990506905752795,
+      "b_mg": 4665.201594893438,
+      "r2_local_power_w": 0.012753720788911162,
+      "thermal_formed_g": 0.0002089275982028588,
+      "charge_formed_g": 4.6656106236185835,
+      "chamber_bar": 1.0322335055089522
+    },
+    "500.0": {
+      "c2_mean_c": 47.407414102718406,
+      "c2_tim_error_k": -15.113204765188016,
+      "c2_iss_error_k": -18.31776280271299,
+      "b_mg": 8979.30826138304,
+      "r2_local_power_w": 0.574929390435304,
+      "thermal_formed_g": 0.0018135042931310677,
+      "charge_formed_g": 8.999359832988539,
+      "chamber_bar": 1.0323326296734647
+    }
+  },
+  "fingerprint": "ec66d4da2b4bc24e1564f3824e7fb21b0c47cbf87e2df49455ec007ad1fa94ed",
+  "validation_used_for_selection": false,
+  "wall_s": 43.99792687501758,
+  "balances": {
+    "max_thermal_residual_j": 2.4890596250770614e-08,
+    "max_chemical_residual_j": 4.889443516731262e-09,
+    "max_mass_residual_kg": 2.4424906541753444e-15
+  },
+  "diagnostic_emf_floor_v": 0.0
+}

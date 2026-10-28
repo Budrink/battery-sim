@@ -1,0 +1,322 @@
+{
+  "status": "complete",
+  "phase": "conditioned-development-budget-complete",
+  "pid": 1778711,
+  "conditioned_transport_diagnostic": true,
+  "full_warmup_validation": false,
+  "calibrated": false,
+  "validation_passed": false,
+  "checkpoint": "/home/konstantin/work/battery-sim/data/development/fsri30-conditioned-start-20261024-r1/main-burst-state.bin",
+  "completed_trials": 24,
+  "chemistry_frozen": true,
+  "heater_frozen": true,
+  "active_trial": 23,
+  "active_folder": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-conditioned-transport-20261024-r6/trial-0023",
+  "parameters": {
+    "shared_gap_fraction": 0.3005615957081318,
+    "exhaust_area_scale": 0.05164771262685961,
+    "passage_area_scale": 0.2515131738335484,
+    "hot_contact_span": 24.430337213749603,
+    "mixing_flow_fraction": 0.7199653716292232
+  },
+  "proposal": {
+    "method": "constrained-gp-expected-improvement",
+    "feasible_probability": 1.0,
+    "expected_improvement": 0.0010345730708329563,
+    "predicted_log_loss": 3.94022603271594,
+    "posterior_sd": 0.008184213561678153,
+    "predicted_wall_s": 536.9134700178589,
+    "radius": 0.16199999999999998,
+    "kernel_length": 1.3137872986405463
+  },
+  "last_result": {
+    "objective": 50.04542176781331,
+    "phase_loss": {
+      "warmup": 0.230430690777709,
+      "propagation": 5.642907955452087,
+      "cooling": 24.91786842984886
+    },
+    "envelope_rmse_k": {
+      "warmup": 17.32933815928467,
+      "propagation": 547.8592107360496,
+      "cooling": 469.090831964385
+    },
+    "known_until_s": 5945.0,
+    "complete": true,
+    "peak_weight": 0.2,
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved",
+    "features": {
+      "minimum_autonomous_propagation": 8.0,
+      "first_conversion_timing": 0.3644661770294958
+    },
+    "cascade": {
+      "reacted_components": 1,
+      "events": [
+        {
+          "component": "B10",
+          "time_s": 1755.3339307793842
+        }
+      ],
+      "inter_event_delays_s": [],
+      "autonomous_cascade": false,
+      "observed_failure_count": null,
+      "observed_component_order": null,
+      "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+    },
+    "original_envelope_objective": 39.15567325310815,
+    "transport_loss_parts": {
+      "neighbour_preheat": 6.682052737448117,
+      "neighbour_conversion": 19.967765492325867,
+      "minimum_cascade": 8.0,
+      "experimental_envelope": 15.395603538039328
+    },
+    "transfer": {
+      "source_component": "B10",
+      "source_peak_k": 1500.203834804176,
+      "hottest_neighbours": [
+        {
+          "component": "B11",
+          "peak_k": 367.54966483737275
+        },
+        {
+          "component": "B09",
+          "peak_k": 367.32762482367235
+        },
+        {
+          "component": "B03",
+          "peak_k": 351.80746612716956
+        },
+        {
+          "component": "B02",
+          "peak_k": 351.76259010160993
+        },
+        {
+          "component": "B18",
+          "peak_k": 346.50650276964456
+        },
+        {
+          "component": "B17",
+          "peak_k": 346.3354390525235
+        }
+      ],
+      "max_neighbour_converted_fraction": 8.061876611258889e-05,
+      "top_three_neighbour_mean_peak_k": 362.2282519294049,
+      "recorded_r3_j": 23030.392974370545,
+      "hood_unburned_chemical_j": 59962.19512943901,
+      "hood_temperature_k": 320.9387443466826,
+      "global_r3_history_complete": false,
+      "note": "Neighbour heating/conversion are model diagnostics, NOT invented thermocouple locations"
+    },
+    "search_direction": "neighbour-energy-delivery",
+    "constraint": -1.0,
+    "conditioned_transport_diagnostic": true,
+    "full_warmup_validation": false,
+    "numerically_verified": false,
+    "suffix_started_at_s": 1755.0,
+    "suffix_duration_s": 4190.0,
+    "wall_s": 543.994080773,
+    "realtime_ratio": 7.702289690443195,
+    "minimum_regular_step_s": 0.01,
+    "initial_state_bitwise_equal": true,
+    "energy_delivery": {
+      "shells": {
+        "B00": {
+          "net_j": 576.0544109873783,
+          "positive_j": 679.2110839819867,
+          "negative_j": -103.15667299460925
+        },
+        "B01": {
+          "net_j": 745.9943917500906,
+          "positive_j": 1321.158074103442,
+          "negative_j": -575.1636823533511
+        },
+        "B02": {
+          "net_j": 903.5107634082323,
+          "positive_j": 2790.038040373599,
+          "negative_j": -1886.5272769653666
+        },
+        "B03": {
+          "net_j": 902.246015683719,
+          "positive_j": 2789.0825737742516,
+          "negative_j": -1886.8365580905365
+        },
+        "B04": {
+          "net_j": 738.3901345809556,
+          "positive_j": 1337.691815247319,
+          "negative_j": -599.3016806663629
+        },
+        "B05": {
+          "net_j": 537.1943228508001,
+          "positive_j": 690.7022131419361,
+          "negative_j": -153.5078902911361
+        },
+        "B06": {
+          "net_j": 433.44677624397127,
+          "positive_j": 466.1495495078512,
+          "negative_j": -32.70277326387985
+        },
+        "B07": {
+          "net_j": 529.9240311851172,
+          "positive_j": 599.3653151337012,
+          "negative_j": -69.44128394858433
+        },
+        "B08": {
+          "net_j": 651.6730266291559,
+          "positive_j": 1166.5935423030737,
+          "negative_j": -514.9205156739185
+        },
+        "B09": {
+          "net_j": 836.5285720196441,
+          "positive_j": 3963.734089347444,
+          "negative_j": -3127.205517327812
+        },
+        "B10": {
+          "net_j": -30398.43386590485,
+          "positive_j": 123.57349523573825,
+          "negative_j": -30522.007361140593
+        },
+        "B11": {
+          "net_j": 832.6387591095634,
+          "positive_j": 3970.2656166376482,
+          "negative_j": -3137.626857528087
+        },
+        "B12": {
+          "net_j": 634.449809064316,
+          "positive_j": 1189.563900649855,
+          "negative_j": -555.1140915855389
+        },
+        "B13": {
+          "net_j": 473.02457738126526,
+          "positive_j": 577.5313506344003,
+          "negative_j": -104.50677325313478
+        },
+        "B14": {
+          "net_j": 406.3834073687583,
+          "positive_j": 431.6343821068351,
+          "negative_j": -25.250974738076984
+        },
+        "B15": {
+          "net_j": 541.8854279657884,
+          "positive_j": 632.7343084948635,
+          "negative_j": -90.84888052907496
+        },
+        "B16": {
+          "net_j": 656.2283944974811,
+          "positive_j": 1206.3875950400814,
+          "negative_j": -550.1592005426002
+        },
+        "B17": {
+          "net_j": 750.0609172204921,
+          "positive_j": 2730.1541443237675,
+          "negative_j": -1980.0932271032768
+        },
+        "B18": {
+          "net_j": 748.1215257809281,
+          "positive_j": 2736.4198998569564,
+          "negative_j": -1988.2983740760296
+        },
+        "B19": {
+          "net_j": 645.4066481707256,
+          "positive_j": 1225.2869454943575,
+          "negative_j": -579.8802973236326
+        },
+        "B20": {
+          "net_j": 496.86070409188386,
+          "positive_j": 637.9397097604699,
+          "negative_j": -141.07900566858646
+        },
+        "B21": {
+          "net_j": 412.4430871297654,
+          "positive_j": 449.3954503204714,
+          "negative_j": -36.952363190706215
+        },
+        "B22": {
+          "net_j": 383.0564988869274,
+          "positive_j": 400.44007794021485,
+          "negative_j": -17.383579053287384
+        },
+        "B23": {
+          "net_j": 521.7437847856928,
+          "positive_j": 584.3331843310435,
+          "negative_j": -62.58939954535127
+        },
+        "B24": {
+          "net_j": 592.4626687384759,
+          "positive_j": 797.5488569724105,
+          "negative_j": -205.08618823393428
+        },
+        "B25": {
+          "net_j": 635.2512846084164,
+          "positive_j": 940.099272738175,
+          "negative_j": -304.8479881297585
+        },
+        "B26": {
+          "net_j": 587.3731938989889,
+          "positive_j": 808.6701131875764,
+          "negative_j": -221.29691928858733
+        },
+        "B27": {
+          "net_j": 491.95902867021476,
+          "positive_j": 586.8172006435159,
+          "negative_j": -94.85817197330087
+        },
+        "B28": {
+          "net_j": 417.52532215658414,
+          "positive_j": 453.4342877311975,
+          "negative_j": -35.908965574613646
+        },
+        "B29": {
+          "net_j": 382.9629005223198,
+          "positive_j": 399.2084115611044,
+          "negative_j": -16.24551103878493
+        }
+      },
+      "global_gas_reaction_heat_j": 23436.631940246407,
+      "global_gas_sensible_change_j": 27197.345503758024,
+      "global_gas_chemical_change_j": 56590.07235758247,
+      "all_gas_volumes_included": true,
+      "interval_s": [
+        1755.0,
+        5945.0
+      ]
+    },
+    "balances": {
+      "max_chemical_residual_j": 2.2584572434425354e-07,
+      "max_mass_residual_kg": 2.446931546273845e-13,
+      "max_oxidizer_residual_kg": 4.007905118896815e-13,
+      "max_thermal_residual_j": 2.9001967050135136e-07
+    },
+    "scene_hash": "312c61ae0c4235bb9721b6b10f30437e4810c59e152ceec4056667c78eda1e78",
+    "native_sha256": "4f32bc661db1d7b3ca606796174895a7bbf6141a617643a0bfb2a1026264c426",
+    "x": [
+      0.3005615957081318,
+      0.010823030956089497,
+      0.0021764682605862617,
+      0.9396178256720304,
+      0.7881945548579097
+    ],
+    "parameters": {
+      "shared_gap_fraction": 0.3005615957081318,
+      "exhaust_area_scale": 0.05164771262685961,
+      "passage_area_scale": 0.2515131738335484,
+      "hot_contact_span": 24.430337213749603,
+      "mixing_flow_fraction": 0.7199653716292232
+    },
+    "trial": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-conditioned-transport-20261024-r6/trial-0023",
+    "proposal": {
+      "method": "constrained-gp-expected-improvement",
+      "feasible_probability": 1.0,
+      "expected_improvement": 0.0010345730708329563,
+      "predicted_log_loss": 3.94022603271594,
+      "posterior_sd": 0.008184213561678153,
+      "predicted_wall_s": 536.9134700178589,
+      "radius": 0.16199999999999998,
+      "kernel_length": 1.3137872986405463
+    }
+  },
+  "best_trial": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-conditioned-transport-20261024-r6/trial-0023",
+  "best_objective": 50.04542176781331,
+  "useful_geometry_responses": 20
+}

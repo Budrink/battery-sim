@@ -2,6 +2,7 @@
 // transaction. Thermal kernels/contact laws are unchanged. Pressure transport
 // reads the completed thermal/production/LTE snapshot, never partial neighbours.
 double CudaSolver::Impl::prepare_split_step(double time,double cap,double safety,const RuntimeParameters& runtime) {
+    const double retry_floor=std::min(cap,scenario.settings.minimum_dt_s);
     for(int retry=0;retry<32;++retry) {
         struct RestoreInputs {Impl& owner;~RestoreInputs(){owner.restore_prefix_inputs();}} restore{*this};
         begin_prefix_inputs();
@@ -10,6 +11,7 @@ double CudaSolver::Impl::prepare_split_step(double time,double cap,double safety
         propose_gas_transport(time);
         select_solid_step(time,cap,safety,runtime);
         select_gas_step(time,safety,runtime);
+        apply_step_floor(cap);
         if(prefix_solid) {
             double before,after;
             check(cudaMemcpy(&before,dt.p,sizeof(double),cudaMemcpyDeviceToHost),"leading shell dt");
@@ -20,8 +22,13 @@ double CudaSolver::Impl::prepare_split_step(double time,double cap,double safety
             propose_gas_transport(time);
             select_solid_step(time,before,safety,runtime);
             select_gas_step(time,safety,runtime);
+            apply_step_floor(before);
             check(cudaMemcpy(&after,dt.p,sizeof(double),cudaMemcpyDeviceToHost),"post-fracture budget");
-            if(after<before*(1-1e-12)) {cap=std::min(cap,.95*after);continue;}
+            if(after<before*(1-1e-12)) {
+                ++profiling.split_step_retries;
+                if(.95*after<retry_floor)++profiling.floor_bounded_retries;
+                cap=retry_time_cap(cap,after,retry_floor);continue;
+            }
         }
         propose_edges(runtime,time);
         propose_local_chemistry(time,runtime);
@@ -29,6 +36,9 @@ double CudaSolver::Impl::prepare_split_step(double time,double cap,double safety
         if(gas_a.n)gas_heat_stage_kernel<<<work_blocks(gas_a.n),work_threads>>>(gas_a.n,gas_a.p,gas_stage->p,
             gas_patches_rows->view(),gas_flux.p,gas_sources_rows->view(),source_transfer.p,scenario.gas_model,dt.p);
         equilibrate(state_b.p,gas_stage->p,runtime.runaway_power_scale);
+
+        if(has_volatile)volatile_phase_kernel<<<work_blocks(gas_a.n),work_threads>>>(gas_a.n,mass_bindings->p,
+            volumes.p,materials.p,state_b.p,gas_stage->p,scenario.gas_model,dt.p);
 
         if(mc_gas) {
             if(channels.n)gas_channel_kernel<<<work_blocks(channels.n),work_threads>>>(channels.n,channels.p,
@@ -40,6 +50,8 @@ double CudaSolver::Impl::prepare_split_step(double time,double cap,double safety
             mc_gas->prepare(gas_stage->p,gas_b.p,state_b.p,channel_next.p,duration);
             profiling.cuda_gas_s+=std::chrono::duration<double>(std::chrono::steady_clock::now()-started).count();
             equilibrate(state_b.p,gas_b.p,runtime.runaway_power_scale);
+            if(film_aging_ids && film_aging_ids->n)finalize_film_aging_kernel<<<work_blocks(film_aging_ids->n),work_threads>>>(
+                film_aging_ids->n,film_aging_ids->p,volumes.p,materials.p,state_a.p,state_b.p,runtime,time,dt.p);
             if(gas_a.n)mixture_aging_kernel<<<work_blocks(gas_a.n),work_threads>>>(gas_a.n,mass_bindings->p,
                 volumes.p,materials.p,state_a.p,state_b.p,runtime,time,dt.p);
             return close_and_validate_candidate(time,runtime);
@@ -84,7 +96,9 @@ double CudaSolver::Impl::prepare_split_step(double time,double cap,double safety
         check(cudaMemcpy(proposed,mass_dt->p,sizeof(proposed),cudaMemcpyDeviceToHost),"split budget completion");
         if(!std::isfinite(proposed[0]) || proposed[0]<=0)throw std::runtime_error("Invalid mass substep budget");
         if(proposed[0]<proposed[1]*(1-1e-12)) {
-            cap=std::min(cap,.95*proposed[0]);
+            ++profiling.split_step_retries;
+            if(.95*proposed[0]<retry_floor)++profiling.floor_bounded_retries;
+            cap=retry_time_cap(cap,proposed[0],retry_floor);
             continue; // all candidate inventories are discarded, including A
         }
         if(channels.n)gas_transfer_kernel<<<work_blocks(channels.n),work_threads>>>(channels.n,channels.p,

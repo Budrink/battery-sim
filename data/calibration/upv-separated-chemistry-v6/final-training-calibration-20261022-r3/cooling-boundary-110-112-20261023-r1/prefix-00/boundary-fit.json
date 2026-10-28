@@ -1,0 +1,30 @@
+{
+  "parameters": {
+    "contact_h_w_per_m2_k": 199999.9999999997,
+    "water_g_w_per_k": 6.52752960760962
+  },
+  "initializer": {
+    "method": "Frozen native Al-state driven single-plate initializer; fresh CUDA verification mandatory",
+    "surrogate_score": 0.30607484254239514,
+    "contact_at_upper_bound": true,
+    "inference": "Upper-bound h indicates only a strong-contact lower bound, not an identified exact conductivity"
+  },
+  "metrics": {
+    "score": 0.6635394495682795,
+    "fit_window_s": [
+      650.0,
+      1250.0
+    ],
+    "contact_rmse_k": 1.3686196814612595,
+    "incremental_water_power_rmse_w": 4.430493773418399,
+    "contact_observer_reconstruction_error_k": 1.1368683772161603e-13,
+    "fitted_channels": [
+      "110",
+      "111",
+      "112"
+    ],
+    "battery_or_pressure_target_used": false
+  },
+  "run": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/cooling-boundary-110-112-20261023-r1/prefix-00",
+  "wall_s": 630.11981439
+}

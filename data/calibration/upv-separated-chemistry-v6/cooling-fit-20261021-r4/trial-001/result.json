@@ -1,0 +1,71 @@
+{
+  "label": "trial-001",
+  "parameters": {
+    "gas_yield_scale": 0.6,
+    "casing_damage_metric": 4.0,
+    "warm_mixing_scale": 10.0,
+    "warm_surface_scale": 10.0,
+    "gas_transport_response_scale": 3.0
+  },
+  "conditional_restart": true,
+  "origin": "free-gas-response",
+  "axis": "gas_transport_response_scale",
+  "status": "rejected",
+  "reason": "CUDA Kawasaki pressure step failed: 16",
+  "objective": 0.0,
+  "complete": false,
+  "accepted": false,
+  "known_until_s": 883.8180002057925,
+  "requested_end_s": 1500.0,
+  "channels": {
+    "101": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "102": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "107": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "108": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "C2_TIM": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 10.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "C2_ISS": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 10.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    }
+  },
+  "front": null,
+  "pressure_rmse_bar": null,
+  "balance": {
+    "max_thermal_residual_j": 1.0077201295644045e-07,
+    "max_chemical_residual_j": 9.217183105647564e-08,
+    "max_mass_residual_kg": 4.1744385725905886e-14
+  }
+}

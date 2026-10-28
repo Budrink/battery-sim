@@ -1,0 +1,30 @@
+{
+  "status": "stopped",
+  "pid": 1907638,
+  "native_sha256": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "trials": 21,
+  "calibrated": false,
+  "validation_passed": false,
+  "engineering_cooling_converged": false,
+  "active_trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-cooling-radiation-20261025-r1/trial-0022",
+  "parameters": {
+    "effective_emissivity": 0.43919277165085074,
+    "thermal_stirring_coefficient": 0.048721190938855366
+  },
+  "proposal": {
+    "method": "feasibility-exploration",
+    "feasible_probability": 0.31573183571552443,
+    "radius": 0.75
+  },
+  "progress": {
+    "status": "running",
+    "last_completed_observation_s": 1534.9999999999864,
+    "live_advanced_to_s": 1537.699999999984,
+    "wall_s": 720.979332036,
+    "minimum_regular_step_s": 0.01
+  },
+  "best_trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-cooling-radiation-20261025-r1/trial-0019",
+  "best_last_observed_s": 4195.0,
+  "best_anchor_rmse_k": 91.51750375506867,
+  "development_record": "d1f449648c56deed4c8a0358c0b17714d20f34af40e6d9d1aec4211b1ff33389"
+}

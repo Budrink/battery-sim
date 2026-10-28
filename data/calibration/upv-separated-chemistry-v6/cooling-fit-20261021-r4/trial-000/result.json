@@ -1,0 +1,114 @@
+{
+  "label": "trial-000",
+  "parameters": {
+    "gas_yield_scale": 0.6,
+    "casing_damage_metric": 4.0,
+    "warm_mixing_scale": 10.0,
+    "warm_surface_scale": 10.0,
+    "gas_transport_response_scale": 10.0
+  },
+  "conditional_restart": true,
+  "origin": "free-gas-response",
+  "axis": "gas_transport_response_scale",
+  "status": "rejected",
+  "reason": "Pruned: temperature critical zone C2_ISS: persistent error -350.4 K at 940.000 s",
+  "objective": 0.018604530532249305,
+  "complete": false,
+  "accepted": false,
+  "known_until_s": 940.0,
+  "requested_end_s": 1500.0,
+  "channels": {
+    "101": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "102": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "107": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "108": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "C2_TIM": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 10.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "C2_ISS": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 10.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    }
+  },
+  "front": {
+    "accepted": true,
+    "reasons": [],
+    "features": {
+      "pressure": {
+        "predicted": {
+          "amplitude": 8.559176335951735,
+          "peak": 9.637040371412922,
+          "peak_s": 890.0,
+          "width_10_90_s": 0.46002209067364674,
+          "t10_s": 889.4894609065985,
+          "t90_s": 889.9494829972722
+        },
+        "observed": {
+          "amplitude": 6.918135925,
+          "peak": 7.9827295,
+          "peak_s": 887.1099998010322,
+          "width_10_90_s": 0.6074412754780951,
+          "t10_s": 886.4458528026089,
+          "t90_s": 887.053294078087
+        },
+        "maximum_width_s": 2.0
+      },
+      "108": {
+        "predicted": {
+          "amplitude": 1049.0865696089938,
+          "peak": 1358.0857620041415,
+          "peak_s": 890.4859998961911,
+          "width_10_90_s": 0.7517285552634121,
+          "t10_s": 889.6356494196885,
+          "t90_s": 890.387377974952
+        },
+        "observed": {
+          "amplitude": 1207.6619999999998,
+          "peak": 1520.2199999999998,
+          "peak_s": 887.6680000685155,
+          "width_10_90_s": 0.8174814393090628,
+          "t10_s": 886.7221442328051,
+          "t90_s": 887.5396256721142
+        },
+        "maximum_width_s": 2.0
+      }
+    }
+  },
+  "pressure_rmse_bar": null,
+  "balance": {
+    "max_thermal_residual_j": 1.1757947504520416e-07,
+    "max_chemical_residual_j": 9.483483154326677e-08,
+    "max_mass_residual_kg": 4.574118861455645e-14
+  }
+}

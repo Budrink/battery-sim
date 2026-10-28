@@ -38,10 +38,10 @@ __global__ void shell_feedback_limit_kernel(int count,const DeviceChannel* chann
             const double budget=model.max_fraction_per_step*
                 gas_pressure_mass_cap(c,gas,config,rows,model,solid,volumes,materials);
             limit=shell_feedback_dt(area*weight,area_rate,unit_flow,budget,area>0?0.:onset);
-            const double slow_limit=shell_slow_aperture_dt(area*weight,area_rate,model.max_fraction_per_step);
+            const double slow_limit=shell_slow_aperture_dt(area*weight,area_rate,model.max_fraction_per_step,c.area);
             // Either resolve pressure unloading or keep the aperture effectively
-            // fixed. With the default mass fraction, the second branch permits
-            // at most 0.01% relative area growth. The same conservative mass and
+            // resolved to .5% of the WHOLE element area at default mass
+            // accuracy .02, not .5% of an arbitrarily tiny hole. The same mass and
             // energy transfer still applies; this does not alter permeability.
             if(slow_limit>limit) {
                 limit=slow_limit;

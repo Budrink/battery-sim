@@ -1,0 +1,87 @@
+{
+  "parameters": {
+    "resistance_ohm": 0.008,
+    "resistance_temperature": -0.006,
+    "resistance_charge": 20,
+    "product_conductivity_ratio": 0.2,
+    "r1_rate": 0.5697143004198283,
+    "r1_activation": 220000,
+    "r2_rate": 129.50939068746717,
+    "r2_activation": 180000,
+    "energy_j": 424264.068711928,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.0005,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.27735866146555965,
+    "precursor_temperature": 0.029623273375245555,
+    "iss_h": 548.334510922672,
+    "tim_h": 697.6587915939645,
+    "case_h": 220.48307663197534,
+    "environment_h": 1.563406124562644,
+    "surface_iss": 0.0,
+    "surface_tim": 6.0,
+    "bulk_slope": -2.88,
+    "case_warm_response": 0.0,
+    "case_hot_response": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0,
+    "battery_iss_factor": 0.3246524673583498,
+    "battery_tim_factor": 0.3272376374473188,
+    "charge_formation_gain": 2
+  },
+  "proposal": {
+    "label": "q20-r008-negative",
+    "k1_75": 3e-05,
+    "ea1": 220000,
+    "k2_75": 0.0001,
+    "ea2": 180000,
+    "resistance_ohm": 0.008,
+    "resistance_temperature": -0.006,
+    "resistance_charge": 20,
+    "charge_formation_gain": 2
+  },
+  "fingerprint": "d438997f1e79362152c7e1afb24bd8ef186f0c92d546aadb7edd32f9328ffb74",
+  "changes": {
+    "resistance_ohm": [
+      0.008777311071596752,
+      0.008
+    ],
+    "resistance_temperature": [
+      -0.01999999999999949,
+      -0.006
+    ],
+    "resistance_charge": [
+      14.838210523443244,
+      20
+    ],
+    "r1_rate": [
+      1e-06,
+      0.5697143004198283
+    ],
+    "r1_activation": [
+      40000.0,
+      220000
+    ],
+    "r2_rate": [
+      100000.00000000001,
+      129.50939068746717
+    ],
+    "r2_activation": [
+      136106.65706689408,
+      180000
+    ],
+    "charge_formation_gain": [
+      0.9665706075586435,
+      2
+    ]
+  },
+  "validation_used_for_selection": false,
+  "shell_material_contacts_and_phi_frozen": true,
+  "electrical_fit_authorized": true,
+  "fit_charge_formation": true,
+  "diagnostic_emf_floor_v": null
+}

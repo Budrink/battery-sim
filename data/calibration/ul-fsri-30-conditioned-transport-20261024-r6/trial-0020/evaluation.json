@@ -1,0 +1,262 @@
+{
+  "objective": 50.12583757250459,
+  "phase_loss": {
+    "warmup": 0.230430690777709,
+    "propagation": 5.640281870486614,
+    "cooling": 24.93205468241193
+  },
+  "envelope_rmse_k": {
+    "warmup": 17.32933815928467,
+    "propagation": 548.6233538275476,
+    "cooling": 469.42288453120625
+  },
+  "known_until_s": 5945.0,
+  "complete": true,
+  "peak_weight": 0.2,
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved",
+  "features": {
+    "minimum_autonomous_propagation": 8.0,
+    "first_conversion_timing": 0.3644661770294958
+  },
+  "cascade": {
+    "reacted_components": 1,
+    "events": [
+      {
+        "component": "B10",
+        "time_s": 1755.3339307793842
+      }
+    ],
+    "inter_event_delays_s": [],
+    "autonomous_cascade": false,
+    "observed_failure_count": null,
+    "observed_component_order": null,
+    "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+  },
+  "original_envelope_objective": 39.16723342070575,
+  "transport_loss_parts": {
+    "neighbour_preheat": 6.754665968093491,
+    "neighbour_conversion": 19.969787982572967,
+    "minimum_cascade": 8.0,
+    "experimental_envelope": 15.401383621838127
+  },
+  "transfer": {
+    "source_component": "B10",
+    "source_peak_k": 1488.5581003680782,
+    "hottest_neighbours": [
+      {
+        "component": "B11",
+        "peak_k": 366.70006605281765
+      },
+      {
+        "component": "B09",
+        "peak_k": 366.4210722985341
+      },
+      {
+        "component": "B03",
+        "peak_k": 352.13677247051606
+      },
+      {
+        "component": "B02",
+        "peak_k": 352.115527239244
+      },
+      {
+        "component": "B18",
+        "peak_k": 346.35966053331174
+      },
+      {
+        "component": "B17",
+        "peak_k": 346.21840088088163
+      }
+    ],
+    "max_neighbour_converted_fraction": 7.555858906949179e-05,
+    "top_three_neighbour_mean_peak_k": 361.7526369406226,
+    "recorded_r3_j": 23524.221865411197,
+    "hood_unburned_chemical_j": 59203.14624443769,
+    "hood_temperature_k": 321.69142699051,
+    "global_r3_history_complete": false,
+    "note": "Neighbour heating/conversion are model diagnostics, NOT invented thermocouple locations"
+  },
+  "search_direction": "neighbour-energy-delivery",
+  "constraint": -1.0,
+  "conditioned_transport_diagnostic": true,
+  "full_warmup_validation": false,
+  "numerically_verified": false,
+  "suffix_started_at_s": 1755.0,
+  "suffix_duration_s": 4190.0,
+  "wall_s": 544.248918017,
+  "realtime_ratio": 7.698683196774168,
+  "minimum_regular_step_s": 0.01,
+  "initial_state_bitwise_equal": true,
+  "energy_delivery": {
+    "shells": {
+      "B00": {
+        "net_j": 583.851457591184,
+        "positive_j": 694.1989291110925,
+        "negative_j": -110.34747151990862
+      },
+      "B01": {
+        "net_j": 746.2794049888151,
+        "positive_j": 1345.3138891332283,
+        "negative_j": -599.0344841444132
+      },
+      "B02": {
+        "net_j": 892.6093863375264,
+        "positive_j": 2792.5401652054215,
+        "negative_j": -1899.9307788678966
+      },
+      "B03": {
+        "net_j": 891.0907918796884,
+        "positive_j": 2789.692978051794,
+        "negative_j": -1898.6021861721101
+      },
+      "B04": {
+        "net_j": 737.5775270969474,
+        "positive_j": 1364.2396110367451,
+        "negative_j": -626.6620839397976
+      },
+      "B05": {
+        "net_j": 542.2486858728244,
+        "positive_j": 707.6813023231388,
+        "negative_j": -165.43261645031473
+      },
+      "B06": {
+        "net_j": 438.4575319585077,
+        "positive_j": 473.14252099992825,
+        "negative_j": -34.684989041420565
+      },
+      "B07": {
+        "net_j": 537.1191004503406,
+        "positive_j": 610.3011335881607,
+        "negative_j": -73.18203313782007
+      },
+      "B08": {
+        "net_j": 652.4589998543652,
+        "positive_j": 1179.052968421897,
+        "negative_j": -526.5939685675313
+      },
+      "B09": {
+        "net_j": 822.7561976600725,
+        "positive_j": 3897.6334349825906,
+        "negative_j": -3074.877237322507
+      },
+      "B10": {
+        "net_j": -30158.25144424211,
+        "positive_j": 113.6158747553865,
+        "negative_j": -30271.86731899749
+      },
+      "B11": {
+        "net_j": 818.2766418398649,
+        "positive_j": 3906.8963327509573,
+        "negative_j": -3088.619690911099
+      },
+      "B12": {
+        "net_j": 633.3922851801815,
+        "positive_j": 1206.3087602948144,
+        "negative_j": -572.9164751146335
+      },
+      "B13": {
+        "net_j": 476.72641246307137,
+        "positive_j": 588.0681918048574,
+        "negative_j": -111.34177934178597
+      },
+      "B14": {
+        "net_j": 409.75813795403843,
+        "positive_j": 435.90987618370946,
+        "negative_j": -26.15173822967122
+      },
+      "B15": {
+        "net_j": 548.4552529506524,
+        "positive_j": 643.3826218827896,
+        "negative_j": -94.92736893213726
+      },
+      "B16": {
+        "net_j": 656.4786051052893,
+        "positive_j": 1221.5128655767162,
+        "negative_j": -565.0342604714267
+      },
+      "B17": {
+        "net_j": 741.537053972788,
+        "positive_j": 2708.747559762433,
+        "negative_j": -1967.210505789646
+      },
+      "B18": {
+        "net_j": 739.2800295487589,
+        "positive_j": 2712.313760375372,
+        "negative_j": -1973.0337308266135
+      },
+      "B19": {
+        "net_j": 644.3612755016628,
+        "positive_j": 1243.3355225427765,
+        "negative_j": -598.9742470411145
+      },
+      "B20": {
+        "net_j": 500.4814277103338,
+        "positive_j": 651.5129672749031,
+        "negative_j": -151.03153956456978
+      },
+      "B21": {
+        "net_j": 415.6649241276795,
+        "positive_j": 454.67471126460964,
+        "negative_j": -39.009787136929795
+      },
+      "B22": {
+        "net_j": 385.0851599394099,
+        "positive_j": 402.2984035664071,
+        "negative_j": -17.21324362699763
+      },
+      "B23": {
+        "net_j": 530.0521543653294,
+        "positive_j": 596.7322365551021,
+        "negative_j": -66.6800821897717
+      },
+      "B24": {
+        "net_j": 598.4818201152015,
+        "positive_j": 814.4085030003858,
+        "negative_j": -215.9266828851846
+      },
+      "B25": {
+        "net_j": 639.715308783917,
+        "positive_j": 957.5764778269378,
+        "negative_j": -317.86116904302014
+      },
+      "B26": {
+        "net_j": 592.6211114632176,
+        "positive_j": 827.292852223488,
+        "negative_j": -234.6717407602702
+      },
+      "B27": {
+        "net_j": 497.92320390137803,
+        "positive_j": 601.2447427245281,
+        "negative_j": -103.32153882315009
+      },
+      "B28": {
+        "net_j": 421.8059953584538,
+        "positive_j": 460.4936398592862,
+        "negative_j": -38.68764450083243
+      },
+      "B29": {
+        "net_j": 385.28829795220287,
+        "positive_j": 401.5111573060409,
+        "negative_j": -16.222859353838288
+      }
+    },
+    "global_gas_reaction_heat_j": 24199.907283438915,
+    "global_gas_sensible_change_j": 28080.10399537223,
+    "global_gas_chemical_change_j": 55827.79575035827,
+    "all_gas_volumes_included": true,
+    "interval_s": [
+      1755.0,
+      5945.0
+    ]
+  },
+  "balances": {
+    "max_chemical_residual_j": 2.2957101464271545e-07,
+    "max_mass_residual_kg": 3.19300141882195e-13,
+    "max_oxidizer_residual_kg": 3.84747789183848e-13,
+    "max_thermal_residual_j": 3.265158738940954e-07
+  },
+  "scene_hash": "c1e35cc1e22aa8f27660523c60bc00c83301ebb4db9072316f0200c1d1d54349",
+  "native_sha256": "4f32bc661db1d7b3ca606796174895a7bbf6141a617643a0bfb2a1026264c426"
+}

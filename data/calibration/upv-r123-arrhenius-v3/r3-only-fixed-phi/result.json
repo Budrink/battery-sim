@@ -1,0 +1,83 @@
+{
+  "status": "unfitted R3-only counterfactual",
+  "metrics": {
+    "warmup": {
+      "101": {
+        "rmse_k": 9.30322632955786,
+        "bias_k": -6.0740691244227385
+      },
+      "102": {
+        "rmse_k": 0.8488353747951001,
+        "bias_k": 0.7296024495259442
+      },
+      "107": {
+        "rmse_k": 8.25813022757202,
+        "bias_k": -5.234506166861551
+      },
+      "108": {
+        "rmse_k": 1.7562722867855065,
+        "bias_k": -1.0019668387757665
+      },
+      "C2_TIM": {
+        "rmse_k": 17.85336623683408,
+        "bias_k": -11.755683444156293
+      },
+      "C2_ISS": {
+        "rmse_k": 20.17280276503025,
+        "bias_k": -13.774136633558543
+      }
+    },
+    "pressure": {
+      "peak_bar": 1.0358314090804486,
+      "observed_peak_bar": 1.0622290969156691,
+      "peak_time_s": 866.168000032194,
+      "rmse_bar": 0.011049991004907719
+    },
+    "joule_j": {
+      "C1": 0.0,
+      "C2": 18335.628518048063,
+      "C3": 0.0
+    },
+    "wall_s": 14.749174172,
+    "steps": 20176,
+    "balance": {
+      "max_thermal_residual_j": 3.440800355747342e-08,
+      "max_chemical_residual_j": 3.3760443329811096e-09,
+      "max_mass_residual_kg": 4.551914400963142e-15
+    }
+  },
+  "r2_c2_local_heat_j": 18697.514858996667,
+  "r3_total_heat_j": 15.428653895731358,
+  "c2_mean_temperature_c": 71.57289469025915,
+  "parameters": {
+    "resistance_ohm": 0.015,
+    "resistance_temperature": -0.001,
+    "resistance_damage": 1.0,
+    "r1_rate": 1e-06,
+    "r1_activation": 40000.0,
+    "overcharge_gain": 0.8177506882549067,
+    "r2_rate": 299.9999999905491,
+    "r2_activation": 82502.44826857552,
+    "energy_j": 300000.0,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.03,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.42,
+    "precursor_temperature": 0.0,
+    "precursor_voltage": 0.0,
+    "iss_h": 287.71996866857825,
+    "tim_h": 2000.0,
+    "case_h": 500.0,
+    "environment_h": 8.0,
+    "surface_iss": 0.0,
+    "surface_tim": 0.0,
+    "bulk_slope": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0
+  },
+  "fingerprint": "aac62a3e92e2b205f601edb56f40c8ef333f324a5ab58dca1bb12f4c2d7cda86"
+}

@@ -1,0 +1,4743 @@
+{
+  "abs_exterior_cold_air_limit_w_NOT_actual": 298.48145304019397,
+  "abs_interior_conductance_w_per_k": 0.9020127903325809,
+  "abs_interior_gas_to_wall_w": 31.556582259354755,
+  "cold_ambient_upper_bound_NOT_actual_flux": {
+    "ABS:+x": {
+      "conductance_w_per_k": 0.11506883187392654,
+      "gas_to_solid_power_w": -64.88228599487354,
+      "patch_count": 180
+    },
+    "ABS:+y": {
+      "conductance_w_per_k": 0.05540620881627552,
+      "gas_to_solid_power_w": -29.080312265932687,
+      "patch_count": 130
+    },
+    "ABS:+z": {
+      "conductance_w_per_k": 0.09835728618225664,
+      "gas_to_solid_power_w": -58.56799197103412,
+      "patch_count": 325
+    },
+    "ABS:-x": {
+      "conductance_w_per_k": 0.11506883187392654,
+      "gas_to_solid_power_w": -63.44060457675044,
+      "patch_count": 180
+    },
+    "ABS:-y": {
+      "conductance_w_per_k": 0.05540620881627552,
+      "gas_to_solid_power_w": -28.48874961494231,
+      "patch_count": 130
+    },
+    "ABS:-z": {
+      "conductance_w_per_k": 0.09835728618225664,
+      "gas_to_solid_power_w": -54.02150861666104,
+      "patch_count": 325
+    }
+  },
+  "cross_object_solid_edges": [
+    [
+      "B00",
+      "B00:case:-x"
+    ],
+    [
+      "B00",
+      "B00:case:+x"
+    ],
+    [
+      "B00",
+      "B00:case:-y"
+    ],
+    [
+      "B00",
+      "B00:case:+y"
+    ],
+    [
+      "B00",
+      "B00:case:-z"
+    ],
+    [
+      "B00",
+      "B00:case:+z"
+    ],
+    [
+      "B01",
+      "B01:case:-x"
+    ],
+    [
+      "B01",
+      "B01:case:+x"
+    ],
+    [
+      "B01",
+      "B01:case:-y"
+    ],
+    [
+      "B01",
+      "B01:case:+y"
+    ],
+    [
+      "B01",
+      "B01:case:-z"
+    ],
+    [
+      "B01",
+      "B01:case:+z"
+    ],
+    [
+      "B02",
+      "B02:case:-x"
+    ],
+    [
+      "B02",
+      "B02:case:+x"
+    ],
+    [
+      "B02",
+      "B02:case:-y"
+    ],
+    [
+      "B02",
+      "B02:case:+y"
+    ],
+    [
+      "B02",
+      "B02:case:-z"
+    ],
+    [
+      "B02",
+      "B02:case:+z"
+    ],
+    [
+      "B03",
+      "B03:case:-x"
+    ],
+    [
+      "B03",
+      "B03:case:+x"
+    ],
+    [
+      "B03",
+      "B03:case:-y"
+    ],
+    [
+      "B03",
+      "B03:case:+y"
+    ],
+    [
+      "B03",
+      "B03:case:-z"
+    ],
+    [
+      "B03",
+      "B03:case:+z"
+    ],
+    [
+      "B04",
+      "B04:case:-x"
+    ],
+    [
+      "B04",
+      "B04:case:+x"
+    ],
+    [
+      "B04",
+      "B04:case:-y"
+    ],
+    [
+      "B04",
+      "B04:case:+y"
+    ],
+    [
+      "B04",
+      "B04:case:-z"
+    ],
+    [
+      "B04",
+      "B04:case:+z"
+    ],
+    [
+      "B05",
+      "B05:case:-x"
+    ],
+    [
+      "B05",
+      "B05:case:+x"
+    ],
+    [
+      "B05",
+      "B05:case:-y"
+    ],
+    [
+      "B05",
+      "B05:case:+y"
+    ],
+    [
+      "B05",
+      "B05:case:-z"
+    ],
+    [
+      "B05",
+      "B05:case:+z"
+    ],
+    [
+      "B06",
+      "B06:case:-x"
+    ],
+    [
+      "B06",
+      "B06:case:+x"
+    ],
+    [
+      "B06",
+      "B06:case:-y"
+    ],
+    [
+      "B06",
+      "B06:case:+y"
+    ],
+    [
+      "B06",
+      "B06:case:-z"
+    ],
+    [
+      "B06",
+      "B06:case:+z"
+    ],
+    [
+      "B07",
+      "B07:case:-x"
+    ],
+    [
+      "B07",
+      "B07:case:+x"
+    ],
+    [
+      "B07",
+      "B07:case:-y"
+    ],
+    [
+      "B07",
+      "B07:case:+y"
+    ],
+    [
+      "B07",
+      "B07:case:-z"
+    ],
+    [
+      "B07",
+      "B07:case:+z"
+    ],
+    [
+      "B08",
+      "B08:case:-x"
+    ],
+    [
+      "B08",
+      "B08:case:+x"
+    ],
+    [
+      "B08",
+      "B08:case:-y"
+    ],
+    [
+      "B08",
+      "B08:case:+y"
+    ],
+    [
+      "B08",
+      "B08:case:-z"
+    ],
+    [
+      "B08",
+      "B08:case:+z"
+    ],
+    [
+      "B09",
+      "B09:case:-x"
+    ],
+    [
+      "B09",
+      "B09:case:+x"
+    ],
+    [
+      "B09",
+      "B09:case:-y"
+    ],
+    [
+      "B09",
+      "B09:case:+y"
+    ],
+    [
+      "B09",
+      "B09:case:-z"
+    ],
+    [
+      "B09",
+      "B09:case:+z"
+    ],
+    [
+      "B10",
+      "B10:case:-x"
+    ],
+    [
+      "B10",
+      "B10:case:+x"
+    ],
+    [
+      "B10",
+      "B10:case:-y"
+    ],
+    [
+      "B10",
+      "B10:case:+y"
+    ],
+    [
+      "B10",
+      "B10:case:-z"
+    ],
+    [
+      "B10",
+      "B10:case:+z"
+    ],
+    [
+      "B11",
+      "B11:case:-x"
+    ],
+    [
+      "B11",
+      "B11:case:+x"
+    ],
+    [
+      "B11",
+      "B11:case:-y"
+    ],
+    [
+      "B11",
+      "B11:case:+y"
+    ],
+    [
+      "B11",
+      "B11:case:-z"
+    ],
+    [
+      "B11",
+      "B11:case:+z"
+    ],
+    [
+      "B12",
+      "B12:case:-x"
+    ],
+    [
+      "B12",
+      "B12:case:+x"
+    ],
+    [
+      "B12",
+      "B12:case:-y"
+    ],
+    [
+      "B12",
+      "B12:case:+y"
+    ],
+    [
+      "B12",
+      "B12:case:-z"
+    ],
+    [
+      "B12",
+      "B12:case:+z"
+    ],
+    [
+      "B13",
+      "B13:case:-x"
+    ],
+    [
+      "B13",
+      "B13:case:+x"
+    ],
+    [
+      "B13",
+      "B13:case:-y"
+    ],
+    [
+      "B13",
+      "B13:case:+y"
+    ],
+    [
+      "B13",
+      "B13:case:-z"
+    ],
+    [
+      "B13",
+      "B13:case:+z"
+    ],
+    [
+      "B14",
+      "B14:case:-x"
+    ],
+    [
+      "B14",
+      "B14:case:+x"
+    ],
+    [
+      "B14",
+      "B14:case:-y"
+    ],
+    [
+      "B14",
+      "B14:case:+y"
+    ],
+    [
+      "B14",
+      "B14:case:-z"
+    ],
+    [
+      "B14",
+      "B14:case:+z"
+    ],
+    [
+      "B15",
+      "B15:case:-x"
+    ],
+    [
+      "B15",
+      "B15:case:+x"
+    ],
+    [
+      "B15",
+      "B15:case:-y"
+    ],
+    [
+      "B15",
+      "B15:case:+y"
+    ],
+    [
+      "B15",
+      "B15:case:-z"
+    ],
+    [
+      "B15",
+      "B15:case:+z"
+    ],
+    [
+      "B16",
+      "B16:case:-x"
+    ],
+    [
+      "B16",
+      "B16:case:+x"
+    ],
+    [
+      "B16",
+      "B16:case:-y"
+    ],
+    [
+      "B16",
+      "B16:case:+y"
+    ],
+    [
+      "B16",
+      "B16:case:-z"
+    ],
+    [
+      "B16",
+      "B16:case:+z"
+    ],
+    [
+      "B17",
+      "B17:case:-x"
+    ],
+    [
+      "B17",
+      "B17:case:+x"
+    ],
+    [
+      "B17",
+      "B17:case:-y"
+    ],
+    [
+      "B17",
+      "B17:case:+y"
+    ],
+    [
+      "B17",
+      "B17:case:-z"
+    ],
+    [
+      "B17",
+      "B17:case:+z"
+    ],
+    [
+      "B18",
+      "B18:case:-x"
+    ],
+    [
+      "B18",
+      "B18:case:+x"
+    ],
+    [
+      "B18",
+      "B18:case:-y"
+    ],
+    [
+      "B18",
+      "B18:case:+y"
+    ],
+    [
+      "B18",
+      "B18:case:-z"
+    ],
+    [
+      "B18",
+      "B18:case:+z"
+    ],
+    [
+      "B19",
+      "B19:case:-x"
+    ],
+    [
+      "B19",
+      "B19:case:+x"
+    ],
+    [
+      "B19",
+      "B19:case:-y"
+    ],
+    [
+      "B19",
+      "B19:case:+y"
+    ],
+    [
+      "B19",
+      "B19:case:-z"
+    ],
+    [
+      "B19",
+      "B19:case:+z"
+    ],
+    [
+      "B20",
+      "B20:case:-x"
+    ],
+    [
+      "B20",
+      "B20:case:+x"
+    ],
+    [
+      "B20",
+      "B20:case:-y"
+    ],
+    [
+      "B20",
+      "B20:case:+y"
+    ],
+    [
+      "B20",
+      "B20:case:-z"
+    ],
+    [
+      "B20",
+      "B20:case:+z"
+    ],
+    [
+      "B21",
+      "B21:case:-x"
+    ],
+    [
+      "B21",
+      "B21:case:+x"
+    ],
+    [
+      "B21",
+      "B21:case:-y"
+    ],
+    [
+      "B21",
+      "B21:case:+y"
+    ],
+    [
+      "B21",
+      "B21:case:-z"
+    ],
+    [
+      "B21",
+      "B21:case:+z"
+    ],
+    [
+      "B22",
+      "B22:case:-x"
+    ],
+    [
+      "B22",
+      "B22:case:+x"
+    ],
+    [
+      "B22",
+      "B22:case:-y"
+    ],
+    [
+      "B22",
+      "B22:case:+y"
+    ],
+    [
+      "B22",
+      "B22:case:-z"
+    ],
+    [
+      "B22",
+      "B22:case:+z"
+    ],
+    [
+      "B23",
+      "B23:case:-x"
+    ],
+    [
+      "B23",
+      "B23:case:+x"
+    ],
+    [
+      "B23",
+      "B23:case:-y"
+    ],
+    [
+      "B23",
+      "B23:case:+y"
+    ],
+    [
+      "B23",
+      "B23:case:-z"
+    ],
+    [
+      "B23",
+      "B23:case:+z"
+    ],
+    [
+      "B24",
+      "B24:case:-x"
+    ],
+    [
+      "B24",
+      "B24:case:+x"
+    ],
+    [
+      "B24",
+      "B24:case:-y"
+    ],
+    [
+      "B24",
+      "B24:case:+y"
+    ],
+    [
+      "B24",
+      "B24:case:-z"
+    ],
+    [
+      "B24",
+      "B24:case:+z"
+    ],
+    [
+      "B25",
+      "B25:case:-x"
+    ],
+    [
+      "B25",
+      "B25:case:+x"
+    ],
+    [
+      "B25",
+      "B25:case:-y"
+    ],
+    [
+      "B25",
+      "B25:case:+y"
+    ],
+    [
+      "B25",
+      "B25:case:-z"
+    ],
+    [
+      "B25",
+      "B25:case:+z"
+    ],
+    [
+      "B26",
+      "B26:case:-x"
+    ],
+    [
+      "B26",
+      "B26:case:+x"
+    ],
+    [
+      "B26",
+      "B26:case:-y"
+    ],
+    [
+      "B26",
+      "B26:case:+y"
+    ],
+    [
+      "B26",
+      "B26:case:-z"
+    ],
+    [
+      "B26",
+      "B26:case:+z"
+    ],
+    [
+      "B27",
+      "B27:case:-x"
+    ],
+    [
+      "B27",
+      "B27:case:+x"
+    ],
+    [
+      "B27",
+      "B27:case:-y"
+    ],
+    [
+      "B27",
+      "B27:case:+y"
+    ],
+    [
+      "B27",
+      "B27:case:-z"
+    ],
+    [
+      "B27",
+      "B27:case:+z"
+    ],
+    [
+      "B28",
+      "B28:case:-x"
+    ],
+    [
+      "B28",
+      "B28:case:+x"
+    ],
+    [
+      "B28",
+      "B28:case:-y"
+    ],
+    [
+      "B28",
+      "B28:case:+y"
+    ],
+    [
+      "B28",
+      "B28:case:-z"
+    ],
+    [
+      "B28",
+      "B28:case:+z"
+    ],
+    [
+      "B29",
+      "B29:case:-x"
+    ],
+    [
+      "B29",
+      "B29:case:+x"
+    ],
+    [
+      "B29",
+      "B29:case:-y"
+    ],
+    [
+      "B29",
+      "B29:case:+y"
+    ],
+    [
+      "B29",
+      "B29:case:-z"
+    ],
+    [
+      "B29",
+      "B29:case:+z"
+    ],
+    [
+      "heater",
+      "B10:case:-x"
+    ],
+    [
+      "B00:case:-x",
+      "B00:case:-y"
+    ],
+    [
+      "B00:case:-x",
+      "B00:case:+y"
+    ],
+    [
+      "B00:case:-x",
+      "B00:case:-z"
+    ],
+    [
+      "B00:case:-x",
+      "B00:case:+z"
+    ],
+    [
+      "B00:case:+x",
+      "B00:case:-y"
+    ],
+    [
+      "B00:case:+x",
+      "B00:case:+y"
+    ],
+    [
+      "B00:case:+x",
+      "B00:case:-z"
+    ],
+    [
+      "B00:case:+x",
+      "B00:case:+z"
+    ],
+    [
+      "B00:case:-y",
+      "B00:case:-z"
+    ],
+    [
+      "B00:case:-y",
+      "B00:case:+z"
+    ],
+    [
+      "B00:case:+y",
+      "B00:case:-z"
+    ],
+    [
+      "B00:case:+y",
+      "B00:case:+z"
+    ],
+    [
+      "B01:case:-x",
+      "B01:case:-y"
+    ],
+    [
+      "B01:case:-x",
+      "B01:case:+y"
+    ],
+    [
+      "B01:case:-x",
+      "B01:case:-z"
+    ],
+    [
+      "B01:case:-x",
+      "B01:case:+z"
+    ],
+    [
+      "B01:case:+x",
+      "B01:case:-y"
+    ],
+    [
+      "B01:case:+x",
+      "B01:case:+y"
+    ],
+    [
+      "B01:case:+x",
+      "B01:case:-z"
+    ],
+    [
+      "B01:case:+x",
+      "B01:case:+z"
+    ],
+    [
+      "B01:case:-y",
+      "B01:case:-z"
+    ],
+    [
+      "B01:case:-y",
+      "B01:case:+z"
+    ],
+    [
+      "B01:case:+y",
+      "B01:case:-z"
+    ],
+    [
+      "B01:case:+y",
+      "B01:case:+z"
+    ],
+    [
+      "B02:case:-x",
+      "B02:case:-y"
+    ],
+    [
+      "B02:case:-x",
+      "B02:case:+y"
+    ],
+    [
+      "B02:case:-x",
+      "B02:case:-z"
+    ],
+    [
+      "B02:case:-x",
+      "B02:case:+z"
+    ],
+    [
+      "B02:case:+x",
+      "B02:case:-y"
+    ],
+    [
+      "B02:case:+x",
+      "B02:case:+y"
+    ],
+    [
+      "B02:case:+x",
+      "B02:case:-z"
+    ],
+    [
+      "B02:case:+x",
+      "B02:case:+z"
+    ],
+    [
+      "B02:case:-y",
+      "B02:case:-z"
+    ],
+    [
+      "B02:case:-y",
+      "B02:case:+z"
+    ],
+    [
+      "B02:case:+y",
+      "B02:case:-z"
+    ],
+    [
+      "B02:case:+y",
+      "B02:case:+z"
+    ],
+    [
+      "B03:case:-x",
+      "B03:case:-y"
+    ],
+    [
+      "B03:case:-x",
+      "B03:case:+y"
+    ],
+    [
+      "B03:case:-x",
+      "B03:case:-z"
+    ],
+    [
+      "B03:case:-x",
+      "B03:case:+z"
+    ],
+    [
+      "B03:case:+x",
+      "B03:case:-y"
+    ],
+    [
+      "B03:case:+x",
+      "B03:case:+y"
+    ],
+    [
+      "B03:case:+x",
+      "B03:case:-z"
+    ],
+    [
+      "B03:case:+x",
+      "B03:case:+z"
+    ],
+    [
+      "B03:case:-y",
+      "B03:case:-z"
+    ],
+    [
+      "B03:case:-y",
+      "B03:case:+z"
+    ],
+    [
+      "B03:case:+y",
+      "B03:case:-z"
+    ],
+    [
+      "B03:case:+y",
+      "B03:case:+z"
+    ],
+    [
+      "B04:case:-x",
+      "B04:case:-y"
+    ],
+    [
+      "B04:case:-x",
+      "B04:case:+y"
+    ],
+    [
+      "B04:case:-x",
+      "B04:case:-z"
+    ],
+    [
+      "B04:case:-x",
+      "B04:case:+z"
+    ],
+    [
+      "B04:case:+x",
+      "B04:case:-y"
+    ],
+    [
+      "B04:case:+x",
+      "B04:case:+y"
+    ],
+    [
+      "B04:case:+x",
+      "B04:case:-z"
+    ],
+    [
+      "B04:case:+x",
+      "B04:case:+z"
+    ],
+    [
+      "B04:case:-y",
+      "B04:case:-z"
+    ],
+    [
+      "B04:case:-y",
+      "B04:case:+z"
+    ],
+    [
+      "B04:case:+y",
+      "B04:case:-z"
+    ],
+    [
+      "B04:case:+y",
+      "B04:case:+z"
+    ],
+    [
+      "B05:case:-x",
+      "B05:case:-y"
+    ],
+    [
+      "B05:case:-x",
+      "B05:case:+y"
+    ],
+    [
+      "B05:case:-x",
+      "B05:case:-z"
+    ],
+    [
+      "B05:case:-x",
+      "B05:case:+z"
+    ],
+    [
+      "B05:case:+x",
+      "B05:case:-y"
+    ],
+    [
+      "B05:case:+x",
+      "B05:case:+y"
+    ],
+    [
+      "B05:case:+x",
+      "B05:case:-z"
+    ],
+    [
+      "B05:case:+x",
+      "B05:case:+z"
+    ],
+    [
+      "B05:case:-y",
+      "B05:case:-z"
+    ],
+    [
+      "B05:case:-y",
+      "B05:case:+z"
+    ],
+    [
+      "B05:case:+y",
+      "B05:case:-z"
+    ],
+    [
+      "B05:case:+y",
+      "B05:case:+z"
+    ],
+    [
+      "B06:case:-x",
+      "B06:case:-y"
+    ],
+    [
+      "B06:case:-x",
+      "B06:case:+y"
+    ],
+    [
+      "B06:case:-x",
+      "B06:case:-z"
+    ],
+    [
+      "B06:case:-x",
+      "B06:case:+z"
+    ],
+    [
+      "B06:case:+x",
+      "B06:case:-y"
+    ],
+    [
+      "B06:case:+x",
+      "B06:case:+y"
+    ],
+    [
+      "B06:case:+x",
+      "B06:case:-z"
+    ],
+    [
+      "B06:case:+x",
+      "B06:case:+z"
+    ],
+    [
+      "B06:case:-y",
+      "B06:case:-z"
+    ],
+    [
+      "B06:case:-y",
+      "B06:case:+z"
+    ],
+    [
+      "B06:case:+y",
+      "B06:case:-z"
+    ],
+    [
+      "B06:case:+y",
+      "B06:case:+z"
+    ],
+    [
+      "B07:case:-x",
+      "B07:case:-y"
+    ],
+    [
+      "B07:case:-x",
+      "B07:case:+y"
+    ],
+    [
+      "B07:case:-x",
+      "B07:case:-z"
+    ],
+    [
+      "B07:case:-x",
+      "B07:case:+z"
+    ],
+    [
+      "B07:case:+x",
+      "B07:case:-y"
+    ],
+    [
+      "B07:case:+x",
+      "B07:case:+y"
+    ],
+    [
+      "B07:case:+x",
+      "B07:case:-z"
+    ],
+    [
+      "B07:case:+x",
+      "B07:case:+z"
+    ],
+    [
+      "B07:case:-y",
+      "B07:case:-z"
+    ],
+    [
+      "B07:case:-y",
+      "B07:case:+z"
+    ],
+    [
+      "B07:case:+y",
+      "B07:case:-z"
+    ],
+    [
+      "B07:case:+y",
+      "B07:case:+z"
+    ],
+    [
+      "B08:case:-x",
+      "B08:case:-y"
+    ],
+    [
+      "B08:case:-x",
+      "B08:case:+y"
+    ],
+    [
+      "B08:case:-x",
+      "B08:case:-z"
+    ],
+    [
+      "B08:case:-x",
+      "B08:case:+z"
+    ],
+    [
+      "B08:case:+x",
+      "B08:case:-y"
+    ],
+    [
+      "B08:case:+x",
+      "B08:case:+y"
+    ],
+    [
+      "B08:case:+x",
+      "B08:case:-z"
+    ],
+    [
+      "B08:case:+x",
+      "B08:case:+z"
+    ],
+    [
+      "B08:case:-y",
+      "B08:case:-z"
+    ],
+    [
+      "B08:case:-y",
+      "B08:case:+z"
+    ],
+    [
+      "B08:case:+y",
+      "B08:case:-z"
+    ],
+    [
+      "B08:case:+y",
+      "B08:case:+z"
+    ],
+    [
+      "B09:case:-x",
+      "B09:case:-y"
+    ],
+    [
+      "B09:case:-x",
+      "B09:case:+y"
+    ],
+    [
+      "B09:case:-x",
+      "B09:case:-z"
+    ],
+    [
+      "B09:case:-x",
+      "B09:case:+z"
+    ],
+    [
+      "B09:case:+x",
+      "B09:case:-y"
+    ],
+    [
+      "B09:case:+x",
+      "B09:case:+y"
+    ],
+    [
+      "B09:case:+x",
+      "B09:case:-z"
+    ],
+    [
+      "B09:case:+x",
+      "B09:case:+z"
+    ],
+    [
+      "B09:case:-y",
+      "B09:case:-z"
+    ],
+    [
+      "B09:case:-y",
+      "B09:case:+z"
+    ],
+    [
+      "B09:case:+y",
+      "B09:case:-z"
+    ],
+    [
+      "B09:case:+y",
+      "B09:case:+z"
+    ],
+    [
+      "B10:case:-x",
+      "B10:case:-y"
+    ],
+    [
+      "B10:case:-x",
+      "B10:case:+y"
+    ],
+    [
+      "B10:case:-x",
+      "B10:case:-z"
+    ],
+    [
+      "B10:case:-x",
+      "B10:case:+z"
+    ],
+    [
+      "B10:case:+x",
+      "B10:case:-y"
+    ],
+    [
+      "B10:case:+x",
+      "B10:case:+y"
+    ],
+    [
+      "B10:case:+x",
+      "B10:case:-z"
+    ],
+    [
+      "B10:case:+x",
+      "B10:case:+z"
+    ],
+    [
+      "B10:case:-y",
+      "B10:case:-z"
+    ],
+    [
+      "B10:case:-y",
+      "B10:case:+z"
+    ],
+    [
+      "B10:case:+y",
+      "B10:case:-z"
+    ],
+    [
+      "B10:case:+y",
+      "B10:case:+z"
+    ],
+    [
+      "B11:case:-x",
+      "B11:case:-y"
+    ],
+    [
+      "B11:case:-x",
+      "B11:case:+y"
+    ],
+    [
+      "B11:case:-x",
+      "B11:case:-z"
+    ],
+    [
+      "B11:case:-x",
+      "B11:case:+z"
+    ],
+    [
+      "B11:case:+x",
+      "B11:case:-y"
+    ],
+    [
+      "B11:case:+x",
+      "B11:case:+y"
+    ],
+    [
+      "B11:case:+x",
+      "B11:case:-z"
+    ],
+    [
+      "B11:case:+x",
+      "B11:case:+z"
+    ],
+    [
+      "B11:case:-y",
+      "B11:case:-z"
+    ],
+    [
+      "B11:case:-y",
+      "B11:case:+z"
+    ],
+    [
+      "B11:case:+y",
+      "B11:case:-z"
+    ],
+    [
+      "B11:case:+y",
+      "B11:case:+z"
+    ],
+    [
+      "B12:case:-x",
+      "B12:case:-y"
+    ],
+    [
+      "B12:case:-x",
+      "B12:case:+y"
+    ],
+    [
+      "B12:case:-x",
+      "B12:case:-z"
+    ],
+    [
+      "B12:case:-x",
+      "B12:case:+z"
+    ],
+    [
+      "B12:case:+x",
+      "B12:case:-y"
+    ],
+    [
+      "B12:case:+x",
+      "B12:case:+y"
+    ],
+    [
+      "B12:case:+x",
+      "B12:case:-z"
+    ],
+    [
+      "B12:case:+x",
+      "B12:case:+z"
+    ],
+    [
+      "B12:case:-y",
+      "B12:case:-z"
+    ],
+    [
+      "B12:case:-y",
+      "B12:case:+z"
+    ],
+    [
+      "B12:case:+y",
+      "B12:case:-z"
+    ],
+    [
+      "B12:case:+y",
+      "B12:case:+z"
+    ],
+    [
+      "B13:case:-x",
+      "B13:case:-y"
+    ],
+    [
+      "B13:case:-x",
+      "B13:case:+y"
+    ],
+    [
+      "B13:case:-x",
+      "B13:case:-z"
+    ],
+    [
+      "B13:case:-x",
+      "B13:case:+z"
+    ],
+    [
+      "B13:case:+x",
+      "B13:case:-y"
+    ],
+    [
+      "B13:case:+x",
+      "B13:case:+y"
+    ],
+    [
+      "B13:case:+x",
+      "B13:case:-z"
+    ],
+    [
+      "B13:case:+x",
+      "B13:case:+z"
+    ],
+    [
+      "B13:case:-y",
+      "B13:case:-z"
+    ],
+    [
+      "B13:case:-y",
+      "B13:case:+z"
+    ],
+    [
+      "B13:case:+y",
+      "B13:case:-z"
+    ],
+    [
+      "B13:case:+y",
+      "B13:case:+z"
+    ],
+    [
+      "B14:case:-x",
+      "B14:case:-y"
+    ],
+    [
+      "B14:case:-x",
+      "B14:case:+y"
+    ],
+    [
+      "B14:case:-x",
+      "B14:case:-z"
+    ],
+    [
+      "B14:case:-x",
+      "B14:case:+z"
+    ],
+    [
+      "B14:case:+x",
+      "B14:case:-y"
+    ],
+    [
+      "B14:case:+x",
+      "B14:case:+y"
+    ],
+    [
+      "B14:case:+x",
+      "B14:case:-z"
+    ],
+    [
+      "B14:case:+x",
+      "B14:case:+z"
+    ],
+    [
+      "B14:case:-y",
+      "B14:case:-z"
+    ],
+    [
+      "B14:case:-y",
+      "B14:case:+z"
+    ],
+    [
+      "B14:case:+y",
+      "B14:case:-z"
+    ],
+    [
+      "B14:case:+y",
+      "B14:case:+z"
+    ],
+    [
+      "B15:case:-x",
+      "B15:case:-y"
+    ],
+    [
+      "B15:case:-x",
+      "B15:case:+y"
+    ],
+    [
+      "B15:case:-x",
+      "B15:case:-z"
+    ],
+    [
+      "B15:case:-x",
+      "B15:case:+z"
+    ],
+    [
+      "B15:case:+x",
+      "B15:case:-y"
+    ],
+    [
+      "B15:case:+x",
+      "B15:case:+y"
+    ],
+    [
+      "B15:case:+x",
+      "B15:case:-z"
+    ],
+    [
+      "B15:case:+x",
+      "B15:case:+z"
+    ],
+    [
+      "B15:case:-y",
+      "B15:case:-z"
+    ],
+    [
+      "B15:case:-y",
+      "B15:case:+z"
+    ],
+    [
+      "B15:case:+y",
+      "B15:case:-z"
+    ],
+    [
+      "B15:case:+y",
+      "B15:case:+z"
+    ],
+    [
+      "B16:case:-x",
+      "B16:case:-y"
+    ],
+    [
+      "B16:case:-x",
+      "B16:case:+y"
+    ],
+    [
+      "B16:case:-x",
+      "B16:case:-z"
+    ],
+    [
+      "B16:case:-x",
+      "B16:case:+z"
+    ],
+    [
+      "B16:case:+x",
+      "B16:case:-y"
+    ],
+    [
+      "B16:case:+x",
+      "B16:case:+y"
+    ],
+    [
+      "B16:case:+x",
+      "B16:case:-z"
+    ],
+    [
+      "B16:case:+x",
+      "B16:case:+z"
+    ],
+    [
+      "B16:case:-y",
+      "B16:case:-z"
+    ],
+    [
+      "B16:case:-y",
+      "B16:case:+z"
+    ],
+    [
+      "B16:case:+y",
+      "B16:case:-z"
+    ],
+    [
+      "B16:case:+y",
+      "B16:case:+z"
+    ],
+    [
+      "B17:case:-x",
+      "B17:case:-y"
+    ],
+    [
+      "B17:case:-x",
+      "B17:case:+y"
+    ],
+    [
+      "B17:case:-x",
+      "B17:case:-z"
+    ],
+    [
+      "B17:case:-x",
+      "B17:case:+z"
+    ],
+    [
+      "B17:case:+x",
+      "B17:case:-y"
+    ],
+    [
+      "B17:case:+x",
+      "B17:case:+y"
+    ],
+    [
+      "B17:case:+x",
+      "B17:case:-z"
+    ],
+    [
+      "B17:case:+x",
+      "B17:case:+z"
+    ],
+    [
+      "B17:case:-y",
+      "B17:case:-z"
+    ],
+    [
+      "B17:case:-y",
+      "B17:case:+z"
+    ],
+    [
+      "B17:case:+y",
+      "B17:case:-z"
+    ],
+    [
+      "B17:case:+y",
+      "B17:case:+z"
+    ],
+    [
+      "B18:case:-x",
+      "B18:case:-y"
+    ],
+    [
+      "B18:case:-x",
+      "B18:case:+y"
+    ],
+    [
+      "B18:case:-x",
+      "B18:case:-z"
+    ],
+    [
+      "B18:case:-x",
+      "B18:case:+z"
+    ],
+    [
+      "B18:case:+x",
+      "B18:case:-y"
+    ],
+    [
+      "B18:case:+x",
+      "B18:case:+y"
+    ],
+    [
+      "B18:case:+x",
+      "B18:case:-z"
+    ],
+    [
+      "B18:case:+x",
+      "B18:case:+z"
+    ],
+    [
+      "B18:case:-y",
+      "B18:case:-z"
+    ],
+    [
+      "B18:case:-y",
+      "B18:case:+z"
+    ],
+    [
+      "B18:case:+y",
+      "B18:case:-z"
+    ],
+    [
+      "B18:case:+y",
+      "B18:case:+z"
+    ],
+    [
+      "B19:case:-x",
+      "B19:case:-y"
+    ],
+    [
+      "B19:case:-x",
+      "B19:case:+y"
+    ],
+    [
+      "B19:case:-x",
+      "B19:case:-z"
+    ],
+    [
+      "B19:case:-x",
+      "B19:case:+z"
+    ],
+    [
+      "B19:case:+x",
+      "B19:case:-y"
+    ],
+    [
+      "B19:case:+x",
+      "B19:case:+y"
+    ],
+    [
+      "B19:case:+x",
+      "B19:case:-z"
+    ],
+    [
+      "B19:case:+x",
+      "B19:case:+z"
+    ],
+    [
+      "B19:case:-y",
+      "B19:case:-z"
+    ],
+    [
+      "B19:case:-y",
+      "B19:case:+z"
+    ],
+    [
+      "B19:case:+y",
+      "B19:case:-z"
+    ],
+    [
+      "B19:case:+y",
+      "B19:case:+z"
+    ],
+    [
+      "B20:case:-x",
+      "B20:case:-y"
+    ],
+    [
+      "B20:case:-x",
+      "B20:case:+y"
+    ],
+    [
+      "B20:case:-x",
+      "B20:case:-z"
+    ],
+    [
+      "B20:case:-x",
+      "B20:case:+z"
+    ],
+    [
+      "B20:case:+x",
+      "B20:case:-y"
+    ],
+    [
+      "B20:case:+x",
+      "B20:case:+y"
+    ],
+    [
+      "B20:case:+x",
+      "B20:case:-z"
+    ],
+    [
+      "B20:case:+x",
+      "B20:case:+z"
+    ],
+    [
+      "B20:case:-y",
+      "B20:case:-z"
+    ],
+    [
+      "B20:case:-y",
+      "B20:case:+z"
+    ],
+    [
+      "B20:case:+y",
+      "B20:case:-z"
+    ],
+    [
+      "B20:case:+y",
+      "B20:case:+z"
+    ],
+    [
+      "B21:case:-x",
+      "B21:case:-y"
+    ],
+    [
+      "B21:case:-x",
+      "B21:case:+y"
+    ],
+    [
+      "B21:case:-x",
+      "B21:case:-z"
+    ],
+    [
+      "B21:case:-x",
+      "B21:case:+z"
+    ],
+    [
+      "B21:case:+x",
+      "B21:case:-y"
+    ],
+    [
+      "B21:case:+x",
+      "B21:case:+y"
+    ],
+    [
+      "B21:case:+x",
+      "B21:case:-z"
+    ],
+    [
+      "B21:case:+x",
+      "B21:case:+z"
+    ],
+    [
+      "B21:case:-y",
+      "B21:case:-z"
+    ],
+    [
+      "B21:case:-y",
+      "B21:case:+z"
+    ],
+    [
+      "B21:case:+y",
+      "B21:case:-z"
+    ],
+    [
+      "B21:case:+y",
+      "B21:case:+z"
+    ],
+    [
+      "B22:case:-x",
+      "B22:case:-y"
+    ],
+    [
+      "B22:case:-x",
+      "B22:case:+y"
+    ],
+    [
+      "B22:case:-x",
+      "B22:case:-z"
+    ],
+    [
+      "B22:case:-x",
+      "B22:case:+z"
+    ],
+    [
+      "B22:case:+x",
+      "B22:case:-y"
+    ],
+    [
+      "B22:case:+x",
+      "B22:case:+y"
+    ],
+    [
+      "B22:case:+x",
+      "B22:case:-z"
+    ],
+    [
+      "B22:case:+x",
+      "B22:case:+z"
+    ],
+    [
+      "B22:case:-y",
+      "B22:case:-z"
+    ],
+    [
+      "B22:case:-y",
+      "B22:case:+z"
+    ],
+    [
+      "B22:case:+y",
+      "B22:case:-z"
+    ],
+    [
+      "B22:case:+y",
+      "B22:case:+z"
+    ],
+    [
+      "B23:case:-x",
+      "B23:case:-y"
+    ],
+    [
+      "B23:case:-x",
+      "B23:case:+y"
+    ],
+    [
+      "B23:case:-x",
+      "B23:case:-z"
+    ],
+    [
+      "B23:case:-x",
+      "B23:case:+z"
+    ],
+    [
+      "B23:case:+x",
+      "B23:case:-y"
+    ],
+    [
+      "B23:case:+x",
+      "B23:case:+y"
+    ],
+    [
+      "B23:case:+x",
+      "B23:case:-z"
+    ],
+    [
+      "B23:case:+x",
+      "B23:case:+z"
+    ],
+    [
+      "B23:case:-y",
+      "B23:case:-z"
+    ],
+    [
+      "B23:case:-y",
+      "B23:case:+z"
+    ],
+    [
+      "B23:case:+y",
+      "B23:case:-z"
+    ],
+    [
+      "B23:case:+y",
+      "B23:case:+z"
+    ],
+    [
+      "B24:case:-x",
+      "B24:case:-y"
+    ],
+    [
+      "B24:case:-x",
+      "B24:case:+y"
+    ],
+    [
+      "B24:case:-x",
+      "B24:case:-z"
+    ],
+    [
+      "B24:case:-x",
+      "B24:case:+z"
+    ],
+    [
+      "B24:case:+x",
+      "B24:case:-y"
+    ],
+    [
+      "B24:case:+x",
+      "B24:case:+y"
+    ],
+    [
+      "B24:case:+x",
+      "B24:case:-z"
+    ],
+    [
+      "B24:case:+x",
+      "B24:case:+z"
+    ],
+    [
+      "B24:case:-y",
+      "B24:case:-z"
+    ],
+    [
+      "B24:case:-y",
+      "B24:case:+z"
+    ],
+    [
+      "B24:case:+y",
+      "B24:case:-z"
+    ],
+    [
+      "B24:case:+y",
+      "B24:case:+z"
+    ],
+    [
+      "B25:case:-x",
+      "B25:case:-y"
+    ],
+    [
+      "B25:case:-x",
+      "B25:case:+y"
+    ],
+    [
+      "B25:case:-x",
+      "B25:case:-z"
+    ],
+    [
+      "B25:case:-x",
+      "B25:case:+z"
+    ],
+    [
+      "B25:case:+x",
+      "B25:case:-y"
+    ],
+    [
+      "B25:case:+x",
+      "B25:case:+y"
+    ],
+    [
+      "B25:case:+x",
+      "B25:case:-z"
+    ],
+    [
+      "B25:case:+x",
+      "B25:case:+z"
+    ],
+    [
+      "B25:case:-y",
+      "B25:case:-z"
+    ],
+    [
+      "B25:case:-y",
+      "B25:case:+z"
+    ],
+    [
+      "B25:case:+y",
+      "B25:case:-z"
+    ],
+    [
+      "B25:case:+y",
+      "B25:case:+z"
+    ],
+    [
+      "B26:case:-x",
+      "B26:case:-y"
+    ],
+    [
+      "B26:case:-x",
+      "B26:case:+y"
+    ],
+    [
+      "B26:case:-x",
+      "B26:case:-z"
+    ],
+    [
+      "B26:case:-x",
+      "B26:case:+z"
+    ],
+    [
+      "B26:case:+x",
+      "B26:case:-y"
+    ],
+    [
+      "B26:case:+x",
+      "B26:case:+y"
+    ],
+    [
+      "B26:case:+x",
+      "B26:case:-z"
+    ],
+    [
+      "B26:case:+x",
+      "B26:case:+z"
+    ],
+    [
+      "B26:case:-y",
+      "B26:case:-z"
+    ],
+    [
+      "B26:case:-y",
+      "B26:case:+z"
+    ],
+    [
+      "B26:case:+y",
+      "B26:case:-z"
+    ],
+    [
+      "B26:case:+y",
+      "B26:case:+z"
+    ],
+    [
+      "B27:case:-x",
+      "B27:case:-y"
+    ],
+    [
+      "B27:case:-x",
+      "B27:case:+y"
+    ],
+    [
+      "B27:case:-x",
+      "B27:case:-z"
+    ],
+    [
+      "B27:case:-x",
+      "B27:case:+z"
+    ],
+    [
+      "B27:case:+x",
+      "B27:case:-y"
+    ],
+    [
+      "B27:case:+x",
+      "B27:case:+y"
+    ],
+    [
+      "B27:case:+x",
+      "B27:case:-z"
+    ],
+    [
+      "B27:case:+x",
+      "B27:case:+z"
+    ],
+    [
+      "B27:case:-y",
+      "B27:case:-z"
+    ],
+    [
+      "B27:case:-y",
+      "B27:case:+z"
+    ],
+    [
+      "B27:case:+y",
+      "B27:case:-z"
+    ],
+    [
+      "B27:case:+y",
+      "B27:case:+z"
+    ],
+    [
+      "B28:case:-x",
+      "B28:case:-y"
+    ],
+    [
+      "B28:case:-x",
+      "B28:case:+y"
+    ],
+    [
+      "B28:case:-x",
+      "B28:case:-z"
+    ],
+    [
+      "B28:case:-x",
+      "B28:case:+z"
+    ],
+    [
+      "B28:case:+x",
+      "B28:case:-y"
+    ],
+    [
+      "B28:case:+x",
+      "B28:case:+y"
+    ],
+    [
+      "B28:case:+x",
+      "B28:case:-z"
+    ],
+    [
+      "B28:case:+x",
+      "B28:case:+z"
+    ],
+    [
+      "B28:case:-y",
+      "B28:case:-z"
+    ],
+    [
+      "B28:case:-y",
+      "B28:case:+z"
+    ],
+    [
+      "B28:case:+y",
+      "B28:case:-z"
+    ],
+    [
+      "B28:case:+y",
+      "B28:case:+z"
+    ],
+    [
+      "B29:case:-x",
+      "B29:case:-y"
+    ],
+    [
+      "B29:case:-x",
+      "B29:case:+y"
+    ],
+    [
+      "B29:case:-x",
+      "B29:case:-z"
+    ],
+    [
+      "B29:case:-x",
+      "B29:case:+z"
+    ],
+    [
+      "B29:case:+x",
+      "B29:case:-y"
+    ],
+    [
+      "B29:case:+x",
+      "B29:case:+y"
+    ],
+    [
+      "B29:case:+x",
+      "B29:case:-z"
+    ],
+    [
+      "B29:case:+x",
+      "B29:case:+z"
+    ],
+    [
+      "B29:case:-y",
+      "B29:case:-z"
+    ],
+    [
+      "B29:case:-y",
+      "B29:case:+z"
+    ],
+    [
+      "B29:case:+y",
+      "B29:case:-z"
+    ],
+    [
+      "B29:case:+y",
+      "B29:case:+z"
+    ]
+  ],
+  "dynamic_aperture_patches_excluded": 0,
+  "limitations": [
+    "Static final observation audit, NOT restart or trajectory",
+    "Solid damage not recorded; D=0 and D=1 film checks reported",
+    "Outside local gas temperatures absent: cold-air flux is only an upper-bound counterfactual",
+    "Dynamic aperture heat excluded; no synthetic final pressure/state reconstruction"
+  ],
+  "max_film_conductance_difference_D0_D1_w_k": 0.0,
+  "object_count": 217,
+  "objects": {
+    "ABS:+x": {
+      "maximum_temperature_k": 931.1898187980368,
+      "mean_temperature_k": 862.0063018173419,
+      "minimum_temperature_k": 767.1182785978,
+      "reference_capacity_j_k": 104.82390075238483
+    },
+    "ABS:+y": {
+      "maximum_temperature_k": 844.3756512964358,
+      "mean_temperature_k": 823.0428327836161,
+      "minimum_temperature_k": 779.0608347821346,
+      "reference_capacity_j_k": 50.473224064588614
+    },
+    "ABS:+z": {
+      "maximum_temperature_k": 979.571367824404,
+      "mean_temperature_k": 893.6116505228421,
+      "minimum_temperature_k": 808.356465489357,
+      "reference_capacity_j_k": 89.60023524301535
+    },
+    "ABS:-x": {
+      "maximum_temperature_k": 908.1112914698786,
+      "mean_temperature_k": 849.4774406596771,
+      "minimum_temperature_k": 760.766629794682,
+      "reference_capacity_j_k": 104.82390075238483
+    },
+    "ABS:-y": {
+      "maximum_temperature_k": 834.5901374024851,
+      "mean_temperature_k": 812.3656786918294,
+      "minimum_temperature_k": 765.9649481619109,
+      "reference_capacity_j_k": 50.473224064588614
+    },
+    "ABS:-z": {
+      "maximum_temperature_k": 920.2863346998353,
+      "mean_temperature_k": 847.3874862453898,
+      "minimum_temperature_k": 773.225866530268,
+      "reference_capacity_j_k": 89.60023524301535
+    },
+    "B00": {
+      "maximum_temperature_k": 846.092657222458,
+      "mean_temperature_k": 845.6922437749038,
+      "minimum_temperature_k": 845.3147993820669,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B00:case:+x": {
+      "maximum_temperature_k": 845.5302380107945,
+      "mean_temperature_k": 845.246922558084,
+      "minimum_temperature_k": 844.9576486170037,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B00:case:+y": {
+      "maximum_temperature_k": 845.5339817533287,
+      "mean_temperature_k": 845.2544273080714,
+      "minimum_temperature_k": 844.9665561585907,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B00:case:+z": {
+      "maximum_temperature_k": 845.481478069158,
+      "mean_temperature_k": 845.3367057621879,
+      "minimum_temperature_k": 845.2662669896825,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B00:case:-x": {
+      "maximum_temperature_k": 845.530238110195,
+      "mean_temperature_k": 845.2469226974666,
+      "minimum_temperature_k": 844.9576486488768,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B00:case:-y": {
+      "maximum_temperature_k": 845.5339819019521,
+      "mean_temperature_k": 845.2544275161889,
+      "minimum_temperature_k": 844.966556207648,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B00:case:-z": {
+      "maximum_temperature_k": 844.1178768277767,
+      "mean_temperature_k": 844.0602389650704,
+      "minimum_temperature_k": 844.0306667342602,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B01": {
+      "maximum_temperature_k": 899.6089861967057,
+      "mean_temperature_k": 899.1816664644136,
+      "minimum_temperature_k": 898.8756142750314,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B01:case:+x": {
+      "maximum_temperature_k": 898.9676509195351,
+      "mean_temperature_k": 898.6719045642225,
+      "minimum_temperature_k": 898.4567335286183,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B01:case:+y": {
+      "maximum_temperature_k": 898.9719385377709,
+      "mean_temperature_k": 898.6805095550562,
+      "minimum_temperature_k": 898.4671884552715,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B01:case:+z": {
+      "maximum_temperature_k": 899.0799155688145,
+      "mean_temperature_k": 898.9077911140962,
+      "minimum_temperature_k": 898.8240411574678,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B01:case:-x": {
+      "maximum_temperature_k": 898.9676509139622,
+      "mean_temperature_k": 898.6719045829211,
+      "minimum_temperature_k": 898.4567335313641,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B01:case:-y": {
+      "maximum_temperature_k": 898.9719384548235,
+      "mean_temperature_k": 898.6805095251681,
+      "minimum_temperature_k": 898.4671884573754,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B01:case:-z": {
+      "maximum_temperature_k": 897.3255568473328,
+      "mean_temperature_k": 897.2588096804092,
+      "minimum_temperature_k": 897.2246330465103,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B02": {
+      "maximum_temperature_k": 923.5981350659166,
+      "mean_temperature_k": 923.2575084798336,
+      "minimum_temperature_k": 923.0303727566647,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B02:case:+x": {
+      "maximum_temperature_k": 923.1577807426341,
+      "mean_temperature_k": 922.906603542794,
+      "minimum_temperature_k": 922.7479469793,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B02:case:+y": {
+      "maximum_temperature_k": 923.1607090476936,
+      "mean_temperature_k": 922.9124273043586,
+      "minimum_temperature_k": 922.7549885073236,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B02:case:+z": {
+      "maximum_temperature_k": 923.1606250994876,
+      "mean_temperature_k": 923.0437369979583,
+      "minimum_temperature_k": 922.9869065045186,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B02:case:-x": {
+      "maximum_temperature_k": 923.1577807414479,
+      "mean_temperature_k": 922.9066035422675,
+      "minimum_temperature_k": 922.7479469789045,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B02:case:-y": {
+      "maximum_temperature_k": 923.160709043039,
+      "mean_temperature_k": 922.912427300514,
+      "minimum_temperature_k": 922.754988506674,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B02:case:-z": {
+      "maximum_temperature_k": 921.4077751072595,
+      "mean_temperature_k": 921.4053666315602,
+      "minimum_temperature_k": 921.4031467831244,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B03": {
+      "maximum_temperature_k": 938.0470422396345,
+      "mean_temperature_k": 937.7326239528711,
+      "minimum_temperature_k": 937.5328139804957,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B03:case:+x": {
+      "maximum_temperature_k": 937.6672389923507,
+      "mean_temperature_k": 937.429503812694,
+      "minimum_temperature_k": 937.2912003147909,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B03:case:+y": {
+      "maximum_temperature_k": 937.6697574028414,
+      "mean_temperature_k": 937.4344896994039,
+      "minimum_temperature_k": 937.2972210410234,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B03:case:+z": {
+      "maximum_temperature_k": 937.6406111229182,
+      "mean_temperature_k": 937.5403822935764,
+      "minimum_temperature_k": 937.4916628547346,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B03:case:-x": {
+      "maximum_temperature_k": 937.6672389908273,
+      "mean_temperature_k": 937.4295038112747,
+      "minimum_temperature_k": 937.2912003153499,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B03:case:-y": {
+      "maximum_temperature_k": 937.6697574021771,
+      "mean_temperature_k": 937.4344896986578,
+      "minimum_temperature_k": 937.297221040378,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B03:case:-z": {
+      "maximum_temperature_k": 935.8986436828967,
+      "mean_temperature_k": 935.8909101718649,
+      "minimum_temperature_k": 935.871288074664,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B04": {
+      "maximum_temperature_k": 947.6321575182952,
+      "mean_temperature_k": 947.2359608609644,
+      "minimum_temperature_k": 946.9709076100613,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B04:case:+x": {
+      "maximum_temperature_k": 947.089802450606,
+      "mean_temperature_k": 946.8040833180922,
+      "minimum_temperature_k": 946.620065556468,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B04:case:+y": {
+      "maximum_temperature_k": 947.0934171402345,
+      "mean_temperature_k": 946.8112974198108,
+      "minimum_temperature_k": 946.6288169146782,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B04:case:+z": {
+      "maximum_temperature_k": 947.1368919711064,
+      "mean_temperature_k": 946.9918171905683,
+      "minimum_temperature_k": 946.921266904715,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B04:case:-x": {
+      "maximum_temperature_k": 947.0898025239535,
+      "mean_temperature_k": 946.8040834417633,
+      "minimum_temperature_k": 946.6200655869959,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B04:case:-y": {
+      "maximum_temperature_k": 947.093417135817,
+      "mean_temperature_k": 946.811297413066,
+      "minimum_temperature_k": 946.6288169122587,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B04:case:-z": {
+      "maximum_temperature_k": 945.2180997275586,
+      "mean_temperature_k": 945.196255026543,
+      "minimum_temperature_k": 945.1837188904094,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B05": {
+      "maximum_temperature_k": 927.2538550644125,
+      "mean_temperature_k": 926.8048523485413,
+      "minimum_temperature_k": 926.5061413695345,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B05:case:+x": {
+      "maximum_temperature_k": 926.5719875267305,
+      "mean_temperature_k": 926.2624067072892,
+      "minimum_temperature_k": 926.0584017349522,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B05:case:+y": {
+      "maximum_temperature_k": 926.5765473084126,
+      "mean_temperature_k": 926.2715627021092,
+      "minimum_temperature_k": 926.0695773859342,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B05:case:+z": {
+      "maximum_temperature_k": 926.7263127288938,
+      "mean_temperature_k": 926.5417795522621,
+      "minimum_temperature_k": 926.4519930764044,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B05:case:-x": {
+      "maximum_temperature_k": 926.5719874529977,
+      "mean_temperature_k": 926.2624065523796,
+      "minimum_temperature_k": 926.058401714208,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B05:case:-y": {
+      "maximum_temperature_k": 926.5765473649577,
+      "mean_temperature_k": 926.2715628015719,
+      "minimum_temperature_k": 926.0695773973556,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B05:case:-z": {
+      "maximum_temperature_k": 924.8052986729914,
+      "mean_temperature_k": 924.7351981169096,
+      "minimum_temperature_k": 924.6992783662474,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B06": {
+      "maximum_temperature_k": 864.9419189099768,
+      "mean_temperature_k": 864.5685315944003,
+      "minimum_temperature_k": 864.1969878249524,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B06:case:+x": {
+      "maximum_temperature_k": 864.4856622846495,
+      "mean_temperature_k": 864.2074704496814,
+      "minimum_temperature_k": 863.9162403431405,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B06:case:+y": {
+      "maximum_temperature_k": 864.488682144808,
+      "mean_temperature_k": 864.2134746756434,
+      "minimum_temperature_k": 863.9232354268429,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B06:case:+z": {
+      "maximum_temperature_k": 864.3199514464267,
+      "mean_temperature_k": 864.2061920770567,
+      "minimum_temperature_k": 864.1508669111008,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B06:case:-x": {
+      "maximum_temperature_k": 864.4856622791172,
+      "mean_temperature_k": 864.2074704429833,
+      "minimum_temperature_k": 863.9162403411585,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B06:case:-y": {
+      "maximum_temperature_k": 864.488682126183,
+      "mean_temperature_k": 864.2134746533233,
+      "minimum_temperature_k": 863.9232354208682,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B06:case:-z": {
+      "maximum_temperature_k": 862.8767629817237,
+      "mean_temperature_k": 862.8646290506346,
+      "minimum_temperature_k": 862.857000427691,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B07": {
+      "maximum_temperature_k": 861.8973092358166,
+      "mean_temperature_k": 861.4205076473826,
+      "minimum_temperature_k": 861.0531582620391,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B07:case:+x": {
+      "maximum_temperature_k": 861.11837968213,
+      "mean_temperature_k": 860.8022730848622,
+      "minimum_temperature_k": 860.5403748029948,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B07:case:+y": {
+      "maximum_temperature_k": 861.1235917659327,
+      "mean_temperature_k": 860.8127981678476,
+      "minimum_temperature_k": 860.553175593652,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B07:case:+z": {
+      "maximum_temperature_k": 861.3076235175183,
+      "mean_temperature_k": 861.0988891402498,
+      "minimum_temperature_k": 860.9972583648248,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B07:case:-x": {
+      "maximum_temperature_k": 861.118379685259,
+      "mean_temperature_k": 860.8022730892903,
+      "minimum_temperature_k": 860.5403748048465,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B07:case:-y": {
+      "maximum_temperature_k": 861.1235917547268,
+      "mean_temperature_k": 860.8127981533235,
+      "minimum_temperature_k": 860.5531755899502,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B07:case:-z": {
+      "maximum_temperature_k": 859.7182535786051,
+      "mean_temperature_k": 859.5949480822001,
+      "minimum_temperature_k": 859.5334644017214,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B08": {
+      "maximum_temperature_k": 937.5996680916967,
+      "mean_temperature_k": 936.9967031317882,
+      "minimum_temperature_k": 936.5746747586035,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B08:case:+x": {
+      "maximum_temperature_k": 936.638713520796,
+      "mean_temperature_k": 936.2330167301365,
+      "minimum_temperature_k": 935.9408144774359,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B08:case:+y": {
+      "maximum_temperature_k": 936.6451486102827,
+      "mean_temperature_k": 936.2459781922721,
+      "minimum_temperature_k": 935.9566425704911,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B08:case:+z": {
+      "maximum_temperature_k": 936.8899087593534,
+      "mean_temperature_k": 936.6318921199909,
+      "minimum_temperature_k": 936.5062635078718,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B08:case:-x": {
+      "maximum_temperature_k": 936.6387135886717,
+      "mean_temperature_k": 936.2330168321953,
+      "minimum_temperature_k": 935.9408145004967,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B08:case:-y": {
+      "maximum_temperature_k": 936.6451486270681,
+      "mean_temperature_k": 936.245978216579,
+      "minimum_temperature_k": 935.9566425751776,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B08:case:-z": {
+      "maximum_temperature_k": 934.5861178203968,
+      "mean_temperature_k": 934.4558706035247,
+      "minimum_temperature_k": 934.3903591412203,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B09": {
+      "maximum_temperature_k": 976.7487930808608,
+      "mean_temperature_k": 976.2684353159098,
+      "minimum_temperature_k": 975.959851967782,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B09:case:+x": {
+      "maximum_temperature_k": 976.0994187913245,
+      "mean_temperature_k": 975.7509427334096,
+      "minimum_temperature_k": 975.5393633135344,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B09:case:+y": {
+      "maximum_temperature_k": 976.103742571567,
+      "mean_temperature_k": 975.7595704304517,
+      "minimum_temperature_k": 975.5498528309083,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B09:case:+z": {
+      "maximum_temperature_k": 976.1595620124822,
+      "mean_temperature_k": 975.9867520754079,
+      "minimum_temperature_k": 975.9026992502731,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B09:case:-x": {
+      "maximum_temperature_k": 976.0994187923592,
+      "mean_temperature_k": 975.7509427339614,
+      "minimum_temperature_k": 975.5393633133847,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B09:case:-y": {
+      "maximum_temperature_k": 976.1037425716671,
+      "mean_temperature_k": 975.7595704300724,
+      "minimum_temperature_k": 975.5498528304302,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B09:case:-z": {
+      "maximum_temperature_k": 973.7384457691899,
+      "mean_temperature_k": 973.7204904392851,
+      "minimum_temperature_k": 973.7093556132571,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B10": {
+      "maximum_temperature_k": 986.6377657810096,
+      "mean_temperature_k": 986.3528788733615,
+      "minimum_temperature_k": 986.1711449860145,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B10:case:+x": {
+      "maximum_temperature_k": 986.3374074192924,
+      "mean_temperature_k": 986.0936952517669,
+      "minimum_temperature_k": 985.9374123563139,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B10:case:+y": {
+      "maximum_temperature_k": 986.3575605465564,
+      "mean_temperature_k": 986.1310007875442,
+      "minimum_temperature_k": 985.9426681423777,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B10:case:+z": {
+      "maximum_temperature_k": 986.2715092559929,
+      "mean_temperature_k": 986.212401865717,
+      "minimum_temperature_k": 986.1494594518236,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B10:case:-x": {
+      "maximum_temperature_k": 986.3247346782273,
+      "mean_temperature_k": 986.2516651115264,
+      "minimum_temperature_k": 986.2088810825757,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B10:case:-y": {
+      "maximum_temperature_k": 986.3575605461729,
+      "mean_temperature_k": 986.1310007875005,
+      "minimum_temperature_k": 985.9426681423699,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B10:case:-z": {
+      "maximum_temperature_k": 984.2167389691606,
+      "mean_temperature_k": 984.1096936362394,
+      "minimum_temperature_k": 984.0039376154648,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B11": {
+      "maximum_temperature_k": 1010.7041592124756,
+      "mean_temperature_k": 1010.2919335050206,
+      "minimum_temperature_k": 1010.0514555768085,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B11:case:+x": {
+      "maximum_temperature_k": 1010.2178322388266,
+      "mean_temperature_k": 1009.9032300557968,
+      "minimum_temperature_k": 1009.7415892869672,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B11:case:+y": {
+      "maximum_temperature_k": 1010.2210569221637,
+      "mean_temperature_k": 1009.9095987593644,
+      "minimum_temperature_k": 1009.7493131438972,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B11:case:+z": {
+      "maximum_temperature_k": 1010.1904800960824,
+      "mean_temperature_k": 1010.0623349976644,
+      "minimum_temperature_k": 1010.0000394438022,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B11:case:-x": {
+      "maximum_temperature_k": 1010.2178322751083,
+      "mean_temperature_k": 1009.9032300958128,
+      "minimum_temperature_k": 1009.7415892938469,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B11:case:-y": {
+      "maximum_temperature_k": 1010.2210569050407,
+      "mean_temperature_k": 1009.9095987399497,
+      "minimum_temperature_k": 1009.7493131417358,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B11:case:-z": {
+      "maximum_temperature_k": 1007.7774488912936,
+      "mean_temperature_k": 1007.7612691947439,
+      "minimum_temperature_k": 1007.7228649187464,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B12": {
+      "maximum_temperature_k": 1023.2769017337433,
+      "mean_temperature_k": 1022.6694885678875,
+      "minimum_temperature_k": 1022.2586177455061,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B12:case:+x": {
+      "maximum_temperature_k": 1022.4062584085343,
+      "mean_temperature_k": 1021.9766314517757,
+      "minimum_temperature_k": 1021.6916142215256,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B12:case:+y": {
+      "maximum_temperature_k": 1022.4120710541958,
+      "mean_temperature_k": 1021.9882661891126,
+      "minimum_temperature_k": 1021.7057655560214,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B12:case:+z": {
+      "maximum_temperature_k": 1022.5328103287104,
+      "mean_temperature_k": 1022.3004747993455,
+      "minimum_temperature_k": 1022.1874315669022,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B12:case:-x": {
+      "maximum_temperature_k": 1022.4062584105658,
+      "mean_temperature_k": 1021.9766314532613,
+      "minimum_temperature_k": 1021.6916142198634,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B12:case:-y": {
+      "maximum_temperature_k": 1022.4120710544847,
+      "mean_temperature_k": 1021.9882661892692,
+      "minimum_temperature_k": 1021.7057655564984,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B12:case:-z": {
+      "maximum_temperature_k": 1019.7639983942416,
+      "mean_temperature_k": 1019.7024276422295,
+      "minimum_temperature_k": 1019.669760618588,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B13": {
+      "maximum_temperature_k": 980.9871651070521,
+      "mean_temperature_k": 980.3458068786323,
+      "minimum_temperature_k": 979.9205286818614,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B13:case:+x": {
+      "maximum_temperature_k": 979.9748078970895,
+      "mean_temperature_k": 979.5406898197382,
+      "minimum_temperature_k": 979.2519173891899,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B13:case:+y": {
+      "maximum_temperature_k": 979.9815863447109,
+      "mean_temperature_k": 979.5543319691276,
+      "minimum_temperature_k": 979.2686128100588,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B13:case:+z": {
+      "maximum_temperature_k": 980.2534543959562,
+      "mean_temperature_k": 979.9803845167296,
+      "minimum_temperature_k": 979.8474439538442,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B13:case:-x": {
+      "maximum_temperature_k": 979.9748078967049,
+      "mean_temperature_k": 979.5406898200914,
+      "minimum_temperature_k": 979.2519173893731,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B13:case:-y": {
+      "maximum_temperature_k": 979.9815863454145,
+      "mean_temperature_k": 979.5543319700022,
+      "minimum_temperature_k": 979.2686128105448,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B13:case:-z": {
+      "maximum_temperature_k": 977.6525778496235,
+      "mean_temperature_k": 977.5262816723628,
+      "minimum_temperature_k": 977.4624361387215,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B14": {
+      "maximum_temperature_k": 888.3559697421241,
+      "mean_temperature_k": 887.8911924208521,
+      "minimum_temperature_k": 887.4664873582313,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B14:case:+x": {
+      "maximum_temperature_k": 887.7305328837871,
+      "mean_temperature_k": 887.3955736932062,
+      "minimum_temperature_k": 887.0711405932786,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B14:case:+y": {
+      "maximum_temperature_k": 887.7346912407273,
+      "mean_temperature_k": 887.4038865586575,
+      "minimum_temperature_k": 887.0810005539058,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B14:case:+z": {
+      "maximum_temperature_k": 887.6494079061757,
+      "mean_temperature_k": 887.4895626439898,
+      "minimum_temperature_k": 887.4117911659567,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B14:case:-x": {
+      "maximum_temperature_k": 887.7305328826973,
+      "mean_temperature_k": 887.395573693219,
+      "minimum_temperature_k": 887.0711405929131,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B14:case:-y": {
+      "maximum_temperature_k": 887.7346912378356,
+      "mean_temperature_k": 887.4038865595403,
+      "minimum_temperature_k": 887.0810005544308,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B14:case:-z": {
+      "maximum_temperature_k": 885.8955056292423,
+      "mean_temperature_k": 885.8501861059706,
+      "minimum_temperature_k": 885.8261751642018,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B15": {
+      "maximum_temperature_k": 877.4275197016399,
+      "mean_temperature_k": 876.9486224035934,
+      "minimum_temperature_k": 876.5070511331502,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B15:case:+x": {
+      "maximum_temperature_k": 876.7609919943815,
+      "mean_temperature_k": 876.4206207318273,
+      "minimum_temperature_k": 876.0835031797693,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B15:case:+y": {
+      "maximum_temperature_k": 876.765428773666,
+      "mean_temperature_k": 876.4295089088703,
+      "minimum_temperature_k": 876.0940687287772,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B15:case:+z": {
+      "maximum_temperature_k": 876.7052864226047,
+      "mean_temperature_k": 876.534387362986,
+      "minimum_temperature_k": 876.451223416262,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B15:case:-x": {
+      "maximum_temperature_k": 876.760991995561,
+      "mean_temperature_k": 876.4206207342662,
+      "minimum_temperature_k": 876.0835031797677,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B15:case:-y": {
+      "maximum_temperature_k": 876.7654287736033,
+      "mean_temperature_k": 876.4295089056519,
+      "minimum_temperature_k": 876.0940687301999,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B15:case:-z": {
+      "maximum_temperature_k": 875.002882354067,
+      "mean_temperature_k": 874.9402359332965,
+      "minimum_temperature_k": 874.9078625142342,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B16": {
+      "maximum_temperature_k": 960.4164037033757,
+      "mean_temperature_k": 959.8200649175354,
+      "minimum_temperature_k": 959.4169443685428,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B16:case:+x": {
+      "maximum_temperature_k": 959.48762803529,
+      "mean_temperature_k": 959.0815086615928,
+      "minimum_temperature_k": 958.8051498856403,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B16:case:+y": {
+      "maximum_temperature_k": 959.4938449908742,
+      "mean_temperature_k": 959.0940112550834,
+      "minimum_temperature_k": 958.8204257991044,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B16:case:+z": {
+      "maximum_temperature_k": 959.7202098859626,
+      "mean_temperature_k": 959.4703220000198,
+      "minimum_temperature_k": 959.3486781868147,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B16:case:-x": {
+      "maximum_temperature_k": 959.4876280352728,
+      "mean_temperature_k": 959.0815086613597,
+      "minimum_temperature_k": 958.805149884507,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B16:case:-y": {
+      "maximum_temperature_k": 959.4938449907255,
+      "mean_temperature_k": 959.0940112552483,
+      "minimum_temperature_k": 958.820425800054,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B16:case:-z": {
+      "maximum_temperature_k": 957.289539378549,
+      "mean_temperature_k": 957.1787852868212,
+      "minimum_temperature_k": 957.1226266229874,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B17": {
+      "maximum_temperature_k": 999.1233469093078,
+      "mean_temperature_k": 998.6281538365532,
+      "minimum_temperature_k": 998.299784872682,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B17:case:+x": {
+      "maximum_temperature_k": 998.4745306474854,
+      "mean_temperature_k": 998.1111660167223,
+      "minimum_temperature_k": 997.8823728115179,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B17:case:+y": {
+      "maximum_temperature_k": 998.4788477435966,
+      "mean_temperature_k": 998.1197609553751,
+      "minimum_temperature_k": 997.8927842207876,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B17:case:+z": {
+      "maximum_temperature_k": 998.4952680261555,
+      "mean_temperature_k": 998.3237663914377,
+      "minimum_temperature_k": 998.2403575101135,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B17:case:-x": {
+      "maximum_temperature_k": 998.4745306395183,
+      "mean_temperature_k": 998.111166016411,
+      "minimum_temperature_k": 997.8823728100646,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B17:case:-y": {
+      "maximum_temperature_k": 998.4788477391855,
+      "mean_temperature_k": 998.1197609499151,
+      "minimum_temperature_k": 997.8927842219941,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B17:case:-z": {
+      "maximum_temperature_k": 995.9680306037527,
+      "mean_temperature_k": 995.9610243920932,
+      "minimum_temperature_k": 995.9550633787534,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B18": {
+      "maximum_temperature_k": 1020.0214530659852,
+      "mean_temperature_k": 1019.56908411957,
+      "minimum_temperature_k": 1019.275612957683,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B18:case:+x": {
+      "maximum_temperature_k": 1019.4874756552048,
+      "mean_temperature_k": 1019.142960128871,
+      "minimum_temperature_k": 1018.9374977987882,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B18:case:+y": {
+      "maximum_temperature_k": 1019.4910159451483,
+      "mean_temperature_k": 1019.1499553896899,
+      "minimum_temperature_k": 1018.9459260722113,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B18:case:+z": {
+      "maximum_temperature_k": 1019.4266979594954,
+      "mean_temperature_k": 1019.287431803369,
+      "minimum_temperature_k": 1019.2197229605624,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B18:case:-x": {
+      "maximum_temperature_k": 1019.4874756082537,
+      "mean_temperature_k": 1019.1429600653149,
+      "minimum_temperature_k": 1018.9374977842366,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B18:case:-y": {
+      "maximum_temperature_k": 1019.4910159439814,
+      "mean_temperature_k": 1019.1499553892736,
+      "minimum_temperature_k": 1018.9459260714888,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B18:case:-z": {
+      "maximum_temperature_k": 1016.9088883959615,
+      "mean_temperature_k": 1016.8945539312174,
+      "minimum_temperature_k": 1016.8596229062402,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B19": {
+      "maximum_temperature_k": 1040.283696921382,
+      "mean_temperature_k": 1039.713614821034,
+      "minimum_temperature_k": 1039.3159383659056,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B19:case:+x": {
+      "maximum_temperature_k": 1039.54043613118,
+      "mean_temperature_k": 1039.1218245396028,
+      "minimum_temperature_k": 1038.8396007084475,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B19:case:+y": {
+      "maximum_temperature_k": 1039.5453829389485,
+      "mean_temperature_k": 1039.1316680290454,
+      "minimum_temperature_k": 1038.851482938102,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B19:case:+z": {
+      "maximum_temperature_k": 1039.5381167001603,
+      "mean_temperature_k": 1039.3428510440071,
+      "minimum_temperature_k": 1039.2478786129323,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B19:case:-x": {
+      "maximum_temperature_k": 1039.5404361047442,
+      "mean_temperature_k": 1039.121824489178,
+      "minimum_temperature_k": 1038.8396006955343,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B19:case:-y": {
+      "maximum_temperature_k": 1039.5453830001745,
+      "mean_temperature_k": 1039.1316681455762,
+      "minimum_temperature_k": 1038.851482971395,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B19:case:-z": {
+      "maximum_temperature_k": 1036.708782469455,
+      "mean_temperature_k": 1036.698335719079,
+      "minimum_temperature_k": 1036.6903544436307,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B20": {
+      "maximum_temperature_k": 1026.8372210557814,
+      "mean_temperature_k": 1026.1410209525825,
+      "minimum_temperature_k": 1025.644539382085,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B20:case:+x": {
+      "maximum_temperature_k": 1025.8024839250652,
+      "mean_temperature_k": 1025.3183762077517,
+      "minimum_temperature_k": 1024.9689719084597,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B20:case:+y": {
+      "maximum_temperature_k": 1025.8093961989848,
+      "mean_temperature_k": 1025.3322507149335,
+      "minimum_temperature_k": 1024.9858349037777,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B20:case:+z": {
+      "maximum_temperature_k": 1025.973808369433,
+      "mean_temperature_k": 1025.698700180055,
+      "minimum_temperature_k": 1025.564802008715,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B20:case:-x": {
+      "maximum_temperature_k": 1025.8024839245904,
+      "mean_temperature_k": 1025.3183762075678,
+      "minimum_temperature_k": 1024.9689719088465,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B20:case:-y": {
+      "maximum_temperature_k": 1025.8093962003622,
+      "mean_temperature_k": 1025.3322507153798,
+      "minimum_temperature_k": 1024.9858349041906,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B20:case:-z": {
+      "maximum_temperature_k": 1023.0648182420865,
+      "mean_temperature_k": 1022.9632142200483,
+      "minimum_temperature_k": 1022.9109408813557,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B21": {
+      "maximum_temperature_k": 962.297436441177,
+      "mean_temperature_k": 961.6630602602189,
+      "minimum_temperature_k": 961.22595828595,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B21:case:+x": {
+      "maximum_temperature_k": 961.2939161096472,
+      "mean_temperature_k": 960.8653250262669,
+      "minimum_temperature_k": 960.5641371006822,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B21:case:+y": {
+      "maximum_temperature_k": 961.3006332077869,
+      "mean_temperature_k": 960.8788512162126,
+      "minimum_temperature_k": 960.5806623088641,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B21:case:+z": {
+      "maximum_temperature_k": 961.5547754948076,
+      "mean_temperature_k": 961.285241775206,
+      "minimum_temperature_k": 961.1540120746693,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B21:case:-x": {
+      "maximum_temperature_k": 961.2939161740112,
+      "mean_temperature_k": 960.8653251089513,
+      "minimum_temperature_k": 960.5641371177578,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B21:case:-y": {
+      "maximum_temperature_k": 961.3006333510972,
+      "mean_temperature_k": 960.8788514129711,
+      "minimum_temperature_k": 960.5806623516079,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B21:case:-z": {
+      "maximum_temperature_k": 959.0685095964344,
+      "mean_temperature_k": 958.938273190035,
+      "minimum_temperature_k": 958.8725953188998,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B22": {
+      "maximum_temperature_k": 873.7888250820765,
+      "mean_temperature_k": 873.3398780719064,
+      "minimum_temperature_k": 873.0082062291428,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B22:case:+x": {
+      "maximum_temperature_k": 873.073250846569,
+      "mean_temperature_k": 872.7715178826716,
+      "minimum_temperature_k": 872.5376975261792,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B22:case:+y": {
+      "maximum_temperature_k": 873.0780360293282,
+      "mean_temperature_k": 872.7811661086496,
+      "minimum_temperature_k": 872.5494412073923,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B22:case:+z": {
+      "maximum_temperature_k": 873.2409354659789,
+      "mean_temperature_k": 873.0485382608563,
+      "minimum_temperature_k": 872.9548880842681,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B22:case:-x": {
+      "maximum_temperature_k": 873.0732508412999,
+      "mean_temperature_k": 872.7715178751735,
+      "minimum_temperature_k": 872.537697523865,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B22:case:-y": {
+      "maximum_temperature_k": 873.0780360387604,
+      "mean_temperature_k": 872.7811661225971,
+      "minimum_temperature_k": 872.5494412117104,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B22:case:-z": {
+      "maximum_temperature_k": 871.6070770357022,
+      "mean_temperature_k": 871.5065259594211,
+      "minimum_temperature_k": 871.4560654228305,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B23": {
+      "maximum_temperature_k": 857.9377141199267,
+      "mean_temperature_k": 857.554805669635,
+      "minimum_temperature_k": 857.1653019575218,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B23:case:+x": {
+      "maximum_temperature_k": 857.4603754670204,
+      "mean_temperature_k": 857.1772922797549,
+      "minimum_temperature_k": 856.8709823057402,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B23:case:+y": {
+      "maximum_temperature_k": 857.4635380398461,
+      "mean_temperature_k": 857.1835882242444,
+      "minimum_temperature_k": 856.8783170768428,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B23:case:+z": {
+      "maximum_temperature_k": 857.2953373421518,
+      "mean_temperature_k": 857.1762699933839,
+      "minimum_temperature_k": 857.1183575115846,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B23:case:-x": {
+      "maximum_temperature_k": 857.4603756058469,
+      "mean_temperature_k": 857.1772924605668,
+      "minimum_temperature_k": 856.8709823341148,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B23:case:-y": {
+      "maximum_temperature_k": 857.4635382090327,
+      "mean_temperature_k": 857.1835884381993,
+      "minimum_temperature_k": 856.878317112616,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B23:case:-z": {
+      "maximum_temperature_k": 855.8921663895038,
+      "mean_temperature_k": 855.8712679593879,
+      "minimum_temperature_k": 855.85940488419,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B24": {
+      "maximum_temperature_k": 920.9279902069528,
+      "mean_temperature_k": 920.4881349150776,
+      "minimum_temperature_k": 920.1860384149679,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B24:case:+x": {
+      "maximum_temperature_k": 920.2687256064597,
+      "mean_temperature_k": 919.9638176154398,
+      "minimum_temperature_k": 919.7545835255103,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B24:case:+y": {
+      "maximum_temperature_k": 920.273132704709,
+      "mean_temperature_k": 919.9726611013118,
+      "minimum_temperature_k": 919.7653520190219,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B24:case:+z": {
+      "maximum_temperature_k": 920.3969015637036,
+      "mean_temperature_k": 920.2192552489232,
+      "minimum_temperature_k": 920.1328229642982,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B24:case:-x": {
+      "maximum_temperature_k": 920.2687257124802,
+      "mean_temperature_k": 919.9638177491836,
+      "minimum_temperature_k": 919.7545835561144,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B24:case:-y": {
+      "maximum_temperature_k": 920.2731326953484,
+      "mean_temperature_k": 919.9726610897384,
+      "minimum_temperature_k": 919.7653520168866,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B24:case:-z": {
+      "maximum_temperature_k": 918.5260659540008,
+      "mean_temperature_k": 918.4610661408982,
+      "minimum_temperature_k": 918.4276468392916,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B25": {
+      "maximum_temperature_k": 953.4967832411677,
+      "mean_temperature_k": 953.0777491144546,
+      "minimum_temperature_k": 952.7877516892219,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B25:case:+x": {
+      "maximum_temperature_k": 952.9180874490894,
+      "mean_temperature_k": 952.6171834610462,
+      "minimum_temperature_k": 952.4135951318535,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B25:case:+y": {
+      "maximum_temperature_k": 952.921944965234,
+      "mean_temperature_k": 952.6248880845529,
+      "minimum_temperature_k": 952.4229284099783,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B25:case:+z": {
+      "maximum_temperature_k": 952.9650625086125,
+      "mean_temperature_k": 952.8106600885245,
+      "minimum_temperature_k": 952.7355676553213,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B25:case:-x": {
+      "maximum_temperature_k": 952.9180874502157,
+      "mean_temperature_k": 952.617183462628,
+      "minimum_temperature_k": 952.413595131956,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B25:case:-y": {
+      "maximum_temperature_k": 952.921944966757,
+      "mean_temperature_k": 952.6248880862071,
+      "minimum_temperature_k": 952.4229284101208,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B25:case:-z": {
+      "maximum_temperature_k": 951.0009616863281,
+      "mean_temperature_k": 950.9721434665933,
+      "minimum_temperature_k": 950.9561592276114,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B26": {
+      "maximum_temperature_k": 969.9052111284698,
+      "mean_temperature_k": 969.4804523719605,
+      "minimum_temperature_k": 969.1859961435296,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B26:case:+x": {
+      "maximum_temperature_k": 969.3354906070148,
+      "mean_temperature_k": 969.0268927815937,
+      "minimum_temperature_k": 968.8192992074972,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B26:case:+y": {
+      "maximum_temperature_k": 969.3392829701155,
+      "mean_temperature_k": 969.0344560307278,
+      "minimum_temperature_k": 968.8284442367868,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B26:case:+z": {
+      "maximum_temperature_k": 969.3576822943461,
+      "mean_temperature_k": 969.2064058346904,
+      "minimum_temperature_k": 969.1328409087813,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B26:case:-x": {
+      "maximum_temperature_k": 969.3354905899985,
+      "mean_temperature_k": 969.0268927619428,
+      "minimum_temperature_k": 968.819299209949,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B26:case:-y": {
+      "maximum_temperature_k": 969.339282972129,
+      "mean_temperature_k": 969.0344560326646,
+      "minimum_temperature_k": 968.8284442356539,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B26:case:-z": {
+      "maximum_temperature_k": 967.3031941216948,
+      "mean_temperature_k": 967.2853852563318,
+      "minimum_temperature_k": 967.2746427345046,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B27": {
+      "maximum_temperature_k": 966.4757791055307,
+      "mean_temperature_k": 965.9950292918545,
+      "minimum_temperature_k": 965.6583657837003,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B27:case:+x": {
+      "maximum_temperature_k": 965.7848420714067,
+      "mean_temperature_k": 965.4454021401486,
+      "minimum_temperature_k": 965.209244489588,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B27:case:+y": {
+      "maximum_temperature_k": 965.7894509809366,
+      "mean_temperature_k": 965.4546352748116,
+      "minimum_temperature_k": 965.220449800486,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B27:case:+z": {
+      "maximum_temperature_k": 965.8743938826522,
+      "mean_temperature_k": 965.689743714242,
+      "minimum_temperature_k": 965.5999184021786,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B27:case:-x": {
+      "maximum_temperature_k": 965.7848420754152,
+      "mean_temperature_k": 965.4454021457855,
+      "minimum_temperature_k": 965.2092444917246,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B27:case:-y": {
+      "maximum_temperature_k": 965.7894509563031,
+      "mean_temperature_k": 965.454635239851,
+      "minimum_temperature_k": 965.2204497911964,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B27:case:-z": {
+      "maximum_temperature_k": 963.7441275778863,
+      "mean_temperature_k": 963.691853347526,
+      "minimum_temperature_k": 963.6643211279966,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B28": {
+      "maximum_temperature_k": 931.3489187603936,
+      "mean_temperature_k": 930.867635637254,
+      "minimum_temperature_k": 930.5282977289658,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B28:case:+x": {
+      "maximum_temperature_k": 930.6232583986551,
+      "mean_temperature_k": 930.2906904635024,
+      "minimum_temperature_k": 930.0535647137907,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B28:case:+y": {
+      "maximum_temperature_k": 930.6281057839572,
+      "mean_temperature_k": 930.3004291552822,
+      "minimum_temperature_k": 930.0654123291062,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B28:case:+z": {
+      "maximum_temperature_k": 930.7603066310045,
+      "mean_temperature_k": 930.5656083769051,
+      "minimum_temperature_k": 930.4708680772403,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B28:case:-x": {
+      "maximum_temperature_k": 930.6232583773206,
+      "mean_temperature_k": 930.290690438303,
+      "minimum_temperature_k": 930.0535647074531,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B28:case:-y": {
+      "maximum_temperature_k": 930.6281057900846,
+      "mean_temperature_k": 930.3004291622624,
+      "minimum_temperature_k": 930.0654123308486,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B28:case:-z": {
+      "maximum_temperature_k": 928.7708058930685,
+      "mean_temperature_k": 928.6948241654027,
+      "minimum_temperature_k": 928.6559403879668,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B29": {
+      "maximum_temperature_k": 864.1558357684889,
+      "mean_temperature_k": 863.7690573099702,
+      "minimum_temperature_k": 863.4088826208193,
+      "reference_capacity_j_k": 41.77994831019691
+    },
+    "B29:case:+x": {
+      "maximum_temperature_k": 863.6423362545876,
+      "mean_temperature_k": 863.3622374758166,
+      "minimum_temperature_k": 863.0857397049806,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B29:case:+y": {
+      "maximum_temperature_k": 863.6457453863435,
+      "mean_temperature_k": 863.3690513013876,
+      "minimum_temperature_k": 863.0937951272463,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B29:case:+z": {
+      "maximum_temperature_k": 863.5564579955353,
+      "mean_temperature_k": 863.4252337312614,
+      "minimum_temperature_k": 863.3614032084203,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "B29:case:-x": {
+      "maximum_temperature_k": 863.6423362504419,
+      "mean_temperature_k": 863.3622374715835,
+      "minimum_temperature_k": 863.0857397037342,
+      "reference_capacity_j_k": 0.7278936229513682
+    },
+    "B29:case:-y": {
+      "maximum_temperature_k": 863.6457453860272,
+      "mean_temperature_k": 863.3690513007431,
+      "minimum_temperature_k": 863.093795128149,
+      "reference_capacity_j_k": 0.7114668229513682
+    },
+    "B29:case:-z": {
+      "maximum_temperature_k": 862.1020510643078,
+      "mean_temperature_k": 862.0677553754776,
+      "minimum_temperature_k": 862.0494232698251,
+      "reference_capacity_j_k": 0.17066539899880762
+    },
+    "heater": {
+      "maximum_temperature_k": 986.2981775649523,
+      "mean_temperature_k": 986.2981775649523,
+      "minimum_temperature_k": 986.2981775649523,
+      "reference_capacity_j_k": 1.0
+    }
+  },
+  "observed_gas_contacts": {
+    "ABS:+x": {
+      "conductance_w_per_k": 0.17956515832421746,
+      "gas_to_solid_power_w": 6.286925464758901,
+      "patch_count": 288
+    },
+    "ABS:+y": {
+      "conductance_w_per_k": 0.09153302556339767,
+      "gas_to_solid_power_w": 3.5574785174861066,
+      "patch_count": 144
+    },
+    "ABS:+z": {
+      "conductance_w_per_k": 0.18090342129767234,
+      "gas_to_solid_power_w": 6.247411758182906,
+      "patch_count": 288
+    },
+    "ABS:-x": {
+      "conductance_w_per_k": 0.17927173313488165,
+      "gas_to_solid_power_w": 6.220017492734084,
+      "patch_count": 288
+    },
+    "ABS:-y": {
+      "conductance_w_per_k": 0.09115277029707472,
+      "gas_to_solid_power_w": 3.377814885793554,
+      "patch_count": 144
+    },
+    "ABS:-z": {
+      "conductance_w_per_k": 0.17958668171533587,
+      "gas_to_solid_power_w": 5.866934140399239,
+      "patch_count": 288
+    },
+    "B00:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.10925803190083866,
+      "patch_count": 9
+    },
+    "B00:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.10692715420800741,
+      "patch_count": 9
+    },
+    "B00:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.006637788413010745,
+      "patch_count": 9
+    },
+    "B00:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.10925803446245724,
+      "patch_count": 9
+    },
+    "B00:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.10692715794654169,
+      "patch_count": 9
+    },
+    "B00:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.1823198729797208,
+      "patch_count": 9
+    },
+    "B01:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.12321358302087877,
+      "patch_count": 9
+    },
+    "B01:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.12058752651062782,
+      "patch_count": 9
+    },
+    "B01:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.0065990941839769186,
+      "patch_count": 9
+    },
+    "B01:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.12321358336452977,
+      "patch_count": 9
+    },
+    "B01:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.1205875259737321,
+      "patch_count": 9
+    },
+    "B01:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.20383189965453052,
+      "patch_count": 9
+    },
+    "B02:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.08657174713068001,
+      "patch_count": 9
+    },
+    "B02:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.08472264751898113,
+      "patch_count": 9
+    },
+    "B02:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.006165328301803881,
+      "patch_count": 9
+    },
+    "B02:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.08657174712100132,
+      "patch_count": 9
+    },
+    "B02:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.08472264744991481,
+      "patch_count": 9
+    },
+    "B02:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.1930435208027519,
+      "patch_count": 9
+    },
+    "B03:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.07552079106718225,
+      "patch_count": 9
+    },
+    "B03:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.07390603360986858,
+      "patch_count": 9
+    },
+    "B03:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.006042210658192966,
+      "patch_count": 9
+    },
+    "B03:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.07552079104110271,
+      "patch_count": 9
+    },
+    "B03:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.07390603359646684,
+      "patch_count": 9
+    },
+    "B03:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.19057043830974627,
+      "patch_count": 9
+    },
+    "B04:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.10562483461235553,
+      "patch_count": 9
+    },
+    "B04:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.10337072832369211,
+      "patch_count": 9
+    },
+    "B04:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.006792200699714289,
+      "patch_count": 9
+    },
+    "B04:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.10562483688521748,
+      "patch_count": 9
+    },
+    "B04:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.10337072820253214,
+      "patch_count": 9
+    },
+    "B04:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.21308120823558488,
+      "patch_count": 9
+    },
+    "B05:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.13075327858706828,
+      "patch_count": 9
+    },
+    "B05:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.12796696736347665,
+      "patch_count": 9
+    },
+    "B05:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.006843644188771595,
+      "patch_count": 9
+    },
+    "B05:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.13075327574009016,
+      "patch_count": 9
+    },
+    "B05:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.12796696915018213,
+      "patch_count": 9
+    },
+    "B05:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.2169956345822419,
+      "patch_count": 9
+    },
+    "B06:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.09068982892882806,
+      "patch_count": 9
+    },
+    "B06:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.08875103594648635,
+      "patch_count": 9
+    },
+    "B06:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.006936649907068777,
+      "patch_count": 9
+    },
+    "B06:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.09068982880573197,
+      "patch_count": 9
+    },
+    "B06:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.08875103554553218,
+      "patch_count": 9
+    },
+    "B06:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.1901153338486964,
+      "patch_count": 9
+    },
+    "B07:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.1481132257917439,
+      "patch_count": 9
+    },
+    "B07:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.14495973621406766,
+      "patch_count": 9
+    },
+    "B07:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.006619822142515122,
+      "patch_count": 9
+    },
+    "B07:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.14811322587312198,
+      "patch_count": 9
+    },
+    "B07:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.14495973595316308,
+      "patch_count": 9
+    },
+    "B07:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.19767897867503917,
+      "patch_count": 9
+    },
+    "B08:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.1831012540833379,
+      "patch_count": 9
+    },
+    "B08:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.17920193531114698,
+      "patch_count": 9
+    },
+    "B08:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.008277147213577668,
+      "patch_count": 9
+    },
+    "B08:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.18310125595900842,
+      "patch_count": 9
+    },
+    "B08:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.17920193574778462,
+      "patch_count": 9
+    },
+    "B08:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.26947285104663016,
+      "patch_count": 9
+    },
+    "B09:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.12677276602459492,
+      "patch_count": 9
+    },
+    "B09:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.12406679523967942,
+      "patch_count": 9
+    },
+    "B09:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.007949496389502627,
+      "patch_count": 9
+    },
+    "B09:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.12677276603473694,
+      "patch_count": 9
+    },
+    "B09:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.12406679523286115,
+      "patch_count": 9
+    },
+    "B09:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.264779109472582,
+      "patch_count": 9
+    },
+    "B10:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.05863620271426883,
+      "patch_count": 9
+    },
+    "B10:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.05798306565821823,
+      "patch_count": 9
+    },
+    "B10:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.006490712749642315,
+      "patch_count": 9
+    },
+    "B10:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.061539422877086004,
+      "patch_count": 9
+    },
+    "B10:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.05798306565743221,
+      "patch_count": 9
+    },
+    "B10:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.227420155787773,
+      "patch_count": 9
+    },
+    "B11:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.09705865639540705,
+      "patch_count": 9
+    },
+    "B11:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.09498268168478399,
+      "patch_count": 9
+    },
+    "B11:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.00771580201623978,
+      "patch_count": 9
+    },
+    "B11:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.09705865713083654,
+      "patch_count": 9
+    },
+    "B11:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.09498268133602784,
+      "patch_count": 9
+    },
+    "B11:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.2595958310250213,
+      "patch_count": 9
+    },
+    "B12:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.16836431453304807,
+      "patch_count": 9
+    },
+    "B12:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.16477374016809265,
+      "patch_count": 9
+    },
+    "B12:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.009481320700887525,
+      "patch_count": 9
+    },
+    "B12:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.16836431456035336,
+      "patch_count": 9
+    },
+    "B12:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.1647737401709082,
+      "patch_count": 9
+    },
+    "B12:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.3110959058092485,
+      "patch_count": 9
+    },
+    "B13:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.19308830921693587,
+      "patch_count": 9
+    },
+    "B13:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.18897583431392434,
+      "patch_count": 9
+    },
+    "B13:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.00891685158609304,
+      "patch_count": 9
+    },
+    "B13:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.19308830922343054,
+      "patch_count": 9
+    },
+    "B13:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.18897583432963466,
+      "patch_count": 9
+    },
+    "B13:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.2961833677948765,
+      "patch_count": 9
+    },
+    "B14:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.1222756277518752,
+      "patch_count": 9
+    },
+    "B14:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.11966549101267007,
+      "patch_count": 9
+    },
+    "B14:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.007749534249366729,
+      "patch_count": 9
+    },
+    "B14:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.12227562775211245,
+      "patch_count": 9
+    },
+    "B14:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.11966549102852858,
+      "patch_count": 9
+    },
+    "B14:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.22517620313307138,
+      "patch_count": 9
+    },
+    "B15:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.12963283678990198,
+      "patch_count": 9
+    },
+    "B15:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.12686700026848363,
+      "patch_count": 9
+    },
+    "B15:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.007722514503681883,
+      "patch_count": 9
+    },
+    "B15:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.1296328368347227,
+      "patch_count": 9
+    },
+    "B15:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.1268670002106729,
+      "patch_count": 9
+    },
+    "B15:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.22287853964942947,
+      "patch_count": 9
+    },
+    "B16:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.17748122523552226,
+      "patch_count": 9
+    },
+    "B16:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.17370049401700427,
+      "patch_count": 9
+    },
+    "B16:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.008444213365491348,
+      "patch_count": 9
+    },
+    "B16:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.17748122523123766,
+      "patch_count": 9
+    },
+    "B16:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.17370049401996596,
+      "patch_count": 9
+    },
+    "B16:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.27808207504567817,
+      "patch_count": 9
+    },
+    "B17:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.12726855604621395,
+      "patch_count": 9
+    },
+    "B17:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.12455080802127658,
+      "patch_count": 9
+    },
+    "B17:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.008442026023856696,
+      "patch_count": 9
+    },
+    "B17:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.12726855604049025,
+      "patch_count": 9
+    },
+    "B17:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.124550807923198,
+      "patch_count": 9
+    },
+    "B17:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.2779829686543905,
+      "patch_count": 9
+    },
+    "B18:case:+x": {
+      "conductance_w_per_k": 0.018378317023500294,
+      "gas_to_solid_power_w": -0.10656965721432955,
+      "patch_count": 9
+    },
+    "B18:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.10429029740060634,
+      "patch_count": 9
+    },
+    "B18:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.00842116932305459,
+      "patch_count": 9
+    },
+    "B18:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.10656965604627473,
+      "patch_count": 9
+    },
+    "B18:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.10429029739312909,
+      "patch_count": 9
+    },
+    "B18:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.2772976573432047,
+      "patch_count": 9
+    },
+    "B19:case:+x": {
+      "conductance_w_per_k": 0.018378317023500294,
+      "gas_to_solid_power_w": -0.14587718630089647,
+      "patch_count": 9
+    },
+    "B19:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.14276191488236573,
+      "patch_count": 9
+    },
+    "B19:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.009722247155271237,
+      "patch_count": 9
+    },
+    "B19:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.1458771853741751,
+      "patch_count": 9
+    },
+    "B19:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.14276191697567414,
+      "patch_count": 9
+    },
+    "B19:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.31629585221878137,
+      "patch_count": 9
+    },
+    "B20:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.19911648647275715,
+      "patch_count": 9
+    },
+    "B20:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.1948721441509244,
+      "patch_count": 9
+    },
+    "B20:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.010337016795657884,
+      "patch_count": 9
+    },
+    "B20:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.19911648646937516,
+      "patch_count": 9
+    },
+    "B20:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.19487214415894039,
+      "patch_count": 9
+    },
+    "B20:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.33654370794494054,
+      "patch_count": 9
+    },
+    "B21:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.19139349233023945,
+      "patch_count": 9
+    },
+    "B21:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.18731718230381467,
+      "patch_count": 9
+    },
+    "B21:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.00877179553680609,
+      "patch_count": 9
+    },
+    "B21:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.19139349384983748,
+      "patch_count": 9
+    },
+    "B21:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.18731718583829887,
+      "patch_count": 9
+    },
+    "B21:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.2880607093152786,
+      "patch_count": 9
+    },
+    "B22:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.13644155025774346,
+      "patch_count": 9
+    },
+    "B22:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.13353571071448125,
+      "patch_count": 9
+    },
+    "B22:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.006468912100154735,
+      "patch_count": 9
+    },
+    "B22:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.1364415501199359,
+      "patch_count": 9
+    },
+    "B22:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.13353571096502723,
+      "patch_count": 9
+    },
+    "B22:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.19629781413482286,
+      "patch_count": 9
+    },
+    "B23:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.0945533232388701,
+      "patch_count": 9
+    },
+    "B23:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.09253258083078758,
+      "patch_count": 9
+    },
+    "B23:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.006990465008982671,
+      "patch_count": 9
+    },
+    "B23:case:-x": {
+      "conductance_w_per_k": 0.018378317023500294,
+      "gas_to_solid_power_w": -0.09455332656188908,
+      "patch_count": 9
+    },
+    "B23:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.09253258467417878,
+      "patch_count": 9
+    },
+    "B23:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.18933622396881583,
+      "patch_count": 9
+    },
+    "B24:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.12667289302060575,
+      "patch_count": 9
+    },
+    "B24:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.12397305246423511,
+      "patch_count": 9
+    },
+    "B24:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.006808081087556669,
+      "patch_count": 9
+    },
+    "B24:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.12667289547859142,
+      "patch_count": 9
+    },
+    "B24:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.12397305225633116,
+      "patch_count": 9
+    },
+    "B24:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.2134151876646392,
+      "patch_count": 9
+    },
+    "B25:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.11257179099060009,
+      "patch_count": 9
+    },
+    "B25:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.11016972020386087,
+      "patch_count": 9
+    },
+    "B25:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.007107297084188274,
+      "patch_count": 9
+    },
+    "B25:case:-x": {
+      "conductance_w_per_k": 0.018378317023500294,
+      "gas_to_solid_power_w": -0.11257179101967141,
+      "patch_count": 9
+    },
+    "B25:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.11016972023357405,
+      "patch_count": 9
+    },
+    "B25:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.22106619664846794,
+      "patch_count": 9
+    },
+    "B26:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.11134596646890295,
+      "patch_count": 9
+    },
+    "B26:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.10896901999178789,
+      "patch_count": 9
+    },
+    "B26:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.007389686084053817,
+      "patch_count": 9
+    },
+    "B26:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.11134596610774697,
+      "patch_count": 9
+    },
+    "B26:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.10896902002658188,
+      "patch_count": 9
+    },
+    "B26:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.23024459682235512,
+      "patch_count": 9
+    },
+    "B27:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.13362848439001182,
+      "patch_count": 9
+    },
+    "B27:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.13077867242625166,
+      "patch_count": 9
+    },
+    "B27:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.0077526248250682555,
+      "patch_count": 9
+    },
+    "B27:case:-x": {
+      "conductance_w_per_k": 0.018378317023500294,
+      "gas_to_solid_power_w": -0.13362848449361273,
+      "patch_count": 9
+    },
+    "B27:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.130778671798235,
+      "patch_count": 9
+    },
+    "B27:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.2426854266152811,
+      "patch_count": 9
+    },
+    "B28:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.13936677090476088,
+      "patch_count": 9
+    },
+    "B28:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.1363965412888728,
+      "patch_count": 9
+    },
+    "B28:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.007329428468349219,
+      "patch_count": 9
+    },
+    "B28:case:-x": {
+      "conductance_w_per_k": 0.018378317023500294,
+      "gas_to_solid_power_w": -0.13936677044163773,
+      "patch_count": 9
+    },
+    "B28:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.13639654141425495,
+      "patch_count": 9
+    },
+    "B28:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.2298067555265702,
+      "patch_count": 9
+    },
+    "B29:case:+x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.10066805085932229,
+      "patch_count": 9
+    },
+    "B29:case:+y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.09851861681539151,
+      "patch_count": 9
+    },
+    "B29:case:+z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.006755608116316759,
+      "patch_count": 9
+    },
+    "B29:case:-x": {
+      "conductance_w_per_k": 0.018378317023500287,
+      "gas_to_solid_power_w": -0.10066805078152263,
+      "patch_count": 9
+    },
+    "B29:case:-y": {
+      "conductance_w_per_k": 0.0179635628223884,
+      "gas_to_solid_power_w": -0.09851861680381119,
+      "patch_count": 9
+    },
+    "B29:case:-z": {
+      "conductance_w_per_k": 0.0048622620797381085,
+      "gas_to_solid_power_w": -0.18825247270196932,
+      "patch_count": 9
+    }
+  },
+  "ordinary_gas_patches": 4330,
+  "patches_without_observed_gas_temperature": 1270,
+  "solid_component_count": 36,
+  "solid_components": [
+    [
+      "ABS:-x"
+    ],
+    [
+      "ABS:+x"
+    ],
+    [
+      "ABS:-y"
+    ],
+    [
+      "ABS:+y"
+    ],
+    [
+      "ABS:-z"
+    ],
+    [
+      "ABS:+z"
+    ],
+    [
+      "B00",
+      "B00:case:-x",
+      "B00:case:+x",
+      "B00:case:-y",
+      "B00:case:+y",
+      "B00:case:-z",
+      "B00:case:+z"
+    ],
+    [
+      "B01",
+      "B01:case:-x",
+      "B01:case:+x",
+      "B01:case:-y",
+      "B01:case:+y",
+      "B01:case:-z",
+      "B01:case:+z"
+    ],
+    [
+      "B02",
+      "B02:case:-x",
+      "B02:case:+x",
+      "B02:case:-y",
+      "B02:case:+y",
+      "B02:case:-z",
+      "B02:case:+z"
+    ],
+    [
+      "B03",
+      "B03:case:-x",
+      "B03:case:+x",
+      "B03:case:-y",
+      "B03:case:+y",
+      "B03:case:-z",
+      "B03:case:+z"
+    ],
+    [
+      "B04",
+      "B04:case:-x",
+      "B04:case:+x",
+      "B04:case:-y",
+      "B04:case:+y",
+      "B04:case:-z",
+      "B04:case:+z"
+    ],
+    [
+      "B05",
+      "B05:case:-x",
+      "B05:case:+x",
+      "B05:case:-y",
+      "B05:case:+y",
+      "B05:case:-z",
+      "B05:case:+z"
+    ],
+    [
+      "B06",
+      "B06:case:-x",
+      "B06:case:+x",
+      "B06:case:-y",
+      "B06:case:+y",
+      "B06:case:-z",
+      "B06:case:+z"
+    ],
+    [
+      "B07",
+      "B07:case:-x",
+      "B07:case:+x",
+      "B07:case:-y",
+      "B07:case:+y",
+      "B07:case:-z",
+      "B07:case:+z"
+    ],
+    [
+      "B08",
+      "B08:case:-x",
+      "B08:case:+x",
+      "B08:case:-y",
+      "B08:case:+y",
+      "B08:case:-z",
+      "B08:case:+z"
+    ],
+    [
+      "B09",
+      "B09:case:-x",
+      "B09:case:+x",
+      "B09:case:-y",
+      "B09:case:+y",
+      "B09:case:-z",
+      "B09:case:+z"
+    ],
+    [
+      "B10",
+      "heater",
+      "B10:case:-x",
+      "B10:case:+x",
+      "B10:case:-y",
+      "B10:case:+y",
+      "B10:case:-z",
+      "B10:case:+z"
+    ],
+    [
+      "B11",
+      "B11:case:-x",
+      "B11:case:+x",
+      "B11:case:-y",
+      "B11:case:+y",
+      "B11:case:-z",
+      "B11:case:+z"
+    ],
+    [
+      "B12",
+      "B12:case:-x",
+      "B12:case:+x",
+      "B12:case:-y",
+      "B12:case:+y",
+      "B12:case:-z",
+      "B12:case:+z"
+    ],
+    [
+      "B13",
+      "B13:case:-x",
+      "B13:case:+x",
+      "B13:case:-y",
+      "B13:case:+y",
+      "B13:case:-z",
+      "B13:case:+z"
+    ],
+    [
+      "B14",
+      "B14:case:-x",
+      "B14:case:+x",
+      "B14:case:-y",
+      "B14:case:+y",
+      "B14:case:-z",
+      "B14:case:+z"
+    ],
+    [
+      "B15",
+      "B15:case:-x",
+      "B15:case:+x",
+      "B15:case:-y",
+      "B15:case:+y",
+      "B15:case:-z",
+      "B15:case:+z"
+    ],
+    [
+      "B16",
+      "B16:case:-x",
+      "B16:case:+x",
+      "B16:case:-y",
+      "B16:case:+y",
+      "B16:case:-z",
+      "B16:case:+z"
+    ],
+    [
+      "B17",
+      "B17:case:-x",
+      "B17:case:+x",
+      "B17:case:-y",
+      "B17:case:+y",
+      "B17:case:-z",
+      "B17:case:+z"
+    ],
+    [
+      "B18",
+      "B18:case:-x",
+      "B18:case:+x",
+      "B18:case:-y",
+      "B18:case:+y",
+      "B18:case:-z",
+      "B18:case:+z"
+    ],
+    [
+      "B19",
+      "B19:case:-x",
+      "B19:case:+x",
+      "B19:case:-y",
+      "B19:case:+y",
+      "B19:case:-z",
+      "B19:case:+z"
+    ],
+    [
+      "B20",
+      "B20:case:-x",
+      "B20:case:+x",
+      "B20:case:-y",
+      "B20:case:+y",
+      "B20:case:-z",
+      "B20:case:+z"
+    ],
+    [
+      "B21",
+      "B21:case:-x",
+      "B21:case:+x",
+      "B21:case:-y",
+      "B21:case:+y",
+      "B21:case:-z",
+      "B21:case:+z"
+    ],
+    [
+      "B22",
+      "B22:case:-x",
+      "B22:case:+x",
+      "B22:case:-y",
+      "B22:case:+y",
+      "B22:case:-z",
+      "B22:case:+z"
+    ],
+    [
+      "B23",
+      "B23:case:-x",
+      "B23:case:+x",
+      "B23:case:-y",
+      "B23:case:+y",
+      "B23:case:-z",
+      "B23:case:+z"
+    ],
+    [
+      "B24",
+      "B24:case:-x",
+      "B24:case:+x",
+      "B24:case:-y",
+      "B24:case:+y",
+      "B24:case:-z",
+      "B24:case:+z"
+    ],
+    [
+      "B25",
+      "B25:case:-x",
+      "B25:case:+x",
+      "B25:case:-y",
+      "B25:case:+y",
+      "B25:case:-z",
+      "B25:case:+z"
+    ],
+    [
+      "B26",
+      "B26:case:-x",
+      "B26:case:+x",
+      "B26:case:-y",
+      "B26:case:+y",
+      "B26:case:-z",
+      "B26:case:+z"
+    ],
+    [
+      "B27",
+      "B27:case:-x",
+      "B27:case:+x",
+      "B27:case:-y",
+      "B27:case:+y",
+      "B27:case:-z",
+      "B27:case:+z"
+    ],
+    [
+      "B28",
+      "B28:case:-x",
+      "B28:case:+x",
+      "B28:case:-y",
+      "B28:case:+y",
+      "B28:case:-z",
+      "B28:case:+z"
+    ],
+    [
+      "B29",
+      "B29:case:-x",
+      "B29:case:+x",
+      "B29:case:-y",
+      "B29:case:+y",
+      "B29:case:-z",
+      "B29:case:+z"
+    ]
+  ],
+  "time_s": 5945.0
+}

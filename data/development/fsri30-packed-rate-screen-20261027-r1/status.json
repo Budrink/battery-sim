@@ -1,0 +1,36 @@
+{
+  "status": "screen-pruned",
+  "pid": 2075730,
+  "scenario_sha256": "16cdcd24e69c74aa745797c332dbb690f1310ce90e597e3fea55c882ffecab76",
+  "core_sha256": "0bf1a0789a88080c98a3e4725f99c63fbfd17dc183ccd87d3b4434e22a7ec385",
+  "csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "r2_seed_factor": 0.2,
+  "gain": 0.21405515446686751,
+  "coarse_spacing_mm": 80,
+  "primary_search_allowance_s": 250.0,
+  "calibrated": false,
+  "validation_passed": false,
+  "progress": {
+    "time_s": 2474.999999999968,
+    "wall_s": 2065.103255862,
+    "warmup_metrics": {
+      "rmse_k": 4.145489922075883,
+      "max_abs_k": 7.3742377275273725,
+      "final_error_k": 0.8238247032059007,
+      "final_time_s": 1499.9999999999864,
+      "final_mean_c": 142.09082470320595,
+      "final_t5_c": 141.26700000000005
+    },
+    "primary_pulse_s": 1753.0,
+    "pulse_groups": [
+      {
+        "time_s": 1753.0,
+        "channels": [
+          "B10"
+        ]
+      }
+    ]
+  },
+  "last_time_s": 2474.999999999968,
+  "reason": "Manually stopped after second-wave coarse window expired with no secondary pulse; saved prefix"
+}

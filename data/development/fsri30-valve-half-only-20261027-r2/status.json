@@ -1,0 +1,34 @@
+{
+  "status": "stopped",
+  "pid": 2175316,
+  "stage": "heater-calibration",
+  "trials": [],
+  "source_sha256": "ffe73c711b44ecb824b7c8d1405fd9ebfd01e15d581628ede27c23bb7b483e12",
+  "core_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "experiment_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "sensor_face": "+x",
+  "sensor_mapping_confirmed": false,
+  "feedforward_w": 0.0,
+  "max_power_w": 30.0,
+  "r2_multiplier_on_source": 1.0,
+  "initial_gain": 0.19767037747050903,
+  "early_primary_allowed": true,
+  "fixed": "geometry, materials, contacts, other chemistry, heater ramp and maximum power",
+  "calibrated": false,
+  "validation_passed": false,
+  "active_trial": "/home/konstantin/work/battery-sim/data/development/fsri30-valve-half-only-20261027-r2/heater-00",
+  "gain": 0.19767037747050903,
+  "progress": {
+    "time_s": 715.0,
+    "wall_s": 621.1998337,
+    "metrics": {
+      "rmse_k": 5.027940518938692,
+      "max_abs_k": 6.964054536855542,
+      "final_error_k": 4.008650595290078,
+      "final_time_s": 715.0,
+      "final_mean_c": 72.91565059529006,
+      "final_t5_c": 68.90699999999998
+    },
+    "physical_error": null
+  }
+}

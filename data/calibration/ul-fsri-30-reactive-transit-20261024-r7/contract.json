@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "seed": 20261024,
+  "parameters": [
+    {
+      "name": "shared_gap_fraction",
+      "lower": 0.0,
+      "upper": 1.0,
+      "initial": 0.0,
+      "log": false,
+      "meaning": "Fraction of a facing shell patch exposed to the adjacent local gas volume"
+    },
+    {
+      "name": "exhaust_area_scale",
+      "lower": 0.05,
+      "upper": 1.0,
+      "initial": 1.0,
+      "log": true,
+      "meaning": "Unmeasured exit area; exploratory prior, not a measured confidence bound"
+    },
+    {
+      "name": "passage_area_scale",
+      "lower": 0.25,
+      "upper": 4.0,
+      "initial": 1.0,
+      "log": true,
+      "meaning": "Shared scale of interstitial gas passages, with sleeve cross-sections accounted for"
+    },
+    {
+      "name": "hot_contact_span",
+      "lower": 1.0,
+      "upper": 30.0,
+      "initial": 1.0,
+      "log": true,
+      "meaning": "Shared directed-contact active range; renormalized to preserve cold conductance exactly"
+    },
+    {
+      "name": "mixing_flow_fraction",
+      "lower": 0.05,
+      "upper": 0.9,
+      "initial": 0.25,
+      "log": false,
+      "meaning": "Shared existing flow-associated gas mixing coefficient"
+    }
+  ],
+  "native_sha256": "b1c01eaadb1b8b2a91d81390404d922e3ebd4315583c40062515d009fd62e46f",
+  "checkpoint_sha256": "94378793f8b03720340c64bf9a90936b7a1f821f46eea9afc63e823de896b222",
+  "scene_hash": "d68de1c8f39c77facfee7b6a3724a2f878cfc022beaec41a88d906a0df66b723",
+  "sources": {
+    "search_fsri30_suffix.py": "f1c992a79ef38e4a5d50b519cac180aeaa2bc51f720fb4f6e1fd7ab5a3f2ea96",
+    "fsri30_suffix_model.py": "4ea733caa66461733cafbba30d12141e2ad6687a963624603bb836ae05b9b66c",
+    "fsri30_conditioned_start.py": "01f77ba8c4a9e2ed3be9e20a6e7e7187d1769f0fc9759a1e23c163fe82b825e7",
+    "fsri30_transport_model.py": "856f52bed9cd9d39b6136c4afab6c791cd6187eadca8a72263b9139114dce2c3",
+    "fsri30_objective.py": "d954364cfa8808edcd949ef318224a3bc43157b530f5fcb486b1032c8ed550a3",
+    "bounded_bayes.py": "2f7cefa42ed9cfeb35b86f11248c63285d4efa05089ec785d903435092353c40",
+    "check_upv_restart.py": "33d83d653cb614517e6f4c5fdebd0c1b0f7d615062a500ca46568dd149e21baf",
+    "model_evidence.py": "eaccce48f1de92862eb1d80eb6b85f2fb5036b2324a19c3b14f764209aeeda06"
+  },
+  "conditioned_transport_diagnostic": true,
+  "full_warmup_validation": false,
+  "carried_seed_record": "253bc6fa5c75cde55c845377f8299a457a0029b6faea0cbc9c20852f46320696",
+  "reactive_transit": true,
+  "physically_forced_ignition": false,
+  "min_dt_s": 0.01
+}

@@ -1,0 +1,95 @@
+{
+  "status": "pruned",
+  "stage": "fresh-from-zero",
+  "pid": 2197170,
+  "source": "/home/konstantin/work/battery-sim/data/development/fsri30-wall-damage-seed-20261027-r1/scenario.json",
+  "source_sha256": "d9478bb86a073aca7ce8bab4da2695324765f73647fade4db311a5d74620b72d",
+  "core_sha256": "cbb53739f5d0e02d4d5920c209c1aa591e3a16a39dc8e294b8d5c35371e96edc",
+  "scenario_sha256": "24a90fb724335f58d95bbfc386a3e6d722e6f9d0d96fb7ccf1ca6ab19e8d3e9c",
+  "controls": {
+    "method": "frozen-boundary energy perturbation plus Arrhenius/timing sensitivity",
+    "source": "data/development/fsri30-cap-r3-20261027-r1",
+    "fit_window_s": [
+      300,
+      1550
+    ],
+    "cold_h_bounds": [
+      75,
+      350
+    ],
+    "cold_h_w_m2_k": 200.70114011783562,
+    "hot_h_w_m2_k": 950.0,
+    "warmup_rmse_unmodified_k": 3.5693241129119704,
+    "warmup_rmse_frozen_prediction_k": 1.9530920320887877,
+    "predicted_core_temperature_changes_k": {
+      "1000": -3.0966233144825033,
+      "1400": -3.14512910609264,
+      "1600": -2.0146560151499115,
+      "1650": 0.25649359543092376,
+      "1700": 2.737939886668645
+    },
+    "r2_multipliers_by_evaluation_time": [
+      1.0732496284316992,
+      0.9371772210512367,
+      0.820208878223676
+    ],
+    "r2_multiplier": 0.9371772210512367,
+    "r2_rate_per_s": 0.00017557168887525918,
+    "r3_change_from_last_run": 1.0,
+    "r3_reason": "No independent identification from this frozen boundary estimate; retain previous 30% energy reduction",
+    "caution": "Mean-temperature correction applied to hotspot kinetics; ignores heater and gas feedback. Initial guess only.",
+    "calibrated": false,
+    "validation_passed": false,
+    "objective": "Test irreversible insulation; primary and secondary timing",
+    "fresh_initial_state": true
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "progress": {
+    "time_s": 1910.0,
+    "wall_s": 961.693856528,
+    "pulses": [
+      {
+        "channel": "B10",
+        "time_s": 1737.0,
+        "rise_k": 993.751340507765,
+        "slope_k_s": 215.88870967732305
+      },
+      {
+        "channel": "B17",
+        "time_s": 1893.0,
+        "rise_k": 405.3577403242857,
+        "slope_k_s": 65.06558394303516
+      },
+      {
+        "channel": "B18",
+        "time_s": 1892.0,
+        "rise_k": 399.5222289687732,
+        "slope_k_s": 60.204271045099915
+      }
+    ],
+    "secondary_events": [
+      {
+        "cell": "B17",
+        "time_s": 1895.0
+      },
+      {
+        "cell": "B18",
+        "time_s": 1895.0
+      }
+    ],
+    "temperatures_c": {
+      "B10": 722.1756159148595,
+      "B17": 531.2792661093231,
+      "B18": 525.3656056223773
+    },
+    "ledgers": {
+      "max_chemical_residual_j": 2.2351741790771484e-08,
+      "max_mass_residual_kg": 7.283063041541027e-14,
+      "max_oxidizer_residual_kg": 1.554312234475219e-14,
+      "max_thermal_residual_j": 3.7471181713044643e-07
+    }
+  },
+  "monitor_pid": 2197199,
+  "reason": "Pruned: Secondary pulse over 100 s early relative to T4 proxy (2157 s)"
+}

@@ -1,0 +1,3160 @@
+{
+  "windows": [
+    {
+      "start_s": 880.0,
+      "end_s": 891.0,
+      "faces": [
+        {
+          "channel": "108",
+          "cell": "C3",
+          "pad": "ISS1",
+          "face": "-x",
+          "gas_heat_to_casing_j": 7257.001228242923,
+          "slit_heat_to_casing_j": 6766.30654824912,
+          "gas_heat_to_pad_j": 6720.194415452524,
+          "slit_region": {
+            "net_transport_j": 13035.622589519371,
+            "r3_j": 9.914735749036689,
+            "gas_energy_change_j": 5.646189078044991,
+            "actual_heat_to_surfaces_j": 13039.891136190361,
+            "energy_closure_j": 2.4868995751603507e-14
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-ISS1-5-+y",
+              "net_inward_j": 1270.5539308564173,
+              "donor": "void-3-5-5",
+              "receiver": "gap-ISS1-5"
+            },
+            {
+              "channel": "escape-ISS1-3-+y",
+              "net_inward_j": 1267.6639424174284,
+              "donor": "void-3-5-4",
+              "receiver": "gap-ISS1-3"
+            },
+            {
+              "channel": "escape-ISS1-4--y",
+              "net_inward_j": 1259.0075840856916,
+              "donor": "void-3-2-5",
+              "receiver": "gap-ISS1-4"
+            },
+            {
+              "channel": "escape-ISS1-2--y",
+              "net_inward_j": 1246.6517996740713,
+              "donor": "void-3-2-4",
+              "receiver": "gap-ISS1-2"
+            },
+            {
+              "channel": "escape-ISS1-0--z",
+              "net_inward_j": 1064.4611062330516,
+              "donor": "void-3-3-2",
+              "receiver": "gap-ISS1-0"
+            },
+            {
+              "channel": "escape-ISS1-1--z",
+              "net_inward_j": 1062.7729927209703,
+              "donor": "void-3-4-2",
+              "receiver": "gap-ISS1-1"
+            },
+            {
+              "channel": "escape-ISS1-6-+z",
+              "net_inward_j": 1035.7929855358775,
+              "donor": "void-3-3-7",
+              "receiver": "gap-ISS1-6"
+            },
+            {
+              "channel": "escape-ISS1-7-+z",
+              "net_inward_j": 1033.8840801027225,
+              "donor": "void-3-4-7",
+              "receiver": "gap-ISS1-7"
+            },
+            {
+              "channel": "escape-ISS1-1-+y",
+              "net_inward_j": 967.0234899248434,
+              "donor": "void-3-5-3",
+              "receiver": "gap-ISS1-1"
+            },
+            {
+              "channel": "escape-ISS1-7-+y",
+              "net_inward_j": 946.4112560585445,
+              "donor": "void-3-5-6",
+              "receiver": "gap-ISS1-7"
+            },
+            {
+              "channel": "escape-ISS1-0--y",
+              "net_inward_j": 942.0439175877186,
+              "donor": "void-3-2-3",
+              "receiver": "gap-ISS1-0"
+            },
+            {
+              "channel": "escape-ISS1-6--y",
+              "net_inward_j": 939.316491136319,
+              "donor": "void-3-2-6",
+              "receiver": "gap-ISS1-6"
+            },
+            {
+              "channel": "rupture-C3--x-0",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-0",
+              "receiver": "gap-ISS1-0"
+            },
+            {
+              "channel": "rupture-C3--x-1",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-3",
+              "receiver": "gap-ISS1-1"
+            },
+            {
+              "channel": "rupture-C3--x-2",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-6",
+              "receiver": "gap-ISS1-1"
+            },
+            {
+              "channel": "rupture-C3--x-3",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-9",
+              "receiver": "gap-ISS1-2"
+            },
+            {
+              "channel": "rupture-C3--x-4",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-12",
+              "receiver": "gap-ISS1-3"
+            },
+            {
+              "channel": "rupture-C3--x-5",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-15",
+              "receiver": "gap-ISS1-3"
+            },
+            {
+              "channel": "rupture-C3--x-6",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-18",
+              "receiver": "gap-ISS1-6"
+            },
+            {
+              "channel": "rupture-C3--x-7",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-21",
+              "receiver": "gap-ISS1-7"
+            },
+            {
+              "channel": "rupture-C3--x-8",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-24",
+              "receiver": "gap-ISS1-7"
+            }
+          ]
+        },
+        {
+          "channel": "107",
+          "cell": "C3",
+          "pad": "TIM1",
+          "face": "+x",
+          "gas_heat_to_casing_j": 4116.841469710352,
+          "slit_heat_to_casing_j": 3302.6400929760107,
+          "gas_heat_to_pad_j": 10031.462132742994,
+          "slit_region": {
+            "net_transport_j": 12131.324988414099,
+            "r3_j": 6.5222524688211685,
+            "gas_energy_change_j": 4.939860250982001,
+            "actual_heat_to_surfaces_j": 12132.90738063194,
+            "energy_closure_j": -1.779909553079051e-12
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-TIM1-3-+y",
+              "net_inward_j": 1235.5594201570148,
+              "donor": "void-5-5-4",
+              "receiver": "gap-TIM1-3"
+            },
+            {
+              "channel": "escape-TIM1-5-+y",
+              "net_inward_j": 1234.8822453066834,
+              "donor": "void-5-5-5",
+              "receiver": "gap-TIM1-5"
+            },
+            {
+              "channel": "escape-TIM1-4--y",
+              "net_inward_j": 1234.568184737945,
+              "donor": "void-5-2-5",
+              "receiver": "gap-TIM1-4"
+            },
+            {
+              "channel": "escape-TIM1-2--y",
+              "net_inward_j": 1234.1429679965354,
+              "donor": "void-5-2-4",
+              "receiver": "gap-TIM1-2"
+            },
+            {
+              "channel": "escape-TIM1-0--y",
+              "net_inward_j": 978.0896503573792,
+              "donor": "void-5-2-3",
+              "receiver": "gap-TIM1-0"
+            },
+            {
+              "channel": "escape-TIM1-1-+y",
+              "net_inward_j": 977.4931223254612,
+              "donor": "void-5-5-3",
+              "receiver": "gap-TIM1-1"
+            },
+            {
+              "channel": "escape-TIM1-6--y",
+              "net_inward_j": 977.3946645267536,
+              "donor": "void-5-2-6",
+              "receiver": "gap-TIM1-6"
+            },
+            {
+              "channel": "escape-TIM1-7-+y",
+              "net_inward_j": 976.919511167993,
+              "donor": "void-5-5-6",
+              "receiver": "gap-TIM1-7"
+            },
+            {
+              "channel": "escape-TIM1-7-+z",
+              "net_inward_j": 821.4670318453302,
+              "donor": "void-5-4-7",
+              "receiver": "gap-TIM1-7"
+            },
+            {
+              "channel": "escape-TIM1-1--z",
+              "net_inward_j": 820.7179664578981,
+              "donor": "void-5-4-2",
+              "receiver": "gap-TIM1-1"
+            },
+            {
+              "channel": "escape-TIM1-6-+z",
+              "net_inward_j": 820.061810389062,
+              "donor": "void-5-3-7",
+              "receiver": "gap-TIM1-6"
+            },
+            {
+              "channel": "escape-TIM1-0--z",
+              "net_inward_j": 819.960819790345,
+              "donor": "void-5-3-2",
+              "receiver": "gap-TIM1-0"
+            },
+            {
+              "channel": "rupture-C3-+x-0",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-2",
+              "receiver": "gap-TIM1-0"
+            },
+            {
+              "channel": "rupture-C3-+x-1",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-5",
+              "receiver": "gap-TIM1-1"
+            },
+            {
+              "channel": "rupture-C3-+x-2",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-8",
+              "receiver": "gap-TIM1-1"
+            },
+            {
+              "channel": "rupture-C3-+x-3",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-11",
+              "receiver": "gap-TIM1-2"
+            },
+            {
+              "channel": "rupture-C3-+x-4",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-14",
+              "receiver": "gap-TIM1-3"
+            },
+            {
+              "channel": "rupture-C3-+x-5",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-17",
+              "receiver": "gap-TIM1-3"
+            },
+            {
+              "channel": "rupture-C3-+x-6",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-20",
+              "receiver": "gap-TIM1-6"
+            },
+            {
+              "channel": "rupture-C3-+x-7",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-23",
+              "receiver": "gap-TIM1-7"
+            },
+            {
+              "channel": "rupture-C3-+x-8",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-26",
+              "receiver": "gap-TIM1-7"
+            }
+          ]
+        },
+        {
+          "channel": "C2_ISS",
+          "cell": "C2",
+          "pad": "ISS2",
+          "face": "-x",
+          "gas_heat_to_casing_j": 2618.7043419330475,
+          "slit_heat_to_casing_j": 2167.3267382677072,
+          "gas_heat_to_pad_j": 5270.260412405643,
+          "slit_region": {
+            "net_transport_j": 6798.384856854047,
+            "r3_j": 15.220894229168195,
+            "gas_energy_change_j": 5.304068499441831,
+            "actual_heat_to_surfaces_j": 6808.301682583776,
+            "energy_closure_j": -2.6147972675971687e-12
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "rupture-C2--x-3",
+              "net_inward_j": 1504.1098167001444,
+              "donor": "inside-C2-9",
+              "receiver": "gap-ISS2-2"
+            },
+            {
+              "channel": "rupture-C2--x-5",
+              "net_inward_j": 1194.8344205503986,
+              "donor": "inside-C2-15",
+              "receiver": "gap-ISS2-3"
+            },
+            {
+              "channel": "rupture-C2--x-7",
+              "net_inward_j": 1075.4717614387214,
+              "donor": "inside-C2-21",
+              "receiver": "gap-ISS2-7"
+            },
+            {
+              "channel": "rupture-C2--x-1",
+              "net_inward_j": 1032.3759605505843,
+              "donor": "inside-C2-3",
+              "receiver": "gap-ISS2-1"
+            },
+            {
+              "channel": "rupture-C2--x-4",
+              "net_inward_j": 966.1177475724052,
+              "donor": "inside-C2-12",
+              "receiver": "gap-ISS2-3"
+            },
+            {
+              "channel": "rupture-C2--x-8",
+              "net_inward_j": 860.0617504038869,
+              "donor": "inside-C2-24",
+              "receiver": "gap-ISS2-7"
+            },
+            {
+              "channel": "rupture-C2--x-2",
+              "net_inward_j": 852.8071261768846,
+              "donor": "inside-C2-6",
+              "receiver": "gap-ISS2-1"
+            },
+            {
+              "channel": "rupture-C2--x-6",
+              "net_inward_j": 779.286508923346,
+              "donor": "inside-C2-18",
+              "receiver": "gap-ISS2-6"
+            },
+            {
+              "channel": "rupture-C2--x-0",
+              "net_inward_j": 765.9909284073233,
+              "donor": "inside-C2-0",
+              "receiver": "gap-ISS2-0"
+            },
+            {
+              "channel": "escape-ISS2-3-+y",
+              "net_inward_j": -607.4189154681793,
+              "donor": "void-7-5-4",
+              "receiver": "gap-ISS2-3"
+            },
+            {
+              "channel": "escape-ISS2-2--y",
+              "net_inward_j": -398.1809262095328,
+              "donor": "void-7-2-4",
+              "receiver": "gap-ISS2-2"
+            },
+            {
+              "channel": "escape-ISS2-1--z",
+              "net_inward_j": -357.90426517036894,
+              "donor": "void-7-4-2",
+              "receiver": "gap-ISS2-1"
+            },
+            {
+              "channel": "escape-ISS2-1-+y",
+              "net_inward_j": -334.23845206829174,
+              "donor": "void-7-5-3",
+              "receiver": "gap-ISS2-1"
+            },
+            {
+              "channel": "escape-ISS2-7-+y",
+              "net_inward_j": -205.9782468028739,
+              "donor": "void-7-5-6",
+              "receiver": "gap-ISS2-7"
+            },
+            {
+              "channel": "escape-ISS2-7-+z",
+              "net_inward_j": -195.0364343504873,
+              "donor": "void-7-4-7",
+              "receiver": "gap-ISS2-7"
+            },
+            {
+              "channel": "escape-ISS2-5-+y",
+              "net_inward_j": -105.56167697306711,
+              "donor": "void-7-5-5",
+              "receiver": "gap-ISS2-5"
+            },
+            {
+              "channel": "escape-ISS2-6--y",
+              "net_inward_j": 88.69540308076043,
+              "donor": "void-7-2-6",
+              "receiver": "gap-ISS2-6"
+            },
+            {
+              "channel": "escape-ISS2-0--z",
+              "net_inward_j": -68.03734383274448,
+              "donor": "void-7-3-2",
+              "receiver": "gap-ISS2-0"
+            },
+            {
+              "channel": "escape-ISS2-4--y",
+              "net_inward_j": -46.76893732148599,
+              "donor": "void-7-2-5",
+              "receiver": "gap-ISS2-4"
+            },
+            {
+              "channel": "escape-ISS2-0--y",
+              "net_inward_j": -35.675853621815804,
+              "donor": "void-7-2-3",
+              "receiver": "gap-ISS2-0"
+            },
+            {
+              "channel": "escape-ISS2-6-+z",
+              "net_inward_j": 33.40668692272323,
+              "donor": "void-7-3-7",
+              "receiver": "gap-ISS2-6"
+            }
+          ]
+        },
+        {
+          "channel": "C2_TIM",
+          "cell": "C2",
+          "pad": "TIM2",
+          "face": "+x",
+          "gas_heat_to_casing_j": 1926.1423101690993,
+          "slit_heat_to_casing_j": 1314.4970567851356,
+          "gas_heat_to_pad_j": 10937.126400248693,
+          "slit_region": {
+            "net_transport_j": 11045.937209146152,
+            "r3_j": 11.372045656270691,
+            "gas_energy_change_j": 4.960605431379095,
+            "actual_heat_to_surfaces_j": 11052.348649371039,
+            "energy_closure_j": 4.547473508864641e-12
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "rupture-C2-+x-5",
+              "net_inward_j": 1037.9810595086767,
+              "donor": "inside-C2-17",
+              "receiver": "gap-TIM2-3"
+            },
+            {
+              "channel": "rupture-C2-+x-3",
+              "net_inward_j": 1027.121642482229,
+              "donor": "inside-C2-11",
+              "receiver": "gap-TIM2-2"
+            },
+            {
+              "channel": "rupture-C2-+x-1",
+              "net_inward_j": 847.6389374942607,
+              "donor": "inside-C2-5",
+              "receiver": "gap-TIM2-1"
+            },
+            {
+              "channel": "rupture-C2-+x-7",
+              "net_inward_j": 838.0507371840664,
+              "donor": "inside-C2-23",
+              "receiver": "gap-TIM2-7"
+            },
+            {
+              "channel": "escape-TIM2-4--y",
+              "net_inward_j": 644.4210442010908,
+              "donor": "void-9-2-5",
+              "receiver": "gap-TIM2-4"
+            },
+            {
+              "channel": "rupture-C2-+x-6",
+              "net_inward_j": 642.9310994881947,
+              "donor": "inside-C2-20",
+              "receiver": "gap-TIM2-6"
+            },
+            {
+              "channel": "rupture-C2-+x-0",
+              "net_inward_j": 632.4532564479096,
+              "donor": "inside-C2-2",
+              "receiver": "gap-TIM2-0"
+            },
+            {
+              "channel": "rupture-C2-+x-8",
+              "net_inward_j": 620.4275246997477,
+              "donor": "inside-C2-26",
+              "receiver": "gap-TIM2-7"
+            },
+            {
+              "channel": "escape-TIM2-5-+y",
+              "net_inward_j": 581.412990690537,
+              "donor": "void-9-5-5",
+              "receiver": "gap-TIM2-5"
+            },
+            {
+              "channel": "rupture-C2-+x-2",
+              "net_inward_j": 570.9941872648275,
+              "donor": "inside-C2-8",
+              "receiver": "gap-TIM2-1"
+            },
+            {
+              "channel": "escape-TIM2-6--y",
+              "net_inward_j": 523.1557976845756,
+              "donor": "void-9-2-6",
+              "receiver": "gap-TIM2-6"
+            },
+            {
+              "channel": "escape-TIM2-0--y",
+              "net_inward_j": 468.469285223777,
+              "donor": "void-9-2-3",
+              "receiver": "gap-TIM2-0"
+            },
+            {
+              "channel": "escape-TIM2-6-+z",
+              "net_inward_j": 418.65795381536054,
+              "donor": "void-9-3-7",
+              "receiver": "gap-TIM2-6"
+            },
+            {
+              "channel": "escape-TIM2-0--z",
+              "net_inward_j": 360.1364691117485,
+              "donor": "void-9-3-2",
+              "receiver": "gap-TIM2-0"
+            },
+            {
+              "channel": "escape-TIM2-7-+y",
+              "net_inward_j": 338.0311787742744,
+              "donor": "void-9-5-6",
+              "receiver": "gap-TIM2-7"
+            },
+            {
+              "channel": "escape-TIM2-2--y",
+              "net_inward_j": 331.9404854746969,
+              "donor": "void-9-2-4",
+              "receiver": "gap-TIM2-2"
+            },
+            {
+              "channel": "escape-TIM2-3-+y",
+              "net_inward_j": 311.7915191707557,
+              "donor": "void-9-5-4",
+              "receiver": "gap-TIM2-3"
+            },
+            {
+              "channel": "escape-TIM2-1-+y",
+              "net_inward_j": 273.15236034999816,
+              "donor": "void-9-5-3",
+              "receiver": "gap-TIM2-1"
+            },
+            {
+              "channel": "escape-TIM2-7-+z",
+              "net_inward_j": 257.22585407204036,
+              "donor": "void-9-4-7",
+              "receiver": "gap-TIM2-7"
+            },
+            {
+              "channel": "escape-TIM2-1--z",
+              "net_inward_j": 184.1453989530732,
+              "donor": "void-9-4-2",
+              "receiver": "gap-TIM2-1"
+            },
+            {
+              "channel": "rupture-C2-+x-4",
+              "net_inward_j": 135.75420094892007,
+              "donor": "inside-C2-14",
+              "receiver": "gap-TIM2-3"
+            }
+          ]
+        },
+        {
+          "channel": "101",
+          "cell": "C1",
+          "pad": "ISS3",
+          "face": "-x",
+          "gas_heat_to_casing_j": 5147.040022339342,
+          "slit_heat_to_casing_j": 4413.372800852901,
+          "gas_heat_to_pad_j": 4618.187305733041,
+          "slit_region": {
+            "net_transport_j": 8344.107617953305,
+            "r3_j": 7.5645044657303,
+            "gas_energy_change_j": 5.398183356381364,
+            "actual_heat_to_surfaces_j": 8346.273939062656,
+            "energy_closure_j": -3.680611371237319e-12
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-ISS3-3-+y",
+              "net_inward_j": 870.2753688383159,
+              "donor": "void-11-5-4",
+              "receiver": "gap-ISS3-3"
+            },
+            {
+              "channel": "escape-ISS3-2--y",
+              "net_inward_j": 869.2291889378016,
+              "donor": "void-11-2-4",
+              "receiver": "gap-ISS3-2"
+            },
+            {
+              "channel": "escape-ISS3-5-+y",
+              "net_inward_j": 869.2196998200368,
+              "donor": "void-11-5-5",
+              "receiver": "gap-ISS3-5"
+            },
+            {
+              "channel": "escape-ISS3-4--y",
+              "net_inward_j": 868.5143074754698,
+              "donor": "void-11-2-5",
+              "receiver": "gap-ISS3-4"
+            },
+            {
+              "channel": "escape-ISS3-0--y",
+              "net_inward_j": 660.634150509409,
+              "donor": "void-11-2-3",
+              "receiver": "gap-ISS3-0"
+            },
+            {
+              "channel": "escape-ISS3-6--y",
+              "net_inward_j": 660.2674124324094,
+              "donor": "void-11-2-6",
+              "receiver": "gap-ISS3-6"
+            },
+            {
+              "channel": "escape-ISS3-1-+y",
+              "net_inward_j": 660.1954864870502,
+              "donor": "void-11-5-3",
+              "receiver": "gap-ISS3-1"
+            },
+            {
+              "channel": "escape-ISS3-7-+y",
+              "net_inward_j": 659.4720068332776,
+              "donor": "void-11-5-6",
+              "receiver": "gap-ISS3-7"
+            },
+            {
+              "channel": "escape-ISS3-7-+z",
+              "net_inward_j": 557.7822735664147,
+              "donor": "void-11-4-7",
+              "receiver": "gap-ISS3-7"
+            },
+            {
+              "channel": "escape-ISS3-1--z",
+              "net_inward_j": 556.589143872847,
+              "donor": "void-11-4-2",
+              "receiver": "gap-ISS3-1"
+            },
+            {
+              "channel": "escape-ISS3-0--z",
+              "net_inward_j": 556.1270275926615,
+              "donor": "void-11-3-2",
+              "receiver": "gap-ISS3-0"
+            },
+            {
+              "channel": "escape-ISS3-6-+z",
+              "net_inward_j": 555.7527782287162,
+              "donor": "void-11-3-7",
+              "receiver": "gap-ISS3-6"
+            },
+            {
+              "channel": "rupture-C1--x-0",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-0",
+              "receiver": "gap-ISS3-0"
+            },
+            {
+              "channel": "rupture-C1--x-1",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-3",
+              "receiver": "gap-ISS3-1"
+            },
+            {
+              "channel": "rupture-C1--x-2",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-6",
+              "receiver": "gap-ISS3-1"
+            },
+            {
+              "channel": "rupture-C1--x-3",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-9",
+              "receiver": "gap-ISS3-2"
+            },
+            {
+              "channel": "rupture-C1--x-4",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-12",
+              "receiver": "gap-ISS3-3"
+            },
+            {
+              "channel": "rupture-C1--x-5",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-15",
+              "receiver": "gap-ISS3-3"
+            },
+            {
+              "channel": "rupture-C1--x-6",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-18",
+              "receiver": "gap-ISS3-6"
+            },
+            {
+              "channel": "rupture-C1--x-7",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-21",
+              "receiver": "gap-ISS3-7"
+            },
+            {
+              "channel": "rupture-C1--x-8",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-24",
+              "receiver": "gap-ISS3-7"
+            }
+          ]
+        },
+        {
+          "channel": "102",
+          "cell": "C1",
+          "pad": "TIM3",
+          "face": "+x",
+          "gas_heat_to_casing_j": 4173.1064853330345,
+          "slit_heat_to_casing_j": 3346.2010360097706,
+          "gas_heat_to_pad_j": 10281.511926051204,
+          "slit_region": {
+            "net_transport_j": 12400.234680561127,
+            "r3_j": 5.94886370769684,
+            "gas_energy_change_j": 4.954717819588434,
+            "actual_heat_to_surfaces_j": 12401.228826449236,
+            "energy_closure_j": -1.8207657603852567e-12
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-TIM3-5-+y",
+              "net_inward_j": 1263.9240355647487,
+              "donor": "void-13-5-5",
+              "receiver": "gap-TIM3-5"
+            },
+            {
+              "channel": "escape-TIM3-4--y",
+              "net_inward_j": 1263.903651525552,
+              "donor": "void-13-2-5",
+              "receiver": "gap-TIM3-4"
+            },
+            {
+              "channel": "escape-TIM3-3-+y",
+              "net_inward_j": 1263.591536452532,
+              "donor": "void-13-5-4",
+              "receiver": "gap-TIM3-3"
+            },
+            {
+              "channel": "escape-TIM3-2--y",
+              "net_inward_j": 1263.4254197049763,
+              "donor": "void-13-2-4",
+              "receiver": "gap-TIM3-2"
+            },
+            {
+              "channel": "escape-TIM3-0--y",
+              "net_inward_j": 999.1882210708478,
+              "donor": "void-13-2-3",
+              "receiver": "gap-TIM3-0"
+            },
+            {
+              "channel": "escape-TIM3-1-+y",
+              "net_inward_j": 998.8390059564776,
+              "donor": "void-13-5-3",
+              "receiver": "gap-TIM3-1"
+            },
+            {
+              "channel": "escape-TIM3-6--y",
+              "net_inward_j": 998.4709125945757,
+              "donor": "void-13-2-6",
+              "receiver": "gap-TIM3-6"
+            },
+            {
+              "channel": "escape-TIM3-7-+y",
+              "net_inward_j": 998.2542322325138,
+              "donor": "void-13-5-6",
+              "receiver": "gap-TIM3-7"
+            },
+            {
+              "channel": "escape-TIM3-1--z",
+              "net_inward_j": 837.9151159219048,
+              "donor": "void-13-4-2",
+              "receiver": "gap-TIM3-1"
+            },
+            {
+              "channel": "escape-TIM3-0--z",
+              "net_inward_j": 837.8833162582908,
+              "donor": "void-13-3-2",
+              "receiver": "gap-TIM3-0"
+            },
+            {
+              "channel": "escape-TIM3-7-+z",
+              "net_inward_j": 837.779333653783,
+              "donor": "void-13-4-7",
+              "receiver": "gap-TIM3-7"
+            },
+            {
+              "channel": "escape-TIM3-6-+z",
+              "net_inward_j": 836.9909785930254,
+              "donor": "void-13-3-7",
+              "receiver": "gap-TIM3-6"
+            },
+            {
+              "channel": "rupture-C1-+x-0",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-2",
+              "receiver": "gap-TIM3-0"
+            },
+            {
+              "channel": "rupture-C1-+x-1",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-5",
+              "receiver": "gap-TIM3-1"
+            },
+            {
+              "channel": "rupture-C1-+x-2",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-8",
+              "receiver": "gap-TIM3-1"
+            },
+            {
+              "channel": "rupture-C1-+x-3",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-11",
+              "receiver": "gap-TIM3-2"
+            },
+            {
+              "channel": "rupture-C1-+x-4",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-14",
+              "receiver": "gap-TIM3-3"
+            },
+            {
+              "channel": "rupture-C1-+x-5",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-17",
+              "receiver": "gap-TIM3-3"
+            },
+            {
+              "channel": "rupture-C1-+x-6",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-20",
+              "receiver": "gap-TIM3-6"
+            },
+            {
+              "channel": "rupture-C1-+x-7",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-23",
+              "receiver": "gap-TIM3-7"
+            },
+            {
+              "channel": "rupture-C1-+x-8",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-26",
+              "receiver": "gap-TIM3-7"
+            }
+          ]
+        }
+      ],
+      "objects": {
+        "Al1": {
+          "net_gas_heat_j": 2500.487822422368,
+          "positive_step_gas_heat_j": 2500.970753273379,
+          "negative_step_gas_heat_j": -0.4829308510111644
+        },
+        "Al2": {
+          "net_gas_heat_j": 2428.5996782646152,
+          "positive_step_gas_heat_j": 2433.058585517984,
+          "negative_step_gas_heat_j": -4.458907253368558
+        },
+        "Al3": {
+          "net_gas_heat_j": 2540.795724502869,
+          "positive_step_gas_heat_j": 2540.795724502869,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C1": {
+          "net_gas_heat_j": 0,
+          "positive_step_gas_heat_j": 0,
+          "negative_step_gas_heat_j": 0
+        },
+        "C1:case:+x": {
+          "net_gas_heat_j": 4173.1064853330345,
+          "positive_step_gas_heat_j": 4182.183169130771,
+          "negative_step_gas_heat_j": -9.076683797736266
+        },
+        "C1:case:+y": {
+          "net_gas_heat_j": 947.4909782664947,
+          "positive_step_gas_heat_j": 947.4909782664947,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C1:case:+z": {
+          "net_gas_heat_j": 431.020943475462,
+          "positive_step_gas_heat_j": 431.020943475462,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C1:case:-x": {
+          "net_gas_heat_j": 5147.040022339342,
+          "positive_step_gas_heat_j": 5147.08125547107,
+          "negative_step_gas_heat_j": -0.041233131730222465
+        },
+        "C1:case:-y": {
+          "net_gas_heat_j": 946.2231642421659,
+          "positive_step_gas_heat_j": 946.2231642421659,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C1:case:-z": {
+          "net_gas_heat_j": 431.4191515113941,
+          "positive_step_gas_heat_j": 431.4191515113941,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C2": {
+          "net_gas_heat_j": 0,
+          "positive_step_gas_heat_j": 0,
+          "negative_step_gas_heat_j": 0
+        },
+        "C2:case:+x": {
+          "net_gas_heat_j": 1926.1423101690993,
+          "positive_step_gas_heat_j": 2990.1289872158677,
+          "negative_step_gas_heat_j": -1063.9866770467684
+        },
+        "C2:case:+y": {
+          "net_gas_heat_j": 416.5839669699503,
+          "positive_step_gas_heat_j": 701.6229087355122,
+          "negative_step_gas_heat_j": -285.03894176556196
+        },
+        "C2:case:+z": {
+          "net_gas_heat_j": 212.019457003856,
+          "positive_step_gas_heat_j": 324.7083395103872,
+          "negative_step_gas_heat_j": -112.68888250653114
+        },
+        "C2:case:-x": {
+          "net_gas_heat_j": 2618.7043419330475,
+          "positive_step_gas_heat_j": 3924.26053491494,
+          "negative_step_gas_heat_j": -1305.5561929818937
+        },
+        "C2:case:-y": {
+          "net_gas_heat_j": 405.5362372788752,
+          "positive_step_gas_heat_j": 698.0139031521702,
+          "negative_step_gas_heat_j": -292.477665873295
+        },
+        "C2:case:-z": {
+          "net_gas_heat_j": 211.45297000873688,
+          "positive_step_gas_heat_j": 324.1485769172938,
+          "negative_step_gas_heat_j": -112.6956069085568
+        },
+        "C3": {
+          "net_gas_heat_j": 0,
+          "positive_step_gas_heat_j": 0,
+          "negative_step_gas_heat_j": 0
+        },
+        "C3:case:+x": {
+          "net_gas_heat_j": 4116.841469710352,
+          "positive_step_gas_heat_j": 4125.6285614733615,
+          "negative_step_gas_heat_j": -8.787091763010903
+        },
+        "C3:case:+y": {
+          "net_gas_heat_j": 946.5236154169199,
+          "positive_step_gas_heat_j": 946.5236154169199,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C3:case:+z": {
+          "net_gas_heat_j": 430.09622427191835,
+          "positive_step_gas_heat_j": 430.09622427191835,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C3:case:-x": {
+          "net_gas_heat_j": 7257.001228242923,
+          "positive_step_gas_heat_j": 7257.001228242923,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C3:case:-y": {
+          "net_gas_heat_j": 944.5088242473798,
+          "positive_step_gas_heat_j": 944.5088242473798,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C3:case:-z": {
+          "net_gas_heat_j": 430.59432568017996,
+          "positive_step_gas_heat_j": 430.59432568017996,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "ISS1": {
+          "net_gas_heat_j": 6720.194415452524,
+          "positive_step_gas_heat_j": 6720.194415452524,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "ISS2": {
+          "net_gas_heat_j": 5270.260412405643,
+          "positive_step_gas_heat_j": 5277.801600776,
+          "negative_step_gas_heat_j": -7.541188370357156
+        },
+        "ISS3": {
+          "net_gas_heat_j": 4618.187305733041,
+          "positive_step_gas_heat_j": 4627.891092438939,
+          "negative_step_gas_heat_j": -9.703786705897063
+        },
+        "ISS4": {
+          "net_gas_heat_j": 1191.137428656921,
+          "positive_step_gas_heat_j": 1191.137428656921,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "TIM1": {
+          "net_gas_heat_j": 10031.462132742994,
+          "positive_step_gas_heat_j": 10033.473023517365,
+          "negative_step_gas_heat_j": -2.010890774367831
+        },
+        "TIM2": {
+          "net_gas_heat_j": 10937.126400248693,
+          "positive_step_gas_heat_j": 10941.511464521882,
+          "negative_step_gas_heat_j": -4.385064273188098
+        },
+        "TIM3": {
+          "net_gas_heat_j": 10281.511926051204,
+          "positive_step_gas_heat_j": 10281.511926051204,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "chamber-wall": {
+          "net_gas_heat_j": 65293.73893054445,
+          "positive_step_gas_heat_j": 65293.73893054445,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "steel-L": {
+          "net_gas_heat_j": 1346.3527538037774,
+          "positive_step_gas_heat_j": 1346.3527538037774,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "steel-R": {
+          "net_gas_heat_j": 1330.5050578168507,
+          "positive_step_gas_heat_j": 1330.5050578168507,
+          "negative_step_gas_heat_j": 0.0
+        }
+      }
+    },
+    {
+      "start_s": 891.0,
+      "end_s": 900.0,
+      "faces": [
+        {
+          "channel": "108",
+          "cell": "C3",
+          "pad": "ISS1",
+          "face": "-x",
+          "gas_heat_to_casing_j": 2645.2704328787563,
+          "slit_heat_to_casing_j": 2469.123298933824,
+          "gas_heat_to_pad_j": 1579.2892945813333,
+          "slit_region": {
+            "net_transport_j": 3939.471798969238,
+            "r3_j": 9.14457751726161e-05,
+            "gas_energy_change_j": -4.403783501589687,
+            "actual_heat_to_surfaces_j": 3943.8756739165965,
+            "energy_closure_j": 7.275957614183426e-12
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-ISS1-0--z",
+              "net_inward_j": 388.7100789793126,
+              "donor": "void-3-3-2",
+              "receiver": "gap-ISS1-0"
+            },
+            {
+              "channel": "escape-ISS1-6-+z",
+              "net_inward_j": 385.9268720289408,
+              "donor": "void-3-3-7",
+              "receiver": "gap-ISS1-6"
+            },
+            {
+              "channel": "escape-ISS1-1--z",
+              "net_inward_j": 384.57570632890884,
+              "donor": "void-3-4-2",
+              "receiver": "gap-ISS1-1"
+            },
+            {
+              "channel": "escape-ISS1-7-+z",
+              "net_inward_j": 381.6359542414534,
+              "donor": "void-3-4-7",
+              "receiver": "gap-ISS1-7"
+            },
+            {
+              "channel": "escape-ISS1-5-+y",
+              "net_inward_j": 321.8639694376441,
+              "donor": "void-3-5-5",
+              "receiver": "gap-ISS1-5"
+            },
+            {
+              "channel": "escape-ISS1-4--y",
+              "net_inward_j": 317.96847921346125,
+              "donor": "void-3-2-5",
+              "receiver": "gap-ISS1-4"
+            },
+            {
+              "channel": "escape-ISS1-3-+y",
+              "net_inward_j": 312.0186704917671,
+              "donor": "void-3-5-4",
+              "receiver": "gap-ISS1-3"
+            },
+            {
+              "channel": "escape-ISS1-2--y",
+              "net_inward_j": 306.26142293145153,
+              "donor": "void-3-2-4",
+              "receiver": "gap-ISS1-2"
+            },
+            {
+              "channel": "escape-ISS1-1-+y",
+              "net_inward_j": 288.8678418165464,
+              "donor": "void-3-5-3",
+              "receiver": "gap-ISS1-1"
+            },
+            {
+              "channel": "escape-ISS1-7-+y",
+              "net_inward_j": 287.68650312837076,
+              "donor": "void-3-5-6",
+              "receiver": "gap-ISS1-7"
+            },
+            {
+              "channel": "escape-ISS1-0--y",
+              "net_inward_j": 282.3545413943766,
+              "donor": "void-3-2-3",
+              "receiver": "gap-ISS1-0"
+            },
+            {
+              "channel": "escape-ISS1-6--y",
+              "net_inward_j": 281.51465065997957,
+              "donor": "void-3-2-6",
+              "receiver": "gap-ISS1-6"
+            },
+            {
+              "channel": "rupture-C3--x-0",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-0",
+              "receiver": "gap-ISS1-0"
+            },
+            {
+              "channel": "rupture-C3--x-1",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-3",
+              "receiver": "gap-ISS1-1"
+            },
+            {
+              "channel": "rupture-C3--x-2",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-6",
+              "receiver": "gap-ISS1-1"
+            },
+            {
+              "channel": "rupture-C3--x-3",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-9",
+              "receiver": "gap-ISS1-2"
+            },
+            {
+              "channel": "rupture-C3--x-4",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-12",
+              "receiver": "gap-ISS1-3"
+            },
+            {
+              "channel": "rupture-C3--x-5",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-15",
+              "receiver": "gap-ISS1-3"
+            },
+            {
+              "channel": "rupture-C3--x-6",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-18",
+              "receiver": "gap-ISS1-6"
+            },
+            {
+              "channel": "rupture-C3--x-7",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-21",
+              "receiver": "gap-ISS1-7"
+            },
+            {
+              "channel": "rupture-C3--x-8",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-24",
+              "receiver": "gap-ISS1-7"
+            }
+          ]
+        },
+        {
+          "channel": "107",
+          "cell": "C3",
+          "pad": "TIM1",
+          "face": "+x",
+          "gas_heat_to_casing_j": 2478.0290061898995,
+          "slit_heat_to_casing_j": 1760.464165007602,
+          "gas_heat_to_pad_j": 10684.274558539897,
+          "slit_region": {
+            "net_transport_j": 11043.175869643128,
+            "r3_j": 4.058073409751728e-06,
+            "gas_energy_change_j": -3.709619289272796,
+            "actual_heat_to_surfaces_j": 11046.885492990466,
+            "energy_closure_j": 9.094947017729282e-12
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-TIM1-4--y",
+              "net_inward_j": 1129.2845030685787,
+              "donor": "void-5-2-5",
+              "receiver": "gap-TIM1-4"
+            },
+            {
+              "channel": "escape-TIM1-5-+y",
+              "net_inward_j": 1129.1706287828008,
+              "donor": "void-5-5-5",
+              "receiver": "gap-TIM1-5"
+            },
+            {
+              "channel": "escape-TIM1-3-+y",
+              "net_inward_j": 1128.9154174497332,
+              "donor": "void-5-5-4",
+              "receiver": "gap-TIM1-3"
+            },
+            {
+              "channel": "escape-TIM1-2--y",
+              "net_inward_j": 1128.8986238679975,
+              "donor": "void-5-2-4",
+              "receiver": "gap-TIM1-2"
+            },
+            {
+              "channel": "escape-TIM1-6--y",
+              "net_inward_j": 888.2241697577101,
+              "donor": "void-5-2-6",
+              "receiver": "gap-TIM1-6"
+            },
+            {
+              "channel": "escape-TIM1-7-+y",
+              "net_inward_j": 887.9054938484721,
+              "donor": "void-5-5-6",
+              "receiver": "gap-TIM1-7"
+            },
+            {
+              "channel": "escape-TIM1-0--y",
+              "net_inward_j": 887.8591198856245,
+              "donor": "void-5-2-3",
+              "receiver": "gap-TIM1-0"
+            },
+            {
+              "channel": "escape-TIM1-1-+y",
+              "net_inward_j": 887.5995954514405,
+              "donor": "void-5-5-3",
+              "receiver": "gap-TIM1-1"
+            },
+            {
+              "channel": "escape-TIM1-6-+z",
+              "net_inward_j": 744.1303359777553,
+              "donor": "void-5-3-7",
+              "receiver": "gap-TIM1-6"
+            },
+            {
+              "channel": "escape-TIM1-7-+z",
+              "net_inward_j": 743.8178150432952,
+              "donor": "void-5-4-7",
+              "receiver": "gap-TIM1-7"
+            },
+            {
+              "channel": "escape-TIM1-0--z",
+              "net_inward_j": 743.7852948626634,
+              "donor": "void-5-3-2",
+              "receiver": "gap-TIM1-0"
+            },
+            {
+              "channel": "escape-TIM1-1--z",
+              "net_inward_j": 743.5267268477999,
+              "donor": "void-5-4-2",
+              "receiver": "gap-TIM1-1"
+            },
+            {
+              "channel": "rupture-C3-+x-0",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-2",
+              "receiver": "gap-TIM1-0"
+            },
+            {
+              "channel": "rupture-C3-+x-1",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-5",
+              "receiver": "gap-TIM1-1"
+            },
+            {
+              "channel": "rupture-C3-+x-2",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-8",
+              "receiver": "gap-TIM1-1"
+            },
+            {
+              "channel": "rupture-C3-+x-3",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-11",
+              "receiver": "gap-TIM1-2"
+            },
+            {
+              "channel": "rupture-C3-+x-4",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-14",
+              "receiver": "gap-TIM1-3"
+            },
+            {
+              "channel": "rupture-C3-+x-5",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-17",
+              "receiver": "gap-TIM1-3"
+            },
+            {
+              "channel": "rupture-C3-+x-6",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-20",
+              "receiver": "gap-TIM1-6"
+            },
+            {
+              "channel": "rupture-C3-+x-7",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-23",
+              "receiver": "gap-TIM1-7"
+            },
+            {
+              "channel": "rupture-C3-+x-8",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-26",
+              "receiver": "gap-TIM1-7"
+            }
+          ]
+        },
+        {
+          "channel": "C2_ISS",
+          "cell": "C2",
+          "pad": "ISS2",
+          "face": "-x",
+          "gas_heat_to_casing_j": -3142.447722396439,
+          "slit_heat_to_casing_j": -2642.8639797327896,
+          "gas_heat_to_pad_j": 974.07830942302,
+          "slit_region": {
+            "net_transport_j": -1577.7049776908798,
+            "r3_j": 8.691331582433293e-05,
+            "gas_energy_change_j": -4.029045780139128,
+            "actual_heat_to_surfaces_j": -1573.6758449974259,
+            "energy_closure_j": 9.094947017729282e-13
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-ISS2-1-+y",
+              "net_inward_j": -290.2478348663525,
+              "donor": "void-7-5-3",
+              "receiver": "gap-ISS2-1"
+            },
+            {
+              "channel": "escape-ISS2-3-+y",
+              "net_inward_j": -286.1601635403779,
+              "donor": "void-7-5-4",
+              "receiver": "gap-ISS2-3"
+            },
+            {
+              "channel": "escape-ISS2-7-+y",
+              "net_inward_j": -274.63498909321623,
+              "donor": "void-7-5-6",
+              "receiver": "gap-ISS2-7"
+            },
+            {
+              "channel": "escape-ISS2-0--y",
+              "net_inward_j": -273.06285465944825,
+              "donor": "void-7-2-3",
+              "receiver": "gap-ISS2-0"
+            },
+            {
+              "channel": "escape-ISS2-2--y",
+              "net_inward_j": -261.36422466604733,
+              "donor": "void-7-2-4",
+              "receiver": "gap-ISS2-2"
+            },
+            {
+              "channel": "escape-ISS2-6--y",
+              "net_inward_j": -259.6421192635541,
+              "donor": "void-7-2-6",
+              "receiver": "gap-ISS2-6"
+            },
+            {
+              "channel": "escape-ISS2-1--z",
+              "net_inward_j": -250.15462543661687,
+              "donor": "void-7-4-2",
+              "receiver": "gap-ISS2-1"
+            },
+            {
+              "channel": "rupture-C2--x-4",
+              "net_inward_j": 239.31109103253686,
+              "donor": "inside-C2-12",
+              "receiver": "gap-ISS2-3"
+            },
+            {
+              "channel": "escape-ISS2-7-+z",
+              "net_inward_j": -235.62434625486958,
+              "donor": "void-7-4-7",
+              "receiver": "gap-ISS2-7"
+            },
+            {
+              "channel": "escape-ISS2-0--z",
+              "net_inward_j": -235.12463961242008,
+              "donor": "void-7-3-2",
+              "receiver": "gap-ISS2-0"
+            },
+            {
+              "channel": "escape-ISS2-5-+y",
+              "net_inward_j": -227.93640506920607,
+              "donor": "void-7-5-5",
+              "receiver": "gap-ISS2-5"
+            },
+            {
+              "channel": "escape-ISS2-6-+z",
+              "net_inward_j": -222.3201468832706,
+              "donor": "void-7-3-7",
+              "receiver": "gap-ISS2-6"
+            },
+            {
+              "channel": "escape-ISS2-4--y",
+              "net_inward_j": -217.54040375803726,
+              "donor": "void-7-2-5",
+              "receiver": "gap-ISS2-4"
+            },
+            {
+              "channel": "rupture-C2--x-7",
+              "net_inward_j": 191.7838058080622,
+              "donor": "inside-C2-21",
+              "receiver": "gap-ISS2-7"
+            },
+            {
+              "channel": "rupture-C2--x-1",
+              "net_inward_j": 177.31145927698572,
+              "donor": "inside-C2-3",
+              "receiver": "gap-ISS2-1"
+            },
+            {
+              "channel": "rupture-C2--x-3",
+              "net_inward_j": 160.53756349924197,
+              "donor": "inside-C2-9",
+              "receiver": "gap-ISS2-2"
+            },
+            {
+              "channel": "rupture-C2--x-6",
+              "net_inward_j": 158.42949265223206,
+              "donor": "inside-C2-18",
+              "receiver": "gap-ISS2-6"
+            },
+            {
+              "channel": "rupture-C2--x-0",
+              "net_inward_j": 148.39117667025744,
+              "donor": "inside-C2-0",
+              "receiver": "gap-ISS2-0"
+            },
+            {
+              "channel": "rupture-C2--x-5",
+              "net_inward_j": 139.72293267972555,
+              "donor": "inside-C2-15",
+              "receiver": "gap-ISS2-3"
+            },
+            {
+              "channel": "rupture-C2--x-2",
+              "net_inward_j": 122.61659313955045,
+              "donor": "inside-C2-6",
+              "receiver": "gap-ISS2-1"
+            },
+            {
+              "channel": "rupture-C2--x-8",
+              "net_inward_j": 117.91042987639264,
+              "donor": "inside-C2-24",
+              "receiver": "gap-ISS2-7"
+            }
+          ]
+        },
+        {
+          "channel": "C2_TIM",
+          "cell": "C2",
+          "pad": "TIM2",
+          "face": "+x",
+          "gas_heat_to_casing_j": -3673.1353971576964,
+          "slit_heat_to_casing_j": -3713.965751501729,
+          "gas_heat_to_pad_j": 12622.594850802489,
+          "slit_region": {
+            "net_transport_j": 7635.630651152356,
+            "r3_j": 0.00013305082558723313,
+            "gas_energy_change_j": -3.691751503426138,
+            "actual_heat_to_surfaces_j": 7639.322535706609,
+            "energy_closure_j": 0.0
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-TIM2-4--y",
+              "net_inward_j": 705.4714525448862,
+              "donor": "void-9-2-5",
+              "receiver": "gap-TIM2-4"
+            },
+            {
+              "channel": "escape-TIM2-5-+y",
+              "net_inward_j": 699.4387386905094,
+              "donor": "void-9-5-5",
+              "receiver": "gap-TIM2-5"
+            },
+            {
+              "channel": "escape-TIM2-2--y",
+              "net_inward_j": 674.3560859582806,
+              "donor": "void-9-2-4",
+              "receiver": "gap-TIM2-2"
+            },
+            {
+              "channel": "escape-TIM2-3-+y",
+              "net_inward_j": 649.2702569317405,
+              "donor": "void-9-5-4",
+              "receiver": "gap-TIM2-3"
+            },
+            {
+              "channel": "escape-TIM2-6--y",
+              "net_inward_j": 540.9865041988426,
+              "donor": "void-9-2-6",
+              "receiver": "gap-TIM2-6"
+            },
+            {
+              "channel": "escape-TIM2-0--y",
+              "net_inward_j": 518.7312081931211,
+              "donor": "void-9-2-3",
+              "receiver": "gap-TIM2-0"
+            },
+            {
+              "channel": "escape-TIM2-7-+y",
+              "net_inward_j": 511.52731660576205,
+              "donor": "void-9-5-6",
+              "receiver": "gap-TIM2-7"
+            },
+            {
+              "channel": "escape-TIM2-1-+y",
+              "net_inward_j": 490.2870477974078,
+              "donor": "void-9-5-3",
+              "receiver": "gap-TIM2-1"
+            },
+            {
+              "channel": "escape-TIM2-6-+z",
+              "net_inward_j": 448.87359295405435,
+              "donor": "void-9-3-7",
+              "receiver": "gap-TIM2-6"
+            },
+            {
+              "channel": "escape-TIM2-0--z",
+              "net_inward_j": 429.01315233164894,
+              "donor": "void-9-3-2",
+              "receiver": "gap-TIM2-0"
+            },
+            {
+              "channel": "escape-TIM2-7-+z",
+              "net_inward_j": 423.5157479718091,
+              "donor": "void-9-4-7",
+              "receiver": "gap-TIM2-7"
+            },
+            {
+              "channel": "escape-TIM2-1--z",
+              "net_inward_j": 405.07154661449533,
+              "donor": "void-9-4-2",
+              "receiver": "gap-TIM2-1"
+            },
+            {
+              "channel": "rupture-C2-+x-4",
+              "net_inward_j": 192.8584023216995,
+              "donor": "inside-C2-14",
+              "receiver": "gap-TIM2-3"
+            },
+            {
+              "channel": "rupture-C2-+x-7",
+              "net_inward_j": 160.41216641812446,
+              "donor": "inside-C2-23",
+              "receiver": "gap-TIM2-7"
+            },
+            {
+              "channel": "rupture-C2-+x-3",
+              "net_inward_j": 154.6790960933629,
+              "donor": "inside-C2-11",
+              "receiver": "gap-TIM2-2"
+            },
+            {
+              "channel": "rupture-C2-+x-1",
+              "net_inward_j": 141.8410620772181,
+              "donor": "inside-C2-5",
+              "receiver": "gap-TIM2-1"
+            },
+            {
+              "channel": "rupture-C2-+x-5",
+              "net_inward_j": 121.06606320852052,
+              "donor": "inside-C2-17",
+              "receiver": "gap-TIM2-3"
+            },
+            {
+              "channel": "rupture-C2-+x-6",
+              "net_inward_j": 112.94409025552773,
+              "donor": "inside-C2-20",
+              "receiver": "gap-TIM2-6"
+            },
+            {
+              "channel": "rupture-C2-+x-0",
+              "net_inward_j": 105.32511570793793,
+              "donor": "inside-C2-2",
+              "receiver": "gap-TIM2-0"
+            },
+            {
+              "channel": "rupture-C2-+x-8",
+              "net_inward_j": 79.37555323376148,
+              "donor": "inside-C2-26",
+              "receiver": "gap-TIM2-7"
+            },
+            {
+              "channel": "rupture-C2-+x-2",
+              "net_inward_j": 70.5200574045482,
+              "donor": "inside-C2-8",
+              "receiver": "gap-TIM2-1"
+            }
+          ]
+        },
+        {
+          "channel": "101",
+          "cell": "C1",
+          "pad": "ISS3",
+          "face": "-x",
+          "gas_heat_to_casing_j": 3128.294495397655,
+          "slit_heat_to_casing_j": 2775.381779082305,
+          "gas_heat_to_pad_j": 123.07616582344049,
+          "slit_region": {
+            "net_transport_j": 2742.452841924598,
+            "r3_j": 3.6206948870187716e-06,
+            "gas_energy_change_j": -4.159752201473366,
+            "actual_heat_to_surfaces_j": 2746.612597746749,
+            "energy_closure_j": 1.8189894035458565e-11
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-ISS3-5-+y",
+              "net_inward_j": 308.34978404632,
+              "donor": "void-11-5-5",
+              "receiver": "gap-ISS3-5"
+            },
+            {
+              "channel": "escape-ISS3-4--y",
+              "net_inward_j": 308.3033363088748,
+              "donor": "void-11-2-5",
+              "receiver": "gap-ISS3-4"
+            },
+            {
+              "channel": "escape-ISS3-3-+y",
+              "net_inward_j": 307.7396602010118,
+              "donor": "void-11-5-4",
+              "receiver": "gap-ISS3-3"
+            },
+            {
+              "channel": "escape-ISS3-2--y",
+              "net_inward_j": 307.3100395874966,
+              "donor": "void-11-2-4",
+              "receiver": "gap-ISS3-2"
+            },
+            {
+              "channel": "escape-ISS3-7-+y",
+              "net_inward_j": 204.58356534103598,
+              "donor": "void-11-5-6",
+              "receiver": "gap-ISS3-7"
+            },
+            {
+              "channel": "escape-ISS3-6--y",
+              "net_inward_j": 204.5788247650505,
+              "donor": "void-11-2-6",
+              "receiver": "gap-ISS3-6"
+            },
+            {
+              "channel": "escape-ISS3-1-+y",
+              "net_inward_j": 204.18116885581094,
+              "donor": "void-11-5-3",
+              "receiver": "gap-ISS3-1"
+            },
+            {
+              "channel": "escape-ISS3-0--y",
+              "net_inward_j": 204.14059246547038,
+              "donor": "void-11-2-3",
+              "receiver": "gap-ISS3-0"
+            },
+            {
+              "channel": "escape-ISS3-6-+z",
+              "net_inward_j": 173.51611821451888,
+              "donor": "void-11-3-7",
+              "receiver": "gap-ISS3-6"
+            },
+            {
+              "channel": "escape-ISS3-7-+z",
+              "net_inward_j": 173.43324298247558,
+              "donor": "void-11-4-7",
+              "receiver": "gap-ISS3-7"
+            },
+            {
+              "channel": "escape-ISS3-0--z",
+              "net_inward_j": 173.14883597473,
+              "donor": "void-11-3-2",
+              "receiver": "gap-ISS3-0"
+            },
+            {
+              "channel": "escape-ISS3-1--z",
+              "net_inward_j": 173.09300642081428,
+              "donor": "void-11-4-2",
+              "receiver": "gap-ISS3-1"
+            },
+            {
+              "channel": "rupture-C1--x-0",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-0",
+              "receiver": "gap-ISS3-0"
+            },
+            {
+              "channel": "rupture-C1--x-1",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-3",
+              "receiver": "gap-ISS3-1"
+            },
+            {
+              "channel": "rupture-C1--x-2",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-6",
+              "receiver": "gap-ISS3-1"
+            },
+            {
+              "channel": "rupture-C1--x-3",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-9",
+              "receiver": "gap-ISS3-2"
+            },
+            {
+              "channel": "rupture-C1--x-4",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-12",
+              "receiver": "gap-ISS3-3"
+            },
+            {
+              "channel": "rupture-C1--x-5",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-15",
+              "receiver": "gap-ISS3-3"
+            },
+            {
+              "channel": "rupture-C1--x-6",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-18",
+              "receiver": "gap-ISS3-6"
+            },
+            {
+              "channel": "rupture-C1--x-7",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-21",
+              "receiver": "gap-ISS3-7"
+            },
+            {
+              "channel": "rupture-C1--x-8",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-24",
+              "receiver": "gap-ISS3-7"
+            }
+          ]
+        },
+        {
+          "channel": "102",
+          "cell": "C1",
+          "pad": "TIM3",
+          "face": "+x",
+          "gas_heat_to_casing_j": 2458.9087732502744,
+          "slit_heat_to_casing_j": 1719.7480395711734,
+          "gas_heat_to_pad_j": 11303.198200831226,
+          "slit_region": {
+            "net_transport_j": 11522.207756237662,
+            "r3_j": 4.221791018110821e-06,
+            "gas_energy_change_j": -3.7249061775451597,
+            "actual_heat_to_surfaces_j": 11525.932666636989,
+            "energy_closure_j": 9.094947017729282e-12
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-TIM3-5-+y",
+              "net_inward_j": 1174.1854787843015,
+              "donor": "void-13-5-5",
+              "receiver": "gap-TIM3-5"
+            },
+            {
+              "channel": "escape-TIM3-4--y",
+              "net_inward_j": 1174.1190875783059,
+              "donor": "void-13-2-5",
+              "receiver": "gap-TIM3-4"
+            },
+            {
+              "channel": "escape-TIM3-3-+y",
+              "net_inward_j": 1174.007347309355,
+              "donor": "void-13-5-4",
+              "receiver": "gap-TIM3-3"
+            },
+            {
+              "channel": "escape-TIM3-2--y",
+              "net_inward_j": 1173.8865089335673,
+              "donor": "void-13-2-4",
+              "receiver": "gap-TIM3-2"
+            },
+            {
+              "channel": "escape-TIM3-7-+y",
+              "net_inward_j": 928.4531274377715,
+              "donor": "void-13-5-6",
+              "receiver": "gap-TIM3-7"
+            },
+            {
+              "channel": "escape-TIM3-1-+y",
+              "net_inward_j": 928.4467392678612,
+              "donor": "void-13-5-3",
+              "receiver": "gap-TIM3-1"
+            },
+            {
+              "channel": "escape-TIM3-6--y",
+              "net_inward_j": 928.3424686321464,
+              "donor": "void-13-2-6",
+              "receiver": "gap-TIM3-6"
+            },
+            {
+              "channel": "escape-TIM3-0--y",
+              "net_inward_j": 928.3120081134128,
+              "donor": "void-13-2-3",
+              "receiver": "gap-TIM3-0"
+            },
+            {
+              "channel": "escape-TIM3-6-+z",
+              "net_inward_j": 778.1372647625705,
+              "donor": "void-13-3-7",
+              "receiver": "gap-TIM3-6"
+            },
+            {
+              "channel": "escape-TIM3-0--z",
+              "net_inward_j": 778.130919907127,
+              "donor": "void-13-3-2",
+              "receiver": "gap-TIM3-0"
+            },
+            {
+              "channel": "escape-TIM3-1--z",
+              "net_inward_j": 778.0683139317858,
+              "donor": "void-13-4-2",
+              "receiver": "gap-TIM3-1"
+            },
+            {
+              "channel": "escape-TIM3-7-+z",
+              "net_inward_j": 778.0587544754557,
+              "donor": "void-13-4-7",
+              "receiver": "gap-TIM3-7"
+            },
+            {
+              "channel": "rupture-C1-+x-0",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-2",
+              "receiver": "gap-TIM3-0"
+            },
+            {
+              "channel": "rupture-C1-+x-1",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-5",
+              "receiver": "gap-TIM3-1"
+            },
+            {
+              "channel": "rupture-C1-+x-2",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-8",
+              "receiver": "gap-TIM3-1"
+            },
+            {
+              "channel": "rupture-C1-+x-3",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-11",
+              "receiver": "gap-TIM3-2"
+            },
+            {
+              "channel": "rupture-C1-+x-4",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-14",
+              "receiver": "gap-TIM3-3"
+            },
+            {
+              "channel": "rupture-C1-+x-5",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-17",
+              "receiver": "gap-TIM3-3"
+            },
+            {
+              "channel": "rupture-C1-+x-6",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-20",
+              "receiver": "gap-TIM3-6"
+            },
+            {
+              "channel": "rupture-C1-+x-7",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-23",
+              "receiver": "gap-TIM3-7"
+            },
+            {
+              "channel": "rupture-C1-+x-8",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-26",
+              "receiver": "gap-TIM3-7"
+            }
+          ]
+        }
+      ],
+      "objects": {
+        "Al1": {
+          "net_gas_heat_j": 2696.269752157577,
+          "positive_step_gas_heat_j": 2723.6922375027884,
+          "negative_step_gas_heat_j": -27.422485345211783
+        },
+        "Al2": {
+          "net_gas_heat_j": 2498.161603523503,
+          "positive_step_gas_heat_j": 2575.908182378369,
+          "negative_step_gas_heat_j": -77.74657885486575
+        },
+        "Al3": {
+          "net_gas_heat_j": 3143.867888513207,
+          "positive_step_gas_heat_j": 3143.867888513207,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C1": {
+          "net_gas_heat_j": 0,
+          "positive_step_gas_heat_j": 0,
+          "negative_step_gas_heat_j": 0
+        },
+        "C1:case:+x": {
+          "net_gas_heat_j": 2458.9087732502744,
+          "positive_step_gas_heat_j": 2492.8353791668396,
+          "negative_step_gas_heat_j": -33.92660591656522
+        },
+        "C1:case:+y": {
+          "net_gas_heat_j": 542.5332816059829,
+          "positive_step_gas_heat_j": 542.5332816059829,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C1:case:+z": {
+          "net_gas_heat_j": 215.9132068932922,
+          "positive_step_gas_heat_j": 215.9132068932922,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C1:case:-x": {
+          "net_gas_heat_j": 3128.294495397655,
+          "positive_step_gas_heat_j": 3128.2944953976544,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C1:case:-y": {
+          "net_gas_heat_j": 542.3729603724609,
+          "positive_step_gas_heat_j": 542.3729603724609,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C1:case:-z": {
+          "net_gas_heat_j": 215.93453186739217,
+          "positive_step_gas_heat_j": 215.93453186739217,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C2": {
+          "net_gas_heat_j": 0,
+          "positive_step_gas_heat_j": 0,
+          "negative_step_gas_heat_j": 0
+        },
+        "C2:case:+x": {
+          "net_gas_heat_j": -3673.1353971576964,
+          "positive_step_gas_heat_j": 394.34928409287755,
+          "negative_step_gas_heat_j": -4067.484681250572
+        },
+        "C2:case:+y": {
+          "net_gas_heat_j": -642.3146052163956,
+          "positive_step_gas_heat_j": 17.778578037604632,
+          "negative_step_gas_heat_j": -660.0931832540001
+        },
+        "C2:case:+z": {
+          "net_gas_heat_j": -287.09203123541573,
+          "positive_step_gas_heat_j": 4.084961945343025,
+          "negative_step_gas_heat_j": -291.1769931807588
+        },
+        "C2:case:-x": {
+          "net_gas_heat_j": -3142.447722396439,
+          "positive_step_gas_heat_j": 338.17151971601766,
+          "negative_step_gas_heat_j": -3480.6192421124565
+        },
+        "C2:case:-y": {
+          "net_gas_heat_j": -645.5474396951919,
+          "positive_step_gas_heat_j": 17.31772854921337,
+          "negative_step_gas_heat_j": -662.8651682444053
+        },
+        "C2:case:-z": {
+          "net_gas_heat_j": -286.8312050030577,
+          "positive_step_gas_heat_j": 4.028585958468042,
+          "negative_step_gas_heat_j": -290.8597909615258
+        },
+        "C3": {
+          "net_gas_heat_j": 0,
+          "positive_step_gas_heat_j": 0,
+          "negative_step_gas_heat_j": 0
+        },
+        "C3:case:+x": {
+          "net_gas_heat_j": 2478.0290061898995,
+          "positive_step_gas_heat_j": 2513.423967413308,
+          "negative_step_gas_heat_j": -35.39496122340922
+        },
+        "C3:case:+y": {
+          "net_gas_heat_j": 532.4600368859269,
+          "positive_step_gas_heat_j": 532.4600368859269,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C3:case:+z": {
+          "net_gas_heat_j": 211.5626431862353,
+          "positive_step_gas_heat_j": 211.5626431862353,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C3:case:-x": {
+          "net_gas_heat_j": 2645.2704328787563,
+          "positive_step_gas_heat_j": 2645.2704328787563,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C3:case:-y": {
+          "net_gas_heat_j": 532.3462654970289,
+          "positive_step_gas_heat_j": 532.3462654970289,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C3:case:-z": {
+          "net_gas_heat_j": 211.5925030989352,
+          "positive_step_gas_heat_j": 211.5925030989352,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "ISS1": {
+          "net_gas_heat_j": 1579.2892945813333,
+          "positive_step_gas_heat_j": 1579.2892945813333,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "ISS2": {
+          "net_gas_heat_j": 974.07830942302,
+          "positive_step_gas_heat_j": 1186.3710125061339,
+          "negative_step_gas_heat_j": -212.2927030831134
+        },
+        "ISS3": {
+          "net_gas_heat_j": 123.07616582344049,
+          "positive_step_gas_heat_j": 725.5669371631813,
+          "negative_step_gas_heat_j": -602.4907713397423
+        },
+        "ISS4": {
+          "net_gas_heat_j": 1447.4658215391116,
+          "positive_step_gas_heat_j": 1447.4658215391116,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "TIM1": {
+          "net_gas_heat_j": 10684.274558539897,
+          "positive_step_gas_heat_j": 10727.7006987641,
+          "negative_step_gas_heat_j": -43.4261402242013
+        },
+        "TIM2": {
+          "net_gas_heat_j": 12622.594850802489,
+          "positive_step_gas_heat_j": 12647.511852063595,
+          "negative_step_gas_heat_j": -24.91700126110422
+        },
+        "TIM3": {
+          "net_gas_heat_j": 11303.198200831226,
+          "positive_step_gas_heat_j": 11303.198200831226,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "chamber-wall": {
+          "net_gas_heat_j": 127432.40686250127,
+          "positive_step_gas_heat_j": 127432.40686250127,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "steel-L": {
+          "net_gas_heat_j": 2077.927210249936,
+          "positive_step_gas_heat_j": 2077.927210249936,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "steel-R": {
+          "net_gas_heat_j": 2074.1924478911424,
+          "positive_step_gas_heat_j": 2074.1924478911424,
+          "negative_step_gas_heat_j": 0.0
+        }
+      }
+    },
+    {
+      "start_s": 900.0,
+      "end_s": 950.0,
+      "faces": [
+        {
+          "channel": "108",
+          "cell": "C3",
+          "pad": "ISS1",
+          "face": "-x",
+          "gas_heat_to_casing_j": 115.22708096701058,
+          "slit_heat_to_casing_j": 107.85512759669632,
+          "gas_heat_to_pad_j": 211.1312625861817,
+          "slit_region": {
+            "net_transport_j": 304.74708646223735,
+            "r3_j": 0.0,
+            "gas_energy_change_j": -0.43498810713432723,
+            "actual_heat_to_surfaces_j": 305.1820745693658,
+            "energy_closure_j": 7.275957614183426e-12
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-ISS1-3-+y",
+              "net_inward_j": 212.61063780737618,
+              "donor": "void-3-5-4",
+              "receiver": "gap-ISS1-3"
+            },
+            {
+              "channel": "escape-ISS1-2--y",
+              "net_inward_j": 175.4907104248407,
+              "donor": "void-3-2-4",
+              "receiver": "gap-ISS1-2"
+            },
+            {
+              "channel": "escape-ISS1-0--z",
+              "net_inward_j": -167.9279441557553,
+              "donor": "void-3-3-2",
+              "receiver": "gap-ISS1-0"
+            },
+            {
+              "channel": "escape-ISS1-6-+z",
+              "net_inward_j": -145.6325114231886,
+              "donor": "void-3-3-7",
+              "receiver": "gap-ISS1-6"
+            },
+            {
+              "channel": "escape-ISS1-1--z",
+              "net_inward_j": -117.23665768595356,
+              "donor": "void-3-4-2",
+              "receiver": "gap-ISS1-1"
+            },
+            {
+              "channel": "escape-ISS1-1-+y",
+              "net_inward_j": 103.88876875895585,
+              "donor": "void-3-5-3",
+              "receiver": "gap-ISS1-1"
+            },
+            {
+              "channel": "escape-ISS1-7-+z",
+              "net_inward_j": -94.29736550152325,
+              "donor": "void-3-4-7",
+              "receiver": "gap-ISS1-7"
+            },
+            {
+              "channel": "escape-ISS1-7-+y",
+              "net_inward_j": 81.45433292312055,
+              "donor": "void-3-5-6",
+              "receiver": "gap-ISS1-7"
+            },
+            {
+              "channel": "escape-ISS1-5-+y",
+              "net_inward_j": 76.6406835293642,
+              "donor": "void-3-5-5",
+              "receiver": "gap-ISS1-5"
+            },
+            {
+              "channel": "escape-ISS1-0--y",
+              "net_inward_j": 74.09147228431198,
+              "donor": "void-3-2-3",
+              "receiver": "gap-ISS1-0"
+            },
+            {
+              "channel": "escape-ISS1-6--y",
+              "net_inward_j": 54.48509418091044,
+              "donor": "void-3-2-6",
+              "receiver": "gap-ISS1-6"
+            },
+            {
+              "channel": "escape-ISS1-4--y",
+              "net_inward_j": 50.951852245622376,
+              "donor": "void-3-2-5",
+              "receiver": "gap-ISS1-4"
+            },
+            {
+              "channel": "rupture-C3--x-0",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-0",
+              "receiver": "gap-ISS1-0"
+            },
+            {
+              "channel": "rupture-C3--x-1",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-3",
+              "receiver": "gap-ISS1-1"
+            },
+            {
+              "channel": "rupture-C3--x-2",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-6",
+              "receiver": "gap-ISS1-1"
+            },
+            {
+              "channel": "rupture-C3--x-3",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-9",
+              "receiver": "gap-ISS1-2"
+            },
+            {
+              "channel": "rupture-C3--x-4",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-12",
+              "receiver": "gap-ISS1-3"
+            },
+            {
+              "channel": "rupture-C3--x-5",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-15",
+              "receiver": "gap-ISS1-3"
+            },
+            {
+              "channel": "rupture-C3--x-6",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-18",
+              "receiver": "gap-ISS1-6"
+            },
+            {
+              "channel": "rupture-C3--x-7",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-21",
+              "receiver": "gap-ISS1-7"
+            },
+            {
+              "channel": "rupture-C3--x-8",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-24",
+              "receiver": "gap-ISS1-7"
+            }
+          ]
+        },
+        {
+          "channel": "107",
+          "cell": "C3",
+          "pad": "TIM1",
+          "face": "+x",
+          "gas_heat_to_casing_j": 538.1243130771394,
+          "slit_heat_to_casing_j": 528.0695287838435,
+          "gas_heat_to_pad_j": -7607.4357091009215,
+          "slit_region": {
+            "net_transport_j": -4711.9405711022555,
+            "r3_j": 0.0,
+            "gas_energy_change_j": -0.28458172254219793,
+            "actual_heat_to_surfaces_j": -4711.655989379669,
+            "energy_closure_j": -4.3655745685100555e-11
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-TIM1-4--y",
+              "net_inward_j": -422.0443939253007,
+              "donor": "void-5-2-5",
+              "receiver": "gap-TIM1-4"
+            },
+            {
+              "channel": "escape-TIM1-5-+y",
+              "net_inward_j": -421.00183368043395,
+              "donor": "void-5-5-5",
+              "receiver": "gap-TIM1-5"
+            },
+            {
+              "channel": "escape-TIM1-2--y",
+              "net_inward_j": -416.6116802961958,
+              "donor": "void-5-2-4",
+              "receiver": "gap-TIM1-2"
+            },
+            {
+              "channel": "escape-TIM1-3-+y",
+              "net_inward_j": -416.2557838863497,
+              "donor": "void-5-5-4",
+              "receiver": "gap-TIM1-3"
+            },
+            {
+              "channel": "escape-TIM1-0--y",
+              "net_inward_j": -414.9848455734607,
+              "donor": "void-5-2-3",
+              "receiver": "gap-TIM1-0"
+            },
+            {
+              "channel": "escape-TIM1-1-+y",
+              "net_inward_j": -414.6381060118629,
+              "donor": "void-5-5-3",
+              "receiver": "gap-TIM1-1"
+            },
+            {
+              "channel": "escape-TIM1-6--y",
+              "net_inward_j": -407.4073848999801,
+              "donor": "void-5-2-6",
+              "receiver": "gap-TIM1-6"
+            },
+            {
+              "channel": "escape-TIM1-7-+y",
+              "net_inward_j": -406.85287572127754,
+              "donor": "void-5-5-6",
+              "receiver": "gap-TIM1-7"
+            },
+            {
+              "channel": "escape-TIM1-0--z",
+              "net_inward_j": -352.57105292539154,
+              "donor": "void-5-3-2",
+              "receiver": "gap-TIM1-0"
+            },
+            {
+              "channel": "escape-TIM1-1--z",
+              "net_inward_j": -350.9610235692203,
+              "donor": "void-5-4-2",
+              "receiver": "gap-TIM1-1"
+            },
+            {
+              "channel": "escape-TIM1-6-+z",
+              "net_inward_j": -345.41004835584704,
+              "donor": "void-5-3-7",
+              "receiver": "gap-TIM1-6"
+            },
+            {
+              "channel": "escape-TIM1-7-+z",
+              "net_inward_j": -343.3830525325261,
+              "donor": "void-5-4-7",
+              "receiver": "gap-TIM1-7"
+            },
+            {
+              "channel": "rupture-C3-+x-0",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-2",
+              "receiver": "gap-TIM1-0"
+            },
+            {
+              "channel": "rupture-C3-+x-1",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-5",
+              "receiver": "gap-TIM1-1"
+            },
+            {
+              "channel": "rupture-C3-+x-2",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-8",
+              "receiver": "gap-TIM1-1"
+            },
+            {
+              "channel": "rupture-C3-+x-3",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-11",
+              "receiver": "gap-TIM1-2"
+            },
+            {
+              "channel": "rupture-C3-+x-4",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-14",
+              "receiver": "gap-TIM1-3"
+            },
+            {
+              "channel": "rupture-C3-+x-5",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-17",
+              "receiver": "gap-TIM1-3"
+            },
+            {
+              "channel": "rupture-C3-+x-6",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-20",
+              "receiver": "gap-TIM1-6"
+            },
+            {
+              "channel": "rupture-C3-+x-7",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-23",
+              "receiver": "gap-TIM1-7"
+            },
+            {
+              "channel": "rupture-C3-+x-8",
+              "net_inward_j": 0.0,
+              "donor": "inside-C3-26",
+              "receiver": "gap-TIM1-7"
+            }
+          ]
+        },
+        {
+          "channel": "C2_ISS",
+          "cell": "C2",
+          "pad": "ISS2",
+          "face": "-x",
+          "gas_heat_to_casing_j": -17183.789312904148,
+          "slit_heat_to_casing_j": -11082.443393776435,
+          "gas_heat_to_pad_j": -880.9854617835489,
+          "slit_region": {
+            "net_transport_j": -10420.599686306778,
+            "r3_j": 0.0,
+            "gas_energy_change_j": -0.36769632723413925,
+            "actual_heat_to_surfaces_j": -10420.231989979562,
+            "energy_closure_j": 1.8189894035458565e-11
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-ISS2-3-+y",
+              "net_inward_j": -1399.136066207598,
+              "donor": "void-7-5-4",
+              "receiver": "gap-ISS2-3"
+            },
+            {
+              "channel": "escape-ISS2-2--y",
+              "net_inward_j": -1309.037353506419,
+              "donor": "void-7-2-4",
+              "receiver": "gap-ISS2-2"
+            },
+            {
+              "channel": "escape-ISS2-1-+y",
+              "net_inward_j": -1203.0628095089783,
+              "donor": "void-7-5-3",
+              "receiver": "gap-ISS2-1"
+            },
+            {
+              "channel": "escape-ISS2-5-+y",
+              "net_inward_j": -1182.2426592129796,
+              "donor": "void-7-5-5",
+              "receiver": "gap-ISS2-5"
+            },
+            {
+              "channel": "escape-ISS2-7-+y",
+              "net_inward_j": -1175.385971785244,
+              "donor": "void-7-5-6",
+              "receiver": "gap-ISS2-7"
+            },
+            {
+              "channel": "escape-ISS2-0--y",
+              "net_inward_j": -1129.2437464939364,
+              "donor": "void-7-2-3",
+              "receiver": "gap-ISS2-0"
+            },
+            {
+              "channel": "escape-ISS2-4--y",
+              "net_inward_j": -1120.7598597477868,
+              "donor": "void-7-2-5",
+              "receiver": "gap-ISS2-4"
+            },
+            {
+              "channel": "escape-ISS2-6--y",
+              "net_inward_j": -1102.529217594252,
+              "donor": "void-7-2-6",
+              "receiver": "gap-ISS2-6"
+            },
+            {
+              "channel": "escape-ISS2-1--z",
+              "net_inward_j": -1032.6205543996405,
+              "donor": "void-7-4-2",
+              "receiver": "gap-ISS2-1"
+            },
+            {
+              "channel": "escape-ISS2-7-+z",
+              "net_inward_j": -1002.995576058251,
+              "donor": "void-7-4-7",
+              "receiver": "gap-ISS2-7"
+            },
+            {
+              "channel": "escape-ISS2-0--z",
+              "net_inward_j": -968.9992141178832,
+              "donor": "void-7-3-2",
+              "receiver": "gap-ISS2-0"
+            },
+            {
+              "channel": "escape-ISS2-6-+z",
+              "net_inward_j": -942.1118088841675,
+              "donor": "void-7-3-7",
+              "receiver": "gap-ISS2-6"
+            },
+            {
+              "channel": "rupture-C2--x-4",
+              "net_inward_j": 492.0164493592431,
+              "donor": "inside-C2-12",
+              "receiver": "gap-ISS2-3"
+            },
+            {
+              "channel": "rupture-C2--x-7",
+              "net_inward_j": 430.2675706896521,
+              "donor": "inside-C2-21",
+              "receiver": "gap-ISS2-7"
+            },
+            {
+              "channel": "rupture-C2--x-1",
+              "net_inward_j": 392.0583590947317,
+              "donor": "inside-C2-3",
+              "receiver": "gap-ISS2-1"
+            },
+            {
+              "channel": "rupture-C2--x-6",
+              "net_inward_j": 352.548447043136,
+              "donor": "inside-C2-18",
+              "receiver": "gap-ISS2-6"
+            },
+            {
+              "channel": "rupture-C2--x-3",
+              "net_inward_j": 352.2082339633878,
+              "donor": "inside-C2-9",
+              "receiver": "gap-ISS2-2"
+            },
+            {
+              "channel": "rupture-C2--x-0",
+              "net_inward_j": 343.061017379482,
+              "donor": "inside-C2-0",
+              "receiver": "gap-ISS2-0"
+            },
+            {
+              "channel": "rupture-C2--x-5",
+              "net_inward_j": 276.19165336389665,
+              "donor": "inside-C2-15",
+              "receiver": "gap-ISS2-3"
+            },
+            {
+              "channel": "rupture-C2--x-2",
+              "net_inward_j": 256.53823104054857,
+              "donor": "inside-C2-6",
+              "receiver": "gap-ISS2-1"
+            },
+            {
+              "channel": "rupture-C2--x-8",
+              "net_inward_j": 252.5046570098766,
+              "donor": "inside-C2-24",
+              "receiver": "gap-ISS2-7"
+            }
+          ]
+        },
+        {
+          "channel": "C2_TIM",
+          "cell": "C2",
+          "pad": "TIM2",
+          "face": "+x",
+          "gas_heat_to_casing_j": -16944.255924583176,
+          "slit_heat_to_casing_j": -10748.519600833402,
+          "gas_heat_to_pad_j": -3663.5674255951217,
+          "slit_region": {
+            "net_transport_j": -11387.53777473722,
+            "r3_j": 0.0,
+            "gas_energy_change_j": -0.35148644747525426,
+            "actual_heat_to_surfaces_j": -11387.186288289731,
+            "energy_closure_j": -1.546140993013978e-11
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-TIM2-3-+y",
+              "net_inward_j": -1484.185513264863,
+              "donor": "void-9-5-4",
+              "receiver": "gap-TIM2-3"
+            },
+            {
+              "channel": "escape-TIM2-2--y",
+              "net_inward_j": -1408.6171383614778,
+              "donor": "void-9-2-4",
+              "receiver": "gap-TIM2-2"
+            },
+            {
+              "channel": "escape-TIM2-1-+y",
+              "net_inward_j": -1257.1741873207643,
+              "donor": "void-9-5-3",
+              "receiver": "gap-TIM2-1"
+            },
+            {
+              "channel": "escape-TIM2-5-+y",
+              "net_inward_j": -1241.6904756032,
+              "donor": "void-9-5-5",
+              "receiver": "gap-TIM2-5"
+            },
+            {
+              "channel": "escape-TIM2-7-+y",
+              "net_inward_j": -1239.2205049618728,
+              "donor": "void-9-5-6",
+              "receiver": "gap-TIM2-7"
+            },
+            {
+              "channel": "escape-TIM2-4--y",
+              "net_inward_j": -1188.9964262596893,
+              "donor": "void-9-2-5",
+              "receiver": "gap-TIM2-4"
+            },
+            {
+              "channel": "escape-TIM2-0--y",
+              "net_inward_j": -1178.7840074529468,
+              "donor": "void-9-2-3",
+              "receiver": "gap-TIM2-0"
+            },
+            {
+              "channel": "escape-TIM2-6--y",
+              "net_inward_j": -1153.7149311927851,
+              "donor": "void-9-2-6",
+              "receiver": "gap-TIM2-6"
+            },
+            {
+              "channel": "escape-TIM2-1--z",
+              "net_inward_j": -1076.2026525849224,
+              "donor": "void-9-4-2",
+              "receiver": "gap-TIM2-1"
+            },
+            {
+              "channel": "escape-TIM2-7-+z",
+              "net_inward_j": -1056.5996402094934,
+              "donor": "void-9-4-7",
+              "receiver": "gap-TIM2-7"
+            },
+            {
+              "channel": "escape-TIM2-0--z",
+              "net_inward_j": -1009.856259858175,
+              "donor": "void-9-3-2",
+              "receiver": "gap-TIM2-0"
+            },
+            {
+              "channel": "escape-TIM2-6-+z",
+              "net_inward_j": -985.0987405578213,
+              "donor": "void-9-3-7",
+              "receiver": "gap-TIM2-6"
+            },
+            {
+              "channel": "rupture-C2-+x-4",
+              "net_inward_j": 439.98747803009616,
+              "donor": "inside-C2-14",
+              "receiver": "gap-TIM2-3"
+            },
+            {
+              "channel": "rupture-C2-+x-7",
+              "net_inward_j": 403.6171097413512,
+              "donor": "inside-C2-23",
+              "receiver": "gap-TIM2-7"
+            },
+            {
+              "channel": "rupture-C2-+x-3",
+              "net_inward_j": 401.4287603263033,
+              "donor": "inside-C2-11",
+              "receiver": "gap-TIM2-2"
+            },
+            {
+              "channel": "rupture-C2-+x-1",
+              "net_inward_j": 355.5579309618237,
+              "donor": "inside-C2-5",
+              "receiver": "gap-TIM2-1"
+            },
+            {
+              "channel": "rupture-C2-+x-5",
+              "net_inward_j": 322.2657545833599,
+              "donor": "inside-C2-17",
+              "receiver": "gap-TIM2-3"
+            },
+            {
+              "channel": "rupture-C2-+x-6",
+              "net_inward_j": 293.5226140887115,
+              "donor": "inside-C2-20",
+              "receiver": "gap-TIM2-6"
+            },
+            {
+              "channel": "rupture-C2-+x-0",
+              "net_inward_j": 276.2669450743588,
+              "donor": "inside-C2-2",
+              "receiver": "gap-TIM2-0"
+            },
+            {
+              "channel": "rupture-C2-+x-8",
+              "net_inward_j": 207.688128331435,
+              "donor": "inside-C2-26",
+              "receiver": "gap-TIM2-7"
+            },
+            {
+              "channel": "rupture-C2-+x-2",
+              "net_inward_j": 192.13835252466095,
+              "donor": "inside-C2-8",
+              "receiver": "gap-TIM2-1"
+            }
+          ]
+        },
+        {
+          "channel": "101",
+          "cell": "C1",
+          "pad": "ISS3",
+          "face": "-x",
+          "gas_heat_to_casing_j": 299.457893994091,
+          "slit_heat_to_casing_j": 290.7553886693506,
+          "gas_heat_to_pad_j": -4093.082029629473,
+          "slit_region": {
+            "net_transport_j": -2557.8963762558415,
+            "r3_j": 0.0,
+            "gas_energy_change_j": -0.3576734956570571,
+            "actual_heat_to_surfaces_j": -2557.538702760181,
+            "energy_closure_j": -3.637978807091713e-12
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-ISS3-4--y",
+              "net_inward_j": -276.4794734923305,
+              "donor": "void-11-2-5",
+              "receiver": "gap-ISS3-4"
+            },
+            {
+              "channel": "escape-ISS3-5-+y",
+              "net_inward_j": -275.62495519958793,
+              "donor": "void-11-5-5",
+              "receiver": "gap-ISS3-5"
+            },
+            {
+              "channel": "escape-ISS3-2--y",
+              "net_inward_j": -272.23198561249717,
+              "donor": "void-11-2-4",
+              "receiver": "gap-ISS3-2"
+            },
+            {
+              "channel": "escape-ISS3-3-+y",
+              "net_inward_j": -270.38952062061094,
+              "donor": "void-11-5-4",
+              "receiver": "gap-ISS3-3"
+            },
+            {
+              "channel": "escape-ISS3-6--y",
+              "net_inward_j": -197.2097279128542,
+              "donor": "void-11-2-6",
+              "receiver": "gap-ISS3-6"
+            },
+            {
+              "channel": "escape-ISS3-0--y",
+              "net_inward_j": -197.13764933978098,
+              "donor": "void-11-2-3",
+              "receiver": "gap-ISS3-0"
+            },
+            {
+              "channel": "escape-ISS3-7-+y",
+              "net_inward_j": -196.39844422147678,
+              "donor": "void-11-5-6",
+              "receiver": "gap-ISS3-7"
+            },
+            {
+              "channel": "escape-ISS3-1-+y",
+              "net_inward_j": -196.3367604634526,
+              "donor": "void-11-5-3",
+              "receiver": "gap-ISS3-1"
+            },
+            {
+              "channel": "escape-ISS3-0--z",
+              "net_inward_j": -170.5866349852214,
+              "donor": "void-11-3-2",
+              "receiver": "gap-ISS3-0"
+            },
+            {
+              "channel": "escape-ISS3-6-+z",
+              "net_inward_j": -169.6613963393936,
+              "donor": "void-11-3-7",
+              "receiver": "gap-ISS3-6"
+            },
+            {
+              "channel": "escape-ISS3-1--z",
+              "net_inward_j": -168.59004140900674,
+              "donor": "void-11-4-2",
+              "receiver": "gap-ISS3-1"
+            },
+            {
+              "channel": "escape-ISS3-7-+z",
+              "net_inward_j": -167.44853928895463,
+              "donor": "void-11-4-7",
+              "receiver": "gap-ISS3-7"
+            },
+            {
+              "channel": "rupture-C1--x-0",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-0",
+              "receiver": "gap-ISS3-0"
+            },
+            {
+              "channel": "rupture-C1--x-1",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-3",
+              "receiver": "gap-ISS3-1"
+            },
+            {
+              "channel": "rupture-C1--x-2",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-6",
+              "receiver": "gap-ISS3-1"
+            },
+            {
+              "channel": "rupture-C1--x-3",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-9",
+              "receiver": "gap-ISS3-2"
+            },
+            {
+              "channel": "rupture-C1--x-4",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-12",
+              "receiver": "gap-ISS3-3"
+            },
+            {
+              "channel": "rupture-C1--x-5",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-15",
+              "receiver": "gap-ISS3-3"
+            },
+            {
+              "channel": "rupture-C1--x-6",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-18",
+              "receiver": "gap-ISS3-6"
+            },
+            {
+              "channel": "rupture-C1--x-7",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-21",
+              "receiver": "gap-ISS3-7"
+            },
+            {
+              "channel": "rupture-C1--x-8",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-24",
+              "receiver": "gap-ISS3-7"
+            }
+          ]
+        },
+        {
+          "channel": "102",
+          "cell": "C1",
+          "pad": "TIM3",
+          "face": "+x",
+          "gas_heat_to_casing_j": 190.3838612348199,
+          "slit_heat_to_casing_j": 180.11090595207338,
+          "gas_heat_to_pad_j": -2417.951144724102,
+          "slit_region": {
+            "net_transport_j": -1521.945341772087,
+            "r3_j": 0.0,
+            "gas_energy_change_j": -0.33363919506794937,
+            "actual_heat_to_surfaces_j": -1521.6117025770109,
+            "energy_closure_j": -7.275957614183426e-12
+          },
+          "boundary_energy_routes": [
+            {
+              "channel": "escape-TIM3-6--y",
+              "net_inward_j": -152.85172074224238,
+              "donor": "void-13-2-6",
+              "receiver": "gap-TIM3-6"
+            },
+            {
+              "channel": "escape-TIM3-7-+y",
+              "net_inward_j": -152.3460052694693,
+              "donor": "void-13-5-6",
+              "receiver": "gap-TIM3-7"
+            },
+            {
+              "channel": "escape-TIM3-0--y",
+              "net_inward_j": -152.06600548771758,
+              "donor": "void-13-2-3",
+              "receiver": "gap-TIM3-0"
+            },
+            {
+              "channel": "escape-TIM3-1-+y",
+              "net_inward_j": -151.46297421741542,
+              "donor": "void-13-5-3",
+              "receiver": "gap-TIM3-1"
+            },
+            {
+              "channel": "escape-TIM3-0--z",
+              "net_inward_j": -130.85430186202007,
+              "donor": "void-13-3-2",
+              "receiver": "gap-TIM3-0"
+            },
+            {
+              "channel": "escape-TIM3-6-+z",
+              "net_inward_j": -130.80006047348525,
+              "donor": "void-13-3-7",
+              "receiver": "gap-TIM3-6"
+            },
+            {
+              "channel": "escape-TIM3-1--z",
+              "net_inward_j": -129.84145808020207,
+              "donor": "void-13-4-2",
+              "receiver": "gap-TIM3-1"
+            },
+            {
+              "channel": "escape-TIM3-7-+z",
+              "net_inward_j": -129.80255049350922,
+              "donor": "void-13-4-7",
+              "receiver": "gap-TIM3-7"
+            },
+            {
+              "channel": "escape-TIM3-4--y",
+              "net_inward_j": -99.7481695329634,
+              "donor": "void-13-2-5",
+              "receiver": "gap-TIM3-4"
+            },
+            {
+              "channel": "escape-TIM3-5-+y",
+              "net_inward_j": -99.18221103276846,
+              "donor": "void-13-5-5",
+              "receiver": "gap-TIM3-5"
+            },
+            {
+              "channel": "escape-TIM3-2--y",
+              "net_inward_j": -96.91256569389452,
+              "donor": "void-13-2-4",
+              "receiver": "gap-TIM3-2"
+            },
+            {
+              "channel": "escape-TIM3-3-+y",
+              "net_inward_j": -96.28150712492743,
+              "donor": "void-13-5-4",
+              "receiver": "gap-TIM3-3"
+            },
+            {
+              "channel": "rupture-C1-+x-0",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-2",
+              "receiver": "gap-TIM3-0"
+            },
+            {
+              "channel": "rupture-C1-+x-1",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-5",
+              "receiver": "gap-TIM3-1"
+            },
+            {
+              "channel": "rupture-C1-+x-2",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-8",
+              "receiver": "gap-TIM3-1"
+            },
+            {
+              "channel": "rupture-C1-+x-3",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-11",
+              "receiver": "gap-TIM3-2"
+            },
+            {
+              "channel": "rupture-C1-+x-4",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-14",
+              "receiver": "gap-TIM3-3"
+            },
+            {
+              "channel": "rupture-C1-+x-5",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-17",
+              "receiver": "gap-TIM3-3"
+            },
+            {
+              "channel": "rupture-C1-+x-6",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-20",
+              "receiver": "gap-TIM3-6"
+            },
+            {
+              "channel": "rupture-C1-+x-7",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-23",
+              "receiver": "gap-TIM3-7"
+            },
+            {
+              "channel": "rupture-C1-+x-8",
+              "net_inward_j": 0.0,
+              "donor": "inside-C1-26",
+              "receiver": "gap-TIM3-7"
+            }
+          ]
+        }
+      ],
+      "objects": {
+        "Al1": {
+          "net_gas_heat_j": -4101.3288408487115,
+          "positive_step_gas_heat_j": 0.08567914250821218,
+          "negative_step_gas_heat_j": -4101.414519991218
+        },
+        "Al2": {
+          "net_gas_heat_j": -6158.10960228233,
+          "positive_step_gas_heat_j": 0.0,
+          "negative_step_gas_heat_j": -6158.109602282329
+        },
+        "Al3": {
+          "net_gas_heat_j": -933.1814188839354,
+          "positive_step_gas_heat_j": 2.651894008011489,
+          "negative_step_gas_heat_j": -935.833312891947
+        },
+        "C1": {
+          "net_gas_heat_j": 0,
+          "positive_step_gas_heat_j": 0,
+          "negative_step_gas_heat_j": 0
+        },
+        "C1:case:+x": {
+          "net_gas_heat_j": 190.3838612348199,
+          "positive_step_gas_heat_j": 190.38386123481934,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C1:case:+y": {
+          "net_gas_heat_j": 20.68797783665667,
+          "positive_step_gas_heat_j": 20.68797783665667,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C1:case:+z": {
+          "net_gas_heat_j": 9.242053911364565,
+          "positive_step_gas_heat_j": 9.242053911364565,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C1:case:-x": {
+          "net_gas_heat_j": 299.457893994091,
+          "positive_step_gas_heat_j": 299.4578939940912,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C1:case:-y": {
+          "net_gas_heat_j": 20.512137967563547,
+          "positive_step_gas_heat_j": 20.512137967563547,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C1:case:-z": {
+          "net_gas_heat_j": 9.294026110833471,
+          "positive_step_gas_heat_j": 9.294026110833471,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C2": {
+          "net_gas_heat_j": 0,
+          "positive_step_gas_heat_j": 0,
+          "negative_step_gas_heat_j": 0
+        },
+        "C2:case:+x": {
+          "net_gas_heat_j": -16944.255924583176,
+          "positive_step_gas_heat_j": 9.46301967073751,
+          "negative_step_gas_heat_j": -16953.718944253917
+        },
+        "C2:case:+y": {
+          "net_gas_heat_j": -4313.8481388843575,
+          "positive_step_gas_heat_j": 0.0,
+          "negative_step_gas_heat_j": -4313.848138884359
+        },
+        "C2:case:+z": {
+          "net_gas_heat_j": -1844.0772790316587,
+          "positive_step_gas_heat_j": 0.0,
+          "negative_step_gas_heat_j": -1844.0772790316591
+        },
+        "C2:case:-x": {
+          "net_gas_heat_j": -17183.789312904148,
+          "positive_step_gas_heat_j": 15.603890342129205,
+          "negative_step_gas_heat_j": -17199.39320324628
+        },
+        "C2:case:-y": {
+          "net_gas_heat_j": -4344.199971900765,
+          "positive_step_gas_heat_j": 0.0,
+          "negative_step_gas_heat_j": -4344.199971900762
+        },
+        "C2:case:-z": {
+          "net_gas_heat_j": -1843.6149428195135,
+          "positive_step_gas_heat_j": 0.0,
+          "negative_step_gas_heat_j": -1843.6149428195126
+        },
+        "C3": {
+          "net_gas_heat_j": 0,
+          "positive_step_gas_heat_j": 0,
+          "negative_step_gas_heat_j": 0
+        },
+        "C3:case:+x": {
+          "net_gas_heat_j": 538.1243130771394,
+          "positive_step_gas_heat_j": 538.1243130771396,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C3:case:+y": {
+          "net_gas_heat_j": 19.475650734821386,
+          "positive_step_gas_heat_j": 19.475650734821386,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C3:case:+z": {
+          "net_gas_heat_j": 8.747486613892931,
+          "positive_step_gas_heat_j": 8.747486613892931,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C3:case:-x": {
+          "net_gas_heat_j": 115.22708096701058,
+          "positive_step_gas_heat_j": 115.22708096701058,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C3:case:-y": {
+          "net_gas_heat_j": 19.324429465726837,
+          "positive_step_gas_heat_j": 19.324429465726837,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "C3:case:-z": {
+          "net_gas_heat_j": 8.8015409419138,
+          "positive_step_gas_heat_j": 8.8015409419138,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "ISS1": {
+          "net_gas_heat_j": 211.1312625861817,
+          "positive_step_gas_heat_j": 211.1312625861817,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "ISS2": {
+          "net_gas_heat_j": -880.9854617835489,
+          "positive_step_gas_heat_j": 739.1777127633707,
+          "negative_step_gas_heat_j": -1620.163174546922
+        },
+        "ISS3": {
+          "net_gas_heat_j": -4093.082029629473,
+          "positive_step_gas_heat_j": 0.0,
+          "negative_step_gas_heat_j": -4093.0820296294723
+        },
+        "ISS4": {
+          "net_gas_heat_j": 8.462552649338505,
+          "positive_step_gas_heat_j": 8.462552649338505,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "TIM1": {
+          "net_gas_heat_j": -7607.4357091009215,
+          "positive_step_gas_heat_j": 1.2545728338833726,
+          "negative_step_gas_heat_j": -7608.690281934819
+        },
+        "TIM2": {
+          "net_gas_heat_j": -3663.5674255951217,
+          "positive_step_gas_heat_j": 415.8217893014612,
+          "negative_step_gas_heat_j": -4079.3892148965924
+        },
+        "TIM3": {
+          "net_gas_heat_j": -2417.951144724102,
+          "positive_step_gas_heat_j": 13.543810976122444,
+          "negative_step_gas_heat_j": -2431.494955700226
+        },
+        "chamber-wall": {
+          "net_gas_heat_j": 115559.03531522371,
+          "positive_step_gas_heat_j": 115559.03531522371,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "steel-L": {
+          "net_gas_heat_j": 17.016213700783048,
+          "positive_step_gas_heat_j": 17.016213700783048,
+          "negative_step_gas_heat_j": 0.0
+        },
+        "steel-R": {
+          "net_gas_heat_j": 17.7887091178254,
+          "positive_step_gas_heat_j": 17.7887091178254,
+          "negative_step_gas_heat_j": 0.0
+        }
+      }
+    }
+  ],
+  "provenance": {
+    "status": "complete",
+    "source_trial": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/cooling-fit-20261021-r5/trial-000",
+    "native_sha256": "fc83abd7553e95c8a09474217c77564c3ae4c92b30cee7664f137d8a52c93f1a",
+    "physics_changes": [],
+    "observer_changes": [
+      "gas_film_trace=True",
+      "serialize all gas and channels"
+    ],
+    "end_s": 950.0,
+    "observation_schedule": "exact prefix of r5; no inserted observations",
+    "checkpoint": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/cooling-fit-20261021-r1/trial-000/sealed-state.bin",
+    "wall_s": 177.331197255,
+    "temperature_max_absolute_difference_k": 0.0,
+    "temperature_differences_k": {
+      "101": 0.0,
+      "102": 0.0,
+      "107": 0.0,
+      "108": 0.0,
+      "C2_ISS": 0.0,
+      "C2_TIM": 0.0,
+      "diagnostic-pad-101": 0.0,
+      "diagnostic-pad-102": 0.0,
+      "diagnostic-pad-107": 0.0,
+      "diagnostic-pad-108": 0.0,
+      "diagnostic-pad-C2_ISS": 0.0,
+      "diagnostic-pad-C2_TIM": 0.0
+    }
+  },
+  "region_closure_max_absolute_j": 4.3655745685100555e-11
+}

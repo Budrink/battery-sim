@@ -1,0 +1,78 @@
+{
+  "last_completed_observation_s": 3744.99999999995,
+  "common_comparison_until_s": 3744.99999999995,
+  "common_control_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 148.84030265955025,
+    "quantile_rmse_k": [
+      102.6789628994168,
+      73.07665136029775,
+      170.4017945372433,
+      209.03063126130314
+    ],
+    "tail_temperature_c": [
+      653.3670222016435,
+      755.691153907707,
+      864.2750712936523,
+      907.1283891666063
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "common_candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 599.5167544485016,
+    "quantile_rmse_k": [
+      530.5810247538806,
+      637.9204067650176,
+      621.3669638448388,
+      602.5991889340568
+    ],
+    "tail_temperature_c": [
+      34.98777541612856,
+      51.20235925314398,
+      80.36440837678612,
+      107.32070193405121
+    ],
+    "positive_rise_sum_k": [
+      0.07875406749514013,
+      0.2312674606116616,
+      0.0,
+      7.832682084425073
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 599.5167544485016,
+    "quantile_rmse_k": [
+      530.5810247538806,
+      637.9204067650176,
+      621.3669638448388,
+      602.5991889340568
+    ],
+    "tail_temperature_c": [
+      34.98777541612856,
+      51.20235925314398,
+      80.36440837678612,
+      107.32070193405121
+    ],
+    "positive_rise_sum_k": [
+      0.07875406749514013,
+      0.2312674606116616,
+      0.0,
+      7.832682084425073
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+  "common_cooling_rmse_change_k": 450.67645178895134,
+  "radiative_energy_out_j": 8006.434598819548
+}

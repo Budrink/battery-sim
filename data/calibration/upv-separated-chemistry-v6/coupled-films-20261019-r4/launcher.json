@@ -1,0 +1,25 @@
+{
+  "pid": 1488351,
+  "args": [
+    "/usr/bin/python3",
+    "-u",
+    "scripts/check_upv_phase_mixing.py",
+    "--base",
+    "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/spatial-gas-20261019-r1/combined/parameters.json",
+    "--output",
+    "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/coupled-films-20261019-r4",
+    "--cases",
+    "combined",
+    "--duration",
+    "925",
+    "--timeout",
+    "1900",
+    "--coupled-films",
+    "--reference",
+    "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/phase-mixing-20261019-r2/combined/trial-run.json.gz"
+  ],
+  "started_utc": "2026-10-19T14:11:13.217060+00:00",
+  "minimum_realtime": 0.5,
+  "coupled_transport_interval_s": 0.01,
+  "purpose": "Numerical conservative fresh-R2 timestep bound; physical parameters frozen"
+}

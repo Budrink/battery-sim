@@ -1,0 +1,89 @@
+{
+  "status": "stopped",
+  "pid": 1690491,
+  "native_sha256": "e7234238a1dcedad671ee39f3a120047432705a2341a7babdf69b439d6ca9e27",
+  "reference": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/five-channel-through-runaway-20261022-r2",
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "current_input": "measured",
+  "validation_used": false,
+  "max_slowdown": 5.0,
+  "records": [
+    {
+      "trial": "trial-000",
+      "parameters": {
+        "entry": 0.001,
+        "path": 1.0,
+        "opening_rate": 0.01,
+        "strength": 1.0,
+        "case_h": 4.0,
+        "resistance_charge_delta": -0.25,
+        "r2_rate": 2.0,
+        "bulk_metric": 1.0,
+        "damaged_span": 1.0,
+        "damaged_logit": 0.0,
+        "mobile_energy_fraction": 0.7,
+        "jet_fraction": 1.0
+      },
+      "fresh": true,
+      "accepted": false,
+      "status": "rejected",
+      "error": "Pruned: temperature critical zone 107: persistent error +73.0 K at 980.000 s"
+    },
+    {
+      "trial": "trial-001",
+      "parameters": {
+        "entry": 0.001,
+        "path": 1.0,
+        "opening_rate": 0.01,
+        "strength": 1.0,
+        "case_h": 4.0,
+        "resistance_charge_delta": -0.15,
+        "r2_rate": 1.5,
+        "bulk_metric": 1.0,
+        "damaged_span": 1.0,
+        "damaged_logit": 0.0,
+        "mobile_energy_fraction": 0.7,
+        "jet_fraction": 1.0
+      },
+      "fresh": true,
+      "accepted": false,
+      "status": "rejected",
+      "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256); t=850.502027, dt=0.038617; C2: R=0.147570, heat_J=6.941194, budget_J=6.940915"
+    }
+  ],
+  "best": null,
+  "accepted_calibration": false,
+  "points": [
+    {
+      "opening_rate": 0.01,
+      "case_h": 4.0,
+      "resistance_charge_delta": -0.25,
+      "r2_rate": 2.0
+    },
+    {
+      "opening_rate": 0.01,
+      "case_h": 4.0,
+      "resistance_charge_delta": -0.15,
+      "r2_rate": 1.5
+    },
+    {
+      "opening_rate": 0.01,
+      "case_h": 2.0,
+      "resistance_charge_delta": -0.15,
+      "r2_rate": 1.5
+    }
+  ]
+}

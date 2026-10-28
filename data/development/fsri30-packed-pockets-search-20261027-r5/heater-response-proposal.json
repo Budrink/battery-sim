@@ -1,0 +1,47 @@
+{
+  "training": [
+    {
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-packed-pockets-search-20261027-r3/heater-coarse-00/replay/incomplete-run.json.gz",
+      "sha256": "df57fe2d638c3d6a394e4ffa5be8bb1e50056b5c42e0d503805b2c30bb1d1a5d"
+    },
+    {
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-packed-pockets-search-20261027-r4/heater-coarse-00/replay/incomplete-run.json.gz",
+      "sha256": "2b9f4e02d9cde725eff9283328ac8ea9be814e60363ea94502222d59a19a24b5"
+    },
+    {
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-packed-pockets-search-20261027-r4/heater-coarse-01/replay/incomplete-run.json.gz",
+      "sha256": "4ef1fa003ecb8f5c0b90b4a7b78337affafdad348df06a2e979f9eba8686ffa7"
+    }
+  ],
+  "holdout": {
+    "path": "/home/konstantin/work/battery-sim/data/development/fsri30-packed-pockets-search-20261027-r5/heater-coarse-00/replay/incomplete-run.json.gz",
+    "sha256": "7009f16b256619fc8be5d9958547f7e846fd090b1c6e106671aa6688b69c474f",
+    "until_s": 289.9999999999969,
+    "rmse_k": 0.3192813363075848,
+    "final_error_k": 0.41491728731453037
+  },
+  "derivative_coefficients": [
+    [
+      0.0011162378223150715,
+      0.009695592304924939
+    ],
+    [
+      -0.004581559778498121,
+      -0.013980274598085329
+    ],
+    [
+      0.01695246064395839,
+      -0.0008295375346762703
+    ],
+    [
+      0.0024061470608245246,
+      0.00037365862186077275
+    ]
+  ],
+  "proposal": {
+    "gain": 0.21405515446686751,
+    "feedforward_w": 0.0,
+    "estimated_rmse_k": 4.436772073968018
+  },
+  "scope": "Short-prefix empirical proposal; long extrapolation not validated, CUDA confirmation required"
+}

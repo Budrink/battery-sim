@@ -25,7 +25,7 @@ __global__ void leading_shell_limit_kernel(int count,const DeviceShellPatch* pat
                 const double budget=model.max_fraction_per_step*fmax(0.,1.-strength*factor/dp)*
                     gas_pressure_mass_cap(c,gas,config,rows,model,solid,volumes,materials);
                 const double unloading=shell_feedback_dt(area,growth,flow,budget,0.);
-                const double slow=shell_slow_aperture_dt(area,growth,model.max_fraction_per_step);
+                const double slow=shell_slow_aperture_dt(area,growth,model.max_fraction_per_step,c.area);
                 limit=fmin(limit,fmax(unloading,slow));
             }
         }

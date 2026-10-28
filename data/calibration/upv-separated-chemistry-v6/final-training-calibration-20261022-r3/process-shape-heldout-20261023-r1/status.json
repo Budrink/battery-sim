@@ -1,0 +1,59 @@
+{
+  "status": "stopped",
+  "pid": 1739587,
+  "source": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/process-shape-fresh-20261023-r1/trial-000/scenario.json",
+  "source_scene_sha256": "2cbbe57fc9289b38302b958e82a381a62911b999a12b5c887463865a06ac5aed",
+  "native_sha256": "6cda01417eb1e30d088faa2c2c38bc1c0f5128ffbdfcd01d7a564b97915672c3",
+  "refitted": false,
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "requested_end_s": 1626.6089999116957,
+  "observed_event_s": 1413.2479998283088,
+  "initialization": "Fresh from measured initial state; never reuse training checkpoint",
+  "provenance": {
+    "frozen_scene_sha256": "2cbbe57fc9289b38302b958e82a381a62911b999a12b5c887463865a06ac5aed",
+    "frozen_training_source": "explicit scene; metadata defaults are not replay parameters",
+    "experiment": "active-cooling",
+    "experimental_sha256": "2efdccced6d5c2701bb9cd09572129621924692a2f93b9392c8a248d6e23cdfb",
+    "parameters_refitted": false,
+    "validation_used_for_selection": false,
+    "changes": [
+      "Measured initial temperatures/pressure and electrical protocol",
+      "13 mm Al cooling plate + existing 10 W/K water-side prior; 2000 W/(m2 K) Al/plate contacts",
+      "Gas topology rebuilt around occupied plate; blocked paths stay blocked"
+    ],
+    "limitations": [
+      "Cooling contact and water-side G are unmeasured priors",
+      "Condition holdout within the same experimental campaign, not blind independent validation"
+    ],
+    "new_objects_inheriting_material_profiles": [
+      "cooling-plate"
+    ],
+    "frozen_modified_void_faces": 36,
+    "removed_blocked_nonvoid_routes": 27,
+    "current_input_assumption": "Prescribed current; strict UI consistency required"
+  },
+  "observation_error_pruning": false,
+  "protocol_faithful": true,
+  "accepted_validation": false,
+  "max_slowdown": 5.0,
+  "known_until_s": 880.0,
+  "balances": {
+    "max_chemical_residual_j": 1.0390067473053932e-08,
+    "max_mass_residual_kg": 9.43689570931383e-15,
+    "max_oxidizer_residual_kg": 1.734723475976807e-16,
+    "max_thermal_residual_j": 6.129299379153963e-08
+  }
+}

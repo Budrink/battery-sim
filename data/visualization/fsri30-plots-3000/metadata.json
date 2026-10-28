@@ -1,0 +1,233 @@
+{
+  "recording_manifest": "/home/konstantin/work/battery-sim/data/visualization/fsri30-full-flow/manifest.json",
+  "recording_sha256": "81bc1cdf1071e0967d96202fe282d1f3783af08fc96b69d411a89cd53d3f686d",
+  "frames_sha256": "a863ebcdf954bd68eb699409a6560a0ff0bd9ec1fb69c0babac1d55a090f6bf5",
+  "scenario_sha256": "90697fc50e20f1eaa6c5670aee96d4c14ce8a7d7f7bd2073b3575ebc8d192103",
+  "experiment_csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "script_sha256": "0a008bfad3c96869c3650fb5bbfd181e0b7478bbc4a739fbd86d006cbb35f43f",
+  "horizon_s": [
+    0,
+    3000
+  ],
+  "smoothing": false,
+  "time_shift_s": 0,
+  "new_simulation": false,
+  "independent_validation": false,
+  "comparison": "9 TC versus 30 battery means; no individual sensor mapping",
+  "raw_median_peaks": {
+    "model": {
+      "time_s": 2581.050000000016,
+      "temperature_k": 1367.1700439453125
+    },
+    "experiment": {
+      "time_s": 2585.0,
+      "temperature_k": 1198.095
+    }
+  },
+  "model_event_definition": "native events; not measured explosion times",
+  "first_500_crossings": {
+    "model_median_500_s": 2565.0,
+    "experiment_median_500_s": 2141.0,
+    "tc_first_500_s": {
+      "T1": 2136.0,
+      "T2": 2138.0,
+      "T3": 2141.0,
+      "T4": 2141.0,
+      "T5": 1765.0,
+      "T6": 2570.0,
+      "T7": 2997.0,
+      "T8": 2868.0,
+      "T9": 2954.0
+    }
+  },
+  "events": {
+    "B00": {
+      "first_open_s": 1600.3999999999814,
+      "runaway_flag_s": 2502.5824393656717,
+      "spent_s": 2559.45615385727
+    },
+    "B01": {
+      "first_open_s": 1400.6999999999357,
+      "runaway_flag_s": 2464.299999999996,
+      "spent_s": 2525.736770828421
+    },
+    "B02": {
+      "first_open_s": 1208.4999999999923,
+      "runaway_flag_s": 1685.399999999986,
+      "spent_s": 2485.01
+    },
+    "B03": {
+      "first_open_s": 1209.5099999999914,
+      "runaway_flag_s": 1697.1999999999753,
+      "spent_s": 2497.2835687406637
+    },
+    "B04": {
+      "first_open_s": 1414.899999999991,
+      "runaway_flag_s": 2487.1099999999983,
+      "spent_s": 2540.3500000000076
+    },
+    "B05": {
+      "first_open_s": 1724.9999999999818,
+      "runaway_flag_s": 2517.8999999999974,
+      "spent_s": 2568.874680478645
+    },
+    "B06": {
+      "first_open_s": 1815.2999999999952,
+      "runaway_flag_s": 2546.985932163901,
+      "spent_s": 2575.650000000014
+    },
+    "B07": {
+      "first_open_s": 1537.3999999999933,
+      "runaway_flag_s": 2505.4253036334076,
+      "spent_s": 2564.8488222940873
+    },
+    "B08": {
+      "first_open_s": 1477.9099999999837,
+      "runaway_flag_s": 2478.78551203748,
+      "spent_s": 2547.4159321639104
+    },
+    "B09": {
+      "first_open_s": 1195.9999999999309,
+      "runaway_flag_s": 1542.7999999999975,
+      "spent_s": 2389.577856676873
+    },
+    "B10": {
+      "first_open_s": 411.50000000000034,
+      "runaway_flag_s": 692.6000000000006,
+      "spent_s": 1115.9955235833372
+    },
+    "B11": {
+      "first_open_s": 1197.9099999999291,
+      "runaway_flag_s": 1555.399999999986,
+      "spent_s": 2459.8224577612145
+    },
+    "B12": {
+      "first_open_s": 1525.9999999999582,
+      "runaway_flag_s": 2499.161973206265,
+      "spent_s": 2562.1013066131563
+    },
+    "B13": {
+      "first_open_s": 1902.099999999948,
+      "runaway_flag_s": 2547.4860328849477,
+      "spent_s": 2576.010000000022
+    },
+    "B14": {
+      "first_open_s": 1840.8999999999946,
+      "runaway_flag_s": 2550.7685341709603,
+      "spent_s": 2577.240000000049
+    },
+    "B15": {
+      "first_open_s": 1668.709999999942,
+      "runaway_flag_s": 2513.7805067120144,
+      "spent_s": 2568.9946804786478
+    },
+    "B16": {
+      "first_open_s": 1445.4999999999723,
+      "runaway_flag_s": 2484.4290397805794,
+      "spent_s": 2548.821590412099
+    },
+    "B17": {
+      "first_open_s": 1213.199999999997,
+      "runaway_flag_s": 1768.499999999965,
+      "spent_s": 2500.3900000000085
+    },
+    "B18": {
+      "first_open_s": 1213.9099999999964,
+      "runaway_flag_s": 1781.8999999999528,
+      "spent_s": 2508.1761523838095
+    },
+    "B19": {
+      "first_open_s": 1456.3999999999942,
+      "runaway_flag_s": 2498.1201308491386,
+      "spent_s": 2556.865450130285
+    },
+    "B20": {
+      "first_open_s": 1832.199999999989,
+      "runaway_flag_s": 2544.5256689826165,
+      "spent_s": 2575.130000000003
+    },
+    "B21": {
+      "first_open_s": 1961.1999999999853,
+      "runaway_flag_s": 2557.325450130295,
+      "spent_s": 2577.9500000000644
+    },
+    "B22": {
+      "first_open_s": 1666.2999999999442,
+      "runaway_flag_s": 2548.7215904120967,
+      "spent_s": 2579.053067667625
+    },
+    "B23": {
+      "first_open_s": 1704.2999999999688,
+      "runaway_flag_s": 2526.5367708284202,
+      "spent_s": 2571.900210102563
+    },
+    "B24": {
+      "first_open_s": 1566.1999999999762,
+      "runaway_flag_s": 2507.4370342278603,
+      "spent_s": 2566.574580641584
+    },
+    "B25": {
+      "first_open_s": 1477.2999999999843,
+      "runaway_flag_s": 2504.6148441551686,
+      "spent_s": 2562.821626600983
+    },
+    "B26": {
+      "first_open_s": 1577.699999999993,
+      "runaway_flag_s": 2511.4999999999986,
+      "spent_s": 2568.1946804786303
+    },
+    "B27": {
+      "first_open_s": 1809.4099999999278,
+      "runaway_flag_s": 2544.965668982626,
+      "spent_s": 2575.4800000000105
+    },
+    "B28": {
+      "first_open_s": 1940.099999999968,
+      "runaway_flag_s": 2556.825450130284,
+      "spent_s": 2579.053067667625
+    },
+    "B29": {
+      "first_open_s": 1807.2999999999297,
+      "runaway_flag_s": 2557.6758776447296,
+      "spent_s": 2580.7500000000164
+    }
+  },
+  "battery_display_order": [
+    "B10",
+    "B09",
+    "B11",
+    "B02",
+    "B03",
+    "B17",
+    "B18",
+    "B01",
+    "B04",
+    "B08",
+    "B16",
+    "B19",
+    "B00",
+    "B12",
+    "B25",
+    "B07",
+    "B24",
+    "B26",
+    "B05",
+    "B15",
+    "B23",
+    "B20",
+    "B27",
+    "B06",
+    "B13",
+    "B14",
+    "B21",
+    "B22",
+    "B28",
+    "B29"
+  ],
+  "products": [
+    "temperature-3000",
+    "early-cascade",
+    "burst-front",
+    "cascade-map"
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "name": "analytic ABS continuity",
+  "cells": [
+    {
+      "id": "ABS:a",
+      "role": "passive",
+      "material_id": "ABS",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.01,
+          0.02,
+          0.02
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 0.1,
+        "initial_temperature_k": 600.0,
+        "divisions": [
+          1,
+          1,
+          1
+        ],
+        "conductivity_w_per_m_k": [
+          0.18,
+          0.18,
+          0.18
+        ]
+      },
+      "runaway": {
+        "energy_j": 0.0,
+        "duration_s": 1.0
+      }
+    },
+    {
+      "id": "ABS:b",
+      "role": "passive",
+      "material_id": "ABS",
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.01,
+          0.02,
+          0.02
+        ]
+      },
+      "pose": {
+        "position_m": [
+          0.01,
+          0.0,
+          0.0
+        ]
+      },
+      "thermal": {
+        "heat_capacity_j_per_k": 0.1,
+        "initial_temperature_k": 300.0,
+        "divisions": [
+          1,
+          1,
+          1
+        ],
+        "conductivity_w_per_m_k": [
+          0.18,
+          0.18,
+          0.18
+        ]
+      },
+      "runaway": {
+        "energy_j": 0.0,
+        "duration_s": 1.0
+      }
+    }
+  ],
+  "ports": [
+    {
+      "id": "abs-seam:ABS:a--ABS:b:ABS:a",
+      "cell_id": "ABS:a",
+      "kind": "contact",
+      "surface": "+x",
+      "area_m2": 0.0004,
+      "rectangle_m": [
+        0.02,
+        0.02
+      ],
+      "centroid_m": [
+        0.005,
+        0.0,
+        0.0
+      ],
+      "normal": [
+        1,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "abs-seam:ABS:a--ABS:b:ABS:b",
+      "cell_id": "ABS:b",
+      "kind": "contact",
+      "surface": "-x",
+      "area_m2": 0.0004,
+      "rectangle_m": [
+        0.02,
+        0.02
+      ],
+      "centroid_m": [
+        0.005,
+        0.0,
+        0.0
+      ],
+      "normal": [
+        -1,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "interfaces": [
+    {
+      "id": "abs-seam:ABS:a--ABS:b",
+      "port_a": "abs-seam:ABS:a--ABS:b:ABS:a",
+      "port_b": "abs-seam:ABS:a--ABS:b:ABS:b",
+      "material_a": "ABS",
+      "material_b": "ABS",
+      "interface_material": "continuous-ABS",
+      "law": {
+        "kind": "directed_geometry",
+        "geometry_reference_logit": 0.0,
+        "background_conductance_w_per_k": 72.0,
+        "active_conductance_w_per_k": 14256.0,
+        "destroyed_background_conductance_w_per_k": 72.0,
+        "destroyed_active_conductance_w_per_k": 14256.0,
+        "endpoint_damage_weight": 0.0
+      }
+    }
+  ],
+  "boundaries": [],
+  "measurement_probes": [],
+  "observations": {},
+  "thermal_path_trace": true,
+  "simulation": {
+    "duration_s": 10.0,
+    "max_dt_s": 0.01,
+    "min_dt_s": 0.01,
+    "output_interval_s": 1.0,
+    "stability_factor": 0.25
+  },
+  "metadata": {
+    "abs_seam_continuity": {
+      "added": [
+        {
+          "interface": "abs-seam:ABS:a--ABS:b",
+          "objects": [
+            "ABS:a",
+            "ABS:b"
+          ],
+          "area_m2": 0.0004,
+          "normal_axis": 0,
+          "reference_material_conductance_w_k": 0.0072,
+          "contact_to_material_resistance_ratio": 1e-06
+        }
+      ],
+      "interpretation": "Continuous same-material casing; mechanical assembly quality not measured",
+      "material_and_chemistry_frozen": true,
+      "can_contacts_added": false,
+      "gas_geometry_changed": false,
+      "calibrated": false,
+      "validation_passed": false
+    }
+  }
+}

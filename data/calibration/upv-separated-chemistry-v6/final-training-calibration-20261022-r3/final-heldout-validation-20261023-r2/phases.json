@@ -1,0 +1,81 @@
+{
+  "event_s": 1413.2479998283088,
+  "known_interval_s": [
+    0.0,
+    1290.0
+  ],
+  "complete_record": false,
+  "phases": {
+    "pre_burst": {
+      "interval_s": [
+        0.0,
+        1290.0
+      ],
+      "complete": false,
+      "numerical_coverage_fraction": 1.0,
+      "channels": {
+        "101": {
+          "time_weighted_rmse_k": 3.9202270324294997,
+          "time_weighted_bias_k": -2.001327996596098,
+          "covered_s": 1290.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "102": {
+          "time_weighted_rmse_k": 0.8550384606208413,
+          "time_weighted_bias_k": 0.7595035494981318,
+          "covered_s": 1290.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "107": {
+          "time_weighted_rmse_k": 2.0438224829024354,
+          "time_weighted_bias_k": -0.9633947980548204,
+          "covered_s": 1290.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "108": {
+          "time_weighted_rmse_k": 1.0646627763186804,
+          "time_weighted_bias_k": -0.3873612075629363,
+          "covered_s": 1290.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "C2_TIM": {
+          "time_weighted_rmse_k": 3.036091824466162,
+          "time_weighted_bias_k": -1.224933674392327,
+          "covered_s": 1290.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": true
+        },
+        "C2_ISS": {
+          "time_weighted_rmse_k": 3.9970859508550696,
+          "time_weighted_bias_k": -1.648661309790474,
+          "covered_s": 1290.0,
+          "coverage_fraction": 1.0,
+          "used_for_calibration": false
+        }
+      }
+    }
+  },
+  "record_end_s": 14903.156999568455,
+  "requested_window_end_s": 1626.6089999116957,
+  "complete_requested_window": false,
+  "max_observation_gap_s": 5.0,
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "interpretation": "Cooling is the primary diagnostic. Burst RMSE is descriptive, not an exact peak target."
+}

@@ -37,7 +37,8 @@ class ReactionChainContract(unittest.TestCase):
 
     def test_obsolete_chemistry_is_rejected(self):
         law = self.scene["cells"][0]["conversion"]
-        for field in ("l0_m", "lcrit_m", "energy_scale_j_per_kg", "activation_rate_per_s", "absorption_j_per_kg"):
+        for field in ("l0_m", "lcrit_m", "energy_scale_j_per_kg", "activation_rate_per_s", "absorption_j_per_kg",
+                      "overcharge_conversion_per_charge", "precursor_yield_voltage_per_v", "precursor_voltage_ref_v"):
             obsolete = dict(law, **{field: 1.})
             self.assertTrue(list(self.validator("conversion").iter_errors(obsolete)))
 
@@ -66,7 +67,8 @@ class ReactionChainContract(unittest.TestCase):
             self.skipTest("Build CUDA reaction probe first")
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "obsolete.json"
-            for key in ("lcrit_m", "activation_rate_per_s", "absorption_j_per_kg"):
+            for key in ("lcrit_m", "activation_rate_per_s", "absorption_j_per_kg", "overcharge_conversion_per_charge",
+                        "precursor_yield_voltage_per_v", "precursor_voltage_ref_v"):
                 scene = copy.deepcopy(self.scene)
                 scene["cells"][0]["conversion"][key] = 1.
                 path.write_text(json.dumps(scene))

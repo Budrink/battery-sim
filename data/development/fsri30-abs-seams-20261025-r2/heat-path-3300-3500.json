@@ -1,0 +1,79 @@
+{
+  "start_s": 3299.9999999999955,
+  "end_s": 3499.999999999918,
+  "panels": {
+    "ABS:-x": {
+      "gas_inside_to_wall_j": 2870.0956519234255,
+      "wall_to_external_gas_j": 1936.644590214886,
+      "stored_energy_change_j": 1088.5621139323425,
+      "gas_inside_to_wall_w": 14.350478259622674,
+      "wall_to_external_gas_w": 9.683222951078173,
+      "stored_energy_change_w": 5.442810569663816
+    },
+    "ABS:-z": {
+      "gas_inside_to_wall_j": 3427.661447888856,
+      "wall_to_external_gas_j": 1386.0671986583113,
+      "stored_energy_change_j": 2037.978446132534,
+      "gas_inside_to_wall_w": 17.138307239450903,
+      "wall_to_external_gas_w": 6.930335993294236,
+      "stored_energy_change_w": 10.189892230666608
+    },
+    "ABS:+z": {
+      "gas_inside_to_wall_j": 2661.432612931026,
+      "wall_to_external_gas_j": 2231.1770067554,
+      "stored_energy_change_j": 170.3803138775806,
+      "gas_inside_to_wall_w": 13.307163064660275,
+      "wall_to_external_gas_w": 11.155885033781312,
+      "stored_energy_change_w": 0.8519015693882322
+    },
+    "ABS:+y": {
+      "gas_inside_to_wall_j": 1635.7050622043841,
+      "wall_to_external_gas_j": 1142.3389538255997,
+      "stored_energy_change_j": 468.1116056792537,
+      "gas_inside_to_wall_w": 8.178525311025082,
+      "wall_to_external_gas_w": 5.711694769130206,
+      "stored_energy_change_w": 2.340558028397173
+    },
+    "ABS:-y": {
+      "gas_inside_to_wall_j": 1525.1841288576493,
+      "wall_to_external_gas_j": 1160.5851518090703,
+      "stored_energy_change_j": 335.6244003156984,
+      "gas_inside_to_wall_w": 7.625920644291194,
+      "wall_to_external_gas_w": 5.802925759047595,
+      "stored_energy_change_w": 1.6781220015791405
+    },
+    "ABS:+x": {
+      "gas_inside_to_wall_j": 3126.6280827303485,
+      "wall_to_external_gas_j": 2002.8241193038375,
+      "stored_energy_change_j": 1286.4130860311675,
+      "gas_inside_to_wall_w": 15.633140413657785,
+      "wall_to_external_gas_w": 10.014120596523059,
+      "stored_energy_change_w": 6.432065430158324
+    }
+  },
+  "total_power_w": {
+    "gas_inside_to_wall": 76.23353493270791,
+    "wall_to_external_gas": 49.29818510285458,
+    "stored_energy_change": 26.93534982985329
+  },
+  "abs_union_energy_closure_j": -9.094947017729282e-12,
+  "closure_accepted": true,
+  "ambient_export_w": 48.64579742576712,
+  "r3_power_w": 0.04728724966758827,
+  "outside_surface": {
+    "time_s": 3499.999999999918,
+    "conductance_w_per_k": 0.5376646537449169,
+    "instantaneous_wall_to_gas_w": 49.66125215401646,
+    "conductance_weighted_gas_temperature_k": 802.0279885995382,
+    "conductance_weighted_wall_temperature_k": 894.3927215387749,
+    "film_resistance_k_per_w": 1.859895369790159,
+    "apparent_wall_to_298K_resistance_k_per_w": 12.006195890704149,
+    "diagnostic_gas_precision": "float32",
+    "scope": "Observed ordinary exterior ABS gas films only"
+  },
+  "run_sha256": "78c78f1af099758f523136471e492598d288dd49efb946b17e133f0bae4b55c5",
+  "last_observed_s": 4089.9999999999045,
+  "trajectory_complete": false,
+  "calibrated": false,
+  "validation_passed": false
+}

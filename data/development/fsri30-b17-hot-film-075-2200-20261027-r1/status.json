@@ -1,0 +1,35 @@
+{
+  "status": "pruned",
+  "stage": "conditioned-hot-film",
+  "checkpoint_sha": "97623cea1d814ae781da33cc5e5a4035736f01612b664ba2f4c6168bfe116d74",
+  "core_sha": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "response_multiplier": 0.75,
+  "end_s": 2200.0,
+  "reject_pulse_before_s": 2034.0,
+  "progress": {
+    "time_s": 2040.0,
+    "wall_s": 400.78693783,
+    "pulses": [
+      {
+        "channel": "B17",
+        "time_s": 2027.0,
+        "rise_k": 377.3122702985883,
+        "slope_k_s": 59.04549776755027
+      },
+      {
+        "channel": "B18",
+        "time_s": 2027.0,
+        "rise_k": 363.2086711297462,
+        "slope_k_s": 55.61722197599266
+      }
+    ],
+    "temperatures_c": {
+      "B10": 684.5866551948766,
+      "B17": 536.1716609738179,
+      "B18": 532.952815833545
+    },
+    "max_thermal_residual_j": 2.5713234208524227e-07,
+    "max_mass_residual_kg": 4.973799150320701e-14
+  },
+  "reason": "Pruned: Secondary thermal impulse is more than 100 s early vs 2134 s experimental group"
+}

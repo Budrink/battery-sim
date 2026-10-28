@@ -1,0 +1,116 @@
+{
+  "label": "trial-002",
+  "parameters": {
+    "gas_yield_scale": 0.6,
+    "casing_damage_metric": 4.0,
+    "warm_mixing_scale": 10.0,
+    "warm_surface_scale": 10.0,
+    "gas_transport_response_scale": 30.0
+  },
+  "conditional_restart": true,
+  "origin": "free-gas-response",
+  "axis": "gas_transport_response_scale",
+  "status": "rejected",
+  "reason": "Pruned: sharpness: 108 peak timing outside 3 s",
+  "objective": 0.037501561508141136,
+  "complete": false,
+  "accepted": false,
+  "known_until_s": 908.4469999652356,
+  "requested_end_s": 1500.0,
+  "channels": {
+    "101": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "102": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "107": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "108": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "C2_TIM": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 10.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "C2_ISS": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 10.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    }
+  },
+  "front": {
+    "accepted": false,
+    "reasons": [
+      "108 peak timing outside 3 s"
+    ],
+    "features": {
+      "pressure": {
+        "predicted": {
+          "amplitude": 9.273806968574554,
+          "peak": 10.353521247448569,
+          "peak_s": 890.0,
+          "width_10_90_s": 0.3993025589716126,
+          "t10_s": 889.5507846211569,
+          "t90_s": 889.9500871801285
+        },
+        "observed": {
+          "amplitude": 6.918135925,
+          "peak": 7.9827295,
+          "peak_s": 887.1099998010322,
+          "width_10_90_s": 0.6074412754780951,
+          "t10_s": 886.4458528026089,
+          "t90_s": 887.053294078087
+        },
+        "maximum_width_s": 2.0
+      },
+      "108": {
+        "predicted": {
+          "amplitude": 1008.557570426553,
+          "peak": 1317.5204982706246,
+          "peak_s": 890.956000238657,
+          "width_10_90_s": 0.4259810020120085,
+          "t10_s": 890.0177143445917,
+          "t90_s": 890.4436953466037
+        },
+        "observed": {
+          "amplitude": 1207.6619999999998,
+          "peak": 1520.2199999999998,
+          "peak_s": 887.6680000685155,
+          "width_10_90_s": 0.8174814393090628,
+          "t10_s": 886.7221442328051,
+          "t90_s": 887.5396256721142
+        },
+        "maximum_width_s": 2.0
+      }
+    }
+  },
+  "pressure_rmse_bar": null,
+  "balance": {
+    "max_thermal_residual_j": 1.0317307896912098e-07,
+    "max_chemical_residual_j": 9.40344762057066e-08,
+    "max_mass_residual_kg": 4.551914400963142e-14
+  }
+}

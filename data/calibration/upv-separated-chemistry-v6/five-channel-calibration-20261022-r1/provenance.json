@@ -1,0 +1,25 @@
+{
+  "source": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/gas-route-refinement-20261022-r1/trial-001/scenario.json",
+  "source_sha256": "162c22151ce87ea7b071900e355e06dd434efa0bc022b3a9adea9f0d5252a7b0",
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "common_tim_fraction": 0.001,
+  "chemistry_frozen": true,
+  "materials_frozen": true,
+  "source_exhaust": 3.0,
+  "iss3_accessible_fraction": 0.0135,
+  "open_iss_pad_wetted_fraction": 0.25,
+  "accepted_calibration": false
+}

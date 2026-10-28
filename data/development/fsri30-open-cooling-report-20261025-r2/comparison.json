@@ -1,0 +1,141 @@
+{
+  "results": [
+    {
+      "label": "Closed, archived core",
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-full20-10-20261025-r1/checks/h-20mm/replay/run.json.gz",
+      "sha256": "edddb3c7309fa646ed47d258586376ebcc6a00628f8c817b3de539176bbec5f6",
+      "cooling": {
+        "complete": true,
+        "envelope_rmse_k": 544.3363254709217,
+        "quantile_rmse_k": [
+          767.0500765035978,
+          452.3466689358427,
+          439.81689540708226,
+          445.85413608229373
+        ],
+        "tail_temperature_c": [
+          1005.7897083520483,
+          1044.729027619659,
+          1083.5106916117384,
+          1096.1749208204242
+        ],
+        "positive_rise_sum_k": [
+          123.37926331070298,
+          125.77579563565473,
+          145.71857827416648,
+          153.88085250009613
+        ],
+        "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+      },
+      "known_until_s": 5945.0,
+      "eligible_for_full_horizon_selection": true
+    },
+    {
+      "label": "Open; module vent area x1",
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-open-boundary-20261025-r2/open-0.01m3s/replay/run.json.gz",
+      "sha256": "e652bd5dc3754dcf1f70e1685da756fd21f5f614c0ec5ec9c562f59f70ce61a6",
+      "cooling": {
+        "complete": true,
+        "envelope_rmse_k": 284.70646932830806,
+        "quantile_rmse_k": [
+          434.55191271171077,
+          180.56799002847427,
+          213.0445277791295,
+          239.58914839491644
+        ],
+        "tail_temperature_c": [
+          572.5422428292774,
+          669.3342918995479,
+          746.7291242128576,
+          766.5636137303142
+        ],
+        "positive_rise_sum_k": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+      },
+      "known_until_s": 5945.0,
+      "eligible_for_full_horizon_selection": true,
+      "module_vent_areas_m2": [
+        1.5494313788057896e-05,
+        1.5494313788057896e-05
+      ],
+      "boundary": {
+        "renewal_m3_s": 0.01,
+        "outer_area_m2": 6.005821819995422,
+        "boundary_nodes": 762,
+        "pressure_open": true,
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9679666/",
+        "facility_exhaust_m3_s": 7.0,
+        "local_flow_measured": false,
+        "scope": "Apparatus-boundary diagnostic; chemistry, materials, contacts and 20 mm mesh frozen"
+      },
+      "wall_s": 3345.876134769,
+      "realtime_ratio": 1.7768141319464725,
+      "balances": {
+        "max_chemical_residual_j": 2.2025778889656067e-07,
+        "max_mass_residual_kg": 5.950795411990839e-14,
+        "max_oxidizer_residual_kg": 1.8368639942423215e-13,
+        "max_thermal_residual_j": 1.7613638192415237e-06
+      }
+    },
+    {
+      "label": "Open; module vent area x4 [PREFIX to 4680 s]",
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-open-apertures-20261025-r2/check/open-0.01m3s/replay/incomplete-run.json.gz",
+      "sha256": "1c85433bddf33e1bcff239ce2ae0d7079a3408b48761a976b418e24d8895c415",
+      "cooling": {
+        "complete": false,
+        "envelope_rmse_k": 250.98028773064658,
+        "quantile_rmse_k": [
+          377.03007077792097,
+          133.49063963014478,
+          197.0440357950222,
+          230.57892821195372
+        ],
+        "tail_temperature_c": [
+          625.1019778278205,
+          722.2284520209961,
+          791.8870522941392,
+          835.7449268428724
+        ],
+        "positive_rise_sum_k": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+      },
+      "known_until_s": 4680.0,
+      "eligible_for_full_horizon_selection": false,
+      "module_vent_areas_m2": [
+        6.197725515223158e-05,
+        6.197725515223158e-05
+      ],
+      "boundary": {
+        "renewal_m3_s": 0.01,
+        "outer_area_m2": 6.005821819995422,
+        "boundary_nodes": 762,
+        "pressure_open": true,
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9679666/",
+        "facility_exhaust_m3_s": 7.0,
+        "local_flow_measured": false,
+        "scope": "Apparatus-boundary diagnostic; chemistry, materials, contacts and 20 mm mesh frozen"
+      },
+      "wall_s": 2723.675973701,
+      "realtime_ratio": 1.7183027809437117,
+      "balances": {
+        "max_chemical_residual_j": 2.1886080503463745e-07,
+        "max_mass_residual_kg": 6.039613253960852e-14,
+        "max_oxidizer_residual_kg": 1.2995160503237457e-13,
+        "max_thermal_residual_j": 1.3492535799741745e-06
+      }
+    }
+  ],
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Boundary sensitivity; exploratory envelopes only. Prefixes end at their actual observations and are not full-horizon candidates."
+}

@@ -1,0 +1,170 @@
+{
+  "status": "stopped",
+  "pid": 2165312,
+  "stage": "cascade-check",
+  "trials": [
+    {
+      "gain": 0.19767037747050903,
+      "status": "complete",
+      "reason": null,
+      "metrics": {
+        "rmse_k": 2.9533066203477425,
+        "max_abs_k": 6.4476934013526375,
+        "final_error_k": 4.101368551897622,
+        "final_time_s": 1499.9999999999864,
+        "final_mean_c": 145.36836855189767,
+        "final_t5_c": 141.26700000000005
+      },
+      "last_observed_s": 1499.9999999999864,
+      "checkpoint": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact1-gas4-mix2-20261027-r2/heater-00/committed-1500.bin",
+      "checkpoint_sha256": "82094b56046cb5e82194a43d3848f7e3b2a8baaaa1ba33c14f15312e499bd9a7",
+      "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact1-gas4-mix2-20261027-r2/heater-00/replay/run.json.gz"
+    }
+  ],
+  "source_sha256": "b7c30b4e46ff84fd84da5c455fa6673eb18c380ef2d2a5c12fc5df2b71885280",
+  "core_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "experiment_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "sensor_face": "+x",
+  "sensor_mapping_confirmed": false,
+  "feedforward_w": 0.0,
+  "max_power_w": 30.0,
+  "r2_scale_vs_40mm": 1.0,
+  "initial_gain": 0.19767037747050903,
+  "early_primary_allowed": true,
+  "fixed": "geometry, materials, contacts, other chemistry, heater ramp and maximum power",
+  "calibrated": false,
+  "validation_passed": false,
+  "active_trial": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact1-gas4-mix2-20261027-r2/heater-00",
+  "gain": 0.19767037747050903,
+  "progress": {
+    "time_s": 2289.999999999909,
+    "wall_s": 520.968127105,
+    "assessment": {
+      "evaluated": true,
+      "accepted": false,
+      "phase_window_complete": false,
+      "last_observed_s": 2289.999999999909,
+      "reason": "Primary thermal-front timing error: model 1543s versus data 1763s; Missing thermal pulse wave(s) at 1763s within 100s timing error limit; Missing first hot arrival wave(s) at 1765, 2136s within 100s timing error limit",
+      "constraint": 3.0,
+      "primary_offset_s": -220.0,
+      "timing_error_s": 220.0,
+      "timing_target_met": false,
+      "pulse_match": {
+        "due": 1,
+        "matched": 0,
+        "missing": [
+          {
+            "reference_time_s": 1763.0,
+            "channels": [
+              "T2",
+              "T5"
+            ],
+            "nearest_any_model_group_s": 220.0
+          }
+        ],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "arrival_match": {
+        "due": 2,
+        "matched": 0,
+        "missing": [
+          {
+            "reference_time_s": 1765.0,
+            "channels": [
+              "T5"
+            ],
+            "nearest_any_model_group_s": 223.0
+          },
+          {
+            "reference_time_s": 2136.0,
+            "channels": [
+              "T1",
+              "T2",
+              "T3",
+              "T4"
+            ],
+            "nearest_any_model_group_s": 594.0
+          }
+        ],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "model": {
+        "pulses": [
+          {
+            "channel": "B10",
+            "time_s": 1543.0,
+            "rise_k": 949.7457437044889,
+            "slope_k_s": 217.81978316625253
+          }
+        ],
+        "arrivals": [
+          {
+            "channel": "B10",
+            "time_s": 1542.0
+          }
+        ],
+        "pulse_groups": [
+          {
+            "time_s": 1543.0,
+            "end_s": 1543.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1543.0,
+                "rise_k": 949.7457437044889,
+                "slope_k_s": 217.81978316625253
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ],
+        "arrival_groups": [
+          {
+            "time_s": 1542.0,
+            "end_s": 1542.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1542.0
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ]
+      },
+      "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+      "necessary_not_sufficient": true,
+      "objective": null
+    },
+    "physical_error": null,
+    "temperature_rejection": null,
+    "secondary_events": []
+  },
+  "best": {
+    "gain": 0.19767037747050903,
+    "status": "complete",
+    "reason": null,
+    "metrics": {
+      "rmse_k": 2.9533066203477425,
+      "max_abs_k": 6.4476934013526375,
+      "final_error_k": 4.101368551897622,
+      "final_time_s": 1499.9999999999864,
+      "final_mean_c": 145.36836855189767,
+      "final_t5_c": 141.26700000000005
+    },
+    "last_observed_s": 1499.9999999999864,
+    "checkpoint": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact1-gas4-mix2-20261027-r2/heater-00/committed-1500.bin",
+    "checkpoint_sha256": "82094b56046cb5e82194a43d3848f7e3b2a8baaaa1ba33c14f15312e499bd9a7",
+    "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact1-gas4-mix2-20261027-r2/heater-00/replay/run.json.gz"
+  },
+  "restart_from_warmup": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact1-gas4-mix2-20261027-r2/heater-00/committed-1500.bin",
+  "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact1-gas4-mix2-20261027-r2/heater-00/replay/run.json.gz"
+}

@@ -8,3 +8,21 @@ dist/
 results/
 imgui.ini
 data/experiments/
+
+# Generated simulation payloads stay local; retain scenarios, fitted parameters,
+# summaries and provenance JSON in Git. Existing tracked evidence is unchanged.
+/data/**/*.bin
+/data/**/*.json.gz
+/data/**/*.tar.gz
+/data/**/*.zip
+/data/**/*.npz
+/data/**/*.a
+/data/**/*.log
+/data/**/*.lock
+/data/**/*.png
+/data/**/*.svg
+/data/**/*.pdf
+/data/**/live.json
+/data/**/snapshot-*.json
+/data/**/native-probe
+/data/**/reference-probe

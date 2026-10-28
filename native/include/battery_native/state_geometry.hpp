@@ -1,6 +1,7 @@
 #pragma once
 #include "battery_native/model.hpp"
 #include "battery_native/constitutive.hpp"
+#include "battery_native/radiation.hpp"
 #include <cmath>
 
 #ifdef __CUDACC__
@@ -10,6 +11,17 @@
 #endif
 
 namespace battery {
+// Shared reference normalization for bulk, boundaries and gas surfaces.
+// S=0 gives Gref. An unspecified destruction law does not invent a conductivity
+// collapse: retain the same reference range until a material law supplies one.
+BATTERY_GEOMETRY_HD inline ConnectivityLaw reference_directed_connectivity(double reference_g) {
+    ConnectivityLaw law;law.kind=TransitionKind::DirectedGeometry;
+    law.background_conductance_w_per_k=.01*reference_g;
+    law.active_conductance_w_per_k=1.98*reference_g;
+    law.destroyed_background_conductance_w_per_k=law.background_conductance_w_per_k;
+    law.destroyed_active_conductance_w_per_k=law.active_conductance_w_per_k;
+    law.endpoint_damage_weight=1.;return law;
+}
 BATTERY_GEOMETRY_HD inline double geometry_component(Vec3 v,int axis) {
     return axis==0?v.x:axis==1?v.y:v.z;
 }
@@ -60,7 +72,18 @@ BATTERY_GEOMETRY_HD inline double directed_log_response(const SurfaceConnectivit
 // Each call advances the ONE physical contact damage history at most once. Pass
 // dt=0 for observations. One selected flux is debited/credited by the GPU gather.
 BATTERY_GEOMETRY_HD inline InterfaceState evaluate_directed_geometry(const ConnectivityLaw& l,InterfaceState s,
-    int axis,double ta,double tb,double da,double db,double dt,double weight,double series_r,double scale=1.,int direction=0,double destroyed_multiplier=1.) {
+    int axis,double ta,double tb,double da,double db,double dt,double weight,double series_r,double scale=1.,int direction=0,double destroyed_multiplier=1.,double radiative_resistance_a=-1.) {
+    if(l.radiation_coefficient_w_per_k4>0.) {
+        // Boundary endpoint a is the finite solid, b the environment. This is
+        // not an extra heat step or a temperature clamp: GPU gather still
+        // debits the single edge flux and credits the boundary energy ledger.
+        const double b=l.radiation_coefficient_w_per_k4*weight*scale;
+        s.conductance_w_per_k=radiative_resistance_a>=0.?
+            radiative_pair_conductance(b,ta,tb,radiative_resistance_a,
+                fmax(0.,series_r-radiative_resistance_a),l.radiation_temperature_limit_k):
+            radiative_conductance(b,ta,tb,series_r,l.radiation_temperature_limit_k);
+        return s;
+    }
     s.damage=fmax(s.damage,l.endpoint_damage_weight*fmax(da,db));
     const double t=.5*(ta+tb); // physical interface aging closure, NOT a transport average
     if(t>=l.damage_onset_k && l.damage_rate_at_onset_per_s>0 && dt>0)
@@ -72,6 +95,7 @@ BATTERY_GEOMETRY_HD inline InterfaceState evaluate_directed_geometry(const Conne
     const auto& source=forward?l.endpoint_a:l.endpoint_b;
     s.l0_m=0.;
     double z=destroyed?l.destroyed_geometry_reference_logit:l.geometry_reference_logit;
+    z+=l.interface_damage_log_response*s.damage;
     z+=directed_log_response(source,axis,forward?ta:tb,forward?tb:ta,forward?da:db,forward?db:da);
     z=fmax(-40.,fmin(40.,z));
     const double opening=exp(z);

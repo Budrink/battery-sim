@@ -1,0 +1,219 @@
+{
+  "windows": {
+    "first_burst": {
+      "old20": {
+        "accepted": true,
+        "start_s": 1099.9999999999318,
+        "end_s": 1230.0,
+        "tolerance": 0.05,
+        "maximum_component_rms_relative_kelvin": 0.0055016567901872895,
+        "hottest_gas_rms_relative_kelvin": 0.045027066345277,
+        "r3_increment_relative_difference": 0.0013266794685743316,
+        "r3_increment_shape_relative_difference": 0.019760578488805566,
+        "r3_increment_j": [
+          67767.3235489194,
+          67857.3484999662
+        ]
+      },
+      "new20": {
+        "accepted": false,
+        "start_s": 1099.9999999999318,
+        "end_s": 1229.999999999991,
+        "tolerance": 0.05,
+        "maximum_component_rms_relative_kelvin": 0.008204291818223472,
+        "hottest_gas_rms_relative_kelvin": 0.024777911167055612,
+        "r3_increment_relative_difference": 0.1471983745608734,
+        "r3_increment_shape_relative_difference": 0.1626201932952375,
+        "r3_increment_j": [
+          79569.90990140871,
+          67857.3484999662
+        ]
+      }
+    },
+    "observed_prefix": {
+      "old20": {
+        "accepted": true,
+        "start_s": 0.0,
+        "end_s": 1334.999999999909,
+        "tolerance": 0.05,
+        "maximum_component_rms_relative_kelvin": 0.0025602703936249242,
+        "hottest_gas_rms_relative_kelvin": 0.01438183457995859,
+        "r3_increment_relative_difference": 0.0016523766242217532,
+        "r3_increment_shape_relative_difference": 0.006264264073480772,
+        "r3_increment_j": [
+          67987.18115620078,
+          68099.70752102486
+        ]
+      },
+      "new20": {
+        "accepted": false,
+        "start_s": 0.0,
+        "end_s": 1334.9999999999136,
+        "tolerance": 0.05,
+        "maximum_component_rms_relative_kelvin": 0.0028054507038741375,
+        "hottest_gas_rms_relative_kelvin": 0.00877102164002122,
+        "r3_increment_relative_difference": 0.14558874676488454,
+        "r3_increment_shape_relative_difference": 0.06577798271221903,
+        "r3_increment_j": [
+          79703.66408819442,
+          68099.70752102486
+        ]
+      }
+    }
+  },
+  "timing": {
+    "old20": {
+      "shared_events": 1,
+      "mean_absolute_delay_s": 0.00819354211762402,
+      "maximum_absolute_delay_s": 0.00819354211762402,
+      "events": [
+        {
+          "component": "B10",
+          "time_s": 1105.3444146376805
+        },
+        {
+          "component": "B09",
+          "time_s": 2230.107294117922
+        },
+        {
+          "component": "B11",
+          "time_s": 2256.227936579413
+        },
+        {
+          "component": "B02",
+          "time_s": 2276.081505014706
+        },
+        {
+          "component": "B03",
+          "time_s": 2285.183321885514
+        },
+        {
+          "component": "B17",
+          "time_s": 2295.2141140892663
+        },
+        {
+          "component": "B18",
+          "time_s": 2295.233139098558
+        },
+        {
+          "component": "B01",
+          "time_s": 2315.6704992782857
+        },
+        {
+          "component": "B04",
+          "time_s": 2325.4288734581437
+        },
+        {
+          "component": "B08",
+          "time_s": 2336.366636035602
+        },
+        {
+          "component": "B16",
+          "time_s": 2340.4296332027775
+        },
+        {
+          "component": "B19",
+          "time_s": 2345.4361214156097
+        },
+        {
+          "component": "B00",
+          "time_s": 2346.407234513205
+        },
+        {
+          "component": "B12",
+          "time_s": 2346.4093393935113
+        },
+        {
+          "component": "B25",
+          "time_s": 2350.2746812665996
+        },
+        {
+          "component": "B07",
+          "time_s": 2355.2474614806542
+        },
+        {
+          "component": "B05",
+          "time_s": 2355.2932523072614
+        },
+        {
+          "component": "B26",
+          "time_s": 2355.4641225385594
+        },
+        {
+          "component": "B24",
+          "time_s": 2355.6966190131297
+        },
+        {
+          "component": "B15",
+          "time_s": 2356.4209247226354
+        },
+        {
+          "component": "B23",
+          "time_s": 2360.465308344504
+        },
+        {
+          "component": "B20",
+          "time_s": 2361.4607586931547
+        },
+        {
+          "component": "B06",
+          "time_s": 2361.4669269663177
+        },
+        {
+          "component": "B13",
+          "time_s": 2365.3071493499892
+        },
+        {
+          "component": "B27",
+          "time_s": 2365.4744807943575
+        },
+        {
+          "component": "B14",
+          "time_s": 2370.267815692195
+        },
+        {
+          "component": "B22",
+          "time_s": 2370.289400046482
+        },
+        {
+          "component": "B28",
+          "time_s": 2370.4761757343995
+        },
+        {
+          "component": "B21",
+          "time_s": 2370.481822217496
+        },
+        {
+          "component": "B29",
+          "time_s": 2371.43451350611
+        }
+      ]
+    },
+    "new20": {
+      "shared_events": 1,
+      "mean_absolute_delay_s": 0.008184394527461336,
+      "maximum_absolute_delay_s": 0.008184394527461336,
+      "events": [
+        {
+          "component": "B10",
+          "time_s": 1105.3444054900904
+        }
+      ]
+    }
+  },
+  "scope": "Unshifted numerical comparison; event interpolation has 5 s sampling uncertainty",
+  "calibrated": false,
+  "experimental_validation": false,
+  "promoted": false,
+  "status": "rejected-on-first-burst",
+  "last_completed_observation_s": 1334.9999999999136,
+  "reason": "R3 source total/shape worsened despite lower hottest-gas discrepancy; do not fit intrinsic kinetics to compensate",
+  "full_cascade_run": false,
+  "physical_laws_changed": false,
+  "balances": {
+    "max_chemical_residual_j": 2.2165477275848389e-07,
+    "max_mass_residual_kg": 5.81756864903582e-14,
+    "max_oxidizer_residual_kg": 7.377431998634165e-14,
+    "max_thermal_residual_j": 6.110349204391241e-08
+  }
+}

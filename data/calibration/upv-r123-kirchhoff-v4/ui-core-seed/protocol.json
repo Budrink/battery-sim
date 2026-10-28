@@ -1,0 +1,72 @@
+{
+  "fingerprint": "cd86446a3af88b7fac4601e1cf186b89f9daa34a4d075933eed89bd78b004eec",
+  "source_profile_sha256": "c23e2ed8c7877317bccc3538e86d0c5617f7e46d0e922f8fba84056af5e1bd27",
+  "baseline": {
+    "resistance_ohm": 0.024,
+    "resistance_temperature": 0.003,
+    "product_conductivity_ratio": 0.6752499999999999,
+    "r1_rate": 1e-06,
+    "r1_activation": 40000.0,
+    "overcharge_gain": 0.5,
+    "r2_rate": 100.0,
+    "r2_activation": 100000.0,
+    "energy_j": 450000.0,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.03,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.42,
+    "precursor_temperature": 0.0,
+    "precursor_voltage": 0.0,
+    "iss_h": 287.71996866857825,
+    "tim_h": 2000.0,
+    "case_h": 500.0,
+    "environment_h": 8.0,
+    "surface_iss": 0.0,
+    "surface_tim": 0.0,
+    "bulk_slope": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0
+  },
+  "trials": [
+    {
+      "label": "core-corrected",
+      "changes": {
+        "resistance_ohm": 0.02449999999999999,
+        "resistance_temperature": 0.005899039542356856,
+        "product_conductivity_ratio": 0.9999999999306863,
+        "r1_activation": 33757.480985026705,
+        "overcharge_gain": 0.5823993547405526,
+        "r2_rate": 99999.99999999984,
+        "r2_activation": 146790.9331108915,
+        "energy_j": 450000.0,
+        "gas_fraction": 0.7,
+        "gas_yield_temperature": 0.03,
+        "precursor_yield": 0.6845146038545622
+      }
+    },
+    {
+      "label": "core-corrected-slower",
+      "changes": {
+        "resistance_ohm": 0.02449999999999999,
+        "resistance_temperature": 0.005899039542356856,
+        "product_conductivity_ratio": 0.9999999999306863,
+        "r1_activation": 33757.480985026705,
+        "overcharge_gain": 0.5241594192664973,
+        "r2_rate": 99999.99999999984,
+        "r2_activation": 146790.9331108915,
+        "energy_j": 450000.0,
+        "gas_fraction": 0.7,
+        "gas_yield_temperature": 0.03,
+        "precursor_yield": 0.6845146038545622
+      }
+    }
+  ],
+  "voltage_floor_v": 3.65,
+  "validation_used_for_selection": false,
+  "no_thermal_contact_or_material_fitting": true,
+  "pruning_score_ceiling": 821.6283422872724
+}

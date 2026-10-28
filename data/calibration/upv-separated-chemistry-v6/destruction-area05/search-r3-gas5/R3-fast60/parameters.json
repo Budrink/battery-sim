@@ -1,0 +1,64 @@
+{
+  "parameters": {
+    "resistance_ohm": 0.016,
+    "resistance_temperature": -0.015,
+    "resistance_charge": 16,
+    "product_conductivity_ratio": 0.2,
+    "r1_rate": 4.650436002144984e-05,
+    "r1_activation": 240000,
+    "r2_rate": 0.011881396980626893,
+    "r2_activation": 120000,
+    "energy_j": 424264.068711928,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.0005,
+    "gas_rate": 200,
+    "gas_reference_k": 600.0,
+    "gas_activation": 60000,
+    "precursor_yield": 0.27735866146555965,
+    "precursor_temperature": 0.029623273375245555,
+    "iss_h": 548.334510922672,
+    "tim_h": 697.6587915939645,
+    "case_h": 220.48307663197534,
+    "environment_h": 1.563406124562644,
+    "surface_iss": 0.0,
+    "surface_tim": 6.0,
+    "bulk_slope": -2.88,
+    "case_warm_response": 0.0,
+    "case_hot_response": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0,
+    "battery_iss_factor": 0.3246524673583498,
+    "battery_tim_factor": 0.3272376374473188,
+    "charge_formation_gain": 2
+  },
+  "proposal": {
+    "label": "R3-fast60",
+    "k1_75": 1e-09,
+    "ea1": 240000,
+    "k2_75": 1e-06,
+    "ea2": 120000,
+    "gas_rate": 200,
+    "gas_activation": 60000
+  },
+  "fingerprint": "371602b51edd60edd06b2c38d453818027d3613dea514f14cfb3f490090b093b",
+  "changes": {
+    "gas_rate": [
+      20.0,
+      200
+    ],
+    "gas_activation": [
+      80000.0,
+      60000
+    ]
+  },
+  "validation_used_for_selection": false,
+  "shell_material_contacts_and_phi_frozen": false,
+  "solid_material_contacts_and_phi_frozen": true,
+  "objective_mode": "explosion",
+  "electrical_fit_authorized": false,
+  "fit_charge_formation": false,
+  "diagnostic_emf_floor_v": null,
+  "gas_temperature_step_k": 5.0
+}

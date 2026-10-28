@@ -1,0 +1,80 @@
+{
+  "parameters": {
+    "resistance_ohm": 0.015,
+    "resistance_temperature": -0.001,
+    "resistance_damage": 1.0,
+    "r1_rate": 1e-06,
+    "r1_activation": 40000.0,
+    "overcharge_gain": 0.8177506882549067,
+    "r2_rate": 299.9999999905491,
+    "r2_activation": 82502.44826857552,
+    "energy_j": 300000.0,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.03,
+    "gas_rate": 20.0,
+    "precursor_yield": 0.42,
+    "precursor_temperature": 0.0,
+    "precursor_voltage": 0.0,
+    "iss_h": 287.71996866857825,
+    "tim_h": 2000.0,
+    "case_h": 500.0,
+    "environment_h": 8.0,
+    "surface_iss": 0.0,
+    "surface_tim": 0.0,
+    "bulk_slope": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0
+  },
+  "objective": 56.117358754713656,
+  "metrics": {
+    "warmup": {
+      "101": {
+        "rmse_k": 2.647466459449148,
+        "bias_k": 2.0653462477306053
+      },
+      "102": {
+        "rmse_k": 7.921703916751006,
+        "bias_k": 5.730612952624107
+      },
+      "107": {
+        "rmse_k": 2.5522566390133554,
+        "bias_k": 2.0323612591960813
+      },
+      "108": {
+        "rmse_k": 6.583997229969684,
+        "bias_k": 4.92243273159943
+      },
+      "C2_TIM": {
+        "rmse_k": 2.7335374865386894,
+        "bias_k": -1.3592055541155963
+      },
+      "C2_ISS": {
+        "rmse_k": 3.628964001274636,
+        "bias_k": -1.3050065609908053
+      }
+    },
+    "pressure": {
+      "peak_bar": 1.1168153876882232,
+      "observed_peak_bar": 1.0622290969156691,
+      "peak_time_s": 825.0,
+      "rmse_bar": 0.025582695401797112
+    },
+    "joule_j": {
+      "C1": 0.0,
+      "C2": 19871.273978446196,
+      "C3": 0.0
+    },
+    "wall_s": 399.786032179,
+    "steps": 495046,
+    "balance": {
+      "max_thermal_residual_j": 5.694164428859949e-08,
+      "max_chemical_residual_j": 6.868503987789154e-09,
+      "max_mass_residual_kg": 1.787459069646502e-14
+    }
+  },
+  "fingerprint": "9fd7b8600eab8b81bb3d3f3558348f01611d9cd1e5ae2fcfdf882c835cdc174f",
+  "validation_used_for_selection": false,
+  "status": "candidate, not independently validated"
+}

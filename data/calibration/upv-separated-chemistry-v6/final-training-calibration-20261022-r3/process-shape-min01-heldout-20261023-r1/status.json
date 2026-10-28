@@ -1,0 +1,60 @@
+{
+  "status": "rejected",
+  "pid": 1740217,
+  "source": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/process-shape-min01-fresh-20261023-r1/trial-000/scenario.json",
+  "source_scene_sha256": "dce0377388361e9db31de3ec3d6772c850ce80168c6b73f28be17628de792a7c",
+  "native_sha256": "6cda01417eb1e30d088faa2c2c38bc1c0f5128ffbdfcd01d7a564b97915672c3",
+  "refitted": false,
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "requested_end_s": 1626.6089999116957,
+  "observed_event_s": 1413.2479998283088,
+  "initialization": "Fresh from measured initial state; never reuse training checkpoint",
+  "provenance": {
+    "frozen_scene_sha256": "dce0377388361e9db31de3ec3d6772c850ce80168c6b73f28be17628de792a7c",
+    "frozen_training_source": "explicit scene; metadata defaults are not replay parameters",
+    "experiment": "active-cooling",
+    "experimental_sha256": "2efdccced6d5c2701bb9cd09572129621924692a2f93b9392c8a248d6e23cdfb",
+    "parameters_refitted": false,
+    "validation_used_for_selection": false,
+    "changes": [
+      "Measured initial temperatures/pressure and electrical protocol",
+      "13 mm Al cooling plate + existing 10 W/K water-side prior; 2000 W/(m2 K) Al/plate contacts",
+      "Gas topology rebuilt around occupied plate; blocked paths stay blocked"
+    ],
+    "limitations": [
+      "Cooling contact and water-side G are unmeasured priors",
+      "Condition holdout within the same experimental campaign, not blind independent validation"
+    ],
+    "new_objects_inheriting_material_profiles": [
+      "cooling-plate"
+    ],
+    "frozen_modified_void_faces": 36,
+    "removed_blocked_nonvoid_routes": 27,
+    "current_input_assumption": "Prescribed current; strict UI consistency required"
+  },
+  "observation_error_pruning": false,
+  "protocol_faithful": true,
+  "accepted_validation": false,
+  "max_slowdown": 5.0,
+  "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256); t=1328.000517, dt=0.010000; C2: R=0.148977, heat_J=1.824967, budget_J=1.824922",
+  "known_until_s": 1310.0,
+  "balances": {
+    "max_chemical_residual_j": 5.5253622122108936e-08,
+    "max_mass_residual_kg": 1.9206858326015208e-14,
+    "max_oxidizer_residual_kg": 3.469446951953614e-16,
+    "max_thermal_residual_j": 1.4030047168489546e-07
+  }
+}

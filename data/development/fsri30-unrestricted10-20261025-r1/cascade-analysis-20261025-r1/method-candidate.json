@@ -1,0 +1,43 @@
+{
+  "record": "305d12500707e3e27c5ad80a78d665228ad959947b019abfe297eebf7a2dd1f0",
+  "activated": false,
+  "development_index_unchanged": true,
+  "evidence": {
+    "artifacts": {
+      "report.json": {
+        "path": "/home/konstantin/work/battery-sim/data/development/fsri30-unrestricted10-20261025-r1/cascade-analysis-20261025-r1/report.json",
+        "sha256": "cb2686aa6a4ceedb6881a670153fdcb69af8b37033096ce1308b3d97efe26624"
+      },
+      "linear-reconstruction-feasibility.json": {
+        "path": "/home/konstantin/work/battery-sim/data/development/fsri30-unrestricted10-20261025-r1/cascade-analysis-20261025-r1/linear-reconstruction-feasibility.json",
+        "sha256": "be6b8b36eaf3c2aca68a1c644ecc1d602d54e8beb865862a5685c88912ec311c"
+      },
+      "subcell-pattern-compressibility.json": {
+        "path": "/home/konstantin/work/battery-sim/data/development/fsri30-unrestricted10-20261025-r1/cascade-analysis-20261025-r1/subcell-pattern-compressibility.json",
+        "sha256": "77bddba31b2db90659b5a16c4956859106e5cf6e139b2c1ff884adc37e9c193c"
+      },
+      "frozen-r3-reconstruction-probe.json": {
+        "path": "/home/konstantin/work/battery-sim/data/development/fsri30-unrestricted10-20261025-r1/cascade-analysis-20261025-r1/frozen-r3-reconstruction-probe.json",
+        "sha256": "6167ab5cc4c1497c601e22976b6da8650cf5ede35ad2d4b42d9143d89592be5f"
+      },
+      "mode-rank-r3-feasibility.json": {
+        "path": "/home/konstantin/work/battery-sim/data/development/fsri30-unrestricted10-20261025-r1/cascade-analysis-20261025-r1/mode-rank-r3-feasibility.json",
+        "sha256": "b7e51d848fa04a5983b547e592fdd24b01f62d7878e57a01d2a09e2ab0e90fa9"
+      },
+      "source-and-evidence.tar.gz": {
+        "path": "/home/konstantin/work/battery-sim/data/development/fsri30-unrestricted10-20261025-r1/cascade-analysis-20261025-r1/source-and-evidence.tar.gz",
+        "sha256": "9da0075756d409287f354b71ec3ce9759bcaa95db7fa4de0b59bc6b2c5e2d70a"
+      }
+    },
+    "full_warmup_validation": false,
+    "full_horizon_checked": false,
+    "fresh_prefix_checked_through_s": 2524.9999999999773,
+    "numerical_checks": {
+      "accepted": false,
+      "note": "A-priori representability only; no dynamic conservative reconstruction or fresh CUDA comparison"
+    },
+    "physical_model_changed": false,
+    "temperature_volume_weighted": true,
+    "limitation": "No prediction of moment amplitudes/evolution; nonlinear R3 not qualified by field compression"
+  }
+}

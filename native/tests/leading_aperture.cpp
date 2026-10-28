@@ -72,7 +72,52 @@ void geometry() {
     require(std::abs(a-b)<1e-12,"weak stage crossing depends on dt");
     require(deterministic_fraction(law,.2,30000,50000,.2,.3,1.)==.2,"bulk opens below its own threshold");
 }
+void coarse_fracture_retry() {
+    mc_backend=batched_backend=true;
+    auto s=fixture(1e-6);
+    s.settings.max_dt_s=.02;s.settings.minimum_dt_s=.005;
+    s.gas_model.cuda_network_transport=s.gas_model.coupled_gas_films=true;
+    s.gas_model.max_temperature_step_k=1.;
+    auto& contents=s.cells[0];contents.initial_temperature_k=400.;
+    auto& reaction=contents.conversion;reaction.enabled=true;reaction.mass_kg=.09;
+    reaction.initial_precursor_fraction=.5;reaction.gas_compartment=0;
+    reaction.degradation_rate_per_s=1e-30;reaction.degradation_activation_j_per_mol=0.;
+    reaction.reaction_reference_k=400.;
+    reaction.reaction_rate_per_s=.0007;reaction.reaction_activation_j_per_mol=0.;
+    reaction.net_heat_j_per_kg=100000.;reaction.gas_yield=reaction.gas_yield_max=.1;
+    s.gas_channels[0].opening.fracture_energy_j_per_m2=300000.;
+    const auto mesh=build_thermal_mesh(s);CudaSolver solver(s,mesh,64);RuntimeParameters r;
+    const auto initial=solver.process_diagnostics();
+    const double dt=solver.prepare_step(0.,.02,.4,r);
+    require(dt>=.005,"post-fracture retry dropped below 5 ms");
+    require(solver.profile().floor_bounded_retries>0,"fixture did not exercise the .95 retry-floor collision");
+    const auto staged=solver.process_diagnostics();
+    require(staged.gas[0].mass_kg==initial.gas[0].mass_kg &&
+        staged.gas[0].energy_j==initial.gas[0].energy_j && staged.channels[0].opening_fraction==0.,
+        "post-fracture preparation published tentative inventories");
+    solver.discard_step();
+    require(dt==solver.prepare_step(0.,.02,.4,r),"coarse fracture retry changed accepted interval");
+    solver.commit_step();const auto d=solver.process_diagnostics();
+    Simulation continuous(s),resumed(s);continuous.step(.02);
+    const auto saved=continuous.save_checkpoint("coarse-network-v1");
+    resumed.restore_checkpoint(saved,"coarse-network-v1");
+    require(saved==resumed.save_checkpoint("coarse-network-v1"),"network restart lost gas clocks or leading shell state");
+    for(int i=0;i<3;++i){continuous.step(.005);resumed.step(.005);
+        require(continuous.save_checkpoint("coarse-network-v1")==resumed.save_checkpoint("coarse-network-v1"),
+            "coarse pressure/rupture restart is not bitwise reproducible");}
+    CudaSolver tiled(s,mesh,256);require(tiled.step(0.,.02,.4,r)==dt,"coarse fracture timestep depends on CUDA tiling");
+    const auto td=tiled.process_diagnostics();
+    require(d.gas[0].energy_j==td.gas[0].energy_j && d.gas[0].mass_kg==td.gas[0].mass_kg &&
+        d.channels[0].opening_fraction==td.channels[0].opening_fraction &&
+        d.channels[0].fracture_work_j==td.channels[0].fracture_work_j,"coarse fracture retry/tiling changes physical state");
+    require(d.channels[0].fracture_work_j>0. && d.channels[0].opening_fraction>0.,
+        "coarse fixture did not exercise leading fracture");
+    require(std::abs(d.thermal_residual_j)<1e-7 && std::abs(d.mass_residual_kg)<1e-13 &&
+        std::abs(d.chemical_residual_j)<1e-7,"coarse fracture retry breaks balances");
+    std::cout<<"coarse post-fracture retry dt="<<dt<<" s, work="<<d.channels[0].fracture_work_j<<" J\n";
+}
 int main(int argc,char** argv){try {
+    for(int i=1;i<argc;++i)if(std::string(argv[i])=="--coarse-retry") {coarse_fracture_retry();return 0;}
     for(int i=1;i<argc;++i) {
         const std::string arg=argv[i];
         cpu_backend|=arg=="--cpu-local";implicit_backend|=arg=="--implicit";mc_backend|=arg=="--cuda-kawasaki";

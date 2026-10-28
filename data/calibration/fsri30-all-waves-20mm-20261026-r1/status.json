@@ -1,0 +1,244 @@
+{
+  "status": "stopped",
+  "pid": 1995546,
+  "native_sha256": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "calibrated": false,
+  "validation_passed": false,
+  "active_trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-all-waves-20mm-20261026-r1/h-20mm/trial-0003",
+  "level_mm": 20,
+  "parameters": {
+    "r2_rate_scale": 0.02300523837999681,
+    "gas_can_contact_scale": 4.0,
+    "cross_column_open_fraction": 1.0,
+    "axial_open_fraction": 1.0,
+    "thermal_stirring_coefficient": 0.06722339346183823,
+    "effective_emissivity": 0.7664775109756737
+  },
+  "proposal": {
+    "method": "shared-gas-can-delivery-bracket",
+    "source_trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-all-waves-20mm-20261026-r1/h-20mm/trial-0001"
+  },
+  "progress": {
+    "assessment": {
+      "evaluated": false,
+      "accepted": null,
+      "phase_window_complete": false,
+      "last_observed_s": 2075.0,
+      "reason": null,
+      "constraint": 0.0,
+      "primary_offset_s": 58.0,
+      "timing_error_s": 58.0,
+      "timing_target_met": false,
+      "pulse_match": {
+        "due": 1,
+        "matched": 1,
+        "missing": [],
+        "pairs": [
+          {
+            "reference_time_s": 1763.0,
+            "model_time_s": 1821.0,
+            "offset_s": 58.0,
+            "reference_channels": [
+              "T2",
+              "T5"
+            ],
+            "model_channels": [
+              "B10"
+            ]
+          }
+        ],
+        "worst_offset_s": 58.0,
+        "target_met": false
+      },
+      "arrival_match": {
+        "due": 1,
+        "matched": 1,
+        "missing": [],
+        "pairs": [
+          {
+            "reference_time_s": 1765.0,
+            "model_time_s": 1822.0,
+            "offset_s": 57.0,
+            "reference_channels": [
+              "T5"
+            ],
+            "model_channels": [
+              "B10"
+            ]
+          }
+        ],
+        "worst_offset_s": 57.0,
+        "target_met": false
+      },
+      "model": {
+        "pulses": [
+          {
+            "channel": "B10",
+            "time_s": 1821.0,
+            "rise_k": 950.2672074133086,
+            "slope_k_s": 191.39320856164966
+          }
+        ],
+        "arrivals": [
+          {
+            "channel": "B10",
+            "time_s": 1822.0
+          }
+        ],
+        "pulse_groups": [
+          {
+            "time_s": 1821.0,
+            "end_s": 1821.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1821.0,
+                "rise_k": 950.2672074133086,
+                "slope_k_s": 191.39320856164966
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ],
+        "arrival_groups": [
+          {
+            "time_s": 1822.0,
+            "end_s": 1822.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1822.0
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ]
+      },
+      "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+      "necessary_not_sufficient": true,
+      "objective": null
+    },
+    "wall_s": 1065.5020581241697,
+    "live_advanced_to_s": 2076.199999999999,
+    "minimum_regular_step_s": 0.01
+  },
+  "best_trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-all-waves-20mm-20261026-r1/h-20mm/trial-0001",
+  "best_assessment": {
+    "evaluated": true,
+    "accepted": false,
+    "phase_window_complete": false,
+    "last_observed_s": 2289.999999999991,
+    "reason": "Missing first hot arrival wave(s) at 2136s within 100s timing error limit",
+    "constraint": 1.0,
+    "primary_offset_s": -2.0,
+    "timing_error_s": 3.0,
+    "timing_target_met": false,
+    "pulse_match": {
+      "due": 1,
+      "matched": 1,
+      "missing": [],
+      "pairs": [
+        {
+          "reference_time_s": 1763.0,
+          "model_time_s": 1761.0,
+          "offset_s": -2.0,
+          "reference_channels": [
+            "T2",
+            "T5"
+          ],
+          "model_channels": [
+            "B10"
+          ]
+        }
+      ],
+      "worst_offset_s": 2.0,
+      "target_met": true
+    },
+    "arrival_match": {
+      "due": 2,
+      "matched": 1,
+      "missing": [
+        {
+          "reference_time_s": 2136.0,
+          "channels": [
+            "T1",
+            "T2",
+            "T3",
+            "T4"
+          ],
+          "nearest_any_model_group_s": 374.0
+        }
+      ],
+      "pairs": [
+        {
+          "reference_time_s": 1765.0,
+          "model_time_s": 1762.0,
+          "offset_s": -3.0,
+          "reference_channels": [
+            "T5"
+          ],
+          "model_channels": [
+            "B10"
+          ]
+        }
+      ],
+      "worst_offset_s": 3.0,
+      "target_met": false
+    },
+    "model": {
+      "pulses": [
+        {
+          "channel": "B10",
+          "time_s": 1761.0,
+          "rise_k": 1002.5528481265051,
+          "slope_k_s": 212.2411658819572
+        }
+      ],
+      "arrivals": [
+        {
+          "channel": "B10",
+          "time_s": 1762.0
+        }
+      ],
+      "pulse_groups": [
+        {
+          "time_s": 1761.0,
+          "end_s": 1761.0,
+          "events": [
+            {
+              "channel": "B10",
+              "time_s": 1761.0,
+              "rise_k": 1002.5528481265051,
+              "slope_k_s": 212.2411658819572
+            }
+          ],
+          "channels": [
+            "B10"
+          ]
+        }
+      ],
+      "arrival_groups": [
+        {
+          "time_s": 1762.0,
+          "end_s": 1762.0,
+          "events": [
+            {
+              "channel": "B10",
+              "time_s": 1762.0
+            }
+          ],
+          "channels": [
+            "B10"
+          ]
+        }
+      ]
+    },
+    "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+    "necessary_not_sufficient": true,
+    "objective": null
+  }
+}

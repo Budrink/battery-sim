@@ -73,6 +73,17 @@ Battery failure observables exclude passive material destruction. When only a
 finite horizon was simulated, report no secondary failure *observed by that
 time*, not a proof of containment. The Python v0 solver rejects passive scenes.
 
+A passive material wall may use `kind: "rupture"` with the existing
+`damage_opening.mode: "deterministic_aperture"` law. It needs a thin panel,
+a local `shell_thermal_volume`, a full-face aperture port, and unique gas-film
+contacts on opposite faces of that same voxel. Both gas endpoints must be
+explicit cavities, outside battery contents. Mixed or partially exposed wall
+patches need geometric subdivision before assigning a full-area aperture.
+Thermal damage lowers the remaining pressure barrier; pressure opens area and
+pays fracture work from the gas energy ledger. This geometric opening does not
+remove the wall's mass/Cp or introduce an ABS combustion model. FSRI ABS
+strength and weakening coefficients are diagnostic priors until calibrated.
+
 ## Leakage control
 
 Splits are assigned by experiment family before fitting. Repeats of the same
@@ -80,3 +91,27 @@ physical setup, lab campaign, or publication stay in one split. Parameters are
 fit on `calibration`; numerical choices are checked on `development`; headline
 errors are produced once on `validation`. A result is not called predictive if
 the tested experiment supplied the fitted interface constants.
+
+## UL FSRI 30-component development case
+
+The immutable v1.1 archive is pinned to commit
+`8d140bc02f2e2cd04c2ca95f1d925ec4c24365b3`; archive, member and report hashes
+are retained under `data/experiments/ul-fsri-30/manifest.json`. Raw source files
+are read-only. This is an unfitted DEVELOPMENT reconstruction, not validation.
+The report distinguishes one 18650 component, a thirty-component mock-up
+"Cell", a 270-component module and a 2430-component initiating rack. Never
+confuse these levels or apply the 213 L mock-up gas volume to each 18650.
+
+The selected CSV has physical timestamps 0..5945 s and another 136 rows without
+timestamps. Untimed temperatures are excluded, not assigned row-index times.
+Nine temperature channels are retained. Their exact mapping to components is
+unconfirmed: plot the measurements and predicted ranges separately; do not
+invent per-channel correspondence or a calibration RMSE. The calorimeter HRR
+integrates to about128 MJ; its boundary/scale must be independently resolved
+before using it as the thirty-component chemical-energy calibration target.
+
+`generate_fsri30.py` records the 7+8+8+7 staggered drawing, Table3 envelope,
+equal-volume prismatic cylinder approximation, separate steel/ABS materials,
+assumed open-loop heater and all kinetic/gas priors. It does not copy UPV
+fitted contact or chemical coefficients. The first run leaves initial failure
+times unconstrained, has no prescribed primary ignition and performs no fit.

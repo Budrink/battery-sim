@@ -1,0 +1,150 @@
+{
+  "trial": "/home/konstantin/work/battery-sim/data/development/fsri30-packed-fine-2406-20261027-resume-r1/cascade-0001",
+  "parameters": {
+    "r2_rate_scale": 0.07866278610665535,
+    "gas_can_contact_scale": 1.0,
+    "cross_column_open_fraction": 1.0,
+    "axial_open_fraction": 1.0,
+    "thermal_stirring_coefficient": 0.06722339346183823,
+    "effective_emissivity": 0.7664775109756737
+  },
+  "level_mm": 20,
+  "status": "interrupted",
+  "native_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "scenario_sha256": "fcc430b4997f83579e8026585523627785ebf34f755b2a9abd56d48b574ab112",
+  "screening_only": false,
+  "calibrated": false,
+  "validation_passed": false,
+  "assessment": {
+    "evaluated": false,
+    "accepted": null,
+    "phase_window_complete": false,
+    "last_observed_s": 2254.999999999909,
+    "reason": null,
+    "constraint": 0.0,
+    "primary_offset_s": 9.0,
+    "timing_error_s": 9.0,
+    "timing_target_met": false,
+    "pulse_match": {
+      "due": 1,
+      "matched": 1,
+      "missing": [],
+      "pairs": [
+        {
+          "reference_time_s": 1763.0,
+          "model_time_s": 1772.0,
+          "offset_s": 9.0,
+          "reference_channels": [
+            "T2",
+            "T5"
+          ],
+          "model_channels": [
+            "B10"
+          ]
+        }
+      ],
+      "worst_offset_s": 9.0,
+      "target_met": true
+    },
+    "arrival_match": {
+      "due": 1,
+      "matched": 1,
+      "missing": [],
+      "pairs": [
+        {
+          "reference_time_s": 1765.0,
+          "model_time_s": 1772.0,
+          "offset_s": 7.0,
+          "reference_channels": [
+            "T5"
+          ],
+          "model_channels": [
+            "B10"
+          ]
+        }
+      ],
+      "worst_offset_s": 7.0,
+      "target_met": true
+    },
+    "model": {
+      "pulses": [
+        {
+          "channel": "B10",
+          "time_s": 1772.0,
+          "rise_k": 991.3244536993861,
+          "slope_k_s": 214.1124660137997
+        }
+      ],
+      "arrivals": [
+        {
+          "channel": "B10",
+          "time_s": 1772.0
+        }
+      ],
+      "pulse_groups": [
+        {
+          "time_s": 1772.0,
+          "end_s": 1772.0,
+          "events": [
+            {
+              "channel": "B10",
+              "time_s": 1772.0,
+              "rise_k": 991.3244536993861,
+              "slope_k_s": 214.1124660137997
+            }
+          ],
+          "channels": [
+            "B10"
+          ]
+        }
+      ],
+      "arrival_groups": [
+        {
+          "time_s": 1772.0,
+          "end_s": 1772.0,
+          "events": [
+            {
+              "channel": "B10",
+              "time_s": 1772.0
+            }
+          ],
+          "channels": [
+            "B10"
+          ]
+        }
+      ]
+    },
+    "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+    "necessary_not_sufficient": true,
+    "objective": null
+  },
+  "physical_error": null,
+  "delivery": {
+    "observed_time_s": 2134.9999999999136,
+    "target_time_s": 2135.0,
+    "top4_neighbor_mean_k": 403.0205184240721,
+    "maximum_neighbor_k": 406.40926288730674,
+    "neighbors": [
+      "B17",
+      "B18",
+      "B09",
+      "B11"
+    ],
+    "source_excluded": "B10",
+    "exploration_only": true,
+    "qualifies_cascade": false
+  },
+  "temperature_rejection": null,
+  "temperature_guard_deferred_for_mesh_timing": null,
+  "wall_s": 3132.189264481887,
+  "live_advanced_to_s": 2255.199999999909,
+  "minimum_regular_step_s": 0.01,
+  "run_sha256": "92c79f1b35278fc779611fc8a5c76d5597591fa650ac5792a132f39a86668356",
+  "run_path": "/home/konstantin/work/battery-sim/data/development/fsri30-packed-fine-2406-20261027-resume-r1/cascade-0001/replay/incomplete-run.json.gz",
+  "balances": {
+    "max_chemical_residual_j": 2.4121254682540894e-07,
+    "max_mass_residual_kg": 5.950795411990839e-14,
+    "max_oxidizer_residual_kg": 8.809619700400617e-14,
+    "max_thermal_residual_j": 2.770539140328765e-07
+  }
+}

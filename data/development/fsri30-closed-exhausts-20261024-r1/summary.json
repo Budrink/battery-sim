@@ -1,0 +1,324 @@
+{
+  "complete": true,
+  "advanced_to_s": 5945.0,
+  "cascade": {
+    "reacted_components": 1,
+    "events": [
+      {
+        "component": "B10",
+        "time_s": 1755.3339307793842
+      }
+    ],
+    "inter_event_delays_s": [],
+    "autonomous_cascade": false,
+    "observed_failure_count": null,
+    "observed_component_order": null,
+    "note": "Model R2 conversion order only; nine TC channels do NOT identify thirty failure events"
+  },
+  "neighbour_peaks": [
+    {
+      "id": "B11",
+      "mean_c": 93.52507537090668,
+      "local_c": 96.76766093506473
+    },
+    {
+      "id": "B09",
+      "mean_c": 93.45297534384866,
+      "local_c": 96.69798860071637
+    },
+    {
+      "id": "B03",
+      "mean_c": 81.0334846102632,
+      "local_c": 82.3579964145859
+    },
+    {
+      "id": "B02",
+      "mean_c": 80.96268662519441,
+      "local_c": 82.28850659297922
+    },
+    {
+      "id": "B18",
+      "mean_c": 75.30254864991468,
+      "local_c": 77.21763206848107
+    },
+    {
+      "id": "B17",
+      "mean_c": 75.20972137191154,
+      "local_c": 77.124816017728
+    }
+  ],
+  "maximum_recorded_pressure_pa": 1805677.9378882379,
+  "pressure_scope": "Recorded cavities including source pores, not a global all-voxel maximum",
+  "thermal_audit": {
+    "interval_s": [
+      1755.0,
+      5945.0
+    ],
+    "partial": false,
+    "conditioned_transport_diagnostic": true,
+    "accepted_film_heat": {
+      "ABS:-z": {
+        "net_j": 4486.988566397974,
+        "positive_j": 4564.9962784452055,
+        "negative_j": -78.00771204722894
+      },
+      "B00": {
+        "net_j": 646.5021110517218,
+        "positive_j": 780.6870488166313,
+        "negative_j": -134.18493776490942
+      },
+      "B01": {
+        "net_j": 807.2046809752424,
+        "positive_j": 1417.1768271476749,
+        "negative_j": -609.9721461724325
+      },
+      "B02": {
+        "net_j": 957.7869637011205,
+        "positive_j": 2832.583922078981,
+        "negative_j": -1874.7969583778556
+      },
+      "B03": {
+        "net_j": 955.6340143300162,
+        "positive_j": 2834.3906912991292,
+        "negative_j": -1878.7566769691146
+      },
+      "B04": {
+        "net_j": 797.1185914121871,
+        "positive_j": 1428.2261687438588,
+        "negative_j": -631.1075773316721
+      },
+      "B05": {
+        "net_j": 605.0619171792894,
+        "positive_j": 788.0292630137707,
+        "negative_j": -182.96734583448188
+      },
+      "B06": {
+        "net_j": 506.15185685719354,
+        "positive_j": 560.2402484102242,
+        "negative_j": -54.08839155303014
+      },
+      "B07": {
+        "net_j": 600.3524761215998,
+        "positive_j": 695.9579160987275,
+        "negative_j": -95.60543997712756
+      },
+      "B08": {
+        "net_j": 713.6908024350977,
+        "positive_j": 1244.1701338984192,
+        "negative_j": -530.4793314633228
+      },
+      "B09": {
+        "net_j": 888.7133301644917,
+        "positive_j": 3833.299138220248,
+        "negative_j": -2944.585808055752
+      },
+      "B10": {
+        "net_j": -28822.004789251525,
+        "positive_j": 221.75470732948133,
+        "negative_j": -29043.759496581013
+      },
+      "B11": {
+        "net_j": 882.9286923778759,
+        "positive_j": 3833.4206289478993,
+        "negative_j": -2950.491936570013
+      },
+      "B12": {
+        "net_j": 693.6380925529289,
+        "positive_j": 1257.9817903195114,
+        "negative_j": -564.3436977665831
+      },
+      "B13": {
+        "net_j": 542.3701697099743,
+        "positive_j": 671.2749567544088,
+        "negative_j": -128.90478704443473
+      },
+      "B14": {
+        "net_j": 479.8350204952318,
+        "positive_j": 526.2625898902734,
+        "negative_j": -46.42756939504149
+      },
+      "B15": {
+        "net_j": 613.363809731306,
+        "positive_j": 732.7319997196258,
+        "negative_j": -119.36818998831974
+      },
+      "B16": {
+        "net_j": 720.6146654653944,
+        "positive_j": 1297.1075803810068,
+        "negative_j": -576.4929149156122
+      },
+      "B17": {
+        "net_j": 809.2437284446685,
+        "positive_j": 2748.2752563687027,
+        "negative_j": -1939.031527924035
+      },
+      "B18": {
+        "net_j": 806.2861130235958,
+        "positive_j": 2751.14172633493,
+        "negative_j": -1944.8556133113339
+      },
+      "B19": {
+        "net_j": 707.2419262927541,
+        "positive_j": 1308.35996428431,
+        "negative_j": -601.1180379915561
+      },
+      "B20": {
+        "net_j": 566.1372402064721,
+        "positive_j": 735.0345844948844,
+        "negative_j": -168.89734428841112
+      },
+      "B21": {
+        "net_j": 485.97008638722434,
+        "positive_j": 546.2735489303886,
+        "negative_j": -60.30346254316437
+      },
+      "B22": {
+        "net_j": 457.6953148085372,
+        "positive_j": 497.35893215742686,
+        "negative_j": -39.66361734888939
+      },
+      "B23": {
+        "net_j": 598.0938233074068,
+        "positive_j": 687.8518689406146,
+        "negative_j": -89.75804563320834
+      },
+      "B24": {
+        "net_j": 666.7610325209672,
+        "positive_j": 910.95046182948,
+        "negative_j": -244.18942930851287
+      },
+      "B25": {
+        "net_j": 707.7919908466286,
+        "positive_j": 1052.4241305611408,
+        "negative_j": -344.63213971451205
+      },
+      "B26": {
+        "net_j": 659.6696479550926,
+        "positive_j": 917.7985714480409,
+        "negative_j": -258.12892349294947
+      },
+      "B27": {
+        "net_j": 565.3992671446291,
+        "positive_j": 689.3716344276348,
+        "negative_j": -123.97236728300581
+      },
+      "B28": {
+        "net_j": 492.16853344685103,
+        "positive_j": 550.7728964599166,
+        "negative_j": -58.60436301306615
+      },
+      "B29": {
+        "net_j": 458.6250198340226,
+        "positive_j": 494.9978307798027,
+        "negative_j": -36.372810945779996
+      },
+      "ABS:+x": {
+        "net_j": 6260.240936015145,
+        "positive_j": 6509.850980064273,
+        "negative_j": -249.6100440491273
+      },
+      "ABS:+y": {
+        "net_j": 3020.4666296843243,
+        "positive_j": 3140.8995037846425,
+        "negative_j": -120.43287410031796
+      },
+      "ABS:-x": {
+        "net_j": 6260.240936015145,
+        "positive_j": 6509.850980064273,
+        "negative_j": -249.6100440491273
+      },
+      "ABS:-y": {
+        "net_j": 3020.4666296843243,
+        "positive_j": 3140.8995037846425,
+        "negative_j": -120.43287410031796
+      },
+      "ABS:+z": {
+        "net_j": 6061.134331709643,
+        "positive_j": 6636.989248919352,
+        "negative_j": -575.8549172097058
+      }
+    },
+    "observed_gas_groups": {
+      "base": {
+        "reaction_heat_j": 338.01661117247534,
+        "remaining_fuel_j": 15299.062685575462,
+        "nodes": 30
+      },
+      "body": {
+        "reaction_heat_j": 551.5887292622142,
+        "remaining_fuel_j": 47859.04453105067,
+        "nodes": 30
+      },
+      "hood": {
+        "reaction_heat_j": 0.3689287151756672,
+        "remaining_fuel_j": 1033.9712895526266,
+        "nodes": 1
+      },
+      "inside": {
+        "reaction_heat_j": 5.272883244569122,
+        "remaining_fuel_j": 699.9012126180141,
+        "nodes": 27
+      },
+      "plume": {
+        "reaction_heat_j": 33.13879740389312,
+        "remaining_fuel_j": 773.8238788982483,
+        "nodes": 30
+      },
+      "top": {
+        "reaction_heat_j": 174.03422485882675,
+        "remaining_fuel_j": 15471.851966372427,
+        "nodes": 30
+      }
+    },
+    "global_reaction_heat_j": 1102.4201746571541,
+    "unobserved_reaction_heat_j": 4.547473508864641e-13,
+    "hot_reacting_nodes_without_direct_solid_contact": [
+      {
+        "id": "plume-0-10",
+        "reaction_heat_j": 32.669454884461636,
+        "remaining_fuel_j": 0.000217294904738414,
+        "peak_temperature_k": 689.7840937973116,
+        "direct_solid_contact": false
+      },
+      {
+        "id": "inside-B10-12",
+        "reaction_heat_j": 1.8269944721600555,
+        "remaining_fuel_j": 28.56730117333094,
+        "peak_temperature_k": 1416.6660430760326,
+        "direct_solid_contact": false
+      },
+      {
+        "id": "inside-B10-9",
+        "reaction_heat_j": 1.197754509852606,
+        "remaining_fuel_j": 28.530264411169192,
+        "peak_temperature_k": 1396.943288350229,
+        "direct_solid_contact": false
+      },
+      {
+        "id": "inside-B10-15",
+        "reaction_heat_j": 1.197751636306601,
+        "remaining_fuel_j": 28.53042237233892,
+        "peak_temperature_k": 1396.9540858139385,
+        "direct_solid_contact": false
+      }
+    ],
+    "interpretation": "Accepted integrals; absent contact is diagnostic, not permission to cross a solid barrier",
+    "calibrated": false,
+    "validation_passed": false
+  },
+  "closed_cut_exact": true,
+  "leakage": [],
+  "minimum_regular_step_s": 0.01,
+  "balances": {
+    "max_chemical_residual_j": 2.2584572434425354e-07,
+    "max_mass_residual_kg": 1.6640022693081846e-12,
+    "max_oxidizer_residual_kg": 6.299405441723138e-13,
+    "max_thermal_residual_j": 9.758405212778598e-07
+  },
+  "wall_s": 736.557185541,
+  "realtime_ratio": 5.688628231795,
+  "conditioned_transport_diagnostic": true,
+  "full_warmup_validation": false,
+  "calibrated": false,
+  "validation_passed": false
+}

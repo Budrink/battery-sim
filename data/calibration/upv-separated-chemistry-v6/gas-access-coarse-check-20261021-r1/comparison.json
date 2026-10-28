@@ -1,0 +1,488 @@
+{
+  "accepted": false,
+  "tolerance": 0.05,
+  "interval_s": [
+    881.9359997520223,
+    950.0
+  ],
+  "metrics": {
+    "temperature/101": {
+      "reference_excursion": 31.162448625445165,
+      "time_weighted_nrmse": 0.04858214042941663,
+      "normalized_endpoint_error": 0.002562468844622792,
+      "maximum_normalized_error": 0.40875220840003085,
+      "maximum_absolute_error": 12.737719694803218,
+      "normalized_peak_height_error": 0.002562468844622792,
+      "peak_time_difference_s": 0.0,
+      "accepted": true
+    },
+    "temperature/102": {
+      "reference_excursion": 9.655769369382654,
+      "time_weighted_nrmse": 0.019373791073782665,
+      "normalized_endpoint_error": 0.0007734981591670579,
+      "maximum_normalized_error": 0.10206358252049241,
+      "maximum_absolute_error": 0.9855024138308295,
+      "normalized_peak_height_error": 0.0007734981591670579,
+      "peak_time_difference_s": 0.0,
+      "accepted": true
+    },
+    "temperature/C2_ISS": {
+      "reference_excursion": 968.9293531152184,
+      "time_weighted_nrmse": 0.06691488971451676,
+      "normalized_endpoint_error": 0.0009904649633076846,
+      "maximum_normalized_error": 0.6610850542643917,
+      "maximum_absolute_error": 640.5447139825361,
+      "normalized_peak_height_error": 0.01376191528499993,
+      "peak_time_difference_s": 0.46999971382319927,
+      "accepted": false
+    },
+    "temperature/C2_TIM": {
+      "reference_excursion": 243.07998136073002,
+      "time_weighted_nrmse": 0.03011927607514508,
+      "normalized_endpoint_error": 0.000279065679091182,
+      "maximum_normalized_error": 0.19837500507094055,
+      "maximum_absolute_error": 48.22099253507895,
+      "normalized_peak_height_error": 0.0013711124710411424,
+      "peak_time_difference_s": 0.47000034246593714,
+      "accepted": true
+    },
+    "temperature/108": {
+      "reference_excursion": 1196.677967081137,
+      "time_weighted_nrmse": 0.09022649602936261,
+      "normalized_endpoint_error": 0.0003012366378773832,
+      "maximum_normalized_error": 0.9434035368704347,
+      "maximum_absolute_error": 1128.9502266392662,
+      "normalized_peak_height_error": 0.0004176391897513782,
+      "peak_time_difference_s": 0.47000034246593714,
+      "accepted": false
+    },
+    "temperature/107": {
+      "reference_excursion": 46.03199186626506,
+      "time_weighted_nrmse": 0.02107108090630835,
+      "normalized_endpoint_error": 0.020234631351001345,
+      "maximum_normalized_error": 0.0494601296261056,
+      "maximum_absolute_error": 2.2767482846533085,
+      "normalized_peak_height_error": 0.019812193540684826,
+      "peak_time_difference_s": 0.0,
+      "accepted": true
+    },
+    "pressure/chamber": {
+      "reference_excursion": 878931.6812274962,
+      "time_weighted_nrmse": 0.08689987940643525,
+      "normalized_endpoint_error": 1.659542310519264e-05,
+      "maximum_normalized_error": 0.9006938686700845,
+      "maximum_absolute_error": 791648.376261495,
+      "normalized_peak_height_error": 0.01970369420893656,
+      "peak_time_difference_s": 0.4690001718699932,
+      "accepted": false
+    },
+    "mass/chamber": {
+      "reference_excursion": 0.07746238700652289,
+      "time_weighted_nrmse": 0.018588755685391225,
+      "normalized_endpoint_error": 0.0024031552799823326,
+      "maximum_normalized_error": 0.1043404916354172,
+      "maximum_absolute_error": 0.008082463543513552,
+      "accepted": true
+    },
+    "local-gas/inside-C2-/mass_kg": {
+      "reference_excursion": 0.00014188852777413799,
+      "time_weighted_nrmse": 0.1158851085716753,
+      "normalized_endpoint_error": 0.0009010106952698554,
+      "maximum_normalized_error": 0.8875911667255164,
+      "maximum_absolute_error": 0.00012593900391201298,
+      "accepted": false
+    },
+    "local-gas/inside-C2-/chemical_j": {
+      "reference_excursion": 516.4275043878117,
+      "time_weighted_nrmse": 0.08981994010556367,
+      "normalized_endpoint_error": 4.893183939439915e-09,
+      "maximum_normalized_error": 0.9499835741156551,
+      "maximum_absolute_error": 490.59764638996154,
+      "accepted": false
+    },
+    "local-gas/gap-ISS1-/mass_kg": {
+      "reference_excursion": 2.141807509501246e-06,
+      "time_weighted_nrmse": 0.05025801905469958,
+      "normalized_endpoint_error": 0.0024741010191452546,
+      "maximum_normalized_error": 0.6795028433379658,
+      "maximum_absolute_error": 1.4553642925887041e-06,
+      "accepted": false
+    },
+    "local-gas/gap-ISS1-/chemical_j": {
+      "reference_excursion": 8.480407979245244,
+      "time_weighted_nrmse": 0.10883855228504163,
+      "normalized_endpoint_error": 0.013973871894104262,
+      "maximum_normalized_error": 0.8708806118104446,
+      "maximum_absolute_error": 7.385422889367275,
+      "accepted": false
+    },
+    "local-gas/gap-TIM1-/mass_kg": {
+      "reference_excursion": 1.3114131181850454e-05,
+      "time_weighted_nrmse": 0.04571679032807197,
+      "normalized_endpoint_error": 0.001293331572492505,
+      "maximum_normalized_error": 0.29186319537964855,
+      "maximum_absolute_error": 3.82753223136276e-06,
+      "accepted": true
+    },
+    "local-gas/gap-TIM1-/chemical_j": {
+      "reference_excursion": 5.777686853923217,
+      "time_weighted_nrmse": 0.06537713817423486,
+      "normalized_endpoint_error": 0.002019527096746097,
+      "maximum_normalized_error": 0.3447159858032008,
+      "maximum_absolute_error": 1.9916610195123354,
+      "accepted": false
+    },
+    "local-gas/gap-ISS2-/mass_kg": {
+      "reference_excursion": 8.298841296585818e-06,
+      "time_weighted_nrmse": 0.10256077930058655,
+      "normalized_endpoint_error": 0.0008075939949998659,
+      "maximum_normalized_error": 0.920651302935607,
+      "maximum_absolute_error": 7.640339052557556e-06,
+      "accepted": false
+    },
+    "local-gas/gap-ISS2-/chemical_j": {
+      "reference_excursion": 33.700145350144695,
+      "time_weighted_nrmse": 0.0785725012799853,
+      "normalized_endpoint_error": 1.201712128766178e-05,
+      "maximum_normalized_error": 0.8843402378951745,
+      "maximum_absolute_error": 29.802394556048917,
+      "accepted": false
+    },
+    "local-gas/gap-TIM2-/mass_kg": {
+      "reference_excursion": 1.5103192447287274e-05,
+      "time_weighted_nrmse": 0.10608479175289386,
+      "normalized_endpoint_error": 1.8433702173101135e-05,
+      "maximum_normalized_error": 0.9541180524637911,
+      "maximum_absolute_error": 1.4410228563791572e-05,
+      "accepted": false
+    },
+    "local-gas/gap-TIM2-/chemical_j": {
+      "reference_excursion": 51.621370591105276,
+      "time_weighted_nrmse": 0.11173091735322303,
+      "normalized_endpoint_error": 8.287501092370038e-10,
+      "maximum_normalized_error": 0.9211818932003002,
+      "maximum_absolute_error": 47.55267189070866,
+      "accepted": false
+    },
+    "local-gas/gap-ISS3-/mass_kg": {
+      "reference_excursion": 1.804702837352331e-05,
+      "time_weighted_nrmse": 0.08951222631118436,
+      "normalized_endpoint_error": 0.0002377406438858059,
+      "maximum_normalized_error": 0.8592040385539197,
+      "maximum_absolute_error": 1.5506079662428404e-05,
+      "accepted": false
+    },
+    "local-gas/gap-ISS3-/chemical_j": {
+      "reference_excursion": 9.017545304988346,
+      "time_weighted_nrmse": 0.1055015317444164,
+      "normalized_endpoint_error": 5.074126266169867e-08,
+      "maximum_normalized_error": 1.2340556661156534,
+      "maximum_absolute_error": 11.128152878075475,
+      "accepted": false
+    },
+    "local-gas/gap-TIM3-/mass_kg": {
+      "reference_excursion": 1.3435214218429664e-05,
+      "time_weighted_nrmse": 0.043561173482738316,
+      "normalized_endpoint_error": 2.5518464973458718e-05,
+      "maximum_normalized_error": 0.2825508841706819,
+      "maximum_absolute_error": 3.796131656439819e-06,
+      "accepted": true
+    },
+    "local-gas/gap-TIM3-/chemical_j": {
+      "reference_excursion": 5.372988006489664,
+      "time_weighted_nrmse": 0.056209577529473434,
+      "normalized_endpoint_error": 0.0024792619833723484,
+      "maximum_normalized_error": 0.2701130438010011,
+      "maximum_absolute_error": 1.4513141447391962,
+      "accepted": false
+    },
+    "gas-heat/C3:case:-x": {
+      "reference_excursion": 14744.500605277073,
+      "time_weighted_nrmse": 0.04526690186390962,
+      "normalized_endpoint_error": 0.00020870886131354424,
+      "maximum_normalized_error": 0.4463524563724074,
+      "maximum_absolute_error": 6581.244063149869,
+      "accepted": true
+    },
+    "gas-heat/ISS1": {
+      "reference_excursion": 12262.415735546088,
+      "time_weighted_nrmse": 0.050242969999123234,
+      "normalized_endpoint_error": 0.0036913020685110072,
+      "maximum_normalized_error": 0.5153251693190387,
+      "maximum_absolute_error": 6319.131465180732,
+      "accepted": false
+    },
+    "gas-heat/C2:case:-x": {
+      "reference_excursion": 21688.115596514053,
+      "time_weighted_nrmse": 0.023003630047941464,
+      "normalized_endpoint_error": 0.02034410103691823,
+      "maximum_normalized_error": 0.15963312784901992,
+      "maximum_absolute_error": 3462.1417298226506,
+      "accepted": true
+    },
+    "gas-heat/ISS2": {
+      "reference_excursion": 11953.379539035823,
+      "time_weighted_nrmse": 0.036566510349434096,
+      "normalized_endpoint_error": 0.019617870002470228,
+      "maximum_normalized_error": 0.3116509879642563,
+      "maximum_absolute_error": 3725.2825428522406,
+      "accepted": true
+    },
+    "gas-heat/C1:case:-x": {
+      "reference_excursion": 280.5752987017176,
+      "time_weighted_nrmse": 0.14083083850339237,
+      "normalized_endpoint_error": 0.1521921643644212,
+      "maximum_normalized_error": 0.2725530859152105,
+      "maximum_absolute_error": 76.47166349273509,
+      "accepted": false
+    },
+    "gas-heat/ISS3": {
+      "reference_excursion": 188.23738951979556,
+      "time_weighted_nrmse": 0.08169119953484663,
+      "normalized_endpoint_error": 0.08594246162633407,
+      "maximum_normalized_error": 0.30735951955104396,
+      "maximum_absolute_error": 57.856553604347084,
+      "accepted": false
+    },
+    "gas-heat/C3:case:+x": {
+      "reference_excursion": 43.94910854056979,
+      "time_weighted_nrmse": 0.022203679125283225,
+      "normalized_endpoint_error": 0.001253167351139394,
+      "maximum_normalized_error": 0.1423217637932389,
+      "maximum_absolute_error": 6.254914644634392,
+      "accepted": true
+    },
+    "gas-heat/TIM1": {
+      "reference_excursion": 21.96143363645328,
+      "time_weighted_nrmse": 0.04391181609153096,
+      "normalized_endpoint_error": 0.023948773060210704,
+      "maximum_normalized_error": 0.2791315867236622,
+      "maximum_absolute_error": 6.13012981766961,
+      "accepted": true
+    },
+    "gas-heat/C2:case:+x": {
+      "reference_excursion": 15969.12030787974,
+      "time_weighted_nrmse": 0.009342032435269133,
+      "normalized_endpoint_error": 0.0097977118492024,
+      "maximum_normalized_error": 0.012709755979237196,
+      "maximum_absolute_error": 202.96362231623266,
+      "accepted": true
+    },
+    "gas-heat/TIM2": {
+      "reference_excursion": 16002.775130849805,
+      "time_weighted_nrmse": 0.009147067375580341,
+      "normalized_endpoint_error": 0.00958550856911245,
+      "maximum_normalized_error": 0.012587898522592594,
+      "maximum_absolute_error": 201.44130942700576,
+      "accepted": true
+    },
+    "gas-heat/C1:case:+x": {
+      "reference_excursion": 25.56519662000225,
+      "time_weighted_nrmse": 0.0374716539974275,
+      "normalized_endpoint_error": 0.011244667306901556,
+      "maximum_normalized_error": 0.23955832335009072,
+      "maximum_absolute_error": 6.124355638403146,
+      "accepted": true
+    },
+    "gas-heat/TIM3": {
+      "reference_excursion": 24.915957873786155,
+      "time_weighted_nrmse": 0.03743640991107792,
+      "normalized_endpoint_error": 0.007052616295530736,
+      "maximum_normalized_error": 0.24802007815856458,
+      "maximum_absolute_error": 6.179657819251945,
+      "accepted": true
+    },
+    "gas-heat/chamber-wall": {
+      "reference_excursion": 361414.55920084944,
+      "time_weighted_nrmse": 0.019238785786061915,
+      "normalized_endpoint_error": 0.0007506320359198284,
+      "maximum_normalized_error": 0.09960841809310299,
+      "maximum_absolute_error": 35999.93251781273,
+      "accepted": true
+    },
+    "gas-heat/Al2": {
+      "reference_excursion": 10.343351954555027,
+      "time_weighted_nrmse": 0.030519733746415968,
+      "normalized_endpoint_error": 0.003730561463610259,
+      "maximum_normalized_error": 0.16260924417264155,
+      "maximum_absolute_error": 1.6819246435418078,
+      "accepted": true
+    },
+    "gas-heat/C1:case:-y": {
+      "reference_excursion": 237.06006996470325,
+      "time_weighted_nrmse": 0.029792144994639246,
+      "normalized_endpoint_error": 0.0006678862652007907,
+      "maximum_normalized_error": 0.16503244656005478,
+      "maximum_absolute_error": 39.12260332797273,
+      "accepted": true
+    },
+    "gas-heat/C1:case:-z": {
+      "reference_excursion": 109.34535168145543,
+      "time_weighted_nrmse": 0.030270376374454837,
+      "normalized_endpoint_error": 0.0019512279429326766,
+      "maximum_normalized_error": 0.16721661079643174,
+      "maximum_absolute_error": 18.284359114516885,
+      "accepted": true
+    },
+    "gas-heat/C1:case:+z": {
+      "reference_excursion": 109.17670862412947,
+      "time_weighted_nrmse": 0.02976546555242842,
+      "normalized_endpoint_error": 0.00044784307362986947,
+      "maximum_normalized_error": 0.16564935079351514,
+      "maximum_absolute_error": 18.085050905359815,
+      "accepted": true
+    },
+    "gas-heat/C1:case:+y": {
+      "reference_excursion": 236.911426039615,
+      "time_weighted_nrmse": 0.030129482304644892,
+      "normalized_endpoint_error": 0.001642685305749926,
+      "maximum_normalized_error": 0.1657825448498347,
+      "maximum_absolute_error": 39.27577911285077,
+      "accepted": true
+    },
+    "gas-heat/Al3": {
+      "reference_excursion": 59.769198937296004,
+      "time_weighted_nrmse": 0.030021383112008148,
+      "normalized_endpoint_error": 0.0013336945151332532,
+      "maximum_normalized_error": 0.15966602888513065,
+      "maximum_absolute_error": 9.543110643963423,
+      "accepted": true
+    },
+    "gas-heat/steel-R": {
+      "reference_excursion": 5529.597005925085,
+      "time_weighted_nrmse": 0.029825795708282372,
+      "normalized_endpoint_error": 0.0010898615078619783,
+      "maximum_normalized_error": 0.15718970533683935,
+      "maximum_absolute_error": 869.1957239928332,
+      "accepted": true
+    },
+    "gas-heat/ISS4": {
+      "reference_excursion": 4441.127838145081,
+      "time_weighted_nrmse": 0.030966389181997036,
+      "normalized_endpoint_error": 0.0027302186251953603,
+      "maximum_normalized_error": 0.18224268154219345,
+      "maximum_absolute_error": 809.3630462952441,
+      "accepted": true
+    },
+    "gas-heat/steel-L": {
+      "reference_excursion": 5504.953393301268,
+      "time_weighted_nrmse": 0.029673468883096042,
+      "normalized_endpoint_error": 0.00044226425512925756,
+      "maximum_normalized_error": 0.1569546274498755,
+      "maximum_absolute_error": 864.0279089745285,
+      "accepted": true
+    },
+    "gas-heat/C3:case:-y": {
+      "reference_excursion": 227.69148290684842,
+      "time_weighted_nrmse": 0.030210317707790223,
+      "normalized_endpoint_error": 0.0017989923714718352,
+      "maximum_normalized_error": 0.17063228919136536,
+      "maximum_absolute_error": 38.851518957772186,
+      "accepted": true
+    },
+    "gas-heat/C3:case:-z": {
+      "reference_excursion": 104.92131969866246,
+      "time_weighted_nrmse": 0.030659344282804916,
+      "normalized_endpoint_error": 0.0006375687031697861,
+      "maximum_normalized_error": 0.17313442864079095,
+      "maximum_absolute_error": 18.16549273826569,
+      "accepted": true
+    },
+    "gas-heat/C3:case:+z": {
+      "reference_excursion": 104.75997099845922,
+      "time_weighted_nrmse": 0.03027351639412756,
+      "normalized_endpoint_error": 0.0018099417412865593,
+      "maximum_normalized_error": 0.1718120515362993,
+      "maximum_absolute_error": 17.999025536128496,
+      "accepted": true
+    },
+    "gas-heat/C3:case:+y": {
+      "reference_excursion": 227.62764987916842,
+      "time_weighted_nrmse": 0.03059743988112414,
+      "normalized_endpoint_error": 0.0007405748856357335,
+      "maximum_normalized_error": 0.1716616876028585,
+      "maximum_absolute_error": 39.07494652333066,
+      "accepted": true
+    },
+    "gas-heat/Al1": {
+      "reference_excursion": 56.29129388976721,
+      "time_weighted_nrmse": 0.042372964765700585,
+      "normalized_endpoint_error": 0.03823938762908567,
+      "maximum_normalized_error": 0.16060525034104245,
+      "maximum_absolute_error": 9.040677347187255,
+      "accepted": true
+    },
+    "gas-heat/C2:case:-y": {
+      "reference_excursion": 5262.875298047573,
+      "time_weighted_nrmse": 0.01547462661523855,
+      "normalized_endpoint_error": 0.011534181745405755,
+      "maximum_normalized_error": 0.13093462126252484,
+      "maximum_absolute_error": 689.0925839017565,
+      "accepted": true
+    },
+    "gas-heat/C2:case:-z": {
+      "reference_excursion": 2240.478068771757,
+      "time_weighted_nrmse": 0.015824986379315738,
+      "normalized_endpoint_error": 0.008748929819253369,
+      "maximum_normalized_error": 0.14269577167329497,
+      "maximum_absolute_error": 319.70674694047955,
+      "accepted": true
+    },
+    "gas-heat/C2:case:+z": {
+      "reference_excursion": 2249.063874550742,
+      "time_weighted_nrmse": 0.021160896692676505,
+      "normalized_endpoint_error": 0.02017480355145097,
+      "maximum_normalized_error": 0.1395152146808431,
+      "maximum_absolute_error": 313.77862928887555,
+      "accepted": true
+    },
+    "gas-heat/C2:case:+y": {
+      "reference_excursion": 5229.210955805382,
+      "time_weighted_nrmse": 0.016675208181518467,
+      "normalized_endpoint_error": 0.013854841318814974,
+      "maximum_normalized_error": 0.1311543665492253,
+      "maximum_absolute_error": 685.8338504609238,
+      "accepted": true
+    }
+  },
+  "failures": [
+    "temperature/C2_ISS",
+    "temperature/108",
+    "pressure/chamber",
+    "local-gas/inside-C2-/mass_kg",
+    "local-gas/inside-C2-/chemical_j",
+    "local-gas/gap-ISS1-/mass_kg",
+    "local-gas/gap-ISS1-/chemical_j",
+    "local-gas/gap-TIM1-/chemical_j",
+    "local-gas/gap-ISS2-/mass_kg",
+    "local-gas/gap-ISS2-/chemical_j",
+    "local-gas/gap-TIM2-/mass_kg",
+    "local-gas/gap-TIM2-/chemical_j",
+    "local-gas/gap-ISS3-/mass_kg",
+    "local-gas/gap-ISS3-/chemical_j",
+    "local-gas/gap-TIM3-/chemical_j",
+    "gas-heat/ISS1",
+    "gas-heat/C1:case:-x",
+    "gas-heat/ISS3"
+  ],
+  "criterion": "Time-weighted NRMSE, endpoint, and temperature/pressure peak-height excursion errors <=5%; pointwise error separately reported",
+  "conservation_relaxed": false,
+  "no_time_shift": true,
+  "normalization_floors": {
+    "temperature_k": 1.0,
+    "pressure_pa": 100.0,
+    "mass_kg": 1e-08,
+    "energy_j": 1.0
+  },
+  "reference_wall_s": 182.953647922,
+  "coarse_wall_s": 121.826545042,
+  "speedup": 1.5017552033419832,
+  "realtime_ratio": 0.9439650444027077,
+  "minimum_regular_step_s": 0.04,
+  "balances": {
+    "max_chemical_residual_j": 9.099312592297792e-08,
+    "max_mass_residual_kg": 4.163336342344337e-14,
+    "max_oxidizer_residual_kg": 7.494005416219807e-16,
+    "max_thermal_residual_j": 4.401954356580973e-08
+  }
+}

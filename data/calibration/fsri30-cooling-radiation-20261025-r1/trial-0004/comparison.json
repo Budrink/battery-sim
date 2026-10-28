@@ -1,0 +1,78 @@
+{
+  "last_completed_observation_s": 3745.0,
+  "common_comparison_until_s": 3745.0,
+  "common_control_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 148.84030265955025,
+    "quantile_rmse_k": [
+      102.6789628994168,
+      73.07665136029775,
+      170.4017945372433,
+      209.03063126130314
+    ],
+    "tail_temperature_c": [
+      653.3670222016435,
+      755.691153907707,
+      864.2750712936523,
+      907.1283891666063
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "common_candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 614.1740452640023,
+    "quantile_rmse_k": [
+      529.5873148925435,
+      639.4381972079879,
+      640.400469461805,
+      639.829929022705
+    ],
+    "tail_temperature_c": [
+      35.995940535293016,
+      49.495927219796215,
+      61.11633829539767,
+      64.84892876709773
+    ],
+    "positive_rise_sum_k": [
+      0.10071824764668236,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 614.1740452640023,
+    "quantile_rmse_k": [
+      529.5873148925435,
+      639.4381972079879,
+      640.400469461805,
+      639.829929022705
+    ],
+    "tail_temperature_c": [
+      35.995940535293016,
+      49.495927219796215,
+      61.11633829539767,
+      64.84892876709773
+    ],
+    "positive_rise_sum_k": [
+      0.10071824764668236,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+  "common_cooling_rmse_change_k": 465.333742604452,
+  "radiative_energy_out_j": 7232.981848868898
+}

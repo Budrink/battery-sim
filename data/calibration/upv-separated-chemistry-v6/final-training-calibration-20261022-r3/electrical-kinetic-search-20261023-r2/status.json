@@ -1,0 +1,77 @@
+{
+  "status": "complete_trials_not_validated",
+  "pid": 1723430,
+  "native_sha256": "e7234238a1dcedad671ee39f3a120047432705a2341a7babdf69b439d6ca9e27",
+  "reference": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/final-fresh-check-20261023-r2",
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "current_input": "measured",
+  "validation_used": false,
+  "max_slowdown": 5.0,
+  "records": [
+    {
+      "trial": "trial-000",
+      "parameters": {
+        "entry": 0.001,
+        "path": 1.0,
+        "opening_rate": 1.0,
+        "strength": 1.0,
+        "case_h": 1.0,
+        "resistance_charge_delta": -1.229728123962856,
+        "r2_rate": 1.35,
+        "bulk_metric": 1.0,
+        "resistance_scale": 1.0010061422859786,
+        "resistance_temperature_delta": 0.003,
+        "r2_activation_delta": -20000.0,
+        "damaged_span": 1.0,
+        "damaged_logit": 0.0,
+        "core_contact_damage": 0.0,
+        "casing_contact_damage": 0.0,
+        "wall_hot_scale": 1.0,
+        "reverse_hot_logit": 0.0,
+        "casing_damage_contrast": 0.0,
+        "reverse_profile_power": 0.0,
+        "casing_gas_damage": 0.0,
+        "damaged_iss_scale": 1.0,
+        "core_surface_power": 0.0,
+        "intact_iss_scale": 1.0,
+        "iss_temperature_contrast": 0.0,
+        "damaged_tim_scale": 1.0,
+        "al_surface_softening": 0.0,
+        "tim_al_scale": 1.0,
+        "mobile_energy_fraction": 0.7,
+        "jet_fraction": 0.7,
+        "witness_mouth": 0.00675,
+        "pad_footprint": 0.45,
+        "backing_fraction": 0.01
+      },
+      "fresh": true,
+      "accepted": false,
+      "status": "rejected",
+      "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256); t=867.182409, dt=0.020000; C2: R=0.154328, heat_J=3.759460, budget_J=3.759212"
+    }
+  ],
+  "best": null,
+  "accepted_calibration": false,
+  "points": [
+    {
+      "resistance_temperature_delta": 0.003,
+      "resistance_scale": 1.0010061422859786,
+      "resistance_charge_delta": -1.229728123962856,
+      "r2_activation_delta": -20000.0,
+      "r2_rate": 1.35
+    }
+  ]
+}

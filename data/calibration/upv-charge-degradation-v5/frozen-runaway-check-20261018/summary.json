@@ -1,0 +1,167 @@
+{
+  "experiments": {
+    "no-cooling": {
+      "status": "incomplete",
+      "error": "Invalid proposed substep (node/gas/edge/shell/channel flags=256)",
+      "parameters_sha256": "6250638bf5d1ca017499f0759abeac3eb218e86e24dbfdd05168e4fa7f77728b",
+      "model_fingerprint": "95be956eb194327827c20d58afc3bd8292da813485af7870fc47dab902bc8bf9",
+      "optimization": false,
+      "forced_ignition": false,
+      "metrics": {
+        "observed_marker": {
+          "time_s": 886.6389999166131,
+          "previous_s": 886.168000032194,
+          "index": 1885,
+          "bracket_s": 0.4709998844191432
+        },
+        "last_sample_s": 679.0,
+        "reached_event_plus_600_s": false,
+        "chamber_pressure_bar": {
+          "value": 1.092534498960711,
+          "time_s": 679.0
+        },
+        "observed_chamber_pressure_bar": {
+          "value": 1.049520325,
+          "time_s": 677.7879997389391
+        },
+        "inside_c2_max_pressure_bar": {
+          "value": 3.5978366078092705,
+          "time_s": 335.0
+        },
+        "c2_core_temperature_c": {
+          "value": 90.99456303082849,
+          "time_s": 679.0
+        },
+        "measured_surface_peaks_c": {
+          "101": {
+            "value": 48.341999999999985,
+            "time_s": 678.7300001364201
+          },
+          "102": {
+            "value": 29.161999999999978,
+            "time_s": 676.3769997982308
+          },
+          "107": {
+            "value": 46.71300000000002,
+            "time_s": 678.7300001364201
+          },
+          "108": {
+            "value": 33.33699999999999,
+            "time_s": 678.2599997939542
+          },
+          "C2_TIM": {
+            "value": 76.20299999999997,
+            "time_s": 678.7300001364201
+          },
+          "C2_ISS": {
+            "value": 85.81399999999996,
+            "time_s": 678.7300001364201
+          }
+        },
+        "predicted_surface_peaks_c": {
+          "101": {
+            "value": 42.861681033034245,
+            "time_s": 679.0
+          },
+          "102": {
+            "value": 30.548128181000095,
+            "time_s": 679.0
+          },
+          "107": {
+            "value": 43.20217568465222,
+            "time_s": 679.0
+          },
+          "108": {
+            "value": 31.529115807574442,
+            "time_s": 679.0
+          },
+          "C2_ISS": {
+            "value": 80.1552716998296,
+            "time_s": 679.0
+          },
+          "C2_TIM": {
+            "value": 73.11986063156945,
+            "time_s": 679.0
+          }
+        },
+        "c2_aperture_max_m2": 3.7279314004514913e-07,
+        "c2_net_vented_mass_g": 7.524518465213725,
+        "c2_first_positive_aperture_s": 80.0,
+        "c2_first_1mm2_total_aperture_s": null,
+        "chemical_inventory_final_g": {
+          "virgin_kg": 167.95374413522117,
+          "r2_precursor_kg": 0.002730814028431258,
+          "residue_kg": 24.508092158410392
+        },
+        "precursor_from_charge_g": 20.010257223611806,
+        "precursor_from_degradation_g": 0.00904294196985972,
+        "cumulative_heat_j": {
+          "joule": 17783.38923749766,
+          "r2_local": 25471.734976714153,
+          "r3": 27.402652384060637
+        },
+        "events": [],
+        "uniform_1s_phase_metrics": {
+          "before_event": {
+            "101": {
+              "rmse_k": 2.9370798456894596,
+              "bias_k": -2.0473920408090915
+            },
+            "102": {
+              "rmse_k": 0.6090353881630932,
+              "bias_k": 0.4726457139276949
+            },
+            "107": {
+              "rmse_k": 1.6564693875598542,
+              "bias_k": -1.113407661469857
+            },
+            "108": {
+              "rmse_k": 0.7557680503307544,
+              "bias_k": -0.497122556134825
+            },
+            "C2_TIM": {
+              "rmse_k": 1.1682834089761773,
+              "bias_k": -0.17780572993808352
+            },
+            "C2_ISS": {
+              "rmse_k": 1.897791227710001,
+              "bias_k": -0.3963054343352142
+            }
+          }
+        },
+        "balances": {
+          "max_thermal_residual_j": 2.3409012720322468e-08,
+          "max_chemical_residual_j": 4.272806108929217e-09,
+          "max_mass_residual_kg": 3.219646771412954e-15
+        },
+        "wall_s": 60.009059633,
+        "steps": 12561,
+        "snapshots": {
+          "626.956": {
+            "c2_mean_c": 84.52788314038213,
+            "c2_max_c": 89.1875067033144,
+            "chamber_bar": 1.0856364658120388,
+            "inside_c2_max_bar": 2.648676943161797,
+            "aperture_mm2": 0.37279314004514913,
+            "b_mg": 6.036598717313627,
+            "formed_charge_g": 17.653682654039777,
+            "formed_degradation_g": 0.0066267239994947736,
+            "c2_r2_local_power_w": 58.216856586679555,
+            "joule_j": 15399.309805684856,
+            "r2_local_j": 22466.434666547437,
+            "r3_j": 20.78578607280893
+          }
+        },
+        "c2_max_local_temperature_c": {
+          "value": 96.90694219209513,
+          "time_s": 679.0
+        }
+      }
+    }
+  },
+  "parameters_sha256": "6250638bf5d1ca017499f0759abeac3eb218e86e24dbfdd05168e4fa7f77728b",
+  "model_fingerprint": "95be956eb194327827c20d58afc3bd8292da813485af7870fc47dab902bc8bf9",
+  "optimization": false,
+  "forced_ignition": false,
+  "current_profile_unchanged": true
+}

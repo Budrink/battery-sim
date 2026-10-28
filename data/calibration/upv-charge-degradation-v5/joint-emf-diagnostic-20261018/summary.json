@@ -1,0 +1,86 @@
+[
+  {
+    "label": "diagnostic-charge-20",
+    "status": "failed",
+    "error": "Command '['/tmp/battery-sim-cuda-v1/battery_sim_casing_probe', '/tmp/battery-r123-trial-zfwcsewg/scene.json']' timed out after 140.0 seconds",
+    "parameters": {
+      "resistance_ohm": 0.012,
+      "resistance_temperature": -0.02,
+      "resistance_charge": 20,
+      "product_conductivity_ratio": 0.2,
+      "r1_rate": 0.15842579560110023,
+      "r1_activation": 140000,
+      "overcharge_gain": 0.9665706075586435,
+      "r2_rate": 101366.85413330734,
+      "r2_activation": 220000,
+      "energy_j": 424264.068711928,
+      "gas_fraction": 0.7,
+      "gas_yield": 0.4,
+      "gas_yield_temperature": 0.0005,
+      "gas_rate": 20.0,
+      "gas_reference_k": 600.0,
+      "gas_activation": 80000.0,
+      "precursor_yield": 0.27735866146555965,
+      "precursor_temperature": 0.029623273375245555,
+      "precursor_voltage": 0.0,
+      "iss_h": 548.334510922672,
+      "tim_h": 697.6587915939645,
+      "case_h": 220.48307663197534,
+      "environment_h": 1.563406124562644,
+      "surface_iss": 0.0,
+      "surface_tim": 6.0,
+      "bulk_slope": -2.88,
+      "case_warm_response": 0.0,
+      "case_hot_response": 0.0,
+      "shell_strength_pa": 1000000.0,
+      "opening_rate": 0.2,
+      "sink_g": 10.0,
+      "battery_iss_factor": 0.3246524673583498,
+      "battery_tim_factor": 0.3272376374473188
+    },
+    "proposal": {
+      "label": "diagnostic-charge-20",
+      "k1_75": 0.0003,
+      "ea1": 140000,
+      "k2_75": 0.003430090191052344,
+      "ea2": 220000,
+      "resistance_ohm": 0.012,
+      "resistance_temperature": -0.02,
+      "resistance_charge": 20
+    },
+    "last_sample_s": 565.0,
+    "objective": null,
+    "diagnostics": null,
+    "snapshots": {
+      "300.0": {
+        "c2_mean_c": 41.28186246341983,
+        "c2_tim_error_k": 0.894563420378347,
+        "c2_iss_error_k": -0.4463501179635614,
+        "b_mg": 5001.051270582051,
+        "r2_local_power_w": 0.006367355564857595,
+        "thermal_formed_g": 0.010581749470841154,
+        "charge_formed_g": 4.99067201190254,
+        "chamber_bar": 1.0322704071062363
+      },
+      "500.0": {
+        "c2_mean_c": 64.23319163481256,
+        "c2_tim_error_k": -4.161782698896502,
+        "c2_iss_error_k": -4.502251215165188,
+        "b_mg": 11314.756350874843,
+        "r2_local_power_w": 4.708063373310699,
+        "thermal_formed_g": 0.42520773223704406,
+        "charge_formed_g": 10.987117053190907,
+        "chamber_bar": 1.0327889870287783
+      }
+    },
+    "fingerprint": "44bba8a2aaee097851e08641e0d48ff6f3d38de5c862cfc7b1bb4037e27e1e7b",
+    "validation_used_for_selection": false,
+    "wall_s": 144.02106305101188,
+    "balances": {
+      "max_thermal_residual_j": 2.744127414189279e-08,
+      "max_chemical_residual_j": 9.313225746154785e-09,
+      "max_mass_residual_kg": 7.438494264988549e-15
+    },
+    "diagnostic_emf_floor_v": 0.0
+  }
+]

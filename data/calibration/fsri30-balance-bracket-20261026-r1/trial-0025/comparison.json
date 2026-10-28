@@ -1,0 +1,78 @@
+{
+  "last_completed_observation_s": 4770.0,
+  "common_comparison_until_s": 4089.9999999999045,
+  "common_control_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 193.2093995639603,
+    "quantile_rmse_k": [
+      240.72187438885518,
+      100.33614066708898,
+      181.8996404205358,
+      219.58517072219232
+    ],
+    "tail_temperature_c": [
+      636.5674082232241,
+      739.6611551212337,
+      830.533572465015,
+      876.2216131539163
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "common_candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 92.99734158570186,
+    "quantile_rmse_k": [
+      109.14989788752226,
+      20.178170771184373,
+      84.51057162047336,
+      123.00864468761576
+    ],
+    "tail_temperature_c": [
+      458.40569535722784,
+      587.0311103033611,
+      713.8314590835568,
+      747.6882049140004
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 114.29820743578254,
+    "quantile_rmse_k": [
+      192.31942535057487,
+      34.15965079128865,
+      68.53208240669404,
+      96.9846970597768
+    ],
+    "tail_temperature_c": [
+      369.94975090712296,
+      492.3641703249559,
+      612.5895852131735,
+      633.3897239533013
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+  "common_cooling_rmse_change_k": -100.21205797825843,
+  "radiative_energy_out_j": 398716.2285705478
+}

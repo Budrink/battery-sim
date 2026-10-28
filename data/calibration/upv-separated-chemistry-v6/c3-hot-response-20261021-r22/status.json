@@ -1,0 +1,2094 @@
+{
+  "status": "complete",
+  "source": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/c3-transit-diagnosis-20261020-r1/seed",
+  "native_sha256": "93a7b87f787eb42ac2d4aef0191b6372c0daf19514c761a0bf6d756bef2884cb",
+  "source_checkpoint_core": "21fea5b864bcce99ed824c2219743303e56962516e8922cecb68938ee5714dfc",
+  "reference": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/averaged-guard-20261020-r2/averaged",
+  "diagnostic_only": true,
+  "calibrated": false,
+  "validation_run": false,
+  "cases": {
+    "route_drift": {
+      "snapshots": [
+        {
+          "time_s": 0.0,
+          "objects": {
+            "C3:case:-x": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "ISS1": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C2:case:-x": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "ISS2": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C1:case:-x": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "ISS3": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C3:case:+x": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "TIM1": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C2:case:+x": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "TIM2": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+x": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "TIM3": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "chamber-wall": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "Al2": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C1:case:-y": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C1:case:-z": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+z": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+y": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "Al3": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "steel-R": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "ISS4": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "steel-L": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C3:case:-y": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C3:case:-z": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C3:case:+z": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C3:case:+y": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "Al1": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C2:case:-y": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C2:case:-z": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C2:case:+z": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C2:case:+y": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            }
+          },
+          "groups": {
+            "C3 casing": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "ISS pads": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C2 casing": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "C1 casing": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "TIM pads": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "chamber-wall": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            },
+            "plates": {
+              "net_j": 0.0,
+              "positive_step_j": 0.0,
+              "negative_step_j": 0.0
+            }
+          },
+          "external_gas": {
+            "nodes": 1320,
+            "net_transport_j": 0.0,
+            "r3_j": 0.0,
+            "gas_energy_change_j": 0.0,
+            "actual_heat_to_surfaces_j": 0.0,
+            "energy_closure_j": 0.0,
+            "remaining_oxygen_kg": 0.033353984039844055,
+            "consumed_oxygen_kg": 0.0,
+            "net_inward_oxygen_kg": 0.0,
+            "oxygen_closure_kg": 0.0
+          },
+          "C3_ISS_slit_and_edge_galleries": {
+            "nodes": 24,
+            "net_transport_j": 0.0,
+            "r3_j": 0.0,
+            "gas_energy_change_j": 0.0,
+            "actual_heat_to_surfaces_j": 0.0,
+            "energy_closure_j": 0.0,
+            "remaining_oxygen_kg": 1.4447278186858407e-06,
+            "consumed_oxygen_kg": 0.0,
+            "net_inward_oxygen_kg": 0.0,
+            "oxygen_closure_kg": 0.0
+          },
+          "reaction_location": {
+            "wall_touching_nodes": 704,
+            "external_nodes": 1320,
+            "wall_touching_reference_volume_fraction": 0.9827857766666674,
+            "wall_touching_r3_j": 0.0,
+            "wall_touching_r3_fraction": null
+          }
+        },
+        {
+          "time_s": 750.0,
+          "objects": {
+            "C3:case:-x": {
+              "net_j": 14.960387879636665,
+              "positive_step_j": 15.085307039890312,
+              "negative_step_j": -0.12491916025364198
+            },
+            "ISS1": {
+              "net_j": 28.947766962439996,
+              "positive_step_j": 28.948742759539286,
+              "negative_step_j": -0.0009757970992936671
+            },
+            "C2:case:-x": {
+              "net_j": -128.79083731156948,
+              "positive_step_j": 0.0,
+              "negative_step_j": -128.79083731156948
+            },
+            "ISS2": {
+              "net_j": 73.94743036659594,
+              "positive_step_j": 79.22918057903401,
+              "negative_step_j": -5.281750212438057
+            },
+            "C1:case:-x": {
+              "net_j": 45.97851043361152,
+              "positive_step_j": 45.97851043361152,
+              "negative_step_j": 0.0
+            },
+            "ISS3": {
+              "net_j": -47.689302205306376,
+              "positive_step_j": 0.004816210872271648,
+              "negative_step_j": -47.69411841617864
+            },
+            "C3:case:+x": {
+              "net_j": 14.048452641050936,
+              "positive_step_j": 14.13821122178762,
+              "negative_step_j": -0.08975858073668384
+            },
+            "TIM1": {
+              "net_j": -14.125322622208,
+              "positive_step_j": 0.11714248636113765,
+              "negative_step_j": -14.242465108569135
+            },
+            "C2:case:+x": {
+              "net_j": -67.23196028262251,
+              "positive_step_j": 0.0,
+              "negative_step_j": -67.23196028262251
+            },
+            "TIM2": {
+              "net_j": 32.78730900568236,
+              "positive_step_j": 38.76485062628476,
+              "negative_step_j": -5.977541620602396
+            },
+            "C1:case:+x": {
+              "net_j": -0.8116494995992773,
+              "positive_step_j": 2.307657086850329,
+              "negative_step_j": -3.1193065864496057
+            },
+            "TIM3": {
+              "net_j": 6.189391208078136,
+              "positive_step_j": 6.266313252995009,
+              "negative_step_j": -0.07692204491687213
+            },
+            "chamber-wall": {
+              "net_j": 218.7455292945656,
+              "positive_step_j": 218.74802116220437,
+              "negative_step_j": -0.0024918676388711323
+            },
+            "Al2": {
+              "net_j": -13.35085108984758,
+              "positive_step_j": 0.05225101127815888,
+              "negative_step_j": -13.403102101125738
+            },
+            "C1:case:-y": {
+              "net_j": 7.194327577821587,
+              "positive_step_j": 7.194327577821587,
+              "negative_step_j": 0.0
+            },
+            "C1:case:-z": {
+              "net_j": 3.0660082756384694,
+              "positive_step_j": 3.0660082756384694,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+z": {
+              "net_j": 3.041406491879387,
+              "positive_step_j": 3.041406491879387,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+y": {
+              "net_j": 7.264593585471443,
+              "positive_step_j": 7.264593585471443,
+              "negative_step_j": 0.0
+            },
+            "Al3": {
+              "net_j": 5.144911993418573,
+              "positive_step_j": 5.146263562492935,
+              "negative_step_j": -0.0013515690743619289
+            },
+            "steel-R": {
+              "net_j": 3.014221933866229,
+              "positive_step_j": 3.015940921126178,
+              "negative_step_j": -0.0017189872599497067
+            },
+            "ISS4": {
+              "net_j": 2.636903205005471,
+              "positive_step_j": 2.637152810589494,
+              "negative_step_j": -0.00024960558402322607
+            },
+            "steel-L": {
+              "net_j": 4.385357626020536,
+              "positive_step_j": 4.385357626020536,
+              "negative_step_j": 0.0
+            },
+            "C3:case:-y": {
+              "net_j": 5.754883582053425,
+              "positive_step_j": 5.777990074338535,
+              "negative_step_j": -0.02310649228510877
+            },
+            "C3:case:-z": {
+              "net_j": 2.4752428597914236,
+              "positive_step_j": 2.4868400714229524,
+              "negative_step_j": -0.011597211631528674
+            },
+            "C3:case:+z": {
+              "net_j": 2.438936113978868,
+              "positive_step_j": 2.4505555370711845,
+              "negative_step_j": -0.01161942309231659
+            },
+            "C3:case:+y": {
+              "net_j": 5.839825477230057,
+              "positive_step_j": 5.862845894081369,
+              "negative_step_j": -0.023020416851314143
+            },
+            "Al1": {
+              "net_j": -0.1461993591891194,
+              "positive_step_j": 2.3438043713078685,
+              "negative_step_j": -2.490003730496987
+            },
+            "C2:case:-y": {
+              "net_j": -98.85113044924502,
+              "positive_step_j": 0.0,
+              "negative_step_j": -98.85113044924502
+            },
+            "C2:case:-z": {
+              "net_j": -46.05146304866126,
+              "positive_step_j": 0.0,
+              "negative_step_j": -46.05146304866126
+            },
+            "C2:case:+z": {
+              "net_j": -46.09254921484637,
+              "positive_step_j": 0.0,
+              "negative_step_j": -46.09254921484637
+            },
+            "C2:case:+y": {
+              "net_j": -98.75163103033267,
+              "positive_step_j": 0.0,
+              "negative_step_j": -98.75163103033267
+            }
+          },
+          "groups": {
+            "C3 casing": {
+              "net_j": 45.517728553741385,
+              "positive_step_j": 45.801749838591974,
+              "negative_step_j": -0.2840212848505941
+            },
+            "ISS pads": {
+              "net_j": 57.84279832873506,
+              "positive_step_j": 110.81989236003504,
+              "negative_step_j": -52.977094031300005
+            },
+            "C2 casing": {
+              "net_j": -485.7695713372773,
+              "positive_step_j": 0.0,
+              "negative_step_j": -485.7695713372773
+            },
+            "C1 casing": {
+              "net_j": 65.7331968648231,
+              "positive_step_j": 68.85250345127272,
+              "negative_step_j": -3.1193065864496057
+            },
+            "TIM pads": {
+              "net_j": 24.8513775915525,
+              "positive_step_j": 45.14830636564086,
+              "negative_step_j": -20.296928774088407
+            },
+            "chamber-wall": {
+              "net_j": 218.7455292945656,
+              "positive_step_j": 218.74802116220437,
+              "negative_step_j": -0.0024918676388711323
+            },
+            "plates": {
+              "net_j": -0.952558895731362,
+              "positive_step_j": 14.94361749222568,
+              "negative_step_j": -15.896176387957041
+            }
+          },
+          "external_gas": {
+            "nodes": 1320,
+            "net_transport_j": 0.0,
+            "r3_j": 0.0,
+            "gas_energy_change_j": 74.03149959976813,
+            "actual_heat_to_surfaces_j": -74.03149959959116,
+            "energy_closure_j": -1.7696777376841055e-10,
+            "remaining_oxygen_kg": 0.03335398403984399,
+            "consumed_oxygen_kg": 0.0,
+            "net_inward_oxygen_kg": 0.0,
+            "oxygen_closure_kg": 6.245004513516506e-17
+          },
+          "C3_ISS_slit_and_edge_galleries": {
+            "nodes": 24,
+            "net_transport_j": 48.38091331417269,
+            "r3_j": 0.0,
+            "gas_energy_change_j": 0.08740084607548625,
+            "actual_heat_to_surfaces_j": 48.293512468097184,
+            "energy_closure_j": 1.4210854715202004e-14,
+            "remaining_oxygen_kg": 1.379232977877929e-06,
+            "consumed_oxygen_kg": 0.0,
+            "net_inward_oxygen_kg": -6.549484080788963e-08,
+            "oxygen_closure_kg": 2.202285662861181e-20
+          },
+          "reaction_location": {
+            "wall_touching_nodes": 704,
+            "external_nodes": 1320,
+            "wall_touching_reference_volume_fraction": 0.9827857766666674,
+            "wall_touching_r3_j": 0.0,
+            "wall_touching_r3_fraction": null
+          }
+        },
+        {
+          "time_s": 860.0,
+          "objects": {
+            "C3:case:-x": {
+              "net_j": 58.2982726746065,
+              "positive_step_j": 58.423191834860155,
+              "negative_step_j": -0.12491916025364198
+            },
+            "ISS1": {
+              "net_j": 81.29602971663176,
+              "positive_step_j": 81.29700551373105,
+              "negative_step_j": -0.0009757970992936671
+            },
+            "C2:case:-x": {
+              "net_j": -279.55660137799237,
+              "positive_step_j": 0.0,
+              "negative_step_j": -279.55660137799237
+            },
+            "ISS2": {
+              "net_j": 126.91153939822685,
+              "positive_step_j": 132.9787228998781,
+              "negative_step_j": -6.067183501651264
+            },
+            "C1:case:-x": {
+              "net_j": 69.73903047205768,
+              "positive_step_j": 69.73903047205768,
+              "negative_step_j": 0.0
+            },
+            "ISS3": {
+              "net_j": -67.479295741711,
+              "positive_step_j": 0.031041774088592315,
+              "negative_step_j": -67.5103375157996
+            },
+            "C3:case:+x": {
+              "net_j": 23.12061315215018,
+              "positive_step_j": 23.210371732886863,
+              "negative_step_j": -0.08975858073668384
+            },
+            "TIM1": {
+              "net_j": -16.866303201970165,
+              "positive_step_j": 1.2522297453479907,
+              "negative_step_j": -18.11853294731816
+            },
+            "C2:case:+x": {
+              "net_j": -108.97252723144078,
+              "positive_step_j": 0.0066156341487281535,
+              "negative_step_j": -108.9791428655895
+            },
+            "TIM2": {
+              "net_j": 52.01998274008278,
+              "positive_step_j": 60.05494258833756,
+              "negative_step_j": -8.034959848254775
+            },
+            "C1:case:+x": {
+              "net_j": 2.7884799210437348,
+              "positive_step_j": 6.4448124290637,
+              "negative_step_j": -3.6563325080199647
+            },
+            "TIM3": {
+              "net_j": 14.310952463852422,
+              "positive_step_j": 14.387874508769297,
+              "negative_step_j": -0.07692204491687213
+            },
+            "chamber-wall": {
+              "net_j": 1512.0210232094998,
+              "positive_step_j": 1512.023515077139,
+              "negative_step_j": -0.0024918676388711323
+            },
+            "Al2": {
+              "net_j": -17.712199336123447,
+              "positive_step_j": 0.05225101127815888,
+              "negative_step_j": -17.764450347401606
+            },
+            "C1:case:-y": {
+              "net_j": 14.49611429211571,
+              "positive_step_j": 14.49611429211571,
+              "negative_step_j": 0.0
+            },
+            "C1:case:-z": {
+              "net_j": 6.306130543017236,
+              "positive_step_j": 6.306130543017236,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+z": {
+              "net_j": 6.21816888314919,
+              "positive_step_j": 6.21816888314919,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+y": {
+              "net_j": 14.736899088749302,
+              "positive_step_j": 14.736899088749302,
+              "negative_step_j": 0.0
+            },
+            "Al3": {
+              "net_j": 12.988110899684557,
+              "positive_step_j": 12.989462468758914,
+              "negative_step_j": -0.0013515690743619289
+            },
+            "steel-R": {
+              "net_j": 7.408233263901901,
+              "positive_step_j": 7.40995225116185,
+              "negative_step_j": -0.0017189872599497067
+            },
+            "ISS4": {
+              "net_j": 6.697549169102194,
+              "positive_step_j": 6.697798774686218,
+              "negative_step_j": -0.00024960558402322607
+            },
+            "steel-L": {
+              "net_j": 9.119315823645787,
+              "positive_step_j": 9.119315823645787,
+              "negative_step_j": 0.0
+            },
+            "C3:case:-y": {
+              "net_j": 12.522594029952948,
+              "positive_step_j": 12.545700522238057,
+              "negative_step_j": -0.02310649228510877
+            },
+            "C3:case:-z": {
+              "net_j": 5.530033950249081,
+              "positive_step_j": 5.541631161880609,
+              "negative_step_j": -0.011597211631528674
+            },
+            "C3:case:+z": {
+              "net_j": 5.413644435736074,
+              "positive_step_j": 5.425263858828391,
+              "negative_step_j": -0.01161942309231659
+            },
+            "C3:case:+y": {
+              "net_j": 12.777821959255434,
+              "positive_step_j": 12.800842376106747,
+              "negative_step_j": -0.023020416851314143
+            },
+            "Al1": {
+              "net_j": 2.789445621729718,
+              "positive_step_j": 5.354336043192189,
+              "negative_step_j": -2.5648904214624686
+            },
+            "C2:case:-y": {
+              "net_j": -369.80954060626743,
+              "positive_step_j": 0.0,
+              "negative_step_j": -369.80954060626743
+            },
+            "C2:case:-z": {
+              "net_j": -170.38921826206845,
+              "positive_step_j": 0.0,
+              "negative_step_j": -170.38921826206845
+            },
+            "C2:case:+z": {
+              "net_j": -170.79763107881945,
+              "positive_step_j": 0.0,
+              "negative_step_j": -170.79763107881945
+            },
+            "C2:case:+y": {
+              "net_j": -369.0254536162332,
+              "positive_step_j": 0.0,
+              "negative_step_j": -369.0254536162332
+            }
+          },
+          "groups": {
+            "C3 casing": {
+              "net_j": 117.66298020195023,
+              "positive_step_j": 117.94700148680077,
+              "negative_step_j": -0.2840212848505941
+            },
+            "ISS pads": {
+              "net_j": 147.42582254224982,
+              "positive_step_j": 221.004568962384,
+              "negative_step_j": -73.5787464201342
+            },
+            "C2 casing": {
+              "net_j": -1468.5509721728208,
+              "positive_step_j": 0.0066156341487281535,
+              "negative_step_j": -1468.5575878069694
+            },
+            "C1 casing": {
+              "net_j": 114.28482320013285,
+              "positive_step_j": 117.94115570815285,
+              "negative_step_j": -3.6563325080199647
+            },
+            "TIM pads": {
+              "net_j": 49.464632001965064,
+              "positive_step_j": 75.69504684245484,
+              "negative_step_j": -26.23041484048981
+            },
+            "chamber-wall": {
+              "net_j": 1512.0210232094998,
+              "positive_step_j": 1512.023515077139,
+              "negative_step_j": -0.0024918676388711323
+            },
+            "plates": {
+              "net_j": 14.592906272838519,
+              "positive_step_j": 34.925317598036884,
+              "negative_step_j": -20.33241132519839
+            }
+          },
+          "external_gas": {
+            "nodes": 1320,
+            "net_transport_j": 620.4900838116502,
+            "r3_j": 709.4071665877859,
+            "gas_energy_change_j": 842.9960351437477,
+            "actual_heat_to_surfaces_j": 486.90121525581213,
+            "energy_closure_j": -1.2386180969770066e-10,
+            "remaining_oxygen_kg": 0.03329595233719788,
+            "consumed_oxygen_kg": 5.415321882349516e-05,
+            "net_inward_oxygen_kg": -3.878483822631784e-06,
+            "oxygen_closure_kg": 4.85722573273506e-17
+          },
+          "C3_ISS_slit_and_edge_galleries": {
+            "nodes": 24,
+            "net_transport_j": 148.2571532130828,
+            "r3_j": 0.7653203430626929,
+            "gas_energy_change_j": 0.3088553412616038,
+            "actual_heat_to_surfaces_j": 148.71361821488404,
+            "energy_closure_j": -1.4210854715202004e-13,
+            "remaining_oxygen_kg": 1.2288562443135554e-06,
+            "consumed_oxygen_kg": 5.842140023379334e-08,
+            "net_inward_oxygen_kg": -1.5745017413847233e-07,
+            "oxygen_closure_kg": 1.9481757786848908e-20
+          },
+          "reaction_location": {
+            "wall_touching_nodes": 704,
+            "external_nodes": 1320,
+            "wall_touching_reference_volume_fraction": 0.9827857766666674,
+            "wall_touching_r3_j": 434.1150836799054,
+            "wall_touching_r3_fraction": 0.6119406514709711
+          }
+        },
+        {
+          "time_s": 885.0,
+          "objects": {
+            "C3:case:-x": {
+              "net_j": 109.00632181245392,
+              "positive_step_j": 109.13124097270752,
+              "negative_step_j": -0.12491916025364198
+            },
+            "ISS1": {
+              "net_j": 134.88090861900858,
+              "positive_step_j": 134.88188441610782,
+              "negative_step_j": -0.0009757970992936671
+            },
+            "C2:case:-x": {
+              "net_j": -305.22113437686625,
+              "positive_step_j": 3.5737059451528386,
+              "negative_step_j": -308.79484032201907
+            },
+            "ISS2": {
+              "net_j": 146.12463676229436,
+              "positive_step_j": 152.21096333569747,
+              "negative_step_j": -6.08632657340314
+            },
+            "C1:case:-x": {
+              "net_j": 87.24557938222415,
+              "positive_step_j": 87.24557938222415,
+              "negative_step_j": 0.0
+            },
+            "ISS3": {
+              "net_j": -61.39753362079818,
+              "positive_step_j": 8.683845680879404,
+              "negative_step_j": -70.08137930167759
+            },
+            "C3:case:+x": {
+              "net_j": 37.34982593560056,
+              "positive_step_j": 37.43958451633726,
+              "negative_step_j": -0.08975858073668384
+            },
+            "TIM1": {
+              "net_j": -5.6619754335855035,
+              "positive_step_j": 12.584217952969892,
+              "negative_step_j": -18.246193386555397
+            },
+            "C2:case:+x": {
+              "net_j": -108.31176974060573,
+              "positive_step_j": 4.814060266243634,
+              "negative_step_j": -113.12583000684934
+            },
+            "TIM2": {
+              "net_j": 64.42932494489254,
+              "positive_step_j": 72.68690722494455,
+              "negative_step_j": -8.257582280052006
+            },
+            "C1:case:+x": {
+              "net_j": 17.460405648273216,
+              "positive_step_j": 21.116740374653663,
+              "negative_step_j": -3.6563347263804444
+            },
+            "TIM3": {
+              "net_j": 30.25349966867405,
+              "positive_step_j": 30.330421713590912,
+              "negative_step_j": -0.07692204491687213
+            },
+            "chamber-wall": {
+              "net_j": 9847.741194942948,
+              "positive_step_j": 9847.743686810576,
+              "negative_step_j": -0.0024918676388711323
+            },
+            "Al2": {
+              "net_j": -15.782435056383088,
+              "positive_step_j": 2.479537885950288,
+              "negative_step_j": -18.261972942333372
+            },
+            "C1:case:-y": {
+              "net_j": 21.24781115032027,
+              "positive_step_j": 21.24781115032027,
+              "negative_step_j": 0.0
+            },
+            "C1:case:-z": {
+              "net_j": 9.26636623504331,
+              "positive_step_j": 9.26636623504331,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+z": {
+              "net_j": 8.800091918508084,
+              "positive_step_j": 8.800091918508084,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+y": {
+              "net_j": 21.762054271393247,
+              "positive_step_j": 21.762054271393247,
+              "negative_step_j": 0.0
+            },
+            "Al3": {
+              "net_j": 20.246844090097962,
+              "positive_step_j": 20.248195659172325,
+              "negative_step_j": -0.0013515690743619289
+            },
+            "steel-R": {
+              "net_j": 11.304573457038565,
+              "positive_step_j": 11.306292444298514,
+              "negative_step_j": -0.0017189872599497067
+            },
+            "ISS4": {
+              "net_j": 10.445900249498523,
+              "positive_step_j": 10.446149855082545,
+              "negative_step_j": -0.00024960558402322607
+            },
+            "steel-L": {
+              "net_j": 13.145537703065388,
+              "positive_step_j": 13.145537703065388,
+              "negative_step_j": 0.0
+            },
+            "C3:case:-y": {
+              "net_j": 19.140762676355756,
+              "positive_step_j": 19.163869168640865,
+              "negative_step_j": -0.02310649228510877
+            },
+            "C3:case:-z": {
+              "net_j": 8.505326867242205,
+              "positive_step_j": 8.516924078873734,
+              "negative_step_j": -0.011597211631528674
+            },
+            "C3:case:+z": {
+              "net_j": 8.031427757105465,
+              "positive_step_j": 8.043047180197782,
+              "negative_step_j": -0.01161942309231659
+            },
+            "C3:case:+y": {
+              "net_j": 19.631542011473044,
+              "positive_step_j": 19.654562428324354,
+              "negative_step_j": -0.023020416851314143
+            },
+            "Al1": {
+              "net_j": 6.948414171516052,
+              "positive_step_j": 9.513304592978525,
+              "negative_step_j": -2.5648904214624686
+            },
+            "C2:case:-y": {
+              "net_j": -459.26450472456247,
+              "positive_step_j": 1.8442132989655082,
+              "negative_step_j": -461.1087180235279
+            },
+            "C2:case:-z": {
+              "net_j": -223.55313913762586,
+              "positive_step_j": 0.8296771261879274,
+              "negative_step_j": -224.38281626381374
+            },
+            "C2:case:+z": {
+              "net_j": -224.85646846259144,
+              "positive_step_j": 0.6069042177811776,
+              "negative_step_j": -225.46337268037263
+            },
+            "C2:case:+y": {
+              "net_j": -457.5798190306543,
+              "positive_step_j": 1.9555716665660874,
+              "negative_step_j": -459.53539069722046
+            }
+          },
+          "groups": {
+            "C3 casing": {
+              "net_j": 201.66520706023093,
+              "positive_step_j": 201.9492283450816,
+              "negative_step_j": -0.2840212848505941
+            },
+            "ISS pads": {
+              "net_j": 230.05391201000327,
+              "positive_step_j": 306.22284328776743,
+              "negative_step_j": -76.16893127776405
+            },
+            "C2 casing": {
+              "net_j": -1778.786835472906,
+              "positive_step_j": 13.624132520897176,
+              "negative_step_j": -1792.4109679938028
+            },
+            "C1 casing": {
+              "net_j": 165.7823086057623,
+              "positive_step_j": 169.43864333214276,
+              "negative_step_j": -3.6563347263804444
+            },
+            "TIM pads": {
+              "net_j": 89.02084917998111,
+              "positive_step_j": 115.60154689150534,
+              "negative_step_j": -26.58069771152428
+            },
+            "chamber-wall": {
+              "net_j": 9847.741194942948,
+              "positive_step_j": 9847.743686810576,
+              "negative_step_j": -0.0024918676388711323
+            },
+            "plates": {
+              "net_j": 35.86293436533491,
+              "positive_step_j": 56.692868285465046,
+              "negative_step_j": -20.829933920130156
+            }
+          },
+          "external_gas": {
+            "nodes": 1320,
+            "net_transport_j": 3669.0545297204694,
+            "r3_j": 41318.630455497034,
+            "gas_energy_change_j": 36196.34541452629,
+            "actual_heat_to_surfaces_j": 8791.339570691345,
+            "energy_closure_j": -1.3278622645884752e-10,
+            "remaining_oxygen_kg": 0.03017658878963484,
+            "consumed_oxygen_kg": 0.0031540939279005344,
+            "net_inward_oxygen_kg": -2.3301322308583857e-05,
+            "oxygen_closure_kg": 9.367506770274758e-17
+          },
+          "C3_ISS_slit_and_edge_galleries": {
+            "nodes": 24,
+            "net_transport_j": 251.2403794197586,
+            "r3_j": 7.369987770752377,
+            "gas_energy_change_j": 1.5775990559830924,
+            "actual_heat_to_surfaces_j": 257.0327681345278,
+            "energy_closure_j": 5.684341886080802e-14,
+            "remaining_oxygen_kg": 1.2951913533805518e-06,
+            "consumed_oxygen_kg": 5.625944863169751e-07,
+            "net_inward_oxygen_kg": 4.13058021011692e-07,
+            "oxygen_closure_kg": 5.929230630780102e-21
+          },
+          "reaction_location": {
+            "wall_touching_nodes": 704,
+            "external_nodes": 1320,
+            "wall_touching_reference_volume_fraction": 0.9827857766666674,
+            "wall_touching_r3_j": 38774.582276248875,
+            "wall_touching_r3_fraction": 0.938428545399435
+          }
+        },
+        {
+          "time_s": 900.0,
+          "objects": {
+            "C3:case:-x": {
+              "net_j": 3090.168863297031,
+              "positive_step_j": 3090.293782457285,
+              "negative_step_j": -0.12491916025364198
+            },
+            "ISS1": {
+              "net_j": 2992.666758999883,
+              "positive_step_j": 2992.667734796982,
+              "negative_step_j": -0.0009757970992936671
+            },
+            "C2:case:-x": {
+              "net_j": -27.288277142506818,
+              "positive_step_j": 391.1148998918402,
+              "negative_step_j": -418.4031770343468
+            },
+            "ISS2": {
+              "net_j": 739.9647605714716,
+              "positive_step_j": 746.0510871448746,
+              "negative_step_j": -6.08632657340314
+            },
+            "C1:case:-x": {
+              "net_j": 613.7644220347485,
+              "positive_step_j": 613.7644220347485,
+              "negative_step_j": 0.0
+            },
+            "ISS3": {
+              "net_j": 402.4962696518843,
+              "positive_step_j": 472.5776489535619,
+              "negative_step_j": -70.08137930167759
+            },
+            "C3:case:+x": {
+              "net_j": 540.2969511568825,
+              "positive_step_j": 540.3867097376193,
+              "negative_step_j": -0.08975858073668384
+            },
+            "TIM1": {
+              "net_j": 503.2434703128969,
+              "positive_step_j": 521.4896636994523,
+              "negative_step_j": -18.246193386555397
+            },
+            "C2:case:+x": {
+              "net_j": 204.56433801144283,
+              "positive_step_j": 317.71345969278735,
+              "negative_step_j": -113.14912168134444
+            },
+            "TIM2": {
+              "net_j": 448.5726971384906,
+              "positive_step_j": 456.8302794185426,
+              "negative_step_j": -8.257582280052006
+            },
+            "C1:case:+x": {
+              "net_j": 555.1074899641849,
+              "positive_step_j": 558.7638246905653,
+              "negative_step_j": -3.6563347263804444
+            },
+            "TIM3": {
+              "net_j": 595.1513359185853,
+              "positive_step_j": 595.2282579635023,
+              "negative_step_j": -0.07692204491687213
+            },
+            "chamber-wall": {
+              "net_j": 98844.13909658557,
+              "positive_step_j": 98844.14158845332,
+              "negative_step_j": -0.0024918676388711323
+            },
+            "Al2": {
+              "net_j": 478.52203300898105,
+              "positive_step_j": 496.78400595131427,
+              "negative_step_j": -18.261972942333372
+            },
+            "C1:case:-y": {
+              "net_j": 490.3417315946523,
+              "positive_step_j": 490.3417315946523,
+              "negative_step_j": 0.0
+            },
+            "C1:case:-z": {
+              "net_j": 237.54315956617592,
+              "positive_step_j": 237.54315956617592,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+z": {
+              "net_j": 228.00861140100577,
+              "positive_step_j": 228.00861140100577,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+y": {
+              "net_j": 505.50582816928306,
+              "positive_step_j": 505.50582816928306,
+              "negative_step_j": 0.0
+            },
+            "Al3": {
+              "net_j": 731.2878415240743,
+              "positive_step_j": 731.2891930931489,
+              "negative_step_j": -0.0013515690743619289
+            },
+            "steel-R": {
+              "net_j": 396.2519345240021,
+              "positive_step_j": 396.2536535112621,
+              "negative_step_j": -0.0017189872599497067
+            },
+            "ISS4": {
+              "net_j": 368.8786129449939,
+              "positive_step_j": 368.87886255057805,
+              "negative_step_j": -0.00024960558402322607
+            },
+            "steel-L": {
+              "net_j": 434.7205208815081,
+              "positive_step_j": 434.7205208815081,
+              "negative_step_j": 0.0
+            },
+            "C3:case:-y": {
+              "net_j": 466.04071804397176,
+              "positive_step_j": 466.0638245362568,
+              "negative_step_j": -0.02310649228510877
+            },
+            "C3:case:-z": {
+              "net_j": 225.21711563089104,
+              "positive_step_j": 225.22871284252255,
+              "negative_step_j": -0.011597211631528674
+            },
+            "C3:case:+z": {
+              "net_j": 216.4143897272894,
+              "positive_step_j": 216.42600915038173,
+              "negative_step_j": -0.01161942309231659
+            },
+            "C3:case:+y": {
+              "net_j": 479.3783069525854,
+              "positive_step_j": 479.4013273694367,
+              "negative_step_j": -0.023020416851314143
+            },
+            "Al1": {
+              "net_j": 539.5177609543927,
+              "positive_step_j": 542.082651375855,
+              "negative_step_j": -2.5648904214624686
+            },
+            "C2:case:-y": {
+              "net_j": -387.7822986190184,
+              "positive_step_j": 234.59538685355457,
+              "negative_step_j": -622.3776854725728
+            },
+            "C2:case:-z": {
+              "net_j": -199.28214934681577,
+              "positive_step_j": 108.51721285352869,
+              "negative_step_j": -307.7993622003445
+            },
+            "C2:case:+z": {
+              "net_j": -206.2320952496641,
+              "positive_step_j": 101.37007645849113,
+              "negative_step_j": -307.6021717081551
+            },
+            "C2:case:+y": {
+              "net_j": -380.18915814841506,
+              "positive_step_j": 238.52419620821368,
+              "negative_step_j": -618.7133543566285
+            }
+          },
+          "groups": {
+            "C3 casing": {
+              "net_j": 5017.5163448086505,
+              "positive_step_j": 5017.8003660935,
+              "negative_step_j": -0.2840212848505941
+            },
+            "ISS pads": {
+              "net_j": 4504.006402168234,
+              "positive_step_j": 4580.175333445997,
+              "negative_step_j": -76.16893127776405
+            },
+            "C2 casing": {
+              "net_j": -996.2096404949771,
+              "positive_step_j": 1391.8352319584155,
+              "negative_step_j": -2388.044872453393
+            },
+            "C1 casing": {
+              "net_j": 2630.2712427300507,
+              "positive_step_j": 2633.927577456431,
+              "negative_step_j": -3.6563347263804444
+            },
+            "TIM pads": {
+              "net_j": 1546.967503369973,
+              "positive_step_j": 1573.5482010814972,
+              "negative_step_j": -26.58069771152428
+            },
+            "chamber-wall": {
+              "net_j": 98844.13909658557,
+              "positive_step_j": 98844.14158845332,
+              "negative_step_j": -0.0024918676388711323
+            },
+            "plates": {
+              "net_j": 2580.300090892958,
+              "positive_step_j": 2601.130024813088,
+              "negative_step_j": -20.829933920130156
+            }
+          },
+          "external_gas": {
+            "nodes": 1320,
+            "net_transport_j": 20867.225161554245,
+            "r3_j": 158548.86900024238,
+            "gas_energy_change_j": 65289.10312173626,
+            "actual_heat_to_surfaces_j": 114126.99104006041,
+            "energy_closure_j": -5.820766091346741e-11,
+            "remaining_oxygen_kg": 0.02105183767063854,
+            "consumed_oxygen_kg": 0.012102967099255145,
+            "net_inward_oxygen_kg": -0.00019917926995029772,
+            "oxygen_closure_kg": 6.938893903907228e-17
+          },
+          "C3_ISS_slit_and_edge_galleries": {
+            "nodes": 24,
+            "net_transport_j": 6463.981661189948,
+            "r3_j": 56.35042327763099,
+            "gas_energy_change_j": 2.7759412891553317,
+            "actual_heat_to_surfaces_j": 6517.556143178418,
+            "energy_closure_j": 5.4569682106375694e-12,
+            "remaining_oxygen_kg": 9.168583965566755e-07,
+            "consumed_oxygen_kg": 4.301559028826793e-06,
+            "net_inward_oxygen_kg": 3.77368960669768e-06,
+            "oxygen_closure_kg": 5.293955920339377e-20
+          },
+          "reaction_location": {
+            "wall_touching_nodes": 704,
+            "external_nodes": 1320,
+            "wall_touching_reference_volume_fraction": 0.9827857766666674,
+            "wall_touching_r3_j": 138975.69180920895,
+            "wall_touching_r3_fraction": 0.8765479860281847
+          }
+        },
+        {
+          "time_s": 930.0,
+          "objects": {
+            "C3:case:-x": {
+              "net_j": 10728.900799859752,
+              "positive_step_j": 10729.025719020006,
+              "negative_step_j": -0.12491916025364198
+            },
+            "ISS1": {
+              "net_j": 10043.262300357612,
+              "positive_step_j": 10043.26327615471,
+              "negative_step_j": -0.0009757970992936671
+            },
+            "C2:case:-x": {
+              "net_j": -6424.199913419268,
+              "positive_step_j": 1261.0219956165333,
+              "negative_step_j": -7685.221909035804
+            },
+            "ISS2": {
+              "net_j": 8050.127285555593,
+              "positive_step_j": 8220.570911962974,
+              "negative_step_j": -170.44362640738086
+            },
+            "C1:case:-x": {
+              "net_j": 2891.1823719306403,
+              "positive_step_j": 2891.1823719306403,
+              "negative_step_j": 0.0
+            },
+            "ISS3": {
+              "net_j": 2148.8447848924843,
+              "positive_step_j": 2219.051122472064,
+              "negative_step_j": -70.2063375795795
+            },
+            "C3:case:+x": {
+              "net_j": 2746.7763463269935,
+              "positive_step_j": 2746.866104907731,
+              "negative_step_j": -0.08975858073668384
+            },
+            "TIM1": {
+              "net_j": 2831.2015620975803,
+              "positive_step_j": 2849.447755484136,
+              "negative_step_j": -18.246193386555397
+            },
+            "C2:case:+x": {
+              "net_j": -6135.917085822406,
+              "positive_step_j": 1569.316544778666,
+              "negative_step_j": -7705.233630601072
+            },
+            "TIM2": {
+              "net_j": 10576.986743455862,
+              "positive_step_j": 10585.244325735917,
+              "negative_step_j": -8.257582280052006
+            },
+            "C1:case:+x": {
+              "net_j": 2821.5596815182535,
+              "positive_step_j": 2825.216016244634,
+              "negative_step_j": -3.6563347263804444
+            },
+            "TIM3": {
+              "net_j": 3098.319415289492,
+              "positive_step_j": 3098.396337334409,
+              "negative_step_j": -0.07692204491687213
+            },
+            "chamber-wall": {
+              "net_j": 319645.1404480317,
+              "positive_step_j": 319645.1429398989,
+              "negative_step_j": -0.0024918676388711323
+            },
+            "Al2": {
+              "net_j": 2752.688685584593,
+              "positive_step_j": 2779.2321413833174,
+              "negative_step_j": -26.543455798724587
+            },
+            "C1:case:-y": {
+              "net_j": 1802.7140402116067,
+              "positive_step_j": 1802.7140402116067,
+              "negative_step_j": 0.0
+            },
+            "C1:case:-z": {
+              "net_j": 818.898436443681,
+              "positive_step_j": 818.898436443681,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+z": {
+              "net_j": 801.8706041945265,
+              "positive_step_j": 801.8706041945265,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+y": {
+              "net_j": 1819.3611793609539,
+              "positive_step_j": 1819.3611793609539,
+              "negative_step_j": 0.0
+            },
+            "Al3": {
+              "net_j": 3568.8241024245226,
+              "positive_step_j": 3568.8254539935974,
+              "negative_step_j": -0.0013515690743619289
+            },
+            "steel-R": {
+              "net_j": 2074.7613550542787,
+              "positive_step_j": 2074.7630740415384,
+              "negative_step_j": -0.0017189872599497067
+            },
+            "ISS4": {
+              "net_j": 1797.231848626009,
+              "positive_step_j": 1797.232098231593,
+              "negative_step_j": -0.00024960558402322607
+            },
+            "steel-L": {
+              "net_j": 2281.1566733724203,
+              "positive_step_j": 2281.1566733724203,
+              "negative_step_j": 0.0
+            },
+            "C3:case:-y": {
+              "net_j": 1706.2209433586754,
+              "positive_step_j": 1706.2440498509604,
+              "negative_step_j": -0.02310649228510877
+            },
+            "C3:case:-z": {
+              "net_j": 775.2284300980632,
+              "positive_step_j": 775.2400273096946,
+              "negative_step_j": -0.011597211631528674
+            },
+            "C3:case:+z": {
+              "net_j": 759.7993067856144,
+              "positive_step_j": 759.8109262087066,
+              "negative_step_j": -0.01161942309231659
+            },
+            "C3:case:+y": {
+              "net_j": 1723.1416888962708,
+              "positive_step_j": 1723.1647093131223,
+              "negative_step_j": -0.023020416851314143
+            },
+            "Al1": {
+              "net_j": 3127.530104073305,
+              "positive_step_j": 3130.094994494767,
+              "negative_step_j": -2.5648904214624686
+            },
+            "C2:case:-y": {
+              "net_j": -1767.8183800856643,
+              "positive_step_j": 590.9859852708473,
+              "negative_step_j": -2358.80436535651
+            },
+            "C2:case:-z": {
+              "net_j": -789.9463493360457,
+              "positive_step_j": 251.17452352014226,
+              "negative_step_j": -1041.1208728561878
+            },
+            "C2:case:+z": {
+              "net_j": -803.7401272755176,
+              "positive_step_j": 237.3550259340349,
+              "negative_step_j": -1041.095153209552
+            },
+            "C2:case:+y": {
+              "net_j": -1819.9540837660898,
+              "positive_step_j": 539.9783054321506,
+              "negative_step_j": -2359.9323891982403
+            }
+          },
+          "groups": {
+            "C3 casing": {
+              "net_j": 18440.067515325365,
+              "positive_step_j": 18440.35153661022,
+              "negative_step_j": -0.2840212848505941
+            },
+            "ISS pads": {
+              "net_j": 22039.4662194317,
+              "positive_step_j": 22280.117408821352,
+              "negative_step_j": -240.65118938964366
+            },
+            "C2 casing": {
+              "net_j": -17741.575939704988,
+              "positive_step_j": 4449.832380552372,
+              "negative_step_j": -22191.40832025736
+            },
+            "C1 casing": {
+              "net_j": 10955.58631365966,
+              "positive_step_j": 10959.24264838604,
+              "negative_step_j": -3.6563347263804444
+            },
+            "TIM pads": {
+              "net_j": 16506.507720842932,
+              "positive_step_j": 16533.088418554464,
+              "negative_step_j": -26.58069771152428
+            },
+            "chamber-wall": {
+              "net_j": 319645.1404480317,
+              "positive_step_j": 319645.1429398989,
+              "negative_step_j": -0.0024918676388711323
+            },
+            "plates": {
+              "net_j": 13804.960920509115,
+              "positive_step_j": 13834.072337285646,
+              "negative_step_j": -29.111416776521384
+            }
+          },
+          "external_gas": {
+            "nodes": 1320,
+            "net_transport_j": 80642.71034698361,
+            "r3_j": 348129.31278924923,
+            "gas_energy_change_j": 45121.86993813757,
+            "actual_heat_to_surfaces_j": 383650.1531980957,
+            "energy_closure_j": -4.0745362639427185e-10,
+            "remaining_oxygen_kg": 0.006310300441432534,
+            "consumed_oxygen_kg": 0.026574756701469384,
+            "net_inward_oxygen_kg": -0.0004689268969420997,
+            "oxygen_closure_kg": 3.8163916471489756e-17
+          },
+          "C3_ISS_slit_and_edge_galleries": {
+            "nodes": 24,
+            "net_transport_j": 22884.09338546966,
+            "r3_j": 171.3227770517768,
+            "gas_energy_change_j": 2.0963889316583373,
+            "actual_heat_to_surfaces_j": 23053.31977358979,
+            "energy_closure_j": -1.0913936421275139e-11,
+            "remaining_oxygen_kg": 2.598024561683967e-07,
+            "consumed_oxygen_kg": 1.3078074584105094e-05,
+            "net_inward_oxygen_kg": 1.1893149221587741e-05,
+            "oxygen_closure_kg": 9.00501902049728e-20
+          },
+          "reaction_location": {
+            "wall_touching_nodes": 704,
+            "external_nodes": 1320,
+            "wall_touching_reference_volume_fraction": 0.9827857766666674,
+            "wall_touching_r3_j": 295087.63372555404,
+            "wall_touching_r3_fraction": 0.8476379979648379
+          }
+        },
+        {
+          "time_s": 950.0,
+          "objects": {
+            "C3:case:-x": {
+              "net_j": 10738.867153062125,
+              "positive_step_j": 10738.992072222376,
+              "negative_step_j": -0.12491916025364198
+            },
+            "ISS1": {
+              "net_j": 10085.389019352495,
+              "positive_step_j": 10085.389995149591,
+              "negative_step_j": -0.0009757970992936671
+            },
+            "C2:case:-x": {
+              "net_j": -10226.744841885637,
+              "positive_step_j": 1266.003656311266,
+              "negative_step_j": -11492.7484981969
+            },
+            "ISS2": {
+              "net_j": 9336.281858967515,
+              "positive_step_j": 9736.569113491418,
+              "negative_step_j": -400.28725452390296
+            },
+            "C1:case:-x": {
+              "net_j": 2922.8496431921176,
+              "positive_step_j": 2922.8496431921176,
+              "negative_step_j": 0.0
+            },
+            "ISS3": {
+              "net_j": 1979.8538758929417,
+              "positive_step_j": 2219.4660383024775,
+              "negative_step_j": -239.6121624095363
+            },
+            "C3:case:+x": {
+              "net_j": 2757.7268845680837,
+              "positive_step_j": 2757.8166431488203,
+              "negative_step_j": -0.08975858073668384
+            },
+            "TIM1": {
+              "net_j": 2798.5286822782223,
+              "positive_step_j": 2851.695489660401,
+              "negative_step_j": -53.166807382178455
+            },
+            "C2:case:+x": {
+              "net_j": -9792.091742411358,
+              "positive_step_j": 1572.4688000691349,
+              "negative_step_j": -11364.56054248049
+            },
+            "TIM2": {
+              "net_j": 11899.57948909397,
+              "positive_step_j": 12054.36372592176,
+              "negative_step_j": -154.78423682779422
+            },
+            "C1:case:+x": {
+              "net_j": 2847.1259238082057,
+              "positive_step_j": 2850.7822585345857,
+              "negative_step_j": -3.6563347263804444
+            },
+            "TIM3": {
+              "net_j": 3122.3147673766225,
+              "positive_step_j": 3122.3916894215404,
+              "negative_step_j": -0.07692204491687213
+            },
+            "chamber-wall": {
+              "net_j": 346337.92121582583,
+              "positive_step_j": 346337.9237076935,
+              "negative_step_j": -0.0024918676388711323
+            },
+            "Al2": {
+              "net_j": 2138.286556372267,
+              "positive_step_j": 2779.735567903448,
+              "negative_step_j": -641.4490115311811
+            },
+            "C1:case:-y": {
+              "net_j": 1806.9574387868838,
+              "positive_step_j": 1806.9574387868838,
+              "negative_step_j": 0.0
+            },
+            "C1:case:-z": {
+              "net_j": 820.7844031081895,
+              "positive_step_j": 820.7844031081895,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+z": {
+              "net_j": 803.755493274562,
+              "positive_step_j": 803.755493274562,
+              "negative_step_j": 0.0
+            },
+            "C1:case:+y": {
+              "net_j": 1823.60792089821,
+              "positive_step_j": 1823.60792089821,
+              "negative_step_j": 0.0
+            },
+            "Al3": {
+              "net_j": 3572.8669326433346,
+              "positive_step_j": 3572.8682842124076,
+              "negative_step_j": -0.0013515690743619289
+            },
+            "steel-R": {
+              "net_j": 2078.0738120923543,
+              "positive_step_j": 2078.075531079614,
+              "negative_step_j": -0.0017189872599497067
+            },
+            "ISS4": {
+              "net_j": 1799.8446762277645,
+              "positive_step_j": 1799.8449258333483,
+              "negative_step_j": -0.00024960558402322607
+            },
+            "steel-L": {
+              "net_j": 2284.0666283977826,
+              "positive_step_j": 2284.0666283977826,
+              "negative_step_j": 0.0
+            },
+            "C3:case:-y": {
+              "net_j": 1709.0382592013516,
+              "positive_step_j": 1709.0613656936368,
+              "negative_step_j": -0.02310649228510877
+            },
+            "C3:case:-z": {
+              "net_j": 776.4807662869323,
+              "positive_step_j": 776.4923634985638,
+              "negative_step_j": -0.011597211631528674
+            },
+            "C3:case:+z": {
+              "net_j": 761.0513010138326,
+              "positive_step_j": 761.0629204369249,
+              "negative_step_j": -0.01161942309231659
+            },
+            "C3:case:+y": {
+              "net_j": 1725.9541441438955,
+              "positive_step_j": 1725.9771645607466,
+              "negative_step_j": -0.023020416851314143
+            },
+            "Al1": {
+              "net_j": 3048.123537633273,
+              "positive_step_j": 3131.7801958431364,
+              "negative_step_j": -83.65665820986399
+            },
+            "C2:case:-y": {
+              "net_j": -3364.9079989361744,
+              "positive_step_j": 590.9859852708473,
+              "negative_step_j": -3955.8939842070195
+            },
+            "C2:case:-z": {
+              "net_j": -1487.441769249396,
+              "positive_step_j": 251.17452352014226,
+              "negative_step_j": -1738.6162927695382
+            },
+            "C2:case:+z": {
+              "net_j": -1495.4592477789784,
+              "positive_step_j": 237.3550259340349,
+              "negative_step_j": -1732.814273713013
+            },
+            "C2:case:+y": {
+              "net_j": -3410.317901479785,
+              "positive_step_j": 539.9783054321506,
+              "negative_step_j": -3950.2962069119353
+            }
+          },
+          "groups": {
+            "C3 casing": {
+              "net_j": 18469.118508276217,
+              "positive_step_j": 18469.402529561066,
+              "negative_step_j": -0.2840212848505941
+            },
+            "ISS pads": {
+              "net_j": 23201.369430440718,
+              "positive_step_j": 23841.270072776857,
+              "negative_step_j": -639.9006423361226
+            },
+            "C2 casing": {
+              "net_j": -29776.96350174133,
+              "positive_step_j": 4457.966296537574,
+              "negative_step_j": -34234.9297982789
+            },
+            "C1 casing": {
+              "net_j": 11025.08082306817,
+              "positive_step_j": 11028.73715779455,
+              "negative_step_j": -3.6563347263804444
+            },
+            "TIM pads": {
+              "net_j": 17820.42293874881,
+              "positive_step_j": 18028.450905003698,
+              "negative_step_j": -208.02796625488955
+            },
+            "chamber-wall": {
+              "net_j": 346337.92121582583,
+              "positive_step_j": 346337.9237076935,
+              "negative_step_j": -0.0024918676388711323
+            },
+            "plates": {
+              "net_j": 13121.417467139008,
+              "positive_step_j": 13846.526207436393,
+              "negative_step_j": -725.1087402973798
+            }
+          },
+          "external_gas": {
+            "nodes": 1320,
+            "net_transport_j": 83735.40070175554,
+            "r3_j": 348129.31278924923,
+            "gas_energy_change_j": 31666.346609247845,
+            "actual_heat_to_surfaces_j": 400198.3668817572,
+            "energy_closure_j": -2.9103830456733704e-10,
+            "remaining_oxygen_kg": 0.0063100459413556785,
+            "consumed_oxygen_kg": 0.026574756701469384,
+            "net_inward_oxygen_kg": -0.0004691813970189617,
+            "oxygen_closure_kg": 3.382710778154774e-17
+          },
+          "C3_ISS_slit_and_edge_galleries": {
+            "nodes": 24,
+            "net_transport_j": 22938.573439237698,
+            "r3_j": 171.3227770517768,
+            "gas_energy_change_j": 1.5734154770716153,
+            "actual_heat_to_surfaces_j": 23108.322800812395,
+            "energy_closure_j": 7.275957614183426e-12,
+            "remaining_oxygen_kg": 2.52639799794849e-07,
+            "consumed_oxygen_kg": 1.3078074584105094e-05,
+            "net_inward_oxygen_kg": 1.1885986565214124e-05,
+            "oxygen_closure_kg": 2.2764010457459322e-20
+          },
+          "reaction_location": {
+            "wall_touching_nodes": 704,
+            "external_nodes": 1320,
+            "wall_touching_reference_volume_fraction": 0.9827857766666674,
+            "wall_touching_r3_j": 295087.63372555404,
+            "wall_touching_r3_fraction": 0.8476379979648379
+          }
+        },
+        {
+          "time_s": 1186.639,
+          "objects": {
+            "C3:case:-x": {
+              "net_j": 10509.109568010685,
+              "positive_step_j": 10746.69895265807,
+              "negative_step_j": -237.58938464739674
+            },
+            "ISS1": {
+              "net_j": 10355.296004612657,
+              "positive_step_j": 10355.296980409756,
+              "negative_step_j": -0.0009757970992936671
+            },
+            "C2:case:-x": {
+              "net_j": -20793.8969217947,
+              "positive_step_j": 1412.6228618111832,
+              "negative_step_j": -22206.51978360588
+            },
+            "ISS2": {
+              "net_j": 10482.275796446507,
+              "positive_step_j": 11073.465279722865,
+              "negative_step_j": -591.1894832763571
+            },
+            "C1:case:-x": {
+              "net_j": 3119.701902036452,
+              "positive_step_j": 3121.0704876135173,
+              "negative_step_j": -1.3685855770655007
+            },
+            "ISS3": {
+              "net_j": 395.59004609078954,
+              "positive_step_j": 2219.4660383024775,
+              "negative_step_j": -1823.8759922116885
+            },
+            "C3:case:+x": {
+              "net_j": 2606.525313332427,
+              "positive_step_j": 2776.3810417357945,
+              "negative_step_j": -169.85572840336883
+            },
+            "TIM1": {
+              "net_j": 2102.574771647044,
+              "positive_step_j": 2851.695489660401,
+              "negative_step_j": -749.120718013354
+            },
+            "C2:case:+x": {
+              "net_j": -20049.847371365133,
+              "positive_step_j": 1728.6217794321874,
+              "negative_step_j": -21778.46915079732
+            },
+            "TIM2": {
+              "net_j": 11151.89045511239,
+              "positive_step_j": 13102.551042875974,
+              "negative_step_j": -1950.6605877635898
+            },
+            "C1:case:+x": {
+              "net_j": 2944.98567458618,
+              "positive_step_j": 2948.6420093125603,
+              "negative_step_j": -3.6563347263804444
+            },
+            "TIM3": {
+              "net_j": 3237.4444439553017,
+              "positive_step_j": 3237.521366000218,
+              "negative_step_j": -0.07692204491687213
+            },
+            "chamber-wall": {
+              "net_j": 410861.7844551738,
+              "positive_step_j": 410861.78694704175,
+              "negative_step_j": -0.0024918676388711323
+            },
+            "Al2": {
+              "net_j": -2043.138146502967,
+              "positive_step_j": 2779.735567903448,
+              "negative_step_j": -4822.873714406413
+            },
+            "C1:case:-y": {
+              "net_j": 1825.2978811614475,
+              "positive_step_j": 1825.664136081295,
+              "negative_step_j": -0.3662549198472529
+            },
+            "C1:case:-z": {
+              "net_j": 828.7593101658292,
+              "positive_step_j": 828.8590175952329,
+              "negative_step_j": -0.09970742940359224
+            },
+            "C1:case:+z": {
+              "net_j": 811.7053546551779,
+              "positive_step_j": 811.7956571370631,
+              "negative_step_j": -0.0903024818853771
+            },
+            "C1:case:+y": {
+              "net_j": 1842.2111006578048,
+              "positive_step_j": 1842.5573160282656,
+              "negative_step_j": -0.34621537046112244
+            },
+            "Al3": {
+              "net_j": 3600.764396219622,
+              "positive_step_j": 3600.765747788697,
+              "negative_step_j": -0.0013515690743619289
+            },
+            "steel-R": {
+              "net_j": 2100.12715818291,
+              "positive_step_j": 2100.12887717017,
+              "negative_step_j": -0.0017189872599497067
+            },
+            "ISS4": {
+              "net_j": 1817.4848259961245,
+              "positive_step_j": 1817.485075601708,
+              "negative_step_j": -0.00024960558402322607
+            },
+            "steel-L": {
+              "net_j": 2302.7535293386914,
+              "positive_step_j": 2302.7535293386914,
+              "negative_step_j": 0.0
+            },
+            "C3:case:-y": {
+              "net_j": 1649.6129340612317,
+              "positive_step_j": 1712.718375867561,
+              "negative_step_j": -63.10544180632954
+            },
+            "C3:case:-z": {
+              "net_j": 744.0616652744334,
+              "positive_step_j": 777.8998902626229,
+              "negative_step_j": -33.83822498818996
+            },
+            "C3:case:+z": {
+              "net_j": 730.3089162327906,
+              "positive_step_j": 762.469094570325,
+              "negative_step_j": -32.16017833753493
+            },
+            "C3:case:+y": {
+              "net_j": 1667.0438685014408,
+              "positive_step_j": 1729.6723671958237,
+              "negative_step_j": -62.62849869438536
+            },
+            "Al1": {
+              "net_j": 2543.9282875547383,
+              "positive_step_j": 3132.7997356351366,
+              "negative_step_j": -588.871448080397
+            },
+            "C2:case:-y": {
+              "net_j": -10325.661319627636,
+              "positive_step_j": 590.9859852708473,
+              "negative_step_j": -10916.64730489848
+            },
+            "C2:case:-z": {
+              "net_j": -4768.068832941061,
+              "positive_step_j": 251.17452352014226,
+              "negative_step_j": -5019.243356461205
+            },
+            "C2:case:+z": {
+              "net_j": -4751.067369335358,
+              "positive_step_j": 237.3550259340349,
+              "negative_step_j": -4988.422395269394
+            },
+            "C2:case:+y": {
+              "net_j": -10422.912100408063,
+              "positive_step_j": 539.9783054321506,
+              "negative_step_j": -10962.890405840217
+            }
+          },
+          "groups": {
+            "C3 casing": {
+              "net_j": 17906.662265413004,
+              "positive_step_j": 18505.8397222902,
+              "negative_step_j": -599.1774568772055
+            },
+            "ISS pads": {
+              "net_j": 23050.646673146064,
+              "positive_step_j": 25465.713374036815,
+              "negative_step_j": -2415.066700890729
+            },
+            "C2 casing": {
+              "net_j": -71111.45391547198,
+              "positive_step_j": 4760.738481400544,
+              "negative_step_j": -75872.1923968725
+            },
+            "C1 casing": {
+              "net_j": 11372.661223262894,
+              "positive_step_j": 11378.588623767937,
+              "negative_step_j": -5.927400505043289
+            },
+            "TIM pads": {
+              "net_j": 16491.90967071473,
+              "positive_step_j": 19191.767898536586,
+              "negative_step_j": -2699.8582278218605
+            },
+            "chamber-wall": {
+              "net_j": 410861.7844551738,
+              "positive_step_j": 410861.78694704175,
+              "negative_step_j": -0.0024918676388711323
+            },
+            "plates": {
+              "net_j": 8504.435224792998,
+              "positive_step_j": 13916.183457836147,
+              "negative_step_j": -5411.748233043144
+            }
+          },
+          "external_gas": {
+            "nodes": 1320,
+            "net_transport_j": 90785.87313716637,
+            "r3_j": 348129.3322397989,
+            "gas_energy_change_j": 21838.559779933745,
+            "actual_heat_to_surfaces_j": 417076.6455970311,
+            "energy_closure_j": 4.0745362639427185e-10,
+            "remaining_oxygen_kg": 0.006309366082437778,
+            "consumed_oxygen_kg": 0.026574758186244194,
+            "net_inward_oxygen_kg": -0.0004698597711621035,
+            "oxygen_closure_kg": -1.9949319973733282e-17
+          },
+          "C3_ISS_slit_and_edge_galleries": {
+            "nodes": 24,
+            "net_transport_j": 22997.002926276287,
+            "r3_j": 171.32281952292925,
+            "gas_energy_change_j": 1.1666438372205648,
+            "actual_heat_to_surfaces_j": 23167.159101962032,
+            "energy_closure_j": -3.637978807091713e-11,
+            "remaining_oxygen_kg": 2.5066590323661407e-07,
+            "consumed_oxygen_kg": 1.3078077826177834e-05,
+            "net_inward_oxygen_kg": 1.1884015910729277e-05,
+            "oxygen_closure_kg": 6.708500942254059e-19
+          },
+          "reaction_location": {
+            "wall_touching_nodes": 704,
+            "external_nodes": 1320,
+            "wall_touching_reference_volume_fraction": 0.9827857766666674,
+            "wall_touching_r3_j": 295087.6493746571,
+            "wall_touching_r3_fraction": 0.8476379955579106
+          }
+        }
+      ],
+      "end_s": 1186.639,
+      "wall_s": 627.234312393,
+      "speed": 1.891859192895205,
+      "minimum_regular_step_s": 0.02,
+      "residuals": {
+        "max_thermal_residual_j": 8.344250090885907e-08,
+        "max_chemical_residual_j": 9.793438948690891e-08,
+        "max_mass_residual_kg": 4.6407322429331543e-14
+      },
+      "C3_ISS_samples": [
+        {
+          "time_s": 860.0,
+          "surface_c": 35.62996121420895,
+          "gap_gas_c": 60.28384338792296,
+          "inlet_gas_c": 63.80240896354246,
+          "mixed_perimeter_mass_kg": 0.03828345115196896
+        },
+        {
+          "time_s": 885.0,
+          "surface_c": 41.28213865955473,
+          "gap_gas_c": 250.35748514432055,
+          "inlet_gas_c": 255.08438042759417,
+          "mixed_perimeter_mass_kg": 0.10139191673663597
+        },
+        {
+          "time_s": 900.0,
+          "surface_c": 218.3321297215948,
+          "gap_gas_c": 331.71511795098286,
+          "inlet_gas_c": 343.16843230907693,
+          "mixed_perimeter_mass_kg": 0.5767875029093159
+        },
+        {
+          "time_s": 930.0,
+          "surface_c": 117.5363824279973,
+          "gap_gas_c": 164.95148624278096,
+          "inlet_gas_c": 165.12163179293356,
+          "mixed_perimeter_mass_kg": 2.3114878120305926
+        },
+        {
+          "time_s": 950.0,
+          "surface_c": 112.32621687391713,
+          "gap_gas_c": 120.87271590981015,
+          "inlet_gas_c": 120.89291809681328,
+          "mixed_perimeter_mass_kg": 2.6702783782746424
+        },
+        {
+          "time_s": 1186.639,
+          "surface_c": 95.7137960135421,
+          "gap_gas_c": 82.47177360386439,
+          "inlet_gas_c": 81.8659905439917,
+          "mixed_perimeter_mass_kg": 3.8772646334772327
+        }
+      ],
+      "temperature_phases": {
+        "event_s": 886.6389999166131,
+        "known_interval_s": [
+          0.0,
+          1186.639
+        ],
+        "complete_record": false,
+        "phases": {
+          "pre_burst": {
+            "interval_s": [
+              0.0,
+              881.6389999166131
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 6.150968694016759,
+                "time_weighted_bias_k": -4.222566418863962,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0
+              },
+              "102": {
+                "time_weighted_rmse_k": 0.8793619029118915,
+                "time_weighted_bias_k": 0.7140661131339114,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0
+              },
+              "107": {
+                "time_weighted_rmse_k": 4.248913623667777,
+                "time_weighted_bias_k": -2.82313287859957,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0
+              },
+              "108": {
+                "time_weighted_rmse_k": 1.4369862485338205,
+                "time_weighted_bias_k": -0.966942334823283,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 4.327695748409608,
+                "time_weighted_bias_k": -2.045915327131078,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 3.4078162854095075,
+                "time_weighted_bias_k": -1.324537494536469,
+                "covered_s": 881.6389999166131,
+                "coverage_fraction": 1.0
+              }
+            }
+          },
+          "burst_uncertain": {
+            "interval_s": [
+              881.6389999166131,
+              906.6389999166131
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 29.54993007375345,
+                "time_weighted_bias_k": 6.604557515753199,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0
+              },
+              "102": {
+                "time_weighted_rmse_k": 21.778617117192454,
+                "time_weighted_bias_k": 15.028085416074953,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0
+              },
+              "107": {
+                "time_weighted_rmse_k": 15.172355637513688,
+                "time_weighted_bias_k": 2.801551570274216,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0
+              },
+              "108": {
+                "time_weighted_rmse_k": 428.00014114506854,
+                "time_weighted_bias_k": -290.6629723361994,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 136.5662511555952,
+                "time_weighted_bias_k": -111.3118188136371,
+                "covered_s": 25.0,
+                "coverage_fraction": 1.0
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 495.0939055105597,
+                "time_weighted_bias_k": -380.62796839417996,
+                "covered_s": 12.0,
+                "coverage_fraction": 0.48
+              }
+            }
+          },
+          "early_relaxation": {
+            "interval_s": [
+              906.6389999166131,
+              946.6389999166131
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 29.258980560602563,
+                "time_weighted_bias_k": 22.285841852458383,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0
+              },
+              "102": {
+                "time_weighted_rmse_k": 34.294740768534055,
+                "time_weighted_bias_k": 33.524273929798206,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0
+              },
+              "107": {
+                "time_weighted_rmse_k": 35.037154556450965,
+                "time_weighted_bias_k": 34.89769041397479,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0
+              },
+              "108": {
+                "time_weighted_rmse_k": 45.90316971373394,
+                "time_weighted_bias_k": -30.473698692310712,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 72.76830565160652,
+                "time_weighted_bias_k": 66.64990512332231,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 334.60797567546985,
+                "time_weighted_bias_k": -326.11169890010376,
+                "covered_s": 40.0,
+                "coverage_fraction": 1.0
+              }
+            }
+          },
+          "cooling": {
+            "interval_s": [
+              946.6389999166131,
+              1186.639
+            ],
+            "complete": true,
+            "numerical_coverage_fraction": 1.0,
+            "channels": {
+              "101": {
+                "time_weighted_rmse_k": 16.26827132886693,
+                "time_weighted_bias_k": 16.11721762926914,
+                "covered_s": 240.0000000833868,
+                "coverage_fraction": 1.0
+              },
+              "102": {
+                "time_weighted_rmse_k": 13.31178060879161,
+                "time_weighted_bias_k": 12.399198778333306,
+                "covered_s": 240.0000000833868,
+                "coverage_fraction": 1.0
+              },
+              "107": {
+                "time_weighted_rmse_k": 41.953321510821084,
+                "time_weighted_bias_k": 41.944011761803914,
+                "covered_s": 240.0000000833868,
+                "coverage_fraction": 1.0
+              },
+              "108": {
+                "time_weighted_rmse_k": 26.098097318888975,
+                "time_weighted_bias_k": 19.386412193331314,
+                "covered_s": 240.0000000833868,
+                "coverage_fraction": 1.0
+              },
+              "C2_TIM": {
+                "time_weighted_rmse_k": 60.65214741010568,
+                "time_weighted_bias_k": 59.54560290821104,
+                "covered_s": 240.0000000833868,
+                "coverage_fraction": 1.0
+              },
+              "C2_ISS": {
+                "time_weighted_rmse_k": 104.80016666472591,
+                "time_weighted_bias_k": -66.90139535359295,
+                "covered_s": 240.0000000833868,
+                "coverage_fraction": 1.0
+              }
+            }
+          }
+        },
+        "record_end_s": 18287.75600013323,
+        "requested_window_end_s": 1186.639,
+        "complete_requested_window": true,
+        "max_observation_gap_s": 5.0,
+        "interpretation": "Cooling is the primary diagnostic. Burst RMSE is descriptive, not an exact peak target."
+      }
+    }
+  },
+  "full_from_ambient": true,
+  "wall_mass_factor": 4.0
+}

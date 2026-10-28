@@ -1,0 +1,86 @@
+{
+  "trial": "/home/konstantin/work/battery-sim/data/development/fsri30-packed-cascade-20261027-r2/cascade-0000",
+  "parameters": {
+    "r2_rate_scale": 0.1,
+    "gas_can_contact_scale": 1.0,
+    "cross_column_open_fraction": 1.0,
+    "axial_open_fraction": 1.0,
+    "thermal_stirring_coefficient": 0.06722339346183823,
+    "effective_emissivity": 0.7664775109756737
+  },
+  "level_mm": 20,
+  "status": "numerical-failed",
+  "native_sha256": "8c95042a139a125033fb178a9c8c5528847ab71f4ecb713691278a69cdca8ab5",
+  "scenario_sha256": "6f0bf34fb872023d519d583d82d00a4cb02a9d7c91c11281a244894808bcfdcf",
+  "screening_only": false,
+  "calibrated": false,
+  "validation_passed": false,
+  "assessment": {
+    "evaluated": false,
+    "accepted": null,
+    "phase_window_complete": false,
+    "last_observed_s": 1885.0,
+    "reason": null,
+    "constraint": 0.0,
+    "primary_offset_s": null,
+    "timing_error_s": 0.0,
+    "timing_target_met": false,
+    "pulse_match": {
+      "due": 0,
+      "matched": 0,
+      "missing": [],
+      "pairs": [],
+      "worst_offset_s": 0.0,
+      "target_met": false
+    },
+    "arrival_match": {
+      "due": 0,
+      "matched": 0,
+      "missing": [],
+      "pairs": [],
+      "worst_offset_s": 0.0,
+      "target_met": false
+    },
+    "model": {
+      "pulses": [],
+      "arrivals": [],
+      "pulse_groups": [],
+      "arrival_groups": []
+    },
+    "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+    "necessary_not_sufficient": true,
+    "objective": null
+  },
+  "physical_error": null,
+  "delivery": null,
+  "temperature_rejection": null,
+  "temperature_guard_deferred_for_mesh_timing": null,
+  "wall_s": 2253.7093781069852,
+  "live_advanced_to_s": 1889.5656091956,
+  "minimum_regular_step_s": 0.01,
+  "error": "CUDA Kawasaki pressure step failed: 24; nonlinear_iterations=10 flow_law_defect=1.42885; enthalpy_iterations=12 enthalpy_residual=0.0326857; pressure_iterations=10633 relative_residual=1.35357e-06; snapshot=/home/konstantin/work/battery-sim/data/development/fsri30-packed-cascade-20261027-r2/pressure-failure.json",
+  "run_sha256": "b5c50a37ea59b1aecf180f86ea0555a3af0d628a0f4055c0db6aa02cc3c5bf69",
+  "run_path": "/home/konstantin/work/battery-sim/data/development/fsri30-packed-cascade-20261027-r2/cascade-0000/replay/incomplete-run.json.gz",
+  "balances": {
+    "max_chemical_residual_j": 2.2724270820617676e-07,
+    "max_mass_residual_kg": 5.417888360170764e-14,
+    "max_oxidizer_residual_kg": 1.0336176359260207e-13,
+    "max_thermal_residual_j": 3.479508450254798e-07
+  },
+  "proposal": {
+    "method": "fresh-mesh-anchor",
+    "scores_transferred": false
+  },
+  "r2_multiplier_vs_heater_candidate": 1.0,
+  "secondary_conversion_events": [],
+  "warmup_metrics": {
+    "rmse_k": 4.140619952896152,
+    "max_abs_k": 7.374584385537048,
+    "final_error_k": 0.7165773448090249,
+    "final_time_s": 1499.9999999999864,
+    "final_mean_c": 141.98357734480908,
+    "final_t5_c": 141.26700000000005
+  },
+  "independent_secondary_reactions_near_second_wave": 0,
+  "qualified_candidate": false
+}

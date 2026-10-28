@@ -1,0 +1,40 @@
+{
+  "native_sha256": "e7234238a1dcedad671ee39f3a120047432705a2341a7babdf69b439d6ca9e27",
+  "synthetic": true,
+  "experimental_validation": false,
+  "results": [
+    {
+      "modules": 4,
+      "batteries": 12,
+      "gas_volumes": 5604,
+      "solid_volumes": 1360,
+      "wall_s": 24.150093341,
+      "simulated_s": 10.0,
+      "realtime_ratio": 0.41407707451891457,
+      "minimum_regular_step_s": 0.02,
+      "balances": {
+        "max_chemical_residual_j": 8.475035429000854e-08,
+        "max_mass_residual_kg": 1.0302869668521453e-13,
+        "max_oxidizer_residual_kg": 3.3306690738754696e-16,
+        "max_thermal_residual_j": 9.948271326720715e-07
+      }
+    },
+    {
+      "modules": 10,
+      "batteries": 30,
+      "gas_volumes": 14010,
+      "solid_volumes": 3400,
+      "wall_s": 50.804398165,
+      "simulated_s": 10.0,
+      "realtime_ratio": 0.1968333522527419,
+      "minimum_regular_step_s": 0.02,
+      "balances": {
+        "max_chemical_residual_j": 2.253800630569458e-07,
+        "max_mass_residual_kg": 3.8902214782865485e-13,
+        "max_oxidizer_residual_kg": 2.4369395390522186e-14,
+        "max_thermal_residual_j": 8.3905179053545e-06
+      }
+    }
+  ],
+  "limitation": "Replicated modules with narrow inter-chamber tubes; not evidence of full 30-battery cascade accuracy"
+}

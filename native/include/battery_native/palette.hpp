@@ -1,7 +1,5 @@
 #pragma once
 
-#include "battery_native/thermal_lut.hpp"
-
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -11,8 +9,25 @@ namespace battery {
 enum class FieldLayer { Temperature, Degradation };
 using Rgb = std::array<float, 3>;
 
-// Cobalt blue #397DFF is reserved for destroyed material, not scalar values.
-inline constexpr Rgb destroyed_rgb{57.0f / 255.0f, 125.0f / 255.0f, 1.0f};
+// Purple remains distinct from the blue/yellow/red temperature scale.
+inline constexpr Rgb destroyed_rgb{.38f,.015f,.48f};
+struct PaletteStop { float position; Rgb color; };
+inline constexpr std::array<PaletteStop,6> temperature_stops = {{
+    {0.00f,{.025f,.12f,.55f}}, {0.22f,{.025f,.40f,.90f}},
+    {0.40f,{.36f,.72f,.86f}}, {0.60f,{1.f,.90f,.06f}},
+    {0.80f,{1.f,.34f,.015f}}, {1.00f,{.94f,.015f,.025f}},
+}};
+inline constexpr auto thermal_lut=[] {
+    std::array<Rgb,256> result{};
+    for(int i=0;i<256;++i) {
+        const float t=i/255.f;std::size_t k=1;
+        while(k<temperature_stops.size()-1 && t>temperature_stops[k].position)++k;
+        const auto a=temperature_stops[k-1],b=temperature_stops[k];
+        const float w=(t-a.position)/(b.position-a.position);
+        for(int j=0;j<3;++j)result[i][j]=a.color[j]+w*(b.color[j]-a.color[j]);
+    }
+    return result;
+}();
 
 inline Rgb mix_rgb(const Rgb& a, const Rgb& b, float t) {
     return {a[0] + (b[0] - a[0]) * t,
@@ -31,7 +46,6 @@ inline Rgb temperature_rgb(float normalized) {
     return mix_rgb(thermal_lut[lower], thermal_lut[upper], position - lower);
 }
 
-struct PaletteStop { float position; Rgb color; };
 inline constexpr std::array<PaletteStop, 5> degradation_stops = {{
         {0.00f, {0.035f, 0.48f, 0.16f}},
         {0.35f, {0.30f, 0.72f, 0.10f}},

@@ -1,0 +1,50 @@
+{
+  "status": "stopped",
+  "pid": 1948089,
+  "native_sha256": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "scenario_sha256": "6b105802f470debfb4287f2dd1eef93a0c17e63ced91a7361a0e63dba82ff280",
+  "source_profile_sha256": "885d4a28be3cbfb87671e1e615ab86596471a59863d41e2fe173c5e1b6cf469c",
+  "reference_sha256": "78c78f1af099758f523136471e492598d288dd49efb946b17e133f0bae4b55c5",
+  "controller_sha256": "c9774fa62019d94967048ddc2aeed46489407bcfca09be3284f1ae128c6d5fd7",
+  "experimental_csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "fresh_from_zero": true,
+  "duration_s": 5945.0,
+  "mesh_mm": 20.0,
+  "parameters": {
+    "effective_emissivity": 0.43919277165085074,
+    "thermal_stirring_coefficient": 0.048721190938855366
+  },
+  "only_change": "Shared exterior radiation and existing conservative free-gas mixing",
+  "condensed_residue_unchanged": true,
+  "calibrated": false,
+  "validation_passed": false,
+  "last_completed_observation_s": 1534.9999999999864,
+  "live_advanced_to_s": 1537.699999999984,
+  "wall_s": 720.979332036,
+  "minimum_regular_step_s": 0.01,
+  "inherited_pre_cooling_mismatch": {
+    "reason": "persistent gross envelope divergence for 60 s outside uncertain peaks",
+    "last_observed_s": 1534.9999999999864,
+    "candidate_rmse_k": 205.62684164642428,
+    "reference_rmse_k": 206.22494351936868,
+    "note": "Inherited pre-cooling mismatch, not accepted calibration; cooling test continues"
+  },
+  "prefix_sha256": "6011931b6ebf62d832c4b1c0547f01c9df7c89c926a2860ac0a8a23b78d4ed8d",
+  "result": {
+    "last_completed_observation_s": 1534.9999999999864,
+    "common_comparison_until_s": 1534.9999999999864,
+    "common_control_cooling": {
+      "complete": false
+    },
+    "common_candidate_cooling": {
+      "complete": false
+    },
+    "candidate_cooling": {
+      "complete": false
+    },
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+    "radiative_energy_out_j": 1987.1122691622281
+  }
+}

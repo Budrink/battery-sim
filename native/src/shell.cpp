@@ -1,4 +1,5 @@
 #include "battery_native/model.hpp"
+#include "battery_native/state_geometry.hpp"
 #include <cmath>
 #include <stdexcept>
 #include <algorithm>
@@ -37,10 +38,16 @@ void add_physical_shell(Scenario& s,const ShellConfig& spec) {
         e.interface_material="physical-casing-contact";
         e.point_a_m=std::find_if(s.ports.begin(),s.ports.end(),[&](const auto& p){return p.id==pa;})->centroid_m;
         e.point_b_m=std::find_if(s.ports.begin(),s.ports.end(),[&](const auto& p){return p.id==pb;})->centroid_m;
-        auto& l=e.law;l.background_conductance_w_per_k=h*area;l.endpoint_damage_weight=1.;
+        // Casing contacts participate in the same directed state geometry as
+        // every other material interface. Zero log-response gives exactly h*A.
+        // R1 conversion fraction is not a mechanical rupture of this contact;
+        // shell structural damage is already handled by its material halves.
+        auto& l=e.law;l.kind=TransitionKind::DirectedGeometry;l.geometry_reference_logit=0.;
+        l.background_conductance_w_per_k=.01*h*area;l.active_conductance_w_per_k=1.98*h*area;
+        l.endpoint_damage_weight=0.;
         l.destroyed_background_conductance_w_per_k=h*area*spec.destroyed_conductance_factor;
-        l.l0_m=l.l_low_m=l.l_high_m=l.destroyed_l0_m=l.destroyed_l_m=t;
-        e.initial_l_m=t;s.interfaces.push_back(e);
+        l.destroyed_active_conductance_w_per_k=0.;
+        s.interfaces.push_back(e);
     };
     for(int axis=0;axis<3;++axis)for(int side=0;side<2;++side) {
         int sign=side?1:-1;CellConfig panel;panel.id=c.id+":case:"+(side?"+":"-")+"xyz"[axis];
@@ -56,8 +63,9 @@ void add_physical_shell(Scenario& s,const ShellConfig& spec) {
         panel.conductivity_w_per_m_k=spec.conductivity_w_per_m_k;
         panel.damage_onset_k=spec.damage_onset_k;panel.damage_rate_at_onset_per_s=spec.damage_rate_per_s;panel.damage_temperature_scale_k=spec.damage_scale_k;
         panel.has_bulk_connectivity=true;auto& b=panel.bulk_connectivity;
-        b.background_conductance_w_per_k=1.;b.destroyed_background_conductance_w_per_k=spec.destroyed_conductance_factor;
-        b.endpoint_damage_weight=1.;b.l0_m=b.l_low_m=b.destroyed_l0_m=b.destroyed_l_m=t;
+        b=reference_directed_connectivity(1.);
+        b.destroyed_background_conductance_w_per_k=spec.destroyed_conductance_factor;
+        b.destroyed_active_conductance_w_per_k=0.;
         int pi=static_cast<int>(s.cells.size());panels[axis][side]=pi;s.cells.push_back(panel);
         const int u=(axis+1)%3,v=(axis+2)%3;double center[3]{origin[0],origin[1],origin[2]};center[axis]+=sign*c.dimensions_m[axis]/2;
         const auto cp=port(core,axis,sign,center,c.dimensions_m[u],c.dimensions_m[v],panel.id+":contents");

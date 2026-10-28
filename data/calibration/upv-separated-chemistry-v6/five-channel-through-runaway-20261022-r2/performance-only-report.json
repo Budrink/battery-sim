@@ -1,0 +1,68 @@
+{
+  "purpose": "PERFORMANCE ONLY, not calibration or validation",
+  "same_native_sha256": "e7234238a1dcedad671ee39f3a120047432705a2341a7babdf69b439d6ca9e27",
+  "synthetic_initial_conditions": "Hot finite reacting exterior gas; compressed internal gas opens all casings. Connected module replicas, not a measured experiment.",
+  "limitation": "10 s stress segment, not a whole 1800 s protocol. No accuracy/cascade validation claim for 30 batteries.",
+  "results": [
+    {
+      "batteries": 3,
+      "gas_volumes": 1401,
+      "solid_volumes": 340,
+      "simulated_s": 10.0,
+      "wall_s": 12.32793813,
+      "realtime_ratio": 0.8111656543493702,
+      "steps": 225,
+      "min_regular_dt_s": 0.02,
+      "rupture_patches": 162,
+      "gas_branch_wall_s": 11.660438380999988,
+      "last_pressure_iteration_counter": 231,
+      "balances": {
+        "max_chemical_residual_j": 1.7695128917694092e-08,
+        "max_mass_residual_kg": 4.884981308350689e-15,
+        "max_oxidizer_residual_kg": 2.42861286636753e-16,
+        "max_thermal_residual_j": 4.487083060666919e-08
+      },
+      "source": "data/calibration/upv-separated-chemistry-v6/five-channel-through-runaway-20261022-r2/performance-only/modules-01/replay/run.json.gz"
+    },
+    {
+      "batteries": 12,
+      "gas_volumes": 5604,
+      "solid_volumes": 1360,
+      "simulated_s": 10.0,
+      "wall_s": 24.150093341,
+      "realtime_ratio": 0.41407707451891457,
+      "steps": 225,
+      "min_regular_dt_s": 0.02,
+      "rupture_patches": 648,
+      "gas_branch_wall_s": 22.451696577000018,
+      "last_pressure_iteration_counter": 496,
+      "balances": {
+        "max_chemical_residual_j": 8.475035429000854e-08,
+        "max_mass_residual_kg": 1.0302869668521453e-13,
+        "max_oxidizer_residual_kg": 3.3306690738754696e-16,
+        "max_thermal_residual_j": 9.948271326720715e-07
+      },
+      "source": "data/calibration/upv-separated-chemistry-v6/five-channel-through-runaway-20261022-r2/performance-only-scale/modules-04/replay/run.json.gz"
+    },
+    {
+      "batteries": 30,
+      "gas_volumes": 14010,
+      "solid_volumes": 3400,
+      "simulated_s": 10.0,
+      "wall_s": 50.804398165,
+      "realtime_ratio": 0.1968333522527419,
+      "steps": 225,
+      "min_regular_dt_s": 0.02,
+      "rupture_patches": 1620,
+      "gas_branch_wall_s": 44.60507316600001,
+      "last_pressure_iteration_counter": 848,
+      "balances": {
+        "max_chemical_residual_j": 2.253800630569458e-07,
+        "max_mass_residual_kg": 3.8902214782865485e-13,
+        "max_oxidizer_residual_kg": 2.4369395390522186e-14,
+        "max_thermal_residual_j": 8.3905179053545e-06
+      },
+      "source": "data/calibration/upv-separated-chemistry-v6/five-channel-through-runaway-20261022-r2/performance-only-scale/modules-10/replay/run.json.gz"
+    }
+  ]
+}

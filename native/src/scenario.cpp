@@ -1,5 +1,7 @@
 #include "battery_native/model.hpp"
 #include "battery_native/constitutive.hpp"
+#include "battery_native/state_geometry.hpp"
+#include "shell_face_material.hpp"
 
 #include <nlohmann/json.hpp>
 
@@ -80,6 +82,7 @@ ConnectivityLaw parse_law(const json& value) {
     ConnectivityLaw law;
     law.kind = transition_kind(value.value("kind", "constant"));
     law.destroyed_geometry_reference_logit=value.value("destroyed_geometry_reference_logit",0.);
+    law.interface_damage_log_response=value.value("interface_damage_log_response",0.);
     if(law.kind==TransitionKind::DirectedGeometry &&
        (value.contains("l0_m") || value.contains("destroyed_l_m") || value.contains("tensor_only")))
         throw std::runtime_error("Directed contacts use only tensor geometry; obsolete length/compatibility fields are not accepted");
@@ -186,6 +189,11 @@ Scenario load_scenario(const std::string& path) {
     scenario.settings.output_interval_s = simulation.at("output_interval_s").get<double>();
     scenario.settings.stability_factor = simulation.value("stability_factor", 0.2);
     scenario.settings.step_interval_s = simulation.value("step_interval_s", 0.0);
+    scenario.settings.minimum_dt_s = simulation.value("minimum_dt_s", 0.0);
+    if(!std::isfinite(scenario.settings.minimum_dt_s) || scenario.settings.minimum_dt_s<0. ||
+       (scenario.settings.minimum_dt_s>0. && scenario.settings.minimum_dt_s<.005) ||
+       scenario.settings.minimum_dt_s>scenario.settings.max_dt_s)
+        throw std::runtime_error("minimum_dt_s must be zero (reference mode) or >=0.005 and <=max_dt_s");
 
     std::unordered_map<std::string, std::size_t> cell_index;
     for (const auto& value : root.at("cells")) {
@@ -308,15 +316,36 @@ Scenario load_scenario(const std::string& path) {
         cell.runaway_pulse.tail_time_s=runaway.value("tail_time_s",30.);
         if(value.contains("electrical")) {
             const auto& e=value.at("electrical");auto& p=cell.electrical;p.enabled=true;
+            const auto drive=e.value("current_input",std::string("measured"));
+            if(drive!="measured" && drive!="voltage_limited_setpoint")throw std::runtime_error("Unknown electrical current_input");
+            p.voltage_limited_current=drive=="voltage_limited_setpoint";
+            if(e.contains("overcharge_fraction"))throw std::runtime_error("Retired overcharge_fraction: use charge_acceptance_fraction for ordinary charging");
             p.current_a=e.value("current_a",0.);p.resistance_ohm=e.at("resistance_ohm");
             p.reference_temperature_k=e.value("reference_temperature_k",298.15);
             p.temperature_log_slope_per_k=e.value("temperature_log_slope_per_k",0.);
-            p.damage_log_slope=e.value("damage_log_slope",0.);
+            if(e.contains("temperature_log_response")) {
+                if(e.contains("temperature_log_slope_per_k"))
+                    throw std::runtime_error("Specify one electrical temperature response: table OR scalar slope");
+                p.temperature_log_response=parse_table(e.at("temperature_log_response"),false);
+            }
+            if(e.contains("damage_log_slope"))throw std::runtime_error("Electrical damage_log_slope was replaced by product_conductivity_ratio and Kirchhoff conduction");
+            p.product_conductivity_ratio=e.value("product_conductivity_ratio",.2);
+            const auto axis=e.value("terminal_axis",std::string("z"));
+            if(axis!="x" && axis!="y" && axis!="z")throw std::runtime_error("Electrical terminal_axis must be x, y or z");
+            p.terminal_axis=axis[0]-'x';
+            p.reversible_voltage_floor_v=e.value("reversible_voltage_floor_v",0.);
             p.min_resistance_ohm=e.value("min_resistance_ohm",1e-6);
             p.max_resistance_ohm=e.value("max_resistance_ohm",1.);
             p.max_temperature_step_k=e.value("max_temperature_step_k",.5);
-            p.overcharge_fraction=e.value("overcharge_fraction",0.);
+            p.charge_acceptance_fraction=e.value("charge_acceptance_fraction",0.);
             p.nominal_capacity_coulomb=e.value("nominal_capacity_coulomb",0.);
+            p.charge_log_slope=e.value("charge_log_slope",0.);
+            if(e.contains("charge_state_input") && e.at("charge_state_input")!="stored_precursor")
+                throw std::runtime_error("Electrical charge_state_input must be stored_precursor");
+            if(p.charge_log_slope>0. && !e.contains("charge_state_input"))
+                throw std::runtime_error("Charge polarization requires explicit charge_state_input=stored_precursor; throughput-based profiles need recalibration");
+            if(e.contains("overcharge_formation_fraction"))
+                throw std::runtime_error("Retired overcharge_formation_fraction: charging precursor must be fully paid from electrical work");
             cell.current_profile_a=e.value("current_profile_a",std::vector<std::array<double,2>>{});
             cell.voltage_profile_v=e.value("voltage_profile_v",std::vector<std::array<double,2>>{});
             if(!e.contains("current_a") && cell.current_profile_a.empty())throw std::runtime_error("Electrical heating requires a current drive");
@@ -344,6 +373,33 @@ Scenario load_scenario(const std::string& path) {
         }
         if(value.contains("initial_temperature_k") && sh.initial_temperature_k<=0)throw std::runtime_error("Shell temperature must be positive");
         add_physical_shell(scenario,sh);
+        if(value.contains("contents_surface_connectivity") || value.contains("contents_connectivity_per_m2")) {
+            const auto response=parse_surface(value.value("contents_surface_connectivity",json::object()));
+            int count=0;
+            for(auto& edge:scenario.interfaces)
+                if(scenario.cells[edge.cell_a].id==sh.contents_id &&
+                   scenario.cells[edge.cell_b].shell_contents_id==sh.contents_id) {
+                    edge.has_endpoint_response=true;
+                    if(value.contains("contents_connectivity_per_m2")) {
+                        // Conductances supplied for one square metre; preserve
+                        // exact generated contact areas and the common solver.
+                        edge.law=parse_law(value.at("contents_connectivity_per_m2"));
+                        if(edge.law.kind!=TransitionKind::DirectedGeometry)
+                            throw std::runtime_error("Contents contact requires directed geometry");
+                        const auto port=std::find_if(scenario.ports.begin(),scenario.ports.end(),
+                            [&](const auto& p){return p.id==edge.port_a;});
+                        if(port==scenario.ports.end())throw std::runtime_error("Missing contents port");
+                        const double area=port->area_m2;
+                        edge.law.background_conductance_w_per_k*=area;
+                        edge.law.active_conductance_w_per_k*=area;
+                        edge.law.destroyed_background_conductance_w_per_k*=area;
+                        edge.law.destroyed_active_conductance_w_per_k*=area;
+                    }
+                    edge.law.endpoint_a=edge.law.endpoint_b=response;
+                    ++count;
+                }
+            if(count!=6)throw std::runtime_error("Expected six contents/casing contacts");
+        }
         const auto frame=value.value("conductivity_frame",std::string("global"));
         if(frame!="global" && frame!="normal_tangential")throw std::runtime_error("Unknown casing conductivity frame");
         for(auto& panel:scenario.cells)if(panel.shell_contents_id==sh.contents_id) {
@@ -354,7 +410,23 @@ Scenario load_scenario(const std::string& path) {
                 panel.initial_temperature_field_k=value.at("initial_temperature_fields_k").at(face).get<std::vector<double>>();
         }
     }
+    for(const auto& shell:root.value("shells",json::array()))
+        if(shell.contains("face_materials"))
+            apply_shell_face_materials(scenario,shell.at("contents_id"),shell.at("face_materials"));
     for(std::size_t i=0;i<scenario.cells.size();++i)cell_index[scenario.cells[i].id]=i;
+    std::unordered_set<int> driven_heaters;
+    for(const auto& value:root.value("heating_protocols",json::array())) {
+        HeatingProtocol p;p.id=value.at("id");p.heater_id=value.at("heater_id");p.sensor_id=value.at("sensor_id");
+        if(!cell_index.contains(p.heater_id)||!cell_index.contains(p.sensor_id))
+            throw std::runtime_error("Unknown heating protocol heater/sensor");
+        p.heater_object=cell_index.at(p.heater_id);p.sensor_object=cell_index.at(p.sensor_id);
+        if(!driven_heaters.insert(p.heater_object).second)throw std::runtime_error("Duplicate heater control");
+        p.initial_temperature_k=value.value("initial_temperature_k",scenario.cells[p.sensor_object].initial_temperature_k);
+        p.ramp_k_per_s=value.at("ramp_k_per_s");p.feedforward_w=value.at("feedforward_w");
+        p.proportional_w_per_k=value.at("proportional_w_per_k");p.maximum_power_w=value.at("maximum_power_w");
+        p.cutoff_temperature_k=value.at("cutoff_temperature_k");p.cutoff_rate_k_per_s=value.at("cutoff_rate_k_per_s");
+        validate_heating_protocol(p);scenario.heating_protocols.push_back(p);
+    }
     std::unordered_map<std::string, std::size_t> port_index;
     for(std::size_t i=0;i<scenario.ports.size();++i)port_index[scenario.ports[i].id]=i;
     for (const auto& value : root.at("ports")) {
@@ -394,7 +466,14 @@ Scenario load_scenario(const std::string& path) {
         edge.material_a = value.value("material_a", "unspecified");
         edge.material_b = value.value("material_b", "unspecified");
         edge.interface_material = value.value("interface_material", "unspecified");
-        edge.law = parse_law(value.at("law"));
+        if(value.contains("radiation")) {
+            if(value.contains("law"))throw std::runtime_error("Radiative interface cannot also specify a conductive law");
+            const auto& r=value.at("radiation");edge.radiative=true;
+            edge.radiation_exchange_area_m2=r.at("exchange_area_m2");
+            edge.effective_emissivity=r.at("effective_emissivity");
+            edge.radiation_temperature_limit_k=r.value("temperature_limit_k",4000.);
+            edge.law=reference_directed_connectivity(0.);
+        } else edge.law = parse_law(value.at("law"));
         edge.initial_l_m = value.value("initial_l_m", edge.law.l_low_m);
         edge.initial_damage = value.value("initial_damage", 0.0);
         edge.initial_phase = edge_phase(value.value("initial_phase", "low"));
@@ -410,7 +489,16 @@ Scenario load_scenario(const std::string& path) {
         }
         boundary.cell_index = scenario.ports[port_index.at(boundary.port_id)].cell_index;
         boundary.temperature_k = value.at("temperature_k").get<double>();
-        boundary.conductance_w_per_k = value.at("conductance_w_per_k").get<double>();
+        boundary.conductance_w_per_k = value.value("conductance_w_per_k",0.);
+        if(value.contains("radiation")) {
+            const auto& r=value.at("radiation");boundary.radiative=true;
+            boundary.effective_emissivity=r.at("effective_emissivity").get<double>();
+            boundary.radiating_area_fraction=r.value("area_fraction",1.);
+            boundary.radiation_temperature_limit_k=r.value("temperature_limit_k",4000.);
+            if(value.contains("connectivity") || boundary.conductance_w_per_k!=0.)
+                throw std::runtime_error("Radiation must be a separate geometric edge, not a second copy of convection");
+        } else if(!value.contains("conductance_w_per_k"))
+            throw std::runtime_error("Ordinary boundary requires conductance_w_per_k");
         boundary.temperature_profile = value.value("temperature_profile", std::vector<std::array<double,2>>{});
         if(value.contains("connectivity")) {
             boundary.has_connectivity=true;
@@ -430,11 +518,56 @@ Scenario load_scenario(const std::string& path) {
         gm.cpu_local_transport=backend=="cpu_local";
         gm.cuda_deterministic_transport=backend=="cuda_deterministic";
         gm.cuda_network_transport=backend=="cuda_network";
+        const auto network_integrator=net.value("network_integrator",std::string("pairwise"));
+        if(network_integrator!="pairwise" && network_integrator!="averaged")throw std::runtime_error("Unknown network gas integrator");
+        gm.averaged_network_transport=network_integrator=="averaged";
+        gm.reactive_transit=net.value("reactive_transit",false);
+        if(gm.reactive_transit && !gm.averaged_network_transport)
+            throw std::runtime_error("Reactive transit requires the averaged network integrator");
+        const auto mixing_integrator=net.value("mixing_integrator",std::string("pairwise"));
+        if(mixing_integrator!="pairwise" && mixing_integrator!="implicit" && mixing_integrator!="implicit_surfaces")throw std::runtime_error("Unknown gas mixing integrator");
+        gm.implicit_network_mixing=mixing_integrator!="pairwise";
+        gm.joint_gas_surface_mixing=mixing_integrator=="implicit_surfaces";
+        gm.free_gas_response_only=net.value("free_gas_response_only",false);
+        if(gm.implicit_network_mixing && !gm.averaged_network_transport)throw std::runtime_error("Implicit mixing requires averaged network transport");
+        gm.averaged_pressure_iterations=net.value("averaged_pressure_iterations",512);
+        gm.averaged_payload_iterations=net.value("averaged_payload_iterations",16);
+        // Algebraic work budget only. Large volume/area contrasts can need
+        // more CG iterations; retain the kernel's unchanged 1e-6 residual
+        // acceptance and the old default rather than taking smaller dt.
+        if((gm.averaged_network_transport && !gm.cuda_network_transport) ||
+            gm.averaged_pressure_iterations<4 || gm.averaged_pressure_iterations>GasModel::maximum_pressure_iterations ||
+            gm.averaged_payload_iterations<4 || gm.averaged_payload_iterations>128)
+            throw std::runtime_error("Invalid averaged CUDA network controls");
+        gm.coupled_gas_films=net.value("coupled_gas_films",false);
+        if(gm.reactive_transit && gm.coupled_gas_films && !gm.joint_gas_surface_mixing)
+            throw std::runtime_error("Reactive transit needs joint surface mixing when gas films are enabled");
+        if(gm.joint_gas_surface_mixing && !gm.coupled_gas_films)throw std::runtime_error("Joint surface mixing needs coupled gas films");
+        gm.coupled_transport_interval_s=net.value("coupled_transport_interval_s",.01);
+        if(!std::isfinite(gm.coupled_transport_interval_s) || gm.coupled_transport_interval_s<=0.)
+            throw std::runtime_error("Invalid coupled gas transport interval");
+        if(gm.coupled_gas_films && !(gm.cuda_network_transport && gm.split_transport))
+            throw std::runtime_error("Coupled gas films require CUDA network split transport");
         gm.cuda_batched_transport=backend=="cuda_batched" || gm.cuda_deterministic_transport || gm.cuda_network_transport;
         gm.cuda_kawasaki_transport=backend=="cuda_kawasaki" || gm.cuda_batched_transport;
         gm.deterministic_sweeps_per_step=net.value("deterministic_sweeps_per_step",gm.deterministic_sweeps_per_step);
         gm.deterministic_pressure_fraction=net.value("deterministic_pressure_fraction",gm.deterministic_pressure_fraction);
         gm.network_pressure_fraction=net.value("network_pressure_fraction",gm.network_pressure_fraction);
+        gm.mixing_diffusivity_m2_s=net.value("mixing_diffusivity_m2_s",0.);
+        gm.mixing_flow_fraction=net.value("mixing_flow_fraction",0.);
+        gm.thermal_stirring_coefficient=net.value("thermal_stirring_coefficient",0.);
+        gm.mixing_length_cap_m=net.value("mixing_length_cap_m",.05);
+        gm.thermal_stirring_length_m=net.value("thermal_stirring_length_m",.02);
+        if(gm.thermal_stirring_coefficient>0. && !net.contains("thermal_stirring_length_m"))
+            throw std::runtime_error("Thermal stirring requires an explicit physical thermal_stirring_length_m, independent of mesh spacing");
+        gm.pressure_pattern_predictor=net.value("pressure_pattern_predictor",false);
+        if(gm.pressure_pattern_predictor && !gm.averaged_network_transport)
+            throw std::runtime_error("Pressure pattern predictor requires averaged network transport");
+        if(net.contains("mixing_connectivity")) {
+            scenario.has_gas_mixing_connectivity=true;
+            scenario.gas_mixing_connectivity=parse_law(net.at("mixing_connectivity"));
+        }
+        gm.vapor_fuel_heat_j_kg=net.value("vapor_fuel_heat_j_kg",0.);
         gm.batch_pressure_fraction=net.value("batch_pressure_fraction",gm.batch_pressure_fraction);
         gm.batch_mean_threshold=net.value("batch_mean_threshold",gm.batch_mean_threshold);
         gm.kawasaki_packet_fraction=net.value("kawasaki_packet_fraction",gm.kawasaki_packet_fraction);
@@ -459,6 +592,18 @@ Scenario load_scenario(const std::string& path) {
             g.initial_chemical_j=v.value("initial_chemical_j",0.);g.initial_oxidizer_mass_fraction=v.value("initial_oxidizer_mass_fraction",0.);
             g.reaction_rate_per_s=v.value("reaction_rate_per_s",0.);g.oxidizer_heat_j_per_kg=v.value("oxidizer_heat_j_per_kg",13.1e6);
             g.ignition_temperature_k=v.value("ignition_temperature_k",0.);
+            g.reaction_reference_k=v.value("reaction_reference_k",600.);
+            g.reaction_activation_j_per_mol=v.value("reaction_activation_j_per_mol",0.);
+            if(v.contains("ambient_boundary")){const auto& a=v.at("ambient_boundary");auto& b=g.ambient;b.enabled=true;
+                for(const auto& item:a.items())if(item.key()!="pressure_pa" && item.key()!="temperature_k" &&
+                    item.key()!="oxidizer_mass_fraction" && item.key()!="area_m2" && item.key()!="discharge_coefficient" && item.key()!="renewal_flow_m3_s")
+                    throw std::runtime_error("Unknown ambient boundary property: "+item.key());
+                b.pressure_pa=a.at("pressure_pa");b.temperature_k=a.at("temperature_k");
+                b.oxidizer_mass_fraction=a.at("oxidizer_mass_fraction");b.area_m2=a.at("area_m2");
+                b.discharge_coefficient=a.value("discharge_coefficient",.7);b.renewal_flow_m3_s=a.value("renewal_flow_m3_s",0.);
+            }
+            if(g.reaction_rate_per_s>0. && (!v.contains("reaction_reference_k") || !v.contains("reaction_activation_j_per_mol")))
+                throw std::runtime_error("R3 requires its own reaction_reference_k and reaction_activation_j_per_mol");
             if(v.contains("local_equilibrium")) {
                 const auto& binding=v.at("local_equilibrium");
                 for(const auto& item:binding.items())if(item.key()!="cell_id" && item.key()!="thermal_volume" &&
@@ -480,6 +625,8 @@ Scenario load_scenario(const std::string& path) {
             ch.internal=kind=="internal";
             ch.passage=kind=="passage";
             ch.shell_thermal_volume=v.value("shell_thermal_volume",-1);
+            ch.mixing_axis=v.value("mixing_axis",0);
+            if(ch.mixing_axis<0 || ch.mixing_axis>2)throw std::runtime_error("Invalid gas mixing axis");
             if(ch.internal || ch.passage) {
                 if(v.contains("port_id"))throw std::runtime_error("Internal pore path must not masquerade as an exterior port");
                 ch.shell_object=scenario.gas_compartments[ch.from].thermal_cell;
@@ -488,6 +635,8 @@ Scenario load_scenario(const std::string& path) {
                 const auto& p=scenario.ports.at(port_index.at(ch.port_id));ch.shell_object=static_cast<int>(p.cell_index);
             }
             ch.area_m2=v.value("area_m2",0.);ch.discharge_coefficient=v.value("discharge_coefficient",.7);
+            ch.mixing_length_m=v.value("mixing_length_m",.01);
+            ch.hydraulic_resistance_factor=v.value("hydraulic_resistance_factor",1.);
             ch.opening_pressure_pa=v.at("opening_pressure_pa");ch.outside_pressure_pa=v.value("outside_pressure_pa",101325.);
             ch.rupture=kind=="rupture";ch.strength_reference_k=v.value("strength_reference_k",298.15);
             ch.strength_temperature_scale_k=v.value("strength_temperature_scale_k",1e6);
@@ -553,12 +702,21 @@ Scenario load_scenario(const std::string& path) {
             scenario.gas_channels.push_back(ch);
         }
         for(const auto& v:net.value("thermal_contacts",json::array())) {
-            GasContact c;c.compartment=gas_ids.at(v.at("compartment").get<std::string>());c.port_id=v.at("port_id");c.h_w_per_m2_k=v.at("h_w_per_m2_k");c.thermal_volume=v.value("thermal_volume",-1);scenario.gas_contacts.push_back(c);
+            GasContact c;c.compartment=gas_ids.at(v.at("compartment").get<std::string>());c.port_id=v.at("port_id");
+            if(v.contains("connectivity") && v.contains("h_w_per_m2_k"))throw std::runtime_error("Supply gas connectivity or reference h, not both");
+            c.has_connectivity=v.contains("connectivity");
+            if(c.has_connectivity)c.connectivity=parse_law(v.at("connectivity"));else c.h_w_per_m2_k=v.at("h_w_per_m2_k");
+            c.gas_surface_connectivity=parse_surface(v.value("gas_surface_connectivity",net.value("surface_connectivity",json::object())));
+            c.has_solid_surface_connectivity=v.contains("solid_surface_connectivity");
+            if(c.has_solid_surface_connectivity)c.solid_surface_connectivity=parse_surface(v.at("solid_surface_connectivity"));
+            c.thermal_volume=v.value("thermal_volume",-1);scenario.gas_contacts.push_back(c);
         }
+        scenario.gas_surface_connectivity=parse_surface(net.value("surface_connectivity",json::object()));
         for(const auto& v:root.at("cells"))if(v.contains("conversion")) {
             auto& c=scenario.cells[cell_index.at(v.at("id").get<std::string>())];auto& p=c.conversion;const auto& x=v.at("conversion");p.enabled=true;
             if(x.at("chemistry")!="r1-r2-r3")throw std::runtime_error("Only R1/R2/R3 chemistry is supported");
-            for(const char* old:{"l0_m","lcrit_m","energy_scale_j_per_kg","activation_rate_per_s","absorption_j_per_kg"})
+            for(const char* old:{"l0_m","lcrit_m","energy_scale_j_per_kg","activation_rate_per_s","absorption_j_per_kg",
+                "overcharge_conversion_per_charge","precursor_yield_voltage_per_v","precursor_voltage_ref_v"})
                 if(x.contains(old))throw std::runtime_error(std::string("Obsolete chemistry field: ")+old);
             p.mass_kg=x.at("mass_kg");p.reactant_cp=x.at("reactant_cp");p.activated_cp=x.at("activated_cp");p.residue_cp=x.at("residue_cp");
             p.net_heat_j_per_kg=x.at("net_heat_j_per_kg");
@@ -568,18 +726,25 @@ Scenario load_scenario(const std::string& path) {
             p.degradation_reference_k=x.at("degradation_reference_k");
             p.degradation_activation_j_per_mol=x.at("degradation_activation_j_per_mol");
             p.initial_precursor_fraction=x.value("initial_precursor_fraction",0.);
-            p.overcharge_conversion_per_charge=x.value("overcharge_conversion_per_charge",0.);
+            p.initial_charged_fraction=x.value("initial_charged_fraction",0.);
+            p.charge_conversion_per_nominal_charge=x.value("charge_conversion_per_nominal_charge",0.);
             p.precursor_yield=x.value("precursor_yield",1.);
             p.precursor_yield_temperature_per_k=x.value("precursor_yield_temperature_per_k",0.);
-            p.precursor_yield_voltage_per_v=x.value("precursor_yield_voltage_per_v",0.);
             p.precursor_temperature_ref_k=x.value("precursor_temperature_ref_k",298.15);
-            p.precursor_voltage_ref_v=x.value("precursor_voltage_ref_v",3.65);
             p.runaway_reporting_rate_per_s=x.value("runaway_reporting_rate_per_s",1e-5);
             p.gas_yield_reference_k=x.value("gas_yield_reference_k",p.reaction_reference_k);
             p.gas_yield_temperature_per_k=x.value("gas_yield_temperature_per_k",0.);
             p.gas_yield_density_exponent=x.value("gas_yield_density_exponent",0.);
             p.gas_yield_max=x.value("gas_yield_max",.95);
             p.gas_yield=x.at("gas_yield");p.gas_chemical_fraction=x.at("gas_chemical_fraction");
+            if(x.contains("volatile_phase")) {
+                const auto& q=x.at("volatile_phase");auto& v=p.volatile_phase;
+                v.initial_mass_kg=q.at("initial_mass_kg");v.liquid_cp=q.at("liquid_cp");
+                v.density_kg_m3=q.at("density_kg_m3");v.latent_j_per_kg=q.at("latent_j_per_kg");
+                v.boiling_temperature_k=q.at("boiling_temperature_k");v.saturation_reference_pa=q.at("saturation_reference_pa");
+                v.vapor_specific_r=q.at("vapor_specific_r");v.relaxation_per_s=q.at("relaxation_per_s");
+                v.chemical_j_per_kg=q.value("chemical_j_per_kg",0.);
+            }
             p.max_fraction_per_step=x.value("max_fraction_per_step",.01);p.max_temperature_step_k=x.value("max_temperature_step_k",.5);
             const auto f=x.at("residue_conductivity").get<std::array<double,3>>();for(int k=0;k<3;++k)p.residue_conductivity[k]=f[k];
             p.gas_compartment=gas_ids.at(x.at("gas_compartment").get<std::string>());

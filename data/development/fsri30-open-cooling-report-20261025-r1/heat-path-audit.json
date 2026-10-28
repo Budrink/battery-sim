@@ -1,0 +1,40 @@
+{
+  "scene_sha256": "6b19c879af5d1602f58fab20f569cf7d73474a0bd816931a99e558c3e6b9747d",
+  "run_sha256": "e652bd5dc3754dcf1f70e1685da756fd21f5f614c0ec5ec9c562f59f70ce61a6",
+  "flows": {
+    "start_s": 3299.9999999999454,
+    "end_s": 3499.9999999999727,
+    "channels": [
+      {
+        "channel": "vent-+y-22-air-5-12-5",
+        "area_m2": 1.5494313788057896e-05,
+        "mixed_mass_each_way_kg_s": 9.40560046876076e-08,
+        "pressure_net_mass_kg_s": -7.509919202340984e-09,
+        "net_thermal_w": 0.01164193668853682
+      },
+      {
+        "channel": "vent--y-7-air-5-2-5",
+        "area_m2": 1.5494313788057896e-05,
+        "mixed_mass_each_way_kg_s": 9.328267051930798e-08,
+        "pressure_net_mass_kg_s": -7.693434041499197e-09,
+        "net_thermal_w": 0.01101598932102056
+      }
+    ],
+    "module_vent_net_thermal_w": 0.022657926009557378,
+    "ambient_thermal_w": 48.098924526081376,
+    "r3_w": 0.04745314704602868,
+    "note": "Channel delivered energy INCLUDES pressure transport and sensible counterexchange, not advection alone"
+  },
+  "radiation": {
+    "time_s": 5945.0,
+    "external_abs_area_m2": 0.07393840140987296,
+    "blackbody_power_using_cell_center_w": 2228.1057484623316,
+    "blackbody_power_with_half_slab_surface_estimate_w": 1736.1656022830296,
+    "assumed_emissivity": null,
+    "assumed_view_factor": null,
+    "added_to_solver": false,
+    "scope": "Instantaneous potential per unit effective emissivity/view factor; not a predicted cooling trajectory. Adding radiation would change surface temperatures."
+  },
+  "calibrated": false,
+  "validation_passed": false
+}

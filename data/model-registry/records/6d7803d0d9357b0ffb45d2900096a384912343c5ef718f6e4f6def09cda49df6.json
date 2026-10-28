@@ -1,0 +1,42 @@
+{
+  "format_version": 1,
+  "kind": "numerical_method",
+  "scope": "pressure-cg-retained-conjugacy-v1",
+  "parameters": {
+    "operator": "frozen-compliance-plus-pressure-Laplacian",
+    "preconditioner": "symmetric-matched-2x2",
+    "fixed_restart_interval": null,
+    "restart_on_false_recursive_convergence": true,
+    "true_local_relative_tolerance": 1e-06,
+    "pressure_work_budget": "unchanged per scenario"
+  },
+  "evidence": {
+    "result_path": "/home/konstantin/work/battery-sim/data/development/fsri30-pressure-capture-20261024-r1/pressure-fix-report.json",
+    "result_sha256": "2f10ea3f175da1a63e05a2ea384d7c30f1367fcb5460e430577ae53f1545da84",
+    "numerical_checks": {
+      "accepted": true,
+      "exact_rejected_window_passes": true,
+      "analytical_dense_reference_passes": true,
+      "cuda_block_counts": [
+        1,
+        2,
+        4
+      ],
+      "portable_513_volume_regression": true
+    },
+    "full_warmup_validation": false,
+    "independent_validation": {
+      "accepted": false
+    }
+  },
+  "compatibility": {
+    "solver": "CUDA averaged gas",
+    "operator": "symmetric frozen compliance pressure correction",
+    "physical_laws_unchanged": true
+  },
+  "qualification": "candidate",
+  "producer_core": "9f68313fa22cc7b8578cd46ff574fe0263cf06847c9359fc7d8f7ff37409841c",
+  "transferable_as": "numerical_method",
+  "calibrated": false,
+  "validation_passed": false
+}

@@ -1,0 +1,172 @@
+{
+  "status": "complete",
+  "pid": 2159905,
+  "stage": "second-wave-diagnostic",
+  "source": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-joint-r2x010-20261027-r1/cascade/scenario.json",
+  "source_sha256": "6e19d5e0effd471f9a24e07d69ef9d2fe37d8648c47a6da0145098c31501b6a3",
+  "scenario_sha256": "e1ece739d866a805ce6ce419960c1199fb53305071db1f8a5c7fc9f31d94a3a9",
+  "core_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "experiment_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "early_primary_allowed": true,
+  "secondary_definition": "10% of modeled R2 gas yield in a battery other than B10",
+  "stop_after_two_secondary_conversions": true,
+  "calibrated": false,
+  "validation_passed": false,
+  "progress": {
+    "time_s": 2999.9999999999,
+    "live_advanced_to_s": 2999.9999999999,
+    "wall_s": 1426.424845030997,
+    "secondary_events": [],
+    "assessment": {
+      "evaluated": true,
+      "accepted": false,
+      "phase_window_complete": false,
+      "last_observed_s": 2999.9999999999,
+      "reason": "Primary thermal-front timing error: model 1652s versus data 1763s; Missing thermal pulse wave(s) at 1763, 2134, 2422, 2569s within 100s timing error limit; Missing first hot arrival wave(s) at 1765, 2136, 2570s within 100s timing error limit",
+      "constraint": 7.0,
+      "primary_offset_s": -111.0,
+      "timing_error_s": 111.0,
+      "timing_target_met": false,
+      "pulse_match": {
+        "due": 4,
+        "matched": 0,
+        "missing": [
+          {
+            "reference_time_s": 1763.0,
+            "channels": [
+              "T2",
+              "T5"
+            ],
+            "nearest_any_model_group_s": 111.0
+          },
+          {
+            "reference_time_s": 2134.0,
+            "channels": [
+              "T1",
+              "T2",
+              "T3",
+              "T4",
+              "T5"
+            ],
+            "nearest_any_model_group_s": 482.0
+          },
+          {
+            "reference_time_s": 2422.0,
+            "channels": [
+              "T4"
+            ],
+            "nearest_any_model_group_s": 770.0
+          },
+          {
+            "reference_time_s": 2569.0,
+            "channels": [
+              "T2",
+              "T3",
+              "T4",
+              "T5",
+              "T6"
+            ],
+            "nearest_any_model_group_s": 917.0
+          }
+        ],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "arrival_match": {
+        "due": 3,
+        "matched": 0,
+        "missing": [
+          {
+            "reference_time_s": 1765.0,
+            "channels": [
+              "T5"
+            ],
+            "nearest_any_model_group_s": 113.0
+          },
+          {
+            "reference_time_s": 2136.0,
+            "channels": [
+              "T1",
+              "T2",
+              "T3",
+              "T4"
+            ],
+            "nearest_any_model_group_s": 484.0
+          },
+          {
+            "reference_time_s": 2570.0,
+            "channels": [
+              "T6"
+            ],
+            "nearest_any_model_group_s": 918.0
+          }
+        ],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "model": {
+        "pulses": [
+          {
+            "channel": "B10",
+            "time_s": 1652.0,
+            "rise_k": 984.5420837976712,
+            "slope_k_s": 217.67364593573245
+          }
+        ],
+        "arrivals": [
+          {
+            "channel": "B10",
+            "time_s": 1652.0
+          }
+        ],
+        "pulse_groups": [
+          {
+            "time_s": 1652.0,
+            "end_s": 1652.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1652.0,
+                "rise_k": 984.5420837976712,
+                "slope_k_s": 217.67364593573245
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ],
+        "arrival_groups": [
+          {
+            "time_s": 1652.0,
+            "end_s": 1652.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1652.0
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ]
+      },
+      "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+      "necessary_not_sufficient": true,
+      "objective": null
+    },
+    "physical_error": null
+  },
+  "run_path": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-previous-second-wave-20261027-r1/replay/run.json.gz",
+  "run_sha256": "ec954ef172aada6938d9607474a714223fe321c9821257549f04af9e16097227",
+  "balances": {
+    "max_chemical_residual_j": 7.310882210731506e-08,
+    "max_mass_residual_kg": 5.5067062021407764e-14,
+    "max_oxidizer_residual_kg": 7.033262861000367e-14,
+    "max_thermal_residual_j": 2.3852771846577525e-07
+  },
+  "wall_s": 1429.1776736301836
+}

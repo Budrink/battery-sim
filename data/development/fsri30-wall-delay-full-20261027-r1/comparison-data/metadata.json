@@ -1,0 +1,79 @@
+{
+  "run_id": "fsri30-wall-delay-full-20261027-r1",
+  "format": "CSV UTF-8 comma separated decimal dot",
+  "time_unit": "s",
+  "temperature_unit": "degC",
+  "model_rows": 2878,
+  "experiment_rows": 3001,
+  "plotted_rows": 14636,
+  "model_batteries": [
+    "B00",
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08",
+    "B09",
+    "B10",
+    "B11",
+    "B12",
+    "B13",
+    "B14",
+    "B15",
+    "B16",
+    "B17",
+    "B18",
+    "B19",
+    "B20",
+    "B21",
+    "B22",
+    "B23",
+    "B24",
+    "B25",
+    "B26",
+    "B27",
+    "B28",
+    "B29"
+  ],
+  "experiment_sensors": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T6",
+    "T7",
+    "T8",
+    "T9"
+  ],
+  "numeric_csv_roundtrip_exact": true,
+  "smoothing": false,
+  "time_shift_s": 0,
+  "interpolation": false,
+  "tolerance": {
+    "fraction_kelvin": 0.05,
+    "kind": "assumed engineering tolerance; not measurement uncertainty"
+  },
+  "mapping": {
+    "primary": "T5 vs B10",
+    "secondary": "T4 vs B17/B18: unconfirmed hypothesis"
+  },
+  "source_sha256": {
+    "scenario.json": "6895d5de718ebec1471a26da90979899fcad1dc61bff2e4ebaca29f67dc8a7cc",
+    "experiment.json": "1cc03bab9b6ad8876337c02c0e5b6389a81fcc5d9e82daaac3fb48802e3f4884",
+    "visual/manifest.json": "a795446d09cac92b6dd483b30a702c408af2dba86fc7df59e80ee24735dd8155",
+    "visual/frames.bin": "a1e1489f2eb1d4dd2adc610277eaf24d66036c3c51f6d112e671c81bbf361ad0"
+  },
+  "plot_script_sha256": "301cb58f7ad1be7796fc1bfe1df68b6b6a64b811d8d37370afd13b25b05cc1d6",
+  "exported_sha256": {
+    "plotted_series_long.csv": "e705c0114a31504645697fa1b77c5f45d465e9656df38c127ddada6b3c202410",
+    "model_temperatures.csv": "dd680f4a846e82ff3a118a6d47e5b346dec53fbdeda0a42580ae4e6794f1bb1f",
+    "comparison.png": "75fb1355f6251ecaa0ca52c210dbf26ea1d2c12d6c52248c0fde40eee835ec5e",
+    "comparison.pdf": "db5b9edaf43dce3d58062c0c253df5dc3e7a9869701d9c42c4f7ccc6f62e0574",
+    "README.txt": "830dd698d45adf3116d3f6b8ae4c3a6e735f755389d73aab3b7ec015688d49cb",
+    "experiment_with_tolerance.csv": "b0db4ac9611f048b8133d519eec4b045db08b88fce7375940fcef72c1b24cc02"
+  }
+}

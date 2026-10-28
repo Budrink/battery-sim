@@ -1,0 +1,63 @@
+{
+  "axes": [
+    "reverse_profile_power",
+    "backing_fraction",
+    "wall_hot_scale"
+  ],
+  "source_points": 5,
+  "accepted_calibration": false,
+  "predicted_normalized_rmse": {
+    "101": 2.2797057158599685,
+    "102": 0.09909705233231832,
+    "107": 1.3525248085253523,
+    "108": 2.2797057020724156,
+    "C2_TIM": 0.7998602358424396,
+    "pressure_tail": 0.23940225096686157
+  },
+  "baseline_normalized_rmse": {
+    "101": 2.046773836082263,
+    "102": 0.23867442025178526,
+    "107": 1.196633811190027,
+    "108": 2.4074687949234477,
+    "C2_TIM": 0.6927166038378646,
+    "pressure_tail": 0.2109797733832326
+  },
+  "predicted_peak_and_arrival_residuals": [
+    0.6930537731847992,
+    -1.2281027516438043,
+    -1.2677006556922739
+  ],
+  "arrival_exploration_s": 2.0,
+  "final_arrival_tolerance_s": 0.5,
+  "requires_physical_retiming": true,
+  "trust_bounds": [
+    [
+      2.5,
+      3.5
+    ],
+    [
+      -4.106557897319981,
+      -2.9065578973199817
+    ],
+    [
+      -0.3553605156578263,
+      0.14463948434217372
+    ]
+  ],
+  "jacobian_condition": 9.783327273682037,
+  "measured_local_model_residual": 0.9355764832564276,
+  "requires_native_replay": true,
+  "requires_fresh_final_verification": true,
+  "objective_before": 2.647437911914973,
+  "objective_predicted": 2.538312709001839,
+  "source_trials": [
+    "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/power-film-search/trial-000",
+    "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/power-film-search/trial-002",
+    "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/film-derivative-search/trial-000",
+    "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/film-derivative-search/trial-001",
+    "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/film-derivative-search/trial-002"
+  ],
+  "native_sha256": "e7234238a1dcedad671ee39f3a120047432705a2341a7babdf69b439d6ca9e27",
+  "checkpoint_reference": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/final-training-calibration-20261022-r3/contrast-contact-reference",
+  "overlay_base_sha256": "d82d4ddb6690ddfa8f324a565f16f3ee7138f21a6fbe9898585298ae796b0632"
+}

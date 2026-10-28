@@ -1,0 +1,82 @@
+{
+  "parameters": {
+    "resistance_ohm": 0.024,
+    "resistance_temperature": -0.0034,
+    "resistance_damage": 1.0,
+    "r1_rate": 1e-06,
+    "r1_activation": 40000.0,
+    "overcharge_gain": 0.4,
+    "r2_rate": 3.0,
+    "r2_activation": 100000.0,
+    "energy_j": 600000.0,
+    "gas_fraction": 0.3,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.03,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.42,
+    "precursor_temperature": 0.0,
+    "precursor_voltage": 0.0,
+    "iss_h": 287.71996866857825,
+    "tim_h": 2000.0,
+    "case_h": 500.0,
+    "environment_h": 8.0,
+    "surface_iss": 0.0,
+    "surface_tim": 0.0,
+    "bulk_slope": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0
+  },
+  "objective": 546.112990081071,
+  "metrics": {
+    "warmup": {
+      "101": {
+        "rmse_k": 10.975691256396345,
+        "bias_k": -7.00270005039723
+      },
+      "102": {
+        "rmse_k": 0.7084097171832248,
+        "bias_k": 0.5743492034091134
+      },
+      "107": {
+        "rmse_k": 9.833641852263787,
+        "bias_k": -6.109979938463351
+      },
+      "108": {
+        "rmse_k": 2.2567719129531425,
+        "bias_k": -1.2308970420524865
+      },
+      "C2_TIM": {
+        "rmse_k": 22.908333420827887,
+        "bias_k": -14.796462928147657
+      },
+      "C2_ISS": {
+        "rmse_k": 26.134638048762593,
+        "bias_k": -17.558577358197137
+      }
+    },
+    "pressure": {
+      "peak_bar": 1.0324975385900594,
+      "observed_peak_bar": 1.0622290969156691,
+      "peak_time_s": 866.168000032194,
+      "rmse_bar": 0.012388995019573969
+    },
+    "joule_j": {
+      "C1": 0.0,
+      "C2": 25302.753833983817,
+      "C3": 0.0
+    },
+    "wall_s": 8.26751437,
+    "steps": 11261,
+    "balance": {
+      "max_thermal_residual_j": 2.6935595087707043e-08,
+      "max_chemical_residual_j": 5.587935447692871e-09,
+      "max_mass_residual_kg": 2.55351295663786e-15
+    }
+  },
+  "fingerprint": "7d516a72a54fc3495830ea639968bc6b8b60c3d09ed996b304a02b928a15743d",
+  "validation_used_for_selection": false,
+  "status": "candidate, not independently validated"
+}

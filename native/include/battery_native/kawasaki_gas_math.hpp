@@ -66,7 +66,7 @@ KG_HD inline double flow(const Node& a,const Node& b,const Edge& e,const Setting
     const double lr=log1p((pb-pa)/pa);
     const double f2=ratio<=critical?gamma*pow(2/(gamma+1),(gamma+1)/(gamma-1)):
         2*gamma/(gamma-1)*exp(2/gamma*lr)*(-expm1((gamma-1)/gamma*lr));
-    return e.cd*e.area*pa*sqrt(f2/(s.R*temperature(a,s)));
+    return e.cd*e.area*pa*sqrt(f2/(s.R*temperature(a,s)*e.hydraulic_resistance_factor));
 }
 KG_HD inline bool transfer(Node& donor,Node& receiver,double dm,const Settings& s) {
     if(!(dm>0 && dm<donor.mass))return false;

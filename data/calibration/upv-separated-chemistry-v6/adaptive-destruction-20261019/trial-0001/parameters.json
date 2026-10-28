@@ -1,0 +1,86 @@
+{
+  "parameters": {
+    "resistance_ohm": 0.016,
+    "resistance_temperature": -0.015,
+    "resistance_charge": 16,
+    "product_conductivity_ratio": 0.2,
+    "r1_rate": 4.650436002144987e-05,
+    "r1_activation": 240000.0,
+    "r2_rate": 0.005940698490313449,
+    "r2_activation": 120000.0,
+    "energy_j": 424264.068711928,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.0005,
+    "gas_rate": 19.999999999999996,
+    "gas_reference_k": 600.0,
+    "gas_activation": 40000.0,
+    "precursor_yield": 0.27735866146555965,
+    "precursor_temperature": 0.029623273375245555,
+    "iss_h": 548.334510922672,
+    "tim_h": 697.6587915939645,
+    "case_h": 220.48307663197534,
+    "environment_h": 1.563406124562644,
+    "surface_iss": 0.0,
+    "surface_tim": 6.0,
+    "bulk_slope": -2.88,
+    "case_warm_response": 0.0,
+    "case_hot_response": 0.0,
+    "shell_strength_pa": 3000000.0000000023,
+    "opening_rate": 1.0,
+    "sink_g": 10.0,
+    "battery_iss_factor": 0.3246524673583498,
+    "battery_tim_factor": 0.3272376374473188,
+    "charge_formation_gain": 2,
+    "chamber_gas_h": 79.99999999999997
+  },
+  "proposal": {
+    "k1_75": 1.0000000000000007e-09,
+    "ea1": 240000.0,
+    "k2_75": 5.000000000000002e-07,
+    "ea2": 120000.0,
+    "energy_j": 424264.068711928,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_rate": 19.999999999999996,
+    "gas_activation": 40000.0,
+    "shell_strength_pa": 3000000.0000000023,
+    "opening_rate": 1.0,
+    "chamber_gas_h": 79.99999999999997,
+    "label": "trial-0001"
+  },
+  "fingerprint": "f3ec4ae523f3c7077e531fdb718d80b615a5a7334445cf91ebb852c0d94e9b75",
+  "changes": {
+    "r2_rate": [
+      0.011881396980626898,
+      0.005940698490313449
+    ]
+  },
+  "validation_used_for_selection": false,
+  "shell_material_contacts_and_phi_frozen": false,
+  "solid_material_contacts_and_phi_frozen": true,
+  "objective_mode": "explosion",
+  "electrical_fit_authorized": false,
+  "fit_charge_formation": false,
+  "diagnostic_emf_floor_v": null,
+  "gas_temperature_step_k": null,
+  "gas_extensions": {
+    "mixing_diffusivity_m2_s": 2e-05,
+    "mixing_flow_fraction": 0.25,
+    "volatile_phase": {
+      "initial_mass_kg": 0.03,
+      "liquid_cp": 1800.0,
+      "density_kg_m3": 1200.0,
+      "latent_j_per_kg": 500000.0,
+      "boiling_temperature_k": 400.0,
+      "saturation_reference_pa": 101325.0,
+      "vapor_specific_r": 287.0,
+      "relaxation_per_s": 10.0,
+      "chemical_j_per_kg": 0.0
+    }
+  },
+  "numerical_controls": {
+    "coupled_gas_films": true,
+    "coupled_transport_interval_s": 0.01
+  }
+}

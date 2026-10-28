@@ -1,0 +1,63 @@
+{
+  "status": "failed",
+  "stage": "resumed-full-state",
+  "pid": 2211505,
+  "source": "/home/konstantin/work/battery-sim/data/development/fsri30-wall-delay-full-20261027-r1/scenario.json",
+  "source_sha256": "6895d5de718ebec1471a26da90979899fcad1dc61bff2e4ebaca29f67dc8a7cc",
+  "core_sha256": "15e966da041c348377d1be8a953ea7b179535ac23bc991b3ceb72ea25e8f8c5a",
+  "scenario_sha256": "713cd665d0e5f9d17a562ae6eb0af30a88939747ca60a955b39fecfb96e73315",
+  "controls": {
+    "kind": "DEMO / ideal sealed capture risers; not an experimentally validated design",
+    "reference_run": "fsri30-wall-delay-full-20261027-r1",
+    "capture_fraction_assumed": 1.0,
+    "ducts": 30,
+    "gas_nodes_added": 60,
+    "rerouted_ruptures": 90,
+    "rerouted_top_thermal_contacts": 176,
+    "duct_equivalent_diameter_m": 0.018,
+    "duct_length_m": 0.06,
+    "added_apparatus_gas_volume_m3": 0.0004580442088933918,
+    "added_initial_gas_mass_kg": 0.0005423845358353625,
+    "outlet_suction_pa": 500.0,
+    "renewal_flow_per_duct_m3_s": 0.002,
+    "total_nominal_renewal_m3_h": 216.0,
+    "boundary_model": "Existing compressible pressure opening plus analytic well-mixed throughflow; not a fan curve",
+    "energy_accounting": "Existing ambient mass, enthalpy, chemical and oxygen ledgers",
+    "duct_walls": "Ideal insulated and sealed; no cross-duct gas or thermal contact",
+    "display_geometry": "Schematic risers added to apparatus, not a remesh of existing free air",
+    "direct_metal_contacts_already_disabled": true,
+    "heater_chemistry_battery_shells_and_numerics_unchanged": true,
+    "limits": "No duct leakage, duct wall heating, fan power/failure or downstream external flame model",
+    "success_not_assumed": true,
+    "calibrated": false,
+    "validation_passed": false,
+    "fresh_initial_state": true,
+    "objective": "Retain B10 primary runaway; test whether sealed extraction prevents secondary runaway through 3000 s"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "progress": {
+    "time_s": 1919.9999999999727,
+    "wall_s": 60.058172042,
+    "pulses": [],
+    "secondary_events": [],
+    "temperatures_c": {
+      "B10": 908.0402227036712,
+      "B17": 68.40840007880456,
+      "B18": 68.11392331495296
+    },
+    "ledgers": {
+      "max_chemical_residual_j": 2.9802322387695312e-08,
+      "max_mass_residual_kg": 7.682743330406083e-14,
+      "max_oxidizer_residual_kg": 5.10702591327572e-15,
+      "max_thermal_residual_j": 5.099864210933447e-07
+    }
+  },
+  "stopping_policy": "physical checks only",
+  "restart_from": "/home/konstantin/work/battery-sim/data/development/fsri30-demo-exhaust-recovery-20261028-r1/committed-state.bin",
+  "restart_sha256": "fa49ec7c545e7b1e4bc0181b3846397627203b5a67dfb3fed040c698fcadb29d",
+  "restart_contract": "812722f565a339d09a19f2c935f0ef9cb43f31f56f442861589d59e7a7424aea",
+  "visual_manifest": "/home/konstantin/work/battery-sim/data/development/fsri30-demo-exhaust-resumed-20261028-r1/visual/manifest.json",
+  "monitor_pid": 2211537,
+  "reason": "CUDA Kawasaki pressure step failed: 26; mixing_iterations=1024 mixing_residual=3.21543e-11; mixing_snapshot=/home/konstantin/work/battery-sim/data/development/fsri30-demo-exhaust-resumed-20261028-r1/mixing-failure.json"
+}

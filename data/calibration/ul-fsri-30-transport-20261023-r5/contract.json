@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "direction": "neighbour-energy-delivery",
+  "seed": 20261023,
+  "parameters": [
+    {
+      "name": "shared_gap_fraction",
+      "lower": 0.0,
+      "upper": 1.0,
+      "initial": 0.0,
+      "log": false,
+      "meaning": "Fraction of a facing shell patch exposed to the adjacent local gas volume"
+    },
+    {
+      "name": "upper_sleeve_fraction",
+      "lower": 0.0,
+      "upper": 0.5,
+      "initial": 0.0,
+      "log": false,
+      "meaning": "Fraction of lateral height belonging to the upper connected gas cavity"
+    },
+    {
+      "name": "exhaust_area_scale",
+      "lower": 0.05,
+      "upper": 1.0,
+      "initial": 1.0,
+      "log": true,
+      "meaning": "Unmeasured exit area; exploratory prior, not a measured confidence bound"
+    },
+    {
+      "name": "passage_area_scale",
+      "lower": 0.25,
+      "upper": 4.0,
+      "initial": 1.0,
+      "log": true,
+      "meaning": "Shared scale of interstitial gas passages, with sleeve cross-sections accounted for"
+    },
+    {
+      "name": "hot_contact_span",
+      "lower": 1.0,
+      "upper": 30.0,
+      "initial": 1.0,
+      "log": true,
+      "meaning": "Shared directed-contact active range; renormalized to preserve cold conductance exactly"
+    },
+    {
+      "name": "mixing_flow_fraction",
+      "lower": 0.05,
+      "upper": 0.9,
+      "initial": 0.25,
+      "log": false,
+      "meaning": "Shared existing flow-associated gas mixing coefficient"
+    }
+  ],
+  "reference": "/home/konstantin/work/battery-sim/data/calibration/ul-fsri-30-bayes-20261023-r1/preflight-time-refinement",
+  "reference_scene_sha256": "3cec42157a12874777378502ebcdc5ca2f7a28be30ecf65a632fed8235b99518",
+  "native_sha256": "0180466156756d79a915e5ead10647177fdb5f56746c750cb117a5cf13879fc3",
+  "raw_csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "frozen_sha256": "d04af14db6f3b5519c569d1b0cda501ce3e7b3d0bc85b712230f96b3e38c31f1",
+  "full_horizon_s": 5945.0,
+  "source_sha256": {
+    "search_fsri30_transport.py": "3999404b30acae986e4d6a33232709a10469195203ad5c6fe4283be9236d9452",
+    "fsri30_transport_model.py": "856f52bed9cd9d39b6136c4afab6c791cd6187eadca8a72263b9139114dce2c3",
+    "bounded_bayes.py": "2f7cefa42ed9cfeb35b86f11248c63285d4efa05089ec785d903435092353c40",
+    "calibrate_fsri30_bayes.py": "4440722c24b4168ce78eb23d12c0fb6b105ae1bc75db44ef4ca6b5e0e6fe22b4",
+    "fsri30_objective.py": "d954364cfa8808edcd949ef318224a3bc43157b530f5fcb486b1032c8ed550a3",
+    "fsri30_search_model.py": "d9d561b5cac0469c16837e5f7c9b7baf362c6b3358b43c4d8b87327494eaf1a3",
+    "fsri30_numerical_policy.py": "d6dead493dc6ce2fd0b6e0872efba4578dc51ee8de3f8ea2866e659483bb7706",
+    "check_upv_restart.py": "33d83d653cb614517e6f4c5fdebd0c1b0f7d615062a500ca46568dd149e21baf"
+  },
+  "diagnostic_gate": "source R2 plus >=10K gain in top-three neighbour peaks OR >=1% neighbour conversion",
+  "temperature_gate_is_search_shaping_not_measurement": true,
+  "numerical_policy": {
+    "provisional": true,
+    "numerically_verified": false,
+    "minimum_dt_s": 0.01,
+    "max_dt_s": 0.1,
+    "gas_interval_s": 0.025
+  },
+  "minimum_realtime_ratio": 0.2,
+  "calibrated": false,
+  "validation_passed": false
+}

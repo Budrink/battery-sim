@@ -1,0 +1,160 @@
+{
+  "status": "stopped",
+  "pid": 2169153,
+  "stage": "cascade-check",
+  "trials": [
+    {
+      "gain": 0.19767037747050903,
+      "status": "complete",
+      "reason": null,
+      "metrics": {
+        "rmse_k": 3.851581615093095,
+        "max_abs_k": 6.970381822574382,
+        "final_error_k": -0.46446583410380526,
+        "final_time_s": 1499.9999999999864,
+        "final_mean_c": 140.80253416589625,
+        "final_t5_c": 141.26700000000005
+      },
+      "last_observed_s": 1499.9999999999864,
+      "checkpoint": "/home/konstantin/work/battery-sim/data/development/fsri30-no-contact-r2x07-gasx07-valve05-r3x2-20261027-r1/heater-00/committed-1500.bin",
+      "checkpoint_sha256": "1bbe7555e730da6eb9fb0a72c52db7f3f5e98b0eb8a95a4b586b91b65dc10b80",
+      "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-no-contact-r2x07-gasx07-valve05-r3x2-20261027-r1/heater-00/replay/run.json.gz"
+    }
+  ],
+  "source_sha256": "62b7fe5928866c403ea10507c1c1a8915e468ddc8e3bfc04dee97319b589fbec",
+  "core_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "experiment_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "sensor_face": "+x",
+  "sensor_mapping_confirmed": false,
+  "feedforward_w": 0.0,
+  "max_power_w": 30.0,
+  "r2_multiplier_on_source": 0.7,
+  "initial_gain": 0.19767037747050903,
+  "early_primary_allowed": true,
+  "fixed": "geometry, materials, contacts, other chemistry, heater ramp and maximum power",
+  "calibrated": false,
+  "validation_passed": false,
+  "active_trial": "/home/konstantin/work/battery-sim/data/development/fsri30-no-contact-r2x07-gasx07-valve05-r3x2-20261027-r1/heater-00",
+  "gain": 0.19767037747050903,
+  "progress": {
+    "time_s": 1944.9999999999545,
+    "wall_s": 300.596328357,
+    "assessment": {
+      "evaluated": true,
+      "accepted": false,
+      "phase_window_complete": false,
+      "last_observed_s": 1944.9999999999545,
+      "reason": "Missing thermal pulse wave(s) at 1763s within 100s timing error limit; Missing first hot arrival wave(s) at 1765s within 100s timing error limit",
+      "constraint": 2.0,
+      "primary_offset_s": 129.0,
+      "timing_error_s": 129.0,
+      "timing_target_met": false,
+      "pulse_match": {
+        "due": 1,
+        "matched": 0,
+        "missing": [
+          {
+            "reference_time_s": 1763.0,
+            "channels": [
+              "T2",
+              "T5"
+            ],
+            "nearest_any_model_group_s": 129.0
+          }
+        ],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "arrival_match": {
+        "due": 1,
+        "matched": 0,
+        "missing": [
+          {
+            "reference_time_s": 1765.0,
+            "channels": [
+              "T5"
+            ],
+            "nearest_any_model_group_s": 126.0
+          }
+        ],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "model": {
+        "pulses": [
+          {
+            "channel": "B10",
+            "time_s": 1892.0,
+            "rise_k": 1010.827315099923,
+            "slope_k_s": 188.69233996795265
+          }
+        ],
+        "arrivals": [
+          {
+            "channel": "B10",
+            "time_s": 1891.0
+          }
+        ],
+        "pulse_groups": [
+          {
+            "time_s": 1892.0,
+            "end_s": 1892.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1892.0,
+                "rise_k": 1010.827315099923,
+                "slope_k_s": 188.69233996795265
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ],
+        "arrival_groups": [
+          {
+            "time_s": 1891.0,
+            "end_s": 1891.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1891.0
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ]
+      },
+      "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+      "necessary_not_sufficient": true,
+      "objective": null
+    },
+    "physical_error": null,
+    "temperature_rejection": null,
+    "secondary_events": []
+  },
+  "best": {
+    "gain": 0.19767037747050903,
+    "status": "complete",
+    "reason": null,
+    "metrics": {
+      "rmse_k": 3.851581615093095,
+      "max_abs_k": 6.970381822574382,
+      "final_error_k": -0.46446583410380526,
+      "final_time_s": 1499.9999999999864,
+      "final_mean_c": 140.80253416589625,
+      "final_t5_c": 141.26700000000005
+    },
+    "last_observed_s": 1499.9999999999864,
+    "checkpoint": "/home/konstantin/work/battery-sim/data/development/fsri30-no-contact-r2x07-gasx07-valve05-r3x2-20261027-r1/heater-00/committed-1500.bin",
+    "checkpoint_sha256": "1bbe7555e730da6eb9fb0a72c52db7f3f5e98b0eb8a95a4b586b91b65dc10b80",
+    "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-no-contact-r2x07-gasx07-valve05-r3x2-20261027-r1/heater-00/replay/run.json.gz"
+  },
+  "restart_from_warmup": "/home/konstantin/work/battery-sim/data/development/fsri30-no-contact-r2x07-gasx07-valve05-r3x2-20261027-r1/heater-00/committed-1500.bin",
+  "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-no-contact-r2x07-gasx07-valve05-r3x2-20261027-r1/heater-00/replay/run.json.gz"
+}

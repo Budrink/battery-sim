@@ -1,0 +1,78 @@
+{
+  "last_completed_observation_s": 3754.9999999999,
+  "common_comparison_until_s": 3754.9999999999,
+  "common_control_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 150.0792055673608,
+    "quantile_rmse_k": [
+      107.18547652987552,
+      73.7946244329883,
+      170.9918428361003,
+      209.57692736628397
+    ],
+    "tail_temperature_c": [
+      652.8022669437871,
+      755.0767731065117,
+      863.2107617910814,
+      906.1814214889449
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "common_candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 614.7777601821939,
+    "quantile_rmse_k": [
+      526.8725039539069,
+      640.1799476081857,
+      641.7617667392839,
+      642.2800103287773
+    ],
+    "tail_temperature_c": [
+      34.378457306258326,
+      47.60289395170423,
+      58.54991954757622,
+      61.280063503050826
+    ],
+    "positive_rise_sum_k": [
+      0.02846617095946158,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "candidate_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 614.7777601821939,
+    "quantile_rmse_k": [
+      526.8725039539069,
+      640.1799476081857,
+      641.7617667392839,
+      642.2800103287773
+    ],
+    "tail_temperature_c": [
+      34.378457306258326,
+      47.60289395170423,
+      58.54991954757622,
+      61.280063503050826
+    ],
+    "positive_rise_sum_k": [
+      0.02846617095946158,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "scope": "Observed prefixes only; saved control is incomplete; unmapped TC envelope heuristic",
+  "common_cooling_rmse_change_k": 464.69855461483314,
+  "radiative_energy_out_j": 13027.435565462332
+}

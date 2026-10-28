@@ -35,11 +35,17 @@ MassMesh build_mass_mesh(const Scenario& s,const ThermalMesh& m) {
             throw std::runtime_error("Specify both positive inventory densities, or neither");
         b.initial_reactant_kg=c.conversion.enabled?c.conversion.mass_kg*v.capacity_j_per_k/c.heat_capacity_j_per_k:0.;
         b.reactant_density=rd;b.residue_density=pd;
-        if(rd>0 && (!c.conversion.enabled || g.volume_m3+b.initial_reactant_kg/rd>b.geometric_volume_m3*(1+1e-10)))
+        b.initial_liquid_kg=c.conversion.volatile_phase.initial_mass_kg*v.capacity_j_per_k/c.heat_capacity_j_per_k;
+        b.liquid_density=c.conversion.volatile_phase.density_kg_m3;
+        if(b.initial_liquid_kg>0. && !(rd>0.))throw std::runtime_error("Volatile liquid requires occupied-volume closure");
+        if(rd>0 && (!c.conversion.enabled || g.volume_m3+b.initial_reactant_kg/rd+
+            b.initial_liquid_kg/b.liquid_density>b.geometric_volume_m3*(1+1e-10)))
             throw std::runtime_error("Gas and initial condensed inventory do not fit in material volume");
     }
     for(std::size_t i=0;i<m.volumes.size();++i) {
         const auto& c=s.cells[m.volumes[i].object].conversion;
+        if(c.volatile_phase.initial_mass_kg>0. && out.gas_of_thermal_volume[i]<0)
+            throw std::runtime_error("Volatile liquid requires a unique local gas/material binding");
         if(c.enabled)out.source_gas[i]=out.gas_of_thermal_volume[i]>=0?out.gas_of_thermal_volume[i]:c.gas_compartment;
     }
     if(s.gas_model.split_transport) {

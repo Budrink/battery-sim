@@ -1,0 +1,69 @@
+{
+  "label": "trial-002",
+  "parameters": {
+    "gas_yield_scale": 0.6,
+    "casing_damage_metric": 5.2,
+    "warm_mixing_scale": 10.000000000000002
+  },
+  "conditional_restart": true,
+  "origin": "resumed-local-bracket",
+  "axis": "casing_damage_metric",
+  "status": "rejected",
+  "reason": "Invalid proposed substep (node/gas/edge/shell/channel flags=2)",
+  "objective": 0.0,
+  "complete": false,
+  "accepted": false,
+  "known_until_s": 865.0,
+  "requested_end_s": 1500.0,
+  "channels": {
+    "101": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "102": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "107": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "108": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "C2_TIM": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 10.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    },
+    "C2_ISS": {
+      "rmse_k": null,
+      "bias_k": null,
+      "tolerance_k": 10.0,
+      "evaluated_from_s": null,
+      "covered_samples": 0
+    }
+  },
+  "front": null,
+  "pressure_rmse_bar": null,
+  "balance": {
+    "max_thermal_residual_j": 8.2705810200423e-08,
+    "max_chemical_residual_j": 8.418282959610224e-08,
+    "max_mass_residual_kg": 3.863576125695545e-14
+  }
+}

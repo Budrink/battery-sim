@@ -1,0 +1,161 @@
+{
+  "parameters": {
+    "resistance_ohm": 0.016,
+    "resistance_temperature": -0.015,
+    "resistance_charge": 16,
+    "product_conductivity_ratio": 0.2,
+    "r1_rate": 4.650436002144987e-05,
+    "r1_activation": 240000.0,
+    "r2_rate": 0.011881396980626898,
+    "r2_activation": 120000.0,
+    "energy_j": 424264.068711928,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.0005,
+    "gas_rate": 19.999999999999996,
+    "gas_reference_k": 600.0,
+    "gas_activation": 40000.0,
+    "precursor_yield": 0.27735866146555965,
+    "precursor_temperature": 0.029623273375245555,
+    "iss_h": 548.334510922672,
+    "tim_h": 697.6587915939645,
+    "case_h": 220.48307663197534,
+    "environment_h": 1.563406124562644,
+    "surface_iss": 0.0,
+    "surface_tim": 6.0,
+    "bulk_slope": -2.88,
+    "case_warm_response": 0.0,
+    "case_hot_response": 0.0,
+    "shell_strength_pa": 3000000.0000000023,
+    "opening_rate": 1.0,
+    "sink_g": 10.0,
+    "battery_iss_factor": 0.3246524673583498,
+    "battery_tim_factor": 0.3272376374473188,
+    "charge_formation_gain": 2,
+    "chamber_gas_h": 79.99999999999997
+  },
+  "fingerprint": "07391365db255fef51e1215d97af8060af1f6b77f14757fae3d42d95ccea86e4",
+  "script_hashes": {
+    "search_upv_destruction.py": "f55b310579e1d935d64ce2bd18aa0e48694950a81e6e0b7f1481553a4e0f15fb",
+    "fit_upv_kinetics.py": "d50d6dbcef569466b552d2a92146dde0c9ea6bea72787d99eec88dc467aa4502",
+    "upv_destruction_objective.py": "4c96fc95b73c2708dbe7d6aabcaee0c34338265d50b0ce7fc1e99be0843c3d77"
+  },
+  "axes": {
+    "k1_75": [
+      1e-10,
+      0.0001,
+      "log"
+    ],
+    "ea1": [
+      120000.0,
+      280000.0,
+      "linear"
+    ],
+    "k2_75": [
+      1e-08,
+      0.001,
+      "log"
+    ],
+    "ea2": [
+      90000.0,
+      220000.0,
+      "linear"
+    ],
+    "energy_j": [
+      250000.0,
+      600000.0,
+      "linear"
+    ],
+    "gas_fraction": [
+      0.3,
+      0.85,
+      "linear"
+    ],
+    "gas_yield": [
+      0.2,
+      0.65,
+      "linear"
+    ],
+    "gas_rate": [
+      2.0,
+      200.0,
+      "log"
+    ],
+    "gas_activation": [
+      40000.0,
+      110000.0,
+      "linear"
+    ],
+    "shell_strength_pa": [
+      300000.0,
+      10000000.0,
+      "log"
+    ],
+    "opening_rate": [
+      0.05,
+      3.0,
+      "log"
+    ],
+    "chamber_gas_h": [
+      1.0,
+      500.0,
+      "log"
+    ]
+  },
+  "levels": 7,
+  "global_points": 256,
+  "random_seed": 20261019,
+  "max_trials": 512,
+  "max_wall_hours": 24.0,
+  "trial_timeout_s": 2400.0,
+  "full_horizon": "observed event + 300 s, one continuous trajectory",
+  "temperature_policy": {
+    "pre_margin_k": 20.0,
+    "pre_relative": 0.3,
+    "pre_hold_s": 25.0,
+    "burst_before_s": 5.0,
+    "burst_after_s": 20.0,
+    "early_margin_k": 80.0,
+    "early_relative": 0.35,
+    "early_hold_s": 20.0,
+    "tail_margin_k": 45.0,
+    "tail_relative": 0.35,
+    "tail_hold_s": 25.0,
+    "source_post_margin_k": 200.0,
+    "source_post_relative": 0.7,
+    "max_pressure_bar": 40.0,
+    "max_solid_temperature_k": 5000.0
+  },
+  "source_seed": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/adaptive-destruction-seed-20261019-coarse05.json",
+  "source_seed_sha256": "82f2cacdb33f054b1bdf01269f41c8f0b14c5f7b4b54d8c2fd5a067bd2e2e823",
+  "scheduling": "Contrasting kinetic/destruction starts; then 3 local : 1 global; after 12 non-improvements 1 local : 3 global; meaningful gain >=0.2% or 0.01 loss",
+  "fixed": "all measured materials, geometry, solid contacts, external cooling, phi and electrical heating",
+  "gas_extensions": {
+    "mixing_diffusivity_m2_s": 2e-05,
+    "mixing_flow_fraction": 0.25,
+    "volatile_phase": {
+      "initial_mass_kg": 0.03,
+      "liquid_cp": 1800.0,
+      "density_kg_m3": 1200.0,
+      "latent_j_per_kg": 500000.0,
+      "boiling_temperature_k": 400.0,
+      "saturation_reference_pa": 101325.0,
+      "vapor_specific_r": 287.0,
+      "relaxation_per_s": 10.0,
+      "chemical_j_per_kg": 0.0
+    }
+  },
+  "numerical_controls": {
+    "coupled_gas_films": true,
+    "coupled_transport_interval_s": 0.01,
+    "minimum_dt_s": 0.005
+  },
+  "performance_policy": {
+    "whole_run_minimum": 0.5,
+    "rolling_minimum": 0.25,
+    "window_s": 20.0
+  },
+  "validation_used_for_selection": false,
+  "peaks_ignored": false,
+  "max_output_gib": 10.0
+}

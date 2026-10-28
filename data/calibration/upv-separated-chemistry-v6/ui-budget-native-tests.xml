@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Linux-g++-11"
+	tests="8"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname="konstantin-System-Product-Name"
+	time="32"
+	timestamp="2026-10-18T17:33:35"
+	>
+	<testcase name="cuda_gas_combustion" classname="cuda_gas_combustion" time="0.478096" status="run">
+		<properties/>
+		<system-out>reactive transport refinement: 0.0223457 -&gt; 0.00988543 K
+Arrhenius self-heating refinement: 0.0922068 -&gt; 0.0501417 K
+CUDA continuous combustion: Arrhenius, balances, arrivals, refinement and tile invariance pass
+</system-out>
+	</testcase>
+	<testcase name="cuda_transaction" classname="cuda_transaction" time="1.10442" status="run">
+		<properties/>
+		<system-out>transaction: exact retry/replace/discard, single commit, reset/ignite invalidation, all ledgers pass
+</system-out>
+	</testcase>
+	<testcase name="cuda_reaction_chain" classname="cuda_reaction_chain" time="29.076" status="run">
+		<properties/>
+		<system-out>R123 rupture refinement: 5.78957e-06 K
+R1/R2/R3: analytic chain, balances, oxygen/casing, density, refinement and CUDA tiles pass
+</system-out>
+	</testcase>
+	<testcase name="r123_kinetic_validation" classname="r123_kinetic_validation" time="0.00638668" status="run">
+		<properties/>
+		<system-out>Independent R1/R2 activation ordering accepted; physical input guards retained
+</system-out>
+	</testcase>
+	<testcase name="cuda_joule" classname="cuda_joule" time="0.439486" status="run">
+		<properties/>
+		<system-out>Kirchhoff/Joule: KCL, series/parallel local heat, finite products, exact current profiles, mesh/block invariance and ledgers pass
+</system-out>
+	</testcase>
+	<testcase name="cuda_directed_geometry" classname="cuda_directed_geometry" time="0.467701" status="run">
+		<properties/>
+		<system-out>Directed geometry: asymmetry, no averaging, gradient/storage reversal distinction, CPU/CUDA, boundary reversal, conservation, equilibrium, failure, timestep PASS (0.00718772 -&gt; 0.00359027 K)
+</system-out>
+	</testcase>
+	<testcase name="cuda_thermal" classname="cuda_thermal" time="0.47485" status="run">
+		<properties/>
+		<system-out>CUDA device: NVIDIA GeForce RTX 4060 Ti
+Slab RMS error: 0.0135428 -&gt; 0.00335338 K
+CUDA field, macro reductions, local ignition, energy, CFL and convergence: PASS
+</system-out>
+	</testcase>
+	<testcase name="material_chemistry" classname="material_chemistry" time="0.0121426" status="run">
+		<properties/>
+		<system-out>Separated charging/R1/R2: exact flow, neutral aging, capacity, resistance and ledgers pass
+</system-out>
+	</testcase>
+</testsuite>

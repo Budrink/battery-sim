@@ -1,0 +1,110 @@
+{
+  "trial": "/home/konstantin/work/battery-sim/data/calibration/fsri30-all-waves-multilevel-20261026-r1/h-80mm/trial-0000",
+  "parameters": {
+    "r2_rate_scale": 1.0,
+    "gas_can_contact_scale": 1.0,
+    "cross_column_open_fraction": 1.0,
+    "axial_open_fraction": 1.0,
+    "thermal_stirring_coefficient": 0.06722339346183823,
+    "effective_emissivity": 0.7664775109756737
+  },
+  "level_mm": 80,
+  "status": "pruned",
+  "native_sha256": "3147360f49c85a456e290478ae0cc30c9d63a460e5c3c44109a02bea2015625f",
+  "scenario_sha256": "6141a51b9261e9f2e464a3378a5c6371533ce8ac2e08bce984ad093fd6a8d443",
+  "screening_only": true,
+  "calibrated": false,
+  "validation_passed": false,
+  "assessment": {
+    "evaluated": true,
+    "accepted": false,
+    "phase_window_complete": false,
+    "last_observed_s": 1279.9999999999864,
+    "reason": "Primary thermal-front timing error: model 1261s versus data 1763s",
+    "constraint": 4.02,
+    "primary_offset_s": -502.0,
+    "timing_error_s": 502.0,
+    "timing_target_met": false,
+    "pulse_match": {
+      "due": 0,
+      "matched": 0,
+      "missing": [],
+      "pairs": [],
+      "worst_offset_s": 0.0,
+      "target_met": false
+    },
+    "arrival_match": {
+      "due": 0,
+      "matched": 0,
+      "missing": [],
+      "pairs": [],
+      "worst_offset_s": 0.0,
+      "target_met": false
+    },
+    "model": {
+      "pulses": [
+        {
+          "channel": "B10",
+          "time_s": 1261.0,
+          "rise_k": 966.2266410234312,
+          "slope_k_s": 178.84110026926004
+        }
+      ],
+      "arrivals": [
+        {
+          "channel": "B10",
+          "time_s": 1262.0
+        }
+      ],
+      "pulse_groups": [
+        {
+          "time_s": 1261.0,
+          "end_s": 1261.0,
+          "events": [
+            {
+              "channel": "B10",
+              "time_s": 1261.0,
+              "rise_k": 966.2266410234312,
+              "slope_k_s": 178.84110026926004
+            }
+          ],
+          "channels": [
+            "B10"
+          ]
+        }
+      ],
+      "arrival_groups": [
+        {
+          "time_s": 1262.0,
+          "end_s": 1262.0,
+          "events": [
+            {
+              "channel": "B10",
+              "time_s": 1262.0
+            }
+          ],
+          "channels": [
+            "B10"
+          ]
+        }
+      ]
+    },
+    "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+    "necessary_not_sufficient": true,
+    "objective": null
+  },
+  "physical_error": null,
+  "temperature_rejection": null,
+  "wall_s": 204.14173795399256,
+  "live_advanced_to_s": 1281.8999999999846,
+  "minimum_regular_step_s": 0.01,
+  "error": "Pruned: Primary thermal-front timing error: model 1261s versus data 1763s",
+  "run_sha256": "b6c2fb7c37d4c0f43b041deee4c054ff998f4fc619719c21aef4304aef292691",
+  "run_path": "/home/konstantin/work/battery-sim/data/calibration/fsri30-all-waves-multilevel-20261026-r1/h-80mm/trial-0000/replay/incomplete-run.json.gz",
+  "balances": {
+    "max_chemical_residual_j": 8.381903171539307e-09,
+    "max_mass_residual_kg": 7.993605777301127e-15,
+    "max_oxidizer_residual_kg": 7.865930129469234e-14,
+    "max_thermal_residual_j": 5.073025022284128e-08
+  }
+}

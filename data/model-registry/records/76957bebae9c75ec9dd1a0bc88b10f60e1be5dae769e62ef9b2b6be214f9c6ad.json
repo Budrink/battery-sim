@@ -1,0 +1,34 @@
+{
+  "format_version": 1,
+  "kind": "constitutive_law",
+  "scope": "finite-surface-radiation-v1",
+  "parameters": {
+    "law": "reciprocal grey-body T^4 edge with two material half-resistances",
+    "energy_source": false
+  },
+  "evidence": {
+    "numerical_checks": {
+      "accepted": true,
+      "cuda_pair_oracle_cases": 400,
+      "prior_boundary_cases": 525,
+      "finite_wall_energy": true
+    },
+    "actual_preflight": "/home/konstantin/work/battery-sim/data/development/fsri30-internal-radiation-preflight-20261026-r2",
+    "report_sha256": "a6da9c5d6c3ec787c8190e477362ba98b82452d034a29249bdc01c7946e86ed7",
+    "fresh_from_zero": true,
+    "full_warmup_validation": false,
+    "experimental_cascade_passed": false
+  },
+  "compatibility": {
+    "operator": "finite grey-body exchange on opposing declared faces",
+    "temperature_domain_k": [
+      0.0,
+      4000.0
+    ]
+  },
+  "qualification": "candidate",
+  "producer_core": "3988147a34fab4fba5d06b75a97874058740abaa691586fa1af35c459f3713e5",
+  "transferable_as": "constitutive_law",
+  "calibrated": false,
+  "validation_passed": false
+}

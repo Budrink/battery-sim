@@ -1,0 +1,71 @@
+{
+  "status": "isolated-regressions-passed",
+  "physical_parameters_changed": false,
+  "physical_time_step_changed": false,
+  "acceptance_relative_residual": 1e-06,
+  "maximum_pressure_iterations": 2048,
+  "native_sha256": "9f68313fa22cc7b8578cd46ff574fe0263cf06847c9359fc7d8f7ff37409841c",
+  "reports": {
+    "baseline-snapshot-audit": {
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-pressure-capture-20261024-r1/baseline-snapshot-audit.json",
+      "sha256": "a0c9afd813ba38a17e1fb78ab0ec244b082e94c8e6b259928620115f1a68b6f9",
+      "error_code": 24,
+      "pressure_iterations_used": 2048,
+      "pressure_relative_residual": 3.8329249107774984e-06
+    },
+    "no-fixed-restart-snapshot-audit": {
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-pressure-capture-20261024-r1/no-fixed-restart-snapshot-audit.json",
+      "sha256": "ebd50315b66ab361485ae2a763d715b2d615cb20cd00aaefbf0c3f8af8462413",
+      "pressure_iterations_used": 271,
+      "pressure_relative_residual": 3.510040406307652e-07,
+      "mass_residual_kg": -1.9984014443252818e-15,
+      "energy_residual_j": -5.820766091346741e-10
+    },
+    "baseline-chain-audit": {
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-pressure-capture-20261024-r1/baseline-chain-audit.json",
+      "sha256": "3f2295a249dd399617b24916b9b8a3e65e34d9ea36340ff8b543de5e011b508b",
+      "error_code": 24,
+      "pressure_iterations_used": 2048,
+      "pressure_relative_residual": 107.18804353393988
+    },
+    "retained-cg-chain-audit": {
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-pressure-capture-20261024-r1/retained-cg-chain-audit.json",
+      "sha256": "2aa9ab54c04909b8efef7a7f3111c5fffb499766cccb72f5b6b2484cfd2b649c",
+      "pressure_iterations_used": 512,
+      "pressure_relative_residual": 6.388875715108667e-10,
+      "mass_residual_kg": 2.7755575615628914e-17,
+      "energy_residual_j": 5.711626727133989e-10
+    },
+    "no-fixed-restart-blocks-1": {
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-pressure-capture-20261024-r1/no-fixed-restart-blocks-1.json",
+      "sha256": "ec37dad9fdafff85742c9b724e1eb67b3e98f81811b5b9a8dcf78e20f5f80c22",
+      "pressure_iterations_used": 271,
+      "pressure_relative_residual": 3.501168729223424e-07,
+      "mass_residual_kg": 2.220446049250313e-16,
+      "energy_residual_j": 0.0
+    },
+    "no-fixed-restart-blocks-2": {
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-pressure-capture-20261024-r1/no-fixed-restart-blocks-2.json",
+      "sha256": "3e5aa82649087651eeb16479f1cc0a992d818f88445d591c3c96b637c6d57053",
+      "pressure_iterations_used": 271,
+      "pressure_relative_residual": 3.4918857069210365e-07,
+      "mass_residual_kg": 1.3322676295501878e-15,
+      "energy_residual_j": -1.3969838619232178e-09
+    },
+    "no-fixed-restart-blocks-4": {
+      "path": "/home/konstantin/work/battery-sim/data/development/fsri30-pressure-capture-20261024-r1/no-fixed-restart-blocks-4.json",
+      "sha256": "368531587781dafdc21bbf28f6257ecd241f93da95242ca97c16d76551c919c0",
+      "pressure_iterations_used": 271,
+      "pressure_relative_residual": 3.49319640033483e-07,
+      "mass_residual_kg": 1.1102230246251565e-15,
+      "energy_residual_j": 1.5133991837501526e-09
+    }
+  },
+  "cuda_suite": {
+    "passed": 7,
+    "failed": 0
+  },
+  "full_fresh_replay": "data/development/fsri30-resolved-gas-20261024-r2",
+  "full_fresh_replay_complete": false,
+  "validation_passed": false
+}

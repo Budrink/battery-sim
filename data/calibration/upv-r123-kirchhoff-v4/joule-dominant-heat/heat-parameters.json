@@ -1,0 +1,92 @@
+{
+  "parameters": {
+    "resistance_ohm": 0.024,
+    "resistance_temperature": 0.003,
+    "product_conductivity_ratio": 0.6752499999999999,
+    "r1_rate": 1e-06,
+    "r1_activation": 40000.0,
+    "overcharge_gain": 0.5,
+    "r2_rate": 100.0,
+    "r2_activation": 100000.0,
+    "energy_j": 450000.0,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.03,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 0.42,
+    "precursor_temperature": 0.0,
+    "precursor_voltage": 0.0,
+    "iss_h": 287.71996866857825,
+    "tim_h": 2000.0,
+    "case_h": 500.0,
+    "environment_h": 8.0,
+    "surface_iss": 0.0,
+    "surface_tim": 0.0,
+    "bulk_slope": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0
+  },
+  "objective": 204.65490537548055,
+  "metrics": {
+    "warmup": {
+      "101": {
+        "rmse_k": 8.152879705237451,
+        "bias_k": -5.3587845685315925
+      },
+      "102": {
+        "rmse_k": 1.0177746321120154,
+        "bias_k": 0.8748592659595322
+      },
+      "107": {
+        "rmse_k": 7.1353291166197685,
+        "bias_k": -4.543372703411857
+      },
+      "108": {
+        "rmse_k": 1.529768672232966,
+        "bias_k": -0.8191924278799771
+      },
+      "C2_TIM": {
+        "rmse_k": 13.789687203292912,
+        "bias_k": -9.190917469507207
+      },
+      "C2_ISS": {
+        "rmse_k": 14.886323691503668,
+        "bias_k": -10.128869149723405
+      }
+    },
+    "pressure": {
+      "peak_bar": 1.0386574014841459,
+      "observed_peak_bar": 1.0622290969156691,
+      "peak_time_s": 866.168000032194,
+      "rmse_bar": 0.010928289034564402
+    },
+    "joule_j": {
+      "C1": 0.0,
+      "C2": 27765.41422657862,
+      "C3": 0.0
+    },
+    "heat_sources": {
+      "joule_j": 27765.41422657862,
+      "r2_local_j": 25528.157004800105,
+      "r3_j": 16.51430125843777,
+      "joule_share": 0.5208285439643546
+    },
+    "wall_s": 61.284637452,
+    "steps": 77138,
+    "balance": {
+      "max_thermal_residual_j": 6.641494110226631e-08,
+      "max_chemical_residual_j": 6.51925802230835e-09,
+      "max_mass_residual_kg": 4.9960036108132044e-15
+    }
+  },
+  "fingerprint": "9b2066f2586397d9d581de94b071f235e63289fcb17fc14bbd1d9b7ad6cb4532",
+  "validation_used_for_selection": false,
+  "status": "candidate, not independently validated",
+  "calibration_prior": {
+    "joule_share_min": 0.5,
+    "share_residual_scale": 0.02
+  }
+}

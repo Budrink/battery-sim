@@ -22,6 +22,16 @@ void Simulation::reset() {
     primary_cells_.assign(scenario_.cells.size(),false);
     for(const auto& event:scenario_.primary_failures)primary_cells_[event.cell_index]=true;
     gpu_->download_macros(cells_,interfaces_);
+    heating_states_.clear();
+    for(const auto& protocol:scenario_.heating_protocols) {
+        validate_heating_protocol(protocol);
+        if(protocol.heater_object<0 || protocol.sensor_object<0 ||
+           protocol.heater_object>=int(cells_.size()) || protocol.sensor_object>=int(cells_.size()))
+            throw std::invalid_argument("Unknown heating protocol object");
+        HeatingProtocolState state;state.previous_temperature_k=cells_[protocol.sensor_object].temperature_k;
+        heating_states_.push_back(state);
+        gpu_->set_resistive_heater_power(protocol.heater_object,0.);
+    }
     initial_energy_j_=stored_energy_j();boundary_energy_out_j_=0;
     auto before=cells_;
     for(auto& c:before)c.runaway_started_s=-1;
@@ -69,14 +79,26 @@ bool Simulation::step(double dt_cap_s) {
                   runtime_.damage_rate_scale,runtime_.runaway_power_scale})
         if(!std::isfinite(x)||x<0)throw std::runtime_error("Invalid CUDA runtime parameter");
     if(runtime_.max_dt_s==0)throw std::runtime_error("max_dt_s must be positive");
+    if(scenario_.settings.minimum_dt_s>0. && runtime_.max_dt_s<scenario_.settings.minimum_dt_s)
+        throw std::runtime_error("Runtime max_dt_s cannot be below minimum_dt_s");
     double cap=std::min({dt_cap_s,runtime_.max_dt_s,scenario_.settings.duration_s-time_s_,next_history_s_-time_s_});
     if(next_failure_<scenario_.primary_failures.size())cap=std::min(cap,scenario_.primary_failures[next_failure_].time_s-time_s_);
     if(cap<=0)throw std::runtime_error("CUDA host clock collapsed");
     auto old=cells_;auto old_edges=interfaces_;
+    auto proposed_heating=heating_states_;
+    for(std::size_t i=0;i<proposed_heating.size();++i) {
+        const auto& protocol=scenario_.heating_protocols[i];
+        proposed_heating[i]=heating_command(protocol,heating_states_[i],time_s_,cells_[protocol.sensor_object].temperature_k);
+        gpu_->set_resistive_heater_power(protocol.heater_object,proposed_heating[i].commanded_power_w);
+    }
     last_dt_s_=gpu_->step(time_s_,cap,scenario_.settings.stability_factor,runtime_);
     if(!std::isfinite(last_dt_s_)||last_dt_s_<=0 || time_s_+last_dt_s_==time_s_)
         throw std::runtime_error("CUDA timestep collapsed");
     time_s_+=last_dt_s_;++step_count_;
+    for(std::size_t i=0;i<proposed_heating.size();++i)
+        if(proposed_heating[i].stopped && !heating_states_[i].stopped)
+            events_.push_back({proposed_heating[i].cutoff_time_s,"heater_cutoff",scenario_.heating_protocols[i].id});
+    heating_states_=std::move(proposed_heating);
     apply_scheduled();gpu_->download_macros(cells_,interfaces_);field_dirty_=true;
     if(!scenario_.gas_compartments.empty()) {
         std::vector<GasState> gas;std::vector<GasChannelState> channels;gpu_->download_gas_states(gas,channels);

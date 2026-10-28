@@ -28,9 +28,38 @@ __global__ void mixture_equilibrium_kernel(int count,const MassBinding* bindings
     g.free_volume_m3=config[i].volume;
     if(b.reactant_density>0)g.free_volume_m3+=b.initial_reactant_kg/b.reactant_density-
         (s.reactant_kg+s.activated_kg)/b.reactant_density-s.residue_kg/b.residue_density;
+    if(b.initial_liquid_kg>0.)g.free_volume_m3+=(b.initial_liquid_kg-s.liquid_kg)/b.liquid_density;
     // Invalid mixture geometry fails validation, never clamps away inventory.
     g.pressure_pa=(g.free_volume_m3>0 && g.free_volume_m3<=b.geometric_volume_m3*(1+1e-10))?
         g.mass_kg*model.specific_r_j_per_kg_k*temperature/g.free_volume_m3:nan("");
+}
+
+// Candidate-only phase closure. One writer owns a unique gas/material pair.
+__global__ void volatile_phase_kernel(int count,const MassBinding* bindings,
+    const DeviceVolume* volumes,const Material* materials,ThermalState* solid,GasState* gas,
+    GasModel model,const double* dt) {
+    const int i=blockIdx.x*blockDim.x+threadIdx.x;if(i>=count)return;
+    const int j=bindings[i].thermal_volume;if(j<0)return;
+    const auto& v=volumes[j];const auto& m=materials[v.object];
+    if(!m.conversion.enabled || !(m.conversion.volatile_phase.initial_mass_kg>0.))return;
+    advance_volatile(m.conversion,solid[j],gas[i],v.capacity_j_per_k,v.capacity_j_per_k/m.capacity,model,*dt);
+}
+
+// Recompute passive-surface aging from the old state AFTER the coupled gas
+// operator supplied its heat. The earlier disposable thermal proposal's aging
+// is replaced, not accumulated twice. No source-bearing volume is eligible.
+__global__ void finalize_film_aging_kernel(int count,const int* ids,const DeviceVolume* volumes,
+    const Material* materials,const ThermalState* old,ThermalState* next,RuntimeParameters runtime,
+    double time,const double* step) {
+    const int i=blockIdx.x*blockDim.x+threadIdx.x;if(i>=count)return;
+    const int index=ids[i];auto& s=next[index];const auto& v=volumes[index];const auto& m=materials[v.object];
+    s.damage=old[index].damage;s.mode=old[index].mode;s.runaway_started_s=old[index].runaway_started_s;
+    if(s.mode==CellMode::Healthy) {
+        const double t=.5*(s.temperature_k+old[index].temperature_k);
+        s.damage=fmin(1.,s.damage+damage_rate(t,m.onset,m.rate,m.temperature_scale)*m.aging_multiplier*runtime.damage_rate_scale**step);
+        if(s.damage>=1.)s.mode=CellMode::Spent;
+    }
+    close_thermal_state(m,v,s,runtime.runaway_power_scale);
 }
 
 // Once per accepted candidate, after both operators have supplied their heat.

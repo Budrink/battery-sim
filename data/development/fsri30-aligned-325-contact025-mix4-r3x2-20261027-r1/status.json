@@ -1,0 +1,153 @@
+{
+  "status": "secondary-observed",
+  "pid": 2166681,
+  "stage": "cascade-check",
+  "trials": [
+    {
+      "gain": 0.19767037747050903,
+      "status": "complete",
+      "reason": null,
+      "metrics": {
+        "rmse_k": 3.133804829011613,
+        "max_abs_k": 6.6345650506311244,
+        "final_error_k": -1.2954850931608917,
+        "final_time_s": 1499.9999999999864,
+        "final_mean_c": 139.97151490683916,
+        "final_t5_c": 141.26700000000005
+      },
+      "last_observed_s": 1499.9999999999864,
+      "checkpoint": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact025-mix4-r3x2-20261027-r1/heater-00/committed-1500.bin",
+      "checkpoint_sha256": "bc750e8c324cba5216cd2fea01dcfa5384d10d21306e8d219cf88948c29c9c12",
+      "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact025-mix4-r3x2-20261027-r1/heater-00/replay/run.json.gz"
+    }
+  ],
+  "source_sha256": "f7520eabddae1427736834482de1c23da95effec4c501367b3c66fe294deef02",
+  "core_sha256": "4a97222e8dcb55d00a2431efbf0e4707a76f4ea872123b4ad8e9dd778d996fc6",
+  "experiment_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "sensor_face": "+x",
+  "sensor_mapping_confirmed": false,
+  "feedforward_w": 0.0,
+  "max_power_w": 30.0,
+  "r2_scale_vs_40mm": 1.0,
+  "initial_gain": 0.19767037747050903,
+  "early_primary_allowed": true,
+  "fixed": "geometry, materials, contacts, other chemistry, heater ramp and maximum power",
+  "calibrated": false,
+  "validation_passed": false,
+  "active_trial": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact025-mix4-r3x2-20261027-r1/heater-00",
+  "gain": 0.19767037747050903,
+  "progress": {
+    "time_s": 1780.0,
+    "wall_s": 220.486197732,
+    "assessment": {
+      "evaluated": true,
+      "accepted": false,
+      "phase_window_complete": false,
+      "last_observed_s": 1780.0,
+      "reason": "Primary thermal-front timing error: model 1643s versus data 1763s",
+      "constraint": 0.19999999999999996,
+      "primary_offset_s": -120.0,
+      "timing_error_s": 120.0,
+      "timing_target_met": false,
+      "pulse_match": {
+        "due": 0,
+        "matched": 0,
+        "missing": [],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "arrival_match": {
+        "due": 0,
+        "matched": 0,
+        "missing": [],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "model": {
+        "pulses": [
+          {
+            "channel": "B10",
+            "time_s": 1643.0,
+            "rise_k": 925.5404159993248,
+            "slope_k_s": 206.44757116723775
+          }
+        ],
+        "arrivals": [
+          {
+            "channel": "B10",
+            "time_s": 1642.0
+          }
+        ],
+        "pulse_groups": [
+          {
+            "time_s": 1643.0,
+            "end_s": 1643.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1643.0,
+                "rise_k": 925.5404159993248,
+                "slope_k_s": 206.44757116723775
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ],
+        "arrival_groups": [
+          {
+            "time_s": 1642.0,
+            "end_s": 1642.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1642.0
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ]
+      },
+      "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+      "necessary_not_sufficient": true,
+      "objective": null
+    },
+    "physical_error": null,
+    "temperature_rejection": null,
+    "secondary_events": [
+      {
+        "cell": "B17",
+        "time_s": 1780.0
+      },
+      {
+        "cell": "B18",
+        "time_s": 1780.0
+      }
+    ]
+  },
+  "best": {
+    "gain": 0.19767037747050903,
+    "status": "complete",
+    "reason": null,
+    "metrics": {
+      "rmse_k": 3.133804829011613,
+      "max_abs_k": 6.6345650506311244,
+      "final_error_k": -1.2954850931608917,
+      "final_time_s": 1499.9999999999864,
+      "final_mean_c": 139.97151490683916,
+      "final_t5_c": 141.26700000000005
+    },
+    "last_observed_s": 1499.9999999999864,
+    "checkpoint": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact025-mix4-r3x2-20261027-r1/heater-00/committed-1500.bin",
+    "checkpoint_sha256": "bc750e8c324cba5216cd2fea01dcfa5384d10d21306e8d219cf88948c29c9c12",
+    "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact025-mix4-r3x2-20261027-r1/heater-00/replay/run.json.gz"
+  },
+  "restart_from_warmup": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact025-mix4-r3x2-20261027-r1/heater-00/committed-1500.bin",
+  "warmup_history": "/home/konstantin/work/battery-sim/data/development/fsri30-aligned-325-contact025-mix4-r3x2-20261027-r1/heater-00/replay/run.json.gz",
+  "reason": "Pruned: Observed two secondary R2 conversion events"
+}

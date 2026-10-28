@@ -1,0 +1,59 @@
+{
+  "kind": "burst",
+  "reason": "Burst/front timing error 146.3 s exceeds 100 s",
+  "burst": {
+    "evaluated": true,
+    "accepted": false,
+    "phase_window_complete": false,
+    "last_observed_s": 2720.0,
+    "reference": {
+      "peak_time_s": 2580.0,
+      "peak_temperature_k": 1180.801,
+      "local_base_time_s": 2529.0,
+      "local_base_temperature_k": 434.335,
+      "rise50_time_s": 2569.7436140226287,
+      "rise90_time_s": 2575.532131895479,
+      "rise50_90_duration_s": 5.788517872850207,
+      "window_start_s": 1701.0,
+      "window_end_s": 3600.0,
+      "evaluation_after_s": 2720.0,
+      "scope": "Collective median thermal front; 9 TC versus 30 component means, no sensor mapping"
+    },
+    "policy": {
+      "timing_target_s": 10.0,
+      "timing_limit_s": 100.0,
+      "phase_end_s": 3600.0,
+      "confirmation_s": 40.0,
+      "smoothing_seconds": 11,
+      "ascent_lookback_s": 300.0,
+      "peak_absolute_tolerance_k": 250.0,
+      "peak_relative_kelvin_tolerance": 0.25,
+      "maximum_rise_duration_factor": 4.0,
+      "rise_duration_slack_s": 30.0,
+      "minimum_converted_components": 2
+    },
+    "scope": "Collective median thermal front; 9 TC versus 30 component means, no sensor mapping",
+    "measured": {
+      "peak_time_s": 2720.0,
+      "peak_temperature_k": 911.350582388194,
+      "local_base_time_s": 2420.0,
+      "local_base_temperature_k": 317.10574089795534,
+      "rise50_time_s": 2715.997078484096,
+      "rise90_time_s": 2719.1994156968194,
+      "rise50_90_duration_s": 3.2023372127232506
+    },
+    "converted_components": 17,
+    "timing_offsets_s": {
+      "peak_time_s": 140.0,
+      "rise50_time_s": 146.2534644614675,
+      "rise90_time_s": 143.66728380134055
+    },
+    "timing_error_s": 146.2534644614675,
+    "timing_target_met": false,
+    "peak_error_k": 269.45041761180596,
+    "peak_error_limit_k": 295.20025,
+    "rise_duration_limit_s": 35.78851787285021,
+    "constraint": 0.462534644614675,
+    "reason": "Burst/front timing error 146.3 s exceeds 100 s"
+  }
+}

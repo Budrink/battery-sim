@@ -1,6 +1,8 @@
 #include "battery_native/renderer.hpp"
 #include "battery_native/cuda_gl_field.hpp"
 #include "battery_native/volume_shader.hpp"
+#include "battery_native/gas_visual_shader.hpp"
+#include "battery_native/gas_display.hpp"
 
 #include <GLFW/glfw3.h>
 
@@ -16,6 +18,7 @@
 #include <cstdio>
 #include <limits>
 #include <numeric>
+#include <unordered_map>
 #include <vector>
 
 namespace battery {
@@ -96,12 +99,14 @@ uniform mat4 uModel;
 out vec3 vNormal;
 out vec3 vWorld;
 out vec4 vInstanceColor;
+out vec3 vLocal;
 void main() {
     mat4 model = uInstanced ? aInstanceModel : uModel;
     vec4 world = model * vec4(aPosition, 1.0);
     vWorld = world.xyz;
     vNormal = normalize(mat3(transpose(inverse(model))) * aNormal);
     vInstanceColor = aInstanceColor;
+    vLocal=aPosition;
     gl_Position = uInstanced ? uViewProjection * world : uMVP * vec4(aPosition, 1.0);
 }
 )glsl";
@@ -110,6 +115,7 @@ void main() {
 in vec3 vNormal;
 in vec3 vWorld;
 in vec4 vInstanceColor;
+in vec3 vLocal;
 uniform bool uInstanced;
 out vec4 fragColor;
 uniform vec4 uColor;
@@ -117,6 +123,30 @@ uniform vec3 uEye;
 uniform vec3 uLight;
 uniform float uEmissive;
 uniform float uFresnel;
+uniform bool uFieldSurface;
+uniform samplerBuffer uSurfaceSamples;
+uniform sampler1D uSurfacePalette;
+uniform ivec3 uSurfaceGrid;
+uniform int uSurfaceOffset,uSurfaceLayer;
+uniform vec2 uSurfaceRange;
+uniform vec3 uSurfaceDestroyed;
+uniform float uDamage,uSpent;
+vec4 surfaceSample(ivec3 p) {
+    p=clamp(p,ivec3(0),uSurfaceGrid-1);
+    return texelFetch(uSurfaceSamples,uSurfaceOffset+p.x+uSurfaceGrid.x*(p.y+uSurfaceGrid.y*p.z));
+}
+vec3 fieldColor() {
+    vec3 q=clamp((vLocal+.5)*vec3(uSurfaceGrid)-.5,vec3(0),vec3(uSurfaceGrid-1));
+    ivec3 p=ivec3(floor(q));vec3 f=fract(q);
+    vec4 a=mix(mix(surfaceSample(p),surfaceSample(p+ivec3(1,0,0)),f.x),
+        mix(surfaceSample(p+ivec3(0,1,0)),surfaceSample(p+ivec3(1,1,0)),f.x),f.y);
+    vec4 b=mix(mix(surfaceSample(p+ivec3(0,0,1)),surfaceSample(p+ivec3(1,0,1)),f.x),
+        mix(surfaceSample(p+ivec3(0,1,1)),surfaceSample(p+ivec3(1,1,1)),f.x),f.y);
+    vec4 s=mix(a,b,f.z);
+    if(uSurfaceLayer!=0 && surfaceSample(ivec3(floor(q+.5))).z>.5)return uSurfaceDestroyed;
+    float value=uSurfaceLayer==0?(s.x-uSurfaceRange.x)/max(1.,uSurfaceRange.y-uSurfaceRange.x):s.y;
+    return texture(uSurfacePalette,(clamp(value,0.,1.)*255.+.5)/256.).rgb;
+}
 void main() {
     vec3 N = normalize(vNormal);
     vec3 V = normalize(uEye - vWorld);
@@ -127,6 +157,15 @@ void main() {
     // turn orange/yellow into white before the top of the temperature scale.
     float lighting = mix(fill, 1.0, clamp(uEmissive, 0.0, 1.0));
     vec4 color = uInstanced ? vInstanceColor : uColor;
+    if(uFieldSurface)color.rgb=fieldColor();
+    // Hatching is a damage indicator, NOT a claim of resolved crack geometry.
+    if(uFieldSurface && (uDamage>0.01 || uSpent>0.5)) {
+        float phase=(vLocal.x+vLocal.y+vLocal.z)*5.;
+        float aa=max(fwidth(phase),.015);
+        float stripes=1.-smoothstep(.14-aa,.14+aa,abs(fract(phase)-.5));
+        float strength=max(uSpent*.85,clamp(uDamage,0.,1.)*.75);
+        color.rgb=mix(color.rgb,uSurfaceDestroyed,stripes*strength);
+    }
     vec3 rgb = color.rgb * min(lighting + rim * uFresnel, 1.0);
     float alpha = color.a * (1.0 + rim * uFresnel * 0.55);
     fragColor = vec4(rgb, clamp(alpha, 0.0, 1.0));
@@ -204,7 +243,7 @@ Mesh make_cylinder(int segments = 48) {
     }
     for (int index = 0; index < segments; ++index) {
         const unsigned int base = static_cast<unsigned int>(index * 2);
-        indices.insert(indices.end(), {base, base+1, base+3, base, base+3, base+2});
+        indices.insert(indices.end(), {base, base+3, base+1, base, base+2, base+3});
     }
     for (int cap = 0; cap < 2; ++cap) {
         const float z = cap == 0 ? -0.5f : 0.5f;
@@ -225,6 +264,17 @@ Mesh make_cylinder(int segments = 48) {
     Mesh mesh;
     mesh.upload(vertices, indices);
     return mesh;
+}
+
+Mesh make_cylinder_outline(int segments=64) {
+    std::vector<Vertex> vertices;std::vector<unsigned int> indices;
+    for(int cap=0;cap<2;++cap)for(int i=0;i<segments;++i) {
+        const float a=2*pi*i/segments;
+        vertices.push_back({{.5f*std::cos(a),.5f*std::sin(a),cap? .5f:-.5f},{0,0,cap?1.f:-1.f}});
+        indices.insert(indices.end(),{unsigned(cap*segments+i),unsigned(cap*segments+(i+1)%segments)});
+    }
+    // Rings, not the triangulated surface rendered as a wire cage.
+    Mesh mesh;mesh.upload(vertices,indices,GL_LINES);return mesh;
 }
 
 Mesh make_cone(int segments = 36) {
@@ -395,6 +445,17 @@ bool ray_unit_box(const glm::vec3& origin, const glm::vec3& direction, float& hi
     return far_t >= 0.0f;
 }
 
+bool ray_unit_cylinder(glm::vec3 o,glm::vec3 d,float& hit) {
+    float lo=0,hi=std::numeric_limits<float>::max();
+    if(std::abs(d.z)<1e-12f){if(std::abs(o.z)>.5f)return false;}
+    else {float a=(-.5f-o.z)/d.z,b=(.5f-o.z)/d.z;lo=std::max(lo,std::min(a,b));hi=std::min(hi,std::max(a,b));}
+    const float a=d.x*d.x+d.y*d.y,b=o.x*d.x+o.y*d.y,c=o.x*o.x+o.y*o.y-.25f;
+    if(a<1e-12f){if(c>0)return false;}
+    else {const float disc=b*b-a*c;if(disc<0)return false;const float r=std::sqrt(disc);
+        lo=std::max(lo,(-b-r)/a);hi=std::min(hi,(-b+r)/a);}
+    hit=lo;return hi>=lo;
+}
+
 }  // namespace
 
 struct SceneRenderer::Impl {
@@ -406,6 +467,12 @@ struct SceneRenderer::Impl {
     GLuint instance_buffer = 0;
     GLuint color_buffer = 0;
     GLuint volume_program = 0, sample_texture = 0;
+    GLuint gas_program = 0;
+    std::unordered_map<std::string,GLint> gas_uniforms;
+    GLuint puff_program=0,puff_vao=0,puff_buffer=0;
+    const VisualGeometry* cached_gas_geometry=nullptr;
+    std::unique_ptr<GasDisplayModel> gas_display;
+    bool cached_device = false;
     GLuint palettes[2]{};
     GLint u_instanced = -1;
     GLint u_view_projection = -1;
@@ -418,6 +485,7 @@ struct SceneRenderer::Impl {
     Mesh cube;
     Mesh box_outline;
     Mesh cylinder;
+    Mesh cylinder_outline;
     Mesh cone;
     Mesh sphere;
     GLint u_mvp = -1;
@@ -433,7 +501,7 @@ struct SceneRenderer::Impl {
         if (fbo) {
             glDeleteFramebuffers(1, &fbo);
             glDeleteTextures(1, &color_texture);
-            glDeleteRenderbuffers(1, &depth_buffer);
+            glDeleteTextures(1, &depth_buffer);
         }
         fbo_width = width;
         fbo_height = height;
@@ -447,11 +515,11 @@ struct SceneRenderer::Impl {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
                                GL_TEXTURE_2D, color_texture, 0);
-        glGenRenderbuffers(1, &depth_buffer);
-        glBindRenderbuffer(GL_RENDERBUFFER, depth_buffer);
-        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, width, height);
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT,
-                                  GL_RENDERBUFFER, depth_buffer);
+        glGenTextures(1,&depth_buffer);glBindTexture(GL_TEXTURE_2D,depth_buffer);
+        glTexImage2D(GL_TEXTURE_2D,0,GL_DEPTH_COMPONENT24,width,height,0,GL_DEPTH_COMPONENT,GL_UNSIGNED_INT,nullptr);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+        glFramebufferTexture2D(GL_FRAMEBUFFER,GL_DEPTH_ATTACHMENT,GL_TEXTURE_2D,depth_buffer,0);
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }
 
@@ -477,6 +545,10 @@ SceneRenderer::~SceneRenderer() { destroy(); }
 bool SceneRenderer::init() {
     impl_->program = create_program();
     if (!impl_->program) return false;
+    glUseProgram(impl_->program);
+    glUniform1i(glGetUniformLocation(impl_->program,"uSurfaceSamples"),0);
+    glUniform1i(glGetUniformLocation(impl_->program,"uSurfacePalette"),1);
+    glUseProgram(0);
     impl_->u_instanced = glGetUniformLocation(impl_->program, "uInstanced");
     impl_->u_view_projection = glGetUniformLocation(impl_->program, "uViewProjection");
     glGenBuffers(1, &impl_->instance_buffer);
@@ -489,6 +561,21 @@ bool SceneRenderer::init() {
     glLinkProgram(impl_->volume_program);glDeleteShader(vs);glDeleteShader(fs);
     GLint linked=0;glGetProgramiv(impl_->volume_program,GL_LINK_STATUS,&linked);
     if(!linked)return false;
+    const GLuint gas_vs=compile_shader(GL_VERTEX_SHADER,volume_vertex_shader);
+    const GLuint gas_fs=compile_shader(GL_FRAGMENT_SHADER,gas_fragment_shader);
+    impl_->gas_program=glCreateProgram();
+    glAttachShader(impl_->gas_program,gas_vs);glAttachShader(impl_->gas_program,gas_fs);
+    glLinkProgram(impl_->gas_program);glDeleteShader(gas_vs);glDeleteShader(gas_fs);
+    glGetProgramiv(impl_->gas_program,GL_LINK_STATUS,&linked);if(!linked)return false;
+    const auto puff_vs=compile_shader(GL_VERTEX_SHADER,gas_puff_vertex_shader);
+    const auto puff_fs=compile_shader(GL_FRAGMENT_SHADER,gas_puff_fragment_shader);
+    impl_->puff_program=glCreateProgram();glAttachShader(impl_->puff_program,puff_vs);glAttachShader(impl_->puff_program,puff_fs);
+    glLinkProgram(impl_->puff_program);glDeleteShader(puff_vs);glDeleteShader(puff_fs);
+    glGetProgramiv(impl_->puff_program,GL_LINK_STATUS,&linked);if(!linked)return false;
+    glGenVertexArrays(1,&impl_->puff_vao);glGenBuffers(1,&impl_->puff_buffer);
+    glBindVertexArray(impl_->puff_vao);glBindBuffer(GL_ARRAY_BUFFER,impl_->puff_buffer);
+    for(int i=0;i<2;++i){glEnableVertexAttribArray(i);glVertexAttribPointer(i,4,GL_FLOAT,GL_FALSE,8*sizeof(float),reinterpret_cast<void*>(i*4*sizeof(float)));}
+    glBindVertexArray(0);
     glGenTextures(1,&impl_->sample_texture);
     glGenTextures(2,impl_->palettes);
     for(int layer=0;layer<2;++layer) {
@@ -513,6 +600,7 @@ bool SceneRenderer::init() {
     impl_->cube = make_cube();
     impl_->box_outline = make_box_outline();
     impl_->cylinder = make_cylinder();
+    impl_->cylinder_outline = make_cylinder_outline();
     impl_->cone = make_cone();
     impl_->sphere = make_sphere();
     return true;
@@ -522,7 +610,17 @@ unsigned int SceneRenderer::render(int width, int height, const Scenario& scenar
                                    const Simulation& simulation, const OrbitCamera& camera,
                                    const VisualSettings& settings, int selected_cell,
                                    const std::vector<int>& probed_cells) {
+    return render(width,height,scenario,simulation.thermal_mesh(),capture_visual_frame(simulation),
+                  {},camera,settings,selected_cell,probed_cells);
+}
+
+unsigned int SceneRenderer::render(int width,int height,const Scenario& scenario,
+                                   const ThermalMesh& mesh,const VisualFrame& state,
+                                   const VisualGeometry& geometry,const OrbitCamera& camera,
+                                   const VisualSettings& settings,int selected_cell,
+                                   const std::vector<int>& probed_cells) {
     if (!impl_->program || width <= 0 || height <= 0) return 0;
+    if(state.cells.size()!=scenario.cells.size())throw std::runtime_error("Visual macro state mismatch");
     impl_->ensure_fbo(width, height);
 
     const SceneFrame frame = make_scene_frame(scenario, camera, width, height);
@@ -544,13 +642,13 @@ unsigned int SceneRenderer::render(int width, int height, const Scenario& scenar
     if (settings.show_interfaces) {
         for (std::size_t index = 0; index < scenario.interfaces.size(); ++index) {
             const auto& edge = scenario.interfaces[index];
-            const auto& state = simulation.interfaces()[index];
+            const auto& edge_state = state.interfaces[index];
             const glm::vec3 a = to_glm(edge.point_a_m);
             const glm::vec3 b = to_glm(edge.point_b_m);
             const glm::vec3 delta = b - a;
             const float length = glm::length(delta);
             if (length <= 1.0e-8f) continue;
-            const float ratio = static_cast<float>(state.l_m / std::max(state.l0_m, 1.0e-12));
+            const float ratio = static_cast<float>(edge_state.l_m / std::max(edge_state.l0_m, 1.0e-12));
             const float activation = 1.0f / (1.0f + std::exp(-7.0f * (ratio - 1.0f)));
             const glm::quat rotation = glm::rotation(glm::vec3{0,0,1}, glm::normalize(delta));
             float patch_side = extent * 0.10f;
@@ -568,9 +666,9 @@ unsigned int SceneRenderer::render(int width, int height, const Scenario& scenar
             glDepthMask(GL_FALSE);
             constexpr int slices = 14;
             const float ta = static_cast<float>(
-                simulation.cells()[edge.cell_a].temperature_k);
+                state.cells[edge.cell_a].temperature_k);
             const float tb = static_cast<float>(
-                simulation.cells()[edge.cell_b].temperature_k);
+                state.cells[edge.cell_b].temperature_k);
             for (int slice = 0; slice < slices; ++slice) {
                 const float u0 = static_cast<float>(slice) / static_cast<float>(slices);
                 const float u1 = static_cast<float>(slice + 1) / static_cast<float>(slices);
@@ -580,8 +678,8 @@ unsigned int SceneRenderer::render(int width, int height, const Scenario& scenar
                     std::max(settings.temperature_max_k - settings.temperature_min_k, 1.0f);
                 const glm::vec3 field_color = to_glm_rgb(field_rgb(settings.field_layer,
                     settings.field_layer == FieldLayer::Temperature
-                        ? normalized : static_cast<float>(state.damage),
-                    state.phase == EdgePhase::Destroyed));
+                        ? normalized : static_cast<float>(edge_state.damage),
+                    edge_state.phase == EdgePhase::Destroyed));
                 glm::mat4 model = glm::translate(glm::mat4(1), a + delta * um);
                 model *= glm::toMat4(rotation);
                 model = glm::scale(model, {patch_side, patch_side,
@@ -596,16 +694,16 @@ unsigned int SceneRenderer::render(int width, int height, const Scenario& scenar
             glm::vec3 edge_color = settings.field_layer == FieldLayer::Temperature
                 ? glm::mix(glm::vec3{0.20f,0.21f,0.23f},
                            glm::vec3{0.55f,0.53f,0.49f}, activation)
-                : degradation_color(static_cast<float>(state.damage));
-            if (state.phase == EdgePhase::Destroyed) edge_color = destroyed_color;
+                : degradation_color(static_cast<float>(edge_state.damage));
+            if (edge_state.phase == EdgePhase::Destroyed) edge_color = destroyed_color;
             glm::mat4 outline_model = glm::translate(glm::mat4(1), 0.5f * (a+b));
             outline_model *= glm::toMat4(rotation);
             outline_model = glm::scale(outline_model, {patch_side, patch_side,
                 length});
             glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-            glLineWidth(state.phase == EdgePhase::Destroyed ? 2.6f : 1.4f);
+            glLineWidth(edge_state.phase == EdgePhase::Destroyed ? 2.6f : 1.4f);
             impl_->draw(impl_->box_outline, outline_model, view_projection,
-                        {edge_color, state.phase == EdgePhase::Destroyed ? 0.96f : 0.50f},
+                        {edge_color, edge_state.phase == EdgePhase::Destroyed ? 0.96f : 0.50f},
                         eye, 0.80f, 0.12f);
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
             glDepthMask(GL_TRUE);
@@ -614,8 +712,8 @@ unsigned int SceneRenderer::render(int width, int height, const Scenario& scenar
 
     // One continuous optical volume per physical object. The solver's zone
     // boundaries have no optical walls, gaps or per-zone opacity.
-    const auto& mesh = simulation.thermal_mesh();
-    if (impl_->cached_mesh != &mesh || impl_->cached_volume_count != mesh.volumes.size()) {
+    const bool device=state.device_samples!=nullptr;
+    if (impl_->cached_mesh != &mesh || impl_->cached_volume_count != mesh.volumes.size() || impl_->cached_device!=device) {
         impl_->gpu_colors->detach();
         std::vector<int> ids(mesh.volumes.size());
         std::iota(ids.begin(),ids.end(),0);
@@ -624,13 +722,19 @@ unsigned int SceneRenderer::render(int width, int height, const Scenario& scenar
             aging.push_back(static_cast<float>(scenario.cells[v.object].aging_fraction));
         glBindBuffer(GL_ARRAY_BUFFER,impl_->color_buffer);
         glBufferData(GL_ARRAY_BUFFER,static_cast<GLsizeiptr>(ids.size()*sizeof(glm::vec4)),nullptr,GL_DYNAMIC_DRAW);
-        impl_->gpu_colors->attach(impl_->color_buffer,ids,aging);
+        if(device)impl_->gpu_colors->attach(impl_->color_buffer,ids,aging);
         glBindTexture(GL_TEXTURE_BUFFER,impl_->sample_texture);
         glTexBuffer(GL_TEXTURE_BUFFER,GL_RGBA32F,impl_->color_buffer);
         impl_->cached_mesh=&mesh;
         impl_->cached_volume_count=mesh.volumes.size();
+        impl_->cached_device=device;
     }
-    impl_->gpu_colors->update_samples(simulation.cuda_field());
+    if(device)impl_->gpu_colors->update_samples(state.device_samples);
+    else {
+        if(state.samples.size()!=mesh.volumes.size())throw std::runtime_error("Visual sample count mismatch");
+        glBindBuffer(GL_ARRAY_BUFFER,impl_->color_buffer);
+        glBufferSubData(GL_ARRAY_BUFFER,0,state.samples.size()*sizeof(state.samples[0]),state.samples.data());
+    }
     const GLuint vp=impl_->volume_program;
     glUseProgram(vp);
     auto uniform=[&](const char* name){return glGetUniformLocation(vp,name);};
@@ -653,7 +757,34 @@ unsigned int SceneRenderer::render(int width, int height, const Scenario& scenar
     glDepthMask(GL_FALSE);glEnable(GL_CULL_FACE);glCullFace(GL_FRONT);
     glBindVertexArray(impl_->cube.vao);
     for(auto index:order) {
-        const auto& cell=scenario.cells[index];
+        if(!geometry.hidden_planar_shells.empty() && geometry.hidden_planar_shells[index])continue;
+        const auto& cell=geometry.solid_proxies.empty()?scenario.cells[index]:geometry.solid_proxies[index];
+        glUniform1i(uniform("uCylinder"),cell.shape==ShapeKind::Cylinder);
+        const bool enclosure=!cell.is_battery && cell.shell_contents_id.empty();
+        if(enclosure && !settings.show_enclosure)continue;
+        glUniform1f(uniform("uOpacity"),enclosure?settings.enclosure_opacity:settings.field_opacity);
+        glUniform3f(uniform("uDimensions"),cell.dimensions_m[0],cell.dimensions_m[1],cell.dimensions_m[2]);
+        std::vector<glm::vec4> holes;std::vector<glm::vec2> bounds;int axis=2;
+        if(settings.show_ruptures)for(std::size_t k=0;k<scenario.gas_channels.size();++k) {
+            const auto& channel=scenario.gas_channels[k];
+            if(channel.shell_object!=int(index) || k>=state.process.channels.size())continue;
+            const auto& aperture=state.process.channels[k];
+            if(!aperture.open || aperture.aperture_radius_m<=0)continue;
+            auto port=std::find_if(scenario.ports.begin(),scenario.ports.end(),[&](auto& p){return p.id==channel.port_id;});
+            if(port==scenario.ports.end() || port->surface.size()!=2)continue;
+            axis=port->surface[1]-'x';const int u=(axis+1)%3,v=(axis+2)%3;
+            if(channel.shell_thermal_volume<0)continue;
+            const auto& patch=mesh.volumes.at(mesh.object_offsets[index]+channel.shell_thermal_volume);
+            auto center=to_glm(patch.local_center_m);const auto size=to_glm(patch.size_m);
+            center[u]+=channel.opening.valve_u_m;center[v]+=channel.opening.valve_v_m;
+            holes.emplace_back(center,float(aperture.aperture_radius_m));bounds.emplace_back(size[u]/2,size[v]/2);
+        }
+        if(holes.size()>64)throw std::runtime_error("Visual shell exceeds 64 local apertures");
+        glUniform1i(uniform("uHoleCount"),int(holes.size()));glUniform1i(uniform("uHoleAxis"),axis);
+        if(!holes.empty()) {
+            glUniform4fv(uniform("uHoles"),holes.size(),glm::value_ptr(holes[0]));
+            glUniform2fv(uniform("uHoleBounds"),bounds.size(),glm::value_ptr(bounds[0]));
+        }
         const auto model=cell_transform(cell);
         const auto mvp=view_projection*model;
         const auto local_eye=glm::vec3(glm::inverse(model)*glm::vec4(eye,1));
@@ -668,12 +799,15 @@ unsigned int SceneRenderer::render(int width, int height, const Scenario& scenar
 
     glDepthMask(GL_FALSE);
     for (std::size_t index = 0; index < scenario.cells.size(); ++index) {
-        const auto& cell = scenario.cells[index];
-        const auto& state = simulation.cells()[index];
+        if(!geometry.hidden_planar_shells.empty() && geometry.hidden_planar_shells[index])continue;
+        const auto& cell = geometry.solid_proxies.empty()?scenario.cells[index]:geometry.solid_proxies[index];
+        const auto& cell_state = state.cells[index];
+        const bool enclosure=!cell.is_battery && cell.shell_contents_id.empty();
+        if(enclosure && !settings.show_enclosure)continue;
         const float combined_degradation = static_cast<float>(
             1.0 - (1.0 - std::clamp(cell.aging_fraction, 0.0, 1.0)) *
-                  (1.0 - std::clamp(state.damage, 0.0, 1.0)));
-        const Mesh& mesh = cell.shape == ShapeKind::Cylinder ? impl_->cylinder : impl_->cube;
+                  (1.0 - std::clamp(cell_state.damage, 0.0, 1.0)));
+        const Mesh& body_mesh = cell.shape == ShapeKind::Cylinder ? impl_->cylinder : impl_->cube;
         const float selected = static_cast<int>(index) == selected_cell ? 1.0f : 0.0f;
         auto probe_it = std::find(probed_cells.begin(), probed_cells.end(),
                                   static_cast<int>(index));
@@ -682,25 +816,193 @@ unsigned int SceneRenderer::render(int width, int height, const Scenario& scenar
             ? probe_color(static_cast<std::size_t>(std::distance(probed_cells.begin(), probe_it)))
             : glm::mix(glm::vec3{0.45f,0.47f,0.49f}, glm::vec3{0.92f}, selected);
         // Destruction stays visible even when a cell is selected/probed.
-        if (state.mode == CellMode::Spent) outline = destroyed_color;
-        else if (state.mode == CellMode::Runaway && !probed)
+        if (cell_state.mode == CellMode::Spent) outline = destroyed_color;
+        else if (cell_state.mode == CellMode::Runaway && !probed)
             outline = settings.field_layer == FieldLayer::Temperature
                 ? glm::vec3{1.0f,0.86f,0.32f}
                 : degradation_color(combined_degradation);
-        impl_->draw(mesh, cell_transform(cell), view_projection,
-                    {glm::vec3{0.72f,0.73f,0.74f},
-                     settings.shell_opacity + selected*0.06f},
-                    eye, 0.08f, 1.45f + selected);
+        // The actual thin casing is already drawn, with holes, by the volume
+        // pass. Never cover it with an intact optical box afterwards.
+        if(cell.is_battery && settings.battery_surface_opacity>0 && settings.cutaway_fraction>.999f) {
+            const auto surface_color=field_rgb(settings.field_layer,
+                settings.field_layer==FieldLayer::Temperature?
+                    float((cell_state.temperature_k-settings.temperature_min_k)/
+                        std::max(1.f,settings.temperature_max_k-settings.temperature_min_k)):
+                    combined_degradation,cell_state.mode==CellMode::Spent);
+            // A readable macro silhouette, not another set of numerical
+            // voxel surfaces. Back faces must not wash out the front face.
+            glEnable(GL_CULL_FACE);glCullFace(GL_BACK);
+            glDepthMask(GL_TRUE);
+            auto su=[&](const char* name){return glGetUniformLocation(impl_->program,name);};
+            glUniform1i(su("uFieldSurface"),1);
+            glUniform1i(su("uSurfaceSamples"),0);glUniform1i(su("uSurfacePalette"),1);
+            glUniform3i(su("uSurfaceGrid"),cell.thermal_divisions[0],cell.thermal_divisions[1],cell.thermal_divisions[2]);
+            glUniform1i(su("uSurfaceOffset"),mesh.object_offsets[index]);
+            glUniform1i(su("uSurfaceLayer"),int(settings.field_layer));
+            glUniform2f(su("uSurfaceRange"),settings.temperature_min_k,settings.temperature_max_k);
+            glUniform3fv(su("uSurfaceDestroyed"),1,glm::value_ptr(destroyed_color));
+            double damage=cell_state.damage;
+            for(std::size_t k=0;k<scenario.gas_channels.size();++k) {
+                const auto& channel=scenario.gas_channels[k];
+                if(channel.shell_object>=0 && scenario.cells[channel.shell_object].shell_contents_id==cell.id)
+                    damage=std::max(damage,state.process.channels[k].max_thermal_damage);
+            }
+            glUniform1f(su("uDamage"),settings.show_damage?damage:0.f);
+            glUniform1f(su("uSpent"),settings.show_damage && cell_state.mode==CellMode::Spent?1.f:0.f);
+            impl_->draw(body_mesh,cell_transform(cell,.998f),view_projection,
+                {to_glm_rgb(surface_color),settings.battery_surface_opacity},eye,.65f,.12f);
+            glUniform1i(su("uFieldSurface"),0);
+            glDepthMask(GL_FALSE);glDisable(GL_CULL_FACE);
+        }
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-        glLineWidth(probed ? 2.8f : (state.mode != CellMode::Healthy ? 2.6f :
+        glLineWidth(probed ? 2.8f : (cell_state.mode != CellMode::Healthy ? 2.6f :
                     (selected > 0.0f ? 2.3f : 1.0f)));
-        impl_->draw(cell.shape == ShapeKind::Cylinder ? mesh : impl_->box_outline,
+        // Physical can panels do not need six extra nested wire boxes around
+        // every battery. Keep one continuous battery silhouette.
+        if(cell.shell_contents_id.empty())impl_->draw(cell.shape == ShapeKind::Cylinder ? impl_->cylinder_outline : impl_->box_outline,
                     cell_transform(cell, 1.006f), view_projection,
-                    {outline, state.mode == CellMode::Spent || probed
-                        ? 0.96f : 0.30f + selected*0.48f},
-                    eye, state.mode == CellMode::Spent || probed ? 0.9f : 0.42f, 0.20f);
+                    {outline, enclosure?0.13f:(cell_state.mode == CellMode::Spent || probed
+                        ? 0.96f : 0.30f + selected*0.48f)},
+                    eye, cell_state.mode == CellMode::Spent || probed ? 0.9f : 0.42f, 0.20f);
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
+    }
+
+    if(settings.show_gas && !geometry.gas.empty()) {
+        if(impl_->cached_gas_geometry!=&geometry) {
+            impl_->gas_display=std::make_unique<GasDisplayModel>(scenario,mesh,geometry);
+            impl_->cached_gas_geometry=&geometry;
+        }
+        const auto display=impl_->gas_display->sample(state);
+        const auto gp=impl_->gas_program;glUseProgram(gp);
+        auto gu=[&](const char* n){
+            auto [it,inserted]=impl_->gas_uniforms.try_emplace(n,-1);
+            if(inserted)it->second=glGetUniformLocation(gp,n);
+            return it->second;
+        };
+        glUniform1f(gu("uCut"),1);glEnable(GL_CULL_FACE);glCullFace(GL_FRONT);glDisable(GL_DEPTH_TEST);
+        // Detach sampled depth from the draw FBO to avoid a texture feedback
+        // loop. Reattach before drawing depth-tested flow particles.
+        glFramebufferTexture2D(GL_FRAMEBUFFER,GL_DEPTH_ATTACHMENT,GL_TEXTURE_2D,0,0);
+        glActiveTexture(GL_TEXTURE2);glBindTexture(GL_TEXTURE_2D,impl_->depth_buffer);glUniform1i(gu("uSceneDepth"),2);
+        glActiveTexture(GL_TEXTURE1);glBindTexture(GL_TEXTURE_1D,impl_->palettes[0]);glUniform1i(gu("uPalette"),1);
+        const auto inverse_vp=glm::inverse(view_projection);
+        glUniformMatrix4fv(gu("uInverseVP"),1,GL_FALSE,glm::value_ptr(inverse_vp));
+        glUniform2f(gu("uViewport"),width,height);
+        glUniform2f(gu("uRange"),settings.temperature_min_k,settings.temperature_max_k);
+        glUniform1f(gu("uThreshold"),settings.temperature_min_k+settings.gas_threshold_k);
+        std::vector<const GasVisualRegion*> gas_order;
+        for(const auto& g:geometry.gas)if(g.compartment<int(state.process.gas.size()) &&
+            (settings.show_far_gas || std::max({g.size.x,g.size.y,g.size.z})<extent*.6) &&
+            state.process.gas[g.compartment].temperature_k>settings.temperature_min_k+settings.gas_threshold_k)
+            gas_order.push_back(&g);
+        std::stable_sort(gas_order.begin(),gas_order.end(),[&](auto a,auto b){return
+            glm::distance(to_glm(a->center),eye)>glm::distance(to_glm(b->center),eye);});
+        glBindVertexArray(impl_->cube.vao);
+        for(const auto* g:gas_order) {
+            const float temperature=state.process.gas[g->compartment].temperature_k;
+            const auto& spatial=display.regions[std::size_t(g-geometry.gas.data())];
+            const auto model=glm::translate(glm::mat4(1),to_glm(g->center))*glm::scale(glm::mat4(1),to_glm(g->size));
+            const auto mvp=view_projection*model, inverse=glm::inverse(model);
+            const auto local_eye=glm::vec3(inverse*glm::vec4(eye,1));
+            glUniformMatrix4fv(gu("uMVP"),1,GL_FALSE,glm::value_ptr(mvp));
+            glUniform3fv(gu("uLocalEye"),1,glm::value_ptr(local_eye));
+            glUniform3f(gu("uCenter"),g->center.x,g->center.y,g->center.z);
+            glUniform3f(gu("uSize"),g->size.x,g->size.y,g->size.z);
+            glUniform3f(gu("uExcludeCenter"),g->excluded_center.x,g->excluded_center.y,g->excluded_center.z);
+            glUniform3f(gu("uExcludeSize"),g->excluded_size.x,g->excluded_size.y,g->excluded_size.z);
+            if(g->excluded_cylinders.size()>64)throw std::runtime_error("Visual gas region exceeds 64 cylinder exclusions");
+            std::vector<glm::vec4> cylinder_bounds;std::vector<float> cylinder_heights;
+            for(const auto& c:g->excluded_cylinders){cylinder_bounds.emplace_back(to_glm(c.center),float(c.radius_m));cylinder_heights.push_back(c.height_m);}
+            glUniform1i(gu("uCylinderCount"),cylinder_bounds.size());
+            if(!cylinder_bounds.empty()) {
+                glUniform4fv(gu("uCylinders"),cylinder_bounds.size(),glm::value_ptr(cylinder_bounds[0]));
+                glUniform1fv(gu("uCylinderHeights"),cylinder_heights.size(),cylinder_heights.data());
+            }
+            if(g->polygon.size()>12)throw std::runtime_error("Visual gas polygon exceeds 12 sides");
+            glUniform1i(gu("uPolygonCount"),g->polygon.size());
+            if(!g->polygon.empty())glUniform2fv(gu("uPolygon"),g->polygon.size(),g->polygon[0].data());
+            glUniform1f(gu("uTemperature"),temperature);
+            glUniform2f(gu("uBounds"),spatial.minimum_k,spatial.maximum_k);
+            glUniform3f(gu("uGradient"),spatial.temperature_gradient.x,spatial.temperature_gradient.y,spatial.temperature_gradient.z);
+            const auto displacement=settings.show_flux?spatial.displacement:Vec3{};
+            glUniform3f(gu("uDisplacement"),displacement.x,displacement.y,displacement.z);
+            // Optical gain is a display setting, not a gas density claim.
+            // Coarse distant chamber cells must not become an opaque screen.
+            const float optical_length=std::max({float(g->size.x),float(g->size.y),float(g->size.z),.02f});
+            const double initial_mass=scenario.gas_compartments[g->compartment].initial_mass_kg;
+            const double mass=state.process.gas[g->compartment].mass_kg;
+            const float density=mass>0 && initial_mass>0?std::clamp(float(mass/initial_mass),.1f,4.f):1.f;
+            glUniform1f(gu("uDensity"),settings.gas_opacity*30.f*density*std::min(1.f,.04f/optical_length));
+            glDrawElements(GL_TRIANGLES,impl_->cube.index_count,GL_UNSIGNED_INT,nullptr);
+        }
+        glFramebufferTexture2D(GL_FRAMEBUFFER,GL_DEPTH_ATTACHMENT,GL_TEXTURE_2D,impl_->depth_buffer,0);
+        glActiveTexture(GL_TEXTURE0);glDisable(GL_CULL_FACE);glEnable(GL_DEPTH_TEST);
+        if(settings.show_flux && !display.puffs.empty()) {
+            std::vector<float> vertices;vertices.reserve(display.puffs.size()*8);
+            for(const auto& p:display.puffs) {
+                if(!settings.show_far_gas && glm::distance(to_glm(p.position),frame.center)>extent*.7f)continue;
+                const auto rgb=temperature_rgb((p.temperature_k-settings.temperature_min_k)/(settings.temperature_max_k-settings.temperature_min_k));
+                vertices.insert(vertices.end(),{float(p.position.x),float(p.position.y),float(p.position.z),p.radius_m*2,rgb[0],rgb[1],rgb[2],p.opacity});
+            }
+            glUseProgram(impl_->puff_program);glUniformMatrix4fv(glGetUniformLocation(impl_->puff_program,"uVP"),1,GL_FALSE,glm::value_ptr(view_projection));
+            glUniform1f(glGetUniformLocation(impl_->puff_program,"uPixelScale"),height/std::tan(glm::radians(21.f)));
+            glBindVertexArray(impl_->puff_vao);glBindBuffer(GL_ARRAY_BUFFER,impl_->puff_buffer);
+            glBufferData(GL_ARRAY_BUFFER,vertices.size()*sizeof(float),vertices.data(),GL_STREAM_DRAW);
+            glEnable(GL_PROGRAM_POINT_SIZE);glDrawArrays(GL_POINTS,0,vertices.size()/8);glDisable(GL_PROGRAM_POINT_SIZE);
+        }
+        glUseProgram(impl_->program);
+    }
+
+    // Exact patch position; cyan perimeter marks the accepted shell opening.
+    // Batch all outlines; do not allocate/delete hundreds of GL meshes/frame.
+    std::vector<Vertex> aperture_vertices;std::vector<unsigned int> aperture_indices;
+    if(settings.show_ruptures)for(std::size_t k=0;k<scenario.gas_channels.size();++k) {
+        const auto& c=scenario.gas_channels[k];
+        if(!c.rupture || c.shell_object<0 || c.shell_thermal_volume<0 || k>=state.process.channels.size())continue;
+        const auto& aperture=state.process.channels[k];if(aperture.effective_area_m2<=0)continue;
+        const auto port=std::find_if(scenario.ports.begin(),scenario.ports.end(),[&](auto& p){return p.id==c.port_id;});
+        if(port==scenario.ports.end())continue;
+        const auto& shell=scenario.cells[c.shell_object];
+        const auto& patch=mesh.volumes[mesh.object_offsets[c.shell_object]+c.shell_thermal_volume];
+        const auto normal=glm::normalize(to_glm(port->normal));
+        auto center=to_glm(shell.position_m)+to_glm(patch.local_center_m);
+        const int axis=port->surface[1]-'x',u=(axis+1)%3,v=(axis+2)%3;
+        center[axis]=to_glm(port->centroid_m)[axis]+normal[axis]*extent*.0006f;
+        const auto size=to_glm(patch.size_m);
+        const float radius=aperture.aperture_radius_m>0?aperture.aperture_radius_m:std::sqrt(aperture.effective_area_m2/pi);
+        // Clipped circle perimeter: same patch boundaries as the solver.
+        std::vector<Vertex> vertices;std::vector<unsigned int> indices;
+        for(int n=0;n<48;++n) {
+            const float angle=2*pi*n/48;auto p=center;
+            p[u]+=std::clamp(radius*std::cos(angle),-size[u]/2,size[u]/2);
+            p[v]+=std::clamp(radius*std::sin(angle),-size[v]/2,size[v]/2);
+            vertices.push_back({p,normal});
+        }
+        for(int n=0;n<48;++n) {
+            const auto middle=.5f*(vertices[n].position+vertices[(n+1)%48].position);
+            bool shared=false;
+            if(aperture.opening_fraction>.999)for(std::size_t other=0;other<scenario.gas_channels.size();++other) {
+                const auto& neighbor=scenario.gas_channels[other];
+                if(other==k || neighbor.shell_object!=c.shell_object || neighbor.shell_thermal_volume<0 ||
+                    state.process.channels[other].opening_fraction<.999)continue;
+                const auto& p=mesh.volumes[mesh.object_offsets[c.shell_object]+neighbor.shell_thermal_volume];
+                const auto pc=to_glm(shell.position_m)+to_glm(p.local_center_m),ps=to_glm(p.size_m);
+                if(std::abs(middle[u]-pc[u])<=ps[u]/2+1e-7f && std::abs(middle[v]-pc[v])<=ps[v]/2+1e-7f){shared=true;break;}
+            }
+            if(!shared){indices.push_back(n);indices.push_back((n+1)%48);}
+        }
+        const auto offset=static_cast<unsigned int>(aperture_vertices.size());
+        for(auto& vertex:vertices) {
+            const auto p=vertex.position;
+            vertex.position=to_glm(project_visual_shell_point(scenario,geometry,c.shell_object,{p.x,p.y,p.z}));
+        }
+        aperture_vertices.insert(aperture_vertices.end(),vertices.begin(),vertices.end());
+        for(auto i:indices)aperture_indices.push_back(offset+i);
+    }
+    if(!aperture_indices.empty()) {
+        Mesh rings;rings.upload(aperture_vertices,aperture_indices,GL_LINES);
+        glLineWidth(1.0f);impl_->draw(rings,glm::mat4(1),view_projection,{.28f,.84f,1.f,.45f},eye,1,0);rings.destroy();
     }
 
     if (settings.show_ports) {
@@ -723,7 +1025,7 @@ unsigned int SceneRenderer::render(int width, int height, const Scenario& scenar
 }
 
 int SceneRenderer::pick_cell(float x_px, float y_px, int width, int height,
-                             const Scenario& scenario, const OrbitCamera& camera) const {
+                             const Scenario& scenario, const OrbitCamera& camera,const VisualGeometry* geometry) const {
     if (width <= 0 || height <= 0 || scenario.cells.empty()) return -1;
     const SceneFrame frame = make_scene_frame(scenario, camera, width, height);
     const float ndc_x = 2.0f * x_px / static_cast<float>(width) - 1.0f;
@@ -739,12 +1041,15 @@ int SceneRenderer::pick_cell(float x_px, float y_px, int width, int height,
     int best_cell = -1;
     float best_t = std::numeric_limits<float>::max();
     for (std::size_t index = 0; index < scenario.cells.size(); ++index) {
-        const glm::mat4 inverse_model = glm::inverse(cell_transform(scenario.cells[index]));
+        // Transparent apparatus must not steal clicks from the batteries.
+        if(!scenario.cells[index].is_battery)continue;
+        const auto& cell=geometry && !geometry->solid_proxies.empty()?geometry->solid_proxies[index]:scenario.cells[index];
+        const glm::mat4 inverse_model = glm::inverse(cell_transform(cell));
         const glm::vec3 local_origin = glm::vec3(inverse_model * glm::vec4(ray_origin, 1.0f));
         const glm::vec3 local_direction = glm::vec3(
             inverse_model * glm::vec4(ray_direction, 0.0f));
         float hit_t = 0.0f;
-        if (ray_unit_box(local_origin, local_direction, hit_t) &&
+        if ((cell.shape==ShapeKind::Cylinder?ray_unit_cylinder(local_origin,local_direction,hit_t):ray_unit_box(local_origin, local_direction, hit_t)) &&
             hit_t >= 0.0f && hit_t < best_t) {
             best_t = hit_t;
             best_cell = static_cast<int>(index);
@@ -755,6 +1060,7 @@ int SceneRenderer::pick_cell(float x_px, float y_px, int width, int height,
 
 void SceneRenderer::destroy() {
     if (!impl_) return;
+    impl_->gas_uniforms.clear();
     impl_->gpu_colors.reset();
     impl_->cached_mesh = nullptr;
     impl_->cached_volume_count = 0;
@@ -762,6 +1068,7 @@ void SceneRenderer::destroy() {
     impl_->cube.destroy();
     impl_->box_outline.destroy();
     impl_->cylinder.destroy();
+    impl_->cylinder_outline.destroy();
     impl_->cone.destroy();
     impl_->sphere.destroy();
     if (impl_->instance_buffer) glDeleteBuffers(1, &impl_->instance_buffer);
@@ -771,12 +1078,19 @@ void SceneRenderer::destroy() {
     if (impl_->sample_texture) glDeleteTextures(1,&impl_->sample_texture);
     glDeleteTextures(2,impl_->palettes);
     if (impl_->volume_program) glDeleteProgram(impl_->volume_program);
+    if (impl_->gas_program) glDeleteProgram(impl_->gas_program);
+    if(impl_->puff_program)glDeleteProgram(impl_->puff_program);
+    if(impl_->puff_buffer)glDeleteBuffers(1,&impl_->puff_buffer);
+    if(impl_->puff_vao)glDeleteVertexArrays(1,&impl_->puff_vao);
+    impl_->puff_program=impl_->puff_buffer=impl_->puff_vao=0;
+    impl_->gas_display.reset();impl_->cached_gas_geometry=nullptr;
+    impl_->gas_program=0;
     impl_->sample_texture=impl_->volume_program=0;
     impl_->palettes[0]=impl_->palettes[1]=0;
     if (impl_->program) glDeleteProgram(impl_->program);
     if (impl_->fbo) glDeleteFramebuffers(1, &impl_->fbo);
     if (impl_->color_texture) glDeleteTextures(1, &impl_->color_texture);
-    if (impl_->depth_buffer) glDeleteRenderbuffers(1, &impl_->depth_buffer);
+    if (impl_->depth_buffer) glDeleteTextures(1, &impl_->depth_buffer);
     impl_->program = impl_->fbo = impl_->color_texture = impl_->depth_buffer = 0;
 }
 

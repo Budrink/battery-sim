@@ -87,11 +87,14 @@ BATTERY_SHELL_HD inline double shell_feedback_dt(double area,double area_rate,do
     return fmax(onset_time,root);
 }
 // Alternative accuracy budget when pressure equilibration is much faster than
-// aperture evolution. The conservative transport cap already handles a fixed
-// hole. Limit its relative geometric change, not the fast relaxation time.
-// This numerical tolerance scales with the existing mass-step refinement.
-BATTERY_SHELL_HD inline double shell_slow_aperture_dt(double area,double area_rate,double mass_fraction) {
-    return area_rate>0 ? 1e-3*mass_fraction*area/area_rate : 1e300;
+// aperture evolution. Budget growth against the WHOLE shell element, not the
+// already open pinhole. Default mass accuracy .02 allows .5% of the element
+// area per interval; refinement halves this absolute geometric tolerance.
+// Preserve the first-opening onset/pressure-work bound when no hole exists.
+// This changes numerical resolution only, never the physical aperture law.
+BATTERY_SHELL_HD inline double shell_slow_aperture_dt(double area,double area_rate,
+    double mass_fraction,double element_area) {
+    return area_rate>0 ? (area>0 ? .25*mass_fraction*element_area/area_rate : 0.) : 1e300;
 }
 } // namespace battery
 #undef BATTERY_SHELL_HD

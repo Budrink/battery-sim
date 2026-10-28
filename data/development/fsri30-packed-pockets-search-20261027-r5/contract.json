@@ -1,0 +1,36 @@
+{
+  "base_sha256": "90697fc50e20f1eaa6c5670aee96d4c14ce8a7d7f7bd2073b3575ebc8d192103",
+  "seed": {
+    "r2_rate_scale": 0.02300523837999681,
+    "gas_can_contact_scale": 1.0,
+    "cross_column_open_fraction": 1.0,
+    "axial_open_fraction": 1.0,
+    "thermal_stirring_coefficient": 0.06722339346183823,
+    "effective_emissivity": 0.7664775109756737
+  },
+  "core": "6aa586496f59297caa81356c0fff28a17ffe733ba4a9693fb6f4a7e951f7813e",
+  "csv_sha256": "aaec3e3accd6adbd831ccfabceed9d88f509e1954da5dec1f6767d57fcbd0319",
+  "strip_width_m": 0.0005,
+  "contact_h_w_m2_k": 1000.0,
+  "contact_h_measured": false,
+  "target": "B10 volume mean versus raw T5; mapping unconfirmed",
+  "fit_parameters": [
+    "heater proportional gain"
+  ],
+  "gain_bounds": [
+    0.125,
+    16.0
+  ],
+  "heater_ramp_k_s": 0.1,
+  "assumed_control_sensor_face": "+x",
+  "control_sensor_position_measured": false,
+  "feedforward_w": 2.0,
+  "feedforward_measured": false,
+  "packed_positions_and_internal_passages_rebuilt": true,
+  "heater_screen_external_mm": 80,
+  "heater_confirmation_external_mm": 20,
+  "gas_partition_limit": "40 tangent pockets and outer space; each pocket well-mixed",
+  "fresh_from_zero": true,
+  "calibrated": false,
+  "validation_passed": false
+}

@@ -1,0 +1,24 @@
+{
+  "created_at": "2026-10-25T10:31:23.807086+00:00",
+  "source_archive": "/home/konstantin/work/battery-sim/data/development/fsri30-unrestricted10-20261025-r1/analysis-source.tar.gz",
+  "archive_sha256": "f25195accec60e2f399a0b3f4ae9e934f0dc6a941a8476af81c76b074aeb852a",
+  "source_sha256": {
+    "scripts/complete_fsri30_fine_reference.py": "160240ac4b732e80e75c2d9d6ea62d08414db8889d3ef996fd404e73a0671b9c",
+    "scripts/fsri30_propagation_patterns.py": "08394fa5a51fc4a02fcebd82384ec0537c5d99ac349aba9800665cb376e52f8b",
+    "scripts/fsri30_spatial_patterns.py": "93e92bdb60e96b54eda032c47e5b9a915a7d32866fffb093f04d8627e5b78b29",
+    "scripts/fsri30_prefix_history.py": "581aa4882162d04dc3af3fe72e00e03f81341518928dc4e656ac54e8082ab951",
+    "scripts/report_fsri30_full_mesh.py": "50ee47cdadf6e98e15e99f86ca2ff25608895d46f3f27443d6821f17c42e0b96",
+    "scripts/check_fsri30_resolved_gas.py": "a90fa252e370e8a3d91980ab60ecb0f606f008f75a5d410e67a71cd6b3d32ddd",
+    "scripts/check_upv_restart.py": "33d83d653cb614517e6f4c5fdebd0c1b0f7d615062a500ca46568dd149e21baf",
+    "tests/test_fsri30_fine_reference.py": "fdf82436b8b336e3f6aa5c2a2e83d3a3b57be0d93862a7fb27bec2aab9a5badc",
+    "tests/test_fsri30_propagation_report.py": "8bd07fbd9fac1a79ad8470e55db9f164b4a3a3449258e17c153a6624d49643cf",
+    "tests/test_fsri30_spatial_patterns.py": "03c2c729e56af86efba0b2e83036990b3a1f822a06ff8922c9a7d260d6712f15"
+  },
+  "tests": {
+    "total": 114,
+    "passed": 104,
+    "skipped": 10
+  },
+  "changes_solver": false,
+  "patterns_promoted": false
+}

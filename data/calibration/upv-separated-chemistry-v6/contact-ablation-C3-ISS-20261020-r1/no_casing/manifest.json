@@ -1,0 +1,1809 @@
+{
+  "diagnostic_only": true,
+  "calibrated": false,
+  "target": "C3:case:-x",
+  "gas_transport": "unchanged baseline",
+  "contacts": [
+    {
+      "index": 1,
+      "before": {
+        "compartment": "gap-ISS1-0",
+        "port_id": "gap-ISS1-0:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 2.9683219532477497e-05,
+          "active_conductance_w_per_k": 0.08901997537790002,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 2.9683219532477497e-05,
+          "destroyed_active_conductance_w_per_k": 0.08901997537790002
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "gap-ISS1-0",
+        "port_id": "gap-ISS1-0:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 3,
+      "before": {
+        "compartment": "gap-ISS1-1",
+        "port_id": "gap-ISS1-1:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 2.9683219532477497e-05,
+          "active_conductance_w_per_k": 0.08901997537790002,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 2.9683219532477497e-05,
+          "destroyed_active_conductance_w_per_k": 0.08901997537790002
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "gap-ISS1-1",
+        "port_id": "gap-ISS1-1:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 5,
+      "before": {
+        "compartment": "gap-ISS1-2",
+        "port_id": "gap-ISS1-2:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 2.9683219532477497e-05,
+          "active_conductance_w_per_k": 0.08901997537790002,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 2.9683219532477497e-05,
+          "destroyed_active_conductance_w_per_k": 0.08901997537790002
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "gap-ISS1-2",
+        "port_id": "gap-ISS1-2:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 7,
+      "before": {
+        "compartment": "gap-ISS1-3",
+        "port_id": "gap-ISS1-3:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 2.9683219532477497e-05,
+          "active_conductance_w_per_k": 0.08901997537790002,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 2.9683219532477497e-05,
+          "destroyed_active_conductance_w_per_k": 0.08901997537790002
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "gap-ISS1-3",
+        "port_id": "gap-ISS1-3:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 9,
+      "before": {
+        "compartment": "gap-ISS1-4",
+        "port_id": "gap-ISS1-4:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 2.9683219532477497e-05,
+          "active_conductance_w_per_k": 0.08901997537790002,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 2.9683219532477497e-05,
+          "destroyed_active_conductance_w_per_k": 0.08901997537790002
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "gap-ISS1-4",
+        "port_id": "gap-ISS1-4:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 11,
+      "before": {
+        "compartment": "gap-ISS1-5",
+        "port_id": "gap-ISS1-5:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 2.9683219532477497e-05,
+          "active_conductance_w_per_k": 0.08901997537790002,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 2.9683219532477497e-05,
+          "destroyed_active_conductance_w_per_k": 0.08901997537790002
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "gap-ISS1-5",
+        "port_id": "gap-ISS1-5:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 13,
+      "before": {
+        "compartment": "gap-ISS1-6",
+        "port_id": "gap-ISS1-6:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 2.9683219532477497e-05,
+          "active_conductance_w_per_k": 0.08901997537790002,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 2.9683219532477497e-05,
+          "destroyed_active_conductance_w_per_k": 0.08901997537790002
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "gap-ISS1-6",
+        "port_id": "gap-ISS1-6:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 15,
+      "before": {
+        "compartment": "gap-ISS1-7",
+        "port_id": "gap-ISS1-7:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 2.9683219532477497e-05,
+          "active_conductance_w_per_k": 0.08901997537790002,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 2.9683219532477497e-05,
+          "destroyed_active_conductance_w_per_k": 0.08901997537790002
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "gap-ISS1-7",
+        "port_id": "gap-ISS1-7:case-contact",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 97,
+      "before": {
+        "compartment": "void-3-2-2",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-2-2",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 6.253624498250566e-08,
+          "active_conductance_w_per_k": 0.00018754619870253446,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 6.253624498250566e-08,
+          "destroyed_active_conductance_w_per_k": 0.00018754619870253446
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-2-2",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-2-2",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 100,
+      "before": {
+        "compartment": "void-3-2-3",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-2-3",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 1.3992484814835627e-06,
+          "active_conductance_w_per_k": 0.0041963461959692045,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 1.3992484814835627e-06,
+          "destroyed_active_conductance_w_per_k": 0.0041963461959692045
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-2-3",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-2-3",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 103,
+      "before": {
+        "compartment": "void-3-2-4",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-2-4",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 1.4617847264660682e-06,
+          "active_conductance_w_per_k": 0.004383892394671738,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 1.4617847264660682e-06,
+          "destroyed_active_conductance_w_per_k": 0.004383892394671738
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-2-4",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-2-4",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 106,
+      "before": {
+        "compartment": "void-3-2-5",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-2-5",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 1.4617847264660682e-06,
+          "active_conductance_w_per_k": 0.004383892394671738,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 1.4617847264660682e-06,
+          "destroyed_active_conductance_w_per_k": 0.004383892394671738
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-2-5",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-2-5",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 109,
+      "before": {
+        "compartment": "void-3-2-6",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-2-6",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 1.3992484814835627e-06,
+          "active_conductance_w_per_k": 0.0041963461959692045,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 1.3992484814835627e-06,
+          "destroyed_active_conductance_w_per_k": 0.0041963461959692045
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-2-6",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-2-6",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 111,
+      "before": {
+        "compartment": "void-3-2-7",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-2-7",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 6.253624498250566e-08,
+          "active_conductance_w_per_k": 0.00018754619870253446,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 6.253624498250566e-08,
+          "destroyed_active_conductance_w_per_k": 0.00018754619870253446
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-2-7",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-2-7",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 114,
+      "before": {
+        "compartment": "void-3-3-2",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-3-2",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 1.2976270833869958e-06,
+          "active_conductance_w_per_k": 0.0038915836230776005,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 1.2976270833869958e-06,
+          "destroyed_active_conductance_w_per_k": 0.0038915836230776005
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-3-2",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-3-2",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 117,
+      "before": {
+        "compartment": "void-3-3-7",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-3-7",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 1.2976270833869958e-06,
+          "active_conductance_w_per_k": 0.0038915836230776005,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 1.2976270833869958e-06,
+          "destroyed_active_conductance_w_per_k": 0.0038915836230776005
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-3-7",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-3-7",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 120,
+      "before": {
+        "compartment": "void-3-4-2",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-4-2",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 1.2976270833869958e-06,
+          "active_conductance_w_per_k": 0.0038915836230776005,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 1.2976270833869958e-06,
+          "destroyed_active_conductance_w_per_k": 0.0038915836230776005
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-4-2",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-4-2",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 123,
+      "before": {
+        "compartment": "void-3-4-7",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-4-7",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 1.2976270833869958e-06,
+          "active_conductance_w_per_k": 0.0038915836230776005,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 1.2976270833869958e-06,
+          "destroyed_active_conductance_w_per_k": 0.0038915836230776005
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-4-7",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-4-7",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 125,
+      "before": {
+        "compartment": "void-3-5-2",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-5-2",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 6.253624498250566e-08,
+          "active_conductance_w_per_k": 0.00018754619870253446,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 6.253624498250566e-08,
+          "destroyed_active_conductance_w_per_k": 0.00018754619870253446
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-5-2",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-5-2",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 128,
+      "before": {
+        "compartment": "void-3-5-3",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-5-3",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 1.3992484814835627e-06,
+          "active_conductance_w_per_k": 0.0041963461959692045,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 1.3992484814835627e-06,
+          "destroyed_active_conductance_w_per_k": 0.0041963461959692045
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-5-3",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-5-3",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 131,
+      "before": {
+        "compartment": "void-3-5-4",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-5-4",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 1.4617847264660682e-06,
+          "active_conductance_w_per_k": 0.004383892394671738,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 1.4617847264660682e-06,
+          "destroyed_active_conductance_w_per_k": 0.004383892394671738
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-5-4",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-5-4",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 134,
+      "before": {
+        "compartment": "void-3-5-5",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-5-5",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 1.4617847264660682e-06,
+          "active_conductance_w_per_k": 0.004383892394671738,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 1.4617847264660682e-06,
+          "destroyed_active_conductance_w_per_k": 0.004383892394671738
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-5-5",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-5-5",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 137,
+      "before": {
+        "compartment": "void-3-5-6",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-5-6",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 1.3992484814835627e-06,
+          "active_conductance_w_per_k": 0.0041963461959692045,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 1.3992484814835627e-06,
+          "destroyed_active_conductance_w_per_k": 0.0041963461959692045
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-5-6",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-5-6",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "index": 139,
+      "before": {
+        "compartment": "void-3-5-7",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-5-7",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 6.253624498250566e-08,
+          "active_conductance_w_per_k": 0.00018754619870253446,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 6.253624498250566e-08,
+          "destroyed_active_conductance_w_per_k": 0.00018754619870253446
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      },
+      "after": {
+        "compartment": "void-3-5-7",
+        "port_id": "opening-contact:ISS1:C3:-x:void-3-5-7",
+        "connectivity": {
+          "kind": "directed_geometry",
+          "geometry_reference_logit": -3.3773461658399757,
+          "background_conductance_w_per_k": 0.0,
+          "active_conductance_w_per_k": 0.0,
+          "endpoint_damage_weight": 1.0,
+          "destroyed_geometry_reference_logit": -3.3773461658399757,
+          "destroyed_background_conductance_w_per_k": 0.0,
+          "destroyed_active_conductance_w_per_k": 0.0
+        },
+        "gas_surface_connectivity": {
+          "reference_temperature_k": 298.15,
+          "temperature_scale_k": 100.0,
+          "temperature_log_response": [
+            [
+              298.15,
+              0.0
+            ],
+            [
+              350.0,
+              0.0
+            ],
+            [
+              450.0,
+              0.0
+            ],
+            [
+              900.0,
+              2.08
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "changed": "Only four conductance scales set to zero; shell and plate still exist"
+}

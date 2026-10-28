@@ -1,0 +1,38 @@
+{
+  "status": "stopped",
+  "phase": "fresh-10mm-replay",
+  "pid": 1863115,
+  "source": "/home/konstantin/work/battery-sim/data/development/fsri30-full20-10-20261025-r1",
+  "native_sha256": "e7386cc42effc14e1c8bf6a2ffa6c225b77935921458ca5aadfaa9df7cc59f56",
+  "duration_s": 5945.0,
+  "fresh_from_zero": true,
+  "speed_guard_enforced": false,
+  "wall_timeout_s": null,
+  "performance_waiver": "Explicit user instruction: finish slow 10 mm reference",
+  "numerical_controls_unchanged": true,
+  "physical_minimum_step_s": 0.01,
+  "parameters_unchanged": true,
+  "closed_air_boundary_unchanged": true,
+  "checkpoint_at_s": 2200.0,
+  "request": {
+    "restart_contract": "e7386cc42effc14e1c8bf6a2ffa6c225b77935921458ca5aadfaa9df7cc59f56",
+    "stop_after_first_rupture": false,
+    "save_committed_restart": "/home/konstantin/work/battery-sim/data/development/fsri30-unrestricted10-20261025-r1/committed-2200s.bin",
+    "committed_restart_at_s": 2200.0,
+    "stop_after_committed_restart": false,
+    "gas_frames_path": "/home/konstantin/work/battery-sim/data/development/fsri30-unrestricted10-20261025-r1/gas-fields.bin"
+  },
+  "pinned_files": {
+    "/home/konstantin/work/battery-sim/build/calibration-probes/battery_sim_casing_probe-grid-pattern-20261025-r1": "e7386cc42effc14e1c8bf6a2ffa6c225b77935921458ca5aadfaa9df7cc59f56",
+    "/home/konstantin/work/battery-sim/data/development/fsri30-full20-10-20261025-r1/checks/h-10mm/scenario.json": "23ed4314cbb65015b0a5b830ba890d16f3d6c8ac62ff285e62ae8c606243c0b6",
+    "/home/konstantin/work/battery-sim/data/development/fsri30-full20-10-20261025-r1/checks/h-20mm/scenario.json": "dffb50bf11bb56fc26a4f6517e5d2b707f7774eeec0c6c1533c066be0d46743c",
+    "/home/konstantin/work/battery-sim/data/development/fsri30-full20-10-20261025-r1/checks/h-20mm/replay/run.json.gz": "edddb3c7309fa646ed47d258586376ebcc6a00628f8c817b3de539176bbec5f6",
+    "/home/konstantin/work/battery-sim/data/development/fsri30-full20-10-20261025-r1/checks/h-10mm/replay/incomplete-run.json.gz": "48b1127a32a27eb7a3b9678eae1d0ca25c0345d58ebc046de6888a682f0e60fd",
+    "/home/konstantin/work/battery-sim/scripts/complete_fsri30_fine_reference.py": "160240ac4b732e80e75c2d9d6ea62d08414db8889d3ef996fd404e73a0671b9c",
+    "/home/konstantin/work/battery-sim/scripts/check_upv_restart.py": "33d83d653cb614517e6f4c5fdebd0c1b0f7d615062a500ca46568dd149e21baf"
+  },
+  "calibrated": false,
+  "validation_passed": false,
+  "spatially_converged": false,
+  "error": "Interrupted; preserved observations are not a completed reference"
+}

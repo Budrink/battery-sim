@@ -1,0 +1,73 @@
+{
+  "parameters_sha256": "859940bf18537059b06523d51ddfd6f07990cb09eeb9dad0eb6dfd7828c22f9d",
+  "model_fingerprint": "07b153f020efbd2c1f025d61618500004275c28af7a4399ba5de81edff12ea0a",
+  "experiments": {
+    "active-cooling": {
+      "status": "complete",
+      "error": null,
+      "onset_s": 466.5039997198619,
+      "requested_end_s": 1066.503999719862,
+      "last_observation_s": 1066.503999719862,
+      "last_checkpoint_advanced_to_s": 768.4393348893755,
+      "wall_s": 38.195301142,
+      "parameters_sha256": "859940bf18537059b06523d51ddfd6f07990cb09eeb9dad0eb6dfd7828c22f9d",
+      "metrics": {
+        "charging_prefix_s": 600.0,
+        "channels": {
+          "101": {
+            "rmse_k": 7.937971081725554,
+            "end_error_k": -17.16085151305515,
+            "model_end_c": 26.930392095667685,
+            "observed_end_c": 44.091243608722834
+          },
+          "102": {
+            "rmse_k": 0.5293856384152927,
+            "end_error_k": -1.2659931998020966,
+            "model_end_c": 24.94987898069445,
+            "observed_end_c": 26.215872180496547
+          },
+          "107": {
+            "rmse_k": 6.314436652927892,
+            "end_error_k": -14.132914222105512,
+            "model_end_c": 26.875643672504225,
+            "observed_end_c": 41.00855789460974
+          },
+          "108": {
+            "rmse_k": 1.6513425515684093,
+            "end_error_k": -4.32173510924008,
+            "model_end_c": 25.144822785369627,
+            "observed_end_c": 29.466557894609707
+          },
+          "C2_ISS": {
+            "rmse_k": 20.42997966322121,
+            "end_error_k": -41.839917057715695,
+            "model_end_c": 34.23711076118383,
+            "observed_end_c": 76.07702781889952
+          },
+          "C2_TIM": {
+            "rmse_k": 17.45119985763677,
+            "end_error_k": -35.95518714178047,
+            "model_end_c": 32.697166241019715,
+            "observed_end_c": 68.65235338280019
+          }
+        },
+        "heat_sources": {
+          "joule_j": 6799.8990606259,
+          "r2_local_j": 1158.1623404124366,
+          "r3_j": 0.7444470655461826,
+          "electrical_chemical_input_j": 84666.35050779513,
+          "precursor_charge_energy_j": 82736.2185570609,
+          "joule_share": 0.8543868502893456
+        },
+        "balance": {
+          "max_thermal_residual_j": 4.884304871666245e-08,
+          "max_chemical_residual_j": 5.391484592109919e-09,
+          "max_mass_residual_kg": 4.3298697960381105e-15
+        }
+      },
+      "validation_used_for_selection": false
+    }
+  },
+  "optimization": false,
+  "validation_used_for_selection": false
+}

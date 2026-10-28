@@ -1,5 +1,6 @@
 #include "battery_native/thermal_mesh.hpp"
 #include "battery_native/shell_opening.hpp"
+#include "battery_native/gas_thermal_contact.hpp"
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -88,8 +89,14 @@ void append_channel(const Scenario& s,ThermalMesh& m,int index) {
                     // Same panel-local opening closure as the discharge model.
                     // No geometric ray is assigned to more than one receiver.
                     const double fraction=overlap/port->area_m2;
-                    m.gas_patches.push_back({hit.volume,channel.to,
-                        channel.surface_link_h_w_per_m2_k*gas_channel_area(s,channel)*fraction,index,k,fraction,seam});
+                    GasThermalPatch patch{};patch.volume=hit.volume;patch.compartment=channel.to;
+                    patch.conductance_w_per_k=channel.surface_link_h_w_per_m2_k*gas_channel_area(s,channel)*fraction;
+                    patch.channel=index;patch.barrier_volume=k;
+                    patch.aperture_area_fraction=fraction;patch.seam_fraction=seam;
+                    patch.law=reference_gas_connectivity(patch.conductance_w_per_k);
+                    patch.law.endpoint_a=s.gas_surface_connectivity;
+                    patch.law.endpoint_b=s.cells[m.volumes[hit.volume].object].surface_connectivity;
+                    patch.geometry_axis=port->surface[1]-'x';m.gas_patches.push_back(patch);
                 }
                 subtract(r,hit.rectangle,next);
             }

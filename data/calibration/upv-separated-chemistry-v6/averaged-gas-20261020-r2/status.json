@@ -1,0 +1,36 @@
+{
+  "status": "failed",
+  "source": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/thermal-gas-mixing-20261020-r1/temperature",
+  "native_sha256": "f3cdec4491acba6b0a78d2e9c7692f26eaee4c7d83d7e55abc56ab9712dce471",
+  "diagnostic_only": true,
+  "calibrated": false,
+  "validation_run": false,
+  "cases": {},
+  "acceptance": {
+    "throughflow": {
+      "flow_kg_s": 0.0001863260517133697,
+      "area_x10_flow_kg_s": 0.0018575077450012048,
+      "window_x2_flow_kg_s": 0.00018626195611757578
+    },
+    "882.877000": {
+      "net_mass_scale": 1.0,
+      "entropy_backtracks": 0,
+      "mass_residual_kg": 4.163336342344337e-16,
+      "energy_residual_j": 1.7462298274040222e-10
+    },
+    "930.000000": {
+      "net_mass_scale": 1.0,
+      "entropy_backtracks": 0,
+      "mass_residual_kg": 1.1102230246251565e-16,
+      "energy_residual_j": 2.1827872842550278e-11
+    },
+    "950.000000": {
+      "net_mass_scale": 1.0,
+      "entropy_backtracks": 0,
+      "mass_residual_kg": 1.6653345369377348e-16,
+      "energy_residual_j": -1.1641532182693481e-10
+    }
+  },
+  "duration_s": 950.0,
+  "error": "Invalid observation interval"
+}

@@ -1,0 +1,39 @@
+{
+  "status": "stopped",
+  "pid": 2046711,
+  "stage": "heater-coarse",
+  "trials": [
+    {
+      "gain": 1.0,
+      "status": "censored",
+      "reason": "Prior bad warmup prefix preserved",
+      "metrics": {
+        "rmse_k": 11.264488585149358,
+        "max_abs_k": 23.631695733096763,
+        "final_error_k": -23.631695733096763,
+        "final_time_s": 1169.9999999999727,
+        "final_mean_c": 88.19030426689591,
+        "final_t5_c": 111.82199999999267
+      },
+      "last_observed_s": 1169.9999999999727,
+      "run_path": "/home/konstantin/work/battery-sim/data/development/fsri30-packed-pockets-search-20261027-r1/heater-coarse-00/replay/incomplete-run.json.gz",
+      "run_sha256": "c28ef9f1411e19287d1aa255dd7392dbad1367ff25cc100a552a1ecb732fbc60"
+    }
+  ],
+  "calibrated": false,
+  "validation_passed": false,
+  "active_trial": 0,
+  "gain": 4.0,
+  "progress": {
+    "time_s": 740.0,
+    "wall_s": 360.408835831,
+    "metrics": {
+      "rmse_k": 4.802971537859256,
+      "max_abs_k": 8.434278838622674,
+      "final_error_k": -8.387299940744583,
+      "final_time_s": 740.0,
+      "final_mean_c": 62.253700059255436,
+      "final_t5_c": 70.64100000000002
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "diagnostic_only": true,
+  "calibrated": false,
+  "snapshot": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/averaged-guard-20261020-r1/failure-window.json",
+  "attempts": [
+    {
+      "entropy_change_j_per_k": -0.4457013156612768,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 1.0
+    },
+    {
+      "entropy_change_j_per_k": -0.13540832686141968,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 0.5
+    },
+    {
+      "entropy_change_j_per_k": -0.03900187833680202,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 0.25
+    },
+    {
+      "entropy_change_j_per_k": -0.010216567929488662,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 0.125
+    },
+    {
+      "entropy_change_j_per_k": -0.0026360432893530183,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 0.0625
+    },
+    {
+      "entropy_change_j_per_k": -0.0006382268276106662,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 0.03125
+    },
+    {
+      "entropy_change_j_per_k": -0.00014231140727034852,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 0.015625
+    },
+    {
+      "entropy_change_j_per_k": -2.6518371940412178e-05,
+      "first_invalid_node": 1401,
+      "invalid_mask": 0,
+      "scale": 0.0078125
+    }
+  ],
+  "cases": [
+    {
+      "varied": "pressure",
+      "iterations": 96,
+      "error_code": 24,
+      "pressure_iterations_used": 96,
+      "pressure_relative_residual": 45.79819461286989,
+      "attempts": [],
+      "lowest_entropy_nodes": []
+    },
+    {
+      "varied": "pressure",
+      "iterations": 128,
+      "error_code": 24,
+      "pressure_iterations_used": 128,
+      "pressure_relative_residual": 2.006520622091678,
+      "attempts": [],
+      "lowest_entropy_nodes": []
+    },
+    {
+      "varied": "pressure",
+      "iterations": 192,
+      "error_code": 24,
+      "pressure_iterations_used": 192,
+      "pressure_relative_residual": 0.3194429382002641,
+      "attempts": [],
+      "lowest_entropy_nodes": []
+    },
+    {
+      "varied": "pressure",
+      "iterations": 256,
+      "error_code": 24,
+      "pressure_iterations_used": 256,
+      "pressure_relative_residual": 0.0007603442566735628,
+      "attempts": [],
+      "lowest_entropy_nodes": []
+    },
+    {
+      "varied": "pressure",
+      "iterations": 512,
+      "error_code": 0,
+      "pressure_iterations_used": 318,
+      "pressure_relative_residual": 3.3549060105490135e-07,
+      "net_mass_scale": 1.0,
+      "entropy_backtracks": 0,
+      "mass_residual_kg": -1.6653345369377348e-16,
+      "energy_residual_j": -1.1059455573558807e-09
+    },
+    {
+      "varied": "payload",
+      "iterations": 16,
+      "error_code": 0,
+      "pressure_iterations_used": 318,
+      "pressure_relative_residual": 3.3549060105490135e-07,
+      "net_mass_scale": 1.0,
+      "entropy_backtracks": 0,
+      "mass_residual_kg": -1.6653345369377348e-16,
+      "energy_residual_j": -1.1059455573558807e-09
+    },
+    {
+      "varied": "payload",
+      "iterations": 32,
+      "error_code": 0,
+      "pressure_iterations_used": 318,
+      "pressure_relative_residual": 3.3549060105490135e-07,
+      "net_mass_scale": 1.0,
+      "entropy_backtracks": 0,
+      "mass_residual_kg": -1.6653345369377348e-16,
+      "energy_residual_j": -1.1059455573558807e-09
+    },
+    {
+      "varied": "payload",
+      "iterations": 64,
+      "error_code": 0,
+      "pressure_iterations_used": 318,
+      "pressure_relative_residual": 3.3549060105490135e-07,
+      "net_mass_scale": 1.0,
+      "entropy_backtracks": 0,
+      "mass_residual_kg": -1.6653345369377348e-16,
+      "energy_residual_j": -1.1059455573558807e-09
+    },
+    {
+      "varied": "payload",
+      "iterations": 128,
+      "error_code": 0,
+      "pressure_iterations_used": 318,
+      "pressure_relative_residual": 3.3549060105490135e-07,
+      "net_mass_scale": 1.0,
+      "entropy_backtracks": 0,
+      "mass_residual_kg": -1.6653345369377348e-16,
+      "energy_residual_j": -1.1059455573558807e-09
+    }
+  ]
+}

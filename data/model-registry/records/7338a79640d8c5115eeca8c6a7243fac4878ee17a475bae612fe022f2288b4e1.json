@@ -1,0 +1,85 @@
+{
+  "format_version": 1,
+  "kind": "numerical_method",
+  "scope": "pressure-rank-one-predictor-v1",
+  "parameters": {
+    "enabled_by_default": false,
+    "recommended": false,
+    "basis": "previous accepted pressure correction in same launch",
+    "projection": "Galerkin energy",
+    "residual_limit": 1e-06,
+    "reason": "Insufficient speedup and coupled whole-field equivalence failed"
+  },
+  "evidence": {
+    "result_path": "/home/konstantin/work/battery-sim/data/development/fsri30-grid-pattern-20261025-r1/predictor-rejection.json",
+    "result_sha256": "cb1854b70f4dcce406331a0afa6f6c9174da1f4830d2c7871cea7497b148c8ae",
+    "numerical_checks": {
+      "accepted": false,
+      "isolated_cuda_oracle_passed": true,
+      "fresh_coupled_equivalence_passed": false
+    },
+    "full_warmup_validation": false,
+    "summary": {
+      "native_sha256": "e7386cc42effc14e1c8bf6a2ffa6c225b77935921458ca5aadfaa9df7cc59f56",
+      "base_sha256": "4e7653dc3d0e04897332924402b4e61f65af5eb0a4b981fc38c155adba45df28",
+      "comparisons": {
+        "uniform-40-off / uniform-40-on": {
+          "accepted": false,
+          "maximum_component_rms_relative_kelvin": 0.002106069580184938,
+          "r3_energy_relative_difference": 0.01630600905134969,
+          "reactive_window_exercised": true,
+          "r3_cumulative_rms_relative_difference": 0.010751129159336547,
+          "hottest_external_gas_rms_relative_kelvin": 0.0020488477351321616,
+          "same_conversion_count": true,
+          "same_conversion_order": true,
+          "maximum_conversion_time_relative_difference": 4.765599683744105e-06,
+          "tolerance": 0.001,
+          "scope": "same physical mesh; numerical predictor verification, not spatial convergence"
+        }
+      },
+      "pattern_field_agreement": {
+        "accepted": false,
+        "tolerance": 0.001,
+        "maximum_local_relative_kelvin": 0.228820623839917,
+        "rms_local_relative_kelvin": 0.002618019980104607,
+        "maximum_absolute_temperature_difference_k": 357.254150390625,
+        "maximum_fuel_field_l1_relative": 0.13359593244804852,
+        "maximum_oxygen_field_l1_relative": 0.00921408397717255,
+        "worst_local_relative": {
+          "time_s": 1110.0,
+          "node_index": 1094,
+          "baseline_k": 1067.5126953125,
+          "predictor_k": 823.2437744140625
+        },
+        "scope": "full same-mesh gas field, not only hottest node or battery mean"
+      },
+      "pattern_speedup": 1.0160257258367658,
+      "predictor_qualified": false,
+      "fresh_runs": {
+        "uniform-40-off": {
+          "folder": "/home/konstantin/work/battery-sim/data/development/fsri30-grid-pattern-20261025-r1/uniform-40-off/h-40mm",
+          "wall_s": 575.511274967,
+          "scenario_sha256": "528772f942979e99b4884c10a0bcebd0004251b274f08216cc01eb661bb6f4f4",
+          "run_sha256": "c78c8b46c0c58dcd404664c71bcfa8968699135da118356a83af75285afeddaf"
+        },
+        "uniform-40-on": {
+          "folder": "/home/konstantin/work/battery-sim/data/development/fsri30-grid-pattern-20261025-r1/comparison-r2/uniform-40-on/h-40mm",
+          "wall_s": 566.43376278,
+          "scenario_sha256": "122712a0b2afe6d001d9d20a3cc666e0b709196025076ddadffe506e97c0f230",
+          "run_sha256": "c09d7bd6ab574513737f04f9320eb95c006169908e13ff96b9a6d7f092c0eadd"
+        }
+      }
+    },
+    "interpretation": "Negative reusable evidence: do not activate at current settings"
+  },
+  "compatibility": {
+    "operator": "symmetric frozen-secant gas pressure corrections",
+    "acceptance": "true local b-A*x <= 1e-6",
+    "model": "averaged CUDA gas"
+  },
+  "qualification": "candidate",
+  "producer_core": "e7386cc42effc14e1c8bf6a2ffa6c225b77935921458ca5aadfaa9df7cc59f56",
+  "transferable_as": "numerical_method",
+  "calibrated": false,
+  "validation_passed": false
+}

@@ -1,0 +1,318 @@
+{
+  "trial": "trial-005",
+  "source_exhaust": 1.0,
+  "witness_mouth": 0.013499999999999998,
+  "pad_footprint": 0.2,
+  "origin": "follow-improving-geometry",
+  "conditional_restart": true,
+  "status": "complete",
+  "objective": 362.9554098609617,
+  "complete": true,
+  "accepted": false,
+  "known_until_s": 1100.0,
+  "requested_end_s": 1100.0,
+  "channels": {
+    "101": {
+      "rmse_k": 27.587738251761962,
+      "bias_k": 25.519377461661456,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": 947.0,
+      "covered_samples": 154
+    },
+    "102": {
+      "rmse_k": 2.8274979152489506,
+      "bias_k": -2.793370297253431,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": 947.0,
+      "covered_samples": 154
+    },
+    "107": {
+      "rmse_k": 10.849406167666919,
+      "bias_k": 10.40922964403031,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": 947.0,
+      "covered_samples": 154
+    },
+    "108": {
+      "rmse_k": 18.027200685952085,
+      "bias_k": 13.328013014212154,
+      "tolerance_k": 5.0,
+      "evaluated_from_s": 947.0,
+      "covered_samples": 154
+    },
+    "C2_TIM": {
+      "rmse_k": 106.94815935696414,
+      "bias_k": 106.78751271439735,
+      "tolerance_k": 10.0,
+      "evaluated_from_s": 947.0,
+      "covered_samples": 154
+    },
+    "C2_ISS": {
+      "rmse_k": 110.84939171811503,
+      "bias_k": -83.06682955141822,
+      "tolerance_k": 10.0,
+      "evaluated_from_s": 947.0,
+      "covered_samples": 154
+    }
+  },
+  "front": {
+    "accepted": true,
+    "reasons": [],
+    "features": {
+      "pressure": {
+        "predicted": {
+          "amplitude": 8.086703725101357,
+          "peak": 9.15741756257134,
+          "peak_s": 889.5470000104979,
+          "width_10_90_s": 0.6240173472540391,
+          "t10_s": 888.429625310934,
+          "t90_s": 889.053642658188
+        },
+        "observed": {
+          "amplitude": 6.918135925,
+          "peak": 7.9827295,
+          "peak_s": 887.1099998010322,
+          "width_10_90_s": 0.6074412754780951,
+          "t10_s": 886.4458528026089,
+          "t90_s": 887.053294078087
+        },
+        "maximum_width_s": 2.0
+      },
+      "108": {
+        "predicted": {
+          "amplitude": 1189.7882498291326,
+          "peak": 1498.5136589422168,
+          "peak_s": 890.0,
+          "width_10_90_s": 0.9070186141244676,
+          "t10_s": 888.7272156006109,
+          "t90_s": 889.6342342147353
+        },
+        "observed": {
+          "amplitude": 1207.6619999999998,
+          "peak": 1520.2199999999998,
+          "peak_s": 887.6680000685155,
+          "width_10_90_s": 0.8174814393090628,
+          "t10_s": 886.7221442328051,
+          "t90_s": 887.5396256721142
+        },
+        "maximum_width_s": 2.0
+      }
+    }
+  },
+  "pressure_rmse_bar": 0.040470033903141064,
+  "shape": {
+    "shape_objective": 1.6780894661239842,
+    "front_concentration_objective": 0.5407495580278847,
+    "shape_with_front_objective": 2.218839024151869,
+    "objective_version": "curve-plus-normalized-front-v2",
+    "channels": {
+      "101": {
+        "shape_rmse": 0.3286980036742753,
+        "calculated_rise_k": 28.386475213011238,
+        "observed_rise_k": 16.817285076860685,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": 24.98060307451061,
+        "observed_max_rise_1_5s_k": 12.604649129258235,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.0,
+        "normalized_front_error": 0.13051219882807674,
+        "pre_burst_offset_k": -16.14473227868757,
+        "loss": 0.3286980036742753,
+        "peak_c": 80.91628587384776,
+        "calculated_rise_front": {
+          "t10_s": 888.7231748333977,
+          "t50_s": 889.3286446277762,
+          "t90_s": 889.975045276654,
+          "rise_10_90_s": 1.25187044325628
+        },
+        "observed_rise_front": {
+          "t10_s": 887.2944995588742,
+          "t50_s": 887.5002111733036,
+          "t90_s": 914.4428490059636,
+          "rise_10_90_s": 27.148349447089345
+        }
+      },
+      "102": {
+        "shape_rmse": 0.22157566829206604,
+        "calculated_rise_k": 9.593641080776877,
+        "observed_rise_k": 11.542838294282149,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": 1.466181923858528,
+        "observed_max_rise_1_5s_k": 1.0290254063122006,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.0,
+        "normalized_front_error": 0.06368012920301433,
+        "pre_burst_offset_k": 1.5674661980775682,
+        "loss": 0.22157566829206604,
+        "peak_c": 43.59922860748742,
+        "calculated_rise_front": {
+          "t10_s": 889.4649305494559,
+          "t50_s": 895.78349268782,
+          "t90_s": 902.931702041436,
+          "rise_10_90_s": 13.466771491980126
+        },
+        "observed_rise_front": {
+          "t10_s": 887.0402210630327,
+          "t50_s": 900.7321418705884,
+          "t90_s": 921.2561707570859,
+          "rise_10_90_s": 34.215949694053165
+        }
+      },
+      "C2_ISS": {
+        "shape_rmse": 0.34430448950418174,
+        "calculated_rise_k": 792.4774045404405,
+        "observed_rise_k": 1250.3696567674738,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": 568.4855713093344,
+        "observed_max_rise_1_5s_k": 1171.4802301468944,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.0,
+        "normalized_front_error": 0.21955471281375472,
+        "pre_burst_offset_k": -11.426726609417756,
+        "loss": 0.34430448950418174,
+        "peak_c": 895.2570211635492,
+        "calculated_rise_front": {
+          "t10_s": 885.4831439716446,
+          "t50_s": 889.2020592177001,
+          "t90_s": 889.9068518717135,
+          "rise_10_90_s": 4.423707900068848
+        },
+        "observed_rise_front": {
+          "t10_s": null,
+          "t50_s": null,
+          "t90_s": null,
+          "rise_10_90_s": null
+        }
+      },
+      "C2_TIM": {
+        "shape_rmse": 0.16042102183396023,
+        "calculated_rise_k": 226.49676277422088,
+        "observed_rise_k": 218.8034531830075,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": 75.7733975749855,
+        "observed_max_rise_1_5s_k": 58.14646032605674,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.0,
+        "normalized_front_error": 0.06879771539048213,
+        "pre_burst_offset_k": -12.983255188046087,
+        "loss": 0.16042102183396023,
+        "peak_c": 324.39505440316736,
+        "calculated_rise_front": {
+          "t10_s": 883.9688058708762,
+          "t50_s": 887.8350491206402,
+          "t90_s": 890.5663560149867,
+          "rise_10_90_s": 6.597550144110528
+        },
+        "observed_rise_front": {
+          "t10_s": 888.0171868500348,
+          "t50_s": 890.5611459557173,
+          "t90_s": 893.4270765396572,
+          "rise_10_90_s": 5.409889689622332
+        }
+      },
+      "108": {
+        "shape_rmse": 0.3838163584547354,
+        "calculated_rise_k": 1189.85628104811,
+        "observed_rise_k": 1207.7477006586512,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": 1179.2721383431685,
+        "observed_max_rise_1_5s_k": 1173.1706604892058,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.0,
+        "normalized_front_error": 0.019734045193549044,
+        "pre_burst_offset_k": -3.814921447241886,
+        "loss": 0.3838163584547354,
+        "peak_c": 1225.3636589422167,
+        "calculated_rise_front": {
+          "t10_s": 888.7271470849084,
+          "t50_s": 889.2028714539668,
+          "t90_s": 889.6342133005162,
+          "rise_10_90_s": 0.907066215607756
+        },
+        "observed_rise_front": {
+          "t10_s": 886.7220909990854,
+          "t50_s": 887.0555146136285,
+          "t90_s": 887.5396165621395,
+          "rise_10_90_s": 0.8175255630541187
+        }
+      },
+      "107": {
+        "shape_rmse": 0.23927392436476563,
+        "calculated_rise_k": 36.47305388101955,
+        "observed_rise_k": 20.51913380014156,
+        "short_window_s": 1.5,
+        "calculated_max_rise_1_5s_k": 3.8034862449202933,
+        "observed_max_rise_1_5s_k": 1.350391531724938,
+        "false_impulse_penalty": 0.0,
+        "excitation_penalty": 0.0,
+        "normalized_front_error": 0.03847075659900763,
+        "pre_burst_offset_k": -12.18715726168847,
+        "loss": 0.23927392436476563,
+        "peak_c": 88.54942308965576,
+        "calculated_rise_front": {
+          "t10_s": 891.3071442342493,
+          "t50_s": 897.8519733291143,
+          "t90_s": 911.2506427284569,
+          "rise_10_90_s": 19.943498494207574
+        },
+        "observed_rise_front": {
+          "t10_s": 896.5029852981921,
+          "t50_s": 906.3266305212769,
+          "t90_s": 919.8751578455548,
+          "rise_10_90_s": 23.372172547362652
+        }
+      }
+    },
+    "cooling_scored": false,
+    "peak_amplitude_fitted": false,
+    "time_shift_s": 0.0,
+    "no_heat_rejected": false
+  },
+  "time_shift_s": 0.0,
+  "temperature_gain": 1.0,
+  "preserved_front": {
+    "accepted": true,
+    "reasons": [],
+    "witness_pulse_ratio": 1.981856283212596,
+    "minimum_witness_pulse_ratio": 0.5,
+    "pressure_peak_relative_error": 0.14715368503609438,
+    "maximum_witness_pulse_ratio": 4.0,
+    "protected_impulses": {
+      "102": {
+        "predicted_jump_k": 1.466181923858528,
+        "observed_jump_k": 1.0290254063122006,
+        "maximum_jump_k": 10.0
+      },
+      "107": {
+        "predicted_jump_k": 3.8034862449202933,
+        "observed_jump_k": 1.350391531724938,
+        "maximum_jump_k": 10.0
+      }
+    },
+    "pressure_peak_exploration_limit": 0.3,
+    "pressure_peak_acceptance_limit": 0.05
+  },
+  "criteria_version": "cooling-with-protected-pulses-v3",
+  "cooling_objective": 285.8980331627266,
+  "arrival_times": {
+    "pressure": {
+      "error_s": 1.9920605442130181,
+      "loss": 15.873220847241065
+    },
+    "108": {
+      "error_s": 2.049839955213372,
+      "loss": 16.807375367956634
+    }
+  },
+  "shape_penalty": 44.37678048303738,
+  "timing_penalty": 32.680596215197696,
+  "arrival_accepted": false,
+  "geometry_objective_version": "cooling-shape-and-physical-arrival-v1",
+  "realtime_ratio": 0.9260389563189665,
+  "balances": {
+    "max_chemical_residual_j": 1.023290678858757e-07,
+    "max_mass_residual_kg": 4.773959005888173e-14,
+    "max_oxidizer_residual_kg": 1.1102230246251565e-16,
+    "max_thermal_residual_j": 1.1749216355383396e-07
+  }
+}

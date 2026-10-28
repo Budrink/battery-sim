@@ -1,0 +1,87 @@
+{
+  "status": "complete",
+  "advanced_to_s": 2.0,
+  "fresh_from_zero": true,
+  "calibrated": false,
+  "validation_passed": false,
+  "r2_parameters": {
+    "reaction_rate_per_s": 0.01999639111839507,
+    "reaction_reference_k": 450.0,
+    "reaction_activation_j_per_mol": 100000.0
+  },
+  "r2_converted_components": 0,
+  "model_conversion_events": [],
+  "observed_failure_count": null,
+  "conversion_reporting": "10% R2 mass, inferred from constant-yield gas ledger; not R1 residue",
+  "neighbour_peaks": [
+    {
+      "component": "B00",
+      "mean_c": 25.0,
+      "r2_converted_mass_fraction": 4.8992425906099744e-08
+    },
+    {
+      "component": "B01",
+      "mean_c": 25.0,
+      "r2_converted_mass_fraction": 4.899242766684407e-08
+    },
+    {
+      "component": "B02",
+      "mean_c": 25.0,
+      "r2_converted_mass_fraction": 4.8992449667474556e-08
+    },
+    {
+      "component": "B03",
+      "mean_c": 25.0,
+      "r2_converted_mass_fraction": 4.8992449667474556e-08
+    },
+    {
+      "component": "B04",
+      "mean_c": 25.0,
+      "r2_converted_mass_fraction": 4.8992427666844085e-08
+    },
+    {
+      "component": "B05",
+      "mean_c": 25.0,
+      "r2_converted_mass_fraction": 4.8992425906099744e-08
+    }
+  ],
+  "source_peak": {
+    "component": "B10",
+    "mean_c": 25.012642810669433,
+    "r2_converted_mass_fraction": 4.901523843487547e-08
+  },
+  "all_gas_r3_j": 0.0,
+  "final_all_gas_unburned_j": 8.139774742256547,
+  "final_all_gas_oxygen_kg": 0.27489053281344167,
+  "maximum_recorded_cavity_pressure_pa": 101328.34916658518,
+  "wall_s": 0.542713445,
+  "realtime_ratio": 3.6851860192997434,
+  "minimum_regular_step_s": 0.09999999999999942,
+  "balances": {
+    "max_chemical_residual_j": 2.0116567611694336e-07,
+    "max_mass_residual_kg": 1.2434497875801753e-14,
+    "max_oxidizer_residual_kg": 2.220446049250313e-16,
+    "max_thermal_residual_j": 1.6228511867666384e-08
+  },
+  "experimental_envelope_diagnostic": {
+    "objective": 3.394208258403599e-07,
+    "phase_loss": {
+      "warmup": 3.394208258403599e-07,
+      "propagation": 0.0,
+      "cooling": 0.0
+    },
+    "envelope_rmse_k": {
+      "warmup": 0.4557054301932047,
+      "propagation": null,
+      "cooling": null
+    },
+    "known_until_s": 2.0,
+    "complete": false,
+    "peak_weight": 0.2,
+    "calibrated": false,
+    "validation_passed": false,
+    "scope": "Exploratory TC-envelope versus component-mean heuristic; exact sensor placement unresolved"
+  },
+  "scenario_sha256": "dc25afc7ccacb42d5297aa4bce290d59184d5c308c7bcaab4a0f51801f82d8f8",
+  "run_sha256": "bd1758fe69630437d5591ec4ea7357c9a0537f04da9a90e94939bdf4dbe2de59"
+}

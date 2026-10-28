@@ -1,0 +1,37 @@
+{
+  "format_version": 1,
+  "kind": "numerical_method",
+  "scope": "averaged-reactive-transit-v1",
+  "parameters": {
+    "gas_network.reactive_transit": true
+  },
+  "evidence": {
+    "numerical_checks": {
+      "accepted": true,
+      "scope": "analytical and closed/throughflow CUDA regression; real replay balances only",
+      "analytic_cases": 5184,
+      "cuda_regressions_passed": 5,
+      "restart_contract_tests_passed": 6
+    },
+    "real_replay": {
+      "result": "data/calibration/ul-fsri-30-reactive-transit-20261024-r7/trial-0000/evaluation.json",
+      "result_sha256": "767442e73436902ba304a71e273499cba01814bc8967b495ce7914a82ee3921b",
+      "global_r3_heat_j": 24381.144547408505,
+      "best_neighbour_peak_c": 94.30667012057819,
+      "cascade_reproduced": false
+    },
+    "experimental_accuracy_improvement": false,
+    "time_dependent_arrhenius_verified": false,
+    "default_enabled": false
+  },
+  "compatibility": {
+    "backend": "cuda_network",
+    "integrator": "averaged",
+    "gas_surface_mixing": "joint"
+  },
+  "qualification": "candidate",
+  "producer_core": "b1c01eaadb1b8b2a91d81390404d922e3ebd4315583c40062515d009fd62e46f",
+  "transferable_as": "numerical_method",
+  "calibrated": false,
+  "validation_passed": false
+}

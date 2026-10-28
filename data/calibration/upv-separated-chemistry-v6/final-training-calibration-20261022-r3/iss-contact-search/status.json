@@ -1,0 +1,80 @@
+{
+  "status": "complete_trials_not_validated",
+  "pid": 1699796,
+  "native_sha256": "e7234238a1dcedad671ee39f3a120047432705a2341a7babdf69b439d6ca9e27",
+  "reference": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/five-channel-through-runaway-20261022-r2",
+  "observation_policy": {
+    "version": "five-temperature-channels-and-pressure-v4",
+    "calibration_channels": [
+      "101",
+      "102",
+      "107",
+      "108",
+      "C2_TIM"
+    ],
+    "informational_channels": [
+      "C2_ISS"
+    ],
+    "reason": "C2/ISS excluded by user: disputed continuity after rupture; raw data retained"
+  },
+  "current_input": "measured",
+  "validation_used": false,
+  "max_slowdown": 5.0,
+  "records": [
+    {
+      "trial": "trial-000",
+      "parameters": {
+        "entry": 0.001,
+        "path": 1.0,
+        "opening_rate": 0.01,
+        "strength": 1.0,
+        "case_h": 1.0,
+        "resistance_charge_delta": -0.15,
+        "r2_rate": 1.6,
+        "bulk_metric": 1.0,
+        "damaged_span": 1.0,
+        "damaged_logit": 0.0,
+        "core_contact_damage": 6,
+        "casing_contact_damage": 0.0,
+        "wall_hot_scale": 1.5,
+        "reverse_hot_logit": 0.0,
+        "casing_damage_contrast": -6,
+        "reverse_profile_power": 0.0,
+        "casing_gas_damage": -4.5,
+        "damaged_iss_scale": 0.1,
+        "core_surface_power": 4,
+        "intact_iss_scale": 3,
+        "iss_temperature_contrast": -4,
+        "mobile_energy_fraction": 0.7,
+        "jet_fraction": 0.7,
+        "witness_mouth": 0.00675,
+        "pad_footprint": 0.45,
+        "backing_fraction": 0.01
+      },
+      "fresh": true,
+      "accepted": false,
+      "status": "rejected",
+      "error": "bulk_response requires bulk_connectivity: ISS1"
+    }
+  ],
+  "best": null,
+  "accepted_calibration": false,
+  "points": [
+    {
+      "opening_rate": 0.01,
+      "core_contact_damage": 6,
+      "casing_damage_contrast": -6,
+      "casing_gas_damage": -4.5,
+      "resistance_charge_delta": -0.15,
+      "r2_rate": 1.6,
+      "jet_fraction": 0.7,
+      "witness_mouth": 0.00675,
+      "pad_footprint": 0.45,
+      "wall_hot_scale": 1.5,
+      "damaged_iss_scale": 0.1,
+      "core_surface_power": 4,
+      "intact_iss_scale": 3,
+      "iss_temperature_contrast": -4
+    }
+  ]
+}

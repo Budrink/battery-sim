@@ -1,0 +1,40 @@
+{
+  "format_version": 1,
+  "kind": "constitutive_law",
+  "scope": "free-gas-thermal-stirring-v2",
+  "parameters": {
+    "coefficient": 0.05,
+    "physical_length_m": 0.02,
+    "length_cap_m": 0.05,
+    "law": "fixed-physical-length-resolved-gradient-v2",
+    "measured": false
+  },
+  "evidence": {
+    "numerical_checks": {
+      "accepted": true,
+      "linear_gradient_spacing_m": [
+        0.04,
+        0.02,
+        0.01,
+        0.005
+      ],
+      "diffusivity_error_limit": 1e-15
+    },
+    "full_warmup_validation": false,
+    "independent_validation": {
+      "accepted": false
+    },
+    "note": "Physical circulation prior; not an accepted calibration or a mesh score",
+    "pending_trajectory_check": "/home/konstantin/work/battery-sim/data/development/fsri30-grid-pattern-20261025-r1/comparison/status.json"
+  },
+  "compatibility": {
+    "model": "conservative-gas-counterexchange",
+    "scope": "free-gas-not-internal-pores",
+    "law": "fixed-physical-length-resolved-gradient-v2"
+  },
+  "qualification": "candidate",
+  "producer_core": "e7386cc42effc14e1c8bf6a2ffa6c225b77935921458ca5aadfaa9df7cc59f56",
+  "transferable_as": "constitutive_law",
+  "calibrated": false,
+  "validation_passed": false
+}

@@ -1,0 +1,120 @@
+{
+  "status": "stopped",
+  "pid": 2017609,
+  "native_sha256": "89c758122fe59872ea6d98eb971cfc44809eb90239f4afc3bca90adac1c27175",
+  "diagnostic_only": true,
+  "calibrated": false,
+  "validation_passed": false,
+  "completed_variants": 0,
+  "active_trial": "/home/konstantin/work/battery-sim/data/development/fsri30-nonlinear-pressure-20261026-r1/exits-1.0",
+  "progress": {
+    "trial": "/home/konstantin/work/battery-sim/data/development/fsri30-nonlinear-pressure-20261026-r1/exits-1.0",
+    "parameters": {
+      "r2_rate_scale": 0.02300523837999681,
+      "gas_can_contact_scale": 1.0,
+      "cross_column_open_fraction": 1.0,
+      "axial_open_fraction": 1.0,
+      "thermal_stirring_coefficient": 0.06722339346183823,
+      "effective_emissivity": 0.7664775109756737
+    },
+    "level_mm": 20,
+    "status": "interrupted",
+    "native_sha256": "89c758122fe59872ea6d98eb971cfc44809eb90239f4afc3bca90adac1c27175",
+    "scenario_sha256": "561c6bde7202c3b5047084e18871e8f82029259174e7fd5d6adcf46b54307b33",
+    "screening_only": false,
+    "calibrated": false,
+    "validation_passed": false,
+    "assessment": {
+      "evaluated": false,
+      "accepted": null,
+      "phase_window_complete": false,
+      "last_observed_s": 1849.9999999999272,
+      "reason": null,
+      "constraint": 0.0,
+      "primary_offset_s": 4.0,
+      "timing_error_s": 4.0,
+      "timing_target_met": false,
+      "pulse_match": {
+        "due": 0,
+        "matched": 0,
+        "missing": [],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "arrival_match": {
+        "due": 0,
+        "matched": 0,
+        "missing": [],
+        "pairs": [],
+        "worst_offset_s": 0.0,
+        "target_met": false
+      },
+      "model": {
+        "pulses": [
+          {
+            "channel": "B10",
+            "time_s": 1767.0,
+            "rise_k": 980.9563346302662,
+            "slope_k_s": 203.72160562797274
+          }
+        ],
+        "arrivals": [
+          {
+            "channel": "B10",
+            "time_s": 1767.0
+          }
+        ],
+        "pulse_groups": [
+          {
+            "time_s": 1767.0,
+            "end_s": 1767.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1767.0,
+                "rise_k": 980.9563346302662,
+                "slope_k_s": 203.72160562797274
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ],
+        "arrival_groups": [
+          {
+            "time_s": 1767.0,
+            "end_s": 1767.0,
+            "events": [
+              {
+                "channel": "B10",
+                "time_s": 1767.0
+              }
+            ],
+            "channels": [
+              "B10"
+            ]
+          }
+        ]
+      },
+      "scope": "All individual TC pulses and first hot-arrival groups; sensor mapping unknown",
+      "necessary_not_sufficient": true,
+      "objective": null
+    },
+    "physical_error": null,
+    "temperature_rejection": null,
+    "temperature_guard_deferred_for_mesh_timing": null,
+    "wall_s": 1150.3352138628252,
+    "live_advanced_to_s": 1850.6999999999266,
+    "minimum_regular_step_s": 0.01,
+    "run_sha256": "25ee688f799d97c0b61aa3e04064752c99371cf35eeac273d27d43210181e1e7",
+    "run_path": "/home/konstantin/work/battery-sim/data/development/fsri30-nonlinear-pressure-20261026-r1/exits-1.0/replay/incomplete-run.json.gz",
+    "balances": {
+      "max_chemical_residual_j": 2.1792948246002197e-07,
+      "max_mass_residual_kg": 6.794564910705958e-14,
+      "max_oxidizer_residual_kg": 8.754108549169359e-14,
+      "max_thermal_residual_j": 8.337610779562965e-08
+    }
+  }
+}

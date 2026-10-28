@@ -5,11 +5,14 @@
 namespace battery {
 struct GasThermalPatch {
     int volume, compartment;
-    double conductance_w_per_k;
+    double conductance_w_per_k; // reference/inspection only; runtime evaluates law
     // channel < 0: ordinary compartment/solid contact. Otherwise heat is
     // taken from the channel's arriving enthalpy, NOT added to gas discharge.
     int channel = -1, barrier_volume = -1;
     double aperture_area_fraction = 0., seam_fraction = 0.;
+    ConnectivityLaw law;
+    int geometry_axis=0;
+    double geometry_weight=1.;
 };
 // Numerical regions, NOT a claim about physical casing thickness or material.
 enum class ThermalRegion { Core, Shell };

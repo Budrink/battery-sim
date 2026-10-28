@@ -1,0 +1,26 @@
+{
+  "pid": 1487305,
+  "args": [
+    "/usr/bin/python3",
+    "-u",
+    "scripts/check_upv_phase_mixing.py",
+    "--base",
+    "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/spatial-gas-20261019-r1/combined/parameters.json",
+    "--output",
+    "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/coupled-films-20261019-r3",
+    "--cases",
+    "combined",
+    "--duration",
+    "925",
+    "--timeout",
+    "1900",
+    "--coupled-films",
+    "--reference",
+    "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/phase-mixing-20261019-r2/combined/trial-run.json.gz"
+  ],
+  "started_utc": "2026-10-19T13:58:49.019793+00:00",
+  "minimum_realtime": 0.5,
+  "coupled_transport_interval_s": 0.01,
+  "numerical_reference": "/home/konstantin/work/battery-sim/data/calibration/upv-separated-chemistry-v6/spatial-gas-20261019-r1/combined/last-incomplete-run.json.gz",
+  "purpose": "Local actual-arrival reactor with bounded transport windows; numerical verification, not physical calibration"
+}

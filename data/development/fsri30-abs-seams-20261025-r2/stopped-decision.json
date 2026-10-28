@@ -1,0 +1,89 @@
+{
+  "status": "stopped-by-user",
+  "last_observed_s": 4089.9999999999045,
+  "live_advanced_s_not_observation": 4094.7999999999,
+  "source_run_sha256": "78c78f1af099758f523136471e492598d288dd49efb946b17e133f0bae4b55c5",
+  "control_common_prefix_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 197.05841853550822,
+    "quantile_rmse_k": [
+      243.1188296860064,
+      102.49990438284107,
+      187.5527529758193,
+      224.8089196799551
+    ],
+    "tail_temperature_c": [
+      638.5988587338023,
+      739.6655178351979,
+      835.4511363043629,
+      880.8591814978978
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "candidate_common_prefix_cooling": {
+    "complete": false,
+    "envelope_rmse_k": 193.2093995639603,
+    "quantile_rmse_k": [
+      240.72187438885518,
+      100.33614066708898,
+      181.8996404205358,
+      219.58517072219232
+    ],
+    "tail_temperature_c": [
+      636.5674082232241,
+      739.6611551212337,
+      830.533572465015,
+      876.2216131539163
+    ],
+    "positive_rise_sum_k": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "9 TC quantiles vs 30 means, exploratory shape diagnostic; no sensor mapping"
+  },
+  "early_stop_backtest": {
+    "3720.0": null,
+    "3800.0": {
+      "last_observed_s": 3799.999999999959,
+      "window_start_s": 3680.0,
+      "window_end_s": 3800.0,
+      "scope": "Cooling search rejection only; unmapped TC-envelope heuristic",
+      "absolute_limit_k": 80.0,
+      "relative_kelvin_limit": 0.1,
+      "stable_samples": 121,
+      "peak_samples": 117,
+      "stable_quantile_entries": 294,
+      "peak_quantile_entries": 190,
+      "reason": "Cooling prefix RMSE 184.8 K exceeds 95.5 K for stable window",
+      "rmse_k": 184.75657372372595,
+      "limit_k": 95.54579309528764
+    },
+    "4080.0": {
+      "last_observed_s": 4079.9999999999136,
+      "window_start_s": 3960.0,
+      "window_end_s": 4080.0,
+      "scope": "Cooling search rejection only; unmapped TC-envelope heuristic",
+      "absolute_limit_k": 80.0,
+      "relative_kelvin_limit": 0.1,
+      "stable_samples": 121,
+      "peak_samples": 39,
+      "stable_quantile_entries": 445,
+      "peak_quantile_entries": 39,
+      "reason": "Cooling prefix RMSE 222.4 K exceeds 86.2 K for stable window",
+      "rmse_k": 222.4409874927009,
+      "limit_k": 86.16074171837488
+    }
+  },
+  "full_horizon_score_assigned": false,
+  "calibrated": false,
+  "validation_passed": false,
+  "automatically_promoted": false
+}

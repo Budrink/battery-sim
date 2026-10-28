@@ -1,0 +1,52 @@
+{
+  "source": "data/calibration/upv-r123-kirchhoff-v4/onset600-grid/heat-parameters.json",
+  "source_sha256": "33db1c56dc8232aa446be53387cefde6fca101b164a29229d9a440e552d27fd3",
+  "source_parameters": {
+    "resistance_ohm": 0.006061507638786001,
+    "resistance_temperature": -0.001,
+    "resistance_charge": 4.799999999981872,
+    "product_conductivity_ratio": 0.2,
+    "r1_rate": 1e-06,
+    "r1_activation": 40000.0,
+    "overcharge_gain": 2.0,
+    "overcharge_pay": 0.25,
+    "r2_rate": 99999.99999988705,
+    "r2_activation": 80000.00000335186,
+    "energy_j": 424264.068711928,
+    "gas_fraction": 0.7,
+    "gas_yield": 0.4,
+    "gas_yield_temperature": 0.0005,
+    "gas_rate": 20.0,
+    "gas_reference_k": 600.0,
+    "gas_activation": 80000.0,
+    "precursor_yield": 1.0,
+    "precursor_temperature": 0.0,
+    "precursor_voltage": 0.0,
+    "iss_h": 200.0,
+    "tim_h": 300.0,
+    "case_h": 180.0,
+    "environment_h": 1.563406124562644,
+    "surface_iss": -5.5,
+    "surface_tim": 6.0,
+    "bulk_slope": -2.88,
+    "case_warm_response": 0.0,
+    "case_hot_response": 0.0,
+    "shell_strength_pa": 1000000.0,
+    "opening_rate": 0.2,
+    "sink_g": 10.0
+  },
+  "unsupported_parameters": {
+    "overcharge_pay": 0.25
+  },
+  "model_fingerprint": "07b153f020efbd2c1f025d61618500004275c28af7a4399ba5de81edff12ea0a",
+  "kernel_changed": false,
+  "defaults_reset": false,
+  "fixed_energy_j": 424264.068711928,
+  "fixed_r2_rate": 99999.99999988705,
+  "fixed_materials_and_contacts": true,
+  "early_joule_hypothesis": {
+    "first_charging_seconds": 300.0,
+    "minimum_share": 0.5
+  },
+  "validation_used_for_selection": false
+}
