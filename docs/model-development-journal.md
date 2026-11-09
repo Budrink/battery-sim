@@ -1,5 +1,521 @@
 # Журнал модели и расчётов
 
+## 2026-11-07 — перенос химии и деградации в лабораторный стенд 4×4
+
+По запросу пользователя демо должно доходить до собственного runaway, а не
+только показывать геометрию. Источник — тот же сохранённый
+`fsri30-wall-delay-full-20261027-r1/scenario.json`, SHA256
+6895d5de718ebec1471a26da90979899fcad1dc61bff2e4ebaca29f67dc8a7cc.
+Самодостаточный снимок `examples/contracts/fsri30-material-preset.json` хранит
+R1/R2/R3, газообразование, испарение, cp/k, повреждение оболочки и необратимую
+деградацию внутреннего теплового барьера. Удельные коэффициенты не подгонялись;
+масса, теплоёмкость и начальная масса жидкости масштабированы по объёму
+внутренности 20×20×40 mm относительно исходной B10. Полный заряд, без старения.
+
+Это **перенос fitted seed в синтетический стенд, не экспериментальная валидация**.
+Сохранены новые прокладки, кейс и его локальная газовая сетка; чужие маршруты,
+обдув и fitted mixing coefficients не перенесены. Стальная proxy оболочка имеет
+толщину 1 mm нового стенда (не 0.18 mm исходного опыта), масса считается по её
+геометрии. Панель: базовый порог 600 kPa, верхний клапан r=1 mm/factor=.4 —
+геометрическое демо-допущение. Электрика осталась иллюстративной, источник
+выключен. Нагреватель и контроллер FSRI30 не менялись. Нет primary_failures,
+нулевой навязанный runaway-energy: разгон только через существующие реакции.
+
+Устранён упрощённый общий холодный газовый резервуар внутри батареи: теперь
+27 поровых объёмов соответствуют 27 тепловым ячейкам; исходный свободный объём
+вычисляется вычитанием твёрдого вещества (rho=2300) и жидкости (rho=1200).
+Начальное давление 101325 Pa, кислород внутри нулевой; внутренние пути соединяют
+только соседей. Это штатный local_equilibrium/volatile_phase, не новая физика.
+Host-компилятор клапанов привязывает каждую площадку к прилегающему поровому
+объёму; отсутствие объёма или несовпадение сеток отклоняет, а не обходит.
+Старый lumped-газовый контракт остаётся совместимым. CUDA-ядра не изменены.
+
+Рабочее численное исполнение: averaged CUDA network + implicit_surfaces,
+reactive_transit, max_dt=.1, minimum_dt=.005, горизонт 3000 s. Префикс .02/.1 s
+до 163.78 s различается по T батарей максимум на .00087 K; это НЕ проверка
+сходимости взрыва. Семь CTest, 13 schema tests и две проверки генератора прошли;
+GUI загрузил новый контракт. Регрессии проверяют отсутствие заданного взрыва,
+локальность клапанов, тепло/массовый баланс короткого открытия и нагреватель.
+
+Прогоны сохранены в `data/development/module-4x4-material-transfer-20261107-*`:
+r1 отклонён на инициализации (попытка объявить каждый pore aggregate-owner),
+r2 штатно остановлен на 163.78 s для перехода с .02 на .1 s; не результат взрыва.
+r3 — полный запуск с нуля; результат и наблюдения в стандартном job-контракте.
+Проверка завершённого результата: `scripts/check_laboratory_runaway.py RUN_DIR`.
+**Результат r3:** completed, 3000 s за 1083.47 s (2.77× real time).
+`demo-acceptance.json`: demo_passed, experimental_validation=false.
+B05: первый клапан 1315.70 s, остальные верхние площадки 1811.805–1811.810 s,
+максимальная наблюдённая средняя температура 1175.61 °C на 1824.8 s,
+основная реакция завершена на 1824.505 s. Никакого заданного ignition нет.
+Остатки теплового/химического баланса -4.34e-9 / 6.29e-9 J.
+Вторичный **взрыв** за 3000 s не получен: B04 начала реакцию и открыла клапан
+на 2810.90 s, но её максимум лишь 133.65 °C. Не выдаём ранний флаг runaway
+за подтверждённый каскад. Стенд демонстрирует один самопроизвольный разгон
+от внешнего подогрева и ограничение распространения прокладками.
+Новый viewer/editor открыт с обновлённым контрактом, на паузе; старое окно
+не закрывалось, чтобы не потерять возможные несохранённые изменения.
+
+## 2026-11-07 — видимый боковой нагреватель с профилем FSRI30
+
+По запросу пользователя default-нагреватель заменён: вместо нижней пластины
+с FF=7.5 W и Kp=1 W/K — боковая плёнка 0.2 mm у B05 (-X), датчик на
+противоположной стенке B05:case:+x. Параметры взяты из завершённого
+fsri30-wall-delay-full-20261027-r1/scenario.json, SHA256
+6895d5de718ebec1471a26da90979899fcad1dc61bff2e4ebaca29f67dc8a7cc.
+Переносимый снимок — examples/contracts/fsri30-heater-preset.json:
+ramp=.1 K/s, Pmax=30 W, FF=0, Kp=.19767037747050903 W/K,
+cutoff 773.15 K AND rate>=10 K/s, C=1 J/K, k=15 W/(m K), R=1 ohm,
+контакт h=500 W/(m2 K). Начальный ток 0, дальше мощность задаёт штатный
+регулятор через I²R. Это параметры сохранённого расчёта, не измеренная мощность
+экспериментального нагревателя; устаревшие metadata «6 W / 1800 s» не использованы.
+
+Площадь плёнки адаптирована к боковой грани новой призмы (22x42 mm).
+ISS-B04-B05 уменьшена с 2 до 1.8 mm и сдвинута; её C уменьшена по объёму,
+rho/cp/k сохранены. Контакт этой прокладки с B05 перенаправлен через плёнку.
+Нет перекрывающихся тел или обходного прямого контакта. Остальные батареи,
+химия и архивные расчёты не изменены; одинаковая траектория другой батареи
+при переносе аппарата не обещается.
+
+Исправлена причина невидимости: нагреватель раньше попадал в класс enclosure
+с alpha=.07. Теперь отдельный Heater material и переключатель show_heaters;
+оранжевый x-ray locator показывает реальный размер и положение тонкой плёнки,
+не является температурной шкалой и не увеличивает физическую толщину.
+Кольца клапанов рисуются и до вскрытия. Проверка подтверждает 16 верхних
+разрывных клапанов (по одному слабому клапану на батарею, локальная апертура).
+CUDA module/heater/pressure balance и OpenGL visibility regression прошли;
+13 schema-проверок и воспроизводимость генератора прошли. Контрольный кадр
+/tmp/battery-visible-heater.png. Полный каскад заново не калибровался.
+
+## 2026-11-07 — физический кейс, газовая сетка, выбор объектов и редактор оболочек
+
+В UI добавлены Case и Shell / vents; клик выбирает батарею/прокладку/нагреватель,
+Alt+клик — стенку кейса. Скрытые объекты исключены из picking, drag не считается
+кликом. Свойства граней изменяются copy-on-write только для выбранной батареи:
+материал/k, onset/rate/scale повреждения, остаточная проводимость. Клапан/шов
+использует существующий deterministic_aperture; работа разрушения остаётся в
+существующем термобалансе. Host-адаптер разворачивает физическую грань в локальные
+площадки оболочки. Несовместимый с площадкой клапан отклоняется явно.
+
+Case создаёт шесть конечных тепловых тел с ёмкостью V*rho*cp, k, повреждением,
+наружным теплоотводом и **пространственной газовой сеткой внутри**. От первоначальной
+идеи общего газового резервуара отказались по указанию пользователя. Явная
+assembly.gas_meshes компилируется в обычные compartments/channels/ports/contacts,
+без изменений численного ядра. Осевые CSG-вырезы сохраняют тонкие препятствия,
+соседство и площадь контакта рассчитываются пересечением граней; выход клапана
+идёт в соседний объём по центру локальной площадки/клапана, не во всю камеру.
+Cylinder сохраняет прежнюю объявленную равнообъёмную призматическую аппроксимацию,
+не является точным криволинейным мэшером. Не более 5000 газовых ячеек.
+
+Default 4x4: кейс внутри 120x120x80 mm / 2 mm стенки, газ до 20 mm. Получены
+596 внешних газовых ячеек, 1337 проходов, 1476 газ-твёрдое контактов; свободный
+объём 0.000784016 m3, площадь газ-твёрдое 0.105616 m2. Плюс 16 внутренних газовых
+объёмов батарей и 144 локальных участка вскрытия. Источник 4S4P выключен;
+под B05 явный внешний нагреватель 30 W максимум, ramp .1 K/s. Начальный charged
+fraction .7, contents-shell h=500 и seam h=100 W/(m2 K); верх: onset 170 C,
+скорость .01/s, клапан радиус 1 mm, pressure factor .4 при базовых 80 kPa.
+Все эти числа синтетические, не калибровка и не обещание каскада.
+Кейс закрыт, наружных газовых проходов нет. Разрушение стенок само по себе
+не создаёт газовый маршрут; нужны явные каналы. Тепловые швы между стенками
+кейса автоматически не добавляются. Архивные сценарии/профили не изменены.
+
+Проверки: 8 CTest (старый лабораторный CUDA, experiment_contract CPU/CUDA,
+cuda_module_starter, editor_document, viewport_input, viewer_options,
+native_architecture) прошли. Module проверяет отсутствие пересечения газа с
+твёрдым, ограничение размера, локальные адресаты клапанов, совпадение объёма
+и площади контактов на 40/20 mm, CUDA-нагрев и короткий запуск с удвоенным
+давлением внутри B05: есть раскрытие и перенесённая масса, residual E<1e-6 J,
+mass<1e-12 kg. Это smoke/regression, НЕ полный взрывной опыт/калибровка.
+13 schema-тестов и воспроизводимость генератора прошли. OpenGL regression:
+материалы/нагрев/повреждения, газ, click/Alt-click/hidden selection прошли.
+Собраны viewer и отдельный server/headless без графических зависимостей.
+Контрольный кадр: /tmp/battery-case-editor.png.
+
+## 2026-11-07 — стартовый модуль 4×4 и материальные слои прокладок
+
+Добавлен воспроизводимый `examples/contracts/module-4x4.json`, генератор
+`scripts/generate_laboratory_module.py`. Это синтетический редакторный шаблон,
+не замена калибровок: 16 призм (внутренность 20×20×40 mm), оболочка 1 mm,
+шаг 24 mm. Между соседями 24 отдельные изолирующие прокладки толщиной 2 mm
+и 48 контактов к наружным портам оболочек. Нет прямого обходного контакта
+батарея—батарея. Приняты явные k=.06 W/(m K), rho=250 kg/m3, cp=1000 J/(kg K),
+h=100 W/(m2 K), демонстрационное повреждение. Параметры не измеренные.
+4S4P solved_dc, исходный ток 0; нагреватель доступен через Heating.
+Внешний газ — одна сосредоточенная полость 1 L, не восстановленная газодинамика.
+Шаблон стал default viewer/F5 и fallback редактора; старый unit-fixture сохранён.
+
+VisualGeometry читает явную классификацию metadata.visual_materials: изоляция
+коричневая, теплопроводящий материал белый. Это только отображение; нельзя
+выводить k из цвета. В Assembly имеется переключатель display для material_id.
+Полупрозрачные объёмный/поверхностный слои показывают температуру поверх базы,
+повреждения — пурпурной штриховкой. Отдельные pad visibility/opacity не зависят
+от enclosure. В preview порты/контакты выключены по умолчанию и включаются явно;
+изменение отображения инвалидирует cache картинки. Расчётное ядро не менялось.
+
+Проверки: пять CTest (cuda_module_starter, viewport_input, editor_document,
+viewer_options, native_architecture) прошли. Module проверяет количества,
+совпадение центров 48 контактов и допустимые площади, материальную разметку,
+CUDA idle и внешний нагреватель 5 W / .1 s с балансом <1e-7 J.
+Python проверяет совпадение генератора с сохранённым шаблоном. Реальный
+OpenGL/CUDA render_continuity прошёл старые проверки сеточной независимости
+и новые проверки различия материалов, thermal overlay, damage и hide pads.
+Viewer отрисовал новый default, контрольный кадр `/tmp/battery-module-4x4-final.png`.
+
+## 2026-11-07 — захват мыши редактора и размеры призмы/цилиндра
+
+Preview теперь использует интерактивную область ImGui вместо неинтерактивной
+Image: захват drag сохраняется до отпускания, включая выход за область.
+Окно перемещается только за заголовок. Проверка реальными событиями ImGui
+подтвердила вращение без перемещения окна, выбор кликом и перенос за заголовок.
+
+Assembly: выбор Prism/Cylinder, width X / length Y / height Z для призмы,
+diameter / height Z для цилиндра, mm. Явное Apply обновляет preview.
+Copy-on-write модели изолирует изменения выбранной батареи; повторное
+редактирование не создаёт бесконечные копии. Форма входит в контракт и undo.
+Цилиндр отображается цилиндром, расчётная аппроксимация — равновеликая
+квадратная призма с явным reason. Ядро/химия/калибровки не менялись.
+Масса, C, газовые полости и соседние аппараты не пересчитываются молча:
+UI предупреждает проверить их и контакты. Локальные осевые порты масштабируются.
+Исправлен размер visual dimensions для цилиндра: vec3 shader больше не читает
+несуществующий третий элемент contract dimensions [radius,height].
+
+Пять CTest прошли: viewport_input, editor_document, cuda_laboratory,
+viewer_options, native_architecture. Проверены сохранение объёма, независимость
+соседнего экземпляра, возврат в призму, отрицательные размеры, undo/redo,
+визуальный proxy и короткий CUDA-шаг с балансом <1e-7 J. Viewer отрисовал
+синтетическую пару цилиндр/призма; кадр `/tmp/battery-shape-preview.png`.
+Это проверки UI/контракта, не новая экспериментальная калибровка.
+
+## 2026-11-07 — редактор лаборатории, внешняя пластина и автоматическая DC-сеть
+
+Поверх experiment-v2 добавлен опциональный native ImGui-редактор: импорт,
+проверка, атомарное сохранение физического JSON и отдельного sidecar, undo/redo,
+дерево объектов, параметры в SI (позиция в форме — mm), 3D preview/picking,
+вкладки Assembly/Circuit/Heating/Models/Run/JSON. Запуск передаёт новый
+неизменяемый снимок viewer; редактирование не меняет текущий расчёт. Native
+без вложенного исходного контракта не конвертируется с потерей информации.
+Это численный редактор с 3D-предпросмотром, не CAD/автоматический gas mesher.
+
+Новый opt-in solved_dc: последовательная/параллельная и явная узловая схема,
+постоянный источник тока или напряжения, фиксированная явная ЭДС батареи.
+После расчёта текущих эффективных R ядро CUDA решает малую MNA-систему,
+проверяет KCL/мощность и передаёт найденные токи в существующий I²R/зарядный
+баланс. Без пересылки на CPU; дополнительные buffers/kernel отсутствуют
+у старых сценариев без сети. Обратный ток, сингулярная сеть и потеря
+проводимости отклоняются: разряд, динамическая ЭДС и авторазмыкание ещё
+не реализованы. Ограничение 128 неизвестных/512 ветвей явно проверяется.
+Нулевой ток неподключённой батареи не требует фиктивной U-кривой;
+ненулевой ток/химический заряд сохраняют строгий UI-баланс.
+
+Heating создаёт отдельную пассивную резистивную пластину с собственной C,
+мощностью и directed_geometry-контактом именно к внешней стороне оболочки.
+Постоянная мощность либо существующий температурный ramp-регулятор с пределом
+и отсечкой; заданная температура не навязывается батарее. Геометрия 1 mm,
+k=20 W/(m K), пользовательские C/h — явные синтетические допущения, не
+перенос экспериментальной калибровки. Новый laboratory-demo — синтетический
+стартовый документ; minimum_dt=0.005 s, совместимый CUDA gas/film режим.
+Калиброванные профили, химия, контакты старых опытов и checkpoint-layout
+не изменены, новый поиск параметров не запускался.
+
+Проверки текущей сборки:
+
+- 14 профильных CTest прошли: DC-сеть, laboratory, document undo/save,
+  experiment v1/v2, viewer options, worker/job, heating protocol, Joule,
+  run configuration и архитектура. Полный физический набор не запускался.
+- DC: аналитические series/parallel с разными R, оба вида источников,
+  перераспределение при R(T), KCL/I²R/термобаланс, уменьшение dt вдвое,
+  побитовый restart, отказ от обратного тока и плавающей сети.
+- Laboratory: клонирование без мутации исходника, контакт к B:case:+x:outer,
+  обе схемы нагревателя на CUDA; остаток теплобаланса <1e-7 J.
+- 12 JSON Schema тестов выполнены (не skipped); server собран отдельно,
+  check_minimal_build подтвердил 38 compilation units без graphics include
+  и отсутствие GL/GLFW/X11/Wayland в ldd всех трёх серверных приложений.
+- Legacy 0–2 s: 40823 шага, физические выходы точно совпали с прежним probe.
+  `/tmp/battery-lab-legacy-regression-20261107`.
+- Горячий checkpoint 2000–2010 s, 100 шагов: полное совпадение физических
+  выходов, 1 прогрев + 3 пары измерений. Медиана before 6.1495 s, after
+  6.0885 s; проверка замедления <=5% прошла. Это регрессия без новой сети,
+  не оценка стоимости новой MNA и не повторная экспериментальная валидация.
+  `/tmp/battery-lab-hot-regression-20261107/comparison.json`.
+- Финальный viewer: скрытый редактор отрисовал 10 кадров; отдельный live
+  smoke прошёл до 3.04 s физического времени. Контрольный кадр
+  `/tmp/battery-laboratory-editor-final.png`; видимое окно открыто на
+  laboratory-demo с редактором и расчётом на паузе.
+
+## 2026-11-07 — experiment-v2, локальные порты и явная электрическая схема
+
+Добавлены experiment-v2 и editor-v1 JSON Schema, синтетические примеры
+`examples/contracts/editor-experiment.json` / `editor-state.json`.
+Общий C++ run-adapter компилирует обе версии опыта; `upgrade_experiment`
+и CLI `--upgrade-v2` явно импортируют v1 без изменения физических входов.
+Исходный v2 сохраняется полностью в metadata, включая ревизии моделей.
+Настройки редактора остаются отдельным sidecar и не входят в solver/checkpoint.
+
+Порты имеют явный local/world frame. Локальные центр/нормаль преобразуются
+позой владельца, world не движется. Импортированные v1 порты остаются world;
+автоматического CAD-перестроения контактов/полостей нет. Существующее ограничение
+на axis-aligned shell builder не снято: поворот порта не доказывает поддержку
+произвольного поворота расчётной оболочки.
+
+Электрическая схема задаёт nodes и branches батарей/источников тока.
+В prescribed_currents проверяются ссылки и KCL на всех узлах времени
+заданных профилей; положительный ток батареи — зарядка, от плюса к минусу.
+Параллельные/последовательные соединения описываются явно, но токи не решаются
+из сопротивлений: KVL, общий сетевой солвер и динамическая перекоммутация
+не реализованы. Независимые voltage-limited setpoints в этом режиме отклоняются.
+Импорт v1 помечен unmapped_drives — отсутствующая схема не выдумывается.
+Исходники физического ядра, химия, параметры и численные алгоритмы не изменены.
+
+Проверки:
+
+- Собраны viewer, worker, compile_experiment и тест контракта.
+- 8 профильных CTest прошли: experiment_contract, cuda_experiment_contract,
+  cuda_experiment_cli, cuda_experiment_v2_cli, cuda_worker_cli,
+  native_architecture, viewer_options, run_configuration.
+- CUDA legacy/v1/v2: после 0.05 с побитово одинаковые committed checkpoint
+  под общей тестовой identity. Не экспериментальная валидация/калибровка.
+- Native проверки: неизменность физических JSON-входов при миграции,
+  translation/rotation/world портов, схема с двумя батареями в series/parallel,
+  KCL на промежуточном узле профиля, ошибки ссылок/версий и sidecar.
+- 11 JSON Schema тестов реально выполнены (jsonschema из
+  `/tmp/battery-contract-schema-check`), 9 архитектурных проверок прошли.
+- Полный набор физических CTest не запускался: изменения только в контракте.
+
+Окно редактора, его файловые диалоги/атомарное сохранение и автоматическое
+распределение токов не добавлялись; подготовлены их контракт и host API.
+
+## 2026-11-07 — опциональный UI и независимые core/server сборки
+
+Текущий ImGui frontend перенесён без изменения поведения в `native/ui`,
+библиотека `battery_ui` / alias `battery::ui`. Прежний viewer — тонкая точка
+входа. Renderer и адаптеры визуальных данных остаются отдельными библиотеками.
+Свойства материалов, калибровки и вычислительные исходники не менялись.
+
+CMake разделён на core, runtime/job/apps, CPU visual-data, optional graphics,
+research libraries и tools. Preset `server` не включает UI, visualization,
+tools, experiments или тесты. Preset `core` собирает только библиотеку ядра.
+`headless` наследует минимальную server-конфигурацию. Desktop-цели и аргументы
+запуска сохранены; VS Code получил задачи build server/build core.
+Публичные CMake aliases: `battery::core/run/job/ui`.
+HTTP API и удалённый frontend не добавлялись: серверная граница остаётся
+существующим job-v1/worker, отдельным от физики.
+
+Проверки:
+
+- Собраны viewer, monitor, worker и профильные тесты dev; 5 целевых CTest прошли.
+- Viewer создал скрытый OpenGL-контекст и отрисовал 3 кадра, exit 0.
+- Server и core сконфигурированы в чистых каталогах без сети, с доступным
+  только исходником JSON и запрещённым поиском OpenGL; обе сборки завершены.
+- `scripts/check_minimal_build.py` проверил реальные compile_commands:
+  14 единиц компиляции только core, 30 — server. У server отсутствуют
+  графические зависимости также по ldd всех трёх исполняемых файлов.
+- Server headless выполнил CUDA-расчёт до 0.03 с без DISPLAY/WAYLAND_DISPLAY;
+  остаток теплобаланса около -3.9e-12 Дж. В таком же окружении прошли
+  5 worker CLI тестов и experiment→scenario→worker тест.
+- Отдельное C++ приложение из `native/tests/thermal/cuda_thermal.cpp`
+  связано только с `build/core/libbattery_native_core.a` и cudart:
+  аналитический теплообмен, балансы, CFL, макросостояние и сходимость прошли.
+  Бинарник: `/tmp/battery-ui-modules-sW7wWs/standalone-core-test`.
+- 9 архитектурных Python-тестов прошли; добавлен контроль тонкой точки входа
+  UI и изоляции presets. Полный физический набор заново не запускался —
+  алгоритм и параметры не менялись.
+
+Новые сборочные описания меняют строгий worker build fingerprint. Это не
+разрешение автоматически продолжать прежние job-checkpoint под новой сборкой.
+
+## 2026-11-07 — читаемость и единая проверка материалов, без изменения физики
+
+После аудита исправлен разрыв проверок: experiment-v1 мог принять ненулевой
+`initial_state.damage_fraction`, хотя R1/R2-ядро отвергает legacy bulk damage.
+Проверки состава, электрики и совместимости механизмов перенесены из
+`thermal_mesh.cpp` в `core/src/model/validation.cpp`. Их вызывают и загрузчик,
+и прямое построение сетки. Ограничения не ослаблены; schema v1 явно требует
+нулевой legacy damage. Добавлены отрицательные проверки всех трёх путей входа.
+
+Подготовка сценария разделена на cells/shells/thermal_links/gas_network/material_laws;
+главный `scenario.cpp` — 73 строки вместо примерно 980. Компилятор контракта
+разделён на оркестрацию (82 строки), документные проверки и сборку экземпляров/
+электрических воздействий/клапанов. Индексы портов передаются явно между стадиями.
+Общий CUDA-адаптер переименован в `CudaGasTransport`; прежнее имя — только alias.
+Рабочие структуры вынесены в `gas_work_types.cuh`, верхнеуровневые газовые
+CUDA-модули получили явные зависимости и собственные namespace.
+Внутренние низкоуровневые фрагменты остаются в тех же translation units:
+никаких дополнительных GPU-запусков, виртуальных вызовов или копий состояния.
+POD-раскладка, порядок стадий, checkpoint, физические формулы и профили не менялись.
+UI не перерабатывался.
+
+Проверки:
+
+- Полная сборка `build/dev`, включая viewer и worker, прошла.
+- CTest: **63/66**, новых отказов нет. Прежние `cuda_reaction_process`
+  (Internal factor averaged, isotropized or ignored), `cuda_failure_state`
+  (Boundary half-volume still intact), `native_reference_fit`
+  (отсутствует narada-lumped-reference.json) оставлены видимыми, не отключались.
+- 20 Python-проверок: 7 архитектуры, 7 JSON Schema, 6 проверки regression/performance guard.
+- Четыре CUDA-модуля отдельно скомпилированы как первый include: направление,
+  averaged transport, явное и неявное перемешивание.
+- `reaction-chain-demo.json`, с нуля до 2 с: **40 823 шага**, все выдаваемые
+  физические поля/балансы/события/счётчики совпали точно со старым бинарником.
+- Горячий restart 30 батарей `fsri30-demo-exhaust-resumed-20261028-r2`,
+  2000→2010 с: **100 шагов**, точное совпадение каждого сравнения.
+  Прогрев + 5 чередующихся пар A/B: медианы **6.1292→6.1753 с**,
+  медиана парных отношений **1.0066** (+0.66%); относительный MAD 0.26%/1.05%.
+  Проверка с порогом замедления 5% прошла. Это результат на данном участке,
+  не доказательство скорости всех возможных сценариев.
+
+`scripts/check_native_refactor.py` теперь поддерживает `--repeats`,
+`--warmups`, `--max-slowdown`; шумные замеры не считаются успешными.
+Проверяется также достижение конца запрошенного участка.
+Прежний одиночный режим по умолчанию сохраняет проверку физики без сертификации скорости.
+
+Артефакты: `/tmp/battery-readability-15VApa/` — исходный бинарник, снимок
+исходников до правок, `ctest.xml`, `hot-regression/comparison.json`,
+`reaction-chain-regression/comparison.json`.
+SHA256 probe до: `7894f8123ac94c2f64fedb25202e2a5a83b5fa32764fa6f90e5c5b2cef7b4bf8`;
+после: `2e6773cea8823466fedb693c462ba9dbcad452edabf68de787a36808e21ab9b3`.
+Калибровка и независимая экспериментальная валидация в этой работе не выполнялись.
+
+## 2026-11-07 — контракт модели батареи и условий эксперимента v1
+
+Добавлены `battery-v1` и `experiment-v1`: встроенные неизменяемые снимки
+моделей с id/revision; экземпляры с отдельными начальными состояниями;
+оболочка/клапаны отдельно от внутренности; маршруты клапанов и тепловые
+контакты принадлежат сборке. Электрические воздействия отделены от
+материального сопротивления, сетка батареи — от физических коэффициентов.
+Неподтверждённая привязка термопары хранится как unknown/hypothesis, а не факт.
+
+Чистый C++-адаптер `battery::compile_experiment` и CLI в `native/tools/contracts`
+выдают прежний native scenario. Существующий парсер вынесен в
+`scenario_from_json` без изменения законов/порядка стадий. Полный исходный
+контракт сохраняется в metadata; worker получает самодостаточный сценарий
+через прежний job-v1. Архивные профили, параметры калибровки, UI и данные
+экспериментов не мигрировались и не менялись. В v1 газовая сеть/R3/пассивная
+обвязка пока используют native-блоки: это явно описанный мост, не новый CAD.
+Для цилиндра требуется явная равновеликая призматическая аппроксимация;
+сохранение объёма не доказывает правильности площадей теплообмена.
+
+Проверки: 6/6 целевых CTest (контракт, CUDA-эквивалентность, end-to-end
+experiment→scenario→worker, прежние worker CLI/run configuration, архитектура),
+6/6 JSON Schema тестов. На синтетическом R1/R2/R3 примере через 0.05 с
+новый и прежний вход дали побайтно одинаковый committed checkpoint.
+Это регрессия адаптера, не новая калибровка и не экспериментальная валидация.
+
+## 2026-11-07 — физическая инерция вместо эвристической памяти связей
+
+По запросу пользователя удалены независимые `strength`/`relaxation_time_s`.
+Добавлен опциональный сосредоточенный закон импульса канала:
+`(L/A) dq/dt = dp - R q - B q|q|`. Физическая длина и направление задаются
+геометрией, вязкость — свойством газа. Вязкое сопротивление соответствует
+эквивалентному круглому проходу, квадратичное — прежнему сжимаемому orifice
+закону плюс явно документированное замыкание неупругого поворота на развилке.
+Последнее не объявляется точной геометрией струи или решением CFD.
+
+Обратный Эйлер решается аналитически на ребре и включён в одновременный
+pressure solve как mobility + history RHS. Память хранит принятый подписанный
+расход и кинетическую энергию. Энергия движения оплачивается теплом концов
+канала; при торможении/закрытии возвращается. Баланс и reactive transit R3
+учитывают тот же дебет. Новых физических микрошагов нет. Сохраняются строгие
+проверки запасов и энтропии. Checkpoint режима теперь `gas-momentum-v3`,
+с проверкой вязкости и геометрии. Эвристические v2 состояния отвергаются.
+
+Старые сценарии/параметры и learned profiles не менялись, инерция по умолчанию
+выключена. Включение требует явных `inertial_length_m`, `flow_direction`,
+`dynamic_viscosity_pa_s`. Скалярная ambient-граница не поддерживает импульс
+и явно отклоняется в новом режиме; нужна отдельная граничная модель.
+Это реализация и численная квалификация, НЕ новая калибровка каскада.
+
+Начальные проверки CUDA прошли: развилка (straight/side по добавленной массе
+1.10997 против 1.000 без нового режима), баланс всех переносимых запасов с K,
+rollback/retry, restart, перестановка A/B, возврат K при закрытии, реальное
+инерционное течение при dp=0, оба режима горения (split и reactive transit),
+отказ при несовместимой геометрии checkpoint, полный шаг Simulation/restart.
+Ошибка массы при dt .001/.0005 относительно .00025 с: .148902% → .0589556%.
+Мелкие dt относятся только к изолированной задаче; рабочий минимум не менялся.
+Синтетический замер 512 узлов/1344 рёбер: 3.059 → 2.400 мс/вызов. Это не
+доказательство ускорения физически одинакового каскада: сопротивление меняет
+траекторию и число итераций. Описание и ограничения: docs/gas-direction-memory.md.
+
+Окончательная сборка всего `build/dev`, включая viewer/worker, завершена.
+CTest: 59/62, новых отказов нет. Те же прежние `cuda_reaction_process`
+(Internal factor averaged...), `cuda_failure_state` (Boundary half-volume...)
+и `native_reference_fit` (отсутствующий narada-lumped-reference.json).
+Дополнительно 7 архитектурных и 28 FSRI Python-тестов прошли.
+Лог: `/tmp/battery-momentum-check.WvKow5/ctest.log`.
+
+Финальное ядро SHA256 `7a3a0e34b41b562bd0f346756565034c5574ad156145d4472a34bded41f6a78c`
+с выключенной новой физикой точно повторило 100 горячих шагов 30-батарейного
+опыта 2000–2010 с относительно архивного бинарника: температуры, состав,
+давления, события, балансы и численные счётчики без различий.
+Отчёт: `/tmp/battery-momentum-check.WvKow5/final-hot-regression/comparison.json`.
+Исходный сценарий `fsri30-demo-exhaust-resumed-20261028-r2/scenario.json`
+SHA256 `713cd665d0e5f9d17a562ae6eb0af30a88939747ca60a955b39fecfb96e73315`
+не изменён. Это регрессия совместимости, не подтверждение эксперимента
+при включённой инерции. Длительные калибровочные прогоны не запускались.
+
+## 2026-11-07 — очистка старых вычисленных траекторий
+
+По явному запросу пользователя удалён 481 старый вычисленный артефакт:
+повторные `run.json.gz`, `trial-run.json.gz`, `heat-run.json.gz`,
+`validate-run.json.gz`, диагностические поля газа и семь временных
+`/tmp/upv-det-trajectory-*/run.json`. Освобождено 7 943 675 904 байта
+по свободному месту файловой системы (около 7.4 ГиБ).
+
+Сохранены исходные эксперименты, все сценарии и параметры, реестр модели,
+лучшие/выбранные варианты и их явные зависимости, checkpoint, архивные
+бинарники, неполные/ошибочные префиксы и итоговые демо каскада/вытяжки.
+Git-файлы и файлы, открытые процессами, исключались. Проверена сохранность
+83 существующих защищённых путей и основных replay manifest/frames.
+Дополнительная запретная маска `data/raw` не является существующим каталогом
+в этой рабочей копии и не входила в список удаления.
+
+Удаление без корзины; точные исторические траектории могут быть утрачены,
+восстановление требует повторного расчёта и совместимого ядра. Старые отчёты
+могут ссылаться на удалённые подробные траектории — это намеренная очистка,
+а не исчезновение параметров или изменение результатов в реестре.
+Точный список и размеры: `data/maintenance/cleanup-20261107/removed.jsonl`;
+правила исключений: `plan.json`; итог: `summary.json` в том же каталоге.
+
+## 2026-11-07 — исходники по подсистемам
+
+175 файлов ядра, визуализации, инструментов и тестов перенесены из плоских
+каталогов в логические папки. Изменения C++/CUDA при переносе ограничены
+include-путями; порядок включения CUDA-фрагментов, формулы и параметры не
+менялись. Обновлены CMake, ссылки в документации и пути в калибровочных
+скриптах/тестах. Данные экспериментов, learned profiles и сценарии не тронуты.
+Карта: `native/README.md`. Добавлены проверки отсутствия плоской свалки
+и валидности путей сборки в `tests/test_native_architecture.py`.
+
+Проверка: все цели `build/dev` собраны; CTest — 59/62, без новых падений.
+`cuda_reaction_process` и `cuda_failure_state` дают те же ошибки на сохранённой
+старой сборке; `native_reference_fit` по-прежнему не находит удалённый ранее
+`data/calibration/narada-lumped-reference.json`. 28 Python-тестов FSRI и
+7 архитектурных проверок прошли. Горячий участок 30 батарей 2000–2010 с,
+100 шагов: точное совпадение физических результатов и счётчиков с бинарником
+до перемещения (`/tmp/battery-layout-hot-regression/comparison.json`). Аудит
+186 затронутых C++/CUDA-файлов: изменены только include-директивы.
+
+Полная сборка исчерпала свободное место. Для её завершения удалены только
+debug-секции 48 пересобранных тестовых бинарников (около 464 МБ), без удаления
+исходников, рабочих приложений или расчётных данных. Символы восстанавливаются
+повторной линковкой тестовых целей из сохранённых объектных файлов.
+
+## 2026-11-07 — память направленных газовых связей
+
+По запросу добавлена опциональная история S_ab != S_ba в существующий
+детерминированный averaged CUDA transport. Две компоненты на ребро,
+gather принятой входящей массы/направления, экспоненциальное затухание
+по физическому времени. Закрытые каналы и старые балансовые/энтропийные
+ограничения сохраняются; это не уравнение импульса и не новый источник энергии.
+Тепловые законы, химия, механика, калиброванные сценарии и learned profiles
+не изменялись. Новые strength/tau — некалиброванные коэффициенты замыкания;
+по умолчанию механизм выключен. Направления каналов задаются явно.
+
+CUDA-проверки закона, балансов, retry, restart и временной сходимости прошли.
+Регрессия старого горячего checkpoint 30 батарей 2000–2010 с: 100 шагов,
+точное совпадение физических результатов при отключённой памяти.
+Контрольная стоимость на синтетической сетке 512/1344: около +1.3%,
+не гарантия стоимости полного каскада. Подробности, ограничения и включение:
+`docs/gas-direction-memory.md`. Калибровка в этой работе не запускалась.
+
 ## 2026-10-20 — температурная связность газ–газ
 
 По просьбе пользователя исправлен постоянный коэффициент температурного
@@ -4385,7 +4901,7 @@ late burst. Added committed observation checkpoint1755s, retaining pre-existing
 opening0.005448171733805239, all gas/chemical/solid/electrical states, clocks,
 damage, fracture work and event/history ledgers. No forced T/ignition/new heat.
 
-New opt-in native/tools/transport_suffix_restart.hpp validates FIXED-VOLUME
+New opt-in native/tools/probes/support/transport_suffix_restart.hpp validates FIXED-VOLUME
 conditioned transport changes. Gas compartments/EOS/reaction/inventory exactly
 equal; no shell strength, pores, material, heater or numerical changes. Existing
 surfaces may share local facing body-gas exposure at unchanged total cold G;
@@ -4393,7 +4909,7 @@ existing passage area/hot contact range/mixing changes bounded. The entire
 restored serialized state must equal source bytes before stepping. Existing
 unvented rebase restriction is unchanged, no post-vent remap/reset introduced.
 
-Only native/tools/casing_probe.cpp observer was rebuilt. Static CUDA core
+Only native/tools/probes/casing_probe.cpp observer was rebuilt. Static CUDA core
 libbattery_native_core.a SHA3fbdc158cadd7b9dbdd66e4e04b34b7b2b1dfa20dee88bf5d50ca73443838841
 unchanged; new archived probe SHA4f32bc661db1d7b3ca606796174895a7bbf6141a617643a0bfb2a1026264c426
 at build/calibration-probes/battery_sim_casing_probe-fsri30-conditioned-start-20261024-r1.
@@ -7159,4 +7675,534 @@ continuation fsri30-demo-exhaust-resumed-20261028-r2 targets3000s and captures
 another full state at2000s. This time monitor through completion, not merely
 past the previous failure. Added a strict visual-record join utility: identical
 joint frame, scenario and event prefix required; no interpolated states.
+
+## 2026-10-28 — separate numerical core, run adapters and native UI
+
+Structural refactor from commit 9643b577274dbcbaea9af9f2e1e5d0382ff31298.
+Native code now lives in core / run / visualization / apps / experiments.
+The algorithm has named fracture, thermal and mass-transfer stages; the JSON
+loader and launch overrides are outside core. Public core headers have no UI
+or JSON dependency. Physics, parameters, archived runs and checkpoint layout
+are unchanged. See docs/architecture.md for the reading map and stage order.
+
+Two before/after probes match exactly: the full synthetic 0–2 s reaction case
+(40823 steps), and the existing 30-cell hot checkpoint continued 2000–2010 s
+(100 new physical steps; all compared fields identical).
+The full native and separate headless builds work; recorded cylinders, gas and
+causal aperture replay work. This is implementation-regression evidence, not
+fresh calibration or full-trajectory experimental validation.
+
+56/59 CTest cases pass after relink races were retested. Two physics assertions
+also fail on the ORIGINAL HEAD library and original test/header files; the
+Narada reference test requires a missing retired fixture. No tests disabled,
+no physics changed to hide these failures. Details: docs/refactor-checks-20261028.md.
+UPV model fingerprint now covers every core/run source and header, so future
+modular law changes cannot bypass calibration provenance checks.
+
+## 2026-11-08 — object-local pad presets and live editor preview
+
+Fixed the Assembly selector that previously edited a shared display-material
+label, recolouring every pad without changing conductivity. Pad type now sets
+the selected passive object's isotropic k: 0.06 W/(m K) for starter insulation,
+2 W/(m K) for a conductive pad (the existing UPV TIM working prior). These are
+editable defaults, not new measured properties or calibration results. Capacity,
+damage laws, geometry, contacts, chemistry and archived runs remain unchanged.
+The editor records the assumption, gives the object its own material ID and
+uses an object-local visual override. The compiled solver receives the new k.
+
+Preview follows valid draft changes automatically (150 ms UI coalescing),
+including shape edits and Undo/Redo. Invalid intermediate drafts keep the last
+valid view and show an error. Toolbar wraps and remains above scrolling panels.
+No numerical kernel changes. Checks: editor_document, viewport_input and
+cuda_module_starter passed; hidden CUDA/OpenGL editor startup completed.
+
+## 2026-11-08 — restore demo gas mixing; display counterexchange and cold mixture
+
+The 4x4 generator copied chemistry but omitted all three gas mixing coefficients,
+which defaulted to zero. Added a separate fsri30-gas-transport-preset.json with
+the coefficients and connectivity response from fsri30-wall-delay-full-20261027-r1
+(SHA256 6895d5de718ebec1471a26da90979899fcad1dc61bff2e4ebaca29f67dc8a7cc).
+Diffusivity 0.00018 m2/s, flow fraction 0.7199653716292232, stirring coefficient
+0.20167018038551468, independent lengths 0.02/0.05 m and the original directed
+mixing/surface laws now reach the compiled scenario. These are effective seed
+parameters, not universal gas properties or validation of the new enclosure.
+Only the named network fields and provenance were patched in module-4x4.json;
+geometry, channels, pads, chemistry, heater and solid contact coefficients stay
+unchanged. The generator reproduces the document. Archived runs were not touched.
+
+Rendering now includes equal-mass counterexchange from changes in mixed_mass_kg
+over physical frame time. Opposing soft-tailed markers indicate both directions;
+net flow still follows its signed accepted-mass ledger. Pause is stable, backward
+seek clears rate history, and unknown channel intervals do not invent transport.
+Cold gas is no longer unconditionally hidden; Hot gas only is an optional filter.
+The volume represents total mixture including initial air, NOT a soot tracer or
+an inferred burned-product concentration. Temperature still sets the colour.
+No solver kernels, checkpoint layout or physical time limits changed.
+
+Verification: 16 Python generator/schema tests, native_gas_display, editor_document,
+viewport_input, CUDA module tests and OpenGL render_continuity passed. Isolated
+equal-pressure 800 K gas pulse beside B06, 0.1 s, no heater/R3: neighbouring gas
+rose 51.4485 K with mixing versus 0 K with mixing disabled; B06 cap gained
+0.0846022 J. Energy residual <1e-6 J and mass residual <1e-12 kg. This tests the
+transport path, NOT a full cascade calibration. Hidden GUI smoke reached 3 s.
+
+## 2026-11-08 — fix file-start gas geometry; adiabatic demo case
+
+Found the missing-gas regression in application startup: load_run compiled the
+experiment's generated gas mesh for physics, but load_visual_geometry reread the
+raw contract without generated gas_volume_geometry metadata. Run Snapshot used
+the compiled document and did not have this mismatch. The earlier rendering
+tests used explicitly constructed/compiled geometry and missed this import path.
+
+Added load_scenario_document in the host run adapter. Application startup now
+resolves once and passes the SAME native document to physics and visualization.
+The standalone visual file loader also resolves experiment documents. The visual
+data adapter depends on the host loader; the numerical core stays UI-independent.
+Missing external gas geometry now produces a visible warning instead of silent
+omission. No palette, opacity, mixing or solver-law changes in this correction.
+
+Per user request, the synthetic plastic enclosure is externally adiabatic by
+default: outside h=0 and all six exterior heat-sink boundaries removed. Finite
+wall capacity, k=0.2 W/(m K), gas contacts and closed gas geometry are unchanged.
+The editor accepts h=0, removes old boundaries on update, and defaults NEW cases
+to zero; imported nonzero user settings are preserved. Generator and contract
+match. This is a deliberate boundary-condition change, not fitted calibration.
+
+Checks: 16 Python generator/schema tests; CUDA module, editor_document and
+viewport_input passed. OpenGL regression now loads the actual module FILE at
+the UI opacity of 0.24: 624 mapped gas regions, 9320 changed pixels at 298.15 K
+and 19241 at 400 K in a 360x280 render, versus gas hidden. CUDA tests additionally
+check cooling on/off and preservation of wall material and internal gas heating.
+Archived trajectories and calibrations were not modified.
+
+### 2026-11-08 — editor element deletion and generic duplication
+
+Added transactional contract-level element deletion, toolbar Delete and guarded
+keyboard Delete, with existing draft Undo/Redo and automatic preview updates.
+Deletion cleans dependent ports, interfaces, gas routes/local pores, boundaries,
+drives and heater controllers. Observation records remain, with deleted mappings
+reset to unknown. Shared models remain untouched; no automatic circuit bypass or
+new exterior gas outlet is inferred. Invalid results leave the draft unchanged;
+the last battery is retained to satisfy the current contract.
+
+Renamed the battery-only action to Duplicate element and added passive-object
+copying. Battery copying now preserves all local pore volumes and internal gas
+channels instead of copying just the primary gas compartment. These are editor
+operations only: no solver laws, run coefficients or archived runs changed.
+
+Verification: editor_document, viewport_input and CUDA module starter passed
+(3/3). Regressions cover pad/heater/wall/battery deletion, 27-pore cleanup and
+duplication, duplicate/delete topology roundtrip, measurement unmapping,
+Undo/Redo and stale sidecar cleanup. Hidden GUI startup with the actual default
+contract confirmed Delete and Duplicate element controls render correctly.
+
+### 2026-11-08 — mouse-placed case openings and separate flow-marker opacity
+
+Added explicit circular/rectangular openings to gas-mesh contracts and the Case
+editor. Wall ray picking yields world coordinates; placement/edit/delete use
+validated immutable draft replacements and normal Undo/Redo. New cases and the
+synthetic 4x4 starter receive a central top circle (20 mm diameter, limited on
+small cases). Imported cases without openings remain closed. Wall exterior h
+remains zero; this change opens mass/enthalpy exchange, not a wall heat sink.
+
+Analytic circle/rectangle intersection assigns each hole's area to immediately
+adjacent gas cells. The existing CUDA ambient operator supplies pressure-driven
+exhaust/inlet with oxygen and enthalpy ledgers; no forced renewal is introduced.
+Removed plastic is subtracted from wall capacity and effective gas contact area.
+Throat gas volume is neglected (collapsed-aperture approximation); no CFD or new
+kinetic parameter added. Materials, reaction laws and archived runs unchanged.
+
+The renderer cuts holes through case wall volumes and outlines them. Flow puffs
+remain annotations of graph transport, not gas concentration: their opacity is
+now independent of volumetric gas and defaults to 0.2, so the volume dominates.
+
+Checks: 16 Python generator/schema tests; module/editor/input/ambient CUDA tests;
+OpenGL hole-mask and world-space picking regressions plus cold/hot volume render.
+Module checks cover local-only routing, exact aggregate area on 40/20/10 mm grids,
+multi-face/multiple shapes, overlap/bounds rejection, retained holes after case
+updates, material-volume removal and actual inward/outward exchange with mass,
+oxygen and thermal residuals bounded. No full runaway trajectory claimed here.
+
+### 2026-11-08 — fix silent opening-template edits
+
+The Case panel initially had no selected opening, although a default hole was
+already present. Its unlabelled shape/diameter inputs edited a future-placement
+template and returned without changing the document. This was a UI selection
+bug, not failed gas-mesh recompilation.
+
+Existing openings now auto-select on entering a case. Creating a new opening is
+an explicit New opening mode, visibly distinct from EDITING <id>. A small UI
+selection model synchronizes property fields after document edits, Undo/Redo and
+case switches without erasing unfinished invalid numeric input. Validation errors
+are shown beside the fields. No physical parameters or solver laws changed.
+
+Regressions cover initial selection, explicit creation, source synchronization,
+diameter/rectangle edits reaching both compiled visual geometry and ambient gas
+area, Undo/Redo, and actual OpenGL pixel changes for size and shape edits.
+
+### 2026-11-08 — uniform masked gas lattice and live Kawasaki alternative
+
+User requested an alternative CUDA pair transport with physical time and retained
+directional history, then specified a uniform gas grid with impermeable masks.
+The enclosure compiler now lays out a regular lattice before obstacle clipping.
+Exact fluid volumes, open face areas and solid contact areas are retained;
+disconnected pieces of one slot are not merged through thin pads. Empty/solid
+slots have no mobile inventory. Internal pore/thermal bindings are unchanged.
+Both transport methods run the same resulting graph. Old compiled experiments,
+reaction/material coefficients, thermal mesh and calibrated seeds were not edited.
+
+The new colored CUDA operator has one bounded stochastic proposal per disjoint
+pair per half sweep, a forward/reverse schedule and physical pressure-flow time
+scaling. It transports sensible enthalpy, fuel, oxygen, vapor and phase-reference
+energy together. Existing physical momentum/paid kinetic reservoirs are retained
+when configured, including live switches and checkpoints. The demo's scalar
+ambient opening still does not support momentum; this pre-existing restriction
+is displayed, not silently bypassed. No CPU MC implementation was introduced.
+
+R3 uses symmetric local splitting in this alternative; it is not the averaged
+network's simultaneous reactive throughflow. The latter's advective film-energy
+correction must not be applied again to already transported packets. The full
+rupture regression caught this integration error and now passes after separating
+that correction; gas-solid contact laws and implicit mixing remain active.
+
+The GUI selector changes the operator between committed steps without remeshing
+or resetting inventories. It records method-change events and shows compute/UI
+speed relative to realtime and ms per physical step, reset on method changes.
+
+Checks: CUDA inventory/kinetic/oxygen balances, closed barriers, retries,
+checkpoint continuation, live switches both ways, 32-seed physical-time ensembles
+at 1/0.5/0.25 ms, generated-module hot gas and pressure-driven rupture, regular
+spacing and face-only adjacency, free-volume/contact-area invariance under
+refinement, 16 generator/schema tests, editor/input/display regressions, shared
+pressure/mixing tests, OpenGL rendering and a hidden full GUI launch. Rupture
+test thermal residual ~4.7e-9 J and mass residual ~2.2e-16 kg. No full-cascade
+recalibration or validation claimed. Synthetic 512-node pressure-only timing
+showed ~2.6x lower median wall time; this is not a full-module speed guarantee.
+The small physical-time ensemble still has several-percent sampling uncertainty.
+See docs/kawasaki-gas-transport.md for numerical approximations and restrictions.
+
+2026-11-08 — restore the full gas-to-can law in the laboratory module.
+User requested restoration after an audit found that the demo copied the FSRI
+gas endpoint temperature table but replaced its reference contact geometry with
+generic h=10, logit=0, active=1.98*Gref. The archived source
+data/development/fsri30-wall-delay-full-20261027-r1/scenario.json (SHA256 recorded
+in examples/contracts/fsri30-gas-transport-preset.json) uses cold h=20,
+logit=-ln(59), active=59.4*Gref for battery surfaces. Temperature amplification
+at 773.15 K is ~4.00 instead of ~1.61; with the reference scale restored, the
+same exposed area has ~4.96x the former hot conductance. No unbounded multiplier
+or new physics was introduced.
+
+Added optional battery_surface_connectivity_per_m2 to the enclosure gas-mesh
+contract. It scales the complete supplied law by exact exposed contact area,
+only for battery casing panels, preserving the existing directed endpoint laws.
+Case walls, pads, heater, chemistry, shell thickness, capacities, internal
+insulation, holes, flow solver and time constraints remain unchanged. The saved
+demo, reproducible generator and sourced preset agree; editor case reconstruction
+preserves the law. This is an explicitly requested parameter transfer, NOT a
+new fit or a claim that the 4x4 cascade is validated.
+
+Verification: 16 Python generator/schema tests; CUDA module starter (both gas
+backends, hot pulse and actual pressure-driven rupture), editor document and
+implicit gas/surface exchange tests all pass. New regression checks exact hot
+and cold law values on every patch, unchanged capacities/contact topology,
+unchanged passive contacts, editor persistence and integrated conductance
+invariance on 40/20/10 mm gas grids. No archived runs overwritten.
+
+2026-11-08 — editable apparatus cutoff requested by user.
+Heater creation now accepts explicit cutoff temperature/rise rate, and the
+Heating panel exposes Celsius controls on each existing controller. Existing
+constant heaters can gain a latched cutoff without changing their power. This
+reuses HeatingProtocol with zero proportional gain/ramp; zero cutoff rate now
+explicitly means temperature-only, including an initially hot or cooling sensor.
+Positive-rate cutoff semantics and every saved calibration remain unchanged.
+No material, reaction, gas, or heat-transfer parameter changes. Contract/schema
+validation accepts nonnegative gain/ramp/rate and rejects negative values.
+
+### 2026-11-08 — gap geometry correction and independent shell plate properties
+
+Diagnosis on the synthetic 4x4 starter, removing ISS-B05-B06: its exact 1848 mm3
+was restored, but rectangular-lattice aggregation assigned a 20 mm mixing length
+to fluid centroids about 1.1 mm apart. Face-connected L-shaped fragments were
+also merged into one inventory around battery corners. This was a mesher defect,
+not evidence for retuning gas conductivity or chemistry.
+
+The compiler now merges only rectangular unions within each background slot,
+retains finite channels between its other connected subvolumes, and uses actual
+fluid-centroid distances for mixing/inertial lengths. Exact free volume, contact
+area, masks and physical-time CUDA operators are preserved. Runtime graph costs
+may increase because formerly collapsed inventories are now distinct. Archived
+compiled scenarios are untouched; new contracts must recompile and restart.
+
+Controlled CUDA comparison: initial B05/its shell 373.15 K, others 298.15 K,
+equal-pressure gas, heaters off, R1/R2 and evaporation suppressed at 1e-30/s,
+R3 off. These are THERMAL DIAGNOSTICS, not calibrated explosion trajectories.
+Heat received from gas by B06:case:-x over 10 seconds (J):
+
+| Gas grid | Before | Corrected |
+| --- | ---: | ---: |
+| 40 mm | 2.16151 | 3.10219 |
+| 20 mm | 4.42868 | 5.92936 |
+| 10 mm | 4.88062 | 5.70072 |
+| 8 mm | 5.39508 | 5.38950 |
+
+Corrected internal B06 stored-energy increases: 0.49170 / 0.78994 / 0.78700 /
+0.76773 J respectively. Thermal residuals below 2.1e-9 J. 40 mm remains too
+coarse; 20-to-8 mm face heat still differs about 10%, so full mesh convergence
+or runaway calibration is NOT claimed. Four compile+10 s CUDA diagnostics took
+16 wall seconds locally; this is not a full-runaway speed benchmark.
+Diagnostic sources/results at /tmp/gap-geometry-audit.cpp,
+/tmp/gap-geometry-audit-runs.jsonl, /tmp/gap-geometry-fixed.jsonl.
+Regression coverage now checks rectangular fluid supports, same-slot adjacency,
+actual transport lengths, thin-pad removal and unchanged free volume/contact area.
+
+Shell audit: six physical plates already existed, with independent thermal
+damage; per-face material overrides previously omitted density, cp and thickness.
+Added these properties and exact nonoverlapping unequal-thickness corner/seam
+geometry. No default material numbers or reaction parameters were retuned.
+CUDA tests cover per-plate rho*cp*V, independent tangential mesh, all contact
+weights, selective face damage and energy conservation. The viewer no longer
+projects one channel's maximum damage onto the entire prismatic contents body;
+the plate volume pass displays local face damage. Cylindrical hidden-shell proxy
+rendering retains its prior approximate aggregate treatment.
+
+Checks: 17 Python schema/generator tests, cuda_physical_shell,
+cuda_module_starter (including hot-gas and rupture tests on network and MC),
+editor_document, OpenGL render_continuity (local plate damage + no body-wide
+damage projection + real module gas rendering) passed. No full cascade fit done.
+
+## 2026-11-09 — planar shell tiles aligned with contents
+
+The six casing objects are face/material containers, not six thermal nodes.
+For 3x3x3 contents the default remains 54 one-layer planar tiles. Audit found
+that equal division counts previously divided the *corner-expanded* face
+uniformly, shifting tangential cuts relative to contents. Shared host geometry
+now preserves contents cuts (or integer refinements); only boundary tiles own
+corner strips. Explicit nonmultiple/coarser shell counts are rejected.
+
+Per-tile capacities use actual rho*cp*V; in-plane links use actual centre
+distances and shared areas. Contact intersection ignores ulp-wide numerical
+slivers at coincident cuts. Local pore ownership supports refined shell tiles;
+valves, discharge positions and channel areas use the same grid. Local
+channels retain the prohibition on the legacy whole-face surface shortcut.
+Legacy whole-panel aperture/work reductions now weight actual areas, not tile
+counts. Constitutive laws, material/chemistry parameters and timestep bounds
+are unchanged. Default tile count is unchanged; no new CUDA synchronizations
+or transport iterations were introduced.
+
+Viewer interpolation uses actual edge-tile centres and destruction cuts.
+No restart or replacement of the user's running GUI was performed. Existing
+checkpoints/recordings are not reinterpreted as this corrected geometry; use a
+fresh Run snapshot. This is a geometry/numerics correction, not recalibration
+or a claim of full cascade validation.
+
+Checks include 3x3x3 -> 54 tiles; unequal face thickness/rho/cp; 6x9x3 refined
+shell with one adjacent contents volume per tile and conserved seam areas;
+9x9 top-face contract with 81 local outlets, correct pore ownership, conserved
+area and one valve; rejection of 4x3x3 shell over 3x3x3 contents; CUDA selective
+face damage and energy balance. Physical-shell, module-starter, aperture,
+shell-opening, stochastic-shell, area-rupture and leading-aperture regressions
+passed, as did 17 Python schema/generator tests and OpenGL continuity checks.
+
+## 2026-11-09 — connected load-driven shell front
+
+User clarified that a physical face must rupture coherently but locally, not
+with a shared uniform opening fraction. Added opt-in `whole_plate` mechanics:
+local pressure/residual-strength nucleation, edge-connected high-load frontier,
+irreversible local opening, analytical within-step tile/weak-region crossings.
+Thermal tiles and gas sources remain local. Existing fracture-energy ledger and
+pressure unloading remain active; no new fitted chemical/material parameters.
+The editor and starter top/bottom lids enable this closure. Legacy contracts
+without the flag keep their earlier law. No historical seed or experiment data
+was removed, no calibration rerun, no full-cascade validation claimed.
+
+Uniform-pressure total area is independent of 1/9/16 thermal subdivisions in
+the isolated CUDA check. Nonuniform load still has spatial-discretization error:
+this is a reduced connected-area front, not resolved elastic fracture. Prepared
+steps roll back, fracture spending is limited jointly per donor, and unloading
+arrests the front. Renderer uses a soft translucent ragged plate mark, no black
+disk and no animated flow lines. Contour roughness is display-only, fixed in
+plate coordinates, not a new physical randomness source.
+
+Verification: four final CUDA CTests passed (`cuda_plate_front`,
+`cuda_leading_aperture`, `cuda_coarse_aperture_retry`, `cuda_module_starter`).
+The front test includes frozen-load time refinement, 1/9/16-tile area checks,
+local nucleation/gradient/arrest, shared-donor energy affordability across two
+faces, discard isolation and bitwise checkpoint continuation. Seventeen Python
+schema/generator tests passed. OpenGL continuity/gas/damage tests passed with
+new assertions for visible translucent, nonblack, pause-stable rupture marks;
+the updated editor completed a three-frame hidden startup. No full cascade or
+new performance benchmark was run.
+
+## 2026-11-09 — global R3 model and explicit editor forms
+
+Removed recursive JSON property trees from ordinary editor tabs. Models starts
+with one global R3 form; battery R1/R2 stays separate. Connections, cooling,
+circuit and run settings use labeled, unit-bearing forms with one selected
+record rather than hundreds of expandable gas compartments. Raw JSON remains
+an explicit technical tab. No solver kernels, gas paths, calibration parameters
+or protected module-4x4.json were changed by this UI work.
+
+Added optional gas_network.combustion contract override. It applies to every
+compiled gas compartment, including case-generated volumes. Legacy documents
+without it retain their local laws; viewing Models is nonmutating. Replacing
+heterogeneous imported R3 laws requires explicit confirmation. Invalid model
+input stays isolated from the accepted editable document. Under the shared
+model, vapor_fuel_heat_j_kg also owns the liquid pseudo-species chemical reserve
+at snapshot compilation, ensuring the same fuel energy before/after evaporation.
+No heat capacities, latent heat, liquid mass or stored battery templates change.
+
+Verification: actual ImGui keyboard input and 280/420/620-pixel layout checks;
+global override on generated and internal volumes; invalid-input isolation;
+legacy confirmation; fuel reserve consistency; JSON roundtrip; one real CUDA
+step with mass, thermal and chemical ledger checks. Existing battery-form,
+model-isolation and heater-card tests passed; 15 Python schema tests passed;
+three-frame hidden OpenGL editor startup passed. No full cascade/calibration or
+new performance claim. Protected module SHA256 remains
+0d5c50637ba8b64c71b072a1d692ecd4e4960149e5d1d64f6cae73d63125399d.
+
+## 2026-11-09 — cylindrical heater mounting and cutoff display
+
+User requested a side-wrapped foil or circular end heater, model-level cylinder
+selection, visibility control and a black outline after cutoff. Added explicit
+mounting of one lumped isothermal heater to four lateral shell faces or one end
+face. Conductance is scaled by true cylindrical area; the existing per-area
+contact law, total capacity, one power source and controller are retained.
+Host mesh construction has an opt-in lumped_heater mapping to receiver patches;
+it preserves normalized weights, finite receiver half-cell resistance and the
+existing connectivity law. No CUDA transport/chemistry law was changed.
+
+The sleeve is open at both ends; disk is a thin circular proxy. Show heater
+affects visibility/picking only. Committed HeatingProtocolState is captured in
+live frames; a latched cutoff changes yellow outlines to black. Zero controller
+power does not imply cutoff. Old recordings without controller state are not
+retrospectively assigned inferred cutoff times. Shape edits in Models update all
+referencing numerical surrogates; Assembly remains instance-local. Mounts follow
+supported axis-aligned cylinder resizing; a mounted sleeve must be removed before
+changing to a prism. Unknown legacy per-face gas paths are not regenerated.
+
+New separate artifact examples/contracts/fsri30-shell-020mm-wrap.json uses the
+archived wall-delay-full seed, 0.2 mm shells and wrapped B10. Heater controller,
+R1/R2/R3 and explicit gas graph are retained; contact geometry changes, therefore
+historical trajectories are not validated predictions for this variant. The
+original archive, fsri30-shell-020mm.json and protected module-4x4.json are intact.
+
+Checks: cylindrical/disk areas and remount consistency; one donor and normalized
+conductance per interface; identical integrated effective conductance after 2x
+surface refinement; CUDA heating of all four lateral shell faces; mass/chemical/
+thermal conservation; committed cutoff; GL image visibility and yellow-to-black
+outline. Four CTests passed (cylinder heater, heater forms, heating protocol,
+core-shell), model form/input-isolation tests passed, 15 schema tests passed.
+Full FSRI30 editor completed a hidden three-frame CUDA/OpenGL startup. No full
+cascade rerun, calibration or performance claim.
+
+# 2026-11-09 — общий редактор отверстий, включая импортированный кейс
+
+- Исправлена причина отсутствия отверстий в FSRI30: исходный импорт содержал
+  физические стенки/каналы, но не регистрацию кейса для редактора. Case больше не
+  требует генерируемую gas_meshes-сетку: общий API обслуживает и явные сети.
+- Миграция старого FSRI-файла отдельная, без изменения физического снимка.
+  Добавлены координаты пропущенных внутренних газовых объёмов из исходного
+  алгоритма разбиения, не новая сетка. Исходное отверстие 25.4 мм распознаётся.
+- Пересечение отверстия с газовыми объёмами с двух сторон сохраняет площадь;
+  нельзя размножать полную площадь тепловой плитки по нескольким газовым контактам.
+  Тепловые контакты восстанавливаются по фактическому пересечению и исходному
+  удельному закону; закрытие отверстия возвращает доступную площадь.
+- Проверены шесть граней, круг/прямоугольник/перенос/несколько отверстий/закрытие,
+  Undo/Redo, возврат исходной конфигурации, произвольный ID закрытого кейса без
+  FSRI-адаптера, тепловая площадь и короткий CUDA-баланс. CTest
+  cuda_imported_enclosure и editor_document прошли (28.83 с суммарно).
+  Скрытый запуск GUI на 3 кадра прошёл. Полный новый физический опыт не запускался.
+- module-4x4.json, FSRI-контракты и архивный scenario.json не переписывались.
+
+## 2026-11-09 — реальный ввод мышью в общем редакторе отверстий
+
+- Разделены Add opening (сразу создаёт отверстие в свободном месте выбранной
+  грани) и Place with mouse (явный режим размещения кликом). При создании клик
+  в существующее отверстие больше не подменяется молчаливым выбором старого.
+  Ошибки размещения показываются непосредственно у инструмента.
+- Режим размещения не сдвигает 3D-превью; стенки временно становятся видимыми,
+  даже если их отображение было выключено. Esc отменяет размещение.
+- Генерируемые и импортированные кейсы используют общую форму. Поля, которые
+  нельзя изменять без перестройки импортированной сети, отключены, а не скрыты.
+  Изменение отверстий не сбрасывает незавершённый ввод свойств стенки.
+- Добавлен cuda_case_opening_ui: настоящие ImGui mouse-down/up, производственный
+  raycast и проверка добавленной физической геометрии на обычном кейсе и FSRI30.
+  Проверяется также неподвижность превью и видимая ошибка неверного размещения.
+  Тест прошёл на обоих кейсах; файлы контрактов не изменялись. Это проверка UI
+  и сборки сети, не новый калибровочный прогон.
+
+## 2026-11-09 — импорт, внешняя газовая визуализация, диагностика R2
+
+- Browse теперь запрашивает импорт выбранного JSON, а не только меняет строку
+  пути. Enter в строке и Import используют тот же маршрут. Несохранённые поля
+  модели тоже требуют подтверждения. До замены документа проверяются контракт
+  и тепловая сетка; неудача оставляет прежний документ и видимую ошибку. При
+  успешном импорте сбрасываются кэши форм и старый ожидающий запуска снимок.
+- Фильтр наружного газа больше не опирается на размер газового элемента.
+  Генерируемые и явные кейсы дают геометрические границы для отображения;
+  пересекающие стену объёмы обрезаются только визуально. Перекрывающиеся кейсы
+  не удваивают непрозрачность. Старые записи с шестью явными стенками используют
+  их плоскости. Перенос массы, энергии, R3 и кислорода снаружи не отключается.
+  На FSRI30 видны 72 внутренних участка, 1590 наружных скрыты по умолчанию;
+  в пользовательском 4x4 все 969 отображаемых участков находятся внутри.
+- Панель показывает имя реально запущенного снимка, среднюю температуру
+  содержимого, диапазоны внутри и на оболочке, R2 без округления до десятых,
+  остаток химэнергии и состояние/мощность нагревателя. Импорт редактора не
+  подменяет уже идущую симуляцию; новый запуск требует RUN SNAPSHOT.
+- Проверка исходного fsri30-shell-020mm-wrap.json без изменения параметров:
+  t=500 с, B10 mean=155.44 C, max=158.89 C, R2=9.118 W;
+  t=600 с, mean=880.55 C, max=938.90 C, spent, выделено 39927.46 Дж.
+  Cutoff нагревателя на 559.898 с. Остатки баланса на 600 с:
+  тепловой -1.13e-7 Дж, химический 8.38e-9 Дж. Отсутствие реакции выше 200 C
+  на исходном файле не воспроизвелось; состояние несохранённого GUI-снимка
+  неизвестно. Это диагностика, не новая калибровка или валидация каскада.
+  Прогон остановлен после 600 с; JSONL в /tmp/battery-heating-wrap-20261109.jsonl.
+- Добавлены проверки реального выбора файла мышью, успешной смены превью,
+  атомарного отказа и защиты черновика; тесты отсечения газа на обоих кейсах.
+  Химические законы и пользовательские JSON не менялись.
+
+### 2026-11-09 — общий фронт оболочки и цилиндрическая визуализация прорыва
+
+- Причина расхождения: в импортированном FSRI30 90 верхних каналов имели
+  `deterministic_aperture` без `whole_plate`, в отличие от новых граней редактора.
+  Компилятор теперь объединяет полностью описанные грани в тот же связный фронт.
+  Не вводились отдельные законы повреждения для цилиндров. Частичные апертуры,
+  явный legacy opt-out и архивные native-сценарии не переписываются.
+- В рендерере маска скрытых плоских оболочек ошибочно скрывала также клапаны и
+  прорывы цилиндров. Убрано только это подавление overlays. Общая маска рваного
+  отверстия проецируется на торец/бок; concentric square-to-disk не схлопывает
+  угловые треугольники. Нормаль и визуальный отступ вычисляются после проекции,
+  чтобы поверхность не мерцала и не проваливалась в цилиндр. Газовые anchors
+  используют ту же геометрическую карту. Физические площади и объёмы неизменны.
+- OpenGL-регрессия проверяет видимость отверстия на торце и боку, закрытого
+  клапана, стабильность на паузе и сохранение прежней визуализации призм.
+  Геометрическая регрессия проверяет 180 поверхностей, нормали, отступы и
+  отсутствие схлопнутых треугольников. Импорт проверяет все 90 каналов:
+  меняется только флаг общего фронта, не параметры и не пути.
+- CUDA plate-front: локальное зарождение, связное распространение по нагрузке,
+  остановка при разгрузке, сходимость dt/сетки, rollback/checkpoint и баланс
+  энергии/массы прошли. CUDA-инициализация импортированного опыта и проверки
+  импорта/редактора отверстий также прошли. Это регрессии, не перекалибровка
+  полного каскада: старая траектория после смены режима фронта не подтверждена.
+- Пользовательские JSON, включая module-4x4.json, не менялись. Рабочие GUI
+  с возможными несохранёнными правками не закрывались.
+
+### 2026-11-09 — отдельная визуализация горения газа
+
+- Добавлен слой `R3 flames` с независимым `Flame intensity`. Горячая смесь
+  сохраняет температурную палитру; редкие полупрозрачные оранжево-светлые
+  языки обозначают локальное горение. Можно скрыть дымку, оставив только R3.
+- Источник — прирост неподвижного локального ledger `released_energy_j`
+  за физическое время между наблюдениями. Нормировка по свободному объёму,
+  в старой записи без него — по объёму сценария. Это усреднённая локальная
+  мощность, не привнесённое горячим газом тепло и не накопленная энергия.
+  Первое наблюдение/seek не выдумывает скорость; на паузе рисунок сохраняется.
+  Записи без R3 ledger не получают искусственного пламени по температуре.
+- Визуальная фактура условная, не CFD и не восстановленный фронт реакции.
+  Она использует тот же проход по объёму, маски батарей/кейса и глубину, что газ.
+  Дополнительных физических шагов, частиц или изменений реакций нет.
+- Регрессии: горячая смесь без R3, локальность мощности, нормировка времени
+  и объёма, пауза/seek/затухание; OpenGL — видимость, анимация, выключение
+  слоя и отсутствие пламени после прекращения реакции. Пользовательские
+  конфигурации и ядро не менялись.
 

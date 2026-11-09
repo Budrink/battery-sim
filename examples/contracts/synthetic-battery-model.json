@@ -1,0 +1,92 @@
+{
+  "format": "battery-sim.battery",
+  "version": 1,
+  "id": "synthetic-cell",
+  "revision": "1",
+  "provenance": {
+    "status": "synthetic",
+    "notes": "Existing reaction-chain-demo coefficients; not a commercial battery or calibrated chemistry."
+  },
+  "geometry": {
+    "kind": "prismatic",
+    "dimensions_m": [
+      0.02,
+      0.02,
+      0.02
+    ]
+  },
+  "contents": {
+    "material_id": "synthetic-contents",
+    "thermal": {
+      "heat_capacity_j_per_k": 10,
+      "conductivity_w_per_m_k": [
+        1,
+        2,
+        2
+      ],
+      "bulk_connectivity": {
+        "kind": "directed_geometry",
+        "background_factor": 1,
+        "active_factor": 0,
+        "destroyed_background_factor": 1,
+        "destroyed_active_factor": 0
+      }
+    },
+    "conversion": {
+      "chemistry": "r1-r2-r3",
+      "mass_kg": 0.004,
+      "reactant_cp": 1000,
+      "activated_cp": 1000,
+      "residue_cp": 1000,
+      "degradation_rate_per_s": 0.02,
+      "degradation_reference_k": 300,
+      "degradation_activation_j_per_mol": 20000,
+      "reaction_rate_per_s": 3,
+      "reaction_reference_k": 500,
+      "reaction_activation_j_per_mol": 120000,
+      "net_heat_j_per_kg": 200000,
+      "gas_yield": 0.2,
+      "gas_yield_max": 0.6,
+      "gas_yield_reference_k": 500,
+      "gas_yield_temperature_per_k": 0.001,
+      "gas_yield_density_exponent": 0.3,
+      "gas_chemical_fraction": 0.25,
+      "residue_conductivity": [
+        0.2,
+        0.3,
+        0.4
+      ]
+    }
+  },
+  "shell": {
+    "material_id": "synthetic-case",
+    "thickness_m": 0.001,
+    "density_kg_m3": 1200,
+    "specific_heat_j_kg_k": 1000,
+    "conductivity_w_per_m_k": [
+      0.2,
+      0.2,
+      0.2
+    ],
+    "contents_contact_h": 2,
+    "seam_contact_h": 5,
+    "damage_onset_k": 650,
+    "damage_rate_per_s": 0,
+    "damage_scale_k": 25,
+    "destroyed_conductance_factor": 0.02
+  },
+  "vents": [
+    {
+      "id": "top",
+      "port_suffix": "case:+z:outer",
+      "channel": {
+        "kind": "rupture",
+        "area_m2": 1e-7,
+        "opening_pressure_pa": 10000,
+        "strength_reference_k": 300,
+        "strength_temperature_scale_k": 300,
+        "discharge_coefficient": 0.7
+      }
+    }
+  ]
+}

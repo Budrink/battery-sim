@@ -1,0 +1,122 @@
+{
+  "source": "data/development/fsri30-wall-delay-full-20261027-r1/scenario.json",
+  "source_sha256": "6895d5de718ebec1471a26da90979899fcad1dc61bff2e4ebaca29f67dc8a7cc",
+  "scope": "Fitted FSRI30 proxy material/chemistry seed; not an independent validation of the prismatic demo. No archived fixture gas routes.",
+  "reference_volume_m3": 1.5714831041713566e-05,
+  "thermal": {
+    "heat_capacity_j_per_k": 41.77994831019691,
+    "conductivity_w_per_m_k": [
+      1.0,
+      1.0,
+      20.0
+    ],
+    "bulk_connectivity": {
+      "kind": "directed_geometry",
+      "background_factor": 0.01,
+      "active_factor": 1.98,
+      "destroyed_background_factor": 1.0,
+      "destroyed_active_factor": 0.0
+    }
+  },
+  "conversion": {
+    "chemistry": "r1-r2-r3",
+    "mass_kg": 0.025,
+    "reactant_cp": 1000.0,
+    "activated_cp": 1000.0,
+    "residue_cp": 800.0,
+    "net_heat_j_per_kg": 1931999.9999999998,
+    "degradation_rate_per_s": 1e-06,
+    "degradation_reference_k": 400.0,
+    "degradation_activation_j_per_mol": 80000.0,
+    "reaction_rate_per_s": 0.00015594988490846484,
+    "reaction_reference_k": 450.0,
+    "reaction_activation_j_per_mol": 100000.0,
+    "precursor_yield": 0.42,
+    "gas_yield": 0.17325,
+    "gas_yield_max": 0.17325,
+    "gas_chemical_fraction": 0.5652173913043478,
+    "residue_conductivity": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "volatile_phase": {
+      "initial_mass_kg": 0.003,
+      "liquid_cp": 1800.0,
+      "density_kg_m3": 1200.0,
+      "latent_j_per_kg": 500000.0,
+      "boiling_temperature_k": 400.0,
+      "saturation_reference_pa": 101325.0,
+      "vapor_specific_r": 287.0,
+      "relaxation_per_s": 10.0,
+      "chemical_j_per_kg": 3500000.0
+    }
+  },
+  "shell": {
+    "material_id": "steel-can-PROXY",
+    "thickness_m": 0.00018,
+    "density_kg_m3": 7800.0,
+    "specific_heat_j_kg_k": 500.0,
+    "conductivity_w_per_m_k": [
+      15.0,
+      15.0,
+      15.0
+    ],
+    "contents_contact_h": 499.99999999999983,
+    "seam_contact_h": 1000.0,
+    "damage_onset_k": 450.0,
+    "damage_rate_per_s": 0.001,
+    "damage_scale_k": 40.0,
+    "destroyed_conductance_factor": 0.1,
+    "face_materials": {
+      "+z": {
+        "material_id": "cap-low-conductivity-PROXY",
+        "conductivity_w_per_m_k": [
+          0.05,
+          0.05,
+          0.05
+        ]
+      }
+    },
+    "contents_connectivity_per_m2": {
+      "kind": "directed_geometry",
+      "background_conductance_w_per_k": 5.0,
+      "active_conductance_w_per_k": 990.0,
+      "geometry_reference_logit": -1.4008710880338169,
+      "interface_damage_log_response": 4.44539352575724,
+      "damage_onset_k": 423.15,
+      "damage_rate_at_onset_per_s": 1e-07,
+      "damage_temperature_scale_k": 5.0,
+      "endpoint_damage_weight": 0.0,
+      "destruction_damage": 1.0,
+      "destroyed_background_conductance_w_per_k": 950.0,
+      "destroyed_active_conductance_w_per_k": 0.0
+    }
+  },
+  "vent": {
+    "kind": "rupture",
+    "opening_pressure_pa": 600000.0,
+    "strength_reference_k": 298.15,
+    "strength_temperature_scale_k": 1000.0,
+    "discharge_coefficient": 0.7,
+    "damage_opening": {
+      "mode": "deterministic_aperture",
+      "area_rate_per_s": 5.0,
+      "pressure_exponent": 1.0,
+      "max_damage_step": 0.005,
+      "fracture_energy_j_per_m2": 500.0
+    }
+  },
+  "r3": {
+    "reaction_rate_per_s": 1.8,
+    "reaction_reference_k": 600.0,
+    "reaction_activation_j_per_mol": 80000.0,
+    "oxidizer_heat_j_per_kg": 13100000.0
+  },
+  "gas_material": {
+    "reference_temperature_k": 298.15,
+    "cv_j_per_kg_k": 1000.0,
+    "specific_r_j_per_kg_k": 287.0,
+    "vapor_fuel_heat_j_kg": 3500000.0
+  }
+}

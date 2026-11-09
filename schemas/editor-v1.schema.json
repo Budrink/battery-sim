@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "experiment_id"
+  ],
+  "properties": {
+    "format": {
+      "const": "battery-sim.editor"
+    },
+    "version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{1,128}$"
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_m",
+        "distance_m",
+        "yaw_rad",
+        "pitch_rad"
+      ],
+      "properties": {
+        "target_m": {
+          "$ref": "scenario-v0.schema.json#/$defs/vector3"
+        },
+        "distance_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "yaw_rad": {
+          "type": "number"
+        },
+        "pitch_rad": {
+          "type": "number",
+          "minimum": -1.5707963267948966,
+          "maximum": 1.5707963267948966
+        }
+      }
+    },
+    "hidden_objects": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_-]{1,128}$"
+      }
+    },
+    "layout": {
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://battery-sim.local/schemas/editor-v1.schema.json",
+  "title": "Non-physical editor sidecar"
+}

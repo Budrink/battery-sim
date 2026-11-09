@@ -1,0 +1,4 @@
+add_executable(battery_sim_headless native/apps/headless/main.cpp)
+add_executable(battery_sim_compile_experiment native/tools/contracts/compile_experiment.cpp)
+target_link_libraries(battery_sim_compile_experiment PRIVATE battery_run nlohmann_json::nlohmann_json)
+target_link_libraries(battery_sim_headless PRIVATE battery_native_core battery_run)

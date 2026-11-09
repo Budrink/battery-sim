@@ -1,0 +1,34 @@
+{
+  "source": "data/development/fsri30-wall-delay-full-20261027-r1/scenario.json",
+  "source_sha256": "6895d5de718ebec1471a26da90979899fcad1dc61bff2e4ebaca29f67dc8a7cc",
+  "scope": "Effective gas mixing and full gas-to-battery surface law from the FSRI30 fit; not universal material constants and not validation of the 4x4 module. Battery surface conductances are normalized per square metre and applied only to exposed casing. No routes, areas, exterior outlets, pad or case-wall coefficients transferred.",
+  "battery_surface_connectivity_per_m2": {
+    "kind": "directed_geometry",
+    "geometry_reference_logit": -4.07753744390572,
+    "background_conductance_w_per_k": 0.2,
+    "active_conductance_w_per_k": 1188.0,
+    "destroyed_background_conductance_w_per_k": 20.0,
+    "destroyed_active_conductance_w_per_k": 0.0,
+    "endpoint_damage_weight": 0.0
+  },
+  "network": {
+    "mixing_diffusivity_m2_s": 0.00018000000000000004,
+    "mixing_flow_fraction": 0.7199653716292232,
+    "thermal_stirring_coefficient": 0.20167018038551468,
+    "mixing_length_cap_m": 0.05,
+    "thermal_stirring_length_m": 0.02,
+    "mixing_connectivity": {
+      "kind": "directed_geometry",
+      "geometry_reference_logit": 0,
+      "background_conductance_w_per_k": 0.01,
+      "active_conductance_w_per_k": 1.98,
+      "destroyed_background_conductance_w_per_k": 1,
+      "destroyed_active_conductance_w_per_k": 0,
+      "endpoint_damage_weight": 0
+    },
+    "surface_connectivity": {
+      "reference_temperature_k": 298.15,
+      "temperature_log_response": [[298.15, 0], [600, 1.0986122886681098], [1200, 2.302585092994046]]
+    }
+  }
+}

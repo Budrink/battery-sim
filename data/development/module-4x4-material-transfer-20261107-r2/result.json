@@ -1,0 +1,31 @@
+{
+  "artifacts": {
+    "checkpoint": "checkpoint.json",
+    "events": "events.ndjson",
+    "observations": "observations.ndjson",
+    "provenance": "provenance.json"
+  },
+  "attempt_id": "material-transfer-001",
+  "attempt_steps": 8203,
+  "build_id": "022f1043619c5eecfe28f2ff9c17082bde15021c261b1e0b853940411767d2c4",
+  "exit_code": 130,
+  "job_id": "module-4x4-runaway-demo",
+  "max_temperature_k": 320.07167901941153,
+  "reason": "cancel_requested",
+  "runaway_order": [],
+  "schema_version": 1,
+  "started_at_s": 0.0,
+  "status": "cancelled",
+  "steps": 8203,
+  "target_time_s": 3000.0,
+  "time_s": 163.78000000000998,
+  "validation": {
+    "chemical_balance_residual_j": -3.213062882423401e-08,
+    "energy_balance_residual_j": 6.540972208313178e-10,
+    "scenario_expectations": {
+      "checks": {},
+      "status": "not_evaluated"
+    }
+  },
+  "wall_s": 81.351577864
+}

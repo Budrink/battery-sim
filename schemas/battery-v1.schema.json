@@ -1,0 +1,513 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://battery-sim.local/schemas/battery-v1.schema.json",
+  "title": "Reusable battery model v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "id",
+    "revision",
+    "provenance",
+    "geometry",
+    "contents",
+    "shell",
+    "vents"
+  ],
+  "properties": {
+    "format": {
+      "const": "battery-sim.battery"
+    },
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{1,128}$"
+    },
+    "revision": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{1,128}$"
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance"
+    },
+    "geometry": {
+      "$ref": "#/$defs/geometry"
+    },
+    "contents": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "material_id",
+        "thermal",
+        "conversion"
+      ],
+      "properties": {
+        "material_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "thermal": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "heat_capacity_j_per_k",
+            "conductivity_w_per_m_k"
+          ],
+          "properties": {
+            "heat_capacity_j_per_k": {
+              "$ref": "scenario-v0.schema.json#/properties/cells/items/properties/thermal/properties/heat_capacity_j_per_k"
+            },
+            "conductivity_w_per_m_k": {
+              "$ref": "scenario-v0.schema.json#/properties/cells/items/properties/thermal/properties/conductivity_w_per_m_k"
+            },
+            "surface_connectivity": {
+              "$ref": "scenario-v0.schema.json#/properties/cells/items/properties/thermal/properties/surface_connectivity"
+            },
+            "bulk_connectivity": {
+              "type": "object"
+            },
+            "bulk_response": {
+              "$ref": "scenario-v0.schema.json#/properties/cells/items/properties/thermal/properties/bulk_response"
+            },
+            "heat_capacity_law": {
+              "$ref": "scenario-v0.schema.json#/properties/cells/items/properties/thermal/properties/heat_capacity_law"
+            },
+            "bulk_failure_transient": {
+              "$ref": "scenario-v0.schema.json#/properties/cells/items/properties/thermal/properties/bulk_failure_transient"
+            },
+            "bulk_destruction_on_boundary": {
+              "type": "boolean"
+            }
+          }
+        },
+        "conversion": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "chemistry",
+            "degradation_rate_per_s",
+            "degradation_reference_k",
+            "degradation_activation_j_per_mol",
+            "mass_kg",
+            "reactant_cp",
+            "activated_cp",
+            "residue_cp",
+            "net_heat_j_per_kg",
+            "reaction_rate_per_s",
+            "reaction_reference_k",
+            "reaction_activation_j_per_mol",
+            "gas_yield",
+            "gas_chemical_fraction",
+            "residue_conductivity"
+          ],
+          "properties": {
+            "chemistry": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/chemistry"
+            },
+            "degradation_rate_per_s": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/degradation_rate_per_s"
+            },
+            "degradation_reference_k": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/degradation_reference_k"
+            },
+            "degradation_activation_j_per_mol": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/degradation_activation_j_per_mol"
+            },
+            "charge_conversion_per_nominal_charge": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/charge_conversion_per_nominal_charge"
+            },
+            "precursor_yield": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/precursor_yield"
+            },
+            "precursor_yield_temperature_per_k": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/precursor_yield_temperature_per_k"
+            },
+            "precursor_temperature_ref_k": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/precursor_temperature_ref_k"
+            },
+            "runaway_reporting_rate_per_s": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/runaway_reporting_rate_per_s"
+            },
+            "gas_yield_reference_k": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/gas_yield_reference_k"
+            },
+            "gas_yield_temperature_per_k": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/gas_yield_temperature_per_k"
+            },
+            "gas_yield_density_exponent": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/gas_yield_density_exponent"
+            },
+            "gas_yield_max": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/gas_yield_max"
+            },
+            "volatile_phase": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/volatile_phase"
+            },
+            "mass_kg": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/mass_kg"
+            },
+            "reactant_cp": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/reactant_cp"
+            },
+            "activated_cp": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/activated_cp"
+            },
+            "residue_cp": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/residue_cp"
+            },
+            "net_heat_j_per_kg": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/net_heat_j_per_kg"
+            },
+            "reaction_rate_per_s": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/reaction_rate_per_s"
+            },
+            "reaction_reference_k": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/reaction_reference_k"
+            },
+            "reaction_activation_j_per_mol": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/reaction_activation_j_per_mol"
+            },
+            "gas_yield": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/gas_yield"
+            },
+            "gas_chemical_fraction": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/gas_chemical_fraction"
+            },
+            "residue_conductivity": {
+              "$ref": "scenario-v0.schema.json#/$defs/conversion/properties/residue_conductivity"
+            }
+          }
+        },
+        "electrical": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "resistance_ohm"
+          ],
+          "properties": {
+            "resistance_ohm": {
+              "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/resistance_ohm"
+            },
+            "reference_temperature_k": {
+              "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/reference_temperature_k"
+            },
+            "temperature_log_slope_per_k": {
+              "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/temperature_log_slope_per_k"
+            },
+            "temperature_log_response": {
+              "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/temperature_log_response"
+            },
+            "product_conductivity_ratio": {
+              "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/product_conductivity_ratio"
+            },
+            "terminal_axis": {
+              "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/terminal_axis"
+            },
+            "reversible_voltage_floor_v": {
+              "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/reversible_voltage_floor_v"
+            },
+            "min_resistance_ohm": {
+              "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/min_resistance_ohm"
+            },
+            "max_resistance_ohm": {
+              "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/max_resistance_ohm"
+            },
+            "charge_acceptance_fraction": {
+              "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/charge_acceptance_fraction"
+            },
+            "nominal_capacity_coulomb": {
+              "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/nominal_capacity_coulomb"
+            },
+            "charge_log_slope": {
+              "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/charge_log_slope"
+            },
+            "charge_state_input": {
+              "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/charge_state_input"
+            }
+          }
+        },
+        "degradation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [],
+          "properties": {
+            "onset_k": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "rate_at_onset_per_s": {
+              "type": "number",
+              "minimum": 0
+            },
+            "temperature_scale_k": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "aging_damage_multiplier": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "shell": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "material_id",
+            "thickness_m",
+            "density_kg_m3",
+            "specific_heat_j_kg_k",
+            "conductivity_w_per_m_k",
+            "contents_contact_h",
+            "seam_contact_h"
+          ],
+          "properties": {
+            "material_id": {
+              "$ref": "scenario-v0.schema.json#/$defs/physical_shell/properties/material_id"
+            },
+            "conductivity_frame": {
+              "$ref": "scenario-v0.schema.json#/$defs/physical_shell/properties/conductivity_frame"
+            },
+            "surface_connectivity": {
+              "$ref": "scenario-v0.schema.json#/$defs/physical_shell/properties/surface_connectivity"
+            },
+            "thickness_m": {
+              "$ref": "scenario-v0.schema.json#/$defs/physical_shell/properties/thickness_m"
+            },
+            "density_kg_m3": {
+              "$ref": "scenario-v0.schema.json#/$defs/physical_shell/properties/density_kg_m3"
+            },
+            "specific_heat_j_kg_k": {
+              "$ref": "scenario-v0.schema.json#/$defs/physical_shell/properties/specific_heat_j_kg_k"
+            },
+            "conductivity_w_per_m_k": {
+              "$ref": "scenario-v0.schema.json#/$defs/physical_shell/properties/conductivity_w_per_m_k"
+            },
+            "contents_contact_h": {
+              "$ref": "scenario-v0.schema.json#/$defs/physical_shell/properties/contents_contact_h"
+            },
+            "seam_contact_h": {
+              "$ref": "scenario-v0.schema.json#/$defs/physical_shell/properties/seam_contact_h"
+            },
+            "damage_onset_k": {
+              "$ref": "scenario-v0.schema.json#/$defs/physical_shell/properties/damage_onset_k"
+            },
+            "damage_rate_per_s": {
+              "$ref": "scenario-v0.schema.json#/$defs/physical_shell/properties/damage_rate_per_s"
+            },
+            "damage_scale_k": {
+              "$ref": "scenario-v0.schema.json#/$defs/physical_shell/properties/damage_scale_k"
+            },
+            "destroyed_conductance_factor": {
+              "$ref": "scenario-v0.schema.json#/$defs/physical_shell/properties/destroyed_conductance_factor"
+            },
+            "contents_surface_connectivity": {
+              "$ref": "scenario-v0.schema.json#/$defs/surface_connectivity"
+            },
+            "contents_connectivity_per_m2": {
+              "allOf": [
+                {
+                  "$ref": "scenario-v0.schema.json#/$defs/interface/properties/law"
+                }
+              ],
+              "description": "Native directed_geometry conductance law per square metre."
+            },
+            "face_materials": {
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "-x",
+                  "+x",
+                  "-y",
+                  "+y",
+                  "-z",
+                  "+z"
+                ]
+              },
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "material_id",
+                  "conductivity_w_per_m_k"
+                ],
+                "properties": {
+                  "material_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "conductivity_w_per_m_k": {
+                    "$ref": "scenario-v0.schema.json#/$defs/positive_vector3"
+                  },
+                  "thickness_m": {"type": "number", "exclusiveMinimum": 0},
+                  "density_kg_m3": {"type": "number", "exclusiveMinimum": 0},
+                  "specific_heat_j_kg_k": {"type": "number", "exclusiveMinimum": 0},
+                  "damage_onset_k": {"type": "number", "exclusiveMinimum": 0},
+                  "damage_rate_per_s": {"type": "number", "minimum": 0},
+                  "damage_scale_k": {"type": "number", "exclusiveMinimum": 0},
+                  "destroyed_conductance_factor": {
+                    "type": "number", "exclusiveMinimum": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "vents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "port_suffix",
+          "channel"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,128}$"
+          },
+          "port_suffix": {
+            "type": "string",
+            "minLength": 1
+          },
+          "channel": {
+            "type": "object",
+            "description": "Native rupture law. Routing fields are supplied only by vent_connections.",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "rupture"
+              }
+            },
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "id"
+                  ]
+                },
+                {
+                  "required": [
+                    "from"
+                  ]
+                },
+                {
+                  "required": [
+                    "to"
+                  ]
+                },
+                {
+                  "required": [
+                    "port_id"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "geometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "dimensions_m"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "cylinder",
+            "prismatic",
+            "pouch"
+          ]
+        },
+        "dimensions_m": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 3,
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "cylinder"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "dimensions_m": {
+                "minItems": 2,
+                "maxItems": 2
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "dimensions_m": {
+                "minItems": 3,
+                "maxItems": 3
+              }
+            }
+          }
+        }
+      ],
+      "description": "Dimensions of contents, excluding shell: cylinder [radius,height]; prismatic/pouch [x,y,z], metres. Not an implicit computational approximation."
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "notes"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "measured",
+            "calibrated",
+            "assumed",
+            "mixed",
+            "synthetic"
+          ]
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

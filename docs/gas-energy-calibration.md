@@ -20,7 +20,7 @@ Previous v5 results and parameters are unchanged. No default viewer scene is rep
 The thermal, chemical, total mass and oxidizer ledgers are independent diagnostics.
 Constant-temperature gas-reaction analytic tests, oxygen exhaustion, no-oxygen,
 ignition-threshold, outflow/reverse tracer transport and coupled refinement are
-covered in `native/tests/process_network.cpp`. All 17 native tests passed.
+covered in `native/tests/simulation/process_network.cpp`. All 17 native tests passed.
 
 ## Frozen evidence and explicit assumptions
 

@@ -1,0 +1,141 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "toolchainFile": "${sourceDir}/cmake/toolchains/linux-cuda.cmake",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "CMAKE_CUDA_ARCHITECTURES": "native",
+        "BUILD_TESTING": "ON"
+      }
+    },
+    {
+      "name": "dev",
+      "displayName": "Development — optimized + debug symbols",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "BATTERY_SIM_BUILD_VIEWER": "ON"
+      }
+    },
+    {
+      "name": "debug",
+      "displayName": "Debug — host C++ debugging",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BATTERY_SIM_BUILD_VIEWER": "ON"
+      }
+    },
+    {
+      "name": "headless",
+      "displayName": "Release — CUDA solver without UI",
+      "inherits": "server",
+      "cacheVariables": {}
+    },
+    {
+      "name": "server",
+      "displayName": "Server — worker and CLI, no UI or research tools",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "BATTERY_SIM_BUILD_RUNTIME": "ON",
+        "BATTERY_SIM_BUILD_VIEWER": "OFF",
+        "BATTERY_SIM_BUILD_TOOLS": "OFF",
+        "BUILD_TESTING": "OFF"
+      }
+    },
+    {
+      "name": "core",
+      "displayName": "Core — standalone C++/CUDA library only",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "BATTERY_SIM_BUILD_RUNTIME": "OFF",
+        "BATTERY_SIM_BUILD_VIEWER": "OFF",
+        "BATTERY_SIM_BUILD_TOOLS": "OFF",
+        "BUILD_TESTING": "OFF"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "viewer",
+      "configurePreset": "dev",
+      "targets": [
+        "battery_sim_viewer",
+        "battery_sim_calibration_monitor"
+      ],
+      "jobs": 3
+    },
+    {
+      "name": "viewer-debug",
+      "configurePreset": "debug",
+      "targets": [
+        "battery_sim_viewer"
+      ],
+      "jobs": 3
+    },
+    {
+      "name": "headless",
+      "configurePreset": "headless",
+      "targets": [
+        "battery_sim_headless",
+        "battery_sim_worker"
+      ],
+      "jobs": 3
+    },
+    {
+      "name": "worker",
+      "configurePreset": "dev",
+      "targets": [
+        "battery_sim_worker"
+      ],
+      "jobs": 3
+    },
+    {
+      "name": "all-dev",
+      "configurePreset": "dev",
+      "jobs": 3
+    },
+    {
+      "name": "server",
+      "configurePreset": "server",
+      "targets": [
+        "battery_sim_worker",
+        "battery_sim_headless",
+        "battery_sim_compile_experiment"
+      ],
+      "jobs": 3
+    },
+    {
+      "name": "core",
+      "configurePreset": "core",
+      "targets": [
+        "battery_native_core"
+      ],
+      "jobs": 3
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "dev",
+      "configurePreset": "dev",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "jobs": 1
+      }
+    }
+  ]
+}

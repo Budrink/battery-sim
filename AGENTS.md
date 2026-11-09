@@ -1,5 +1,10 @@
 # Model development continuity
 
+- Treat `examples/contracts/module-4x4.json` as the user's working configuration.
+  Never edit, overwrite, regenerate, or restore it unless the user explicitly
+  requests changes to that file. General solver/UI changes, builds, tests, and
+  launch requests do not authorize modifying it. Generate test/demo variants
+  at separate paths; do not make this file match generator defaults for tests.
 - Before a new calibration, read `docs/model-development-journal.md` and the
   compatible entry in `data/model-registry/development-index.json`.
 - Carry compatible learned parameter seeds forward. Do not reset to generic

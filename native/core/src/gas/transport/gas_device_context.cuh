@@ -1,0 +1,15 @@
+#pragma once
+#include "gas_work_types.cuh"
+#include "battery_native/simulation/cuda_solver.hpp"
+#include "battery_native/gas/transport/kawasaki_gas_math.hpp"
+#include "battery_native/chemistry/gas_combustion.hpp"
+#include "battery_native/chemistry/reaction_transport_limits.hpp"
+#include "battery_native/gas/mixing/gas_mixing.hpp"
+#include "battery_native/chemistry/gas_local_reactor.hpp"
+#include "battery_native/gas/mixing/gas_surface_exchange.hpp"
+#include "battery_native/chemistry/reactive_transit.hpp"
+#include "battery_native/numerics/time_step_policy.hpp"
+#include "battery_native/gas/transport/gas_direction_memory.hpp"
+#include <algorithm>
+#include <cuda_runtime.h>
+#include <cooperative_groups.h>

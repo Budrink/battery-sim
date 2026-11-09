@@ -1,0 +1,47 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "BatterySim: laboratory editor", "type": "cppdbg", "request": "launch",
+      "program": "${workspaceFolder}/build/dev/battery_sim_viewer",
+      "args": ["examples/contracts/module-4x4.json", "--editor"],
+      "cwd": "${workspaceFolder}", "MIMode": "gdb", "externalConsole": false,
+      "preLaunchTask": "BatterySim: build viewer"
+    },
+    {
+      "name": "BatterySim: live demo", "type": "cppdbg", "request": "launch",
+      "program": "${workspaceFolder}/build/dev/battery_sim_viewer",
+      "args": ["examples/reaction-chain-demo.json", "--play"],
+      "cwd": "${workspaceFolder}", "MIMode": "gdb", "externalConsole": false,
+      "preLaunchTask": "BatterySim: build viewer"
+    },
+    {
+      "name": "BatterySim: cascade replay", "type": "cppdbg", "request": "launch",
+      "program": "${workspaceFolder}/build/dev/battery_sim_viewer",
+      "args": ["--replay", "data/development/fsri30-wall-delay-full-20261027-r1/visual/manifest.json", "--at", "1700", "--play"],
+      "cwd": "${workspaceFolder}", "MIMode": "gdb", "externalConsole": false,
+      "preLaunchTask": "BatterySim: build viewer"
+    },
+    {
+      "name": "BatterySim: exhaust replay", "type": "cppdbg", "request": "launch",
+      "program": "${workspaceFolder}/build/dev/battery_sim_viewer",
+      "args": ["--replay", "data/development/fsri30-demo-exhaust-resumed-20261028-r2/visual-full/manifest.json", "--at", "1700", "--play"],
+      "cwd": "${workspaceFolder}", "MIMode": "gdb", "externalConsole": false,
+      "preLaunchTask": "BatterySim: build viewer"
+    },
+    {
+      "name": "BatterySim: debug viewer (host C++)", "type": "cppdbg", "request": "launch",
+      "program": "${workspaceFolder}/build/debug/battery_sim_viewer",
+      "args": ["examples/reaction-chain-demo.json"],
+      "cwd": "${workspaceFolder}", "MIMode": "gdb", "externalConsole": false,
+      "preLaunchTask": "BatterySim: build debug"
+    },
+    {
+      "name": "BatterySim: headless smoke test", "type": "cppdbg", "request": "launch",
+      "program": "${workspaceFolder}/build/headless/battery_sim_headless",
+      "args": ["examples/reaction-chain-demo.json", "--duration", "0.01"],
+      "cwd": "${workspaceFolder}", "MIMode": "gdb", "externalConsole": false,
+      "preLaunchTask": "BatterySim: build headless"
+    }
+  ]
+}

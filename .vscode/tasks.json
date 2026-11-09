@@ -1,0 +1,164 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "BatterySim: configure dev",
+      "type": "process",
+      "command": "${workspaceFolder}/scripts/ide-cmake.sh",
+      "args": [
+        "--preset",
+        "dev"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "BatterySim: build viewer",
+      "type": "process",
+      "command": "${workspaceFolder}/scripts/ide-cmake.sh",
+      "args": [
+        "--build",
+        "--preset",
+        "viewer"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "dependsOn": "BatterySim: configure dev",
+      "dependsOrder": "sequence",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "BatterySim: configure debug",
+      "type": "process",
+      "command": "${workspaceFolder}/scripts/ide-cmake.sh",
+      "args": [
+        "--preset",
+        "debug"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "BatterySim: build debug",
+      "type": "process",
+      "command": "${workspaceFolder}/scripts/ide-cmake.sh",
+      "args": [
+        "--build",
+        "--preset",
+        "viewer-debug"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "dependsOn": "BatterySim: configure debug",
+      "dependsOrder": "sequence"
+    },
+    {
+      "label": "BatterySim: configure headless",
+      "type": "process",
+      "command": "${workspaceFolder}/scripts/ide-cmake.sh",
+      "args": [
+        "--preset",
+        "headless"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "BatterySim: build headless",
+      "type": "process",
+      "command": "${workspaceFolder}/scripts/ide-cmake.sh",
+      "args": [
+        "--build",
+        "--preset",
+        "headless"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "dependsOn": "BatterySim: configure headless",
+      "dependsOrder": "sequence"
+    },
+    {
+      "label": "BatterySim: configure server",
+      "type": "process",
+      "command": "${workspaceFolder}/scripts/ide-cmake.sh",
+      "args": [
+        "--preset",
+        "server"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "BatterySim: build server",
+      "type": "process",
+      "command": "${workspaceFolder}/scripts/ide-cmake.sh",
+      "args": [
+        "--build",
+        "--preset",
+        "server"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "dependsOn": "BatterySim: configure server",
+      "dependsOrder": "sequence"
+    },
+    {
+      "label": "BatterySim: configure core",
+      "type": "process",
+      "command": "${workspaceFolder}/scripts/ide-cmake.sh",
+      "args": [
+        "--preset",
+        "core"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "BatterySim: build core",
+      "type": "process",
+      "command": "${workspaceFolder}/scripts/ide-cmake.sh",
+      "args": [
+        "--build",
+        "--preset",
+        "core"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "dependsOn": "BatterySim: configure core",
+      "dependsOrder": "sequence"
+    }
+  ]
+}

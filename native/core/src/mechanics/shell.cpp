@@ -1,0 +1,183 @@
+#include "battery_native/model/model.hpp"
+#include "battery_native/thermal/state_geometry.hpp"
+#include <cmath>
+#include <stdexcept>
+#include <algorithm>
+
+namespace battery {
+void add_physical_shell(Scenario& s, const ShellConfig& spec) {
+    auto it =
+        std::find_if(s.cells.begin(), s.cells.end(), [&](const auto& c) { return c.id == spec.contents_id; });
+    if (it == s.cells.end())
+        throw std::runtime_error("Unknown shell contents: " + spec.contents_id);
+    const int core = static_cast<int>(it - s.cells.begin());
+    const auto c = *it;
+    for (double x : {spec.thickness_m, spec.density_kg_m3, spec.specific_heat_j_kg_k, spec.contents_contact_h,
+                     spec.seam_contact_h, spec.damage_scale_k, spec.destroyed_conductance_factor})
+        if (!std::isfinite(x) || x <= 0)
+            throw std::runtime_error("Physical shell requires positive material/contact data");
+    if (c.shape == ShapeKind::Cylinder || c.dimensions_m.size() != 3 || !c.is_battery ||
+        spec.material_id.empty() || c.orientation_xyzw != std::array<double, 4>{0, 0, 0, 1})
+        throw std::runtime_error("Shell builder currently requires axis-aligned prismatic/pouch contents and "
+                                 "an explicit material");
+    if (!std::isfinite(spec.damage_rate_per_s) || spec.damage_rate_per_s < 0 ||
+        !std::isfinite(spec.damage_onset_k) || spec.damage_onset_k <= 0)
+        throw std::runtime_error("Invalid shell damage law");
+    if (!std::isfinite(spec.initial_temperature_k) ||
+        (spec.initial_temperature_k != -1 && spec.initial_temperature_k <= 0))
+        throw std::runtime_error("Invalid shell initial temperature");
+    const bool own_grid = spec.surface_divisions != std::array<int, 3>{0, 0, 0};
+    if (own_grid && std::any_of(spec.surface_divisions.begin(), spec.surface_divisions.end(),
+                                [](int n) { return n <= 0; }))
+        throw std::runtime_error("Shell surface_divisions must be three positive counts");
+    if (own_grid)
+        for (int d = 0; d < 3; ++d)
+            if (c.thermal_divisions[d] < 1 || spec.surface_divisions[d] % c.thermal_divisions[d] != 0)
+                throw std::runtime_error("Shell surface_divisions must be integer refinements of contents");
+    double thickness[3][2], density[3][2], specific_heat[3][2];
+    const auto property = [](double local, double common) {
+        if (!std::isfinite(local) || local < 0.)
+            throw std::runtime_error("Invalid shell plate property");
+        return local > 0. ? local : common;
+    };
+    for (int a = 0; a < 3; ++a)
+        for (int side = 0; side < 2; ++side) {
+            const auto& p = spec.plates[2 * a + side];
+            thickness[a][side] = property(p.thickness_m, spec.thickness_m);
+            density[a][side] = property(p.density_kg_m3, spec.density_kg_m3);
+            specific_heat[a][side] = property(p.specific_heat_j_kg_k, spec.specific_heat_j_kg_k);
+        }
+    const double origin[3]{c.position_m.x, c.position_m.y, c.position_m.z};
+    int panels[3][2];
+    auto port = [&](int object, int axis, int sign, const double center[3], double du, double dv,
+                    const std::string& id) {
+        if (std::any_of(s.ports.begin(), s.ports.end(), [&](const auto& p) { return p.id == id; }))
+            throw std::runtime_error("Duplicate shell port");
+        PortConfig p;
+        p.id = id;
+        p.cell_index = object;
+        p.cell_id = s.cells[object].id;
+        p.kind = "contact";
+        p.surface = std::string(sign > 0 ? "+" : "-") + "xyz"[axis];
+        p.area_m2 = du * dv;
+        p.rectangle_m = {du, dv};
+        p.centroid_m = {center[0], center[1], center[2]};
+        if (axis == 0)
+            p.normal.x = sign;
+        else if (axis == 1)
+            p.normal.y = sign;
+        else
+            p.normal.z = sign;
+        s.ports.push_back(p);
+        return id;
+    };
+    auto link = [&](int a, int b, const std::string& pa, const std::string& pb, double area, double h) {
+        InterfaceConfig e;
+        e.id = pa + "--" + pb;
+        e.cell_a = a;
+        e.cell_b = b;
+        e.port_a = pa;
+        e.port_b = pb;
+        e.material_a = s.cells[a].material_id;
+        e.material_b = s.cells[b].material_id;
+        e.interface_material = "physical-casing-contact";
+        e.point_a_m = std::find_if(s.ports.begin(), s.ports.end(), [&](const auto& p) {
+                          return p.id == pa;
+                      })->centroid_m;
+        e.point_b_m = std::find_if(s.ports.begin(), s.ports.end(), [&](const auto& p) {
+                          return p.id == pb;
+                      })->centroid_m;
+        // Casing contacts participate in the same directed state geometry as
+        // every other material interface. Zero log-response gives exactly h*A.
+        // R1 conversion fraction is not a mechanical rupture of this contact;
+        // shell structural damage is already handled by its material halves.
+        auto& l = e.law;
+        l.kind = TransitionKind::DirectedGeometry;
+        l.geometry_reference_logit = 0.;
+        l.background_conductance_w_per_k = .01 * h * area;
+        l.active_conductance_w_per_k = 1.98 * h * area;
+        l.endpoint_damage_weight = 0.;
+        l.destroyed_background_conductance_w_per_k = h * area * spec.destroyed_conductance_factor;
+        l.destroyed_active_conductance_w_per_k = 0.;
+        s.interfaces.push_back(e);
+    };
+    for (int axis = 0; axis < 3; ++axis)
+        for (int side = 0; side < 2; ++side) {
+            const double t = thickness[axis][side];
+            int sign = side ? 1 : -1;
+            CellConfig panel;
+            panel.id = c.id + ":case:" + (side ? "+" : "-") + "xyz"[axis];
+            if (std::any_of(s.cells.begin(), s.cells.end(), [&](const auto& x) { return x.id == panel.id; }))
+                throw std::runtime_error("Duplicate physical shell");
+            panel.is_battery = false;
+            panel.material_id = spec.material_id;
+            panel.shell_contents_id = c.id;
+            panel.dimensions_m = c.dimensions_m;
+            panel.thermal_divisions = c.thermal_divisions;
+            panel.thermal_divisions[axis] = 1;
+            if (own_grid) {
+                panel.thermal_divisions = spec.surface_divisions;
+                panel.thermal_divisions[axis] = 1;
+            }
+            double pos[3]{origin[0], origin[1], origin[2]};
+            for (int k = 0; k < 3; ++k) {
+                panel.dimensions_m[k] = k == axis ? t : c.dimensions_m[k];
+                if (k > axis) {
+                    panel.dimensions_m[k] += thickness[k][0] + thickness[k][1];
+                    pos[k] += (thickness[k][1] - thickness[k][0]) / 2;
+                }
+            }
+            pos[axis] += sign * (c.dimensions_m[axis] + t) / 2;
+            panel.position_m = {pos[0], pos[1], pos[2]};
+            panel.initial_temperature_k =
+                spec.initial_temperature_k < 0 ? c.initial_temperature_k : spec.initial_temperature_k;
+            panel.heat_capacity_j_per_k = density[axis][side] * specific_heat[axis][side];
+            for (double d : panel.dimensions_m)
+                panel.heat_capacity_j_per_k *= d;
+            panel.conductivity_w_per_m_k = spec.conductivity_w_per_m_k;
+            panel.damage_onset_k = spec.damage_onset_k;
+            panel.damage_rate_at_onset_per_s = spec.damage_rate_per_s;
+            panel.damage_temperature_scale_k = spec.damage_scale_k;
+            panel.has_bulk_connectivity = true;
+            auto& b = panel.bulk_connectivity;
+            b = reference_directed_connectivity(1.);
+            b.destroyed_background_conductance_w_per_k = spec.destroyed_conductance_factor;
+            b.destroyed_active_conductance_w_per_k = 0.;
+            int pi = static_cast<int>(s.cells.size());
+            panels[axis][side] = pi;
+            s.cells.push_back(panel);
+            const int u = (axis + 1) % 3, v = (axis + 2) % 3;
+            double center[3]{origin[0], origin[1], origin[2]};
+            center[axis] += sign * c.dimensions_m[axis] / 2;
+            const auto cp =
+                port(core, axis, sign, center, c.dimensions_m[u], c.dimensions_m[v], panel.id + ":contents");
+            const auto ip =
+                port(pi, axis, -sign, center, c.dimensions_m[u], c.dimensions_m[v], panel.id + ":inner");
+            link(core, pi, cp, ip, c.dimensions_m[u] * c.dimensions_m[v], spec.contents_contact_h);
+            // The outer port covers the whole plate, including its corner
+            // strips. Unequal adjacent thicknesses shift that rectangle.
+            for (int k = 0; k < 3; ++k)
+                center[k] = pos[k];
+            center[axis] += sign * t / 2;
+            port(pi, axis, sign, center, panel.dimensions_m[u], panel.dimensions_m[v], panel.id + ":outer");
+        }
+    // Exact shared rectangles; x panels own corners, then y, then z. No overlap
+    // or missing corner mass. These seams allow heat to travel around contents.
+    for (int a = 0; a < 3; ++a)
+        for (int b = a + 1; b < 3; ++b)
+            for (int sa = 0; sa < 2; ++sa)
+                for (int sb = 0; sb < 2; ++sb) {
+                    int ia = panels[a][sa], ib = panels[b][sb], as = sa ? 1 : -1;
+                    const auto& cb = s.cells[ib];
+                    double center[3]{cb.position_m.x, cb.position_m.y, cb.position_m.z};
+                    center[a] = origin[a] + as * c.dimensions_m[a] / 2;
+                    const int u = (a + 1) % 3, v = (a + 2) % 3;
+                    double du = cb.dimensions_m[u], dv = cb.dimensions_m[v];
+                    std::string label = c.id + ":seam:" + std::to_string(a) + std::to_string(b) +
+                                        std::to_string(sa) + std::to_string(sb);
+                    auto pa = port(ia, a, -as, center, du, dv, label + ":a");
+                    auto pb = port(ib, a, as, center, du, dv, label + ":b");
+                    link(ia, ib, pa, pb, du * dv, spec.seam_contact_h);
+                }
+}
+} // namespace battery

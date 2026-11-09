@@ -1,5 +1,66 @@
 # CUDA Kawasaki gas prototype: physical-time audit
 
+## 2026-11-08: runtime colored-pair alternative
+
+The GUI's **Gas solver** selector and `Simulation::set_colored_kawasaki(bool)`
+switch between averaged network transport and a new bounded-work pair scheme.
+This is NOT the old `mass_backend: cuda_kawasaki` event-loop backend described
+below. Switching is allowed between committed steps only, on an averaged CUDA
+network; it does not rebuild geometry, reset temperature/species, clear physical
+momentum, or reseed the RNG. Method changes are recorded as simulation events.
+The gas checkpoint stores the chosen method and counter state; older compatible
+gas-clock/momentum checkpoints remain readable. No CPU MC branch was added.
+
+`colored_kawasaki.cuh` uses the same race-free ownership principle as the plasma
+solver: color classes are disjoint pairs, with forward/reverse half sweeps.
+Unlike the plasma solver, no plasma constitutive law or probability floor is
+copied. Aperture, donor/receiver pressure and existing physical channel momentum
+determine flow. Each pair receives the physical interval, not an arbitrary
+seconds-per-MC-step fit. Closed channels transfer no mass; released channel
+kinetic energy returns to the adjacent thermal inventories.
+
+For local flow F, admissible pair inventory C and interval h, the bounded mean
+packet is `C * (1-exp(-abs(F)*h/C))`. A low-rate proposal uses a uniform packet
+in `(0, eta*C)` with acceptance `2*mean/(eta*C)`; higher-rate proposals use bounded
+jitter around the mean. Its expectation is the stated mean before thermodynamic
+limiting. This is a stochastic finite-volume approximation, NOT exact molecular
+MC or the legacy continuous-time event process. At small h its expected drift
+is F. Finite packets, saturation, splitting and kinetic/entropy guards introduce
+error and require time/packet/ensemble convergence checks. Individual trajectories
+are not invariant under timestep subdivision.
+
+One thread transfers mass, integrated adiabatic enthalpy, fuel, oxygen, vapor and
+latent energy together. Paid kinetic energy and nondecreasing pair entropy are
+checked with a bounded backtrack. RNG counters and momentum use candidate/commit
+buffers, so retry/restore reproduce the same result. There is no event-count
+loop growing without bound as pressure equalizes. Existing implicit mixing,
+gas-solid contact laws, fracture and solid reactions remain in use. R3 is split
+symmetrically around the pair sweep, rather than integrated with simultaneous
+network throughflow. The network-only advective surface correction is not applied
+again to already transferred MC packets. Thus a speed comparison is not proof
+of equal explosion trajectories or identical operator error.
+
+The contract mesher now creates a uniform external gas lattice with blocked
+volumes/faces and exact free volumes/contact areas. Disconnected fluid pieces
+inside a lattice slot stay separate, preventing sub-grid barriers being bypassed.
+Internal pore inventories retain their thermal binding. Both selectable solvers
+use this SAME graph; switching does not remesh a running state. Archived compiled
+scenarios retain their original graph. Momentum is retained **when configured**;
+the existing restriction requiring explicit reservoir channels instead of scalar
+ambient boundaries is unchanged. The demo with an ambient lid hole therefore
+still has directional inertia off; the GUI reports this explicitly.
+
+CUDA regressions: six conserved inventories; blocked faces; switching both ways;
+retry and checkpoint replay; ensembles at 1/0.5/0.25 ms; the actual module's hot
+gas/surface exchange and pressurized rupture. A 512-node/1344-edge synthetic
+pressure-transport timing measured roughly 0.85 ms median / 1.13 ms p95 for MC
+versus 2.18 / 2.74 ms for the network operator (physical interval 1 ms). This is
+not a calibrated full-run speedup. The 32-seed pair ensemble has several-percent
+sampling uncertainty; no sub-percent accuracy or full-cascade validation claimed.
+
+The following sections document the earlier event-loop prototype and its own
+benchmarks, not the runtime colored alternative.
+
 ## Scope
 
 The standalone library is an experimental reference. The full-model adapter is

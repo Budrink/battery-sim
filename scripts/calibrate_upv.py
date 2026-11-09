@@ -15,12 +15,14 @@ import sys
 import numpy as np
 from generate_upv import ROOT, TARGETS, generate, load_case
 
-MODEL_FILES=['scripts/generate_upv.py','scripts/calibrate_upv.py','native/src/cuda_solver.cu',
-             'native/src/thermal_mesh.cpp','native/src/scenario.cpp','native/src/simulation.cpp',
-             'native/tools/experiment_probe.cpp','native/include/battery_native/model.hpp',
-             'native/include/battery_native/state_geometry.hpp','native/include/battery_native/constitutive.hpp','native/include/battery_native/thermal_mesh.hpp',
-             'native/include/battery_native/cuda_solver.hpp','native/include/battery_native/simulation.hpp',
-             'native/include/battery_native/failure.hpp','native/include/battery_native/reaction.hpp']
+# Hash all core/loader modules: extracted CUDA fragments must not escape the
+# provenance check just because their former monolithic parent did not change.
+MODEL_FILES=['scripts/generate_upv.py','scripts/calibrate_upv.py',
+             'native/tools/probes/experiment_probe.cpp'] + sorted(
+    str(path.relative_to(ROOT))
+    for directory in ('native/core', 'native/run')
+    for path in (ROOT/directory).rglob('*')
+    if path.suffix in ('.hpp', '.cuh', '.cpp', '.cu'))
 PROTOCOL=dict(scope='conditional pre-event heat transfer; NOT runaway/aging validation',
               revision='directed-geometry-v6',topology='swapped-witnesses',
               topology_status='UNCONFIRMED acquisition-numbering hypothesis; not a verified correction to the source',

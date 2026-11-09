@@ -1,0 +1,714 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://battery-sim.local/schemas/experiment-v1.schema.json",
+  "title": "Self-contained battery experiment v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "id",
+    "name",
+    "provenance",
+    "battery_models",
+    "assembly",
+    "conditions",
+    "numerics",
+    "measurements"
+  ],
+  "properties": {
+    "format": {
+      "const": "battery-sim.experiment"
+    },
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{1,128}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "$ref": "battery-v1.schema.json#/$defs/provenance"
+    },
+    "battery_models": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "battery-v1.schema.json"
+      }
+    },
+    "assembly": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "batteries",
+        "ports",
+        "interfaces",
+        "gas_network",
+        "vent_connections"
+      ],
+      "properties": {
+        "batteries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "model_id",
+              "model_revision",
+              "pose",
+              "initial_state",
+              "gas_compartment"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,128}$"
+              },
+              "model_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,128}$"
+              },
+              "model_revision": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,128}$"
+              },
+              "pose": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "position_m",
+                  "orientation_xyzw"
+                ],
+                "properties": {
+                  "position_m": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "orientation_xyzw": {
+                    "type": "array",
+                    "minItems": 4,
+                    "maxItems": 4,
+                    "items": {
+                      "type": "number"
+                    }
+                  }
+                }
+              },
+              "initial_state": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "temperature_k",
+                  "damage_fraction",
+                  "aging_fraction",
+                  "precursor_fraction",
+                  "charged_fraction"
+                ],
+                "properties": {
+                  "temperature_k": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "shell_temperature_k": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "damage_fraction": {
+                    "type": "number",
+                    "const": 0,
+                    "description": "Legacy bulk damage is incompatible with R1/R2 composition. Currently must be zero."
+                  },
+                  "aging_fraction": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "precursor_fraction": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "charged_fraction": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                }
+              },
+              "gas_compartment": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "passive_cells": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "scenario-v0.schema.json#/properties/cells/items"
+              },
+              {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "passive"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "ports": {
+          "$ref": "scenario-v0.schema.json#/properties/ports"
+        },
+        "interfaces": {
+          "$ref": "scenario-v0.schema.json#/properties/interfaces"
+        },
+        "gas_network": {
+          "type": "object",
+          "required": [
+            "reference_temperature_k",
+            "cv_j_per_kg_k",
+            "specific_r_j_per_kg_k",
+            "compartments"
+          ],
+          "properties": {"combustion": {"$ref": "scenario-v0.schema.json#/$defs/gas_network/properties/combustion"}},
+          "description": "Native gas network. Optional combustion is the global R3 model for all gas volumes, including generated meshes. Legacy per-compartment laws remain supported when it is absent."
+        },
+        "vent_connections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "battery_id",
+              "vent_id",
+              "to"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "battery_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,128}$"
+              },
+              "vent_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,128}$"
+              },
+              "to": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "gas_meshes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "compartment",
+              "inside_dimensions_m",
+              "position_m",
+              "maximum_cell_size_m",
+              "surface_h_w_m2_k",
+              "wall_h_w_m2_k",
+              "discharge_coefficient"
+            ],
+            "properties": {
+              "compartment": {
+                "type": "string",
+                "minLength": 1
+              },
+              "inside_dimensions_m": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              },
+              "position_m": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "maximum_cell_size_m": {
+                "type": "number",
+                "minimum": 0.00001,
+                "maximum": 10
+              },
+              "surface_h_w_m2_k": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "battery_surface_connectivity_per_m2": {
+                "type": "object", "additionalProperties": false,
+                "required": ["kind", "geometry_reference_logit", "background_conductance_w_per_k", "active_conductance_w_per_k"],
+                "properties": {
+                  "kind": {"const": "directed_geometry"},
+                  "geometry_reference_logit": {"type": "number", "minimum": -40, "maximum": 40},
+                  "background_conductance_w_per_k": {"type": "number", "minimum": 0, "maximum": 1000000000},
+                  "active_conductance_w_per_k": {"type": "number", "minimum": 0, "maximum": 1000000000},
+                  "destroyed_background_conductance_w_per_k": {"type": "number", "minimum": 0, "maximum": 1000000000},
+                  "destroyed_active_conductance_w_per_k": {"type": "number", "minimum": 0, "maximum": 1000000000},
+                  "endpoint_damage_weight": {"type": "number", "minimum": 0, "maximum": 1}
+                }
+              },
+              "wall_h_w_m2_k": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "openings": {
+                "type": "array",
+                "items": {
+                  "type": "object", "additionalProperties": false,
+                  "required": ["id", "face", "shape", "center_m", "size_m"],
+                  "properties": {
+                    "id": {"type": "string", "minLength": 1},
+                    "face": {"enum": ["+x", "-x", "+y", "-y", "+z", "-z"]},
+                    "shape": {"enum": ["circle", "rectangle"]},
+                    "center_m": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+                    "size_m": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number", "exclusiveMinimum": 0}}
+                  }
+                }
+              },
+              "opening_ambient": {
+                "type": "object", "additionalProperties": false,
+                "properties": {
+                  "pressure_pa": {"type": "number", "exclusiveMinimum": 0},
+                  "temperature_k": {"type": "number", "exclusiveMinimum": 0},
+                  "oxidizer_mass_fraction": {"type": "number", "minimum": 0, "maximum": 1}
+                }
+              },
+              "discharge_coefficient": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "conditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "boundaries",
+        "heating_protocols",
+        "electrical_drives"
+      ],
+      "properties": {
+        "boundaries": {
+          "$ref": "scenario-v0.schema.json#/properties/boundaries"
+        },
+        "heating_protocols": {
+          "$ref": "scenario-v0.schema.json#/properties/heating_protocols"
+        },
+        "electrical_drives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "cell_id"
+            ],
+            "properties": {
+              "cell_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,128}$"
+              },
+              "current_a": {
+                "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/current_a"
+              },
+              "current_profile_a": {
+                "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/current_profile_a"
+              },
+              "voltage_profile_v": {
+                "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/voltage_profile_v"
+              },
+              "current_input": {
+                "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/current_input"
+              }
+            },
+            "oneOf": [
+              {
+                "required": [
+                  "current_a"
+                ]
+              },
+              {
+                "required": [
+                  "current_profile_a"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "numerics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "simulation",
+        "batteries"
+      ],
+      "properties": {
+        "simulation": {
+          "allOf": [
+            {
+              "$ref": "scenario-v0.schema.json#/properties/simulation"
+            }
+          ],
+          "unevaluatedProperties": false
+        },
+        "batteries": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "divisions",
+              "internal_heat_transfer"
+            ],
+            "properties": {
+              "divisions": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 256
+                }
+              },
+              "shell_surface_divisions": {
+                "description": "Tangential counts must be integer multiples of the contents divisions; each face has one thickness layer. Omit to inherit the contents cuts.",
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 256
+                }
+              },
+              "internal_heat_transfer": {
+                "enum": [
+                  "finite_volume",
+                  "isothermal"
+                ]
+              },
+              "geometry_approximation": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "geometry",
+                  "reason"
+                ],
+                "properties": {
+                  "geometry": {
+                    "$ref": "battery-v1.schema.json#/$defs/geometry"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "conversion": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [],
+                "properties": {
+                  "max_fraction_per_step": {
+                    "$ref": "scenario-v0.schema.json#/$defs/step_fraction"
+                  },
+                  "max_temperature_step_k": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  }
+                }
+              },
+              "electrical": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [],
+                "properties": {
+                  "max_temperature_step_k": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "measurements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "quantity",
+          "unit",
+          "mapping"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,128}$"
+          },
+          "quantity": {
+            "enum": [
+              "temperature",
+              "pressure_absolute",
+              "pressure_gauge",
+              "current",
+              "voltage"
+            ]
+          },
+          "unit": {
+            "enum": [
+              "K",
+              "degC",
+              "Pa",
+              "A",
+              "V"
+            ]
+          },
+          "mapping": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "unknown",
+                  "confirmed",
+                  "hypothesis"
+                ]
+              },
+              "cell_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,128}$"
+              },
+              "notes": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "status": {
+                      "const": "unknown"
+                    }
+                  }
+                },
+                "then": {
+                  "not": {
+                    "required": [
+                      "cell_id"
+                    ]
+                  }
+                },
+                "else": {
+                  "required": [
+                    "cell_id"
+                  ]
+                }
+              }
+            ]
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "artifact_id",
+              "sha256",
+              "time_column",
+              "value_column",
+              "time_offset_s"
+            ],
+            "properties": {
+              "artifact_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "time_column": {
+                "type": "string",
+                "minLength": 1
+              },
+              "value_column": {
+                "type": "string",
+                "minLength": 1
+              },
+              "time_offset_s": {
+                "type": "number"
+              }
+            }
+          },
+          "uncertainty": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "absolute"
+            ],
+            "properties": {
+              "absolute": {
+                "type": "number",
+                "minimum": 0
+              },
+              "burst_absolute": {
+                "type": "number",
+                "minimum": 0
+              },
+              "notes": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "notes": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "quantity": {
+                  "const": "temperature"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "unit": {
+                  "enum": [
+                    "K",
+                    "degC"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "quantity": {
+                  "const": "pressure_absolute"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "unit": {
+                  "enum": [
+                    "Pa"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "quantity": {
+                  "const": "pressure_gauge"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "unit": {
+                  "enum": [
+                    "Pa"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "quantity": {
+                  "const": "current"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "unit": {
+                  "enum": [
+                    "A"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "quantity": {
+                  "const": "voltage"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "unit": {
+                  "enum": [
+                    "V"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "metadata": {
+      "type": "object"
+    }
+  }
+}

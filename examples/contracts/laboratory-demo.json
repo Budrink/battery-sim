@@ -1,0 +1,274 @@
+{
+  "format": "battery-sim.experiment",
+  "version": 2,
+  "id": "laboratory-starter",
+  "name": "Synthetic laboratory starter - NOT calibrated",
+  "provenance": {
+    "status": "synthetic",
+    "notes": "Contract regression: same physical inputs as examples/reaction-chain-demo.json; not experimental validation."
+  },
+  "battery_models": [
+    {
+      "format": "battery-sim.battery",
+      "version": 1,
+      "id": "synthetic-cell",
+      "revision": "1",
+      "provenance": {
+        "status": "synthetic",
+        "notes": "Existing reaction-chain-demo coefficients; not a commercial battery or calibrated chemistry."
+      },
+      "geometry": {
+        "kind": "prismatic",
+        "dimensions_m": [
+          0.02,
+          0.02,
+          0.02
+        ]
+      },
+      "contents": {
+        "material_id": "synthetic-contents",
+        "thermal": {
+          "heat_capacity_j_per_k": 10,
+          "conductivity_w_per_m_k": [
+            1,
+            2,
+            2
+          ],
+          "bulk_connectivity": {
+            "kind": "directed_geometry",
+            "background_factor": 1,
+            "active_factor": 0,
+            "destroyed_background_factor": 1,
+            "destroyed_active_factor": 0
+          }
+        },
+        "conversion": {
+          "chemistry": "r1-r2-r3",
+          "mass_kg": 0.004,
+          "reactant_cp": 1000,
+          "activated_cp": 1000,
+          "residue_cp": 1000,
+          "degradation_rate_per_s": 1e-9,
+          "degradation_reference_k": 300,
+          "degradation_activation_j_per_mol": 60000,
+          "reaction_rate_per_s": 3,
+          "reaction_reference_k": 500,
+          "reaction_activation_j_per_mol": 120000,
+          "net_heat_j_per_kg": 200000,
+          "gas_yield": 0.2,
+          "gas_yield_max": 0.6,
+          "gas_yield_reference_k": 500,
+          "gas_yield_temperature_per_k": 0.001,
+          "gas_yield_density_exponent": 0.3,
+          "gas_chemical_fraction": 0.25,
+          "residue_conductivity": [
+            0.2,
+            0.3,
+            0.4
+          ]
+        },
+        "electrical": {
+          "resistance_ohm": 0.03,
+          "charge_acceptance_fraction": 0.1,
+          "nominal_capacity_coulomb": 10000
+        }
+      },
+      "shell": {
+        "material_id": "synthetic-case",
+        "thickness_m": 0.001,
+        "density_kg_m3": 1200,
+        "specific_heat_j_kg_k": 1000,
+        "conductivity_w_per_m_k": [
+          0.2,
+          0.2,
+          0.2
+        ],
+        "contents_contact_h": 2,
+        "seam_contact_h": 5,
+        "damage_onset_k": 650,
+        "damage_rate_per_s": 0,
+        "damage_scale_k": 25,
+        "destroyed_conductance_factor": 0.02
+      },
+      "vents": [
+        {
+          "id": "top",
+          "port_suffix": "case:+z:outer",
+          "channel": {
+            "kind": "rupture",
+            "area_m2": 1e-7,
+            "opening_pressure_pa": 10000,
+            "strength_reference_k": 300,
+            "strength_temperature_scale_k": 300,
+            "discharge_coefficient": 0.7
+          }
+        }
+      ]
+    }
+  ],
+  "assembly": {
+    "batteries": [
+      {
+        "id": "B",
+        "model_id": "synthetic-cell",
+        "model_revision": "1",
+        "pose": {
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "orientation_xyzw": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "initial_state": {
+          "temperature_k": 298.15,
+          "shell_temperature_k": 298.15,
+          "damage_fraction": 0,
+          "aging_fraction": 0,
+          "precursor_fraction": 0,
+          "charged_fraction": 0
+        },
+        "gas_compartment": "inside-B"
+      }
+    ],
+    "passive_cells": [],
+    "ports": [
+      {
+        "id": "B-probe",
+        "cell_id": "B",
+        "frame": "local",
+        "area_m2": 0.0001,
+        "centroid_m": [
+          0.01,
+          0,
+          0
+        ],
+        "normal": [
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    "interfaces": [],
+    "gas_network": {
+      "transport": "split_local_equilibrium",
+      "mass_backend": "cuda_network",
+      "coupled_gas_films": true,
+      "reference_temperature_k": 300,
+      "cv_j_per_kg_k": 1000,
+      "specific_r_j_per_kg_k": 287,
+      "compartments": [
+        {
+          "id": "inside-B",
+          "contents_id": "B",
+          "volume_m3": 0.000001,
+          "initial_mass_kg": 0.0000011841314120000166,
+          "initial_temperature_k": 298.15,
+          "initial_oxidizer_mass_fraction": 0,
+          "reaction_rate_per_s": 5,
+          "reaction_reference_k": 600,
+          "reaction_activation_j_per_mol": 80000
+        },
+        {
+          "id": "cavity",
+          "volume_m3": 0.001,
+          "initial_mass_kg": 0.0011841314120000165,
+          "initial_temperature_k": 298.15,
+          "initial_oxidizer_mass_fraction": 0.232,
+          "reaction_rate_per_s": 5,
+          "reaction_reference_k": 600,
+          "reaction_activation_j_per_mol": 80000
+        }
+      ],
+      "channels": [],
+      "thermal_contacts": []
+    },
+    "vent_connections": [
+      {
+        "id": "case-rupture",
+        "battery_id": "B",
+        "vent_id": "top",
+        "to": "cavity"
+      }
+    ],
+    "electrical_circuit": {
+      "mode": "solved_dc",
+      "reference_node": "negative",
+      "nodes": [
+        "positive",
+        "negative"
+      ],
+      "branches": [
+        {
+          "id": "battery-B",
+          "kind": "battery",
+          "cell_id": "B",
+          "from": "positive",
+          "to": "negative",
+          "emf_v": 3.65
+        },
+        {
+          "id": "charger",
+          "kind": "current_source",
+          "from": "negative",
+          "to": "positive"
+        }
+      ]
+    }
+  },
+  "conditions": {
+    "boundaries": [],
+    "heating_protocols": [],
+    "electrical_drives": [],
+    "source_drives": [
+      {
+        "source_id": "charger",
+        "current_a": 1
+      }
+    ]
+  },
+  "numerics": {
+    "simulation": {
+      "duration_s": 300,
+      "max_dt_s": 0.02,
+      "minimum_dt_s": 0.005,
+      "output_interval_s": 0.5,
+      "stability_factor": 0.4
+    },
+    "batteries": {
+      "B": {
+        "divisions": [
+          3,
+          3,
+          3
+        ],
+        "internal_heat_transfer": "finite_volume"
+      }
+    }
+  },
+  "measurements": [
+    {
+      "id": "T-example",
+      "quantity": "temperature",
+      "unit": "degC",
+      "mapping": {
+        "status": "unknown",
+        "notes": "Example only. No measured record or inferred TC-to-cell assignment."
+      }
+    }
+  ],
+  "metadata": {
+    "calibration_status": "Synthetic starter: NOT calibrated; edit or import your experiment.",
+    "assumptions": [
+      "No independent material l or lcrit",
+      "Zero initial oxygen inside; oxygen available in the outer cavity",
+      "One effective gas includes evaporation products"
+    ]
+  }
+}

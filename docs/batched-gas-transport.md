@@ -145,7 +145,7 @@ explicit rejections, not silently substituted physics.
 ctest --test-dir /tmp/battery-sim-cuda-v1 -R '^cuda_batched_' --output-on-failure
 ```
 
-`native/tests/batched_gas.cu` checks the CUDA Poisson mean/variance/zero-count
+`native/tests/gas/batched_gas.cu` checks the CUDA Poisson mean/variance/zero-count
 probability, ledger closure, entropy, a 500-channel hub with simultaneous inflow
 and outflow, closed paths, aperture/time scaling, tile reproducibility,
 deterministic time refinement and a 128-seed comparison against event CUDA.

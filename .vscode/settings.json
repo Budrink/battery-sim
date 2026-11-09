@@ -1,0 +1,15 @@
+{
+  "cmake.cmakePath": "${workspaceFolder}/scripts/ide-cmake.sh",
+  "cmake.useCMakePresets": "always",
+  "cmake.configureOnOpen": false,
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/build/dev/compile_commands.json",
+  "files.associations": { "*.cu": "cpp", "*.cuh": "cpp" },
+  "files.watcherExclude": { "**/build/**": true, "**/data/**": true, "**/.git/objects/**": true },
+  "search.exclude": { "**/build": true, "**/data": true },
+  "files.exclude": { "**/__pycache__": true },
+  "json.schemas": [
+    { "fileMatch": ["**/*-experiment.json"], "url": "./schemas/experiment-v1.schema.json" },
+    { "fileMatch": ["**/*-battery-model.json"], "url": "./schemas/battery-v1.schema.json" }
+  ]
+}

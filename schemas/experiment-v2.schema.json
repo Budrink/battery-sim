@@ -1,0 +1,445 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "id",
+    "name",
+    "provenance",
+    "battery_models",
+    "assembly",
+    "conditions",
+    "numerics",
+    "measurements"
+  ],
+  "properties": {
+    "format": {
+      "$ref": "experiment-v1.schema.json#/properties/format"
+    },
+    "version": {
+      "const": 2,
+      "type": "integer"
+    },
+    "id": {
+      "$ref": "experiment-v1.schema.json#/properties/id"
+    },
+    "name": {
+      "$ref": "experiment-v1.schema.json#/properties/name"
+    },
+    "provenance": {
+      "$ref": "experiment-v1.schema.json#/properties/provenance"
+    },
+    "battery_models": {
+      "$ref": "experiment-v1.schema.json#/properties/battery_models"
+    },
+    "assembly": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "batteries",
+        "ports",
+        "interfaces",
+        "gas_network",
+        "vent_connections",
+        "electrical_circuit"
+      ],
+      "properties": {
+        "batteries": {
+          "$ref": "experiment-v1.schema.json#/properties/assembly/properties/batteries"
+        },
+        "passive_cells": {
+          "$ref": "experiment-v1.schema.json#/properties/assembly/properties/passive_cells"
+        },
+        "ports": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "cell_id",
+              "frame",
+              "area_m2",
+              "centroid_m",
+              "normal"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "cell_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "frame": {
+                "enum": [
+                  "world",
+                  "local"
+                ]
+              },
+              "kind": {
+                "type": "string"
+              },
+              "surface": {
+                "type": "string"
+              },
+              "area_m2": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "rectangle_m": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "centroid_m": {
+                "$ref": "scenario-v0.schema.json#/$defs/vector3"
+              },
+              "normal": {
+                "$ref": "scenario-v0.schema.json#/$defs/vector3"
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "$ref": "experiment-v1.schema.json#/properties/assembly/properties/interfaces"
+        },
+        "gas_network": {
+          "$ref": "experiment-v1.schema.json#/properties/assembly/properties/gas_network"
+        },
+        "vent_connections": {
+          "$ref": "experiment-v1.schema.json#/properties/assembly/properties/vent_connections"
+        },
+        "electrical_circuit": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mode",
+                "nodes",
+                "branches"
+              ],
+              "properties": {
+                "mode": {
+                  "enum": [
+                    "unmapped_drives",
+                    "prescribed_currents"
+                  ]
+                },
+                "nodes": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9_-]{1,128}$"
+                  }
+                },
+                "branches": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "id",
+                      "kind",
+                      "from",
+                      "to"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z0-9_-]{1,128}$"
+                      },
+                      "kind": {
+                        "enum": [
+                          "battery",
+                          "current_source"
+                        ]
+                      },
+                      "from": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z0-9_-]{1,128}$"
+                      },
+                      "to": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z0-9_-]{1,128}$"
+                      },
+                      "cell_id": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z0-9_-]{1,128}$"
+                      }
+                    },
+                    "allOf": [
+                      {
+                        "if": {
+                          "properties": {
+                            "kind": {
+                              "const": "battery"
+                            }
+                          }
+                        },
+                        "then": {
+                          "required": [
+                            "cell_id"
+                          ]
+                        },
+                        "else": {
+                          "not": {
+                            "required": [
+                              "cell_id"
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "mode": {
+                        "const": "unmapped_drives"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "nodes": {
+                        "maxItems": 0
+                      },
+                      "branches": {
+                        "maxItems": 0
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "mode": {
+                  "const": "solved_dc"
+                },
+                "reference_node": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_-]{1,128}$"
+                },
+                "nodes": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 128,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9_-]{1,128}$"
+                  }
+                },
+                "branches": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 512,
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9_-]{1,128}$"
+                          },
+                          "kind": {
+                            "const": "battery"
+                          },
+                          "from": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9_-]{1,128}$"
+                          },
+                          "to": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9_-]{1,128}$"
+                          },
+                          "cell_id": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9_-]{1,128}$"
+                          },
+                          "emf_v": {
+                            "type": "number",
+                            "minimum": 0
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "kind",
+                          "from",
+                          "to",
+                          "cell_id",
+                          "emf_v"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9_-]{1,128}$"
+                          },
+                          "kind": {
+                            "enum": [
+                              "current_source",
+                              "voltage_source"
+                            ]
+                          },
+                          "from": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9_-]{1,128}$"
+                          },
+                          "to": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9_-]{1,128}$"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "kind",
+                          "from",
+                          "to"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "mode",
+                "reference_node",
+                "nodes",
+                "branches"
+              ]
+            }
+          ]
+        },
+        "gas_meshes": {
+          "$ref": "experiment-v1.schema.json#/properties/assembly/properties/gas_meshes"
+        }
+      }
+    },
+    "conditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "boundaries",
+        "heating_protocols",
+        "electrical_drives",
+        "source_drives"
+      ],
+      "properties": {
+        "boundaries": {
+          "$ref": "experiment-v1.schema.json#/properties/conditions/properties/boundaries"
+        },
+        "heating_protocols": {
+          "$ref": "experiment-v1.schema.json#/properties/conditions/properties/heating_protocols"
+        },
+        "electrical_drives": {
+          "$ref": "experiment-v1.schema.json#/properties/conditions/properties/electrical_drives"
+        },
+        "source_drives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source_id"
+            ],
+            "properties": {
+              "source_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,128}$"
+              },
+              "current_a": {
+                "type": "number"
+              },
+              "current_profile_a": {
+                "$ref": "scenario-v0.schema.json#/$defs/electrical/properties/current_profile_a"
+              },
+              "voltage_v": {
+                "type": "number"
+              }
+            },
+            "oneOf": [
+              {
+                "required": [
+                  "current_a"
+                ]
+              },
+              {
+                "required": [
+                  "current_profile_a"
+                ]
+              },
+              {
+                "required": [
+                  "voltage_v"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "numerics": {
+      "$ref": "experiment-v1.schema.json#/properties/numerics"
+    },
+    "measurements": {
+      "$ref": "experiment-v1.schema.json#/properties/measurements"
+    },
+    "metadata": {
+      "$ref": "experiment-v1.schema.json#/properties/metadata"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://battery-sim.local/schemas/experiment-v2.schema.json",
+  "title": "Editor-ready experiment v2",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "assembly": {
+            "properties": {
+              "electrical_circuit": {
+                "properties": {
+                  "mode": {
+                    "const": "unmapped_drives"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "conditions": {
+            "properties": {
+              "source_drives": {
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

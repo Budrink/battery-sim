@@ -41,7 +41,7 @@ PROTOCOL=dict(revision='post-event-constant-pulse-raw-scans-v1',fit='no-cooling'
 def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 
 def fingerprint():
-    return hashlib.sha256((model_hash()+digest(Path(__file__))+digest(ROOT/'native/tools/failure_probe.cpp')).encode()).hexdigest()
+    return hashlib.sha256((model_hash()+digest(Path(__file__))+digest(ROOT/'native/tools/probes/failure_probe.cpp')).encode()).hexdigest()
 
 def load_record(name,directory=DATA):
     manifest=json.loads((directory/'manifest.json').read_text());meta=manifest['experiments'][name]

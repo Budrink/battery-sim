@@ -109,7 +109,7 @@ class SearchGeometryTests(unittest.TestCase):
             self.assertEqual(s['simulation']['minimum_dt_s'], .01)
 
     def test_entire_ladder_respects_real_native_limits(self):
-        header = (controller.ROOT/'native/include/battery_native/model.hpp').read_text()
+        header = (controller.ROOT/'native/core/include/battery_native/model/model.hpp').read_text()
         native_max = int(re.search(r'maximum_pressure_iterations\s*=\s*(\d+)', header)[1])
         self.assertEqual(iteration_bounds()['averaged_pressure_iterations'][1], native_max)
         base = build(5945.)

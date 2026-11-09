@@ -2,6 +2,41 @@
 
 CUDA thermal-runaway simulator with a native ImGui/OpenGL viewer.
 
+Code is separated into `native/core` (physics/CUDA), `native/run` (scenario and
+launch configuration), `native/visualization` (rendering/replay), `native/ui`
+(optional ImGui viewer/editor), and `native/apps` (entry points). Start with [the architecture guide](docs/architecture.md) for the
+step-by-step algorithm, module map, and headless API.
+The [source directory map](native/README.md) shows the physics subsystems,
+their entry points, and where new tests and tools belong.
+
+Reusable battery models and experiment conditions use the
+[experiment contract v2, with v1 import](docs/experiment-contract.md). Its native adapter emits
+the existing scenario JSON for the worker, CLI and viewer without changing physics.
+
+Open the laboratory editor with VS Code's **BatterySim: laboratory editor** launch
+configuration, or after building the viewer:
+
+```bash
+build/dev/battery_sim_viewer examples/contracts/module-4x4.json --editor
+```
+
+The **EXPERIMENT EDITOR** button opens the same module from the viewer. Import/save
+JSON, edit assembly/materials, inspect a separate 3D preview, wire series/parallel DC
+circuits, and add an external heating plate in **Heating**. **RUN SNAPSHOT** starts
+a new simulation; editing never mutates the active solver. The starter uses a
+synthetic prismatic fixture with material/chemistry and heater seeds from the saved
+FSRI30 run (portable, source-labelled presets in `examples/contracts`). It is not a
+validated commercial battery. Local pore inventories include evaporation; each top
+rupture patch vents its adjacent pore. Apparatus dimensions and pad contacts remain
+explicit demo assumptions. A reproducible headless job is `examples/jobs/module-4x4.json`;
+`scripts/check_laboratory_runaway.py RUN_DIRECTORY` checks a completed run for
+self-driven runaway and casing rupture, not agreement with an experiment.
+
+Solved DC uses current state-dependent battery resistance on CUDA, explicit fixed
+EMFs and constant current/voltage sources. It is a charging model, not a general
+SPICE/discharge simulator; unsupported reverse currents or singular circuits fail
+explicitly. Existing prescribed-current scenarios remain supported.
+
 Current model:
 
 - continuous R1 aging → R2 exothermic decomposition → oxygen-limited R3 oxidation, with its own Arrhenius law;
@@ -20,6 +55,16 @@ and the recovery archive were permanently deleted. The sole current demo,
 **not experimentally calibrated**.
 
 ## Build and view
+
+For queue/service integration, use the separate **`battery_sim_worker`** process:
+[versioned job contract](docs/job-contract.md), [example job](examples/jobs/reaction-chain.json).
+The existing headless CLI and viewer are unchanged; the worker adds structured
+progress, result artifacts, cancellation and compatible-build checkpoints.
+
+**VS Code:** open `battery-sim.code-workspace`, install the recommended extensions,
+then press **F5** to build and run. **Ctrl+Shift+B** builds without launching.
+Live demo, cascade/exhaust replays and host debugging are preconfigured.
+See [VS Code setup](docs/vscode.md) for requirements and recording availability.
 
 ```sh
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release

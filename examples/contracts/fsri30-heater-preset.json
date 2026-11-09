@@ -1,0 +1,18 @@
+{
+  "source": "data/development/fsri30-wall-delay-full-20261027-r1/scenario.json",
+  "source_sha256": "6895d5de718ebec1471a26da90979899fcad1dc61bff2e4ebaca29f67dc8a7cc",
+  "scope": "Saved 30-cell simulation apparatus, not measured experimental power. Lateral foil footprint adapts to the selected prism; controller, capacity and material are retained.",
+  "thickness_m": 0.0002,
+  "heat_capacity_j_per_k": 1.0,
+  "conductivity_w_per_m_k": [15.0, 15.0, 15.0],
+  "contact_h_w_per_m2_k": 500.0,
+  "protocol": {
+    "initial_temperature_k": 298.15,
+    "ramp_k_per_s": 0.1,
+    "feedforward_w": 0.0,
+    "proportional_w_per_k": 0.19767037747050903,
+    "maximum_power_w": 30.0,
+    "cutoff_temperature_k": 773.15,
+    "cutoff_rate_k_per_s": 10.0
+  }
+}

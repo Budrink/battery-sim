@@ -1,0 +1,82 @@
+{
+  "status": "demo_passed",
+  "experimental_validation": false,
+  "completed_s": 3000.0,
+  "wall_s": 1083.472761703,
+  "reaction_onsets": [
+    {
+      "entity_id": "B05",
+      "kind": "runaway_secondary",
+      "schema_version": 1,
+      "time_s": 1301.7999999999115,
+      "type": "physical_event"
+    },
+    {
+      "entity_id": "B04",
+      "kind": "runaway_secondary",
+      "schema_version": 1,
+      "time_s": 2339.199999998968,
+      "type": "physical_event"
+    }
+  ],
+  "completed_reactions": [
+    {
+      "entity_id": "B05",
+      "kind": "runaway_complete",
+      "schema_version": 1,
+      "time_s": 1824.5049999994362,
+      "type": "physical_event"
+    }
+  ],
+  "first_opening": {
+    "entity_id": "vent-B05-patch-4",
+    "kind": "shell_rupture",
+    "schema_version": 1,
+    "time_s": 1315.6999999998989,
+    "type": "physical_event"
+  },
+  "maximum_temperature_c": {
+    "B00": 67.95382090049242,
+    "B01": 120.07756526327734,
+    "B02": 59.83175455493506,
+    "B03": 37.33160855781847,
+    "B04": 133.64611998198592,
+    "B05": 1175.611176001742,
+    "B06": 111.80346970725094,
+    "B07": 43.1181747651691,
+    "B08": 63.635247897759086,
+    "B09": 112.03942399908954,
+    "B10": 56.21528480674726,
+    "B11": 35.68862178377276,
+    "B12": 38.16409221592431,
+    "B13": 43.556028152841236,
+    "B14": 35.8981954038058,
+    "B15": 33.31360237430766
+  },
+  "peak_time_s": {
+    "B00": 3000.0,
+    "B01": 2982.499999998383,
+    "B02": 3000.0,
+    "B03": 3000.0,
+    "B04": 2916.199999998443,
+    "B05": 1824.7999999994358,
+    "B06": 2880.4999999984757,
+    "B07": 3000.0,
+    "B08": 3000.0,
+    "B09": 2870.299999998485,
+    "B10": 3000.0,
+    "B11": 3000.0,
+    "B12": 3000.0,
+    "B13": 3000.0,
+    "B14": 3000.0,
+    "B15": 3000.0
+  },
+  "balances": {
+    "chemical_balance_residual_j": 6.28642737865448e-09,
+    "energy_balance_residual_j": -4.336470738053322e-09,
+    "scenario_expectations": {
+      "checks": {},
+      "status": "not_requested"
+    }
+  }
+}

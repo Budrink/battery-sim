@@ -550,7 +550,9 @@ do not uniquely determine these parameters.
 `examples/stochastic-shell-pixels-demo.json` uses a 3x3x3 battery interior and
 24x24 elements on **each** casing face. `shells[].surface_divisions` specifies
 counts along the three global axes; the face-normal count is always one. Its
-default is to inherit the contents grid, preserving older scenarios. Refinement
+default is to inherit the contents grid. Counts must be integer refinements of
+the contents counts. Since 2026-11-09 the tangential cuts align with the contents;
+corner strips extend only the boundary tiles, not every tile. Refinement
 does not change casing mass, total heat capacity, thickness or contact area.
 Existing nonuniform initial fields must be regenerated on the new grid; there
 is no implicit interpolation of a frozen coarse field.
@@ -757,7 +759,7 @@ now exercises this extension; it does not replace an accepted profile.
 - `native/src/aperture_kernels.cuh`: local opening, directed flux, channel ledger.
 - `native/src/shell_work_kernels.cuh`: work budget and energy-limited opening.
 - `native/src/cuda_step.cuh`: proposal/acceptance order only.
-- `native/tests/aperture.cpp`: geometry, conservation, work, refinement, tiling,
+- `native/tests/mechanics/aperture.cpp`: geometry, conservation, work, refinement, tiling,
   repeated prepare/discard, an intentionally energy-starved aperture, closed
   aperture CFL independence and many-to-one active aperture stability.
 
@@ -1513,3 +1515,51 @@ The Python audit suite passed three tests; its optional JSON Schema test was
 skipped because `jsonschema` is not installed. Native invalid-input tests pass.
 Earlier trial failures/timeouts were followed by the final targeted test runs;
 there is no claim of an all-green full-project suite.
+
+## Connected physical-plate rupture (2026-11-09)
+
+`damage_opening.whole_plate: true` opts a planar physical shell face into a
+connected-front closure. The editor's Apply face action and the starter module
+use it. Existing contracts without this flag retain independent apertures;
+their old trajectories are not silently reinterpreted as the new mechanics.
+
+Thermal tiles retain their own temperatures, heat capacities, conductivity,
+thermal weakening and adjacent gas inventories. They do **not** all receive the
+same mechanical damage. The local driving ratio is
+
+`r_i = (p_inside_i - p_outside_i) / (p_critical_i * max(0.01, 1-Dthermal_i) * weak_factor_i)`.
+
+Only `r_i > 1` permits opening. On a closed face the largest ratio nucleates
+the crack (stable tile order resolves exact ties). A valve/seam reduces strength
+only within its remaining weak area. After nucleation, partially opened tiles
+and untouched neighbours of fully opened tiles form the frontier. Its greatest
+ratio selects the next growth site; branches can compete as loads change.
+Diagonal contact alone does not transmit the crack.
+Load below threshold arrests growth, without reversing either history.
+
+The existing rate law acts on the remaining **physical plate area**:
+`dA/dt = area_rate * max(r_i-1,0)^pressure_exponent * (Aplate-A)`.
+Frozen-pressure integration crosses weak-region/tile boundaries analytically;
+several can be crossed within one step. It is not one tile per timestep.
+The area accuracy budget likewise refers to the whole face. Local pressure
+unloading still participates in step selection; the configured step floor is
+unchanged.
+
+CUDA proposes each face independently, then budgets all fracture-work requests
+per gas donor (including other faces). Only an affordable connected prefix is
+accepted. Work is charged to the local donor; gas transport follows fracture.
+All proposals are scratch buffers and rollback/checkpoint behavior uses the
+existing per-tile irreversible state. No new per-step host synchronization.
+
+This is a reduced area-front model, **not** plate elasticity or fracture
+mechanics resolving stresses/crack-tip energy release. In particular it fills
+the current thermal tile before entering the next. Nonuniform-load predictions
+can depend on spatial resolution even though uniform-load total area and the
+frozen-load time integration are subdivision-consistent. No calibrated elastic
+stress concentration or propagation speed is claimed.
+
+The viewer blends accepted local opening fractions into a translucent dark
+surface mark. Its static ragged contour and soft lightening edge are illustrative,
+not an additional aperture geometry used by the solver. Temperature and other
+material surfaces keep their existing colors; there are no opaque black holes
+or gas-flow marker lines.
