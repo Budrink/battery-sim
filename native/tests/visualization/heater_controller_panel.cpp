@@ -1,4 +1,4 @@
-#include "heater_controller_panel.hpp"
+#include "editor/forms/heater_controller_panel.hpp"
 #include "battery_native/contracts/experiment_editing.hpp"
 #include <nlohmann/json.hpp>
 #include "imgui.h"

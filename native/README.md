@@ -3,6 +3,7 @@
 Начало чтения: [один шаг симуляции](core/src/simulation/simulation.cpp),
 затем [порядок физических стадий](core/src/simulation/mass_step.cuh).
 Подробная схема зависимостей — в [архитектуре](../docs/architecture.md).
+Для работы с интерфейсом: [карта UI и аналогии с C#](ui/README.md).
 
 ```text
 native/
@@ -24,7 +25,7 @@ native/
 │   └── src/contracts/       проверка документа и сборка батарея/опыт → native-сценарий
 ├── job/                     контракт задач и worker, не физика
 ├── ui/                      опциональная библиотека ImGui-приложения
-│   └── src/editor/          документ/сохранение, панели, 3D-предпросмотр
+│   └── src/                 application/, platform/, viewer/, editor/, shared/
 ├── visualization/
 │   ├── include/battery_native/
 │   └── src/

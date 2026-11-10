@@ -8,6 +8,7 @@ add_library(battery_run STATIC
     native/run/src/scenario/gas_network.cpp
     native/run/src/run_configuration.cpp
     native/run/src/contracts/experiment_contract.cpp
+    native/run/src/contracts/native_import.cpp
     native/run/src/contracts/contract_validation.cpp
     native/run/src/contracts/gas_combustion_model.cpp
     native/run/src/contracts/contract_assembly.cpp

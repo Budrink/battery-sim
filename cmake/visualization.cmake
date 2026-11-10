@@ -66,34 +66,56 @@ add_library(battery_renderer STATIC native/visualization/src/render/renderer.cpp
 target_include_directories(battery_renderer PRIVATE ${glm_SOURCE_DIR})
 target_compile_definitions(battery_renderer PRIVATE GL_GLEXT_PROTOTYPES GLM_ENABLE_EXPERIMENTAL)
 target_link_libraries(battery_renderer PUBLIC battery_cuda_visual PRIVATE glfw)
-add_library(battery_viewer_options STATIC native/ui/src/options.cpp)
+add_library(battery_viewer_options STATIC native/ui/src/application/options.cpp)
 target_include_directories(battery_viewer_options PUBLIC native/ui/include)
 target_link_libraries(battery_viewer_options PUBLIC battery_run)
 # Optional application module. The executable is only an entry point.
-add_library(battery_editor_document STATIC native/ui/src/editor/document.cpp)
-target_include_directories(battery_editor_document PUBLIC native/ui/include)
+add_library(battery_editor_document STATIC
+    native/ui/src/editor/state/document.cpp
+    native/ui/src/editor/state/model_edits.cpp)
+target_include_directories(battery_editor_document PUBLIC native/ui/include PRIVATE native/ui/src)
 target_link_libraries(battery_editor_document PUBLIC battery_run)
-add_library(battery_ui STATIC native/ui/src/application.cpp
+# Window-independent application session; tested without creating GLFW/ImGui.
+add_library(battery_viewer_session STATIC native/ui/src/application/viewer_session.cpp)
+target_include_directories(battery_viewer_session PUBLIC native/ui/include)
+target_link_libraries(battery_viewer_session PUBLIC battery_viewer_options battery_visual_data battery_run)
+add_library(battery_ui STATIC
+    native/ui/src/application/application.cpp
+    native/ui/src/platform/desktop_host.cpp
+    native/ui/src/viewer/viewer_window.cpp
+    native/ui/src/viewer/widgets.cpp
+    native/ui/src/viewer/scene_view.cpp
+    native/ui/src/viewer/panels/header_panel.cpp
+    native/ui/src/viewer/panels/inspector_panel.cpp
+    native/ui/src/viewer/panels/transport_panel.cpp
     native/ui/src/editor/experiment_editor.cpp
-    native/ui/src/editor/panels.cpp
-    native/ui/src/editor/heater_controller_panel.cpp
-    native/ui/src/editor/heating_panel.cpp
-    native/ui/src/editor/models_panel.cpp
-    native/ui/src/editor/gas_model_panel.cpp
-    native/ui/src/editor/connection_forms.cpp
-    native/ui/src/editor/run_forms.cpp
-    native/ui/src/editor/model_edits.cpp
-    native/ui/src/editor/model_properties.cpp
-    native/ui/src/editor/geometry_panel.cpp
-    native/ui/src/editor/shell_panel.cpp
-    native/ui/src/editor/enclosure_panel.cpp
-    native/ui/src/editor/case_openings_panel.cpp
-    native/ui/src/editor/preview.cpp)
+    native/ui/src/editor/commands/import.cpp
+    native/ui/src/editor/commands/panel_edits.cpp
+    native/ui/src/editor/views/parameter_reference.cpp
+    native/ui/src/editor/views/file_browser.cpp
+    native/ui/src/editor/views/editor_window.cpp
+    native/ui/src/editor/views/editor_desktop.cpp
+    native/ui/src/editor/panels/assembly_panel.cpp
+    native/ui/src/editor/commands/elements.cpp
+    native/ui/src/editor/commands/circuit.cpp
+    native/ui/src/editor/panels/circuit_panel.cpp
+    native/ui/src/editor/preview/preview.cpp
+    native/ui/src/editor/panels/case_openings_panel.cpp
+    native/ui/src/editor/panels/connection_forms.cpp
+    native/ui/src/editor/panels/enclosure_panel.cpp
+    native/ui/src/editor/panels/gas_model_panel.cpp
+    native/ui/src/editor/panels/geometry_panel.cpp
+    native/ui/src/editor/panels/heating_panel.cpp
+    native/ui/src/editor/panels/models_panel.cpp
+    native/ui/src/editor/panels/run_forms.cpp
+    native/ui/src/editor/panels/shell_panel.cpp
+    native/ui/src/editor/forms/heater_controller_panel.cpp
+    native/ui/src/editor/forms/model_properties.cpp)
 add_library(battery::ui ALIAS battery_ui)
-target_include_directories(battery_ui PUBLIC native/ui/include PRIVATE ${glm_SOURCE_DIR})
+target_include_directories(battery_ui PUBLIC native/ui/include PRIVATE native/ui/src ${glm_SOURCE_DIR})
 target_compile_definitions(battery_ui PRIVATE GL_GLEXT_PROTOTYPES GLM_ENABLE_EXPERIMENTAL)
 target_compile_options(battery_ui PRIVATE -Wall -Wextra -Wpedantic)
-target_link_libraries(battery_ui PUBLIC battery_viewer_options PRIVATE battery_renderer implot_lib battery_editor_document)
+target_link_libraries(battery_ui PUBLIC battery_viewer_options PRIVATE battery_viewer_session battery_renderer implot_lib battery_editor_document)
 add_executable(battery_sim_viewer native/apps/viewer/main.cpp)
 target_link_libraries(battery_sim_viewer PRIVATE battery::ui)
 

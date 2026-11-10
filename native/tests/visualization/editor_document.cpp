@@ -349,6 +349,10 @@ int main(int argc, char** argv) {
         loaded.load(path);
         require(loaded.draft == doc.draft, "Editor save/load lost fields");
         const auto good = loaded.draft;
+        loaded.load(path.string() + ".editor.json");
+        require(loaded.draft == good && loaded.path == path,
+                "Selecting the view file did not resolve the exact experiment companion");
+        require(loaded.sidecar == doc.sidecar, "Selecting the view file lost the saved view");
         const auto bad = std::filesystem::path(dir) / "invalid.json";
         {
             std::ofstream f(bad);

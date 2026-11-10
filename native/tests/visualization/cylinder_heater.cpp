@@ -2,7 +2,7 @@
 #include "battery_native/contracts/experiment_contract.hpp"
 #include "battery_native/scenario_document.hpp"
 #include "battery_native/render/renderer.hpp"
-#include "model_edits.hpp"
+#include "editor/state/model_edits.hpp"
 #include <nlohmann/json.hpp>
 #include <GLFW/glfw3.h>
 #include <fstream>

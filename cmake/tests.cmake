@@ -60,25 +60,43 @@ if(BUILD_TESTING)
     add_test(NAME run_configuration COMMAND battery_sim_run_configuration_test
         ${CMAKE_SOURCE_DIR}/examples/reaction-chain-demo.json)
     if(TARGET battery_viewer_options)
+        add_executable(battery_sim_viewer_session_test native/tests/visualization/viewer_session.cpp)
+        target_link_libraries(battery_sim_viewer_session_test PRIVATE battery_viewer_session)
+        add_test(NAME cuda_viewer_session COMMAND battery_sim_viewer_session_test
+            ${CMAKE_SOURCE_DIR}/examples/contracts/laboratory-demo.json)
         add_executable(battery_sim_module_starter_test native/tests/visualization/module_starter.cpp)
         target_link_libraries(battery_sim_module_starter_test PRIVATE battery_run battery_visual_data)
         add_test(NAME cuda_module_starter COMMAND battery_sim_module_starter_test
             ${CMAKE_SOURCE_DIR}/examples/contracts/module-4x4.json)
         add_executable(battery_sim_viewport_input_test native/tests/visualization/viewport_input.cpp)
-        target_include_directories(battery_sim_viewport_input_test PRIVATE native/ui/src/editor)
+        target_include_directories(battery_sim_viewport_input_test PRIVATE native/ui/src)
         target_link_libraries(battery_sim_viewport_input_test PRIVATE imgui_lib)
         add_test(NAME viewport_input COMMAND battery_sim_viewport_input_test)
         add_executable(battery_sim_editor_document_test native/tests/visualization/editor_document.cpp)
+        add_executable(battery_sim_example_imports_test native/tests/visualization/example_imports.cpp)
+        target_link_libraries(battery_sim_example_imports_test PRIVATE battery_editor_document)
+        add_test(NAME cuda_example_imports COMMAND battery_sim_example_imports_test ${CMAKE_SOURCE_DIR}/examples)
+        add_executable(battery_sim_editor_workflow_test native/tests/visualization/editor_workflow.cpp)
+        target_include_directories(battery_sim_editor_workflow_test PRIVATE native/ui/src)
+        target_link_libraries(battery_sim_editor_workflow_test PRIVATE battery_ui battery_renderer battery_editor_document imgui_lib glfw OpenGL::GL)
+        add_test(NAME cuda_editor_workflow COMMAND battery_sim_editor_workflow_test
+            ${CMAKE_SOURCE_DIR}/examples/contracts/module-4x4.json)
         add_executable(battery_sim_imported_enclosure_test native/tests/visualization/imported_enclosure.cpp)
         add_executable(battery_sim_case_opening_ui_test native/tests/visualization/case_opening_ui.cpp)
-        target_include_directories(battery_sim_case_opening_ui_test PRIVATE native/ui/src/editor)
+        target_include_directories(battery_sim_case_opening_ui_test PRIVATE native/ui/src)
         target_link_libraries(battery_sim_case_opening_ui_test PRIVATE battery_ui battery_renderer battery_editor_document imgui_lib glfw OpenGL::GL)
         add_executable(battery_sim_editor_import_ui_test native/tests/visualization/editor_import_ui.cpp)
-        target_include_directories(battery_sim_editor_import_ui_test PRIVATE native/ui/src/editor)
+        target_include_directories(battery_sim_editor_import_ui_test PRIVATE native/ui/src)
         target_link_libraries(battery_sim_editor_import_ui_test PRIVATE battery_ui battery_renderer battery_editor_document imgui_lib glfw OpenGL::GL)
         add_test(NAME cuda_editor_import_ui COMMAND battery_sim_editor_import_ui_test
             ${CMAKE_CURRENT_SOURCE_DIR}/examples/contracts/laboratory-demo.json
             ${CMAKE_CURRENT_SOURCE_DIR}/examples/contracts/fsri30-shell-020mm-wrap.json)
+        add_test(NAME cuda_native_import_ui COMMAND battery_sim_editor_import_ui_test
+            ${CMAKE_SOURCE_DIR}/examples/contracts/laboratory-demo.json
+            ${CMAKE_SOURCE_DIR}/examples/reaction-chain-demo.json)
+        add_test(NAME cuda_job_import_ui COMMAND battery_sim_editor_import_ui_test
+            ${CMAKE_SOURCE_DIR}/examples/contracts/laboratory-demo.json
+            ${CMAKE_SOURCE_DIR}/examples/jobs/module-4x4.json)
         add_test(NAME cuda_case_opening_ui COMMAND battery_sim_case_opening_ui_test
             ${CMAKE_SOURCE_DIR}/examples/contracts/laboratory-demo.json
             ${CMAKE_SOURCE_DIR}/examples/contracts/fsri30-shell-020mm-wrap.json)
@@ -88,26 +106,26 @@ if(BUILD_TESTING)
         target_link_libraries(battery_sim_editor_document_test PRIVATE battery_editor_document battery_visual_data)
         add_executable(battery_sim_heater_panel_test native/tests/visualization/heater_controller_panel.cpp)
         add_executable(battery_sim_cylinder_heater_test native/tests/visualization/cylinder_heater.cpp)
-        target_include_directories(battery_sim_cylinder_heater_test PRIVATE native/ui/src/editor)
+        target_include_directories(battery_sim_cylinder_heater_test PRIVATE native/ui/src)
         target_link_libraries(battery_sim_cylinder_heater_test PRIVATE battery_ui battery_renderer battery_run battery_visual_data glfw OpenGL::GL)
         add_test(NAME cuda_cylinder_heater COMMAND battery_sim_cylinder_heater_test
             ${CMAKE_SOURCE_DIR}/examples/contracts/laboratory-demo.json)
-        target_include_directories(battery_sim_heater_panel_test PRIVATE native/ui/src/editor)
+        target_include_directories(battery_sim_heater_panel_test PRIVATE native/ui/src)
         target_link_libraries(battery_sim_heater_panel_test PRIVATE battery_ui imgui_lib)
         add_test(NAME heater_controller_panel COMMAND battery_sim_heater_panel_test
             ${CMAKE_SOURCE_DIR}/examples/contracts/laboratory-demo.json)
         add_executable(battery_sim_model_panel_test native/tests/visualization/model_properties.cpp)
         add_executable(battery_sim_gas_model_panel_test native/tests/visualization/gas_model_panel.cpp)
-        target_include_directories(battery_sim_gas_model_panel_test PRIVATE native/ui/src/editor)
+        target_include_directories(battery_sim_gas_model_panel_test PRIVATE native/ui/src)
         target_link_libraries(battery_sim_gas_model_panel_test PRIVATE battery_ui battery_editor_document battery_run imgui_lib)
         add_test(NAME cuda_gas_model_panel COMMAND battery_sim_gas_model_panel_test
             ${CMAKE_SOURCE_DIR}/examples/contracts/module-4x4.json)
-        target_include_directories(battery_sim_model_panel_test PRIVATE native/ui/src/editor)
+        target_include_directories(battery_sim_model_panel_test PRIVATE native/ui/src)
         target_link_libraries(battery_sim_model_panel_test PRIVATE battery_ui battery_editor_document battery_run imgui_lib)
         add_test(NAME model_properties_panel COMMAND battery_sim_model_panel_test
             ${CMAKE_SOURCE_DIR}/examples/contracts/module-4x4.json)
         add_executable(battery_sim_model_edit_isolation_test native/tests/visualization/model_edit_isolation.cpp)
-        target_include_directories(battery_sim_model_edit_isolation_test PRIVATE native/ui/src/editor)
+        target_include_directories(battery_sim_model_edit_isolation_test PRIVATE native/ui/src)
         target_link_libraries(battery_sim_model_edit_isolation_test PRIVATE battery_ui battery_editor_document battery_run)
         add_test(NAME cuda_model_edit_isolation COMMAND battery_sim_model_edit_isolation_test
             ${CMAKE_SOURCE_DIR}/examples/contracts/module-4x4.json)
@@ -258,6 +276,8 @@ if(BUILD_TESTING)
         set_tests_properties(cuda_worker_cli PROPERTIES TIMEOUT 120)
         add_test(NAME native_architecture COMMAND ${Python3_EXECUTABLE}
             ${CMAKE_SOURCE_DIR}/tests/test_native_architecture.py)
+        add_test(NAME editor_reference COMMAND ${Python3_EXECUTABLE}
+            ${CMAKE_SOURCE_DIR}/tests/test_editor_reference.py)
         add_test(NAME native_refactor_guard COMMAND ${Python3_EXECUTABLE}
             ${CMAKE_SOURCE_DIR}/tests/test_native_refactor.py)
         if(TARGET battery_sim_reference_probe)

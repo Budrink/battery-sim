@@ -1,4 +1,4 @@
-#include "gas_model_panel.hpp"
+#include "editor/panels/gas_model_panel.hpp"
 #include "battery_native/contracts/experiment_contract.hpp"
 #include "battery_native/contracts/gas_combustion_model.hpp"
 #include "battery_native/scenario_document.hpp"

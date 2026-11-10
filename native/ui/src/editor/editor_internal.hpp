@@ -3,22 +3,32 @@
 #include "battery_native/render/renderer.hpp"
 #include "battery_ui/preview_updates.hpp"
 #include "battery_ui/opening_selection.hpp"
-#include "heater_controller_panel.hpp"
-#include "model_edits.hpp"
+#include "editor/forms/heater_controller_panel.hpp"
+#include "editor/state/model_edits.hpp"
+#include "editor/help/editor_sections.hpp"
 #include <optional>
 
 namespace battery::ui {
 struct ExperimentEditor::Impl {
+    // Document and uncommitted inputs. Never the running simulation's state.
     EditorDocument document;
-    std::string file_path, message, selected, json_text;
+    std::string file_path, message, selected;
     std::string heater_target;
     std::string model_selected_battery;
     std::size_t model_index = 0;
     ModelEdits model_edits;
+    EditorSection section = EditorSection::Assembly;
+    bool show_preview = true;
+    std::string help_search;
+    bool shell_dirty = false, enclosure_dirty = false, shape_dirty = false, opening_dirty = false;
+    std::map<std::string, std::string> panel_errors;
+    nlohmann::json panel_attempt;
     std::optional<nlohmann::json> pending;
-    bool browser = false, replace_confirm = false, import_requested = false;
+    // File browser and import flow (views/ and commands/import.cpp).
+    bool browser = false, import_requested = false;
     std::string import_error;
     std::filesystem::path browse_path = ".";
+    // Panel drafts: editing a field must not change the compiled scenario yet.
     bool parallel = true, voltage_source = true;
     float source_value = 4.2f, emf = 3.65f;
     int face = 0;
@@ -38,6 +48,7 @@ struct ExperimentEditor::Impl {
     nlohmann::json shape_source;
     int shape_kind = 0;
     double shape_dimensions_mm[3]{20, 20, 65};
+    // Isolated initial-state preview (preview/). It never advances physics.
     SceneRenderer preview_renderer;
     bool renderer_ready = false;
     PreviewUpdates preview_updates;
@@ -54,10 +65,13 @@ struct ExperimentEditor::Impl {
     VisualSettings visual;
     VisualSettings rendered_visual;
     nlohmann::json preview_source, preview_compiled;
+    // Implementations are grouped by responsibility, not one large draw method.
     void refresh_preview();
     void update_preview();
     void draw_preview();
     void draw_browser();
+    void draw_reference();
+    void commit_panel_edits();
     void draw_assembly();
     void delete_selected();
     bool draw_battery_shape();

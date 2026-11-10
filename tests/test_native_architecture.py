@@ -11,7 +11,7 @@ NATIVE = ROOT / "native"
 class NativeArchitectureTests(unittest.TestCase):
     def test_subsystems_do_not_return_to_flat_source_directories(self):
         roots = ["core/src", "core/include/battery_native", "tests", "tools",
-                 "visualization/src", "visualization/include/battery_native"]
+                 "visualization/src", "visualization/include/battery_native", "ui/src"]
         for directory in roots:
             files = [p.name for p in (NATIVE / directory).iterdir()
                      if p.suffix in {".hpp", ".cpp", ".cu", ".cuh"}]
@@ -85,6 +85,37 @@ class NativeArchitectureTests(unittest.TestCase):
                 self.assertEqual(options[key], "OFF")
         self.assertEqual(presets["core"]["cacheVariables"]["BATTERY_SIM_BUILD_RUNTIME"], "OFF")
         self.assertEqual(presets["server"]["cacheVariables"]["BATTERY_SIM_BUILD_RUNTIME"], "ON")
+
+    def test_viewer_session_is_not_a_window(self):
+        paths = [NATIVE / "ui/include/battery_ui/viewer_session.hpp",
+                 NATIVE / "ui/src/application/viewer_session.cpp"]
+        for path in paths:
+            source = path.read_text()
+            self.assertNotRegex(source, r'#include\s+[<"](?:GL/|GLFW/|imgui|implot|glm/)')
+            self.assertNotIn("render/renderer.hpp", source)
+            self.assertNotIn("ImGui::", source)
+        cmake = (ROOT / "cmake/visualization.cmake").read_text()
+        links = re.search(r'target_link_libraries\(battery_viewer_session\b([^)]*)\)', cmake)
+        self.assertIsNotNone(links)
+        self.assertNotRegex(links[1], r'glfw|imgui|implot|battery_renderer|OpenGL')
+
+    def test_views_do_not_drive_physics(self):
+        for directory in ("viewer", "platform", "editor/panels", "editor/views", "editor/forms"):
+            for path in (NATIVE / "ui/src" / directory).rglob("*.cpp"):
+                source = path.read_text()
+                self.assertNotRegex(source, r'(?:->|\.)step\s*\(', str(path))
+                self.assertNotIn("make_unique<Simulation>", source, str(path))
+                self.assertNotIn("set_colored_kawasaki(", source, str(path))
+        bootstrap = (NATIVE / "ui/src/application/application.cpp").read_text()
+        self.assertNotIn("ImGui::", bootstrap)
+        self.assertNotIn("glfw", bootstrap)
+
+    def test_editor_state_and_commands_do_not_draw_widgets(self):
+        for directory in ("editor/state", "editor/commands"):
+            for path in (NATIVE / "ui/src" / directory).rglob("*.cpp"):
+                source = path.read_text()
+                self.assertNotIn("ImGui::", source, str(path))
+                self.assertNotRegex(source, r'#include\s+[<"](?:GL/|GLFW/|imgui|implot|glm/)')
 
 
 if __name__ == "__main__":

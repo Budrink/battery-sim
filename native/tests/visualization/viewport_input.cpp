@@ -1,5 +1,5 @@
-#include "viewport_input.hpp"
-#include "toolbar.hpp"
+#include "shared/viewport_input.hpp"
+#include "shared/toolbar.hpp"
 #include <cmath>
 #include <iostream>
 #include <stdexcept>

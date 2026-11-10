@@ -8,6 +8,11 @@ class ExperimentEditor {
     ExperimentEditor();
     ~ExperimentEditor();
     bool open = false;
+    bool focus_requested = false, viewer_focus_requested = false;
+    void show() {
+        open = true;
+        focus_requested = true;
+    }
     void try_load(const std::string& path);
     void select_object(const std::string& id);
     void draw();

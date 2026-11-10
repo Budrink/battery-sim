@@ -1,4 +1,4 @@
-#include "model_properties.hpp"
+#include "editor/forms/model_properties.hpp"
 #include "battery_ui/editor_document.hpp"
 #include "battery_native/scenario_document.hpp"
 #include "imgui.h"
@@ -67,9 +67,9 @@ int main(int argc, char** argv) {
         io.AddKeyEvent(ImGuiMod_Ctrl, false);
         io.AddInputCharactersUTF8("60");
         frame(420);
-        io.AddKeyEvent(ImGuiKey_Enter, true);
+        io.AddKeyEvent(ImGuiKey_Tab, true);
         frame(420);
-        io.AddKeyEvent(ImGuiKey_Enter, false);
+        io.AddKeyEvent(ImGuiKey_Tab, false);
         frame(420);
         require(model.at("contents").at("thermal").at("heat_capacity_j_per_k") == 60.,
                 "Heat capacity field is not editable");
